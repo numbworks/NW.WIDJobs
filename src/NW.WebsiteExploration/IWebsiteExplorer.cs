@@ -1,6 +1,6 @@
 ﻿using RUBN.Shared;
 
-namespace RUBN.WebsiteExploration
+namespace NW.WebsiteExploration
 {
     public interface IWebsiteExplorer
     {
