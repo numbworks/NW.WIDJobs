@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace NW.WebsiteExploration
 {
@@ -8,26 +7,26 @@ namespace NW.WebsiteExploration
 
         // Fields
         // Properties
-        public UInt32 TotalResults { get; set; }
-        public UInt16 TotalPagesExpected { get; set; }
+        public uint TotalResults { get; set; }
+        public ushort TotalPagesExpected { get; set; }
         public List<ResultsPage> Pages { get; set; }
 
         // Constructors
         public ResultsExploration() { }
-        public ResultsExploration(ResultsExploration objExploration)
+        public ResultsExploration(ResultsExploration exploration)
         {
 
-            if (objExploration == null)
+            if (exploration == null)
                 new ResultsExploration();
 
-            if (objExploration != null)
+            if (exploration != null)
             {
 
-                TotalResults = objExploration.TotalResults;
-                TotalPagesExpected = objExploration.TotalPagesExpected;
+                TotalResults = exploration.TotalResults;
+                TotalPagesExpected = exploration.TotalPagesExpected;
 
-                if (objExploration.Pages != null)
-                    Pages = new List<ResultsPage>(objExploration.Pages);
+                if (exploration.Pages != null)
+                    Pages = new List<ResultsPage>(exploration.Pages);
 
             };
 
