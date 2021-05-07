@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace NW.WebsiteExploration
+namespace NW.WIDJobs
 {
     public static class MessageCollection
     {

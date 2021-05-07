@@ -1,0 +1,2558 @@
+<!DOCTYPE html>
+<!-- saved from url=(0074)https://www.workindenmark.dk/job/6755865/COUNTRY-SALES-PRODUCT-RESPONSIBLE -->
+<html lang="en" class="js history localstorage hashchange" data-pagetype="jobview"><script type="text/javascript" async="" src="./View job _ Workindenmark_files/analytics.js.download"></script><script async="" src="./View job _ Workindenmark_files/gtm.js.download"></script><script id="twitter-wjs" src="./View job _ Workindenmark_files/widgets.js.download"></script><script type="text/javascript" src="chrome-extension://kajfghlhfkcocafkcjlajldicbikpgnp/catcher.js"><!-- script injected by Request Maker --></script><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+    <title>
+	View job | Workindenmark
+</title>
+        <link href="./View job _ Workindenmark_files/main.min.css" rel="stylesheet">
+
+        
+        <link rel="shortcut icon" href="https://www.workindenmark.dk/static/favicon/favicon.ico">
+        <link rel="apple-touch-icon" href="https://www.workindenmark.dk/static/favicon/apple-touch-icon-57x57.png" sizes="57x57">
+        <link rel="apple-touch-icon" href="https://www.workindenmark.dk/static/favicon/apple-touch-icon-114x114.png" sizes="114x114">
+        <link rel="apple-touch-icon" href="https://www.workindenmark.dk/static/favicon/apple-touch-icon-72x72.png" sizes="72x72">
+        <link rel="apple-touch-icon" href="https://www.workindenmark.dk/static/favicon/apple-touch-icon-144x144.png" sizes="144x144">
+        <link rel="apple-touch-icon" href="https://www.workindenmark.dk/static/favicon/apple-touch-icon-60x60.png" sizes="60x60">
+        <link rel="apple-touch-icon" href="https://www.workindenmark.dk/static/favicon/apple-touch-icon-120x120.png" sizes="120x120">
+        <link rel="apple-touch-icon" href="https://www.workindenmark.dk/static/favicon/apple-touch-icon-76x76.png" sizes="76x76">
+        <link rel="apple-touch-icon" href="https://www.workindenmark.dk/static/favicon/apple-touch-icon-152x152.png" sizes="152x152">
+        <meta name="apple-mobile-web-app-title" content="WIDK">
+        <link rel="icon" type="image/png" href="https://www.workindenmark.dk/static/favicon/favicon-192x192.png" sizes="192x192">
+        <link rel="icon" type="image/png" href="https://www.workindenmark.dk/static/favicon/favicon-160x160.png" sizes="160x160">
+        <link rel="icon" type="image/png" href="https://www.workindenmark.dk/static/favicon/favicon-96x96.png" sizes="96x96">
+        <link rel="icon" type="image/png" href="https://www.workindenmark.dk/static/favicon/favicon-16x16.png" sizes="16x16">
+        <link rel="icon" type="image/png" href="https://www.workindenmark.dk/static/favicon/favicon-32x32.png" sizes="32x32">
+        <meta name="msapplication-TileColor" content="#499ac1">
+        <meta name="msapplication-TileImage" content="/static/favicon/mstile-144x144.png">
+        <meta name="msapplication-config" content="/static/favicon/browserconfig.xml">
+        <meta name="application-name" content="WIDK">
+        <meta name="google-site-verification" content="G6zbwh66JWdnMfCmolwrWbyJ9RKF59wrEpk1yB4Xzi4">
+
+        <!--[if lt IE 9]>
+            <script src="/static/js/v-636531643293635214/legacy.min.js"></script>
+        <![endif]-->
+
+    
+        <!--[if lt IE 9]>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/static/js/vendor/v-635797155267525032/jquery-1.11.1.min.js"><\/script>')</script>
+        <![endif]-->
+        <!--[if gte IE 9]><!-->
+        <script src="./View job _ Workindenmark_files/jquery-2.1.1.js.download"></script>
+        <script>window.jQuery || document.write('<script src="/static/js/vendor/v-504911268000000000/jquery-2.1.1.js"><\/script>')</script>
+        <!--<![endif]-->
+    <script type="text/javascript" charset="utf-8" async="" src="./View job _ Workindenmark_files/timeline.77b25aaa27b30b6ad9dd91ab2d51fd16.js.download"></script></head>
+<body class=""><div><style>#CookieInformationDialog {
+    animation : none;
+    animation-delay : 0;
+    animation-direction : normal;
+    animation-duration : 0;
+    animation-fill-mode : none;
+    animation-iteration-count : 1;
+    animation-name : none;
+    animation-play-state : running;
+    animation-timing-function : ease;
+    backface-visibility : visible;
+    background : 0;
+    background-attachment : scroll;
+    background-clip : border-box;
+    background-color : transparent;
+    background-image : none;
+    background-origin : padding-box;
+    background-position : 0 0;
+    background-position-x : 0;
+    background-position-y : 0;
+    background-repeat : repeat;
+    background-size : auto auto;
+    border : 0;
+    border-style : none;
+    border-width : medium;
+    border-color : inherit;
+    border-bottom : 0;
+    border-bottom-color : inherit;
+    border-bottom-left-radius : 0;
+    border-bottom-right-radius : 0;
+    border-bottom-style : none;
+    border-bottom-width : medium;
+    border-collapse : separate;
+    border-image : none;
+    border-left : 0;
+    border-left-color : inherit;
+    border-left-style : none;
+    border-left-width : medium;
+    border-radius : 0;
+    border-right : 0;
+    border-right-color : inherit;
+    border-right-style : none;
+    border-right-width : medium;
+    border-spacing : 0;
+    border-top : 0;
+    border-top-color : inherit;
+    border-top-left-radius : 0;
+    border-top-right-radius : 0;
+    border-top-style : none;
+    border-top-width : medium;
+    bottom : auto;
+    box-shadow : none;
+    box-sizing : content-box;
+    caption-side : top;
+    clear : none;
+    clip : auto;
+    color : inherit;
+    columns : auto;
+    column-count : auto;
+    column-fill : balance;
+    column-gap : normal;
+    column-rule : medium none currentColor;
+    column-rule-color : currentColor;
+    column-rule-style : none;
+    column-rule-width : none;
+    column-span : 1;
+    column-width : auto;
+    content : normal;
+    counter-increment : none;
+    counter-reset : none;
+    cursor : auto;
+    /*direction : ltr;*/
+    display : inline;
+    empty-cells : show;
+    float : none;
+    font : normal;
+    font-family : inherit;
+    font-size : medium;
+    font-style : normal;
+    font-variant : normal;
+    font-weight : normal;
+    height : auto;
+    hyphens : none;
+    left : auto;
+    letter-spacing : normal;
+    line-height : normal;
+    list-style : none;
+    list-style-image : none;
+    list-style-position : outside;
+    list-style-type : disc;
+    margin : 0;
+    margin-bottom : 0;
+    margin-left : 0;
+    margin-right : 0;
+    margin-top : 0;
+    max-height : none;
+    max-width : none;
+    min-height : 0;
+    min-width : 0;
+    opacity : 1;
+    orphans : 0;
+    outline : 0;
+    outline-color : invert;
+    outline-style : none;
+    outline-width : medium;
+    overflow : visible;
+    overflow-x : visible;
+    overflow-y : visible;
+    padding : 0;
+    padding-bottom : 0;
+    padding-left : 0;
+    padding-right : 0;
+    padding-top : 0;
+    page-break-after : auto;
+    page-break-before : auto;
+    page-break-inside : auto;
+    perspective : none;
+    perspective-origin : 50% 50%;
+    position : static;
+    /* May need to alter quotes for different locales (e.g fr) */
+    /*quotes : 'C' 'D' '8' '9';*/
+    right : auto;
+    tab-size : 8;
+    table-layout : auto;
+    text-align : inherit;
+    text-align-last : auto;
+    text-decoration : none;
+    text-decoration-color : inherit;
+    text-decoration-line : none;
+    text-decoration-style : solid;
+    text-indent : 0;
+    text-shadow : none;
+    text-transform : none;
+    top : auto;
+    transform : none;
+    transform-style : flat;
+    transition : none;
+    transition-delay : 0s;
+    transition-duration : 0s;
+    transition-property : none;
+    transition-timing-function : ease;
+    vertical-align : baseline;
+    visibility : visible;
+    white-space : normal;
+    widows : 0;
+    width : auto;
+    word-spacing : normal;
+    z-index : auto;
+
+    position: fixed;
+    z-index: 2147483645; 
+    top: -800px; 
+    left: 0px; 
+    width: 100%; 
+    height: auto; 
+    background-color: #ffffff; 
+    opacity: 1; 
+    filter:Alpha(opacity=100);
+    color: #2a2a2a; 
+    font-family: 'Segoe UI', Arial, Helvetica, Verdana, sans-serif; 
+    font-size: 8pt; 
+    box-shadow: #121212 2px 2px 14px 2px;
+    padding: 0px;
+    padding-bottom: 8px;
+    line-height: 1.231;
+    text-align: left;
+    margin: 0px;
+    letter-spacing: normal;
+}
+
+#CookieInformationDialog::after {
+    box-sizing : content-box;
+}
+
+#CookieInformationDialog::before {
+    box-sizing : content-box;
+}
+
+#CookieInformationDialog[dir='rtl']  {
+    text-align: right;
+}
+
+    #CookieInformationDialog a {
+        color: #2a2a2a; 
+        text-decoration: underline;
+        line-height: 1.231;
+        font-family: 'Segoe UI', Arial, Helvetica, Verdana, sans-serif; 
+    }
+
+    #CookieInformationDialog a:hover {
+        color: #2a2a2a; 
+        text-decoration: underline;
+    }
+
+#CookieInformationDialog div {
+    line-height: 1.231;
+    font-family: 'Segoe UI', Arial, Helvetica, Verdana, sans-serif; 
+}
+
+#CookieInformationDialogDetailBodyContentCookieContainerNecessary, #CookieInformationDialogDetailBodyContentCookieContainerPreference, #CookieInformationDialogDetailBodyContentCookieContainerStatistics, #CookieInformationDialogDetailBodyContentCookieContainerAdvertising, #CookieInformationDialogDetailBodyContentCookieContainerUnclassified
+{
+    margin:0px;
+}
+
+#CookieInformationDialogPoweredbyLink {
+    position: absolute; 
+    z-index: 2147483646; 
+    width: 48px; 
+    height: 36px;
+    margin-left: 6px; 
+    margin-right: 0px;
+    margin-top: 12px; 
+}
+
+div[dir='rtl'] #CookieInformationDialogPoweredbyLink {
+    margin-left: 0px; 
+    margin-right: 6px;
+}
+
+#CookieInformationDialogPoweredbyImage {
+    border: none;
+    padding: 0px;
+    margin: 0px;
+    width: 46px;
+    margin-left: 3px;
+    margin-top: 2px;
+}
+
+#CookieInformationDialogBody {
+    max-width: 840px; 
+    margin-left: auto; 
+    margin-right: auto; 
+    vertical-align: top;
+    padding-right: 8px;
+    padding-left: 0px;
+}
+
+div[dir='rtl'] #CookieInformationDialogBody {
+    padding-right: 0px;
+    padding-left: 8px;
+}
+
+#CookieInformationDialogBodyContent {
+    min-height: 32px; 
+    padding-left: 80px; 
+    padding-right: 0px; 
+    padding-top: 12px; 
+    padding-bottom: 4px; 
+    font-size: 9.5pt; 
+    font-weight: normal; 
+    line-height: 130%; 
+}
+
+div[dir='rtl'] #CookieInformationDialogBodyContent {
+    padding-left: 0px;
+    padding-right: 80px; 
+}
+
+
+#CookieInformationDialogBodyContentTitle {
+    font-family: 'Segoe UI', Arial, Helvetica, Verdana, sans-serif; 
+    padding: 0px;
+    font-size: 9.5pt; 
+    font-weight: bold;
+    margin-bottom: 6px;
+    margin-top: 2px;
+    margin-left: 0px;
+    margin-right: 0px;
+    line-height: 100%; 
+    color: #2a2a2a;
+    display: block;
+    visibility: visible;
+    position: static;
+    letter-spacing: normal;
+    float: none;
+    text-align: left;
+}
+
+div[dir='rtl'] #CookieInformationDialogBodyContentTitle {
+    text-align: right;
+}
+
+#CookieInformationDialogBodyContentText {
+    text-align: left;
+}
+
+div[dir='rtl'] #CookieInformationDialogBodyContentText {
+    text-align: right;
+}
+
+#CookieInformationDialogBodyButtons {
+    display: block; 
+    margin: 0px 0px 6px 6px; 
+    z-index: 10;
+    padding-left: 63px;
+    padding-right: 0px;
+}
+
+div[dir='rtl'] #CookieInformationDialogBodyButtons {
+    margin: 0px 6px 6px 0px; 
+    padding-left: 0px;
+    padding-right: 63px;
+}
+
+#CookieInformationDialogBodyButtons a {
+    text-decoration: none; 
+    color: #ffffff; 
+}
+
+#CookieInformationDialogBodyButtons a:hover {
+    text-decoration: none; 
+    color: #ffffff; 
+}
+
+.CookieInformationDialogBodyButton
+{
+    display: inline-block;
+    padding: 1px 4px 3px 4px; 
+    z-index: 10; 
+    font-size: 9.5pt; 
+    font-weight: normal; 
+    margin-left: 12px;
+    margin-right: 0px;
+    margin-top: 8px;
+    text-align: center;
+    white-space: nowrap;
+    min-width: 80px;
+    box-sizing : content-box;
+}
+
+.CookieInformationDialogBodyButton::after {
+    box-sizing : content-box;
+}
+
+.CookieInformationDialogBodyButton::before {
+    box-sizing : content-box;
+}
+
+div[dir='rtl'] .CookieInformationDialogBodyButton
+{
+    margin-left: 0px;
+    margin-right: 12px;
+}
+
+#CookieInformationDialogBodyButtonAccept {
+    background-color: #18a300;
+    border: 1px solid #18a300; 
+ padding-right: 12px;
+ padding-left: 12px;
+}
+
+#CookieInformationDialogBodyButtonDecline {
+    background-color: #333333;
+    border: 1px solid #333333; 
+}
+
+#CookieInformationDialogBodyButtons .CookieInformationDialogBodyLink, #CookieInformationDialogBodyLevelDetailsButton{
+    display: inline-block;
+    color: #2a2a2a; 
+    text-decoration: none;
+    font-size: 9pt; 
+    padding-top: 7px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 19px;
+    margin-top: 8px;
+    text-align: right;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAGCAMAAAAmGUT3AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkI3NDEyNDEwNzk0MjExRTQ5RUE5RkRFMUQ3MEU1NTZDIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkI3NDEyNDExNzk0MjExRTQ5RUE5RkRFMUQ3MEU1NTZDIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6Qjc0MTI0MEU3OTQyMTFFNDlFQTlGREUxRDcwRTU1NkMiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6Qjc0MTI0MEY3OTQyMTFFNDlFQTlGREUxRDcwRTU1NkMiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz70ohqeAAAABlBMVEVgYGAAAAAPhzbbAAAAAnRSTlP/AOW3MEoAAAAjSURBVHjaYmBkYAQBBkYGIAAxQBQcQ/ggCiLFCGFBCIAAAwADkwAg7Yr51AAAAABJRU5ErkJggg==);
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: 12px;
+    background-position: right 12px;
+    border-left: 0;
+    border-right: 5px solid transparent;
+}
+
+div[dir='rtl'] #CookieInformationDialogBodyButtons .CookieInformationDialogBodyLink, div[dir='rtl'] #CookieInformationDialogBodyLevelDetailsButton {
+    padding-left: 19px;
+    padding-right: 0px;
+    background-position-x: left;
+    background-position-y: 12px;
+    background-position: left 12px;
+    border-left: 5px solid transparent;
+    border-right: 0;
+}
+
+div[dir='rtl'] #CookieInformationDialogBodyLevelDetailsButton
+{
+    background-position-x: left!important;
+    background-position-y: 5px!important;
+    background-position: left 5px!important;
+}
+
+#CookieInformationDialogBodyButtons .CookieInformationDialogBodyLink:hover, #CookieInformationDialogBodyLevelDetailsButton:hover {
+    color: #2a2a2a;
+    text-decoration: underline;
+}
+
+.CookieInformationDialogBodyLinkExpanded, .CookieInformationDialogBodyLevelDetailsButtonExpanded {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAGCAYAAAARx7TFAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjU0QzAwODExNzk0MjExRTQ4QzBERTBGMTkxMUY2M0M0IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjU0QzAwODEyNzk0MjExRTQ4QzBERTBGMTkxMUY2M0M0Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NTRDMDA4MEY3OTQyMTFFNDhDMERFMEYxOTExRjYzQzQiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NTRDMDA4MTA3OTQyMTFFNDhDMERFMEYxOTExRjYzQzQiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz576KdnAAAATklEQVR42kyO2xEAMQgCJZ3afxFcyGRz+uMD3EHdXbYrJSltrz4Dt4UBNfsWPG614oRwO2Q/Eg+IwvnDj8kjk+48MzmZeNYI/4jRPwEGAFy/MS7NcXxJAAAAAElFTkSuQmCC)!important;
+}
+
+div[dir='rtl'] .CookieInformationDialogBodyLevelDetailsButtonExpanded
+{
+    background-position-x: left!important;
+    background-position-y: 5px!important;
+    background-position: left 5px!important;
+}
+
+a#CookieInformationDialogBodyLevelDetailsButton
+{
+    text-decoration: none;
+    padding-top: 0px;
+    padding-left: 4px;
+    margin: 1px 0px 0px 0px;
+    background-position-x: right;
+    background-position-y: 5px;
+    background-position: right 5px;
+    text-align: left;
+    color: #2a2a2a; 
+    line-height: 16px;
+}
+
+div[dir='rtl'] a#CookieInformationDialogBodyLevelDetailsButton {
+    text-align: right;
+}
+
+a#CookieInformationDialogBodyLevelDetailsButton:hover {
+    text-decoration: none;
+    color: #2a2a2a;
+}
+
+#CookieInformationDialogBodyButtonDetails {
+    display: inline-block;
+    float: right;
+    outline: none;
+}
+
+div[dir='rtl'] #CookieInformationDialogBodyButtonDetails {
+    float: left;
+}
+
+#CookieInformationDialogBodyLevelWrapper
+{
+    display: none;
+    text-align: right;
+}
+
+div[dir='rtl'] #CookieInformationDialogBodyLevelWrapper
+{
+    text-align: left;
+}
+
+#CookieInformationDialogBodyLevelButtons
+{
+    font-size: 9pt;
+    float: left;
+    margin-left: 8px;
+    margin-right: 0px;
+}
+
+div[dir='rtl'] #CookieInformationDialogBodyLevelButtons
+{
+    float: right;
+    margin-left: 0px;
+    margin-right: 8px;
+}
+
+#CookieInformationDialogBodyLevelButtonsTable
+{
+    display: inline-table;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+div[dir='rtl'] #CookieInformationDialogBodyLevelButtonsTable
+{
+    margin-left: 16px;
+    margin-right: 0px;
+}
+
+#CookieInformationDialogBodyLevelButtonsRow
+{
+    display: table-row;
+}
+
+#CookieInformationDialogBodyLevelButtonsSelectPane
+{
+    display:table-cell;
+    border: 1px solid #CCCCCC;
+    padding: 4px 3px 3px 9px;
+    -webkit-border-radius: 4px 0px 0px 4px;-moz-border-radius: 4px 0px 0px 4px;border-radius: 4px 0px 0px 4px;
+    text-align: left;
+    vertical-align: top;
+}
+
+div[dir='rtl'] #CookieInformationDialogBodyLevelButtonsSelectPane
+{
+    text-align: right;
+}
+
+#CookieInformationDialogBodyLevelButtonAcceptWrapper
+{
+    display: inline-block;
+    float: right;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+div[dir='rtl'] #CookieInformationDialogBodyLevelButtonAcceptWrapper
+{
+    display: inline-block;
+    float: left;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+a#CookieInformationDialogBodyLevelButtonAccept
+{
+    display: inline-block;
+    background-color: #18a300;
+    border: 1px solid #18a300; 
+    padding: 3px 2px 3px 2px; 
+    min-width: 80px;
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 0px;
+    margin-top:6px;
+    z-index: 10; 
+    font-size: 9.5pt; 
+    font-weight: normal; 
+    margin-right: 0px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+a#CookieInformationDialogBodyLevelButtonAccept:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+div[dir='rtl'] #CookieInformationDialogBodyLevelButtonsSelectPane {
+    -webkit-border-radius: 0px 4px 4px 0px;-moz-border-radius: 0px 4px 4px 0px;border-radius: 0px 4px 4px 0px;
+}
+
+.CookieInformationDialogBodyLevelButtonWrapper
+{
+    display:inline-block;
+    position: relative;
+    margin-right: 14px;
+    margin-left: 0px;
+    line-height: 16px;
+}
+
+div[dir='rtl'] .CookieInformationDialogBodyLevelButtonWrapper
+{
+    margin-right: 0px;
+    margin-left: 14px;
+}
+
+.CookieInformationDialogBodyLevelButtonWrapper:last-of-type
+{
+    margin-right: 7px;
+    margin-left: 0px;
+}
+
+div[dir='rtl'] .CookieInformationDialogBodyLevelButtonWrapper:last-of-type
+{
+    margin-right: 0px;
+    margin-left: 7px;
+}
+
+.CookieInformationDialogBodyLevelButtonWrapper label
+{
+    white-space: nowrap;
+}
+
+input[type="checkbox"].CookieInformationDialogBodyLevelButton {
+    opacity:0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    cursor: pointer;
+}
+
+input[type="checkbox"].CookieInformationDialogBodyLevelButton.CookieInformationDialogBodyLevelButtonDisabled {
+    cursor: default;
+}
+
+input[type="checkbox"].CookieInformationDialogBodyLevelButton + label {
+    background-image: url(NotCheckedNoFocus.png);
+    background-repeat: no-repeat;
+    height: auto;
+    min-height: 14px;
+    width: auto;
+    display:inline-block;
+    padding: 1px 0 0 17px;
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    cursor: pointer;
+    margin-top: 0px;
+    background-position: left 1px;
+    vertical-align: top;
+    line-height: 16px;
+}
+div[dir='rtl'] input[type="checkbox"].CookieInformationDialogBodyLevelButton + label {
+    background-position: right 1px;
+    padding: 2px 17px 0 0;
+}
+
+
+input[type="checkbox"].CookieInformationDialogBodyLevelButton:checked + label {
+    background-image: url(CheckedNofocus.png);
+    background-repeat: no-repeat;
+    height: auto;
+    width: auto;
+    min-height: 14px;
+    display:inline-block;
+    padding: 1px 0 0 17px;
+    background-position: left 1px;
+    vertical-align: top;
+    line-height: 16px;
+}
+
+div[dir='rtl'] input[type="checkbox"].CookieInformationDialogBodyLevelButton:checked + label {
+    background-position: right 1px;
+    padding: 2px 17px 0 0;
+}
+
+input[type="checkbox"].CookieInformationDialogBodyLevelButton.CookieInformationDialogBodyLevelButtonDisabled + label {
+    background-image: url(CheckedDisabled.png);
+    background-repeat: no-repeat;
+    height: auto;
+    width: auto;
+    min-height: 14px;
+    display:inline-block;
+    padding: 1px 0 0 17px;
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    cursor: default;
+    background-position: left 1px;
+    vertical-align: top;
+    line-height: 16px;
+}
+
+div[dir='rtl'] input[type="checkbox"].CookieInformationDialogBodyLevelButton.CookieInformationDialogBodyLevelButtonDisabled + label {
+    background-position: right 1px;
+    padding: 2px 17px 0 0;
+}
+
+input[type="checkbox"].CookieInformationDialogBodyLevelButton:focus + label {
+    background-image: url(NotCheckedFocus.png);
+    background-repeat: no-repeat;
+    height: auto;
+    width: auto;
+    min-height: 14px;
+    display:inline-block;
+    padding: 1px 0 0 17px;
+    background-position: left 1px;
+    vertical-align: top;
+    line-height: 16px;
+}
+
+div[dir='rtl'] input[type="checkbox"].CookieInformationDialogBodyLevelButton:focus + label {
+    background-position: right 1px;
+    padding: 2px 17px 0 0;
+}
+
+input[type="checkbox"].CookieInformationDialogBodyLevelButton:checked:focus + label {
+    background-image: url(CheckedFocus.png);
+    background-repeat: no-repeat;
+    height: auto;
+    width: auto;
+    min-height: 14px;
+    display:inline-block;
+    padding: 1px 0 0 17px;
+    background-position: left 1px;
+    vertical-align: top;
+    line-height: 16px;
+}
+
+div[dir='rtl'] input[type="checkbox"].CookieInformationDialogBodyLevelButton:checked:focus + label {
+    background-position: right 1px;
+    padding: 2px 17px 0 0;
+}
+
+#CookieInformationDialogBodyLevelDetailsWrapper
+{
+    display: table-cell;
+    background-color: #262626;
+    border: 1px solid #CCCCCC;
+    border-left: none;
+    height: 14px;
+    padding: 4px 0px 4px 4px;
+    text-align: left;
+    vertical-align: top;
+    cursor: pointer;
+}
+
+div[dir='rtl'] #CookieInformationDialogBodyLevelDetailsWrapper
+{
+    border: 1px solid #CCCCCC;
+    border-right: none;
+    text-align: right;
+    padding: 4px 4px 4px 0px;
+}
+
+#CookieInformationDialogDetail {
+    display: none;
+    background-color: #ffffff;
+    padding-top: 0px;
+    padding-bottom: 1px;
+}
+
+#CookieInformationDialogDetailBody {
+    max-width: 632px;  
+    margin-left: auto; 
+    margin-right: auto; 
+    vertical-align: top;
+}
+
+div[dir='rtl'] #CookieInformationDialogDetailBody {
+    text-align: right;
+}
+
+#CookieInformationDialogDetailBodyContent {
+    background-color: #ffffff;
+    color: #2a2a2a; 
+    border: 1px solid #CCCCCC;
+    border-bottom: 4px solid #CCCCCC;
+    height: 170px;
+}
+
+#CookieInformationDialogDetailBodyContent a
+{
+    font-size: 9pt;
+}
+
+#CookieInformationDialogDetailBodyContentTabs a
+{
+    font-size: 10.5pt;
+}
+
+#CookieInformationDialogDetailBodyContentText {
+    padding: 8px;
+    font-size: 10pt; 
+}
+
+#CookieInformationDialogDetailBodyContentTabs {
+    position: relative;
+    height: auto;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+a.CookieInformationDialogDetailBodyContentTabsItem {
+    text-decoration: none!important;
+    margin: 0px;
+    background-color: #ffffff!important;
+    color: #2a2a2a!important;
+    opacity: 0.9;
+}
+
+    a.CookieInformationDialogDetailBodyContentTabsItem:hover {
+        text-decoration: none!important;
+        background-color: #ffffff!important;
+        color: #2a2a2a!important;
+        opacity: 0.9;
+    }
+
+a.CookieInformationDialogDetailBodyContentTabsItemSelected {
+    margin: 0px;
+    text-decoration: none!important;
+    color: #2a2a2a!important;
+    opacity: 1;
+}
+
+    a.CookieInformationDialogDetailBodyContentTabsItemSelected:hover {
+        text-decoration: none!important;
+        color: #2a2a2a!important;
+        cursor: default;
+    }
+
+.CookieInformationDialogDetailBodyContentTabsItem {
+    background: #262626;
+    color: #2a2a2a!important;
+    opacity: 0.85;
+
+    font-size: 10.5pt; 
+    font-weight: normal;
+    border-top: 1px solid #CCCCCC;
+    border-right: 1px solid #CCCCCC;
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    z-index: 10; 
+    white-space:normal;
+
+    padding-top: 7px;
+    padding-bottom: 5px;
+    margin: 0px;
+    margin-top: 1px;
+    cursor: pointer;
+
+    padding-left: 18px;
+    padding-right: 18px;
+
+    line-height: 100%;
+}
+
+.CookieInformationDialogDetailBodyContentTabsItem:first-of-type {
+    border-left: 1px solid #CCCCCC;
+}
+
+.CookieInformationDialogDetailBodyContentTabsItemSelected {
+    background: #ffffff; 
+    color: #2a2a2a;
+    font-size: 10.5pt; 
+    font-weight: normal;
+    border-top: 1px solid #CCCCCC;
+    border-right: 1px solid #CCCCCC;
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    z-index: 10; 
+    white-space:normal;
+    opacity: 1;
+    padding-top: 8px;
+    padding-bottom: 6px;
+
+    padding-left: 18px;
+    padding-right: 18px;
+
+    line-height: 100%;
+}
+
+.CookieInformationDialogDetailBodyContentTab:first-child {
+    border-left: 1px solid #CCCCCC; /* IE8 fix on first-of-type */
+    -webkit-border-radius: 4px 0px 0px 0px;-moz-border-radius: 4px 0px 0px 0px;border-radius: 4px 0px 0px 0px;
+}
+
+div[dir='rtl'] .CookieInformationDialogDetailBodyContentTab:first-child {
+    border-left: none;
+    -webkit-border-radius: 0px 4px 0px 0px;-moz-border-radius: 0px 4px 0px 0px;border-radius: 0px 4px 0px 0px;
+}
+
+.CookieInformationDialogDetailBodyContentTab
+{
+   border-left: none;
+}
+
+div[dir='rtl'] .CookieInformationDialogDetailBodyContentTab {
+    border-left: 1px solid #CCCCCC; /* IE8 fix on first-of-type */
+}
+
+#CookieInformationDialogDetailFooter {
+    padding-top: 4px;
+    padding-right: 2px;
+    color: #2a2a2a;
+    text-align: right;
+    opacity: 0.85;
+}
+
+div[dir='rtl'] #CookieInformationDialogDetailFooter {
+    text-align: left;
+}
+
+#CookieInformationDialogDetailFooter a {
+    color: #2a2a2a;
+}
+
+#CookieInformationDialogDetailBodyContentTextAbout {
+    padding: 12px;
+    padding-top: 18px;
+    font-size: 9pt; 
+    height: 140px;
+    overflow: auto;
+}
+
+#CookieInformationDialogDetailBodyContentTextOverview {
+    display: none;
+}
+
+#CookieInformationDialogDetailBodyContentCookieContainerTypes {
+    float: left;
+    white-space: nowrap;
+    padding: 0px;
+    background-color: #262626;
+    font-size: 9pt; 
+}
+
+div[dir='rtl'] #CookieInformationDialogDetailBodyContentCookieContainerTypes {
+    float: right;
+}
+
+#CookieInformationDialogDetailBodyContentCookieContainerTypeDetails {
+    padding: 12px;
+    font-size: 9pt;
+    overflow: auto;
+    height: 146px;
+    max-height: 146px;
+}
+
+.CookieInformationDialogDetailBodyContentCookieContainerTypesSelected {
+    padding: 8px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #cccccc;
+    border-left: none;
+    border-right: 1px solid #ffffff;
+    display: block;
+    text-decoration: none!important;
+    color: #2a2a2a!important;
+}
+
+div[dir='rtl'] .CookieInformationDialogDetailBodyContentCookieContainerTypesSelected {
+    border-left: 1px solid #ffffff;
+    border-right: none;
+}
+
+.CookieInformationDialogDetailBodyContentCookieContainerTypes {
+    padding: 8px;
+    cursor: pointer;
+    background-color: #f6f6f9;
+    border-bottom: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    border-left: none;
+    display: block;
+    text-decoration: none!important;
+    color: #2a2a2a!important;
+    opacity: 1;
+}
+
+.CookieInformationDialogDetailBodyContentCookieContainerTypes:first-child
+{
+    border-top: 1px solid #CCCCCC;
+}
+
+.CookieInformationDialogDetailBodyContentCookieContainerTypesSelected:first-child
+{
+    border-top: 1px solid #ffffff;
+}
+
+.CookieInformationDialogDetailBodyContentCookieContainerTypes label, .CookieInformationDialogDetailBodyContentCookieContainerTypesSelected label{
+    cursor: pointer;
+    display: none;
+}
+
+div[dir='rtl'] .CookieInformationDialogDetailBodyContentCookieContainerTypes {
+    border-left: 1px solid #CCCCCC;
+    border-right: none; 
+}
+
+a.CookieInformationDialogDetailBodyContentCookieContainerTypes:hover {
+        text-decoration: none!important;
+        background: #ffffff!important;
+        color: #2a2a2a!important;
+        opacity: 1;
+    }
+
+a.CookieInformationDialogDetailBodyContentCookieContainerTypesSelected:hover {
+        text-decoration: none!important;
+        color: #2a2a2a!important;
+        cursor: default;
+    }
+
+#CookieInformationDialogDetailBodyContentCookieTabsPreference, #CookieInformationDialogDetailBodyContentCookieTabsStatistics, #CookieInformationDialogDetailBodyContentCookieTabsAdvertising, #CookieInformationDialogDetailBodyContentCookieTabsUnclassified {
+    display: none;
+}
+
+.CybotCookiebotDialogDetailBodyContentCookieTypeTable {
+    padding: 0;
+    margin: 0;
+    margin-top: 8px;
+    font-size: 9pt;
+    border-spacing:0;
+    border-collapse:collapse;
+    width: 100%;
+}
+
+    .CybotCookiebotDialogDetailBodyContentCookieTypeTable thead td {
+        background-color: #f6f6f9!important;
+        color: #2a2a2a!important;
+        text-align: left;
+        vertical-align: top;
+        padding: 2px;
+        border-bottom: 1px solid #CCCCCC;
+    }
+
+    div[dir='rtl'] .CybotCookiebotDialogDetailBodyContentCookieTypeTable thead td 
+    {
+        text-align: right;
+    }
+
+    .CybotCookiebotDialogDetailBodyContentCookieTypeTable tbody td {
+        border-bottom: 1px solid #CCCCCC;
+        border-right: 1px solid #f6f6f9;
+        text-align: left;
+        vertical-align: top;
+        padding: 4px;
+        max-width: 72px;
+        overflow: hidden;
+        font-size: 9pt; 
+        color: #2a2a2a!important;
+    }
+
+    .CybotCookiebotDialogDetailBodyContentCookieTypeTable tbody td:last-child {
+        border-right: 0;
+    }
+
+    div[dir='rtl'] .CybotCookiebotDialogDetailBodyContentCookieTypeTable tbody td 
+    {
+        text-align: right;
+    }
+
+    .CybotCookiebotDialogDetailBodyContentCookieTypeTable tbody td.CybotCookiebotDialogDetailBodyContentCookieTypeTableEmpty
+    {
+        border: none;
+        border-top: 1px solid #CCCCCC;
+        padding: 4px 0px 0px 0px;
+    }</style><div id="CookieInformationDialog" name="CookieInformationDialog" role="alertdialog" aria-describedby="CookieInformationDialogBodyContentTitle" lang="EN" dir="[#TEXTDIRECTION#]" style="display: none; top: 481px; opacity: 0;">
+    <div id="CookieInformationDialogBody">
+
+        <div id="CookieInformationDialogBodyContent">
+            <h2 id="CookieInformationDialogBodyContentTitle" lang="EN">This website uses cookies</h2>
+            <div id="CookieInformationDialogBodyContentText" lang="EN">We use cookies to personalize your user experience and to study how our website is being used. You consent to our cookies if you continue to use this website.&nbsp;</div>
+        </div>
+        <div id="CookieInformationDialogBodyButtons">
+            <a id="CookieInformationDialogBodyButtonAccept" class="CookieInformationDialogBodyButton" href="javascript: void(0);" tabindex="1" lang="EN" onclick="javascript:CookieConsent.dialog.submitConsent();">
+                OK
+            </a>
+            <a id="CookieInformationDialogBodyButtonDetails" class="CookieInformationDialogBodyLink" href="javascript: toggleCookiePanelDetails();" tabindex="1" lang="EN">
+                Show details
+            </a>
+        </div>
+    </div>
+    <div id="CookieInformationDialogDetail">
+        <div id="CookieInformationDialogDetailBody">
+            <div id="CookieInformationDialogDetailBodyContentTabs">
+                <a id="CookieInformationDialogDetailBodyContentTabsAbout" class="CookieInformationDialogDetailBodyContentTab CookieInformationDialogDetailBodyContentTabsItemSelected" href="javascript: showCookiePanelDetailPane(&#39;about&#39;);" lang="EN">
+                    About cookies
+                </a><a id="CookieInformationDialogDetailBodyContentTabsOverview" class="CookieInformationDialogDetailBodyContentTab CookieInformationDialogDetailBodyContentTabsItem" href="javascript: showCookiePanelDetailPane(&#39;overview&#39;);" lang="EN">
+                    Cookie declaration
+                </a>
+            </div>
+            <div id="CookieInformationDialogDetailBodyContent">
+                <div id="CookieInformationDialogDetailBodyContentTextAbout" lang="EN">
+                    <p><strong>What is a Cookie?</strong><br>
+A cookie is a small text file that stores Internet settings. Almost every website uses cookie technology. The cookie is downloaded by your Internet browser the first time you visit a website. The next time you visit this website from the same device, the cookie and the information in it are either sent back to the originating website (first-party cookies) or to another website to which it belongs (third-party cookies). By that, the website can detect that it has already been opened using this browser, and in some cases it will then vary the content it shows.<br>
+<br>
+Some cookies are extremely useful because they can improve your user experience when you return to a website you have already visited. This assumes that you are using the same device and the same browser as before; if so, cookies will remember your preferences, will know how you use the website, and will adapt the content you are shown so that it is more relevant to your personal interests and needs.<br>
+<br>
+<strong>Your cookie settings on this website.</strong><br>
+<strong>Cookies on this website that do not require approval.</strong><br>
+Cookies that are essential, also known as ‘strictly necessary’ cookies, enable features without which you would not be able to use the website as intended. These cookies are used exclusively by this website and are therefore known as first-party cookies. They are only saved on your computer while you are actually browsing the website. An example of why strictly necessary cookies are used is to ensure that what you see on screen corresponds to the data volume which your current Internet connection can handle. Another example of what these cookies do is facilitate a switch from http to https when you change pages, so that the security of data transmitted is maintained. Furthermore, a cookie of this kind is used to store your decision about the use of cookies on our website. Your consent is not required for the use of strictly necessary cookies.<br>
+<br>
+<strong>First-party cookies on this website that require consent</strong><br>
+Cookies which, in strictly legal terms, are not absolutely essential in order to use this website, do nevertheless fulfill important functions. Without these cookies, features that enable our website to be used easily, such as pre-completed forms, will no longer be available. Settings you make, such as language choices, will no longer be saved, so you will be asked about them every time you change pages. As well as that, we will no longer have a way of presenting offers to you that are tailored to you personally.<br>
+<br>
+<strong>The use on this website of third-party cookies that require consent</strong><br>
+This website has integrated content belonging to third parties on this website. These third-party providers can place cookies while you visit the website, and in doing so can obtain information about the fact that you have visited the website. Please visit the websites belonging to those third-party providers if you need more information about how they use cookies. If you have decided not to provide your consent to the use of cookies that require it, or if you have revoked that consent, then you will only be provided with website features whose use does not require such cookies. Areas of the website that can potentially incorporate content from third parties, and which therefore place third-party cookies, will not be available to you if that is the case. If you do not want to accept cookies at all, then you can also configure that in your browser.<br>
+<a href="https://support.microsoft.com/da-dk/help/17442/windows-internet-explorer-delete-manage-cookies#ie=ie-11" style="font-size:12.8px;" target="_blank">Microsoft Internet Explorer (IE)</a><br style="font-size:12.8px;"><a href="http://support.google.com/chrome/bin/answer.py?hl=da&amp;answer=95647" style="font-size:12.8px;" target="_blank">Google Chrome</a><br style="font-size:12.8px;"><a href="http://support.apple.com/kb/PH5042" style="font-size:12.8px;" target="_blank">Safari</a><br style="font-size:12.8px;"><a href="http://support.mozilla.org/da/kb/enable-and-disable-cookies-website-preferences" style="font-size:12.8px;" target="_blank">Firefox</a></p>
+                </div>
+                <div id="CookieInformationDialogDetailBodyContentTextOverview" lang="EN">
+                    <div id="CookieInformationDialogDetailBodyContentCookieContainer">
+                        <div id="CookieInformationDialogDetailBodyContentCookieContainerTypes">
+                            <a id="CookieInformationDialogDetailBodyContentCookieContainerNecessary" href="javascript: showCookieContainerDetailPane(&#39;necessary&#39;);" class="CookieInformationDialogDetailBodyContentCookieContainerTypesSelected" lang="EN"><label>&nbsp;</label>Necessary (2)</a>
+                            <a id="CookieInformationDialogDetailBodyContentCookieContainerPreference" href="javascript: showCookieContainerDetailPane(&#39;preference&#39;);" class="CookieInformationDialogDetailBodyContentCookieContainerTypes" lang="EN"><label>&nbsp;</label>Functional (1)</a>
+                            <a id="CookieInformationDialogDetailBodyContentCookieContainerStatistics" href="javascript: showCookieContainerDetailPane(&#39;statistics&#39;);" class="CookieInformationDialogDetailBodyContentCookieContainerTypes" lang="EN"><label>&nbsp;</label>Statistics (6)</a>
+                            <a id="CookieInformationDialogDetailBodyContentCookieContainerAdvertising" href="javascript: showCookieContainerDetailPane(&#39;advertising&#39;);" class="CookieInformationDialogDetailBodyContentCookieContainerTypes" lang="EN"><label>&nbsp;</label>Marketing (4)</a>
+                            <a id="CookieInformationDialogDetailBodyContentCookieContainerUnclassified" href="javascript: showCookieContainerDetailPane(&#39;unclassified&#39;);" class="CookieInformationDialogDetailBodyContentCookieContainerTypes" lang="EN"><label>&nbsp;</label>Unclassified (0)</a>
+                        </div>
+                        <div id="CookieInformationDialogDetailBodyContentCookieContainerTypeDetails">
+                            <div id="CookieInformationDialogDetailBodyContentCookieTabsNecessary">
+                                <div class="CookieInformationDialogDetailBodyContentCookieTypeIntro">Necessary cookies help make a website usable by enabling basic functions like page navigation and access to secure areas of the website. The website cannot function properly without these cookies.</div>
+                                <div class="CookieInformationDialogDetailBodyContentCookieTypeTableContainer">
+                                    <table id="CybotCookiebotDialogDetailTableUnclassified" class="CybotCookiebotDialogDetailBodyContentCookieTypeTable">
+    <thead>
+    <tr>
+        <td>Name</td>
+        <td>Provider</td>
+        <td>Purpose</td>
+        <td>Expiry</td>
+        <td></td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td scope="row" class="CookieDeclarationTableCell" title="ASP.NET_SessionId">ASP.NET_SessionId</td>
+        <td class="CookieDeclarationTableCell" title="www.workindenmark.dk">www.workindenmark.dk</td>
+        <td class="CookieDeclarationTableCell" title="Stores session data during a website visit, issued by Microsoft&#39;s ASP.NET Application, a framework for building websites.">Stores session data during a website visit, issued by Microsoft's ASP.NET Application, a framework for building websites.</td>
+        <td class="CookieDeclarationTableCell" title="Session">Session</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td scope="row" class="CookieDeclarationTableCell" title="CookieInformationConsent">CookieInformationConsent</td>
+        <td class="CookieDeclarationTableCell" title="www.workindenmark.dk">www.workindenmark.dk</td>
+        <td class="CookieDeclarationTableCell" title=""></td>
+        <td class="CookieDeclarationTableCell" title="14 days">14 days</td>
+        <td></td>
+    </tr>
+    </tbody>
+</table>
+                                </div>
+                            </div>
+                            <div id="CookieInformationDialogDetailBodyContentCookieTabsPreference">
+                                <div class="CookieInformationDialogDetailBodyContentCookieTypeIntro">Functional cookies enable a website to remember information that changes the way the website behaves or looks, like your preferred language or the region that you are in.</div>
+                                <div class="CookieInformationDialogDetailBodyContentCookieTypeTableContainer">
+                                    <table id="CybotCookiebotDialogDetailTableUnclassified" class="CybotCookiebotDialogDetailBodyContentCookieTypeTable">
+    <thead>
+    <tr>
+        <td>Name</td>
+        <td>Provider</td>
+        <td>Purpose</td>
+        <td>Expiry</td>
+        <td></td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td scope="row" class="CookieDeclarationTableCell" title="lang">lang</td>
+        <td class="CookieDeclarationTableCell" title="cdn.syndication.twimg.com">cdn.syndication.twimg.com</td>
+        <td class="CookieDeclarationTableCell" title="Remembers the user&#39;s selected language version of a website">Remembers the user's selected language version of a website</td>
+        <td class="CookieDeclarationTableCell" title="Session">Session</td>
+        <td></td>
+    </tr>
+    </tbody>
+</table>
+                                </div>
+                            </div>
+                            <div id="CookieInformationDialogDetailBodyContentCookieTabsStatistics">
+                                <div class="CookieInformationDialogDetailBodyContentCookieTypeIntro">Statistic cookies help website owners to understand how visitors interact with websites by collecting and reporting information.</div>
+                                <div class="CookieInformationDialogDetailBodyContentCookieTypeTableContainer">
+                                    <table id="CybotCookiebotDialogDetailTableUnclassified" class="CybotCookiebotDialogDetailBodyContentCookieTypeTable">
+    <thead>
+    <tr>
+        <td>Name</td>
+        <td>Provider</td>
+        <td>Purpose</td>
+        <td>Expiry</td>
+        <td></td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td scope="row" class="CookieDeclarationTableCell" title="_ga">_ga</td>
+        <td class="CookieDeclarationTableCell" title=".workindenmark.dk">.workindenmark.dk</td>
+        <td class="CookieDeclarationTableCell" title="Registers a unique ID that is used to generate statistical data on how the visitor uses the website.">Registers a unique ID that is used to generate statistical data on how the visitor uses the website.</td>
+        <td class="CookieDeclarationTableCell" title="2 years">2 years</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td scope="row" class="CookieDeclarationTableCell" title="YSC">YSC</td>
+        <td class="CookieDeclarationTableCell" title=".youtube.com">.youtube.com</td>
+        <td class="CookieDeclarationTableCell" title="A unique identifier given to site visitor when viewing a video.">A unique identifier given to site visitor when viewing a video.</td>
+        <td class="CookieDeclarationTableCell" title="Session">Session</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td scope="row" class="CookieDeclarationTableCell" title="_gid">_gid</td>
+        <td class="CookieDeclarationTableCell" title=".workindenmark.dk">.workindenmark.dk</td>
+        <td class="CookieDeclarationTableCell" title="Registers a unique ID that is used to generate statistical data on how the visitor uses the website.">Registers a unique ID that is used to generate statistical data on how the visitor uses the website.</td>
+        <td class="CookieDeclarationTableCell" title="a day">a day</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td scope="row" class="CookieDeclarationTableCell" title="SC_ANALYTICS_SESSION_COOKIE">SC_ANALYTICS_SESSION_COOKIE</td>
+        <td class="CookieDeclarationTableCell" title="www.workindenmark.dk">www.workindenmark.dk</td>
+        <td class="CookieDeclarationTableCell" title="Used to analyze user behavior.">Used to analyze user behavior.</td>
+        <td class="CookieDeclarationTableCell" title="Session">Session</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td scope="row" class="CookieDeclarationTableCell" title="_gat_UA-*">_gat_UA-*</td>
+        <td class="CookieDeclarationTableCell" title=".workindenmark.dk">.workindenmark.dk</td>
+        <td class="CookieDeclarationTableCell" title="A unique identifier given to each browser to track user interactions with the website.">A unique identifier given to each browser to track user interactions with the website.</td>
+        <td class="CookieDeclarationTableCell" title="a minute">a minute</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td scope="row" class="CookieDeclarationTableCell" title="SC_ANALYTICS_GLOBAL_COOKIE">SC_ANALYTICS_GLOBAL_COOKIE</td>
+        <td class="CookieDeclarationTableCell" title="www.workindenmark.dk">www.workindenmark.dk</td>
+        <td class="CookieDeclarationTableCell" title="Used by Sitecore Engagement Analytics to identify the visitor on repeat visits to the website.">Used by Sitecore Engagement Analytics to identify the visitor on repeat visits to the website.</td>
+        <td class="CookieDeclarationTableCell" title="10 years">10 years</td>
+        <td></td>
+    </tr>
+    </tbody>
+</table>
+                                </div>
+                            </div>
+                            <div id="CookieInformationDialogDetailBodyContentCookieTabsAdvertising">
+                                <div class="CookieInformationDialogDetailBodyContentCookieTypeIntro">Marketing cookies are used to track visitors across websites. The intention is to display ads that are relevant and engaging for the individual user and thereby more valuable for publishers and third party advertisers.</div>
+                                <div class="CookieInformationDialogDetailBodyContentCookieTypeTableContainer">
+                                    <table id="CybotCookiebotDialogDetailTableUnclassified" class="CybotCookiebotDialogDetailBodyContentCookieTypeTable">
+    <thead>
+    <tr>
+        <td>Name</td>
+        <td>Provider</td>
+        <td>Purpose</td>
+        <td>Expiry</td>
+        <td></td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td scope="row" class="CookieDeclarationTableCell" title="IDE">IDE</td>
+        <td class="CookieDeclarationTableCell" title=".doubleclick.net">.doubleclick.net</td>
+        <td class="CookieDeclarationTableCell" title="Used by Google DoubleClick for re-targing, optimization, reporting, and attribution of online ads.">Used by Google DoubleClick for re-targing, optimization, reporting, and attribution of online ads.</td>
+        <td class="CookieDeclarationTableCell" title="a year">a year</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td scope="row" class="CookieDeclarationTableCell" title="VISITOR_INFO1_LIVE">VISITOR_INFO1_LIVE</td>
+        <td class="CookieDeclarationTableCell" title=".youtube.com">.youtube.com</td>
+        <td class="CookieDeclarationTableCell" title="Tries to estimate the users&#39; bandwidth on pages with integrated YouTube videos.">Tries to estimate the users' bandwidth on pages with integrated YouTube videos.</td>
+        <td class="CookieDeclarationTableCell" title="6 months">6 months</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td scope="row" class="CookieDeclarationTableCell" title="PREF">PREF</td>
+        <td class="CookieDeclarationTableCell" title=".youtube.com">.youtube.com</td>
+        <td class="CookieDeclarationTableCell" title="A unique identifier given to each computer that allows tracking of YouTube videos by Google.">A unique identifier given to each computer that allows tracking of YouTube videos by Google.</td>
+        <td class="CookieDeclarationTableCell" title="8 months">8 months</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td scope="row" class="CookieDeclarationTableCell" title="GPS">GPS</td>
+        <td class="CookieDeclarationTableCell" title=".youtube.com">.youtube.com</td>
+        <td class="CookieDeclarationTableCell" title="A unique identifier given to each mobile device that allows tracking based on GPS location.">A unique identifier given to each mobile device that allows tracking based on GPS location.</td>
+        <td class="CookieDeclarationTableCell" title="30 minutes">30 minutes</td>
+        <td></td>
+    </tr>
+    </tbody>
+</table>
+                                </div>
+                            </div>
+                            <div id="CookieInformationDialogDetailBodyContentCookieTabsUnclassified">
+                                <div class="CookieInformationDialogDetailBodyContentCookieTypeIntro">Unclassified cookies are cookies that we are in the process of classifying, together with the providers of individual cookies.</div>
+                                <div class="CookieInformationDialogDetailBodyContentCookieTypeTableContainer">
+                                    <table id="CybotCookiebotDialogDetailTableUnclassified" class="CybotCookiebotDialogDetailBodyContentCookieTypeTable">
+    <thead>
+    <tr>
+        <td>Name</td>
+        <td>Provider</td>
+        <td>Purpose</td>
+        <td>Expiry</td>
+        <td></td>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="CookieInformationDialogDetailFooter" lang="EN">
+                Cookie declaration last updated on 20.07.2018
+            </div>
+        </div>
+    </div>
+</div></div>
+    <!--[if lt IE 9]>
+          <div class="alert alert-danger" role="alert">
+                You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
+          </div>
+    <![endif]-->
+
+    <div class="visuallyhidden">
+        <!--?xml version="1.0" encoding="UTF-8"?--><svg xmlns="http://www.w3.org/2000/svg"><symbol id="icon_chat" viewBox="0 0 25 25"><path d="M12.5 0C6.149 0 1 5.114 1 11.422c0 3.038 1.202 5.791 3.149 7.837L4.128 25l4.792-2.728c1.127.367 2.329.572 3.579.572 6.351 0 11.5-5.114 11.5-11.422C24 5.114 18.851 0 12.5 0zM6.961 13.426c-.826 0-1.495-.674-1.495-1.505s.669-1.505 1.495-1.505 1.495.674 1.495 1.505-.669 1.505-1.495 1.505zm5.539 0c-.826 0-1.495-.674-1.495-1.505s.669-1.505 1.495-1.505c.826 0 1.495.674 1.495 1.505s-.669 1.505-1.495 1.505zm5.539 0c-.826 0-1.495-.674-1.495-1.505s.669-1.505 1.495-1.505 1.495.674 1.495 1.505-.669 1.505-1.495 1.505z"></path></symbol><symbol id="icon_facebook" viewBox="0 0 25 25"><path d="M12.5 0C5.594 0 0 5.594 0 12.5S5.594 25 12.5 25 25 19.406 25 12.5 19.406 0 12.5 0zm2.675 9.119h-1.288c-.131 0-.25.05-.356.144-.106.087-.156.175-.156.262v1.181h1.8l-.062.725-.069.619-.087.581h-1.594v5.181h-2.375v-5.181H9.831V10.7h1.156V9.238c0-.031 0-.087.006-.156s.012-.163.019-.269a1.62 1.62 0 0 1 .25-.688c.15-.244.387-.463.712-.65.331-.188.812-.287 1.438-.287h1.756v1.931h.007z"></path></symbol><symbol id="icon_linkedin" viewBox="0 0 25 25"><path d="M12.5 0C5.594 0 0 5.594 0 12.5S5.594 25 12.5 25 25 19.406 25 12.5 19.406 0 12.5 0zM8.921 17.625H6.693V9.807H8.92v7.818zm-.186-8.813c-.253.247-.562.37-.928.37s-.676-.124-.928-.37a1.22 1.22 0 0 1-.379-.908c0-.358.126-.662.379-.908.253-.247.562-.371.928-.371s.676.124.928.371c.253.247.379.55.379.908s-.126.661-.379.908zm9.765 8.813h-2.228v-4.417c0-1.201-.451-1.802-1.351-1.802-.445 0-.835.158-1.166.472-.332.315-.498.778-.498 1.388v4.359H11.03V9.807h2.227v.872c.673-.669 1.431-1.003 2.272-1.003.842 0 1.547.29 2.117.872.569.582.854 1.357.854 2.325v4.752z"></path></symbol><symbol id="icon_upload" viewBox="0 0 25 25"><path d="M12.5 0C5.596 0 0 5.596 0 12.5S5.596 25 12.5 25 25 19.404 25 12.5 19.404 0 12.5 0zm0 3.757l3.91 4.4h-2.52v6.89h-2.78v-6.89H8.59l3.91-4.4zm-6.01 13.43h12.02v2.637H6.49v-2.637z"></path></symbol></svg>
+    </div>
+
+    <form method="post" action="https://www.workindenmark.dk/job/6755865/COUNTRY-SALES-PRODUCT-RESPONSIBLE" onsubmit="javascript:return WebForm_OnSubmit();" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTQ3NDExODU3MQ8WAh4TVmFsaWRhdGVSZXF1ZXN0TW9kZQIBFgRmD2QWAgIBD2QWAmYPZBYCZg8WAh4EVGV4dAUYVmlldyBqb2IgfCBXb3JraW5kZW5tYXJrZAIBEGRkFg4CAw9kFgJmD2QWBAIHDw8WAh4LTmF2aWdhdGVVcmwFHS9Qcm9maWxlL0ZvcmdvdC15b3VyLXBhc3N3b3JkZGQCCA8PFgIfAgURL1Byb2ZpbGUvTmV3LXVzZXJkZAILDxYCHgdWaXNpYmxlZ2QCDw9kFgJmD2QWAmYPZBYCAgEPZBYCAgEPZBYCZg9kFgJmD2QWAmYPZBYgZg8WBB8BBSNDT1VOVFJZIFNBTEVTICYgUFJPRFVDVCBSRVNQT05TSUJMRR8DZ2QCAg9kFgwCAw8WBB8BBQ5CRVNUU0VMTEVSIEEvUx8DZ2QCBw8WBB8BBQIgMR8DZ2QCDQ8WBB8BBQsgMDgvMDgvMjAxOB8DZ2QCEw8WBB8BBQsgMjkvMDgvMjAxOB8DZ2QCGQ8WBB8BBRQgQXMgc29vbiBhcyBwb3NzaWJsZR8DZ2QCIA8WBB8BBZApPHA+PHN0cm9uZz5EbyB5b3Ugc3BlYWsgSXRhbGlhbiwgYW5kIGRvIHlvdSBoYXZlIGdyZWF0IHByb2R1Y3Qga25vd2xlZGdlIGFib3V0IGtpZHPigJkgZmFzaGlvbiBpbiBJdGFseT8gV291bGQgeW91IGxpa2UgdG8gY29udHJpYnV0ZSB0byB0aGUgZGV2ZWxvcG1lbnQgb2YgbmFtZSBpdOKAmXMgcG9zaXRpb24gaW4gdGhlIEl0YWxpYW4gbWFya2V0Pzwvc3Ryb25nPjxici8+Jm5ic3A7PGJyLz5UaGVuIHlvdSBtYXkgYmUganVzdCB0aGUgb25lIHdlIGFyZSBsb29raW5nIGZvciB0byB0YWtlIG9uIGFuIGV4Y2l0aW5nIHBvc2l0aW9uIGluIG91ciBkeW5hbWljIHNhbGVzIHRlYW0hIDxici8+V2UgYXJlIG9uIHRoZSBsb29rb3V0IGZvciBhIHN0cnVjdHVyZWQgQ291bnRyeSBTYWxlcyAmYW1wOyBQcm9kdWN0IFJlc3BvbnNpYmxlIHdpdGggc3Ryb25nIHByb2R1Y3Qga25vd2xlZGdlLCBleGNlbGxlbnQgY29vcmRpbmF0aW9uIHNraWxscyBhbmQgcHJvZmVzc2lvbmFsIHByb2ZpY2llbmN5IGluIEl0YWxpYW4gdG8gc3VwcG9ydCBvdXIgU2FsZXMgTWFuYWdlciBhbmQgc2FsZXMgdGVhbSBpbiBJdGFseS48L3A+PGJyIC8+PHA+PHN0cm9uZz5UaGUgam9iPC9zdHJvbmc+IDxici8+QXMgQ291bnRyeSBTYWxlcyAmYW1wOyBQcm9kdWN0IFJlc3BvbnNpYmxlLCB5b3VyIHByaW1hcnkgcmVzcG9uc2liaWxpdHkgaXMgdG8gZW5zdXJlIHRoZSByaWdodCBwcm9kdWN0IHBhY2thZ2UgZm9yIHRoZSBJdGFsaWFuIG1hcmtlZCB0aHJvdWdoIGtub3dsZWRnZSBhYm91dCB0aGUgbWFya2V0IG5lZWRzIGFuZCBjb2xsYWJvcmF0aW9uIHdpdGggb3VyIHNhbGVzIHRlYW1zIHdpdGggdGhlIHB1cnBvc2Ugb2YgZW5zdXJpbmcgbmFtZSBpdOKAmXMgZ3Jvd3RoIGluIHRoZSBJdGFsaWFuIG1hcmtldC4gWW91IHdpbGwgYmUgcmVzcG9uc2libGUgZm9yIHJlYWNoaW5nIHRoZSBidWRnZXQgZm9yIHRoZSBjb3VudHJ5IGJ5IHByb2FjdGl2ZWx5IGlkZW50aWZ5aW5nIGFuZCBjb3ZlcmluZyBwcm9kdWN0IGFuZCBzYWxlcyBnYXBzIHRocm91Z2ggcHJvZHVjdCBjb29wZXJhdGlvbiwgc2FsZXMgaW5pdGlhdGl2ZXMgYW5kIHN0b2NrIGNvbnRyb2wuIFlvdSBhcmUgaW4gY2xvc2UgZGlhbG9ndWUgd2l0aCBvdXIgU2FsZXMgUmVzcG9uc2libGUgYW5kIHRoZSByZXN0IG9mIHRoZSBzYWxlcyB0ZWFtIGluIEl0YWx5LCB3aGljaCBtYWtlcyB5b3UgYW4gaW1wb3J0YW50IGFkdmlzb3IgYW5kIHNvdW5kaW5nIGJvYXJkLiBBdCB0aGUgc2FtZSB0aW1lLCB5b3UgY2Fycnkgb3V0IGEgdmFyaWV0eSBvZiBkYXktdG8tZGF5IHByb2R1Y3QgYW5kIHNhbGVzIHJlbGF0ZWQgYXNzaWdubWVudHMgYW5kIGFkbWluaXN0cmF0aXZlIHRhc2tzIGFjcm9zcyB0aGUgZGVwYXJ0bWVudC48L3A+PGJyIC8+PHA+PHN0cm9uZz5Bc3NpZ25tZW50czwvc3Ryb25nPjwvcD48YnIgLz48dWw+PGJyIC8+PGxpPkRldmVsb3AgdGhlIHJpZ2h0IHByb2R1Y3QgZm9yIEl0YWx5IGluIHRoZSBjb2xsZWN0aW9ucyZuYnNwOzwvbGk+PGJyIC8+PGxpPk9yZ2FuaXNlIGFuZCBwYXJ0aWNpcGF0ZSBpbiBjb2xsZWN0aW9uIG1lZXRpbmdzIGluIERlbm1hcmsgYW5kIEl0YWx5PC9saT48YnIgLz48bGk+Q29udGludW91cyBkaWFsb2d1ZSwgZmVlZGJhY2sgYW5kIGtub3dsZWRnZSBzaGFyaW5nIHdpdGggdGhlIFNhbGVzIFJlc3BvbnNpYmxlIGluIEl0YWx5Jm5ic3A7PC9saT48YnIgLz48bGk+RGF5LXRvLWRheSBzdXBwb3J0IHRvIG91ciBzYWxlcyB0ZWFtIGluIEl0YWx5PC9saT48YnIgLz48bGk+UHJlcGFyZSBhbmQgbW9uaXRvciBidWRnZXRzIGFuZCBjbG9zZSBnYXBzPC9saT48YnIgLz48bGk+TWFuYWdlIG9yZGVyIHByb2Nlc3NpbmcgYW5kIGZvbGxvdyB1cCBvbiBvcmRlcnMgYW5kIHN0b2NrPC9saT48YnIgLz48bGk+SW1wbGVtZW50IHByb21vdGlvbmFsIHNhbGVzIGFuZCBwcm9kdWN0IGluaXRpYXRpdmVzPC9saT48YnIgLz48bGk+RGV2ZWxvcCBhbmQgZm9sbG93IHVwIG9uIHZhcmlvdXMgc2FsZXMgc3RhdGlzdGljcyBhbmQgcmVwb3J0cyBpbiBFeGNlbDwvbGk+PGJyIC8+PGxpPlZhcmlvdXMgYWRtaW5pc3RyYXRpdmUgdGFza3MuPC9saT48L3VsPjxiciAvPjxwPjxzdHJvbmc+UXVhbGlmaWNhdGlvbnMgPC9zdHJvbmc+PC9wPjxiciAvPjx1bD48YnIgLz48bGk+RXhwZXJpZW5jZSBmcm9tIGEgc2ltaWxhciBwb3NpdGlvbjwvbGk+PGJyIC8+PGxpPlNvbGlkIGtub3dsZWRnZSBhYm91dCBraWRz4oCZIGZhc2hpb24gaW4gSXRhbHk8L2xpPjxiciAvPjxsaT5FeHBlcmllbmNlIGluIHdvcmtpbmcgd2l0aCBraWRz4oCZIHdlYXIgaW4gSXRhbHk8L2xpPjxiciAvPjxsaT5Qcm9kdWN0IGFuZCByZXN1bHQgZHJpdmVuPC9saT48YnIgLz48bGk+U29saWQgbnVtZXJhY3kmbmJzcDs8L2xpPjxiciAvPjxsaT5FeHBlcmllbmNlIHdpdGggTWljcm9zb2Z0IE9mZmljZSwgZXNwZWNpYWxseSBFeGNlbDwvbGk+PGJyIC8+PGxpPkZsdWVudCBpbiBJdGFsaWFuIGFuZCBFbmdsaXNoIHdyaXR0ZW4gYXMgd2VsbCBhcyBzcG9rZW4gLSBwcm9maWNpZW5jeSBpbiBEYW5pc2ggaXMgYW4gYWR2YW50YWdlLCBidXQgbm90IGEgcmVxdWlyZW1lbnQuPC9saT48L3VsPjxiciAvPjxwPjxzdHJvbmc+WW91ciBiYWNrZ3JvdW5kPC9zdHJvbmc+IDxici8+V2UgYXJlIGxvb2tpbmcgZm9yIGFuIGluZGVwZW5kZW50IGFuZCBzdHJ1Y3R1cmVkIGluaXRpYXRvciB3aG8gdGhyaXZlcyBpbiBidWlsZGluZyB0aGUgcmlnaHQgcHJvZHVjdCBmb3IgdGhlIEl0YWxpYW4gbWFya2V0LiBZb3UgYXJlIGFibGUgdG8gc2VlIHRoZSBiaWcgcGljdHVyZSB3aGlsZSBjcmVhdGluZyBzdHJ1Y3R1cmUgaW4gYSBjcmVhdGl2ZSBhbmQgZHluYW1pYyBlbnZpcm9ubWVudC4gV2l0aCB5b3VyIHN0cm9uZyBjb21tdW5pY2F0aW9uIGFuZCBpbnRlcnBlcnNvbmFsIHNraWxscywgeW91IHBlcmZvcm0gd2VsbCBpbiBhIHBvc2l0aW9uIHdoZXJlIHlvdXIgYWJpbGl0eSB0byByZWFjaCBvdXQgYW5kIHByb2FjdGl2ZWx5IGNyZWF0ZSBhbmQgbWFpbnRhaW4gcmVsYXRpb25zaGlwcyBpcyB0aGUga2V5IHRvIHlvdXIgc3VjY2Vzcy4gPGJyLz4mbmJzcDs8YnIvPkl0IGlzIGltcG9ydGFudCB0aGF0IHlvdSBhcmUgZXhwZXJpZW5jZWQgaW4gYW5hbHlzaW5nIGJ1ZGdldHMgYW5kIHNhbGVzIGZpZ3VyZXMgd2l0aCB0aGUgYWltIG9mIG9wdGltaXNpbmcgc2FsZXMgYW5kIHByb2R1Y3QgaW5pdGlhdGl2ZXMgYXMgdGhlIGpvYiBpbmNsdWRlcyBicmVha2Rvd24gb2YgZmlndXJlcyBhbmQgcHJvZHVjdCBjb29yZGluYXRpb24uIEZ1cnRoZXJtb3JlLCB5b3UgaGF2ZSBhIG5hdHVyYWwgaW50ZXJlc3QgaW4gdGhlIGxhdGVzdCB0cmVuZHMgYW5kIHlvdSBrbm93IHdoYXQgaXMgaGFwcGVuaW5nIGluIHRoZSBmYXNoaW9uIGluZHVzdHJ5LiBUYWtpbmcgcmVzcG9uc2liaWxpdHkgZm9yIGFjaGlldmluZyB0aGUgYmVzdCByZXN1bHRzIGluIGNvb3BlcmF0aW9uIHdpdGggeW91ciB0ZWFtIGNvbWVzIG5hdHVyYWxseSB0byB5b3UuJm5ic3A7PC9wPjxiciAvPjxwPjxzdHJvbmc+V2UgYXJlIGxvb2tpbmcgZm9yd2FyZCB0byBoZWFyaW5nIGZyb20geW91PC9zdHJvbmc+IDxici8+Rm9yIGZ1cnRoZXIgaW5mb3JtYXRpb24sIHlvdSBhcmUgd2VsY29tZSB0byBjb250YWN0IExvbmUgUmF1ZmYgb24gcGhvbmUgKzQ1IDI1IDUxIDMyIDQwLiBPdGhlcndpc2UsIHBsZWFzZSBzZW5kIHVzIHlvdXIgYXBwbGljYXRpb24gYW5kIENWIGFzIHNvb24gYXMgcG9zc2libGUgYW5kIG5vIGxhdGVyIHRoYW4gMjkgQXVndXN0IDIwMTguIFdlIGhhbmRsZSBhcHBsaWNhdGlvbnMgb24gYW4gb25nb2luZyBiYXNpcyBhbmQgcmVzZXJ2ZSB0aGUgcmlnaHQgdG8gdGFrZSBkb3duIHRoZSBhZCwgd2hlbiB3ZSBmaW5kIHRoZSByaWdodCBjYW5kaWRhdGUuIDxici8+Jm5ic3A7PGJyLz5Xb3JrcGxhY2U6IEJyYW5kZSwgRGVubWFyay4gPGJyLz4mbmJzcDs8YnIvPlRyYXZlbCBhY3Rpdml0eSBpcyBhbiBleGNpdGluZyBwYXJ0IG9mIHRoZSBqb2IgYW5kIHdpbGwgdmFyeSBiZXR3ZWVuIDM1IHRvIDUwIGRheXMgYSB5ZWFyLiZuYnNwOzwvcD48YnIgLz48cD48c3Ryb25nPiZuYnNwOzwvc3Ryb25nPjxici8+PGVtPjxzdHJvbmc+QWJvdXQgTkFNRSBJVCAtIElOU1BJUkVEIEJZIEtJRFM8L3N0cm9uZz4gPC9lbT48YnIvPjxlbT5Gb3IgbW9yZSB0aGFuIDMwIHllYXJzLCBOQU1FIElUIGhhcyBiZWVuIGVuY291cmFnZWQgYnkgY2hpbGRyZW7igJlzIHN0cmFpZ2h0Zm9yd2FyZG5lc3MgYW5kIGVuZXJneS4gV2Ugc2VlIHRoZSB3b3JsZCB0aHJvdWdoIHRoZSBleWVzIG9mIGNoaWxkcmVuIGFuZCBvdXIgY3JlYXRpdml0eSBpcyByb290ZWQgaW4gdGhlaXIgbG92aW5nIGFuZCBmcmVlIHNwaXJpdC4gPC9lbT48YnIvPjxlbT4mbmJzcDs8L2VtPjxici8+PGVtPkF0IE5BTUUgSVQgd2UgZGVzaWduIGNsb3RoZXMgd2hpY2ggYWxsb3cgY2hpbGRyZW4gdG8gZXhwcmVzcyB0aGVpciBvd24gcGVyc29uYWxpdHkuIFdlIGFyZSBwcm91ZCB0byBoYXZlIGEgc2VsZWN0aW9uIHRoYXQgZmVhdHVyZXMgYSBmdWxsIHJhbmdlIG9mIGtpZHMgY2xvdGhpbmcgZnJvbSB1bmRlcndlYXIgdG8gb3V0ZXJ3ZWFyLCBhbHdheXMgd2l0aCBhIHBhcnRpY3VsYXIgZm9jdXMgb24gb3VyIGNvcmUgcHJvZHVjdHM7IGplYW5zIGFuZCBvdXRlcndlYXIuJm5ic3A7Jm5ic3A7IDwvZW0+PGJyLz48ZW0+Jm5ic3A7PC9lbT48YnIvPjxlbT5JbiBldmVyeSBwaWVjZSBvZiBjbG90aGluZywgZnVuY3Rpb25hbGl0eSwgc2FmZXR5LCBxdWFsaXR5IGFuZCByZXNwb25zaWJpbGl0eSBhcmUgb3VyIG1haW4gcHJpb3JpdGllcy4mbmJzcDsmbmJzcDsmbmJzcDsgPC9lbT48YnIvPjxlbT4mbmJzcDs8L2VtPjxici8+PGVtPk5BTUUgSVQgaXMgcGFydCBvZiB0aGUgd29ybGR3aWRlIGZhc2hpb24gY29tcGFueSBCRVNUU0VMTEVSIGFuZCBpcyByZXByZXNlbnRlZCBpbiBtb3JlIHRoYW4gMjAgY291bnRyaWVzIHdpdGggYSB2YXJpZXR5IG9mIHJldGFpbCBzaG9wcyBhbmQgd2hvbGVzYWxlIGN1c3RvbWVycy4gRm9yIG1vcmUgaW5mb3JtYXRpb24sIHBsZWFzZSBnbyB0byA8YSBocmVmPSJodHRwOi8vd3d3Lm5hbWVpdC5jb20iIHRhcmdldD0iX2JsYW5rIj5odHRwOi8vd3d3Lm5hbWVpdC5jb208L2E+IG9yIDxhIGhyZWY9Imh0dHA6Ly93d3cuYWJvdXQuYmVzdHNlbGxlci5jb20iIHRhcmdldD0iX2JsYW5rIj5odHRwOi8vd3d3LmFib3V0LmJlc3RzZWxsZXIuY29tPC9hPi48L2VtPjwvcD48YnIgLz4fA2dkAgYPZBYCAgEPFgIfAQUIUG9zaXRpb25kAgcPFgIfAQUKTWFuYWdlbWVudGQCCA8WAh8DZ2QCCQ8WBB8BBRxTYWxlcyBhbmQgbWFya2V0aW5nIG1hbmFnZXJzHwNnZAIKDw8WAh8DaGRkAgwPFgQfAQUQUmVndWxhciBwb3NpdGlvbh8DZ2QCDw8WBB8BBRRGdWxsIHRpbWUgKDM3IGhvdXJzKR8DZ2QCFQ8WAh8DZxYCAgEPFgIfAQUMQXBwbHkgb25saW5lZAIbDxYCHwNnZAIcDxYCHwNnFgoCAQ8WBB8BBQ5CRVNUU0VMTEVSIEEvUx8DZ2QCAw8WAh8BBQ1GcmVkc2tvdnZlaiA1ZAIFDxYCHwEFB0RLIDczMzBkAgYPFgIfAQUHIEJyYW5kZWQCCA8WAh8BBQdEZW5tYXJrZAIfDxYCHwNnZAIjDxYCHwNnFgICAw8PFgQfAQUQQXBwbGljYXRpb24gZm9ybR8CBVRodHRwOi8vYWJvdXQuYmVzdHNlbGxlci5jb20vam9icy9qb2Itc2VhcmNoL2NvdW50cnktc2FsZXMtcHJvZHVjdC1yZXNwb25zaWJsZS0xNTM2OTZkZAImDxYCHwEFBzQ4NjIxMzRkAicPZBYCZg9kFgICAw8WAh4LXyFJdGVtQ291bnQCBBYIZg9kFgICAQ9kFgZmDxUBAGQCAQ8VAQBkAgIPFQEHIGhpZGRlbmQCAQ9kFgICAQ9kFgZmDxUBAGQCAQ8VAQBkAgIPFQEHIGhpZGRlbmQCAg9kFgICAQ9kFgZmDxUBAGQCAQ8VAQBkAgIPFQEHIGhpZGRlbmQCAw9kFgICAQ9kFgZmDxUBAGQCAQ8VAQBkAgIPFQEHIGhpZGRlbmQCFQ8WAh8BBV1UaGlzIHBhZ2UgaXMgbm90IGEgcGFydCBvZiBXb3JrIEluIERlbm1hcmsNCkl0J3MganVzdCBhIHBhcnQgb2YgRGVubWFyayBhcyBpdCBpcyAtIHJpZ2h0IG5vdy5kAhcPFgIfAQUvVHJ1c3QgdGhlIERhbmVzIQ0KVGhhdCBpcyB3aGF0IG1ha2VzIHRoZW0gaGFwcHlkAhkPFgIfAQUtSHVnIHRoZSBEYW5lcyENClRoYXQgaXMgd2hhdCBtYWtlcyB0aGVtIGhhcHB5ZAIbDxYCHwEFKldvcmsgaW4gRGVubWFyayENClRoYXQgbWFrZXMgdXMgdmVyeSBoYXBweWRkzMgbJPLV+UVGCAyCcqojfpjX/26WVs3e5bBlRwrhQPs=">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="./View job _ Workindenmark_files/WebResource.axd" type="text/javascript"></script>
+
+
+<script src="./View job _ Workindenmark_files/ScriptResource.axd" type="text/javascript"></script>
+<script src="./View job _ Workindenmark_files/ScriptResource(1).axd" type="text/javascript"></script>
+<script src="./View job _ Workindenmark_files/ScriptResource(2).axd" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+return true;
+}
+//]]>
+</script>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="723DDE67">
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAZGjDxfOof+5UJiIJMepUYgP+WURbB0k3Cpwxvv7A6c7JoiJPOjGul6DSPqGD+5nGDf/vKHuMRtzAlU/sSoNgcgrvdyuxYVs2VY0dpV0wedce/wXpDZ6bcYVVsbkG2sN1lz0DppAfv7tyX6mMMOl/kTnohIjTS/RGFApGLGmRxwcw==">
+</div>
+        <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('uiScriptManager', 'form1', [], [], [], 420, '');
+//]]>
+</script>
+
+        <div class="page">
+            <div class="container-fluid">
+                <!-- Login box -->
+                
+<script>
+	if (document.addEventListener) {
+		document.addEventListener("DOMContentLoaded", function (event) {
+			if (typeof memberTypeLoggedIn !== "undefined") {
+				memberTypeLoggedIn();
+			}
+		});
+	}
+</script>
+<div class="row row-white">
+	<div class="col-sm-3 col-sm-offset-9">
+		<div class="collapse userinfo-collapse">
+
+			
+				<div id="loginBox" data-default-button="#Login_uiBtnLogIn">
+
+					
+
+					<div class="form-group">
+						<label for="uiTxtUserName" class="control-label">
+							E-mail address
+						</label>
+						<input name="Login$uiTxtUserName" type="text" id="uiTxtUserName" tabindex="1" class="form-control no-validation" placeholder="Enter email"><span id="Login_ctl01" style="display:none;">
+                                <span class="help-block help-block-error">Field required</span>
+						</span>
+					</div>
+
+					<div class="form-group">
+						<label for="uiTxtPassword" class="control-label">
+							Password
+						</label>
+						<input name="Login$uiTxtPassword" type="password" id="uiTxtPassword" tabindex="2" class="form-control no-validation" placeholder="Password"><span id="Login_ctl03" style="display:none;">
+                        <span class="help-block help-block-error">Field required</span>
+						</span>
+					</div>
+
+					<p>
+						<a id="Login_uiLnkForgotPassword" href="https://www.workindenmark.dk/Profile/Forgot-your-password">Forgot your password?</a>
+						<br>
+						<a id="Login_uiLnkNewUser" href="https://www.workindenmark.dk/Profile/New-user">New user?</a>
+					</p>
+
+					<button onclick="if (typeof(Page_ClientValidate) == &#39;function&#39;) Page_ClientValidate(&#39;LoginServerValidators&#39;); __doPostBack(&#39;Login$uiBtnLogIn&#39;,&#39;&#39;)" id="Login_uiBtnLogIn" type="button" validationgroup="LoginServerValidators" class="btn btn-primary btn-block" data-causesvalidation="#loginBox">
+						<span class="glyphicon glyphicon-user"></span>
+                        Log in
+					</button>
+
+					<br>
+				</div>
+			
+
+			
+		</div>
+	</div>
+</div>
+
+
+
+				<p class="visible-print-block">
+					<img src="./View job _ Workindenmark_files/work-in-denmark.png" alt="WORK IN DENMARK">
+				</p>
+
+                <div class="visible-xs nav-touch hidden-print">
+                    <header class="row row-wide header">
+                        <div class="col-xs-5 col-ms-3 col-logo-sm">
+                            <a href="https://www.workindenmark.dk/" class="widk-logo widk-logo-sm">
+                                <img src="./View job _ Workindenmark_files/work-in-denmark-s-57.png" alt="WORK IN DENMARK" class="img-responsive-max">
+                            </a>
+                        </div>
+                        <div class="col-xs-7 col-ms-9">
+
+                            <div class="pull-right">
+
+                                <button type="button" class="btn btn-menu" data-toggle="collapse" data-target=".userinfo-collapse">
+                                    <span class="sr-only">Toggle user info</span>
+                                    <span class="glyphicon glyphicon-user"></span>
+                                </button>
+
+                                <button type="button" class="btn btn-menu" data-toggle="collapse" data-target=".navbar-collapse">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="glyphicon glyphicon-menu-hamburger"></span>
+                                </button>
+
+                            </div>
+                        </div>
+                    </header>
+                </div>
+                <!-- .visible-xs (Logo + radiator) -->
+
+                <div class="visible-xs hidden-print">
+                    <div class="collapse navbar-collapse">
+                        
+<!-- FullNavigation.ascx -->
+<div class="bs-sidebar hidden-print" role="complementary">
+    <ul class="nav">
+            <li>
+                        <a href="https://www.workindenmark.dk/Find-a-job" class="menu-lvl-1 nav-primary-default">
+                            Find a job
+                        </a>
+                        
+                    </li>
+
+            
+        
+            <li>
+                        <a href="https://www.workindenmark.dk/Moving-to-DK" class="menu-lvl-1 nav-primary-default">
+                            Moving to DK
+                        </a>
+                        
+                    </li>
+
+            
+        
+            <li>
+                        <a href="https://www.workindenmark.dk/Working-in-DK" class="menu-lvl-1 nav-primary-default">
+                            Working in DK
+                        </a>
+                        
+                    </li>
+
+            
+        
+            <li>
+                        <a href="https://www.workindenmark.dk/Living-in-DK" class="menu-lvl-1 nav-primary-default">
+                            Living in DK
+                        </a>
+                        
+                    </li>
+
+            
+        
+            <li>
+                        <a href="https://www.workindenmark.dk/Employer" class="menu-lvl-1 nav-primary-employer">
+                            Employers
+                        </a>
+                        
+                    </li>
+
+            
+        </ul>
+</div>
+<!-- /FullNavigation.ascx -->
+
+                    </div>
+                </div>
+
+                <!-- .navbar-collapse (Menu lvl 1+) -->
+
+                <div class="hidden-xs">
+
+                    <header class="row row-wide header">
+
+                        <div class="col-sm-8 col-md-8">
+                            
+                            <div class="header__logo">
+                                <a href="https://www.workindenmark.dk/" class="widk-logo">
+                                    <img src="./View job _ Workindenmark_files/work-in-denmark-l.png" alt="WORK IN DENMARK" class="img-responsive-max">
+                                </a>
+                            </div>
+                            
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                            <div class="header__actions">
+                                <div class="header__search">
+                                    
+<!-- SearchBox.ascx -->
+<!-- Source: Site search top box -->
+
+<div class="input-group hidden-print searchbox-group" data-default-button="#ucSearchBox_btnSubmit">
+    <div class="twitter-typeahead" style="position: relative; display: table-cell; direction: ltr;"><input type="text" class="form-control widk-search autocomplete tt-hint" data-typeahead-page="/api/sitesearch/typeahead" disabled="" autocomplete="off" spellcheck="false" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);"><input name="ucSearchBox$txtSearch" type="text" id="ucSearchBox_txtSearch" class="form-control widk-search autocomplete tt-input" placeholder="Search the site" data-typeahead-page="/api/sitesearch/typeahead" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;"><pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: quan_bookregular, Corbel, &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, &quot;DejaVu Sans&quot;, &quot;Bitstream Vera Sans&quot;, &quot;Liberation Sans&quot;, Verdana, &quot;Verdana Ref&quot;, sans-serif; font-size: 20px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre><div class="tt-dropdown-menu" style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none; right: auto;"><div class="tt-dataset-0"></div></div></div>
+    <span class="searchbox-group__buttonwrapper">
+        <button onclick="__doPostBack(&#39;ucSearchBox$btnSubmit&#39;,&#39;&#39;)" id="ucSearchBox_btnSubmit" type="button" class="btn searchbox-group__button">
+            <span class="glyphicon glyphicon-search"></span>
+        </button>
+    </span>
+</div>
+<!-- /SearchBox.ascx -->
+
+                                </div>
+
+                                <div class="header__login">
+
+                                    <a href="https://www.workindenmark.dk/job/6755865/COUNTRY-SALES-PRODUCT-RESPONSIBLE#" class="btn btn-block btn-toggle-login collapse-trigger collapsed" data-toggle="collapse" data-target=".userinfo-collapse">
+                                        <span class="expanded-hidden collapsed-visible-inline">
+                                            
+                                            Log in
+                                        </span>
+                                        <span class="collapsed-hidden expanded-visible-inline">
+                                            <span class="glyphicon glyphicon-remove-circle"></span>
+                                        </span>
+                                    </a>
+   
+                                </div>
+                            </div>
+
+                        </div>
+                        
+                    </header>
+
+                    <div style="display: none" class="row row-wide row-logo-lg row-white">
+                        <div class="col-sm-9">
+                            <a href="https://www.workindenmark.dk/" class="widk-logo widk-logo-lg">
+                                <img src="./View job _ Workindenmark_files/work-in-denmark-l.png" alt="WORK IN DENMARK" class="img-responsive-max">
+                            </a>
+                        </div>
+                        <div class="col-sm-3 hidden-print">
+                            <div class="row row-wide">
+                                <div class="col-sm-12">
+
+                                    
+
+                                    
+                                </div>
+                            </div>
+
+                            <div class="row row-wide">
+                                <div class="col-sm-12">
+
+                                    
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <!-- (Logo + Search site) -->
+
+                    <div class="row row-wide row-menu row-white hidden-print">
+                        <div class="col-md-12 affix-top" id="affix-menu" data-spy="affix" data-offset-top="82">
+                            
+<!-- MainNavigation.ascx -->
+
+		<ul class="nav nav-primary navbar-nav">
+	
+			<li>
+				
+               
+                    <a href="https://www.workindenmark.dk/Find-a-job" class="menu-lvl-1 nav-primary-default">
+					    Find a job
+				    </a>
+               
+
+                
+
+			</li>
+	
+			<li>
+				
+               
+                    <a href="https://www.workindenmark.dk/Moving-to-DK" class="menu-lvl-1 nav-primary-default">
+					    Moving to DK
+				    </a>
+               
+
+                
+
+			</li>
+	
+			<li>
+				
+               
+                    <a href="https://www.workindenmark.dk/Working-in-DK" class="menu-lvl-1 nav-primary-default">
+					    Working in DK
+				    </a>
+               
+
+                
+
+			</li>
+	
+			<li>
+				
+               
+                    <a href="https://www.workindenmark.dk/Living-in-DK" class="menu-lvl-1 nav-primary-default">
+					    Living in DK
+				    </a>
+               
+
+                
+
+			</li>
+	
+			<li>
+				
+               
+                    <a href="https://www.workindenmark.dk/Employer" class="menu-lvl-1 nav-primary-default">
+					    Employers
+				    </a>
+               
+
+                
+
+			</li>
+	
+			<li class="navbar-right">
+				
+               
+
+                
+                    <a href="https://www.workindenmark.dk/Profile/Create-profile" class="menu-lvl-1 nav-primary-action">
+                       <span class="svg-icon">
+                          Create your CV
+                          <svg class="svg-icon__svg">
+                             <use xlink:href="#icon_upload"></use>
+                          </svg>
+                       </span>
+                    </a>
+                
+
+			</li>
+	
+		</ul>
+	
+<!-- /MainNavigation.ascx -->
+
+
+                        </div>
+                    </div>
+                </div>
+                <!-- .hidden-xs -->
+
+
+                <main role="main">
+                    
+<!-- Row_12.ascx -->
+<div class="row row-white">
+	<div class="col-sm-12">
+		
+<!-- Administrator.Job.ListNotes.ascx -->
+
+	
+
+<!-- /Administrator.Job.ListNotes.ascx -->
+<!-- JobViewJobnet.ascx -->
+<div class="row">
+    <div class="col-sm-9 col-sm-push-3 nopadding">
+            <h1 class="widk-h1-black">
+                COUNTRY SALES &amp; PRODUCT RESPONSIBLE</h1>
+            <div id="scphpage_0_scphcontent_1_ctl00_uiEntireJobPostingSpan">
+		<hr>
+
+					
+					<h2>
+						BESTSELLER A/S
+					</h2>
+
+					<div class="row">
+						<div class="col-sm-11 ">
+
+							<dl class="dl-justify nomargin">
+								<dt>
+									Number of openings:
+								</dt>
+								<dd>
+									 1
+									
+								</dd>
+
+								<dt>
+									Advertisement publish date:
+								</dt>
+								<dd>
+									 08/08/2018
+									
+								</dd>
+								<dt>
+									Application deadline:
+								</dt>
+								<dd>
+									 29/08/2018
+									
+								</dd>
+								<dt>
+									Start date of employment:
+
+								</dt>
+								<dd>
+									 As soon as possible
+									
+								</dd>
+							</dl>
+
+						</div>
+					</div>
+			
+					<hr>
+
+					
+
+			<div class="row">
+				<div class="col-sm-11">
+					<div id="jobDescription">
+						<p><strong>Do you speak Italian, and do you have great product knowledge about kids’ fashion in Italy? Would you like to contribute to the development of name it’s position in the Italian market?</strong><br>&nbsp;<br>Then you may be just the one we are looking for to take on an exciting position in our dynamic sales team! <br>We are on the lookout for a structured Country Sales &amp; Product Responsible with strong product knowledge, excellent coordination skills and professional proficiency in Italian to support our Sales Manager and sales team in Italy.</p><br><p><strong>The job</strong> <br>As Country Sales &amp; Product Responsible, your primary responsibility is to ensure the right product package for the Italian marked through knowledge about the market needs and collaboration with our sales teams with the purpose of ensuring name it’s growth in the Italian market. You will be responsible for reaching the budget for the country by proactively identifying and covering product and sales gaps through product cooperation, sales initiatives and stock control. You are in close dialogue with our Sales Responsible and the rest of the sales team in Italy, which makes you an important advisor and sounding board. At the same time, you carry out a variety of day-to-day product and sales related assignments and administrative tasks across the department.</p><br><p><strong>Assignments</strong></p><br><ul><br><li>Develop the right product for Italy in the collections&nbsp;</li><br><li>Organise and participate in collection meetings in Denmark and Italy</li><br><li>Continuous dialogue, feedback and knowledge sharing with the Sales Responsible in Italy&nbsp;</li><br><li>Day-to-day support to our sales team in Italy</li><br><li>Prepare and monitor budgets and close gaps</li><br><li>Manage order processing and follow up on orders and stock</li><br><li>Implement promotional sales and product initiatives</li><br><li>Develop and follow up on various sales statistics and reports in Excel</li><br><li>Various administrative tasks.</li></ul><br><p><strong>Qualifications </strong></p><br><ul><br><li>Experience from a similar position</li><br><li>Solid knowledge about kids’ fashion in Italy</li><br><li>Experience in working with kids’ wear in Italy</li><br><li>Product and result driven</li><br><li>Solid numeracy&nbsp;</li><br><li>Experience with Microsoft Office, especially Excel</li><br><li>Fluent in Italian and English written as well as spoken - proficiency in Danish is an advantage, but not a requirement.</li></ul><br><p><strong>Your background</strong> <br>We are looking for an independent and structured initiator who thrives in building the right product for the Italian market. You are able to see the big picture while creating structure in a creative and dynamic environment. With your strong communication and interpersonal skills, you perform well in a position where your ability to reach out and proactively create and maintain relationships is the key to your success. <br>&nbsp;<br>It is important that you are experienced in analysing budgets and sales figures with the aim of optimising sales and product initiatives as the job includes breakdown of figures and product coordination. Furthermore, you have a natural interest in the latest trends and you know what is happening in the fashion industry. Taking responsibility for achieving the best results in cooperation with your team comes naturally to you.&nbsp;</p><br><p><strong>We are looking forward to hearing from you</strong> <br>For further information, you are welcome to contact Lone Rauff on phone +45 25 51 32 40. Otherwise, please send us your application and CV as soon as possible and no later than 29 August 2018. We handle applications on an ongoing basis and reserve the right to take down the ad, when we find the right candidate. <br>&nbsp;<br>Workplace: Brande, Denmark. <br>&nbsp;<br>Travel activity is an exciting part of the job and will vary between 35 to 50 days a year.&nbsp;</p><br><p><strong>&nbsp;</strong><br><em><strong>About NAME IT - INSPIRED BY KIDS</strong> </em><br><em>For more than 30 years, NAME IT has been encouraged by children’s straightforwardness and energy. We see the world through the eyes of children and our creativity is rooted in their loving and free spirit. </em><br><em>&nbsp;</em><br><em>At NAME IT we design clothes which allow children to express their own personality. We are proud to have a selection that features a full range of kids clothing from underwear to outerwear, always with a particular focus on our core products; jeans and outerwear.&nbsp;&nbsp; </em><br><em>&nbsp;</em><br><em>In every piece of clothing, functionality, safety, quality and responsibility are our main priorities.&nbsp;&nbsp;&nbsp; </em><br><em>&nbsp;</em><br><em>NAME IT is part of the worldwide fashion company BESTSELLER and is represented in more than 20 countries with a variety of retail shops and wholesale customers. For more information, please go to <a href="http://www.nameit.com/" target="_blank">http://www.nameit.com</a> or <a href="http://www.about.bestseller.com/" target="_blank">http://www.about.bestseller.com</a>.</em></p><br>
+					</div>
+					<br>
+					
+					
+					
+
+				</div>
+		    </div>
+        </div>
+    </div>
+</div>
+<aside>
+    <div class="row row-wide aside padding-left-extra">
+        <div class="col-sm-12">
+
+            <div class="row">
+                <div class="col-ms-6 col-sm-4">
+
+
+                    
+                    <p>
+                        
+                        
+                    </p>
+                    <h3 id="scphpage_0_scphcontent_1_ctl00_H1">
+                        Position
+                    </h3>
+                    <p>
+                        Management / Sales and marketing managers
+                    </p>
+                    <h3>
+                        Type of employment
+                    </h3>
+                    <p>
+                        Regular position
+                        
+                    </p>
+                    <h3>
+                        Weekly working hours
+                    </h3>
+                    <p>
+                        Full time (37 hours)
+                        
+                    </p>
+                    
+                    <p>
+                        
+                        
+                    </p>
+                </div>
+                <div class="col-ms-6 col-sm-4">
+
+                    <h3>
+                        Contact
+                    </h3>
+                    <p>
+                        <span id="scphpage_0_scphcontent_1_ctl00_uiContactNameSpan">
+                            Apply online<br>
+                        </span>
+                    </p>
+                    
+                    
+                    <h3 id="scphpage_0_scphcontent_1_ctl00_uiEmployerHeading">
+                        Employer
+                    </h3>
+                    <p id="scphpage_0_scphcontent_1_ctl00_uiEmployerAddressSpan">
+                        BESTSELLER A/S<br>
+                        Fredskovvej 5<br>
+                        DK 7330 Brande<br>
+                        Denmark<br>
+                    </p>
+                    
+                    
+
+                </div>
+                <div class="col-ms-6 col-sm-4">
+                    <h3 id="scphpage_0_scphcontent_1_ctl00_uiHowToApplyHeading">
+                        How to apply
+                    </h3>
+                    <ul>
+                        
+                        
+                        
+                        <li id="scphpage_0_scphcontent_1_ctl00_uiHowToApplyOnlineSpan"><span style="word-wrap: break-word">
+                            Online:
+                            <a id="scphpage_0_scphcontent_1_ctl00_uiLnkHowToApplyOnline" href="http://about.bestseller.com/jobs/job-search/country-sales-product-responsible-153696" target="_blank">Application form</a><br>
+                        </span></li>
+                    </ul>
+                    
+                    <h3>
+                        Job ID
+                    </h3>
+                    <p>
+                        4862134
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</aside>
+
+
+
+
+<div class="row hidden-print">
+	<div class="col-sm-9 col-sm-push-3 nopadding">
+        
+    <div class="row nomargin">
+        <div class="col-sm-12">
+            <h2>
+                Similar jobs
+            </h2>
+        </div>
+    </div>
+
+    
+            
+<!-- JobResultItemView.ascx -->
+<section class="job-item">
+    <div class="job-body ">
+		  <div class="row nomargin">
+				<div class="col-sm-12">
+
+		          <div class="row ">
+            <div class="col-sm-9 ">
+                <h2><a class="search-link underline visited" href="https://www.workindenmark.dk/job/6608844/Communicator">Communicator<small class="visited-text"> &nbsp;</small></a></h2>
+                <p><b>...</b>Marketing is a corporate function within <span class="max">Product</span> Line <span class="max">Sales</span> &amp; Marketing. You will join a team<b>...</b>Renewable Energy has a presence in more than 90 <span class="max">countries</span> and a team of 27,000 employees worldwide<b>...</b></p>
+                <p>
+                    Created: <time datetime="2018-06-07">June 07, 2018</time>
+                    <br>
+                    <strong>Application date: As soon as possible</strong></p>
+            </div>
+            <div class="col-sm-3 ">
+                <div class="dkmap-holder">
+                    <img src="./View job _ Workindenmark_files/danmark.png">
+                    <div class="spot-centraldenmarkregion"></div>
+                </div>
+                
+            </div>
+        </div>
+
+				</div>
+		  </div>
+    </div>
+    <div class="data-list">
+		  <div class="row nomargin">
+				<div class="col-sm-12">
+					 <ul class="list-inline">
+						  <li>Work area: Brande</li>
+						  <li>Working hours: Full time (37 hours)</li>
+						  <li>Job type: Limited period</li>
+					 </ul>
+				</div>
+		  </div>
+    </div>
+</section>
+<!-- /JobResultItemView.ascx -->
+        
+            
+<!-- JobResultItemView.ascx -->
+<section class="job-item">
+    <div class="job-body ">
+		  <div class="row nomargin">
+				<div class="col-sm-12">
+
+		          <div class="row ">
+            <div class="col-sm-9 ">
+                <h2><a class="search-link underline visited" href="https://www.workindenmark.dk/job/6588750/Security-span-class-max-Product-span-Professional-Consultant-for-Identity-Governance">Security <span class="max">Product</span> Professional Consultant for Identity Governance<small class="visited-text"> &nbsp;</small></a></h2>
+                <p><b>...</b>difference.&nbsp; Consultants on the <span class="max">Product</span> Professional Services team are <span class="max">responsible</span> for design<b>...</b>plus.
+Knowledge of GDPR is a plus
+
+<span class="max">Country</span>/RegionDenmark
+State / Province
+MULTIPLE
+City / Township<b>...</b></p>
+                <p>
+                    Created: <time datetime="2018-03-26">March 26, 2018</time>
+                    <br>
+                    <strong>Application date: As soon as possible</strong></p>
+            </div>
+            <div class="col-sm-3 ">
+                <div class="dkmap-holder">
+                    <img src="./View job _ Workindenmark_files/danmark.png">
+                    <div class="spot-capitalregionofdenmark"></div>
+                </div>
+                
+            </div>
+        </div>
+
+				</div>
+		  </div>
+    </div>
+    <div class="data-list">
+		  <div class="row nomargin">
+				<div class="col-sm-12">
+					 <ul class="list-inline">
+						  <li>Work area: Holte</li>
+						  <li>Working hours: Full time (37 hours)</li>
+						  <li>Job type: Regular position</li>
+					 </ul>
+				</div>
+		  </div>
+    </div>
+</section>
+<!-- /JobResultItemView.ascx -->
+        
+            
+<!-- JobResultItemView.ascx -->
+<section class="job-item">
+    <div class="job-body ">
+		  <div class="row nomargin">
+				<div class="col-sm-12">
+
+		          <div class="row ">
+            <div class="col-sm-9 ">
+                <h2><a class="search-link underline visited" href="https://www.workindenmark.dk/job/6699241/SCADA-Specialist-Manager">SCADA Specialist Manager<small class="visited-text"> &nbsp;</small></a></h2>
+                <p><b>...</b>with the <span class="max">product</span> development departments. Maintenance, software training and other after <span class="max">sales</span><b>...</b>Renewable Energy has a presence in more than 90 <span class="max">countries</span> and a team of 25,000 employees worldwide<b>...</b></p>
+                <p>
+                    Created: <time datetime="2018-06-21">June 21, 2018</time>
+                    <br>
+                    <strong>Application date: <time datetime="2018-08-15">August 15, 2018</time></strong></p>
+            </div>
+            <div class="col-sm-3 ">
+                <div class="dkmap-holder">
+                    <img src="./View job _ Workindenmark_files/danmark.png">
+                    <div class="spot-centraldenmarkregion"></div>
+                </div>
+                
+            </div>
+        </div>
+
+				</div>
+		  </div>
+    </div>
+    <div class="data-list">
+		  <div class="row nomargin">
+				<div class="col-sm-12">
+					 <ul class="list-inline">
+						  <li>Work area: Brande</li>
+						  <li>Working hours: Full time (37 hours)</li>
+						  <li>Job type: Regular position</li>
+					 </ul>
+				</div>
+		  </div>
+    </div>
+</section>
+<!-- /JobResultItemView.ascx -->
+        
+            
+<!-- JobResultItemView.ascx -->
+<section class="job-item">
+    <div class="job-body ">
+		  <div class="row nomargin">
+				<div class="col-sm-12">
+
+		          <div class="row ">
+            <div class="col-sm-9 ">
+                <h2><a class="search-link underline visited" href="https://www.workindenmark.dk/job/6748638/Sr-Program-Manager-Director">Sr. Program Manager Director<small class="visited-text"> &nbsp;</small></a></h2>
+                <p><b>...</b>manage relationships with internal teams (eg <span class="max">Product</span> Groups), enterprise customers, and partners to<b>...</b>part of an integrated team <span class="max">responsible</span> for: 
+ 
+ Supporting pre-<span class="max">sales</span> activities to help secure our<b>...</b></p>
+                <p>
+                    Created: <time datetime="2018-08-01">August 01, 2018</time>
+                    <br>
+                    <strong>Application date: <time datetime="2018-09-25">September 25, 2018</time></strong></p>
+            </div>
+            <div class="col-sm-3 ">
+                <div class="dkmap-holder">
+                    <img src="./View job _ Workindenmark_files/danmark.png">
+                    <div class="spot-capitalregionofdenmark"></div>
+                </div>
+                
+            </div>
+        </div>
+
+				</div>
+		  </div>
+    </div>
+    <div class="data-list">
+		  <div class="row nomargin">
+				<div class="col-sm-12">
+					 <ul class="list-inline">
+						  <li>Work area: Kgs. Lyngby</li>
+						  <li>Working hours: Full time (37 hours)</li>
+						  <li>Job type: Regular position</li>
+					 </ul>
+				</div>
+		  </div>
+    </div>
+</section>
+<!-- /JobResultItemView.ascx -->
+        
+
+    </div>
+</div>
+
+<!-- /JobViewJobnet.ascx -->
+
+
+<div id="scphpage_0_scphcontent_1_aSideArticleBoxes" class="row aside">
+    
+</div>
+	</div>
+</div>
+<!-- /Row_12.ascx -->
+                </main>
+
+                <footer>
+                    
+                        
+
+<!-- footer.ascx -->
+<div class="row row-black hidden-print footer">
+
+    <div class="col-sm-12">
+        <div class="row">
+	        <div class="col-sm-3 col-md-3 col-lg-3">
+				<nav class="nav footer__nav">
+                    
+                            
+                                                                                    
+						        
+                            
+
+                            
+                                    <a class="footer__link" href="https://www.workindenmark.dk/About-Workindenmark">
+                                        About
+                                </a>
+                            
+					        
+                        
+                            
+                                                                                    
+						        
+                            
+
+                            
+                                    <a class="footer__link" href="https://www.workindenmark.dk/About-Workindenmark/Contact">
+                                        Contact
+                                </a>
+                            
+					        
+                        
+
+				</nav>
+            </div>
+
+			<div class="col-sm-3 col-md-3 col-lg-3">
+    		    
+				 
+                        <nav class="nav footer__nav">
+                    
+                            
+                                                                                    
+						        
+                            
+
+                            
+                                    <a class="footer__link" href="https://www.workindenmark.dk/About-Workindenmark/Publications">
+                                        Publications
+                                </a>
+                            
+					        
+                        
+				            
+	<a class="footer__link" href="https://www.workindenmark.dk/job/6755865/COUNTRY-SALES-PRODUCT-RESPONSIBLE?showTranslate=true">Chose language</a>
+
+                        </nav>
+                    
+
+            </div>
+
+			<div class="col-sm-6 col-md-6 col-lg-6">
+				<nav class="nav footer__nav">
+					
+                    
+                            
+                                                                                    
+						        
+                            
+                                <a class="footer__link" href="https://ec.europa.eu/eures/public/en/chat-with-eures-advisers?lang=da&amp;app=2.5.1p2-build-0&amp;pageCode=chat-with-eures-advisers">
+                                    <span class="svg-icon">
+                                        Chat with us Friday 10:00 -13:00 (CET)
+							            <svg class="svg-icon__svg">
+								            <use xlink:href="#icon_chat"></use>
+							            </svg>
+						            </span>
+                                </a>
+                            
+
+                            
+					        
+                        
+                            
+                                                                                    
+						        
+                            
+                                <a class="footer__link" href="https://dk.linkedin.com/company/workindenmark">
+                                    <span class="svg-icon">
+                                        LinkedIn - for employers in Danish
+							            <svg class="svg-icon__svg">
+								            <use xlink:href="#icon_linkedin"></use>
+							            </svg>
+						            </span>
+                                </a>
+                            
+
+                            
+					        
+                        
+                            
+                                                                                    
+						        
+                            
+                                <a class="footer__link" href="https://da-dk.facebook.com/Workindenmark-325852844038/">
+                                    <span class="svg-icon">
+                                        Facebook - for jobseekers in English
+							            <svg class="svg-icon__svg">
+								            <use xlink:href="#icon_facebook"></use>
+							            </svg>
+						            </span>
+                                </a>
+                            
+
+                            
+					        
+                        
+
+				</nav>
+            </div>
+	    </div>
+    </div>
+		
+	<div class="col-sm-12">
+		<div class="row">
+			<div class="col-sm-12 icon-container">
+
+				<a class="icon-container__item" href="http://star.dk/" target="_blank">
+					<img src="./View job _ Workindenmark_files/ams.gif" alt="Styrelsen for Arbejdsmarked og Rekruttering">
+				</a>
+					
+				<a class="icon-container__item" href="http://www.eures.dk/" target="_blank">
+					<img src="./View job _ Workindenmark_files/eures.gif" alt="Eures">
+				</a>
+					
+				<img class="icon-container__item" src="./View job _ Workindenmark_files/euro_social_fund.gif" alt="EU Social Fund">
+			</div>
+		</div>
+	</div>
+
+</div>
+<!-- footer.ascx -->
+
+                    
+                                        
+                </footer>
+            </div>
+            <!-- /.container -->
+            <!-- .dknow-container begins -->
+            <div id="dknow-container" class="hidden-print hidden-xs" style="display: none;">
+                
+                <script>
+                    var instagramTag = 'visitdenmark';
+                </script>
+                
+                <button type="button" id="dknow-btn">Denmark right now</button>
+                <!-- Instagram imageholding div="dknow" (Instagram images is rendered here via Instafeed.js ) -->
+                <div id="dknow">
+                    <!-- Overlay holding closing-, disclaimer-,text-slider- and twitter-feed-squares -->
+                    <div id="overlay">
+                        <div class="thumb close-dknow">
+                            <p>
+                                <span>X</span>
+                                Go back to the site
+                            </p>
+                        </div>
+                        <!-- Disclaimer holding static text -->
+                        <div class="disclaimer">
+                            <p>This page is not a part of Work In Denmark
+It's just a part of Denmark as it is - right now.</p>
+                        </div>
+                        <!-- Twitter feed is renderes width inline js here -->
+                        <div class="twitter-feed">
+                            <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="twitter-timeline twitter-timeline-rendered" data-widget-id="483918076895694849" title="Twitter Timeline" style="position: static; visibility: visible; display: inline-block; width: 520px; height: 0px; padding: 0px; border: none; max-width: 100%; min-width: 180px; margin-top: 0px; margin-bottom: 0px;" src="./View job _ Workindenmark_files/saved_resource.html"></iframe>
+                            <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+                        </div>
+                        <!-- Text slider function: Engine.slider.setup() - This function is called the first time Engine.dknow.setup() is called -->
+                        <div class="text-slider">
+                            <div class="slides">
+                                <div>
+                                    <h3>Trust the Danes!
+That is what makes them happy</h3>
+                                </div>
+                                <div>
+                                    <h3>Hug the Danes!
+That is what makes them happy</h3>
+                                </div>
+                                <div>
+                                    <h3>Work in Denmark!
+That makes us very happy</h3>
+                                </div>
+                            </div>
+                            <div class="indicators">
+                            </div>
+                        </div>
+                        <!-- div ment for loading more (older) instagram images (does nothing yet) -->
+                        <div class="more-dknow"></div>
+                    </div>
+                </div>
+                <!-- /#dknow (Instagram imageholder ends) -->
+            </div>
+            <!-- /.dknow-container ends -->
+        </div><!-- /.page -->
+    
+<script type="text/javascript">
+//<![CDATA[
+var Page_Validators =  new Array(document.getElementById("Login_ctl01"), document.getElementById("Login_ctl03"));
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+var Login_ctl01 = document.all ? document.all["Login_ctl01"] : document.getElementById("Login_ctl01");
+Login_ctl01.controltovalidate = "uiTxtUserName";
+Login_ctl01.display = "Dynamic";
+Login_ctl01.validationGroup = "LoginServerValidators";
+Login_ctl01.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+Login_ctl01.initialvalue = "";
+var Login_ctl03 = document.all ? document.all["Login_ctl03"] : document.getElementById("Login_ctl03");
+Login_ctl03.controltovalidate = "uiTxtPassword";
+Login_ctl03.display = "Dynamic";
+Login_ctl03.validationGroup = "LoginServerValidators";
+Login_ctl03.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+Login_ctl03.initialvalue = "";
+//]]>
+</script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+        
+document.getElementById('Login_ctl01').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('Login_ctl01'));
+}
+
+document.getElementById('Login_ctl03').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('Login_ctl03'));
+}
+//]]>
+</script>
+</form>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    
+
+
+    <script src="./View job _ Workindenmark_files/main.min.js.download"></script>
+
+    <!-- Only for testing:-->
+    
+
+    <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WWBBKQ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WWBBKQ');</script>
+<!-- End Google Tag Manager -->
+
+    <script id="CookieConsent" src="./View job _ Workindenmark_files/uc.js.download" data-cbid="8a5644cf-3add-4582-9cf4-eebdb9330cf9" type="text/javascript"></script><script type="text/javascript" async="" id="consent-file" src="./View job _ Workindenmark_files/default.js.download" charset="UTF-8"></script>
+
+	
+	<script src="./View job _ Workindenmark_files/raygun.min.js.download"></script>
+	<script>
+	    Raygun
+            .init('aiLzOOuNdbUvw+bH+vYF6g==', {
+                allowInsecureSubmissions: true,
+                ignoreAjaxAbort: true,
+                ignoreAjaxError: false,
+
+                debugMode: false,
+                ignore3rdPartyErrors: true,
+                excludedUserAgents: ['Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)']
+            })
+            .attach();
+	</script>
+
+
+
+
+<script>var showDetailsButton = true;
+
+var cookieBannerSliderPos = 0;
+var cookieBannerFaderPos = 0;
+
+function cookieBannerSlideDown() {
+    if ((!showDetailsButton) && (cookieBannerSliderPos==0))
+    {
+        var cookiedetailsbutton = document.getElementById("CookieInformationDialogBodyButtonDetails");
+        cookiedetailsbutton.style.display='none';
+    }
+    var cookiebanner = document.getElementById("CookieInformationDialog");
+    var dialogHeight = parseInt(cookiebanner.offsetHeight);
+    cookiebanner.style.top = (cookieBannerSliderPos - dialogHeight) + "px";
+    cookieBannerSliderPos += 4;
+    if (cookieBannerSliderPos < dialogHeight) {
+        setTimeout(function () { cookieBannerSlideDown() }, 1)
+    }
+    else {
+        cookieBannerSliderPos = 0;
+    }
+}
+
+function cookieBannerSlideUp() {
+    if ((!showDetailsButton) && (cookieBannerSliderPos==0))
+    {
+        var cookiedetailsbutton = document.getElementById("CookieInformationDialogBodyButtonDetails");
+        cookiedetailsbutton.style.display='none';
+    }
+    var cookiebanner = document.getElementById("CookieInformationDialog");
+    var dialogHeight = parseInt(cookiebanner.offsetHeight);
+    var w = window, d = document, e = d.documentElement, g = d.getElementsByTagName('body')[0];
+    var viewportHeight = w.innerHeight || e.clientHeight || g.clientHeight;
+    cookiebanner.style.top = (viewportHeight - cookieBannerSliderPos) + "px";
+    cookieBannerSliderPos += 4;
+    if (cookieBannerSliderPos < dialogHeight) {
+        setTimeout(function () { cookieBannerSlideUp() }, 1)
+    }
+    else {
+        cookieBannerSliderPos = 0;
+    }
+}
+
+function cookieBannerFadeOut() {
+    var cookiebanner = document.getElementById("CookieInformationDialog");
+    if (cookieBannerFaderPos < 0) { cookieBannerFaderPos = 0; }
+    cookiebanner.style.opacity = (cookieBannerFaderPos) / 100;
+    cookiebanner.style.filter = "alpha(opacity=" + (cookieBannerFaderPos) + ")";
+    cookieBannerFaderPos -= 5;
+    if (cookieBannerFaderPos < 0) { cookieBannerFaderPos = 0; }
+    if (cookieBannerFaderPos > 0) {
+        setTimeout(function () { cookieBannerFadeOut() }, 1);
+    }
+    else {
+        cookiebanner.style.display = "none";
+        cookieBannerFaderPos = 100;
+    }
+}
+
+function toggleCookiePanelDetails() {
+    var detailsPane = document.getElementById("CookieInformationDialogDetail");
+    var toggleLink = document.getElementById("CookieInformationDialogBodyButtonDetails"); 
+     if (detailsPane) {
+        if (detailsPane.style.display == "block") {
+            cookieElementRemoveClass(toggleLink, "CookieInformationDialogBodyLinkExpanded");
+            var AcceptButton = document.getElementById("CookieInformationDialogBodyButtonAccept");
+            detailsPane.style.display = "none";
+            if (typeof (CookieConsentDialog) === 'object') {toggleLink.innerHTML = CookieConsentDialog.showDetailsText}else{toggleLink.innerHTML = CookiebotDemoDialog.showDetailsText};
+            AcceptButton.focus();
+        }
+        else {
+            if (typeof (CookieConsentDialog) === 'object') {toggleLink.innerHTML = CookieConsentDialog.hideDetailsText}else{toggleLink.innerHTML = CookiebotDemoDialog.hideDetailsText}
+            cookieElementAddClass(toggleLink, "CookieInformationDialogBodyLinkExpanded");
+            detailsPane.style.display = "block";
+            toggleLink.blur();
+        }
+    }
+    if (detailsPane.style.display == "block") {
+        var cookieTypeTabWrapper = document.getElementById("CookieInformationDialogDetailBodyContentCookieContainerNecessary");
+        cookieTypeTabWrapper.style.borderTop = "0px";
+    }
+    var cookiebanner = document.getElementById("CookieInformationDialog");
+    if (parseInt(cookiebanner.style.top) > 0)
+    {
+        var w = window, d = document, e = d.documentElement, g = d.getElementsByTagName('body')[0];
+        var viewportHeight = w.innerHeight || e.clientHeight || g.clientHeight;
+        var dialogHeight = parseInt(cookiebanner.offsetHeight);
+        cookiebanner.style.top = (viewportHeight - dialogHeight) + "px";
+    }
+}
+
+function showCookiePanelDetailPane(paneID) {
+    var paneIDs = ["CookieInformationDialogDetailBodyContentTextAbout", "CookieInformationDialogDetailBodyContentTextOverview"];
+    for (var i = 0; i < paneIDs.length; i++) {
+        var tempPane = document.getElementById(paneIDs[i]);
+        tempPane.style.display = "none";
+    }
+    var tabIDs = ["CookieInformationDialogDetailBodyContentTabsAbout", "CookieInformationDialogDetailBodyContentTabsOverview"];
+    for (var i = 0; i < tabIDs.length; i++) {
+        var tempTab = document.getElementById(tabIDs[i]);
+        tempTab.className = "CookieInformationDialogDetailBodyContentTab CookieInformationDialogDetailBodyContentTabsItem";
+    }
+    var detailsTab;
+    var detailsPane;
+    switch (paneID.toLowerCase()) {
+        case "overview":
+            var detailsTab = document.getElementById("CookieInformationDialogDetailBodyContentTabsOverview");
+            var detailsPane = document.getElementById("CookieInformationDialogDetailBodyContentTextOverview");
+            break;
+        default:
+            var detailsTab = document.getElementById("CookieInformationDialogDetailBodyContentTabsAbout");
+            var detailsPane = document.getElementById("CookieInformationDialogDetailBodyContentTextAbout");
+            break;
+    }
+    detailsTab.className = "CookieInformationDialogDetailBodyContentTab CookieInformationDialogDetailBodyContentTabsItemSelected";
+    detailsPane.style.display = "block";
+}
+
+function showCookieContainerDetailPane(cookiePaneID) {
+    var paneIDs = ["CookieInformationDialogDetailBodyContentCookieTabsNecessary", "CookieInformationDialogDetailBodyContentCookieTabsPreference", "CookieInformationDialogDetailBodyContentCookieTabsStatistics", "CookieInformationDialogDetailBodyContentCookieTabsAdvertising", "CookieInformationDialogDetailBodyContentCookieTabsUnclassified"];
+    for (var i = 0; i < paneIDs.length; i++) {
+        var tempPane = document.getElementById(paneIDs[i]);
+        tempPane.style.display = "none";
+    }
+    var tabIDs = ["CookieInformationDialogDetailBodyContentCookieContainerNecessary", "CookieInformationDialogDetailBodyContentCookieContainerPreference", "CookieInformationDialogDetailBodyContentCookieContainerStatistics", "CookieInformationDialogDetailBodyContentCookieContainerAdvertising", "CookieInformationDialogDetailBodyContentCookieContainerUnclassified"];
+    for (var i = 0; i < tabIDs.length; i++) {
+        var tempTab = document.getElementById(tabIDs[i]);
+        tempTab.className = "CookieInformationDialogDetailBodyContentCookieContainerTypes";
+    }
+    var detailsTab;
+    var detailsPane;
+    switch (cookiePaneID.toLowerCase()) {
+        case "preference":
+            var detailsTab = document.getElementById("CookieInformationDialogDetailBodyContentCookieContainerPreference");
+            var detailsPane = document.getElementById("CookieInformationDialogDetailBodyContentCookieTabsPreference");
+            break;
+        case "statistics":
+            var detailsTab = document.getElementById("CookieInformationDialogDetailBodyContentCookieContainerStatistics");
+            var detailsPane = document.getElementById("CookieInformationDialogDetailBodyContentCookieTabsStatistics");
+            break;
+        case "advertising":
+            var detailsTab = document.getElementById("CookieInformationDialogDetailBodyContentCookieContainerAdvertising");
+            var detailsPane = document.getElementById("CookieInformationDialogDetailBodyContentCookieTabsAdvertising");
+            break;
+        case "unclassified":
+            var detailsTab = document.getElementById("CookieInformationDialogDetailBodyContentCookieContainerUnclassified");
+            var detailsPane = document.getElementById("CookieInformationDialogDetailBodyContentCookieTabsUnclassified");
+            break;
+        default: //"necessary" is default
+            var detailsTab = document.getElementById("CookieInformationDialogDetailBodyContentCookieContainerNecessary");
+            var detailsPane = document.getElementById("CookieInformationDialogDetailBodyContentCookieTabsNecessary");
+            break;
+    }
+    detailsTab.className = "CookieInformationDialogDetailBodyContentCookieContainerTypesSelected";
+    detailsPane.scrollIntoView(true);
+    detailsPane.style.display = "block";
+}
+
+function cookieElementHasClass(elem, cls) {
+    return elem.className.match(new RegExp('(s|^)' + cls + '(s|$)'));
+}
+
+function cookieElementAddClass(elem, cls) {
+    if (!cookieElementHasClass(elem, cls)) elem.className += " " + cls;
+}
+
+function cookieElementRemoveClass(elem, cls) {
+    if (cookieElementHasClass(elem, cls)) {
+        var reg = new RegExp('(s|^)' + cls + '(s|$)');
+        elem.className = elem.className.replace(reg, ' ');
+    }
+}</script><iframe scrolling="no" frameborder="0" allowtransparency="true" src="./View job _ Workindenmark_files/widget_iframe.4a8202e5fcbfb5ba8d36683841f4d020.html" title="Twitter settings iframe" style="display: none;"></iframe><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;" title="Twitter analytics iframe" src="./View job _ Workindenmark_files/saved_resource(1).html"></iframe></body></html>

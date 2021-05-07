@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js"  data-pagetype="jobview">
+<!--<![endif]-->
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+    <title>
+	View job | Workindenmark
+</title>
+        <link href="/static/css/v-636531643292209382/main.min.css" rel="stylesheet">
+
+        
+        <link rel="shortcut icon" href="/static/favicon/favicon.ico">
+        <link rel="apple-touch-icon" href="/static/favicon/apple-touch-icon-57x57.png" sizes="57x57">
+        <link rel="apple-touch-icon" href="/static/favicon/apple-touch-icon-114x114.png" sizes="114x114">
+        <link rel="apple-touch-icon" href="/static/favicon/apple-touch-icon-72x72.png" sizes="72x72">
+        <link rel="apple-touch-icon" href="/static/favicon/apple-touch-icon-144x144.png" sizes="144x144">
+        <link rel="apple-touch-icon" href="/static/favicon/apple-touch-icon-60x60.png" sizes="60x60">
+        <link rel="apple-touch-icon" href="/static/favicon/apple-touch-icon-120x120.png" sizes="120x120">
+        <link rel="apple-touch-icon" href="/static/favicon/apple-touch-icon-76x76.png" sizes="76x76">
+        <link rel="apple-touch-icon" href="/static/favicon/apple-touch-icon-152x152.png" sizes="152x152">
+        <meta name="apple-mobile-web-app-title" content="WIDK">
+        <link rel="icon" type="image/png" href="/static/favicon/favicon-192x192.png" sizes="192x192">
+        <link rel="icon" type="image/png" href="/static/favicon/favicon-160x160.png" sizes="160x160">
+        <link rel="icon" type="image/png" href="/static/favicon/favicon-96x96.png" sizes="96x96">
+        <link rel="icon" type="image/png" href="/static/favicon/favicon-16x16.png" sizes="16x16">
+        <link rel="icon" type="image/png" href="/static/favicon/favicon-32x32.png" sizes="32x32">
+        <meta name="msapplication-TileColor" content="#499ac1">
+        <meta name="msapplication-TileImage" content="/static/favicon/mstile-144x144.png">
+        <meta name="msapplication-config" content="/static/favicon/browserconfig.xml">
+        <meta name="application-name" content="WIDK">
+        <meta name="google-site-verification" content="G6zbwh66JWdnMfCmolwrWbyJ9RKF59wrEpk1yB4Xzi4" />
+
+        <!--[if lt IE 9]>
+            <script src="/static/js/v-636531643293635214/legacy.min.js"></script>
+        <![endif]-->
+
+    
+        <!--[if lt IE 9]>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/static/js/vendor/v-635797155267525032/jquery-1.11.1.min.js"><\/script>')</script>
+        <![endif]-->
+        <!--[if gte IE 9]><!-->
+        <script src="//code.jquery.com/jquery-2.1.1.js"></script>
+        <script>window.jQuery || document.write('<script src="/static/js/vendor/v-504911268000000000/jquery-2.1.1.js"><\/script>')</script>
+        <!--<![endif]-->
+    </head>
+<body class="">
+    <!--[if lt IE 9]>
+          <div class="alert alert-danger" role="alert">
+                You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
+          </div>
+    <![endif]-->
+
+    <div class="visuallyhidden">
+        <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg xmlns="http://www.w3.org/2000/svg"><symbol id="icon_chat" viewBox="0 0 25 25"><path d="M12.5 0C6.149 0 1 5.114 1 11.422c0 3.038 1.202 5.791 3.149 7.837L4.128 25l4.792-2.728c1.127.367 2.329.572 3.579.572 6.351 0 11.5-5.114 11.5-11.422C24 5.114 18.851 0 12.5 0zM6.961 13.426c-.826 0-1.495-.674-1.495-1.505s.669-1.505 1.495-1.505 1.495.674 1.495 1.505-.669 1.505-1.495 1.505zm5.539 0c-.826 0-1.495-.674-1.495-1.505s.669-1.505 1.495-1.505c.826 0 1.495.674 1.495 1.505s-.669 1.505-1.495 1.505zm5.539 0c-.826 0-1.495-.674-1.495-1.505s.669-1.505 1.495-1.505 1.495.674 1.495 1.505-.669 1.505-1.495 1.505z"/></symbol><symbol id="icon_facebook" viewBox="0 0 25 25"><path d="M12.5 0C5.594 0 0 5.594 0 12.5S5.594 25 12.5 25 25 19.406 25 12.5 19.406 0 12.5 0zm2.675 9.119h-1.288c-.131 0-.25.05-.356.144-.106.087-.156.175-.156.262v1.181h1.8l-.062.725-.069.619-.087.581h-1.594v5.181h-2.375v-5.181H9.831V10.7h1.156V9.238c0-.031 0-.087.006-.156s.012-.163.019-.269a1.62 1.62 0 0 1 .25-.688c.15-.244.387-.463.712-.65.331-.188.812-.287 1.438-.287h1.756v1.931h.007z"/></symbol><symbol id="icon_linkedin" viewBox="0 0 25 25"><path d="M12.5 0C5.594 0 0 5.594 0 12.5S5.594 25 12.5 25 25 19.406 25 12.5 19.406 0 12.5 0zM8.921 17.625H6.693V9.807H8.92v7.818zm-.186-8.813c-.253.247-.562.37-.928.37s-.676-.124-.928-.37a1.22 1.22 0 0 1-.379-.908c0-.358.126-.662.379-.908.253-.247.562-.371.928-.371s.676.124.928.371c.253.247.379.55.379.908s-.126.661-.379.908zm9.765 8.813h-2.228v-4.417c0-1.201-.451-1.802-1.351-1.802-.445 0-.835.158-1.166.472-.332.315-.498.778-.498 1.388v4.359H11.03V9.807h2.227v.872c.673-.669 1.431-1.003 2.272-1.003.842 0 1.547.29 2.117.872.569.582.854 1.357.854 2.325v4.752z"/></symbol><symbol id="icon_upload" viewBox="0 0 25 25"><path d="M12.5 0C5.596 0 0 5.596 0 12.5S5.596 25 12.5 25 25 19.404 25 12.5 19.404 0 12.5 0zm0 3.757l3.91 4.4h-2.52v6.89h-2.78v-6.89H8.59l3.91-4.4zm-6.01 13.43h12.02v2.637H6.49v-2.637z"/></symbol></svg>
+    </div>
+
+    <form method="post" action="/job/6806252/Job-agent" onsubmit="javascript:return WebForm_OnSubmit();" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTQ3NDExODU3MQ8WAh4TVmFsaWRhdGVSZXF1ZXN0TW9kZQIBFgRmD2QWAgIBD2QWAmYPZBYCZg8WAh4EVGV4dAUYVmlldyBqb2IgfCBXb3JraW5kZW5tYXJrZAIBEGRkFg4CAw9kFgJmD2QWBAIHDw8WAh4LTmF2aWdhdGVVcmwFHS9Qcm9maWxlL0ZvcmdvdC15b3VyLXBhc3N3b3JkZGQCCA8PFgIfAgURL1Byb2ZpbGUvTmV3LXVzZXJkZAILDxYCHgdWaXNpYmxlZ2QCDw9kFgJmD2QWAmYPZBYCAgEPZBYCAgEPZBYCZg9kFgJmD2QWAmYPZBYCAgEPZBYCAgQPZBYCZg9kFgICAw8WAh4LXyFJdGVtQ291bnQCBBYIZg9kFgICAQ9kFgZmDxUBAGQCAQ8VAQBkAgIPFQEHIGhpZGRlbmQCAQ9kFgICAQ9kFgZmDxUBAGQCAQ8VAQBkAgIPFQEHIGhpZGRlbmQCAg9kFgICAQ9kFgZmDxUBAGQCAQ8VAQBkAgIPFQEHIGhpZGRlbmQCAw9kFgICAQ9kFgZmDxUBAGQCAQ8VAQBkAgIPFQEHIGhpZGRlbmQCFQ8WAh8BBV1UaGlzIHBhZ2UgaXMgbm90IGEgcGFydCBvZiBXb3JrIEluIERlbm1hcmsNCkl0J3MganVzdCBhIHBhcnQgb2YgRGVubWFyayBhcyBpdCBpcyAtIHJpZ2h0IG5vdy5kAhcPFgIfAQUvVHJ1c3QgdGhlIERhbmVzIQ0KVGhhdCBpcyB3aGF0IG1ha2VzIHRoZW0gaGFwcHlkAhkPFgIfAQUtSHVnIHRoZSBEYW5lcyENClRoYXQgaXMgd2hhdCBtYWtlcyB0aGVtIGhhcHB5ZAIbDxYCHwEFKldvcmsgaW4gRGVubWFyayENClRoYXQgbWFrZXMgdXMgdmVyeSBoYXBweWRkCsbGh1WCAc6miu+0212EAiv0fTDGqVbYubVwXLYnybM=" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=LlQziUEHmjaKhfDnJ7oIO37Pk8ozob9gVcnpv7lqfIyFOEmH5NIT-vfABkwt8JmVH8ligM-Gm8APxbqRES84vIuIkYaWYmwaFnqGiDcpCKA1&amp;t=635703524960000000" type="text/javascript"></script>
+
+
+<script src="/ScriptResource.axd?d=o4PG-OXjpuykoqx6RDitFV27HHZXxGIOUH3LJx-gT8D8zYZzhUS751vV99rAUUkKizsP3LTEpASsPjuxnDZFWd-ZIiHE4O3rTyBaGLHLfbZTjm3kyOl8EMfD64hegL1xpJAQ45aTa4QY_KzJqPe7Dal3o17fZ8KSigL_naMDTyo1&amp;t=4b268160" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=U9TaeiuGyrw7GB7AfNTKzi0uGjXKZ8DSl4aisxto3DmipU2Vgg4QHwHycIAe63rni5yuOCx8OeEt-hrF-lcg5XY_HnjSD2Qd6A-XPjAO68WyDbhLkMq9Lp9GrNuIAI98v5ESeF1cqB9vdrJmFNwVFlCLiTGk3OLzPZRJlcQOH6Y1&amp;t=ffffffff88e65ea0" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=_CiCFj8vasjrcl9mvP5YBqwccy5fc94_2DulU4pORgwHBKXRZYJl2sCap_z5_WNmUBFHi12rLsixEdyOj5EA25gKl8yYRQCO2-1B7dwy1QCNSA-7lss1HdVs78hIBRsRanQqz__IfzpuNu79c2BFzmd6BaXJS25r52qYq2rAmcBEmuX5ckAwrGSTNcsDGiXK0&amp;t=ffffffff88e65ea0" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+return true;
+}
+//]]>
+</script>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="723DDE67" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAbzGoEQIePuVMq2FsuO3BOHP+WURbB0k3Cpwxvv7A6c7JoiJPOjGul6DSPqGD+5nGDf/vKHuMRtzAlU/sSoNgcgrvdyuxYVs2VY0dpV0wedce/wXpDZ6bcYVVsbkG2sN1mkkO0E8+8eLm1iXKZ1eyja/LehUtHGkHC6IFPFxK6SCg==" />
+</div>
+        <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('uiScriptManager', 'form1', [], [], [], 420, '');
+//]]>
+</script>
+
+        <div class="page">
+            <div class="container-fluid">
+                <!-- Login box -->
+                
+<script>
+	if (document.addEventListener) {
+		document.addEventListener("DOMContentLoaded", function (event) {
+			if (typeof memberTypeLoggedIn !== "undefined") {
+				memberTypeLoggedIn();
+			}
+		});
+	}
+</script>
+<div class="row row-white">
+	<div class="col-sm-3 col-sm-offset-9">
+		<div class="collapse userinfo-collapse">
+
+			
+				<div id="loginBox" data-default-button="#Login_uiBtnLogIn">
+
+					
+
+					<div class="form-group">
+						<label for="uiTxtUserName" class="control-label">
+							E-mail address
+						</label>
+						<input name="Login$uiTxtUserName" type="text" id="uiTxtUserName" tabindex="1" class="form-control no-validation" placeholder="Enter email" /><span id="Login_ctl01" style="display:none;">
+                                <span class="help-block help-block-error">Field required</span>
+						</span>
+					</div>
+
+					<div class="form-group">
+						<label for="uiTxtPassword" class="control-label">
+							Password
+						</label>
+						<input name="Login$uiTxtPassword" type="password" id="uiTxtPassword" tabindex="2" class="form-control no-validation" placeholder="Password" /><span id="Login_ctl03" style="display:none;">
+                        <span class="help-block help-block-error">Field required</span>
+						</span>
+					</div>
+
+					<p>
+						<a id="Login_uiLnkForgotPassword" href="/Profile/Forgot-your-password">Forgot your password?</a>
+						<br>
+						<a id="Login_uiLnkNewUser" href="/Profile/New-user">New user?</a>
+					</p>
+
+					<button onclick="if (typeof(Page_ClientValidate) == 'function') Page_ClientValidate('LoginServerValidators'); __doPostBack('Login$uiBtnLogIn','')" id="Login_uiBtnLogIn" type="button" ValidationGroup="LoginServerValidators" class="btn btn-primary btn-block" data-causesvalidation="#loginBox">
+						<span class="glyphicon glyphicon-user"></span>
+                        Log in
+					</button>
+
+					<br />
+				</div>
+			
+
+			
+		</div>
+	</div>
+</div>
+
+
+
+				<p class="visible-print-block">
+					<img src="/static/img/widk/logo/work-in-denmark.png" alt="WORK IN DENMARK">
+				</p>
+
+                <div class="visible-xs nav-touch hidden-print">
+                    <header class="row row-wide header">
+                        <div class="col-xs-5 col-ms-3 col-logo-sm">
+                            <a href="/" class="widk-logo widk-logo-sm">
+                                <img src="/static/img/widk/logo/work-in-denmark-s-57.png"
+                                    alt="WORK IN DENMARK" class="img-responsive-max">
+                            </a>
+                        </div>
+                        <div class="col-xs-7 col-ms-9">
+
+                            <div class="pull-right">
+
+                                <button type="button" class="btn btn-menu" data-toggle="collapse" data-target=".userinfo-collapse">
+                                    <span class="sr-only">Toggle user info</span>
+                                    <span class="glyphicon glyphicon-user"></span>
+                                </button>
+
+                                <button type="button" class="btn btn-menu" data-toggle="collapse" data-target=".navbar-collapse">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="glyphicon glyphicon-menu-hamburger"></span>
+                                </button>
+
+                            </div>
+                        </div>
+                    </header>
+                </div>
+                <!-- .visible-xs (Logo + radiator) -->
+
+                <div class="visible-xs hidden-print">
+                    <div class="collapse navbar-collapse">
+                        
+<!-- FullNavigation.ascx -->
+<div class="bs-sidebar hidden-print" role="complementary">
+    <ul class="nav">
+            <li>
+                        <a href="/Find-a-job" class="menu-lvl-1 nav-primary-default">
+                            Find a job
+                        </a>
+                        
+                    </li>
+
+            
+        
+            <li>
+                        <a href="/Moving-to-DK" class="menu-lvl-1 nav-primary-default">
+                            Moving to DK
+                        </a>
+                        
+                    </li>
+
+            
+        
+            <li>
+                        <a href="/Working-in-DK" class="menu-lvl-1 nav-primary-default">
+                            Working in DK
+                        </a>
+                        
+                    </li>
+
+            
+        
+            <li>
+                        <a href="/Living-in-DK" class="menu-lvl-1 nav-primary-default">
+                            Living in DK
+                        </a>
+                        
+                    </li>
+
+            
+        
+            <li>
+                        <a href="/Employer" class="menu-lvl-1 nav-primary-employer">
+                            Employers
+                        </a>
+                        
+                    </li>
+
+            
+        </ul>
+</div>
+<!-- /FullNavigation.ascx -->
+
+                    </div>
+                </div>
+
+                <!-- .navbar-collapse (Menu lvl 1+) -->
+
+                <div class="hidden-xs">
+
+                    <header class="row row-wide header">
+
+                        <div class="col-sm-8 col-md-8">
+                            
+                            <div class="header__logo">
+                                <a href="/" class="widk-logo">
+                                    <img src="/static/img/widk/logo/work-in-denmark-l.png" alt="WORK IN DENMARK" class="img-responsive-max">
+                                </a>
+                            </div>
+                            
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                            <div class="header__actions">
+                                <div class="header__search">
+                                    
+<!-- SearchBox.ascx -->
+<!-- Source: Site search top box -->
+
+<div class="input-group hidden-print searchbox-group" data-default-button="#ucSearchBox_btnSubmit">
+    <input name="ucSearchBox$txtSearch" type="text" id="ucSearchBox_txtSearch" class="form-control widk-search autocomplete" placeholder="Search the site" data-typeahead-page="/api/sitesearch/typeahead" />
+    <span class="searchbox-group__buttonwrapper">
+        <button onclick="__doPostBack('ucSearchBox$btnSubmit','')" id="ucSearchBox_btnSubmit" type="button" class="btn searchbox-group__button">
+            <span class="glyphicon glyphicon-search"></span>
+        </button>
+    </span>
+</div>
+<!-- /SearchBox.ascx -->
+
+                                </div>
+
+                                <div class="header__login">
+
+                                    <a href="#" class="btn btn-block btn-toggle-login collapse-trigger collapsed" data-toggle="collapse" data-target=".userinfo-collapse">
+                                        <span class="expanded-hidden collapsed-visible-inline">
+                                            
+                                            Log in
+                                        </span>
+                                        <span class="collapsed-hidden expanded-visible-inline">
+                                            <span class="glyphicon glyphicon-remove-circle"></span>
+                                        </span>
+                                    </a>
+   
+                                </div>
+                            </div>
+
+                        </div>
+                        
+                    </header>
+
+                    <div style="display: none" class="row row-wide row-logo-lg row-white">
+                        <div class="col-sm-9">
+                            <a href="/" class="widk-logo widk-logo-lg">
+                                <img src="/static/img/widk/logo/work-in-denmark-l.png" alt="WORK IN DENMARK" class="img-responsive-max">
+                            </a>
+                        </div>
+                        <div class="col-sm-3 hidden-print">
+                            <div class="row row-wide">
+                                <div class="col-sm-12">
+
+                                    
+
+                                    
+                                </div>
+                            </div>
+
+                            <div class="row row-wide">
+                                <div class="col-sm-12">
+
+                                    
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <!-- (Logo + Search site) -->
+
+                    <div class="row row-wide row-menu row-white hidden-print">
+                        <div class="col-md-12" id="affix-menu" data-spy="affix" data-offset-top="82" >
+                            
+<!-- MainNavigation.ascx -->
+
+		<ul class="nav nav-primary navbar-nav">
+	
+			<li>
+				
+               
+                    <a href="/Find-a-job" class="menu-lvl-1 nav-primary-default">
+					    Find a job
+				    </a>
+               
+
+                
+
+			</li>
+	
+			<li>
+				
+               
+                    <a href="/Moving-to-DK" class="menu-lvl-1 nav-primary-default">
+					    Moving to DK
+				    </a>
+               
+
+                
+
+			</li>
+	
+			<li>
+				
+               
+                    <a href="/Working-in-DK" class="menu-lvl-1 nav-primary-default">
+					    Working in DK
+				    </a>
+               
+
+                
+
+			</li>
+	
+			<li>
+				
+               
+                    <a href="/Living-in-DK" class="menu-lvl-1 nav-primary-default">
+					    Living in DK
+				    </a>
+               
+
+                
+
+			</li>
+	
+			<li>
+				
+               
+                    <a href="/Employer" class="menu-lvl-1 nav-primary-default">
+					    Employers
+				    </a>
+               
+
+                
+
+			</li>
+	
+			<li class="navbar-right">
+				
+               
+
+                
+                    <a href="/Profile/Create-profile" class="menu-lvl-1 nav-primary-action">
+                       <span class="svg-icon">
+                          Create your CV
+                          <svg class="svg-icon__svg">
+                             <use xlink:href="#icon_upload" />
+                          </svg>
+                       </span>
+                    </a>
+                
+
+			</li>
+	
+		</ul>
+	
+<!-- /MainNavigation.ascx -->
+
+
+                        </div>
+                    </div>
+                </div>
+                <!-- .hidden-xs -->
+
+
+                <main role="main">
+                    
+<!-- Row_12.ascx -->
+<div class="row row-white">
+	<div class="col-sm-12">
+		
+<!-- Administrator.Job.ListNotes.ascx -->
+
+	
+
+<!-- /Administrator.Job.ListNotes.ascx -->
+<!-- JobViewAnkiro.ascx -->
+<div id="scphpage_0_scphcontent_1_ctl00_pnlJobFound">
+	
+	<div class="row row-white">
+		<div class="col-sm-9 col-sm-push-3">
+
+			<h1 class="widk-h1-black">Job agent</h1>
+	
+			<hr class="margin" />
+
+			<div class="row">
+				<div class="col-sm-11 ">
+					<dl class="dl-justify nomargin">
+						<dt>Created</dt>
+						<dd>15/09/2018</dd>
+						<dt>Application</dt>
+						<dd>31/12/2018</dd>
+					</dl>
+				</div>
+			</div>
+
+			<hr class="margin" />
+
+			<div class="row">
+				<div class="col-sm-11">
+
+					<div class="JobPresentation">
+						JACK & JONES<br><br>MONEY MAKER FOR INTERNATIONAL SALES TEAM<br>BRANDE, DENMARK, Denmark<br><br>Apply before: 31 December 2018<br><br>Do you live and breathe for the next sale, and are you looking to kick-start your career working for an international fashion brand? Then we’ve got just the right challenge for you!  <br> <br>We are now open for applications for the JACK & JONES MONEY MAKERS 2018 program - an intense talent d...
+					</div>
+            
+					<a href="http://about.bestseller.com/jobs/job-search/money-maker-for-international-sales-team-154406">See the complete text at Bestseller A/S</a>
+            
+
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+    
+    <div class="row hidden-print">
+		<div class="col-sm-9 col-sm-push-3 nopadding">
+			
+    <div class="row nomargin">
+        <div class="col-sm-12">
+            <h2>
+                Similar jobs
+            </h2>
+        </div>
+    </div>
+
+    
+            
+<!-- JobResultItemView.ascx -->
+<section class="job-item">
+    <div class="job-body ">
+		  <div class="row nomargin">
+				<div class="col-sm-12">
+
+		          <div class="row ">
+            <div class="col-sm-9 ">
+                <h2><a class="search-link underline visited" href="/job/6749980/Commercial-employee-customer-service">Commercial employee - customer service<small class="visited-text"> &nbsp;</small></a></h2>
+                <p><b>...</b>data input, etc.) 
+ Requirements for the <span class="max">job</span>: 
+ • Previous experience in a commercial office<b>...</b>someone familiar with the differences between an <span class="max">agent</span> and a distributor, that understands sales<b>...</b></p>
+                <p>
+                    Created: <time datetime="2018-08-02">August 02, 2018</time>
+                    <br />
+                    <strong>Application date: <time datetime="2018-09-26">September 26, 2018</time></strong></p>
+            </div>
+            <div class="col-sm-3 ">
+                <div class="dkmap-holder">
+                    <img src="/static/img/widk/bg/danmark.png" />
+                    <div class="spot-capitalregionofdenmark"></div>
+                </div>
+                
+            </div>
+        </div>
+
+				</div>
+		  </div>
+    </div>
+    <div class="data-list">
+		  <div class="row nomargin">
+				<div class="col-sm-12">
+					 <ul class="list-inline">
+						  <li>Work area: København V</li>
+						  <li>Working hours: Full time (37 hours)</li>
+						  <li>Job type: Regular position</li>
+					 </ul>
+				</div>
+		  </div>
+    </div>
+</section>
+<!-- /JobResultItemView.ascx -->
+        
+            
+<!-- JobResultItemView.ascx -->
+<section class="job-item">
+    <div class="job-body ">
+		  <div class="row nomargin">
+				<div class="col-sm-12">
+
+		          <div class="row ">
+            <div class="col-sm-9 ">
+                <h2><a class="search-link underline visited" href="/job/6765008/One-Enterprise-Resource-Planning-Program">One Enterprise Resource Planning Program<small class="visited-text"> &nbsp;</small></a></h2>
+                <p><span class="max">Job</span> search Danfoss.com Sign in
+inShare
+  
+
+
+One Enterprise Resource Planning Program
+Nordborg<b>...</b>Release Consultant, Project Manager, Planner, Change <span class="max">Agent</span>, Training Consultant. For all positions<b>...</b></p>
+                <p>
+                    Created: <time datetime="2018-08-21">August 21, 2018</time>
+                    <br />
+                    <strong>Application date: As soon as possible</strong></p>
+            </div>
+            <div class="col-sm-3 ">
+                <div class="dkmap-holder">
+                    <img src="/static/img/widk/bg/danmark.png" />
+                    <div class="spot-regionofsoutherndenmark"></div>
+                </div>
+                
+            </div>
+        </div>
+
+				</div>
+		  </div>
+    </div>
+    <div class="data-list">
+		  <div class="row nomargin">
+				<div class="col-sm-12">
+					 <ul class="list-inline">
+						  <li>Work area: Nordborg</li>
+						  <li>Working hours: Full time (37 hours)</li>
+						  <li>Job type: Regular position</li>
+					 </ul>
+				</div>
+		  </div>
+    </div>
+</section>
+<!-- /JobResultItemView.ascx -->
+        
+            
+<!-- JobResultItemView.ascx -->
+<section class="job-item">
+    <div class="job-body ">
+		  <div class="row nomargin">
+				<div class="col-sm-12">
+
+		          <div class="row ">
+            <div class="col-sm-9 ">
+                <h2><a class="search-link underline visited" href="/job/6779590/Partner-Marketing-Manager">Partner Marketing Manager<small class="visited-text"> &nbsp;</small></a></h2>
+                <p> Do you understand web <span class="max">agencies</span>, how they <span class="med">work</span> and the business challenges and opportunities they face – and are you passionate for creating business values with and thru partners? If you can see the<b>...</b></p>
+                <p>
+                    Created: <time datetime="2018-08-25">August 25, 2018</time>
+                    <br />
+                    <strong>Application date: <time datetime="2018-10-19">October 19, 2018</time></strong></p>
+            </div>
+            <div class="col-sm-3 ">
+                <div class="dkmap-holder">
+                    <img src="/static/img/widk/bg/danmark.png" />
+                    <div class="spot-capitalregionofdenmark"></div>
+                </div>
+                
+            </div>
+        </div>
+
+				</div>
+		  </div>
+    </div>
+    <div class="data-list">
+		  <div class="row nomargin">
+				<div class="col-sm-12">
+					 <ul class="list-inline">
+						  <li>Work area: København K</li>
+						  <li>Working hours: Full time (37 hours)</li>
+						  <li>Job type: Regular position</li>
+					 </ul>
+				</div>
+		  </div>
+    </div>
+</section>
+<!-- /JobResultItemView.ascx -->
+        
+            
+<!-- JobResultItemView.ascx -->
+<section class="job-item">
+    <div class="job-body ">
+		  <div class="row nomargin">
+				<div class="col-sm-12">
+
+		          <div class="row ">
+            <div class="col-sm-9 ">
+                <h2><a class="search-link underline visited" href="/job/6797531/Sr-Marketing-Manager-LEGO-Digital-Games">Sr. Marketing Manager, LEGO Digital Games<small class="visited-text"> &nbsp;</small></a></h2>
+                <p><b>...</b>Support business model analysis and design 2. Plan and execute global product launches • <span class="med">Work</span> with Game Publishers, App Stores, LEGO <span class="max">Agency</span> and LEGO regional Market teams to plan and execute go-to<b>...</b></p>
+                <p>
+                    Created: <time datetime="2018-09-08">September 08, 2018</time>
+                    <br />
+                    <strong>Application date: <time datetime="2018-09-21">September 21, 2018</time></strong></p>
+            </div>
+            <div class="col-sm-3 ">
+                <div class="dkmap-holder">
+                    <img src="/static/img/widk/bg/danmark.png" />
+                    <div class="spot-regionofsoutherndenmark"></div>
+                </div>
+                
+            </div>
+        </div>
+
+				</div>
+		  </div>
+    </div>
+    <div class="data-list">
+		  <div class="row nomargin">
+				<div class="col-sm-12">
+					 <ul class="list-inline">
+						  <li>Work area: Billund</li>
+						  <li>Working hours: Full time (37 hours)</li>
+						  <li>Job type: Regular position</li>
+					 </ul>
+				</div>
+		  </div>
+    </div>
+</section>
+<!-- /JobResultItemView.ascx -->
+        
+
+		</div>
+    </div>
+
+
+</div>
+
+
+<div id="scphpage_0_scphcontent_1_ctl00_aSideArticleBoxes" class="row aside">
+    
+</div>
+<!-- !JobViewAnkiro.ascx -->
+
+<div id="scphpage_0_scphcontent_1_aSideArticleBoxes" class="row aside">
+    
+</div>
+	</div>
+</div>
+<!-- /Row_12.ascx -->
+                </main>
+
+                <footer>
+                    
+                        
+
+<!-- footer.ascx -->
+<div class="row row-black hidden-print footer">
+
+    <div class="col-sm-12">
+        <div class="row">
+	        <div class="col-sm-3 col-md-3 col-lg-3">
+				<nav class="nav footer__nav">
+                    
+                            
+                                                                                    
+						        
+                            
+
+                            
+                                    <a class="footer__link" href="/About-Workindenmark">
+                                        About
+                                </a>
+                            
+					        
+                        
+                            
+                                                                                    
+						        
+                            
+
+                            
+                                    <a class="footer__link" href="/About-Workindenmark/Contact">
+                                        Contact
+                                </a>
+                            
+					        
+                        
+                            
+                                                                                    
+						        
+                            
+
+                            
+                                    <a class="footer__link" href="/About-Workindenmark/Privacy-Policy">
+                                        Privacy Policy
+                                </a>
+                            
+					        
+                        
+
+				</nav>
+            </div>
+
+			<div class="col-sm-3 col-md-3 col-lg-3">
+    		    
+				 
+                        <nav class="nav footer__nav">
+                    
+                            
+                                                                                    
+						        
+                            
+
+                            
+                                    <a class="footer__link" href="/About-Workindenmark/Publications">
+                                        Publications
+                                </a>
+                            
+					        
+                        
+				            
+	<a class="footer__link" href="https://www.workindenmark.dk:443/job/6806252/Job-agent?showTranslate=true">Chose language</a>
+
+                        </nav>
+                    
+
+            </div>
+
+			<div class="col-sm-6 col-md-6 col-lg-6">
+				<nav class="nav footer__nav">
+					
+                    
+                            
+                                                                                    
+						        
+                            
+                                <a class="footer__link" href="https://ec.europa.eu/eures/public/en/chat-with-eures-advisers?lang=da&app=2.5.1p2-build-0&pageCode=chat-with-eures-advisers">
+                                    <span class="svg-icon">
+                                        Chat with us Friday 10:00 -13:00 (CET)
+							            <svg class="svg-icon__svg">
+								            <use xlink:href="#icon_chat" />
+							            </svg>
+						            </span>
+                                </a>
+                            
+
+                            
+					        
+                        
+                            
+                                                                                    
+						        
+                            
+                                <a class="footer__link" href="https://dk.linkedin.com/company/workindenmark">
+                                    <span class="svg-icon">
+                                        LinkedIn - for employers in Danish
+							            <svg class="svg-icon__svg">
+								            <use xlink:href="#icon_linkedin" />
+							            </svg>
+						            </span>
+                                </a>
+                            
+
+                            
+					        
+                        
+                            
+                                                                                    
+						        
+                            
+                                <a class="footer__link" href="https://da-dk.facebook.com/Workindenmark-325852844038/">
+                                    <span class="svg-icon">
+                                        Facebook - for jobseekers in English
+							            <svg class="svg-icon__svg">
+								            <use xlink:href="#icon_facebook" />
+							            </svg>
+						            </span>
+                                </a>
+                            
+
+                            
+					        
+                        
+
+				</nav>
+            </div>
+	    </div>
+    </div>
+		
+	<div class="col-sm-12">
+		<div class="row">
+			<div class="col-sm-12 icon-container">
+
+				<a class="icon-container__item" href="http://star.dk/" target="_blank">
+					<img src="/static/img/widk/logo/ams.gif" alt="Styrelsen for Arbejdsmarked og Rekruttering" />
+				</a>
+					
+				<a class="icon-container__item" href="http://www.eures.dk/" target="_blank">
+					<img src="/static/img/widk/logo/eures.gif" alt="Eures" />
+				</a>
+					
+				<img class="icon-container__item" src="/static/img/widk/logo/euro_social_fund.gif" alt="EU Social Fund" />
+			</div>
+		</div>
+	</div>
+
+</div>
+<!-- footer.ascx -->
+
+                    
+                                        
+                </footer>
+            </div>
+            <!-- /.container -->
+            <!-- .dknow-container begins -->
+            <div id="dknow-container" class="hidden-print hidden-xs" style="display: none;">
+                
+                <script>
+                    var instagramTag = 'visitdenmark';
+                </script>
+                
+                <button type="button" id="dknow-btn">Denmark right now</button>
+                <!-- Instagram imageholding div="dknow" (Instagram images is rendered here via Instafeed.js ) -->
+                <div id="dknow">
+                    <!-- Overlay holding closing-, disclaimer-,text-slider- and twitter-feed-squares -->
+                    <div id="overlay">
+                        <div class="thumb close-dknow">
+                            <p>
+                                <span>X</span>
+                                Go back to the site
+                            </p>
+                        </div>
+                        <!-- Disclaimer holding static text -->
+                        <div class="disclaimer">
+                            <p>This page is not a part of Work In Denmark
+It's just a part of Denmark as it is - right now.</p>
+                        </div>
+                        <!-- Twitter feed is renderes width inline js here -->
+                        <div class="twitter-feed">
+                            <a class="twitter-timeline" href="https://twitter.com/expatindenmark" data-widget-id="483918076895694849" data-link-color="#98e8ff" data-chrome=" nofooter transparent noscrollbar noborders noheader" data-tweet-limit="3">Tweets by @expatindenmark</a>
+                            <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+                        </div>
+                        <!-- Text slider function: Engine.slider.setup() - This function is called the first time Engine.dknow.setup() is called -->
+                        <div class="text-slider">
+                            <div class="slides">
+                                <div>
+                                    <h3>Trust the Danes!
+That is what makes them happy</h3>
+                                </div>
+                                <div>
+                                    <h3>Hug the Danes!
+That is what makes them happy</h3>
+                                </div>
+                                <div>
+                                    <h3>Work in Denmark!
+That makes us very happy</h3>
+                                </div>
+                            </div>
+                            <div class="indicators">
+                            </div>
+                        </div>
+                        <!-- div ment for loading more (older) instagram images (does nothing yet) -->
+                        <div class="more-dknow"></div>
+                    </div>
+                </div>
+                <!-- /#dknow (Instagram imageholder ends) -->
+            </div>
+            <!-- /.dknow-container ends -->
+        </div><!-- /.page -->
+    
+<script type="text/javascript">
+//<![CDATA[
+var Page_Validators =  new Array(document.getElementById("Login_ctl01"), document.getElementById("Login_ctl03"));
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+var Login_ctl01 = document.all ? document.all["Login_ctl01"] : document.getElementById("Login_ctl01");
+Login_ctl01.controltovalidate = "uiTxtUserName";
+Login_ctl01.display = "Dynamic";
+Login_ctl01.validationGroup = "LoginServerValidators";
+Login_ctl01.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+Login_ctl01.initialvalue = "";
+var Login_ctl03 = document.all ? document.all["Login_ctl03"] : document.getElementById("Login_ctl03");
+Login_ctl03.controltovalidate = "uiTxtPassword";
+Login_ctl03.display = "Dynamic";
+Login_ctl03.validationGroup = "LoginServerValidators";
+Login_ctl03.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+Login_ctl03.initialvalue = "";
+//]]>
+</script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+        
+document.getElementById('Login_ctl01').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('Login_ctl01'));
+}
+
+document.getElementById('Login_ctl03').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('Login_ctl03'));
+}
+//]]>
+</script>
+</form>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    
+
+
+    <script src="/static/js/v-636531643293660228/main.min.js"></script>
+
+    <!-- Only for testing:-->
+    
+
+    <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WWBBKQ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WWBBKQ');</script>
+<!-- End Google Tag Manager -->
+
+    <script id="CookieConsent" src="https://policy.cookieinformation.com/uc.js" data-cbid="8a5644cf-3add-4582-9cf4-eebdb9330cf9" type="text/javascript"></script>
+
+	
+	<script src="/static/js/vendor/v-636531643293505124/raygun.min.js"></script>
+	<script>
+	    Raygun
+            .init('aiLzOOuNdbUvw+bH+vYF6g==', {
+                allowInsecureSubmissions: true,
+                ignoreAjaxAbort: true,
+                ignoreAjaxError: false,
+
+                debugMode: false,
+                ignore3rdPartyErrors: true,
+                excludedUserAgents: ['Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)']
+            })
+            .attach();
+	</script>
+
+
+</body>
+</html>

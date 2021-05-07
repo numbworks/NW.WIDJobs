@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace NW.WebsiteExploration
+namespace NW.WIDJobs
 {
     public static class Validator
     {

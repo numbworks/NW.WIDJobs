@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using NUnit.Framework;
 
-namespace NW.WebsiteExploration.UnitTests
+namespace NW.WIDJobs.UnitTests
 {
     [TestFixture]
     public class ValidatorTests

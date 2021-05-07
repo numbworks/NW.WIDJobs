@@ -1,4 +1,4 @@
-﻿namespace NW.WebsiteExploration.UnitTests
+﻿namespace NW.WIDJobs.UnitTests
 {
     internal class Car
     {
