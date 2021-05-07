@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.1401
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NW.WebsiteExploration.UnitTests", "tests\NW.WebsiteExploration.UnitTests\NW.WebsiteExploration.UnitTests.csproj", "{64FF854C-EA0E-40F2-9391-F9F5DFA2FD19}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NW.WIDJobs.UnitTests", "tests\NW.WIDJobs.UnitTests\NW.WIDJobs.UnitTests.csproj", "{64FF854C-EA0E-40F2-9391-F9F5DFA2FD19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NW.WebsiteExploration", "src\NW.WebsiteExploration\NW.WebsiteExploration.csproj", "{9ACDC2ED-414F-434B-B85B-545C2D188091}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NW.WIDJobs", "src\NW.WIDJobs\NW.WIDJobs.csproj", "{9ACDC2ED-414F-434B-B85B-545C2D188091}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
