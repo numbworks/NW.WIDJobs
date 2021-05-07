@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace NW.WIDJobs.UnitTests
 {
     [TestFixture]
-    public class ExplorerTests
+    public class WIDExplorerTests
     {
 
         // Fields
@@ -91,7 +91,8 @@ namespace NW.WIDJobs.UnitTests
             new TestCaseData(null)
                 .SetName(nameof(Explorer_ShouldThrowAnException_WhenComponentsAreNull) + " {01}"),
 
-            new TestCaseData(new ExplorerComponents(null, new GetRequestManager()))
+            new TestCaseData(
+                    new WIDExplorerComponents(WIDExplorerComponents.DefaultLoggingAction, null, new GetRequestManager()))
                 .SetName(nameof(Explorer_ShouldThrowAnException_WhenComponentsAreNull) + " {02}")
 
         };
@@ -104,9 +105,9 @@ namespace NW.WIDJobs.UnitTests
         {
 
             // Arrange
-            WIDExplorerComponents components = new ExplorerComponents(new XPathManager(), func.Invoke());
-            WIDExplorerSettings settings = new ExplorerSettings(
-                WIDExplorerSettings.DefaultWebsiteName,
+            WIDExplorerComponents components 
+                = new WIDExplorerComponents(WIDExplorerComponents.DefaultLoggingAction, new XPathManager(), func.Invoke());
+            WIDExplorerSettings settings = new WIDExplorerSettings(
                 WIDExplorerSettings.DefaultResultsPerPage,
                 WIDExplorerSettings.DefaultParallelRequests,
                 0 // To avoid waiting time when hit by the tests.
@@ -134,7 +135,8 @@ namespace NW.WIDJobs.UnitTests
                     fakeGetRequest.Send(Arg.Any<string>()).Returns(newPage1, ObjectMother.Explorer_Page2HTML);
                     return fakeGetRequest;
                 });
-            WIDExplorerComponents components = new ExplorerComponents(new XPathManager(), func.Invoke());
+            WIDExplorerComponents components 
+                = new WIDExplorerComponents(WIDExplorerComponents.DefaultLoggingAction, new XPathManager(), func.Invoke());
             WIDExplorer explorer = new WIDExplorer(components, new WIDExplorerSettings());
             ExplorationSummary expected =
                 new ExplorationSummary
