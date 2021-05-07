@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.1401
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31025.194
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NW.WIDJobs.UnitTests", "tests\NW.WIDJobs.UnitTests\NW.WIDJobs.UnitTests.csproj", "{64FF854C-EA0E-40F2-9391-F9F5DFA2FD19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NW.WIDJobs", "src\NW.WIDJobs\NW.WIDJobs.csproj", "{9ACDC2ED-414F-434B-B85B-545C2D188091}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NW.WIDJobs", "src\NW.WIDJobs\NW.WIDJobs.csproj", "{9ACDC2ED-414F-434B-B85B-545C2D188091}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NW.WIDJobsClient", "src\NW.WIDJobsClient\NW.WIDJobsClient.csproj", "{0AF694AC-9AAB-4A2A-BF52-F66E1580ECD2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{9ACDC2ED-414F-434B-B85B-545C2D188091}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9ACDC2ED-414F-434B-B85B-545C2D188091}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9ACDC2ED-414F-434B-B85B-545C2D188091}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AF694AC-9AAB-4A2A-BF52-F66E1580ECD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AF694AC-9AAB-4A2A-BF52-F66E1580ECD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AF694AC-9AAB-4A2A-BF52-F66E1580ECD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AF694AC-9AAB-4A2A-BF52-F66E1580ECD2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
