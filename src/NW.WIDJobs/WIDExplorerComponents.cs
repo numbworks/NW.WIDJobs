@@ -2,7 +2,7 @@
 
 namespace NW.WIDJobs
 {
-    public class ExplorerComponents
+    public class WIDExplorerComponents
     {
 
         // Fields
@@ -15,7 +15,7 @@ namespace NW.WIDJobs
         public IGetRequestManager GetRequestManager { get; }
 
         // Constructors	
-        public ExplorerComponents(
+        public WIDExplorerComponents(
             Action<string> loggingAction, 
             IXPathManager xpathManager, 
             IGetRequestManager getRequestManager)
@@ -30,7 +30,7 @@ namespace NW.WIDJobs
             GetRequestManager = getRequestManager;
 
         }
-        public ExplorerComponents()
+        public WIDExplorerComponents()
             : this(
                   DefaultLoggingAction,
                   new XPathManager(), 

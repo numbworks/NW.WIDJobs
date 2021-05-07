@@ -12,24 +12,28 @@ namespace NW.WIDJobs
     /// The latter contains all the *Items that haven't been imported in the database yet, split by *Pages of ResultsPerPage items each. 
     /// At this stage, the *Items contain only the information that are available on the search results pages (AbsoluteUrl, ItemId, WorkArea).
     /// </summary>
-    public class Explorer : IExplorer
+    public class WIDExplorer : IWIDExplorer
     {
 
         // Fields
-        private ExplorerComponents _dependencies;
-        private ExplorerSettings _settings;
+        private WIDExplorerComponents _components;
+        private WIDExplorerSettings _settings;
 
         // Properties
         // Constructors
-        public Explorer(ExplorerComponents components, ExplorerSettings settings)
+        public WIDExplorer
+            (WIDExplorerComponents components, WIDExplorerSettings settings)
         {
 
-            _dependencies = components;
+            Validator.ValidateObject(components, nameof(components));
+            Validator.ValidateObject(settings, nameof(settings));
+
+            _components = components;
             _settings = settings;
 
         }
-        public Explorer()
-            : this(new ExplorerComponents(), new ExplorerSettings()) { }
+        public WIDExplorer()
+            : this(new WIDExplorerComponents(), new WIDExplorerSettings()) { }
 
         // Methods (public)
         public ExplorationSummary Explore()
@@ -77,20 +81,19 @@ namespace NW.WIDJobs
                 if (page.IsLastForCurrentExploration == true)
                     break;
 
-                // Do a pause of x each y requests
-                if (i != 0 && i % _settings.ParallelRequests == 0) // i != 0, because 0 % x = 0...
-                    Thread.Sleep((int)_settings.PauseBetweenRequestsMs);
+                ConditionallySleep(i, _settings.ParallelRequests, (int)_settings.PauseBetweenRequestsMs);
 
             }
 
             return pages;
 
         }
+
         private PageBundle GetPage(ushort pageNumber)
         {
 
             string absoluteUrl = CreatePageAbsoluteUrl(pageNumber);
-            string response = _dependencies.GetRequestManager.Send(absoluteUrl, Encoding.UTF8);
+            string response = _components.GetRequestManager.Send(absoluteUrl, Encoding.UTF8);
             List<PageItem> listItems = GetItems(response);
 
             Page page = new Page();
@@ -154,7 +157,7 @@ namespace NW.WIDJobs
 
             string xpath = "//div[@class='col-sm-6']//strong//strong";
 
-            string totalResults = _dependencies.XPathManager.GetInnerText(response, xpath);
+            string totalResults = _components.XPathManager.GetInnerText(response, xpath);
             totalResults = TrimOrNull(totalResults);
 
             return uint.Parse(totalResults);
@@ -180,7 +183,7 @@ namespace NW.WIDJobs
 
             string xpath = "//div[@class='col-sm-9 ']//h2";
 
-            List<string> titles = _dependencies.XPathManager.GetInnerTexts(response, xpath);
+            List<string> titles = _components.XPathManager.GetInnerTexts(response, xpath);
             if (titles != null)
                 return CleanTitles(titles);
 
@@ -208,7 +211,7 @@ namespace NW.WIDJobs
             string xpath = "//div[@class='col-sm-9 ']//h2//a//@href";
             uint attributeNr = 1;
 
-            List<string> relativeUrls = _dependencies.XPathManager.GetAttributeValues(response, xpath, attributeNr);
+            List<string> relativeUrls = _components.XPathManager.GetAttributeValues(response, xpath, attributeNr);
 
             return relativeUrls;
 
@@ -239,7 +242,7 @@ namespace NW.WIDJobs
 
             string xpath = "//div[@class='col-sm-12']//ul[@class='list-inline']";
 
-            List<string> workAreas = _dependencies.XPathManager.GetInnerTexts(strResponse, xpath);
+            List<string> workAreas = _components.XPathManager.GetInnerTexts(strResponse, xpath);
             if (workAreas != null)
                 return ExtractWorkAreas(workAreas);
 
@@ -308,6 +311,16 @@ namespace NW.WIDJobs
 
         }
 
+        private void ConditionallySleep
+            (ushort i, ushort parallelRequests, int pauseBetweenRequestsMs)
+        {
+
+            // Do a pause of x each y requests
+            // i != 0, because 0 % x = 0...
+            if (i != 0 && i % parallelRequests == 0)
+                Thread.Sleep(pauseBetweenRequestsMs);
+
+        }
         private bool CompareIntegers(int[] arr)
         {
 
@@ -419,5 +432,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 06.05.2021
+    Last Update: 08.05.2021
 */

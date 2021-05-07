@@ -1,6 +1,6 @@
 ﻿namespace NW.WIDJobs
 {
-    public class ExplorerSettings
+    public class WIDExplorerSettings
     {
 
         // Fields
@@ -15,7 +15,7 @@
         public uint PauseBetweenRequestsMs { get; }
 
         // Constructors
-        public ExplorerSettings(
+        public WIDExplorerSettings(
             ushort resultsPerPage,
             ushort parallelRequests,
             uint pauseBetweenRequestsMs
@@ -29,7 +29,7 @@
             PauseBetweenRequestsMs = pauseBetweenRequestsMs;
 
         }
-        public ExplorerSettings()
+        public WIDExplorerSettings()
             : this(
                   DefaultResultsPerPage,
                   DefaultParallelRequests,

@@ -104,14 +104,14 @@ namespace NW.WIDJobs.UnitTests
         {
 
             // Arrange
-            ExplorerComponents components = new ExplorerComponents(new XPathManager(), func.Invoke());
-            ExplorerSettings settings = new ExplorerSettings(
-                ExplorerSettings.DefaultWebsiteName,
-                ExplorerSettings.DefaultResultsPerPage,
-                ExplorerSettings.DefaultParallelRequests,
+            WIDExplorerComponents components = new ExplorerComponents(new XPathManager(), func.Invoke());
+            WIDExplorerSettings settings = new ExplorerSettings(
+                WIDExplorerSettings.DefaultWebsiteName,
+                WIDExplorerSettings.DefaultResultsPerPage,
+                WIDExplorerSettings.DefaultParallelRequests,
                 0 // To avoid waiting time when hit by the tests.
                 );
-            Explorer explorer = new Explorer(components, settings);
+            WIDExplorer explorer = new WIDExplorer(components, settings);
 
             // Act
             ExplorationSummary actual = explorer.Explore();
@@ -134,8 +134,8 @@ namespace NW.WIDJobs.UnitTests
                     fakeGetRequest.Send(Arg.Any<string>()).Returns(newPage1, ObjectMother.Explorer_Page2HTML);
                     return fakeGetRequest;
                 });
-            ExplorerComponents components = new ExplorerComponents(new XPathManager(), func.Invoke());
-            Explorer explorer = new Explorer(components, new ExplorerSettings());
+            WIDExplorerComponents components = new ExplorerComponents(new XPathManager(), func.Invoke());
+            WIDExplorer explorer = new WIDExplorer(components, new WIDExplorerSettings());
             ExplorationSummary expected =
                 new ExplorationSummary
                      (
@@ -169,14 +169,14 @@ namespace NW.WIDJobs.UnitTests
 
         [TestCaseSource(nameof(exploreTestCasesException))]
         public void Explorer_ShouldThrowAnException_WhenComponentsAreNull
-            (ExplorerComponents components)
+            (WIDExplorerComponents components)
         {
 
             // Arrange
             // Act
             // Assert
             Assert.Throws<Exception>(
-                () => new Explorer(components, new ExplorerSettings()));
+                () => new WIDExplorer(components, new WIDExplorerSettings()));
 
         }
 

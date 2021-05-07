@@ -8,8 +8,8 @@ namespace NW.WIDJobsClient
         static void Main(string[] args)
         {
 
-            ExplorerSettings settings = new ExplorerSettings();
-            Explorer explorer = new Explorer();
+            WIDExplorerSettings settings = new WIDExplorerSettings();
+            WIDExplorer explorer = new WIDExplorer();
 
 
             Console.WriteLine("Hello World!");

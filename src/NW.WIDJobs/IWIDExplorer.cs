@@ -1,6 +1,6 @@
 ﻿namespace NW.WIDJobs
 {
-    public interface IExplorer
+    public interface IWIDExplorer
     {
         ExplorationSummary Explore();
     }
