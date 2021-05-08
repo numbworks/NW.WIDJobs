@@ -8,9 +8,11 @@ namespace NW.WIDJobsClient
         static void Main(string[] args)
         {
 
+            WIDExplorerComponents components = new WIDExplorerComponents();
             WIDExplorerSettings settings = new WIDExplorerSettings();
             WIDExplorer explorer = new WIDExplorer();
 
+            explorer.Explore();
 
             Console.WriteLine("Hello World!");
         }
