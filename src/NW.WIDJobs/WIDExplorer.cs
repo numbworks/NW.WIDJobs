@@ -33,54 +33,6 @@ namespace NW.WIDJobs
         // Methods (public)
 
         // Methods (private)
-
- 
-        private uint GetTotalResults(string response)
-        {
-
-            /*
-             * ...
-             * 	<div class="row" style="padding:15px 0;">
-             * 		<div class="col-sm-6">
-             * 				<strong><strong>1243</strong> results</strong>
-             * 		</div>
-             * ...
-             * 
-             */
-
-            string xpath = "//div[@class='col-sm-6']//strong//strong";
-
-            string totalResults = _components.XPathManager.GetInnerText(response, xpath);
-
-            return uint.Parse(totalResults);
-
-        }
-
-        private ushort EstimateTotalPages(uint totalResults)
-        {
-
-            /*
-             *  Since ResultsPerPage is a read-only value, we assume it will always be > 0.
-             * 
-             *  Example:
-             *  
-             *  1243 total results / 20 results per page = 62.15.
-             *  
-             *  In the case above, 63 must be returned, because:
-             *     a) 62 pages with 20 results each = 1240;
-             *     b) 1 page with the 3 results left.
-             *   
-             */
-
-            int reminder = 0;
-
-            int estimatedTotalPages = Math.DivRem((int)totalResults, _settings.ResultsPerPage, out reminder);
-            if (reminder > 0)
-                estimatedTotalPages++;
-
-            return (ushort)estimatedTotalPages;
-
-        }
         private string CreatePageAbsoluteUrl(ushort pageNumber)
         {
 

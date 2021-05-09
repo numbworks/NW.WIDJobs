@@ -40,10 +40,54 @@ The following is an example of an `PageItemExtended` containing more fields:
 ![WID_04_Page2PageItemExtended18](Pictures/WID_04_Page2PageItemExtended18.png)
 
 
-
-
-
 ## Page scraping
+
+Every "search result" page contains the number of total results:
+
+```html
+...
+<!-- Ordering -->
+<div class="row" style="padding:15px 0;">
+    <div class="col-sm-6">
+
+        
+            <strong><strong>2033</strong> results</strong>
+        
+    </div>
+    <div class="col-sm-6">
+        <div class="pull-sm-right pull-md-right pull-lg-right">
+            <span class="hidden">Order by:</span>
+            Date
+                        &nbsp;
+                        <a href="?q=&orderBy=">Relevance</a>
+            
+        </div>
+    </div>
+</div>
+
+<!-- Filter etc. -->
+...
+```
+The XPath pattern to scrape the information out of a page are the following ones:
+
+|Field|Pattern|
+|---|---|
+|`TotalResults`|`//div[@class='col-sm-9 ']/h1/a/@href`|
+
+The following information are derivative:
+
+|Field|Action|
+|---|---|
+|`TotalEstimatedPages`|Calculated out of `TotalResults` / 20.|
+
+The following information require extra processing:
+
+|Field|Action|
+|---|---|
+|`TotalResults`|Parse it to `uint`.|
+|`TotalEstimatedPages`|Parse it to `ushort`.|
+
+## Page Items scraping
 
 Every page contains twenty (or less, if it's the last page) objects like the following one:
 
@@ -107,6 +151,14 @@ The XPath patterns to scrape all the `PageItem` fields are the following ones:
 |`WorkingHours`|`//ul[@class='list-inline']/li[contains(.,'Working hours')]`|
 |`JobType`|`//ul[@class='list-inline']/li[contains(.,'Job type')]`|
 
+The following fields are derivative:
+
+|Field|Action|
+|---|---|
+|`PageItemNumber`|Equals to the item's position in the list increased by 1.|
+|`JobId`|Extract it from `Url`.|
+|`PageItemId`|`JobId` and `Title` combined.|
+
 The following fields require extra processing:
 
 |Field|Action|
@@ -117,14 +169,19 @@ The following fields require extra processing:
 |`WorkArea`|Remove `Work area: `.|
 |`WorkingHours`|Remove `Working hours: `.|
 |`JobType`|Remove `Job type: `.|
+|`JobId`|Parse it to `ulong`.|
 
-The following fields are derivative:
+## Page Item Extended scraping
 
-|Field|Action|
-|---|---|
-|`PageItemNumber`|Equals to the item's position in the list increased by 1.|
-|`JobId`|Extract it from `Url`.|
-|`PageItemId`|`JobId` and `Title` combined.|
+Every...
+
+```html
+...
+
+...
+```
+
+...
 
 ## Markdown Toolset
 
