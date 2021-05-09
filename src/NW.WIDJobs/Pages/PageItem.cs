@@ -8,19 +8,21 @@ namespace NW.WIDJobs
 
         // Fields
         // Properties
-        public string AbsoluteUrl { get; set; }
         public string ItemId { get; set; }
-        public string WorkArea { get; set; }
+        public string AbsoluteUrl { get; set; }
         public string Title { get; set; }
-        public string Employer { get; set; }
-        public short? Openings { get; set; } // 
+        public string WorkArea { get; set; }
+        public string WeeklyWorkingHours { get; set; }
         public DateTime? AdvertisementPublishDate { get; set; }
         public DateTime? ApplicationDeadline { get; set; }
-        public string EmploymentStartDate { get; set; }
+
         public string Description { get; set; }
+
+        public string Employer { get; set; }
+        public short? Openings { get; set; } // 
+        public string EmploymentStartDate { get; set; }
         public string Position { get; set; }
         public string EmploymentType { get; set; }
-        public string WeeklyWorkingHours { get; set; }
         public string EmployerAddress { get; set; }
         public string Contact { get; set; }
         public string HowToApply { get; set; }
@@ -43,55 +45,55 @@ namespace NW.WIDJobs
 
         // Constructors
         public PageItem() { }
-        public PageItem(PageItem objItem)
+        public PageItem(PageItem pageItem)
         {
 
-            if (objItem == null)
+            if (pageItem == null)
                 new PageItem();
 
-            if (objItem != null)
+            if (pageItem != null)
             {
 
-                AbsoluteUrl = objItem.AbsoluteUrl;
-                ItemId = objItem.ItemId;
-                WorkArea = objItem.WorkArea;
-                Title = objItem.Title;
-                Employer = objItem.Employer;
-                Openings = objItem.Openings;
-                AdvertisementPublishDate = objItem.AdvertisementPublishDate;
-                ApplicationDeadline = objItem.ApplicationDeadline;
-                EmploymentStartDate = objItem.EmploymentStartDate;
-                Description = objItem.Description;
-                Position = objItem.Position;
-                EmploymentType = objItem.EmploymentType;
-                WeeklyWorkingHours = objItem.WeeklyWorkingHours;
-                EmployerAddress = objItem.EmployerAddress;
-                Contact = objItem.Contact;
-                HowToApply = objItem.HowToApply;
-                Country = objItem.Country;
-                SalaryRangeStart = objItem.SalaryRangeStart;
-                SalaryRangeEnd = objItem.SalaryRangeEnd;
-                SalaryRangeCurrency = objItem.SalaryRangeCurrency;
-                VisaType = objItem.VisaType;
-                RelocationType = objItem.RelocationType;
-                RemoteType = objItem.RemoteType;
-                ExperienceLevel = objItem.ExperienceLevel;
-                Industry = objItem.Industry;
-                CompanySize = objItem.CompanySize;
-                CompanyType = objItem.CompanyType;
-                RemoteDetails = objItem.RemoteDetails;
+                AbsoluteUrl = pageItem.AbsoluteUrl;
+                ItemId = pageItem.ItemId;
+                WorkArea = pageItem.WorkArea;
+                Title = pageItem.Title;
+                Employer = pageItem.Employer;
+                Openings = pageItem.Openings;
+                AdvertisementPublishDate = pageItem.AdvertisementPublishDate;
+                ApplicationDeadline = pageItem.ApplicationDeadline;
+                EmploymentStartDate = pageItem.EmploymentStartDate;
+                Description = pageItem.Description;
+                Position = pageItem.Position;
+                EmploymentType = pageItem.EmploymentType;
+                WeeklyWorkingHours = pageItem.WeeklyWorkingHours;
+                EmployerAddress = pageItem.EmployerAddress;
+                Contact = pageItem.Contact;
+                HowToApply = pageItem.HowToApply;
+                Country = pageItem.Country;
+                SalaryRangeStart = pageItem.SalaryRangeStart;
+                SalaryRangeEnd = pageItem.SalaryRangeEnd;
+                SalaryRangeCurrency = pageItem.SalaryRangeCurrency;
+                VisaType = pageItem.VisaType;
+                RelocationType = pageItem.RelocationType;
+                RemoteType = pageItem.RemoteType;
+                ExperienceLevel = pageItem.ExperienceLevel;
+                Industry = pageItem.Industry;
+                CompanySize = pageItem.CompanySize;
+                CompanyType = pageItem.CompanyType;
+                RemoteDetails = pageItem.RemoteDetails;
 
-                if (objItem.Technologies != null)
-                    Technologies.UnionWith(objItem.Technologies);
+                if (pageItem.Technologies != null)
+                    Technologies.UnionWith(pageItem.Technologies);
 
-                if (objItem.Benefits != null)
-                    Benefits.UnionWith(objItem.Benefits);
+                if (pageItem.Benefits != null)
+                    Benefits.UnionWith(pageItem.Benefits);
 
-                if (objItem.TeamMembers != null)
-                    TeamMembers.UnionWith(objItem.TeamMembers);
+                if (pageItem.TeamMembers != null)
+                    TeamMembers.UnionWith(pageItem.TeamMembers);
 
-                if (objItem.TeamMembersTechnologies != null)
-                    TeamMembersTechnologies.UnionWith(objItem.TeamMembersTechnologies);
+                if (pageItem.TeamMembersTechnologies != null)
+                    TeamMembersTechnologies.UnionWith(pageItem.TeamMembersTechnologies);
 
             }
 

@@ -14,7 +14,7 @@ namespace NW.WIDJobsClient
 
             explorer.Explore();
 
-            Console.WriteLine("Hello World!");
+            Console.WriteLine();
         }
     }
 }
