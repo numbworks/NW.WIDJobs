@@ -1,595 +1,146 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Text;
 using System.Threading;
 using System.Web;
+using System.Text.RegularExpressions;
 
 namespace NW.WIDJobs
 {
-    public class PageItemScraper : IPageItemScraper
+    public class PageItemScraper
     {
 
         // Fields
         private IXPathManager _xpathManager;
-        private IGetRequestManager _getRequestManager;
 
         // Properties
         // Constructors
-        public PageItemScraper(IXPathManager xpathManager, IGetRequestManager getRequestManager)
+        public PageItemScraper(IXPathManager xpathManager)
         {
 
-            // Validation
+            Validator.ValidateObject(xpathManager, nameof(xpathManager));
 
             _xpathManager = xpathManager;
-            _getRequestManager = getRequestManager;
 
         }
         public PageItemScraper()
-            : this(new XPathManager(), new GetRequestManager()) { }
+            : this(new XPathManager()) { }
 
         // Methods (public)
-        public PageItem Do(PageItem pageItem)
+        public List<PageItem> Do(Page page)
         {
 
-            // Validation
+            Validator.ValidateObject(page, nameof(page));
 
-            string response = _getRequestManager.Send(pageItem.Url, Encoding.UTF8);
+            List<string> urls = ExtractAndFixUrls(page.Content);
+            List<string> titles = ExtractTitles(page.Content);
+            List<DateTime> createDates = ExtractAndParseCreateDates(page.Content);
+            List<DateTime> applicationDates = ExtractAndParseApplicationDates(page.Content);
+            List<string> workAreas = ExtractAndCleanWorkAreas(page.Content);
+            List<string> workingHours = ExtractAndCleanWorkingHours(page.Content);
+            List<string> jobTypes = ExtractAndCleanJobTypes(page.Content);
+            List<ulong> jobIds = ExtractAndParseJobIds(urls);
 
-            pageItem.Employer = GetEmployer(response);
-            pageItem.Openings = GetOpenings(response);
-            pageItem.AdvertisementPublishDate = GetAdvertisementPublishDate(response);
-            pageItem.ApplicationDeadline = GetApplicationDeadline(response);
-            pageItem.EmploymentStartDate = GetEmploymentStartDate(response);
-            pageItem.Description = GetDescription(response);
-            pageItem.Position = GetPosition(response);
-            pageItem.EmploymentType = GetEmploymentType(response);
-            pageItem.WeeklyWorkingHours = GetWeeklyWorkingHours(response);
-            pageItem.Contact = GetContact(response);
-            pageItem.EmployerAddress = GetEmployerAddress(response);
-            pageItem.HowToApply = GetHowToApply(response);
+            List <PageItem> pageItems = new List<PageItem>();
 
-            return pageItem;
+            /* ... */
+
+            return pageItems;
 
         }
 
         // Methods (private)
-        private string GetEmployer(string response)
+        private List<string> ExtractAndFixUrls(string content)
+        {
+
+            throw new NotImplementedException();
+
+        }
+        private List<string> ExtractTitles(string content)
+        {
+
+            throw new NotImplementedException();
+
+        }
+        private List<DateTime> ExtractAndParseCreateDates(string content)
+        {
+
+            throw new NotImplementedException();
+
+        }
+        private List<DateTime> ExtractAndParseApplicationDates(string content)
+        {
+
+            throw new NotImplementedException();
+
+        }
+        private List<string> ExtractAndCleanWorkAreas(string content)
+        {
+
+            throw new NotImplementedException();
+
+        }
+        private List<string> ExtractAndCleanWorkingHours(string content)
+        {
+
+            throw new NotImplementedException();
+
+        }
+        private List<string> ExtractAndCleanJobTypes(string content)
+        {
+
+            throw new NotImplementedException();
+
+        }
+        private List<ulong> ExtractAndParseJobIds(List<string> urls)
+        {
+
+            throw new NotImplementedException();
+
+        }
+
+        private string ConvertToAbsoluteUrl(string relativeUrl)
+        {
+            /*
+                /job/8148174/Technology-Finance-Business-Partner
+                => https://www.workindenmark.dk/job/8148174/Technology-Finance-Business-Partner
+            */
+
+            return string.Concat("https://www.workindenmark.dk", relativeUrl);
+
+        }
+        private DateTime ParseDate(string date)
+            => DateTime.ParseExact(date, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+        private string CleanWorkArea(string workArea)
+            => CleanField(workArea, "Work area: ");
+        private string CleanWorkingHours(string workingHours)
+            => CleanField(workingHours, "Working hours: ");
+        private string CleanJobType(string jobType)
+            => CleanField(jobType, "Job type: ");
+        private string CleanField(string field, string toRemove)
+            => field.Replace(toRemove, string.Empty);
+        private string ExtractJobId(string url)
         {
 
             /*
-             *  ...
-             *  <div id="scphpage_0_scphcontent_1_ctl00_uiEntireJobPostingSpan">
-             * 		<hr>
-             * 		<h2>
-             * 			BESTSELLER A/S
-             * 		</h2>
-             *      ...
-             * 
-             */
+                https://www.workindenmark.dk/job/8148174/Technology-Finance-Business-Partner
+                    => 8148174
+            */
 
-            string xpath = "//div[@id='scphpage_0_scphcontent_1_ctl00_uiEntireJobPostingSpan']//h2";
+            string pattern = "(?<=/job/)[0-9]{5,}";
 
-            string innerText = _xpathManager.GetInnerText(response, xpath);
-            innerText = TrimOrNull(innerText);
-            innerText = DecodeHtml(innerText);
-            innerText = ToTitleCase(innerText);
+            if (!Regex.IsMatch(url, pattern))
+                throw new Exception($"Not possible to extract JobId from '{url}' with pattern: '{pattern}'.");
 
-            return innerText;
+            return Regex.Match(url, pattern).ToString();
 
         }
-        private short? GetOpenings(string response)
+        private ushort CalculatePageItemNumber(int i)
         {
 
-            /*
-             * ...
-             * 		<dl class="dl-justify nomargin">
-             * 			<dt>
-             * 				Number of openings:
-             * 			</dt>
-             * 			<dd>
-             * 				 1
-             * 				
-             * 			</dd>
-             *      ...
-             * 
-             */
-
-            string xpath = "//dt[contains(.,'openings')]/following-sibling::dd";
-            uint valueNr = 0;
-
-            string innerText = _xpathManager.GetInnerText(response, xpath, valueNr);
-            innerText = TrimOrNull(innerText);
-
-            return ParseOpeningsOrNull(innerText);
+            throw new NotImplementedException();
 
         }
-        private DateTime? GetAdvertisementPublishDate(string response)
-        {
-
-            /*
-             * ...
-             * 		<dl class="dl-justify nomargin">
-             *      ...
-             *          <dt>
-             *              Advertisement publish date:
-             *          </dt>
-             *          <dd>
-             *              08/08/2018
-             *              
-             *          </dd>
-             *      ...
-             * 
-             */
-
-            string xpath = "//dt[contains(.,'Advertisement')]/following-sibling::dd";
-            uint valueNr = 0;
-
-            string innerText = _xpathManager.GetInnerText(response, xpath, valueNr);
-            if (innerText == null)
-                innerText = GetCreated(response); // Some ads have this instead of Advertisement Publish Date.
-
-            innerText = TrimOrNull(innerText);
-
-            return ParseDateOrNull(innerText);
-
-        }
-        private DateTime? GetApplicationDeadline(string response)
-        {
-
-            /*
-             * ...
-             * 		<dl class="dl-justify nomargin">
-             *      ...
-             *          <dt>
-             *              Application deadline:
-             *          </dt>
-             *          <dd>
-             *              29/08/2018
-             *              
-             *          </dd>
-             *      ...
-             * 
-             */
-
-            string xpath = "//dt[contains(.,'deadline')]/following-sibling::dd";
-            uint valueNr = 0;
-
-            string innerText = _xpathManager.GetInnerText(response, xpath, valueNr);
-            if (innerText == null)
-                innerText = GetApplicationDate(response); // Some ads have this instead of Application deadline.
-
-            innerText = TrimOrNull(innerText);
-
-            return ParseDateOrNull(innerText);
-
-        }
-        private string GetEmploymentStartDate(string response)
-        {
-
-            /*
-             * ...
-             * 		<dl class="dl-justify nomargin">
-             *      ...
-             *          <dt>
-             *              Start date of employment:
-             *          </dt>
-             *          <dd>
-             *              As soon as possible
-             *              
-             *          </dd>
-             *          </dd>
-             *      </dl>
-             *
-             *  </div>
-             * </div>
-             * 
-             */
-
-            string xpath = "//dt[contains(.,'employment')]/following-sibling::dd";
-            uint valueNr = 0;
-
-            string innerText = _xpathManager.GetInnerText(response, xpath, valueNr);
-            innerText = TrimOrNull(innerText);
-
-            return innerText;
-
-        }
-        private string GetDescription(string response)
-        {
-
-            /*
-             *  ...
-             * 	<div class="row">
-             * 	    <div class="col-sm-11">
-             * 		    <div id="jobDescription">
-             * 			    <p><strong>Do you speak Italian, and do you ...</p>
-             * 		</div>
-             * 		<br>
-             *      ...
-             * 
-             */
-
-            string xpath = "//div[@id='jobDescription']";
-
-            string innerText = _xpathManager.GetInnerText(response, xpath);
-            innerText = DecodeHtml(innerText);
-            innerText = TrimOrNull(innerText);
-
-            // The ads without a description usually have a presentation 
-            // (shorter description + link to the complete one)
-            if (innerText == null)
-                innerText = GetPresentation(response);
-
-            return innerText;
-
-        }
-        private string GetPosition(string response)
-        {
-
-            /*
-             * ...
-             * <aside>
-             *    <div class="row row-wide aside padding-left-extra">
-             *        <div class="col-sm-12">
-             *
-             *            <div class="row">
-             *                <div class="col-ms-6 col-sm-4">
-             *
-             *      ...
-             *
-             *                    <h3 id="scphpage_0_scphcontent_1_ctl00_H1">
-             *                        Position
-             *                    </h3>
-             *                    <p>
-             *                        Management / Sales and marketing managers
-             *                    </p>
-             *      ...
-             * 
-             */
-
-            string xpath = "//div[@class='col-ms-6 col-sm-4']//p";
-            uint valueNr = 1; // 0 is an empty <p>/<p>
-
-            string innerText = _xpathManager.GetInnerText(response, xpath, valueNr);
-            innerText = TrimOrNull(innerText);
-
-            return innerText;
-
-        }
-        private string GetEmploymentType(string response)
-        {
-
-            /*
-             * ...
-             * <aside>
-             *    <div class="row row-wide aside padding-left-extra">
-             *        <div class="col-sm-12">
-             *
-             *            <div class="row">
-             *                <div class="col-ms-6 col-sm-4">
-             *
-             *      ...
-             *
-             *                    <h3>
-             *                        Type of employment
-             *                    </h3>
-             *                    <p>
-             *                        Regular position
-             *                        
-             *                    </p>
-             *      ...
-             * 
-             */
-
-            string xpath = "//div[@class='col-ms-6 col-sm-4']//p";
-            uint valueNr = 2;
-
-            string innerText = _xpathManager.GetInnerText(response, xpath, valueNr);
-            innerText = TrimOrNull(innerText);
-
-            return innerText;
-
-        }
-        private string GetWeeklyWorkingHours(string response)
-        {
-
-            /*
-             * ...
-             * <aside>
-             *    <div class="row row-wide aside padding-left-extra">
-             *        <div class="col-sm-12">
-             *
-             *            <div class="row">
-             *                <div class="col-ms-6 col-sm-4">
-             *
-             *      ...
-             *
-             *                    <h3>
-             *                        Weekly working hours
-             *                    </h3>
-             *                    <p>
-             *                        Full time (37 hours)
-             *                        
-             *                    </p>
-             *      ...
-             * 
-             */
-
-            string xpath = "//div[@class='col-ms-6 col-sm-4']//p";
-            uint valueNr = 3;
-
-            string innerText = _xpathManager.GetInnerText(response, xpath, valueNr);
-            innerText = TrimOrNull(innerText);
-
-            return innerText;
-
-        }
-        private string GetContact(string response)
-        {
-
-            /*
-             * ...
-             * <div class="col-ms-6 col-sm-4">
-             *
-             *     <h3>
-             *         Contact
-             *     </h3>
-             *     <p>
-             *        <span id="scphpage_0_scphcontent_1_ctl00_uiContactNameSpan">
-             *           Apply online<br>
-             *        </span>
-             *     </p>
-             * 
-             *  ...
-             * 
-             */
-
-            string xpath = "//div[@class='col-ms-6 col-sm-4']//p//span[@id='scphpage_0_scphcontent_1_ctl00_uiContactNameSpan']";
-
-            string innerText = _xpathManager.GetInnerText(response, xpath);
-            innerText = TrimOrNull(innerText);
-
-            return innerText;
-
-        }
-        private string GetEmployerAddress(string response)
-        {
-
-            /*
-             * ...
-             * <div class="col-ms-6 col-sm-4">
-             *      
-             *      ...
-             *     <h3 id="scphpage_0_scphcontent_1_ctl00_uiEmployerHeading">
-             *          Employer
-             *      </h3>
-             *      <p id="scphpage_0_scphcontent_1_ctl00_uiEmployerAddressSpan">
-             *          BESTSELLER A/S<br>
-             *                                  Fredskovvej 5<br>
-             *                                  DK 7330 Brande<br>
-             *                                  Denmark<br>
-             *      </p>
-             * 
-             *  ...
-             * 
-             */
-
-            string xpath = "//div[@class='col-ms-6 col-sm-4']//p[@id='scphpage_0_scphcontent_1_ctl00_uiEmployerAddressSpan']";
-
-            string innerText = _xpathManager.GetInnerText(response, xpath);
-            innerText = TrimOrNull(innerText);
-            innerText = DecodeHtml(innerText);
-
-            if (innerText != null)
-                innerText = CleanEmployerAddress(innerText);
-
-            return innerText;
-
-        }
-        private string GetHowToApply(string response)
-        {
-
-            /*
-             * ...
-             *  <div class="col-ms-6 col-sm-4">
-             *      <h3 id="scphpage_0_scphcontent_1_ctl00_uiHowToApplyHeading">
-             *          How to apply
-             *      </h3>
-             *      <ul>
-             * 
-             *          <li id="scphpage_0_scphcontent_1_ctl00_uiHowToApplyOnlineSpan"><span style="word-wrap: break-word">
-             *              Online:
-             *              <a id="scphpage_0_scphcontent_1_ctl00_uiLnkHowToApplyOnline" href="http://about.bestseller.com/jobs/job-search/country-sales-product-responsible-153696" target="_blank">Application form</a><br>
-             *          </span></li>
-             *      </ul>
-             *  ...
-             *  
-             *  or:
-             *  
-             *  ...
-             *  <div class="col-ms-6 col-sm-4">
-             *     <h3 id="scphpage_0_scphcontent_1_ctl00_uiHowToApplyHeading">
-             *           How to apply
-             *      </h3>
-             *      <ul>
-             *           <li id="scphpage_0_scphcontent_1_ctl00_uiHowToApplyByEmailSpan"><span style="word-wrap: break-word">
-             *               Via e-mail:
-             *               <a id="scphpage_0_scphcontent_1_ctl00_uiHowToApplyEmail" href="mailto:jobs@colourbox.com"> jobs@colourbox.com</a><br />
-             *           </span></li>
-             *  ...
-             * 
-             */
-
-            string xpath1 = "//div[@class='col-ms-6 col-sm-4']//ul";
-
-            string innerText = _xpathManager.GetInnerText(response, xpath1);
-            innerText = TrimOrNull(innerText);
-
-            if (innerText != null)
-                innerText = innerText.Replace("  ", string.Empty).Replace(Environment.NewLine, " ");
-
-            string xpath2 = "//a[@id='scphpage_0_scphcontent_1_ctl00_uiLnkHowToApplyOnline']/@*";
-            uint attributeNr = 1;
-
-            List<string> attributeValues = _xpathManager.GetAttributeValues(response, xpath2, attributeNr);
-            if (attributeValues == null)
-                return innerText;
-            if (attributeValues.Count < 1)
-                return innerText;
-            if (attributeValues[0] == string.Empty)
-                return innerText;
-
-            // We are only interested into the first hyperlink found, if any and not-null.
-            innerText = string.Concat(innerText, "<", TrimOrNull(attributeValues[0]), ">");
-
-            return innerText;
-
-        }
-        private string GetPresentation(string response)
-        {
-
-            /*
-             *  ...
-             * 	<div class="row">
-             * 	<div class="col-sm-11">
-             * 	    <div class="JobPresentation">
-             * 	        Security Architect IBM Nordic...
-             * 	    </div>
-             * 	    
-             *  	<a href="https://krb-sjobs.brassring.com/TGnewUI/Search/home/HomeWithPreLoad?partnerid=26059&siteid=5016&PageType=JobDetails&jobid=148439">See the complete text at IBM Danmark ApS</a>
-             *      ...
-             * 
-             */
-
-            string xpath1 = "//div[@class='JobPresentation']";
-
-            string innerText1 = _xpathManager.GetInnerText(response, xpath1);
-            innerText1 = TrimOrNull(innerText1);
-
-            string xpath2 = "//a[contains(., 'complete')]";
-            string innerText2 = _xpathManager.GetInnerText(response, xpath2);
-
-            string xpath3 = "//a[contains(., 'complete')]/@href";
-            string innerText3 = _xpathManager.GetFirstAttributeValue(response, xpath3);
-
-            return string.Join(Environment.NewLine, innerText1, innerText2, innerText3);
-
-        }
-        private string GetCreated(string response)
-        {
-
-            /*
-             * ...
-             *  <div class="col-sm-11 ">
-             *      <dl class="dl-justify nomargin">
-             *  		<dt>Created</dt>
-             *  		<dd>30/06/2018</dd>
-             *  		...
-             *  	</dl>
-             *  </div>
-             *  ...
-             * 
-             */
-
-            string xpath = "//dt[contains(.,'Created')]/following-sibling::dd";
-            uint valueNr = 0;
-
-            string innerText = _xpathManager.GetInnerText(response, xpath, valueNr);
-
-            return innerText;
-
-        }
-        private string GetApplicationDate(string response)
-        {
-
-            /*
-             * ...
-             * 		<dl class="dl-justify nomargin">
-             *      ...
-             *          <dt>Application</dt>
-             *          <dd>29/08/2018</dd>
-             *      ...
-             * 
-             */
-
-            string xpath = "//dt[contains(.,'Application')]/following-sibling::dd";
-            uint valueNr = 0;
-
-            string innerText = _xpathManager.GetInnerText(response, xpath, valueNr);
-
-            return innerText;
-
-        }
-
-        private string TrimOrNull(string str)
-        {
-
-            if (str == null)
-                return null;
-
-            return str.Trim();
-
-        }
-        private DateTime? ParseDateOrNull(string str)
-        {
-
-            try
-            {
-
-                string[] arr = str.Split('/'); // "29/08/2018" => "29"; "08"; "2018";
-                if (arr.Length != 3)
-                    return null;
-
-                return new DateTime(
-                    ushort.Parse(arr[2]),   // 2018
-                    ushort.Parse(arr[1]),   // 08
-                    ushort.Parse(arr[0])    // 29
-                    );
-
-            }
-            catch
-            {
-                return null;
-            }
-
-        }
-        private short? ParseOpeningsOrNull(string str)
-        {
-
-            try
-            {
-                return short.Parse(str);
-            }
-            catch
-            {
-                return null;
-            }
-
-        }
-        private string ToTitleCase(string str)
-        {
-
-            if (str == null)
-                return null;
-
-            TextInfo textInfo = Thread.CurrentThread.CurrentCulture.TextInfo;
-
-            // ToTitleCase() doesn't work on all-uppercase strings.
-            return textInfo.ToTitleCase(str.ToLower());
-
-        }
-        private string DecodeHtml(string str)
-        {
-
-            if (str == null)
-                return null;
-
-            return HttpUtility.HtmlDecode(str);
-
-        }
-        private string CleanEmployerAddress(string str)
-            => str.Replace("                        ", string.Empty).Replace(Environment.NewLine, " ");
 
     }
 }

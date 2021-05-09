@@ -43,13 +43,87 @@ The following is an example of an `PageItemExtended` containing more fields:
 
 
 
-## Example 1: Main Scenario 
+## Page scraping
 
-Let's ...
+Every page contains twenty (or less, if it's the last page) objects like the following one:
 
-```csharp
-/*...*/
+```html
+...
+<!-- JobResultItemView.ascx -->
+<section class="job-item search-new">
+    <div class="job-body ">
+		  <div class="row nomargin">
+				<div class="col-sm-12">
+
+		          <div class="row ">
+            <div class="col-sm-9 ">
+                <h1><a class="search-link underline visited" href="/job/8148174/Technology-Finance-Business-Partner">Technology Finance Business Partner<small class="visited-text"> &nbsp;</small></a></h1>
+                <p> 
+Technology Finance Business Partner
+Denmark Copenhagen Local Finance/Accounting Last application date: 28/5/2021
+A.P. Moller - Maersk is an integrated container logistics company. Connecting and sim</p>
+                <p>
+                    Created: <time datetime="2021-05-09">May 09, 2021</time>
+                    <br />
+                    <strong>Application date: <time datetime="2021-05-28">May 28, 2021</time></strong></p>
+            </div>
+            <div class="col-sm-3 ">
+                <div class="dkmap-holder">
+                    <img src="/static/img/widk/bg/danmark.png" alt="map of Denmark" />
+                    <div class="spot-capitalregionofdenmark"></div>
+                </div>
+                
+            </div>
+        </div>
+
+				</div>
+		  </div>
+    </div>
+    <div class="data-list">
+		  <div class="row nomargin">
+				<div class="col-sm-12">
+					 <ul class="list-inline">
+						  <li>Work area: København</li>
+						  <li>Working hours: Full time (37 hours)</li>
+						  <li>Job type: Regular position</li>
+					 </ul>
+				</div>
+		  </div>
+    </div>
+</section>
+<!-- /JobResultItemView.ascx -->
+...
 ```
+
+The XPath patterns to scrape all the `PageItem` fields are the following ones:
+
+|Field|Pattern|
+|---|---|
+|`Url`|`//div[@class='col-sm-9 ']/h1/a/@href`|
+|`Title`|`//div[@class='col-sm-9 ']/h1`|
+|`CreateDate`|`//div[@class='col-sm-9 ']/p[contains(.,'Created')]/time/@datetime`|
+|`ApplicationDate`|`//div[@class='col-sm-9 ']/p[contains(.,'Application date')]/strong/time/@datetime`|
+|`WorkArea`|`//ul[@class='list-inline']/li[contains(.,'Work area')]`|
+|`WorkingHours`|`//ul[@class='list-inline']/li[contains(.,'Working hours')]`|
+|`JobType`|`//ul[@class='list-inline']/li[contains(.,'Job type')]`|
+
+The following fields require extra processing:
+
+|Field|Action|
+|---|---|
+|`Url`|Convert from relative to absolut.|
+|`CreateDate`|Parse it to `DateTime`.|
+|`ApplicationDate`|Parse it to `DateTime`.|
+|`WorkArea`|Remove `Work area: `.|
+|`WorkingHours`|Remove `Working hours: `.|
+|`JobType`|Remove `Job type: `.|
+
+The following fields are derivative:
+
+|Field|Action|
+|---|---|
+|`PageItemNumber`|Equals to the item's position in the list increased by 1.|
+|`JobId`|Extract it from `Url`.|
 
 ## Markdown Toolset
 
