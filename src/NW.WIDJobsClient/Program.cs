@@ -12,8 +12,6 @@ namespace NW.WIDJobsClient
             WIDExplorerSettings settings = new WIDExplorerSettings();
             WIDExplorer explorer = new WIDExplorer();
 
-            explorer.Explore();
-
             Console.WriteLine();
         }
     }
