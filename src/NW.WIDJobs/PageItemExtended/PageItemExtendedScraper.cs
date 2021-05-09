@@ -68,12 +68,13 @@ namespace NW.WIDJobs
         {
 
             /*
-
+                "     Technology Finance Business PartnerDenmark Copenhagen Local Finance/Accounting...   "
              */
 
-            string xpath = "";
+            string xpath = "//div[@class='row']/div[@class='col-sm-11']/div[@class='JobPresentation job-description']";
 
             string result = _xpathManager.GetInnerText(content, xpath);
+            result = result.Trim();
 
             return result;
 
@@ -83,12 +84,12 @@ namespace NW.WIDJobs
         {
 
             /*
-
+                https://jobsearch.maersk.com/jobposting/index.html?id=MA-268026
              */
 
-            string xpath = "";
+            string xpath = "//div[@class='row']/div[@class='col-sm-11']/a/@href";
 
-            string result = _xpathManager.GetInnerText(content, xpath);
+            string result = _xpathManager.GetFirstAttributeValue(content, xpath);
 
             return result;
 

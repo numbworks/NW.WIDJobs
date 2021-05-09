@@ -228,18 +228,18 @@ The XPath patterns to scrape all the `PageItemExtended` fields are the following
 
 Type|Field|Pattern|
 |---|---|---|
-|`Mandatory`|`Description`||
-|`Optional`|`SeeCompleteTextAt`||
-|`Optional`|`EmployerName`||
-|`Optional`|`NumberOfOpenings`||
-|`Optional`|`AdvertisementPublishDate`||
-|`Optional`|`ApplicationDeadline`||
-|`Optional`|`StartDateOfEmployment`||
-|`Optional`|`Reference`||
-|`Optional`|`Position`||
-|`Optional`|`TypeOfEmployment`||
-|`Optional`|`Contact`||
-|`Optional`|`EmployerAddress`||
+|`Mandatory`|`Description`|`//div[@class='row']/div[@class='col-sm-11']/div[@class='JobPresentation job-description']`|
+|`Optional`|`SeeCompleteTextAt`|`//div[@class='row']/div[@class='col-sm-11']/a/@href`|
+|`Optional`|`EmployerName`|``|
+|`Optional`|`NumberOfOpenings`|``|
+|`Optional`|`AdvertisementPublishDate`|``|
+|`Optional`|`ApplicationDeadline`|``|
+|`Optional`|`StartDateOfEmployment`|``|
+|`Optional`|`Reference`|``|
+|`Optional`|`Position`|``|
+|`Optional`|`TypeOfEmployment`|``|
+|`Optional`|`Contact`|``|
+|`Optional`|`EmployerAddress`|``|
 
 HowToApply
 
