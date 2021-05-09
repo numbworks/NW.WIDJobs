@@ -2,7 +2,6 @@
 {
     public interface IPageScraper
     {
-        ushort GetTotalEstimatedPages(uint totalResults);
         uint GetTotalResults(string content);
     }
 }

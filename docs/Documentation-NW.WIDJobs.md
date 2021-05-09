@@ -11,9 +11,34 @@ Contact: numbworks@gmail.com
 
 `NW.WIDJobs` is a `.NET Standard 2.0` library written in `C#` to explore `WorkInDenmark.dk` and fetch the most recent job ads published. 
 
-## Exploration
+## The page URLs
 
-The exploration starts from the first page (`https://www.workindenmark.dk/Search/Job-search?q=`), which by default it's sorted by relevance but it can be also sorted by date (`https://www.workindenmark.dk/Search/Job-search?q=&orderBy=date`):
+The exploration of `WorkInDenmark.dk` starts from an initial page, which can have three different URLs:
+
+|Criteria|Url|
+|---|---|
+|`Default`|`https://www.workindenmark.dk/Search/Job-search?q=`|
+|`OrderedByDate`|`https://www.workindenmark.dk/Search/Job-search?q=&orderBy=date`|
+|`OrderedByRelevance`|`https://www.workindenmark.dk/Search/Job-search?q=&orderBy=`|
+
+The subsequent pages have the following URLs instead:
+
+|Criteria|Url|
+|---|---|
+|`OrderedByDate`|`https://www.workindenmark.dk/Search/Job-search?q=&orderBy=date&PageNum={pageNumber}&`|
+|`OrderedByRelevance`|`https://www.workindenmark.dk/Search/Job-search?q=&orderBy=&PageNum={pageNumber}`|
+
+For the scope of beginning the exploration of the website they are all equivalent, but we do use the the `OrderedByDate` variants.
+
+## Pages, PageItems and PageItemsExtended
+
+The...
+
+...
+
+## How the exploration works
+
+The exploration starts from the initial page, which returns something like this:
 
 ![WID_01_Page1.png](Pictures/WID_01_Page1.png)
 
@@ -39,6 +64,7 @@ The following is an example of an `PageItemExtended` containing more fields:
 
 ![WID_04_Page2PageItemExtended18](Pictures/WID_04_Page2PageItemExtended18.png)
 
+...
 
 ## Page scraping
 
@@ -87,7 +113,7 @@ The following information require extra processing:
 |`TotalResults`|Parse it to `uint`.|
 |`TotalEstimatedPages`|Parse it to `ushort`.|
 
-## Page Items scraping
+## PageItems scraping
 
 Every page contains twenty (or less, if it's the last page) objects like the following one:
 
@@ -163,7 +189,7 @@ The following fields require extra processing:
 
 |Field|Action|
 |---|---|
-|`Url`|Convert from relative to absolut.|
+|`Url`|Convert from relative to absolute.|
 |`CreateDate`|Parse it to `DateTime`.|
 |`ApplicationDate`|Parse it to `DateTime`.|
 |`WorkArea`|Remove `Work area: `.|
@@ -171,7 +197,7 @@ The following fields require extra processing:
 |`JobType`|Remove `Job type: `.|
 |`JobId`|Parse it to `ulong`.|
 
-## Page Item Extended scraping
+## PageItemsExtended scraping
 
 Every...
 

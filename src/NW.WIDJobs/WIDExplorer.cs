@@ -31,17 +31,21 @@ namespace NW.WIDJobs
             : this(new WIDExplorerComponents(), new WIDExplorerSettings()) { }
 
         // Methods (public)
-
-        // Methods (private)
-        private string CreatePageAbsoluteUrl(ushort pageNumber)
+        public List<Page> GetPages
+            (string runId, ushort initialPageNumber, ushort finalPageNumber)
         {
 
-            if (pageNumber == 1)
-                return "https://www.workindenmark.dk/Search/Job-search?q=";
+            Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
+            Validator.ThrowIfLessThanOne(initialPageNumber, nameof(initialPageNumber));
+            Validator.ThrowIfLessThanOne(finalPageNumber, nameof(finalPageNumber));
 
-            return $"https://www.workindenmark.dk/Search/Job-search?q=&PageNum={pageNumber}";
+            /* ... */
+
+            return new List<Page>();
 
         }
+
+        // Methods (private)
         private void ConditionallySleep
             (ushort i, ushort parallelRequests, int pauseBetweenRequestsMs)
         {
