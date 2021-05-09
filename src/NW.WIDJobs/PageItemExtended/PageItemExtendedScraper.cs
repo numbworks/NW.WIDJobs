@@ -12,19 +12,23 @@ namespace NW.WIDJobs
 
         // Fields
         private IXPathManager _xpathManager;
+        private IBulletPointScraper _bulletPointScraper;
 
         // Properties
         // Constructors
-        public PageItemExtendedScraper(IXPathManager xpathManager)
+        public PageItemExtendedScraper
+            (IXPathManager xpathManager, IBulletPointScraper bulletPointScraper)
         {
 
             Validator.ValidateObject(xpathManager, nameof(xpathManager));
+            Validator.ValidateObject(bulletPointScraper, nameof(bulletPointScraper));
 
             _xpathManager = xpathManager;
+            _bulletPointScraper = bulletPointScraper;
 
         }
         public PageItemExtendedScraper()
-            : this(new XPathManager()) { }
+            : this(new XPathManager(), new BulletPointScraper()) { }
 
         // Methods (public)
         public PageItemExtended Do(PageItem pageItem, string content)
@@ -33,15 +37,184 @@ namespace NW.WIDJobs
             Validator.ValidateObject(pageItem, nameof(pageItem));
             Validator.ValidateStringNullOrWhiteSpace(content, nameof(content));
 
-            PageItemExtended pageItemExtended = null;
+            string description = ExtractDescription(content);
 
-            /* ... */
+            PageItemExtended pageItemExtended = new PageItemExtended(
+
+                    pageItem: pageItem,
+                    description: description,
+                    employerName: TryExtractEmployerName(content),
+                    numberOfOpenings: TryExtractAndParseNumberOfOpenings(content),
+                    advertisementPublishDate: TryExtractAndParseAdvertisementPublishDate(content),
+                    applicationDeadline: TryExtractAndParseApplicationDeadline(content),
+                    startDateOfEmployment: TryExtractStartDateOfEmployment(content),
+                    reference: TryExtractReference(content),
+                    position: TryExtractPosition(content),
+                    typeOfEmployment: TryExtractTypeOfEmployment(content),
+                    contact: TryExtractContact(content),
+                    employerAddress: TryExtractAndCleanEmployerAddress(content),
+                    howToApply: TryExtractHowToApply(content),
+                    bulletPoints: _bulletPointScraper.TryExtract(description)
+
+                );
 
             return pageItemExtended;
 
         }
 
         // Methods (private)
+        private string ExtractDescription(string content)
+        {
+
+            /*
+
+             */
+
+            string xpath = "";
+
+            string result = _xpathManager.GetInnerText(content, xpath);
+
+            return result;
+
+        }
+
+        private string TryExtractEmployerName(string content)
+        {
+
+            /*
+
+             */
+
+            string xpath = "";
+
+            string result = _xpathManager.GetInnerText(content, xpath);
+
+            return result;
+
+        }
+        private ushort? TryExtractAndParseNumberOfOpenings(string content)
+        {
+
+            /*
+
+             */
+
+            string xpath = "";
+
+            string result = _xpathManager.GetInnerText(content, xpath);
+            ushort? numberOfOpenings = null;
+            if (result != null)
+                numberOfOpenings = ushort.Parse(result);
+
+            return numberOfOpenings;
+
+        }
+        private DateTime? TryExtractAndParseAdvertisementPublishDate(string content)
+        {
+
+            /*
+
+             */
+
+            string xpath = "";
+
+            string result = _xpathManager.GetInnerText(content, xpath);
+            DateTime? advertisementPublishDate = null;
+            if (result != null)
+                advertisementPublishDate = DateTime.Parse(result);
+
+            return advertisementPublishDate;
+
+        }
+        private DateTime? TryExtractAndParseApplicationDeadline(string content)
+        {
+
+            /*
+
+             */
+
+            string xpath = "";
+
+            string result = _xpathManager.GetInnerText(content, xpath);
+            DateTime? applicationDeadline = null;
+            if (result != null)
+                applicationDeadline = DateTime.Parse(result);
+
+            return applicationDeadline;
+
+        }
+        private string TryExtractStartDateOfEmployment(string content)
+        {
+
+            string xpath = "";
+
+            string result = _xpathManager.GetInnerText(content, xpath);
+
+            return result;
+
+        }
+        private string TryExtractReference(string content)
+        {
+
+            string xpath = "";
+
+            string result = _xpathManager.GetInnerText(content, xpath);
+
+            return result;
+
+        }
+        private string TryExtractPosition(string content)
+        {
+
+            string xpath = "";
+
+            string result = _xpathManager.GetInnerText(content, xpath);
+
+            return result;
+
+        }
+        private string TryExtractTypeOfEmployment(string content)
+        {
+
+            string xpath = "";
+
+            string result = _xpathManager.GetInnerText(content, xpath);
+
+            return result;
+
+        }
+        private string TryExtractContact(string content)
+        {
+
+            string xpath = "";
+
+            string result = _xpathManager.GetInnerText(content, xpath);
+
+            return result;
+
+        }
+        private string TryExtractAndCleanEmployerAddress(string content)
+        {
+
+            string xpath = "";
+
+            string result = _xpathManager.GetInnerText(content, xpath);
+
+            return result;
+
+        }
+        private string TryExtractHowToApply(string content)
+        {
+
+            string xpath = "";
+
+            string result = _xpathManager.GetInnerText(content, xpath);
+
+            return result;
+
+        }
+
+
         private string Old_GetEmployer(string response)
         {
 

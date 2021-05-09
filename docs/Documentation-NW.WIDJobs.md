@@ -207,7 +207,35 @@ Every...
 ...
 ```
 
-...
+The XPath patterns to scrape all the `PageItemExtended` fields are the following ones:
+
+Type|Field|Pattern|
+|---|---|---|
+|`Mandatory`|`Description`||
+|`Optional`|`EmployerName`||
+|`Optional`|`NumberOfOpenings`||
+|`Optional`|`AdvertisementPublishDate`||
+|`Optional`|`ApplicationDeadline`||
+|`Optional`|`StartDateOfEmployment`||
+|`Optional`|`Reference`||
+|`Optional`|`Position`||
+|`Optional`|`TypeOfEmployment`||
+|`Optional`|`Contact`||
+|`Optional`|`EmployerAddress`||
+
+HowToApply
+
+The following fields are derivative:
+
+|Field|Action|
+|---|---|
+|``||
+
+The following fields require extra processing:
+
+|Field|Action|
+|---|---|
+|``||
 
 ## Markdown Toolset
 
