@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace NW.WIDJobs
 {
-    public class PageItemScraper
+    public class PageItemScraper : IPageItemScraper
     {
 
         // Fields
@@ -43,7 +43,7 @@ namespace NW.WIDJobs
             ValidateXPathQueryResults
                 (urls, titles, createDates, applicationDates, workAreas, workingHours, jobTypes, jobIds);
 
-            List<PageItem> pageItems 
+            List<PageItem> pageItems
                 = CreatePageItems(page, urls, titles, createDates, applicationDates, workAreas, workingHours, jobTypes, jobIds);
 
             return pageItems;
