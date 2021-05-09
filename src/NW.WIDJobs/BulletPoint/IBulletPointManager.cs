@@ -2,9 +2,9 @@
 
 namespace NW.WIDJobs
 {
-    public interface IBulletPointScraper
+    public interface IBulletPointManager
     {
-        HashSet<string> TryExtract(string description);
+        List<BulletPoint> GetLabeledBulletPoints();
     }
 }
 

@@ -199,10 +199,7 @@ The following fields require extra processing:
 
 ## PageItemsExtended scraping
 
-Every...
-
-
-**Description** and **SeeCompleteTextAt**:
+`Description` and `SeeCompleteTextAt`:
 
 ```html
 ...
@@ -224,17 +221,78 @@ Every...
 ...
 ```
 
+`EmployerName`:
+
+```html
+...
+<div id="scphpage_0_scphcontent_1_ctl00_uiEntireJobPostingSpan">
+		<hr />
+
+					
+					<h2>
+						DINEX A/S
+					</h2>
+...
+```
+
+`NumberOfOpenings`, `AdvertisementPublishDate`, `ApplicationDeadline` and `StartDateOfEmployment`:
+
+```html
+...
+<div class="row">
+    <div class="col-sm-11 ">
+
+        <dl class="dl-justify nomargin">
+            <dt>
+                Number of openings:
+            </dt>
+            <dd>
+                    1
+                
+            </dd>
+
+            <dt>
+                Advertisement publish date:
+            </dt>
+            <dd>
+                    07/05/2021
+                
+            </dd>
+            <dt>
+                Application deadline:
+            </dt>
+            <dd>
+                    07/06/2021
+                
+            </dd>
+            <dt>
+                Start date of employment:
+
+            </dt>
+            <dd>
+                    As soon as possible
+                
+            </dd>
+        </dl>
+
+    </div>
+</div>
+...
+```
+
+
 The XPath patterns to scrape all the `PageItemExtended` fields are the following ones:
 
 Type|Field|Pattern|
 |---|---|---|
-|`Mandatory`|`Description`|`//div[@class='row']/div[@class='col-sm-11']/div[@class='JobPresentation job-description']`|
-|`Optional`|`SeeCompleteTextAt`|`//div[@class='row']/div[@class='col-sm-11']/a/@href`|
-|`Optional`|`EmployerName`|``|
-|`Optional`|`NumberOfOpenings`|``|
-|`Optional`|`AdvertisementPublishDate`|``|
-|`Optional`|`ApplicationDeadline`|``|
-|`Optional`|`StartDateOfEmployment`|``|
+|`Mandatory`|`Description`|`//div[@class='row']/div[@class='col-sm-11']/div[@class='JobPresentation job-description' or @class='job-description']`|
+|`Optional`|`DescriptionSeeCompleteTextAt`|`//div[@class='row']/div[@class='col-sm-11']/a/@href`|
+|`Optional`|`DescriptionBulletPoints`|`//div[@class='row']/div[@class='col-sm-11']/div[@class='JobPresentation job-description' or @class='job-description']/ul/li`|
+|`Optional`|`EmployerName`|`//div[@id='scphpage_0_scphcontent_1_ctl00_uiEntireJobPostingSpan']/h2`|
+|`Optional`|`NumberOfOpenings`|`//div[@class='col-sm-11 ']/dl[@class='dl-justify nomargin']/dt[contains(.,'Number of openings')]/following-sibling::dd[1]`|
+|`Optional`|`AdvertisementPublishDate`|`//div[@class='col-sm-11 ']/dl[@class='dl-justify nomargin']/dt[contains(.,'Advertisement publish date')]/following-sibling::dd[1]`|
+|`Optional`|`ApplicationDeadline`|`//div[@class='col-sm-11 ']/dl[@class='dl-justify nomargin']/dt[contains(.,'Application deadline')]/following-sibling::dd[1]`|
+|`Optional`|`StartDateOfEmployment`|`//div[@class='col-sm-11 ']/dl[@class='dl-justify nomargin']/dt[contains(.,'Start date of employment')]/following-sibling::dd[1]`|
 |`Optional`|`Reference`|``|
 |`Optional`|`Position`|``|
 |`Optional`|`TypeOfEmployment`|``|
@@ -254,6 +312,11 @@ The following fields require extra processing:
 |Field|Action|
 |---|---|
 |`Description`|Requires trimming.|
+|`EmployerName`|Requires trimming.|
+|`NumberOfOpenings`|Requires trimming and parsing to `ushort` (if not null).|
+|`AdvertisementPublishDate`|Requires trimming and parsing to `DateTime` (if not null).|
+|`ApplicationDeadline`|Requires trimming and parsing to `DateTime` (if not null).|
+|`StartDateOfEmployment`|Requires trimming.|
 
 ## Markdown Toolset
 

@@ -11,7 +11,8 @@ namespace NW.WIDJobs
         public PageItem PageItem { get; }
         public string Description { get; }
 
-        public string SeeCompleteTextAt { get; }
+        public string DescriptionSeeCompleteTextAt { get; }
+        public HashSet<string> DescriptionBulletPoints { get; }
         public string EmployerName { get; }
         public ushort? NumberOfOpenings { get; }
         public DateTime? AdvertisementPublishDate { get; }
@@ -23,13 +24,13 @@ namespace NW.WIDJobs
         public string Contact { get; }
         public string EmployerAddress { get; }
         public string HowToApply { get; }
-        public HashSet<string> BulletPoints { get; }
 
         // Constructors
         public PageItemExtended(
                 PageItem pageItem,
                 string description,
                 string seeCompleteTextAt = null,
+                HashSet<string> bulletPoints = null,
                 string employerName = null,
                 ushort? numberOfOpenings = null,
                 DateTime? advertisementPublishDate = null,
@@ -40,8 +41,7 @@ namespace NW.WIDJobs
                 string typeOfEmployment = null,
                 string contact = null,
                 string employerAddress = null,
-                string howToApply = null,
-                HashSet<string> bulletPoints = null
+                string howToApply = null
             ) 
         {
 
@@ -51,7 +51,8 @@ namespace NW.WIDJobs
             PageItem = pageItem;
             Description = description;
 
-            SeeCompleteTextAt = seeCompleteTextAt;
+            DescriptionSeeCompleteTextAt = seeCompleteTextAt;
+            DescriptionBulletPoints = bulletPoints;
             EmployerName = employerName;
             NumberOfOpenings = numberOfOpenings;
             AdvertisementPublishDate = advertisementPublishDate;
@@ -63,7 +64,6 @@ namespace NW.WIDJobs
             Contact = contact;
             EmployerAddress = employerAddress;
             HowToApply = howToApply;
-            BulletPoints = bulletPoints;
 
         }
 

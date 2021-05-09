@@ -12,23 +12,19 @@ namespace NW.WIDJobs
 
         // Fields
         private IXPathManager _xpathManager;
-        private IBulletPointScraper _bulletPointScraper;
 
         // Properties
         // Constructors
-        public PageItemExtendedScraper
-            (IXPathManager xpathManager, IBulletPointScraper bulletPointScraper)
+        public PageItemExtendedScraper(IXPathManager xpathManager)
         {
 
             Validator.ValidateObject(xpathManager, nameof(xpathManager));
-            Validator.ValidateObject(bulletPointScraper, nameof(bulletPointScraper));
 
             _xpathManager = xpathManager;
-            _bulletPointScraper = bulletPointScraper;
 
         }
         public PageItemExtendedScraper()
-            : this(new XPathManager(), new BulletPointScraper()) { }
+            : this(new XPathManager()) { }
 
         // Methods (public)
         public PageItemExtended Do(PageItem pageItem, string content)
@@ -37,13 +33,12 @@ namespace NW.WIDJobs
             Validator.ValidateObject(pageItem, nameof(pageItem));
             Validator.ValidateStringNullOrWhiteSpace(content, nameof(content));
 
-            string description = ExtractDescription(content);
-
             PageItemExtended pageItemExtended = new PageItemExtended(
 
                     pageItem: pageItem,
-                    description: description,
-                    seeCompleteTextAt: TryExtractSeeCompleteTextAt(content),
+                    description: ExtractDescription(content),
+                    seeCompleteTextAt: TryExtractDescriptionSeeCompleteTextAt(content),
+                    bulletPoints: TryExtractDescriptionBulletPoints(content),
                     employerName: TryExtractEmployerName(content),
                     numberOfOpenings: TryExtractAndParseNumberOfOpenings(content),
                     advertisementPublishDate: TryExtractAndParseAdvertisementPublishDate(content),
@@ -54,8 +49,7 @@ namespace NW.WIDJobs
                     typeOfEmployment: TryExtractTypeOfEmployment(content),
                     contact: TryExtractContact(content),
                     employerAddress: TryExtractAndCleanEmployerAddress(content),
-                    howToApply: TryExtractHowToApply(content),
-                    bulletPoints: _bulletPointScraper.TryExtract(description)
+                    howToApply: TryExtractHowToApply(content)
 
                 );
 
@@ -80,7 +74,7 @@ namespace NW.WIDJobs
 
         }
 
-        private string TryExtractSeeCompleteTextAt(string content)
+        private string TryExtractDescriptionSeeCompleteTextAt(string content)
         {
 
             /*
@@ -94,16 +88,35 @@ namespace NW.WIDJobs
             return result;
 
         }
+        private HashSet<string> TryExtractDescriptionBulletPoints(string content)
+        {
+
+            /*
+                Engineering degree within acoustics & vibration
+                Detailed knowledge of material testing and dynamic vibration testing
+                Detailed knowledge within NVH data acquisition systems and electrodynamic test equipment
+            ...
+             */
+
+            string xpath = "//div[@class='row']/div[@class='col-sm-11']/div[@class='JobPresentation job-description' or @class='job-description']/ul/li";
+
+            List<string> results = _xpathManager.GetInnerTexts(content, xpath);
+            HashSet<string> bulletPoints = new HashSet<string>(results);
+
+            return bulletPoints;
+
+        }
         private string TryExtractEmployerName(string content)
         {
 
             /*
-
+                "	DINEX A/S"
              */
 
-            string xpath = "";
+            string xpath = "//div[@id='scphpage_0_scphcontent_1_ctl00_uiEntireJobPostingSpan']/h2";
 
             string result = _xpathManager.GetInnerText(content, xpath);
+            result = result.Trim();
 
             return result;
 
@@ -112,12 +125,14 @@ namespace NW.WIDJobs
         {
 
             /*
-
+                1
              */
 
-            string xpath = "";
+            string xpath = "//div[@class='col-sm-11 ']/dl[@class='dl-justify nomargin']/dt/following-sibling::dd";
 
             string result = _xpathManager.GetInnerText(content, xpath);
+            result = result?.Trim();
+
             ushort? numberOfOpenings = null;
             if (result != null)
                 numberOfOpenings = ushort.Parse(result);
@@ -231,30 +246,6 @@ namespace NW.WIDJobs
         }
 
 
-        private string Old_GetEmployer(string response)
-        {
-
-            /*
-             *  ...
-             *  <div id="scphpage_0_scphcontent_1_ctl00_uiEntireJobPostingSpan">
-             * 		<hr>
-             * 		<h2>
-             * 			BESTSELLER A/S
-             * 		</h2>
-             *      ...
-             * 
-             */
-
-            string xpath = "//div[@id='scphpage_0_scphcontent_1_ctl00_uiEntireJobPostingSpan']//h2";
-
-            string innerText = _xpathManager.GetInnerText(response, xpath);
-            innerText = TrimOrNull(innerText);
-            innerText = DecodeHtml(innerText);
-            innerText = ToTitleCase(innerText);
-
-            return innerText;
-
-        }
         private short? Old_GetOpenings(string response)
         {
 
@@ -372,35 +363,7 @@ namespace NW.WIDJobs
             return innerText;
 
         }
-        private string Old_GetDescription(string response)
-        {
-
-            /*
-             *  ...
-             * 	<div class="row">
-             * 	    <div class="col-sm-11">
-             * 		    <div id="jobDescription">
-             * 			    <p><strong>Do you speak Italian, and do you ...</p>
-             * 		</div>
-             * 		<br>
-             *      ...
-             * 
-             */
-
-            string xpath = "//div[@id='jobDescription']";
-
-            string innerText = _xpathManager.GetInnerText(response, xpath);
-            innerText = DecodeHtml(innerText);
-            innerText = TrimOrNull(innerText);
-
-            // The ads without a description usually have a presentation 
-            // (shorter description + link to the complete one)
-            if (innerText == null)
-                innerText = Old_GetPresentation(response);
-
-            return innerText;
-
-        }
+ 
         private string Old_GetPosition(string response)
         {
 
@@ -461,40 +424,6 @@ namespace NW.WIDJobs
 
             string xpath = "//div[@class='col-ms-6 col-sm-4']//p";
             uint valueNr = 2;
-
-            string innerText = _xpathManager.GetInnerText(response, xpath, valueNr);
-            innerText = TrimOrNull(innerText);
-
-            return innerText;
-
-        }
-        private string Old_GetWeeklyWorkingHours(string response)
-        {
-
-            /*
-             * ...
-             * <aside>
-             *    <div class="row row-wide aside padding-left-extra">
-             *        <div class="col-sm-12">
-             *
-             *            <div class="row">
-             *                <div class="col-ms-6 col-sm-4">
-             *
-             *      ...
-             *
-             *                    <h3>
-             *                        Weekly working hours
-             *                    </h3>
-             *                    <p>
-             *                        Full time (37 hours)
-             *                        
-             *                    </p>
-             *      ...
-             * 
-             */
-
-            string xpath = "//div[@class='col-ms-6 col-sm-4']//p";
-            uint valueNr = 3;
 
             string innerText = _xpathManager.GetInnerText(response, xpath, valueNr);
             innerText = TrimOrNull(innerText);
