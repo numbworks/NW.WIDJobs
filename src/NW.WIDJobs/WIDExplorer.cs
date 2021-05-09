@@ -39,13 +39,13 @@ namespace NW.WIDJobs
         public ExplorationSummary Explore()
         {
 
-            PageBundle pageBundle = GetPage(1);
-            ExplorationSummary explorationSummary = InitializeExploration(pageBundle.Response);
+            PageItemResponse pageBundle = GetPage(1);
+            ExplorationSummary explorationSummary = InitializeExploration(pageBundle.Content);
 
             List<Page> pages = new List<Page>();
-            pages.Add(pageBundle.Page);
+            pages.Add(pageBundle.PageItem);
 
-            if (pageBundle.Page.IsLastForCurrentExploration == false)
+            if (pageBundle.PageItem.IsLastForCurrentExploration == false)
             {
 
                 List<Page> morePages = GetPages(2, explorationSummary.TotalPagesExpected);
@@ -74,8 +74,8 @@ namespace NW.WIDJobs
             for (ushort i = startPage; i <= endPage; i++)
             {
 
-                PageBundle pageBundle = GetPage(i);
-                Page page = pageBundle.Page;
+                PageItemResponse pageBundle = GetPage(i);
+                Page page = pageBundle.PageItem;
                 pages.Add(page);
 
                 if (page.IsLastForCurrentExploration == true)
@@ -89,7 +89,7 @@ namespace NW.WIDJobs
 
         }
 
-        private PageBundle GetPage(ushort pageNumber)
+        private PageItemResponse GetPage(ushort pageNumber)
         {
 
             string absoluteUrl = CreatePageAbsoluteUrl(pageNumber);
@@ -101,9 +101,9 @@ namespace NW.WIDJobs
             page.Url = absoluteUrl;
             page.Items = listItems;
 
-            PageBundle pageBundle = new PageBundle();
-            pageBundle.Response = response;
-            pageBundle.Page = page;
+            PageItemResponse pageBundle = new PageItemResponse();
+            pageBundle.Content = response;
+            pageBundle.PageItem = page;
 
             return pageBundle;
 
