@@ -18,7 +18,8 @@ namespace NW.WIDJobs
             _xpathManager = xpathManager;
 
         }
-        public PageScraper() { }
+        public PageScraper() 
+            : this (new XPathManager()) { }
 
         // Methods (public)
         public uint GetTotalResults(string content)
