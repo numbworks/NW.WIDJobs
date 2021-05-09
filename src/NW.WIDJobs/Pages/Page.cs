@@ -8,45 +8,31 @@ namespace NW.WIDJobs
 
         // Fields
         // Properties
-        public string AbsoluteUrl { get; set; }
-        public ushort PageNumber { get; set; }
-        public List<PageItem> Items { get; set; }
-        public bool IsLastForCurrentExploration { get; set; } = false;
-        public bool IsLastOnWebsite { get; set; } = false;
+        public string RunId { get; }
+        public ushort PageNumber { get; }
+        public string Content { get; }
 
         // Constructors
-        public Page() { }
-
-        // Methods
-        public override string ToString()
+        public Page
+            (string runId, ushort pageNumber, string content) 
         {
 
-            // Output: { AbsoluteUrl: '', PageNumber: '0', Items: '0', IsLastForCurrentExploration: 'False', IsLastOnWebsite: 'False' }
+            Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
+            Validator.ThrowIfLessThanOne(pageNumber, nameof(pageNumber));
+            Validator.ValidateStringNullOrWhiteSpace(content, nameof(content));
 
-            int intItems = 0;
-            if (Items != null)
-                intItems = Items.Count;
-
-            string strTemplate = "{{ {0}: '{1}', {2}: '{3}', {4}: '{5}', {6}: '{7}', {8}: '{9}' }}";
-            return String.Format(strTemplate,
-                nameof(AbsoluteUrl),
-                AbsoluteUrl,
-                nameof(PageNumber),
-                PageNumber.ToString(),
-                nameof(Items),
-                intItems.ToString(),
-                nameof(IsLastForCurrentExploration),
-                IsLastForCurrentExploration.ToString(),
-                nameof(IsLastOnWebsite),
-                IsLastOnWebsite.ToString()
-                );
+            RunId = runId;
+            PageNumber = pageNumber;
+            Content = content;
 
         }
+
+        // Methods
 
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 05.05.2021
+    Last Update: 09.05.2021
 */

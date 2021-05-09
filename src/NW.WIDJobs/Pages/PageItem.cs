@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace NW.WIDJobs
 {
@@ -8,94 +7,54 @@ namespace NW.WIDJobs
 
         // Fields
         // Properties
-        public string ItemId { get; set; }
-        public string AbsoluteUrl { get; set; }
-        public string Title { get; set; }
-        public string WorkArea { get; set; }
-        public string WeeklyWorkingHours { get; set; }
-        public DateTime? AdvertisementPublishDate { get; set; }
-        public DateTime? ApplicationDeadline { get; set; }
-
-        public string Description { get; set; }
-
-        public string Employer { get; set; }
-        public short? Openings { get; set; } // 
-        public string EmploymentStartDate { get; set; }
-        public string Position { get; set; }
-        public string EmploymentType { get; set; }
-        public string EmployerAddress { get; set; }
-        public string Contact { get; set; }
-        public string HowToApply { get; set; }
-        public string Country { get; set; }
-        public uint? SalaryRangeStart { get; set; }
-        public uint? SalaryRangeEnd { get; set; }
-        public string SalaryRangeCurrency { get; set; }
-        public string VisaType { get; set; }
-        public string RelocationType { get; set; }
-        public string RemoteType { get; set; }
-        public string ExperienceLevel { get; set; }
-        public string Industry { get; set; }
-        public uint? CompanySize { get; set; }
-        public string CompanyType { get; set; }
-        public string RemoteDetails { get; set; }
-        public HashSet<string> Technologies { get; set; }
-        public HashSet<string> Benefits { get; set; }
-        public HashSet<string> TeamMembers { get; set; }
-        public HashSet<string> TeamMembersTechnologies { get; set; }
+        public string RunId { get; }
+        public ushort PageNumber { get; }
+        public ushort PageItemNumber { get; }
+        public ulong JobId { get; }
+        public string Url { get; }
+        public string Title { get; }
+        public DateTime CreateDate { get; }
+        public DateTime ApplicationDate { get; }
+        public string WorkArea { get; }
+        public string WorkingHours { get; }
+        public string JobType { get; }
 
         // Constructors
-        public PageItem() { }
-        public PageItem(PageItem pageItem)
+        public PageItem(
+            string runId,
+            ushort pageNumber,
+            ushort pageItemNumber,
+            ulong jobId,
+            string url,
+            string title,
+            DateTime createDate,
+            DateTime applicationDate,
+            string workArea,
+            string workingHours,
+            string jobType
+            ) 
         {
 
-            if (pageItem == null)
-                new PageItem();
+            Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
+            Validator.ThrowIfLessThanOne(pageNumber, nameof(pageNumber));
+            Validator.ThrowIfLessThanOne(pageItemNumber, nameof(pageItemNumber));
+            Validator.ValidateStringNullOrWhiteSpace(url, nameof(url));
+            Validator.ValidateStringNullOrWhiteSpace(title, nameof(title));
+            Validator.ValidateStringNullOrWhiteSpace(workArea, nameof(workArea));
+            Validator.ValidateStringNullOrWhiteSpace(workingHours, nameof(workingHours));
+            Validator.ValidateStringNullOrWhiteSpace(jobType, nameof(jobType));
 
-            if (pageItem != null)
-            {
-
-                AbsoluteUrl = pageItem.AbsoluteUrl;
-                ItemId = pageItem.ItemId;
-                WorkArea = pageItem.WorkArea;
-                Title = pageItem.Title;
-                Employer = pageItem.Employer;
-                Openings = pageItem.Openings;
-                AdvertisementPublishDate = pageItem.AdvertisementPublishDate;
-                ApplicationDeadline = pageItem.ApplicationDeadline;
-                EmploymentStartDate = pageItem.EmploymentStartDate;
-                Description = pageItem.Description;
-                Position = pageItem.Position;
-                EmploymentType = pageItem.EmploymentType;
-                WeeklyWorkingHours = pageItem.WeeklyWorkingHours;
-                EmployerAddress = pageItem.EmployerAddress;
-                Contact = pageItem.Contact;
-                HowToApply = pageItem.HowToApply;
-                Country = pageItem.Country;
-                SalaryRangeStart = pageItem.SalaryRangeStart;
-                SalaryRangeEnd = pageItem.SalaryRangeEnd;
-                SalaryRangeCurrency = pageItem.SalaryRangeCurrency;
-                VisaType = pageItem.VisaType;
-                RelocationType = pageItem.RelocationType;
-                RemoteType = pageItem.RemoteType;
-                ExperienceLevel = pageItem.ExperienceLevel;
-                Industry = pageItem.Industry;
-                CompanySize = pageItem.CompanySize;
-                CompanyType = pageItem.CompanyType;
-                RemoteDetails = pageItem.RemoteDetails;
-
-                if (pageItem.Technologies != null)
-                    Technologies.UnionWith(pageItem.Technologies);
-
-                if (pageItem.Benefits != null)
-                    Benefits.UnionWith(pageItem.Benefits);
-
-                if (pageItem.TeamMembers != null)
-                    TeamMembers.UnionWith(pageItem.TeamMembers);
-
-                if (pageItem.TeamMembersTechnologies != null)
-                    TeamMembersTechnologies.UnionWith(pageItem.TeamMembersTechnologies);
-
-            }
+            RunId = runId;
+            PageNumber = pageNumber;
+            PageItemNumber = pageItemNumber;
+            JobId = jobId;
+            Url = url;
+            Title = title;
+            CreateDate = createDate;
+            ApplicationDate = applicationDate;
+            WorkArea = workArea;
+            WorkingHours = workingHours;
+            JobType = jobType;
 
         }
 
@@ -106,5 +65,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 05.05.2021
+    Last Update: 09.05.2021
 */

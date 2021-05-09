@@ -98,7 +98,7 @@ namespace NW.WIDJobs
 
             Page page = new Page();
             page.PageNumber = pageNumber;
-            page.AbsoluteUrl = absoluteUrl;
+            page.Url = absoluteUrl;
             page.Items = listItems;
 
             PageBundle pageBundle = new PageBundle();
@@ -134,8 +134,8 @@ namespace NW.WIDJobs
                     new PageItem()
                     {
                         Title = titles[i],
-                        AbsoluteUrl = CreateItemAbsoluteUrl(relativeUrls[i]),
-                        ItemId = CreateItemId(relativeUrls[i]),
+                        Url = CreateItemAbsoluteUrl(relativeUrls[i]),
+                        JobId = CreateItemId(relativeUrls[i]),
                         WorkArea = workAreas[i]
                     });
 

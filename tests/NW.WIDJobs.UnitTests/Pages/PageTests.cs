@@ -14,19 +14,19 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                     new Page() {
-                        AbsoluteUrl = "https://www.workindenmark.dk/Search/Job-search?q=",
+                        Url = "https://www.workindenmark.dk/Search/Job-search?q=",
                         PageNumber = 1,
                         Items = new List<PageItem>() {
                                     new PageItem() {
                                         Title = "Logistics Specialist",
-                                        AbsoluteUrl = "https://www.workindenmark.dk/job/6765129/Logistics-Specialist",
-                                        ItemId = "6765129Logistics-Specialist",
+                                        Url = "https://www.workindenmark.dk/job/6765129/Logistics-Specialist",
+                                        JobId = "6765129Logistics-Specialist",
                                         WorkArea = "Kolding"
                                     },
                                     new PageItem() {
                                         Title = "Project Manager",
-                                        AbsoluteUrl = "https://www.workindenmark.dk/job/6765122/Project-Manager",
-                                        ItemId = "6765122Project-Manager",
+                                        Url = "https://www.workindenmark.dk/job/6765122/Project-Manager",
+                                        JobId = "6765122Project-Manager",
                                         WorkArea = "Vejle"
                                     }
                                 },
@@ -48,7 +48,7 @@ namespace NW.WIDJobs.UnitTests
                 ).SetName(nameof(ToString_ShouldReturnExpectedString_WhenInvoked) + " {01}"),
             new TestCaseData(
                     new Page() {
-                        AbsoluteUrl = "https://www.workindenmark.dk/Search/Job-search?q=",
+                        Url = "https://www.workindenmark.dk/Search/Job-search?q=",
                         PageNumber = 1,
                         Items = new List<PageItem>() { },
                         IsLastForCurrentExploration = false,
@@ -69,7 +69,7 @@ namespace NW.WIDJobs.UnitTests
                 ).SetName(nameof(ToString_ShouldReturnExpectedString_WhenInvoked) + " {02}"),
             new TestCaseData(
                     new Page() {
-                        AbsoluteUrl = "https://www.workindenmark.dk/Search/Job-search?q=",
+                        Url = "https://www.workindenmark.dk/Search/Job-search?q=",
                         PageNumber = 1,
                         Items = null,
                         IsLastForCurrentExploration = false,

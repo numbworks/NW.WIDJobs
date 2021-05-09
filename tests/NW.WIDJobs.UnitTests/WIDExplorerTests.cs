@@ -145,14 +145,14 @@ namespace NW.WIDJobs.UnitTests
                          63,
                          new List<Page>() {
                                 new Page() {
-                                    AbsoluteUrl = ObjectMother.Explorer_Page1.AbsoluteUrl,
+                                    Url = ObjectMother.Explorer_Page1.Url,
                                     PageNumber = ObjectMother.Explorer_Page1.PageNumber,
                                     IsLastForCurrentExploration = ObjectMother.Explorer_Page1.IsLastForCurrentExploration,
                                     Items = new List<PageItem>() {
                                                 new PageItem() {
                                                     Title = "Logistics Specialist",
-                                                    AbsoluteUrl = "https://www.workindenmark.dk/job/6765129/Logistics-Specialist",
-                                                    ItemId = "6765129Logistics-Specialist",
+                                                    Url = "https://www.workindenmark.dk/job/6765129/Logistics-Specialist",
+                                                    JobId = "6765129Logistics-Specialist",
                                                     WorkArea = "Kgs. Lyngby"
                                                 }
                                     }

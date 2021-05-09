@@ -14,8 +14,8 @@ namespace NW.WIDJobs.UnitTests
             new TestCaseData(
                 new PageItem() {
                             Title = "Country Sales & Product Responsible",
-                            AbsoluteUrl = "https://www.workindenmark.dk/job/6755865/COUNTRY-SALES-PRODUCT-RESPONSIBLE",
-                            ItemId = "6755865COUNTRY-SALES-PRODUCT-RESPONSIBLE",
+                            Url = "https://www.workindenmark.dk/job/6755865/COUNTRY-SALES-PRODUCT-RESPONSIBLE",
+                            JobId = "6755865COUNTRY-SALES-PRODUCT-RESPONSIBLE",
                             WorkArea = "Brande",
                             Employer = "Bestseller A/S",
                             Openings = 1,
@@ -32,8 +32,8 @@ namespace NW.WIDJobs.UnitTests
                         },
                 new PageItem() {
                             Title = "Country Sales & Product Responsible",
-                            AbsoluteUrl = "https://www.workindenmark.dk/job/6755865/COUNTRY-SALES-PRODUCT-RESPONSIBLE",
-                            ItemId = "6755865COUNTRY-SALES-PRODUCT-RESPONSIBLE",
+                            Url = "https://www.workindenmark.dk/job/6755865/COUNTRY-SALES-PRODUCT-RESPONSIBLE",
+                            JobId = "6755865COUNTRY-SALES-PRODUCT-RESPONSIBLE",
                             WorkArea = "Brande",
                             Employer = "Bestseller A/S",
                             Openings = 1,
@@ -72,7 +72,7 @@ namespace NW.WIDJobs.UnitTests
             PageItem objActual = new PageItem(objItem);
 
             // Assert
-            Assert.AreEqual(objExpected.AbsoluteUrl, objActual.AbsoluteUrl);
+            Assert.AreEqual(objExpected.Url, objActual.Url);
             Assert.AreEqual(objExpected.AdvertisementPublishDate, objActual.AdvertisementPublishDate);
             Assert.AreEqual(objExpected.ApplicationDeadline, objActual.ApplicationDeadline);
             Assert.AreEqual(objExpected.Contact, objActual.Contact);
@@ -82,11 +82,11 @@ namespace NW.WIDJobs.UnitTests
             Assert.AreEqual(objExpected.EmploymentStartDate, objActual.EmploymentStartDate);
             Assert.AreEqual(objExpected.EmploymentType, objActual.EmploymentType);
             Assert.AreEqual(objExpected.HowToApply, objActual.HowToApply);
-            Assert.AreEqual(objExpected.ItemId, objActual.ItemId);
+            Assert.AreEqual(objExpected.JobId, objActual.JobId);
             Assert.AreEqual(objExpected.Openings, objActual.Openings);
             Assert.AreEqual(objExpected.Position, objActual.Position);
             Assert.AreEqual(objExpected.Title, objActual.Title);
-            Assert.AreEqual(objExpected.WeeklyWorkingHours, objActual.WeeklyWorkingHours);
+            Assert.AreEqual(objExpected.WorkingHours, objActual.WorkingHours);
             Assert.AreEqual(objExpected.WorkArea, objActual.WorkArea);
 
         }

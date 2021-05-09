@@ -34,7 +34,7 @@ namespace NW.WIDJobs
 
             // Validation
 
-            string response = _getRequestManager.Send(pageItem.AbsoluteUrl, Encoding.UTF8);
+            string response = _getRequestManager.Send(pageItem.Url, Encoding.UTF8);
 
             pageItem.Employer = GetEmployer(response);
             pageItem.Openings = GetOpenings(response);
