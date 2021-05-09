@@ -11,6 +11,7 @@ namespace NW.WIDJobs
         public PageItem PageItem { get; }
         public string Description { get; }
 
+        public string SeeCompleteTextAt { get; }
         public string EmployerName { get; }
         public ushort? NumberOfOpenings { get; }
         public DateTime? AdvertisementPublishDate { get; }
@@ -28,6 +29,7 @@ namespace NW.WIDJobs
         public PageItemExtended(
                 PageItem pageItem,
                 string description,
+                string seeCompleteTextAt = null,
                 string employerName = null,
                 ushort? numberOfOpenings = null,
                 DateTime? advertisementPublishDate = null,
@@ -49,6 +51,7 @@ namespace NW.WIDJobs
             PageItem = pageItem;
             Description = description;
 
+            SeeCompleteTextAt = seeCompleteTextAt;
             EmployerName = employerName;
             NumberOfOpenings = numberOfOpenings;
             AdvertisementPublishDate = advertisementPublishDate;

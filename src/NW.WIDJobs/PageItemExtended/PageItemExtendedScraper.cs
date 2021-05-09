@@ -43,6 +43,7 @@ namespace NW.WIDJobs
 
                     pageItem: pageItem,
                     description: description,
+                    seeCompleteTextAt: TryExtractSeeCompleteTextAt(content),
                     employerName: TryExtractEmployerName(content),
                     numberOfOpenings: TryExtractAndParseNumberOfOpenings(content),
                     advertisementPublishDate: TryExtractAndParseAdvertisementPublishDate(content),
@@ -78,6 +79,20 @@ namespace NW.WIDJobs
 
         }
 
+        private string TryExtractSeeCompleteTextAt(string content)
+        {
+
+            /*
+
+             */
+
+            string xpath = "";
+
+            string result = _xpathManager.GetInnerText(content, xpath);
+
+            return result;
+
+        }
         private string TryExtractEmployerName(string content)
         {
 

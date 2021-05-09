@@ -201,9 +201,26 @@ The following fields require extra processing:
 
 Every...
 
+
+**Description** and **SeeCompleteTextAt**:
+
 ```html
 ...
+<hr class="margin" />
 
+<div class="row">
+    <div class="col-sm-11">
+
+        <div class="JobPresentation job-description">
+                <br>Technology Finance Business Partner<br>Denmark Copenhagen Local Finance/Accounting Last application date: 28/5/2021<br>A.P. Moller - Maersk is an integrated container logistics company. Connecting and simplifying trade to help our customers grow and thrive. With a dedicated team of over 76,000, operating in 130 countries; we go all the way to enable global trade for a growing world. <br><br>We, being an equal opportunity employer, are renowned for our dedicated and professional staff and global career opportunities. An opportunity is now available for a career-minded individual to join us as a Technology Finance Business Partner – Technology Infrastructure Engineering & Service Operations.<br><br>Technology will enable our digital transformation, drive more customer value, improve business performance and create operational synergies, to help realize our vision of becoming the Global Integrator of container logistics, connecting and simplifying our customers' supply chain. The Maersk Group is on the l...
+        </div>
+
+        <a href="https://jobsearch.maersk.com/jobposting/index.html?id=MA-268026" target="_blank">See the complete text at A.P. Møller - Mærsk A/S</a>
+
+
+
+    </div>
+</div>
 ...
 ```
 
@@ -212,6 +229,7 @@ The XPath patterns to scrape all the `PageItemExtended` fields are the following
 Type|Field|Pattern|
 |---|---|---|
 |`Mandatory`|`Description`||
+|`Optional`|`SeeCompleteTextAt`||
 |`Optional`|`EmployerName`||
 |`Optional`|`NumberOfOpenings`||
 |`Optional`|`AdvertisementPublishDate`||
@@ -235,7 +253,7 @@ The following fields require extra processing:
 
 |Field|Action|
 |---|---|
-|``||
+|`Description`|Requires trimming.|
 
 ## Markdown Toolset
 
