@@ -7,7 +7,7 @@ using System.Web;
 
 namespace NW.WIDJobs
 {
-    public class PageItemExtendedScraper
+    public class PageItemExtendedScraper : IPageItemExtendedScraper
     {
 
         // Fields
@@ -27,16 +27,17 @@ namespace NW.WIDJobs
             : this(new XPathManager()) { }
 
         // Methods (public)
-        public List<PageItemExtended> Do(PageItemResponse pageItemResponse)
+        public PageItemExtended Do(PageItem pageItem, string content)
         {
 
-            Validator.ValidateObject(pageItemResponse, nameof(pageItemResponse));
+            Validator.ValidateObject(pageItem, nameof(pageItem));
+            Validator.ValidateStringNullOrWhiteSpace(content, nameof(content));
 
-            List<PageItemExtended> pageItems = new List<PageItemExtended>();
+            PageItemExtended pageItemExtended = null;
 
             /* ... */
 
-            return pageItems;
+            return pageItemExtended;
 
         }
 
