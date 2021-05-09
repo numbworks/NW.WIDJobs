@@ -22,8 +22,7 @@ namespace NW.WIDJobs
         public string Contact { get; }
         public string EmployerAddress { get; }
         public string HowToApply { get; }
-
-        public HashSet<string> BulletPoints { get; set; }
+        public HashSet<string> BulletPoints { get; }
 
         // Constructors
         public PageItemExtended(
@@ -39,7 +38,8 @@ namespace NW.WIDJobs
                 string typeOfEmployment = null,
                 string contact = null,
                 string employerAddress = null,
-                string howToApply = null
+                string howToApply = null,
+                HashSet<string> bulletPoints = null
             ) 
         {
 
@@ -60,6 +60,7 @@ namespace NW.WIDJobs
             Contact = contact;
             EmployerAddress = employerAddress;
             HowToApply = howToApply;
+            BulletPoints = bulletPoints;
 
         }
 
