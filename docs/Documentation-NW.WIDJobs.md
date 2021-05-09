@@ -280,7 +280,106 @@ The following fields require extra processing:
 ...
 ```
 
+`Reference`, `Position`, `TypeOfEmployment`, `Contact`, `EmployerAddress` and `HowToApply`:
 
+```html
+...
+<aside>
+    <div class="row row-wide aside padding-left-extra">
+        <div class="col-sm-12">
+
+            <div class="row">
+                <div class="col-ms-6 col-sm-4">
+
+
+                    
+                    <p>
+                        
+                        
+                    </p>
+                    <h3 id="scphpage_0_scphcontent_1_ctl00_H1">
+                        Position
+                    </h3>
+                    <p>
+                        Academical work / Engineering professionals
+                    </p>
+                    <h3>
+                        Type of employment
+                    </h3>
+                    <p>
+                        Regular position
+                        
+                    </p>
+                    <h3>
+                        Weekly working hours
+                    </h3>
+                    <p>
+                        Full time (37 hours)
+                        
+                    </p>
+                    
+                    <p>
+                        
+                        
+                    </p>
+                </div>
+                <div class="col-ms-6 col-sm-4">
+
+                    <h3>
+                        Contact
+                    </h3>
+                    <p>
+                        <span id="scphpage_0_scphcontent_1_ctl00_uiContactNameSpan">
+                            Global Test Centre Manager Christian Berg Philipp<br />
+                        </span>
+                    </p>
+                    
+                    
+                    <h3 id="scphpage_0_scphcontent_1_ctl00_uiEmployerHeading">
+                        Employer
+                    </h3>
+                    <p id="scphpage_0_scphcontent_1_ctl00_uiEmployerAddressSpan">
+                        DINEX A/S<br />
+                        Fynsvej 39<br />
+                        DK 5500 Middelfart<br />
+                        Denmark<br />
+                    </p>
+                    <p id="scphpage_0_scphcontent_1_ctl00_uiEmployerWebSiteSpan">
+                        Website:
+                        <a id="scphpage_0_scphcontent_1_ctl00_uiEmployerWebSiteContent" href="https://www.dinex.net/">www.dinex.net/</a>
+                    </p>
+                    
+
+                </div>
+                <div class="col-ms-6 col-sm-4">
+                    <h3 id="scphpage_0_scphcontent_1_ctl00_uiHowToApplyHeading">
+                        How to apply
+                    </h3>
+                    <ul>
+                        
+                        
+                        
+                        <li id="scphpage_0_scphcontent_1_ctl00_uiHowToApplyOnlineSpan"><span style="word-wrap: break-word">
+                            Online:
+                            <a id="scphpage_0_scphcontent_1_ctl00_uiLnkHowToApplyOnline" href="https://dinex.career.emply.com/ad/nvh-test-engineer/03leyh" target="_blank">Application form</a><br />
+                        </span></li>
+                    </ul>
+                    
+                    <h3>
+                        Job ID
+                    </h3>
+                    <p>
+                        5340215
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</aside>
+...
+```
 The XPath patterns to scrape all the `PageItemExtended` fields are the following ones:
 
 Type|Field|Pattern|
@@ -293,19 +392,14 @@ Type|Field|Pattern|
 |`Optional`|`AdvertisementPublishDate`|`//div[@class='col-sm-11 ']/dl[@class='dl-justify nomargin']/dt[contains(.,'Advertisement publish date')]/following-sibling::dd[1]`|
 |`Optional`|`ApplicationDeadline`|`//div[@class='col-sm-11 ']/dl[@class='dl-justify nomargin']/dt[contains(.,'Application deadline')]/following-sibling::dd[1]`|
 |`Optional`|`StartDateOfEmployment`|`//div[@class='col-sm-11 ']/dl[@class='dl-justify nomargin']/dt[contains(.,'Start date of employment')]/following-sibling::dd[1]`|
-|`Optional`|`Reference`|``|
-|`Optional`|`Position`|``|
-|`Optional`|`TypeOfEmployment`|``|
-|`Optional`|`Contact`|``|
-|`Optional`|`EmployerAddress`|``|
+|`Optional`|`Reference`|`//div[@class='col-ms-6 col-sm-4']/h3[contains(., 'Reference')]/following-sibling::p[1]`|
+|`Optional`|`Position`|`//div[@class='col-ms-6 col-sm-4']/h3[contains(., 'Position')]/following-sibling::p[1]`|
+|`Optional`|`TypeOfEmployment`|`//div[@class='col-ms-6 col-sm-4']/h3[contains(., 'Type of employment')]/following-sibling::p[1]`|
+|`Optional`|`Contact`|`//div[@class='col-ms-6 col-sm-4']/h3[contains(., 'Contact')]/following-sibling::p[1]`|
+|`Optional`|`EmployerAddress`|`//div[@class='col-ms-6 col-sm-4']/h3[contains(., 'Employer')]/following-sibling::p[1]`|
+|`Optional`|`HowToApply`|`//div[@class='col-ms-6 col-sm-4']//ul|//a[@id='scphpage_0_scphcontent_1_ctl00_uiLnkHowToApplyOnline']/@href`|
 
-HowToApply
 
-The following fields are derivative:
-
-|Field|Action|
-|---|---|
-|``||
 
 The following fields require extra processing:
 
@@ -317,6 +411,12 @@ The following fields require extra processing:
 |`AdvertisementPublishDate`|Requires trimming and parsing to `DateTime` (if not null).|
 |`ApplicationDeadline`|Requires trimming and parsing to `DateTime` (if not null).|
 |`StartDateOfEmployment`|Requires trimming.|
+|`Reference`|Requires trimming.|
+|`Position`|Requires trimming.|
+|`TypeOfEmployment`|Requires trimming.|
+|`Contact`|Requires trimming.|
+|`EmployerAddress`|Requires trimming.|
+|`HowToApply`|Requires trimming.|
 
 ## Markdown Toolset
 
