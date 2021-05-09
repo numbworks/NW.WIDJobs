@@ -124,6 +124,7 @@ The following fields are derivative:
 |---|---|
 |`PageItemNumber`|Equals to the item's position in the list increased by 1.|
 |`JobId`|Extract it from `Url`.|
+|`PageItemId`|`JobId` and `Title` combined.|
 
 ## Markdown Toolset
 

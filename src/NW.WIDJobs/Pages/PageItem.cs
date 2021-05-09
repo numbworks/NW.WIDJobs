@@ -18,6 +18,7 @@ namespace NW.WIDJobs
         public string JobType { get; }
         public ulong JobId { get; }
         public ushort PageItemNumber { get; }
+        public string PageItemId { get; }
 
         // Constructors
         public PageItem(
@@ -31,7 +32,8 @@ namespace NW.WIDJobs
             string workingHours,
             string jobType,
             ulong jobId,
-            ushort pageItemNumber
+            ushort pageItemNumber,
+            string pageItemId
             ) 
         {
 
@@ -43,6 +45,7 @@ namespace NW.WIDJobs
             Validator.ValidateStringNullOrWhiteSpace(workingHours, nameof(workingHours));
             Validator.ValidateStringNullOrWhiteSpace(jobType, nameof(jobType));
             Validator.ThrowIfLessThanOne(pageItemNumber, nameof(pageItemNumber));
+            Validator.ValidateStringNullOrWhiteSpace(pageItemId, nameof(pageItemId));
 
             RunId = runId;
             PageNumber = pageNumber;
