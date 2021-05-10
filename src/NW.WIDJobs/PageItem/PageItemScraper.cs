@@ -110,6 +110,7 @@ namespace NW.WIDJobs
             /*
                 Application date: As soon as possible
                 Application date: May 25, 2021
+                Application date: June 06, 2021
                 ...
             */
 
@@ -249,7 +250,8 @@ namespace NW.WIDJobs
             try
             {
 
-                return DateTime.ParseExact(applicationDate, "MMM dd, yyyy", CultureInfo.InvariantCulture);
+                CultureInfo cultureInfo = new CultureInfo("en-US");
+                return DateTime.ParseExact(applicationDate, "MMMM dd, yyyy", cultureInfo);
 
             }
             catch
