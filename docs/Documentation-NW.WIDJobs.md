@@ -167,15 +167,15 @@ A.P. Moller - Maersk is an integrated container logistics company. Connecting an
 
 The XPath patterns to scrape all the `PageItem` fields are the following ones:
 
-|Field|Pattern|
-|---|---|
-|`Url`|`//div[@class='col-sm-9 ']/h1/a/@href`|
-|`Title`|`//div[@class='col-sm-9 ']/h1`|
-|`CreateDate`|`//div[@class='col-sm-9 ']/p[contains(.,'Created')]/time/@datetime`|
-|`ApplicationDate`|`//div[@class='col-sm-9 ']/p[contains(.,'Application date')]/strong/time/@datetime`|
-|`WorkArea`|`//ul[@class='list-inline']/li[contains(.,'Work area')]`|
-|`WorkingHours`|`//ul[@class='list-inline']/li[contains(.,'Working hours')]`|
-|`JobType`|`//ul[@class='list-inline']/li[contains(.,'Job type')]`|
+|Type|Field|Pattern|
+|---|---|---|
+|`Mandatory`|`Url`|`//div[@class='col-sm-9 ']/h1/a/@href`|
+|`Mandatory`|`Title`|`//div[@class='col-sm-9 ']/h1`|
+|`Mandatory`|`CreateDate`|`//div[@class='col-sm-9 ']/p[contains(.,'Created')]/time/@datetime`|
+|`Optional`|`ApplicationDate`|`//div[@class='col-sm-9 ']/p[contains(.,'Application date')]/strong/time/@datetime`|
+|`Mandatory`|`WorkArea`|`//ul[@class='list-inline']/li[contains(.,'Work area')]`|
+|`Mandatory`|`WorkingHours`|`//ul[@class='list-inline']/li[contains(.,'Working hours')]`|
+|`Mandatory`|`JobType`|`//ul[@class='list-inline']/li[contains(.,'Job type')]`|
 
 The following fields are derivative:
 
@@ -192,7 +192,7 @@ The following fields require extra processing:
 |`Url`|Convert from relative to absolute.|
 |`Title`|Remove `&nbsp;`.|
 |`CreateDate`|Parse it to `DateTime`.|
-|`ApplicationDate`|Parse it to `DateTime`.|
+|`ApplicationDate`|Parse it to `DateTime` or `null` when "As soon as possible".|
 |`WorkArea`|Remove `Work area: `.|
 |`WorkingHours`|Remove `Working hours: `.|
 |`JobType`|Remove `Job type: `.|
@@ -383,7 +383,7 @@ The following fields require extra processing:
 ```
 The XPath patterns to scrape all the `PageItemExtended` fields are the following ones:
 
-Type|Field|Pattern|
+|Type|Field|Pattern|
 |---|---|---|
 |`Mandatory`|`Description`|`//div[@class='row']/div[@class='col-sm-11']/div[@class='JobPresentation job-description' or @class='job-description']`|
 |`Optional`|`DescriptionSeeCompleteTextAt`|`//div[@class='row']/div[@class='col-sm-11']/a/@href`|
@@ -399,8 +399,6 @@ Type|Field|Pattern|
 |`Optional`|`Contact`|`//div[@class='col-ms-6 col-sm-4']/h3[contains(., 'Contact')]/following-sibling::p[1]`|
 |`Optional`|`EmployerAddress`|`//div[@class='col-ms-6 col-sm-4']/h3[contains(., 'Employer')]/following-sibling::p[1]`|
 |`Optional`|`HowToApply`|`//div[@class='col-ms-6 col-sm-4']//ul|//a[@id='scphpage_0_scphcontent_1_ctl00_uiLnkHowToApplyOnline']/@href`|
-
-
 
 The following fields require extra processing:
 

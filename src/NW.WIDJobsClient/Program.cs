@@ -18,7 +18,8 @@ namespace NW.WIDJobsClient
             PageItemScraper pageItemScraper = new PageItemScraper();
             List<PageItem> pageItems = pageItemScraper.Do(page);
 
-            Console.WriteLine();
+            Console.ReadLine();
+
         }
 
         static void Test1_GetTotalResults()

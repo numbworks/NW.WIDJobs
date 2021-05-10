@@ -41,7 +41,7 @@ namespace NW.WIDJobs
             List<ulong> jobIds = ExtractAndParseJobIds(urls);
 
             ValidateXPathQueryResults
-                (urls, titles, createDates, applicationDates, workAreas, workingHours, jobTypes, jobIds);
+                (urls, titles, createDates, workAreas, workingHours, jobTypes, jobIds);
 
             List<PageItem> pageItems
                 = CreatePageItems(page, urls, titles, createDates, applicationDates, workAreas, workingHours, jobTypes, jobIds);
@@ -110,6 +110,7 @@ namespace NW.WIDJobs
             /*
                 2021-05-24
                 2021-05-28
+                As soon as possible
                 ...
             */
 
@@ -161,7 +162,7 @@ namespace NW.WIDJobs
 
             /*
                 Job type: Regular position
-                Job type: Regular position
+                Job type: Limited period
                 ....
             */
 
@@ -269,7 +270,7 @@ namespace NW.WIDJobs
         private bool AreAllEqual(int[] integers)
             => Array.TrueForAll(integers, val => (integers[0] == val));
         private ushort CalculatePageItemNumber(ushort i)
-            => i++;
+            => (ushort)(i + 1);
         private string CreatePageItemId(ulong jobId, string title)
         {
 
@@ -293,7 +294,6 @@ namespace NW.WIDJobs
             List<string> urls,
             List<string> titles,
             List<DateTime> createDates,
-            List<DateTime> applicationDates,
             List<string> workAreas,
             List<string> workingHours,
             List<string> jobTypes,
@@ -305,7 +305,6 @@ namespace NW.WIDJobs
                     urls.Count,
                     titles.Count,
                     createDates.Count,
-                    applicationDates.Count,
                     workAreas.Count,
                     workingHours.Count,
                     jobTypes.Count,
@@ -314,8 +313,20 @@ namespace NW.WIDJobs
 
             bool status = AreAllEqual(counts);
 
+            string message = string.Concat(
+                "At least one sub-scraper didn't return the expected amount of results (",
+                $"'{nameof(urls)}':'{urls.Count}', ",
+                $"'{nameof(titles)}':'{titles.Count}', ",
+                $"'{nameof(createDates)}':'{createDates.Count}', ",
+                $"'{nameof(workAreas)}':'{workAreas.Count}', ",
+                $"'{nameof(workingHours)}':'{workingHours.Count}', ",
+                $"'{nameof(jobTypes)}':'{jobTypes.Count}', ",
+                $"'{nameof(jobIds)}':'{jobIds.Count}'",
+                $")."
+                );
+
             if (status == false)
-                throw new Exception($"At least one XPath pattern doesn't return the expected amount of {nameof(PageItem)} fields.");
+                throw new Exception(message);
 
         }
 

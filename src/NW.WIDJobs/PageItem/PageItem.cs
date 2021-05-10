@@ -12,7 +12,7 @@ namespace NW.WIDJobs
         public string Url { get; }
         public string Title { get; }
         public DateTime CreateDate { get; }
-        public DateTime ApplicationDate { get; }
+        public DateTime? ApplicationDate { get; }
         public string WorkArea { get; }
         public string WorkingHours { get; }
         public string JobType { get; }
@@ -27,7 +27,7 @@ namespace NW.WIDJobs
             string url,
             string title,
             DateTime createDate,
-            DateTime applicationDate,
+            DateTime? applicationDate,
             string workArea,
             string workingHours,
             string jobType,
