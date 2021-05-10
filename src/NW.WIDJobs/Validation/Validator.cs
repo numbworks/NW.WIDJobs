@@ -129,9 +129,41 @@ namespace NW.WIDJobs
         public static void ThrowIfModuloIsNotZero(uint value1, string variableName1, uint value2, string variableName2)
             => ThrowIfModuloIsNotZero<ArgumentException>(value1, variableName1, value2, variableName2);
 
+        public static void ThrowIfCountsAreNotEqual<T>(
+            List<string> urls,
+            List<string> titles,
+            List<DateTime> createDates,
+            List<DateTime?> applicationDates,
+            List<string> workAreas,
+            List<string> workingHours,
+            List<string> jobTypes,
+            List<ulong> jobIds
+            ) where T : Exception
+        {
+
+            int[] counts = {
+                    urls.Count,
+                    titles.Count,
+                    createDates.Count,
+                    applicationDates.Count,
+                    workAreas.Count,
+                    workingHours.Count,
+                    jobTypes.Count,
+                    jobIds.Count
+                };
+
+            bool status = AreAllEqual(counts);
+
+            if (status == false)
+                throw CreateException<T>(MessageCollection.PageItemScraper_AtLeastOneSubScraper.Invoke(urls, titles, createDates, applicationDates, workAreas, workingHours, jobTypes, jobIds));
+
+        }
+
         // Methods (private)
         private static T CreateException<T>(string message) where T : Exception
             => (T)Activator.CreateInstance(typeof(T), message);
+        private static bool AreAllEqual(int[] integers)
+            => Array.TrueForAll(integers, val => (integers[0] == val));
 
     }
 }
@@ -139,6 +171,6 @@ namespace NW.WIDJobs
 /*
 
     Author: numbworks@gmail.com
-    Last Update: 28.04.2021
+    Last Update: 10.05.2021
 
 */

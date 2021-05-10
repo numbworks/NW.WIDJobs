@@ -40,7 +40,7 @@ namespace NW.WIDJobs
             List<string> jobTypes = ExtractAndCleanJobTypes(page.Content);
             List<ulong> jobIds = ExtractAndParseJobIds(urls);
 
-            ValidateXPathQueryResults
+            Validator.ThrowIfCountsAreNotEqual<Exception>
                 (urls, titles, createDates, applicationDates, workAreas, workingHours, jobTypes, jobIds);
 
             List<PageItem> pageItems
@@ -190,47 +190,6 @@ namespace NW.WIDJobs
             return jobIds;
 
         }
-        private List<PageItem> CreatePageItems(
-                    Page page,
-                    List<string> urls,
-                    List<string> titles,
-                    List<DateTime> createDates,
-                    List<DateTime?> applicationDates,
-                    List<string> workAreas,
-                    List<string> workingHours,
-                    List<string> jobTypes,
-                    List<ulong> jobIds
-                    )
-        {
-
-            List<PageItem> pageItems = new List<PageItem>();
-            for (int i = 0; i < urls.Count; i++)
-            {
-
-                PageItem pageItem = new PageItem(
-
-                        runId: page.RunId,
-                        pageNumber: page.PageNumber,
-                        url: urls[i],
-                        title: titles[i],
-                        createDate: createDates[i],
-                        applicationDate: applicationDates[i],
-                        workArea: workAreas[i],
-                        workingHours: workingHours[i],
-                        jobType: jobTypes[i],
-                        jobId: jobIds[i],
-                        pageItemNumber: CalculatePageItemNumber((ushort)i),
-                        pageItemId: CreatePageItemId(jobIds[i], titles[i])
-
-                    );
-
-                pageItems.Add(pageItem);
-
-            }
-
-            return pageItems;
-
-        }
 
         private string ConvertToAbsoluteUrl(string relativeUrl)
         {
@@ -290,8 +249,6 @@ namespace NW.WIDJobs
             return Regex.Match(url, pattern).ToString();
 
         }
-        private bool AreAllEqual(int[] integers)
-            => Array.TrueForAll(integers, val => (integers[0] == val));
         private ushort CalculatePageItemNumber(ushort i)
             => (ushort)(i + 1);
         private string CreatePageItemId(ulong jobId, string title)
@@ -313,46 +270,45 @@ namespace NW.WIDJobs
 
         }
 
-        private void ValidateXPathQueryResults(
-            List<string> urls,
-            List<string> titles,
-            List<DateTime> createDates,
-            List<DateTime?> applicationDates,
-            List<string> workAreas,
-            List<string> workingHours,
-            List<string> jobTypes,
-            List<ulong> jobIds
-            )
+        private List<PageItem> CreatePageItems(
+                    Page page,
+                    List<string> urls,
+                    List<string> titles,
+                    List<DateTime> createDates,
+                    List<DateTime?> applicationDates,
+                    List<string> workAreas,
+                    List<string> workingHours,
+                    List<string> jobTypes,
+                    List<ulong> jobIds
+                    )
         {
 
-            int[] counts = {
-                    urls.Count,
-                    titles.Count,
-                    createDates.Count,
-                    applicationDates.Count,
-                    workAreas.Count,
-                    workingHours.Count,
-                    jobTypes.Count,
-                    jobIds.Count
-                };
+            List<PageItem> pageItems = new List<PageItem>();
+            for (int i = 0; i < urls.Count; i++)
+            {
 
-            bool status = AreAllEqual(counts);
+                PageItem pageItem = new PageItem(
 
-            string message = string.Concat(
-                "At least one sub-scraper didn't return the expected amount of results (",
-                $"'{nameof(urls)}':'{urls.Count}', ",
-                $"'{nameof(titles)}':'{titles.Count}', ",
-                $"'{nameof(createDates)}':'{createDates.Count}', ",
-                $"'{nameof(applicationDates)}':'{applicationDates.Count}', ",
-                $"'{nameof(workAreas)}':'{workAreas.Count}', ",
-                $"'{nameof(workingHours)}':'{workingHours.Count}', ",
-                $"'{nameof(jobTypes)}':'{jobTypes.Count}', ",
-                $"'{nameof(jobIds)}':'{jobIds.Count}'",
-                $")."
-                );
+                        runId: page.RunId,
+                        pageNumber: page.PageNumber,
+                        url: urls[i],
+                        title: titles[i],
+                        createDate: createDates[i],
+                        applicationDate: applicationDates[i],
+                        workArea: workAreas[i],
+                        workingHours: workingHours[i],
+                        jobType: jobTypes[i],
+                        jobId: jobIds[i],
+                        pageItemNumber: CalculatePageItemNumber((ushort)i),
+                        pageItemId: CreatePageItemId(jobIds[i], titles[i])
 
-            if (status == false)
-                throw new Exception(message);
+                    );
+
+                pageItems.Add(pageItem);
+
+            }
+
+            return pageItems;
 
         }
 
@@ -361,5 +317,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 09.05.2021
+    Last Update: 10.05.2021
 */
