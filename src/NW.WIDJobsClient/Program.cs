@@ -10,19 +10,13 @@ namespace NW.WIDJobsClient
         static void Main(string[] args)
         {
 
-            FileInfo fileInfo = new FileInfo(@"C:\Users\Rubèn\Desktop\WorkInDenmark Responses\WorkInDenmark_Page1.html");
-            string content = File.ReadAllText(fileInfo.FullName);
 
-            Page page = new Page("fake_runid", 1, content);
-
-            PageItemScraper pageItemScraper = new PageItemScraper();
-            List<PageItem> pageItems = pageItemScraper.Do(page);
 
             Console.ReadLine();
 
         }
 
-        static void Test1_GetTotalResults()
+        static void PageManager_Test1_GetTotalResults()
         {
 
             FileInfo fileInfo = new FileInfo(@"C:\Users\Rubèn\Desktop\WorkInDenmark Responses\WorkInDenmark_Page1.html");
@@ -34,7 +28,30 @@ namespace NW.WIDJobsClient
             Console.WriteLine(totalResults); // 2039
 
         }
+        static void PageItemScraper_Test1_Do()
+        {
 
+            FileInfo fileInfo = new FileInfo(@"C:\Users\Rubèn\Desktop\WorkInDenmark Responses\WorkInDenmark_Page1.html");
+            string content = File.ReadAllText(fileInfo.FullName);
+
+            Page page = new Page("fake_runid", 1, content);
+
+            PageItemScraper pageItemScraper = new PageItemScraper();
+            List<PageItem> pageItems = pageItemScraper.Do(page);
+
+        }
+        static void PageItemScraper_Test2_Do()
+        {
+
+            FileInfo fileInfo = new FileInfo(@"C:\Users\Rubèn\Desktop\WorkInDenmark Responses\WorkInDenmark_Page2.html");
+            string content = File.ReadAllText(fileInfo.FullName);
+
+            Page page = new Page("fake_runid", 2, content);
+
+            PageItemScraper pageItemScraper = new PageItemScraper();
+            List<PageItem> pageItems = pageItemScraper.Do(page);
+
+        }
 
     }
 }
