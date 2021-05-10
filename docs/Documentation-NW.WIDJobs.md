@@ -172,7 +172,7 @@ The XPath patterns to scrape all the `PageItem` fields are the following ones:
 |`Mandatory`|`Url`|`//div[@class='col-sm-9 ']/h1/a/@href`|
 |`Mandatory`|`Title`|`//div[@class='col-sm-9 ']/h1`|
 |`Mandatory`|`CreateDate`|`//div[@class='col-sm-9 ']/p[contains(.,'Created')]/time/@datetime`|
-|`Optional`|`ApplicationDate`|`//div[@class='col-sm-9 ']/p[contains(.,'Application date')]/strong/time/@datetime`|
+|`Optional`|`ApplicationDate`|`//div[@class='col-sm-9 ']/p[contains(.,'Application date')]/strong`|
 |`Mandatory`|`WorkArea`|`//ul[@class='list-inline']/li[contains(.,'Work area')]`|
 |`Mandatory`|`WorkingHours`|`//ul[@class='list-inline']/li[contains(.,'Working hours')]`|
 |`Mandatory`|`JobType`|`//ul[@class='list-inline']/li[contains(.,'Job type')]`|
@@ -192,7 +192,7 @@ The following fields require extra processing:
 |`Url`|Convert from relative to absolute.|
 |`Title`|Remove `&nbsp;`.|
 |`CreateDate`|Parse it to `DateTime`.|
-|`ApplicationDate`|Parse it to `DateTime` or `null` when "As soon as possible".|
+|`ApplicationDate`|Remove `Application date: ` and parse it to `DateTime` when it's a date, or set it to `null` when it's "As soon as possible".|
 |`WorkArea`|Remove `Work area: `.|
 |`WorkingHours`|Remove `Working hours: `.|
 |`JobType`|Remove `Job type: `.|

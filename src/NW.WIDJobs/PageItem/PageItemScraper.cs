@@ -34,14 +34,14 @@ namespace NW.WIDJobs
             List<string> urls = ExtractAndFixUrls(page.Content);
             List<string> titles = ExtractAndCleanTitles(page.Content);
             List<DateTime> createDates = ExtractAndParseCreateDates(page.Content);
-            List<DateTime> applicationDates = ExtractAndParseApplicationDates(page.Content);
+            List<DateTime?> applicationDates = ExtractCleanAndParseApplicationDates(page.Content);
             List<string> workAreas = ExtractAndCleanWorkAreas(page.Content);
             List<string> workingHours = ExtractAndCleanWorkingHours(page.Content);
             List<string> jobTypes = ExtractAndCleanJobTypes(page.Content);
             List<ulong> jobIds = ExtractAndParseJobIds(urls);
 
             ValidateXPathQueryResults
-                (urls, titles, createDates, workAreas, workingHours, jobTypes, jobIds);
+                (urls, titles, createDates, applicationDates, workAreas, workingHours, jobTypes, jobIds);
 
             List<PageItem> pageItems
                 = CreatePageItems(page, urls, titles, createDates, applicationDates, workAreas, workingHours, jobTypes, jobIds);
@@ -80,8 +80,8 @@ namespace NW.WIDJobs
 
             string xpath = "//div[@class='col-sm-9 ']/h1";
 
-            List<string> results = _xpathManager.GetInnerTexts(content, xpath);
-            List<string> titles = results.Select(title => ReplaceWithEmptyString(title, " &nbsp;")).ToList();
+            List<string> titles = _xpathManager.GetInnerTexts(content, xpath);
+            titles = titles.Select(title => CleanTitle(title)).ToList();
 
             return titles;
 
@@ -99,26 +99,26 @@ namespace NW.WIDJobs
             uint attributeNr = 0;
 
             List<string> results = _xpathManager.GetAttributeValues(content, xpath, attributeNr);
-            List<DateTime> createDates = results.Select(result => ParseDate(result)).ToList();
+            List<DateTime> createDates = results.Select(result => ParseCreateDate(result)).ToList();
 
             return createDates;
 
         }
-        private List<DateTime> ExtractAndParseApplicationDates(string content)
+        private List<DateTime?> ExtractCleanAndParseApplicationDates(string content)
         {
 
             /*
-                2021-05-24
-                2021-05-28
-                As soon as possible
+                Application date: As soon as possible
+                Application date: May 25, 2021
                 ...
             */
 
-            string xpath = "//div[@class='col-sm-9 ']/p[contains(.,'Application date')]/strong/time/@datetime";
-            uint attributeNr = 0;
+            string xpath = "//div[@class='col-sm-9 ']/p[contains(.,'Application date')]/strong";
 
-            List<string> results = _xpathManager.GetAttributeValues(content, xpath, attributeNr);
-            List<DateTime> applicationDates = results.Select(result => ParseDate(result)).ToList();
+            List<string> results = _xpathManager.GetInnerTexts(content, xpath);
+            results = results.Select(result => CleanApplicationDate(result)).ToList();
+            
+            List<DateTime?> applicationDates = results.Select(result => ParseApplicationDate(result)).ToList();
 
             return applicationDates;
 
@@ -194,7 +194,7 @@ namespace NW.WIDJobs
                     List<string> urls,
                     List<string> titles,
                     List<DateTime> createDates,
-                    List<DateTime> applicationDates,
+                    List<DateTime?> applicationDates,
                     List<string> workAreas,
                     List<string> workingHours,
                     List<string> jobTypes,
@@ -241,8 +241,29 @@ namespace NW.WIDJobs
             return string.Concat("https://www.workindenmark.dk", relativeUrl);
 
         }
-        private DateTime ParseDate(string date)
-            => DateTime.ParseExact(date, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+        private DateTime ParseCreateDate(string createDate)
+            => DateTime.ParseExact(createDate, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+        private DateTime? ParseApplicationDate(string applicationDate)
+        {
+
+            try
+            {
+
+                return DateTime.ParseExact(applicationDate, "MMM dd, yyyy", CultureInfo.InvariantCulture);
+
+            }
+            catch
+            {
+
+                return null;
+
+            }
+
+        }
+        private string CleanTitle(string title)
+            => ReplaceWithEmptyString(title, " &nbsp;");
+        private string CleanApplicationDate(string applicationDate)
+            => ReplaceWithEmptyString(applicationDate, "Application date: ");
         private string CleanWorkArea(string workArea)
             => ReplaceWithEmptyString(workArea, "Work area: ");
         private string CleanWorkingHours(string workingHours)
@@ -294,6 +315,7 @@ namespace NW.WIDJobs
             List<string> urls,
             List<string> titles,
             List<DateTime> createDates,
+            List<DateTime?> applicationDates,
             List<string> workAreas,
             List<string> workingHours,
             List<string> jobTypes,
@@ -305,6 +327,7 @@ namespace NW.WIDJobs
                     urls.Count,
                     titles.Count,
                     createDates.Count,
+                    applicationDates.Count,
                     workAreas.Count,
                     workingHours.Count,
                     jobTypes.Count,
@@ -318,6 +341,7 @@ namespace NW.WIDJobs
                 $"'{nameof(urls)}':'{urls.Count}', ",
                 $"'{nameof(titles)}':'{titles.Count}', ",
                 $"'{nameof(createDates)}':'{createDates.Count}', ",
+                $"'{nameof(applicationDates)}':'{applicationDates.Count}', ",
                 $"'{nameof(workAreas)}':'{workAreas.Count}', ",
                 $"'{nameof(workingHours)}':'{workingHours.Count}', ",
                 $"'{nameof(jobTypes)}':'{jobTypes.Count}', ",
