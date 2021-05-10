@@ -190,6 +190,7 @@ The following fields require extra processing:
 |Field|Action|
 |---|---|
 |`Url`|Convert from relative to absolute.|
+|`Title`|Remove `&nbsp;`.|
 |`CreateDate`|Parse it to `DateTime`.|
 |`ApplicationDate`|Parse it to `DateTime`.|
 |`WorkArea`|Remove `Work area: `.|

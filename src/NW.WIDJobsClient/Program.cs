@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Collections.Generic;
 using NW.WIDJobs;
 
 namespace NW.WIDJobsClient
@@ -9,9 +10,19 @@ namespace NW.WIDJobsClient
         static void Main(string[] args)
         {
 
-            WIDExplorerComponents components = new WIDExplorerComponents();
-            WIDExplorerSettings settings = new WIDExplorerSettings();
-            WIDExplorer explorer = new WIDExplorer();
+            FileInfo fileInfo = new FileInfo(@"C:\Users\Rubèn\Desktop\WorkInDenmark Responses\WorkInDenmark_Page1.html");
+            string content = File.ReadAllText(fileInfo.FullName);
+
+            Page page = new Page("fake_runid", 1, content);
+
+            PageItemScraper pageItemScraper = new PageItemScraper();
+            List<PageItem> pageItems = pageItemScraper.Do(page);
+
+            Console.WriteLine();
+        }
+
+        static void Test1_GetTotalResults()
+        {
 
             FileInfo fileInfo = new FileInfo(@"C:\Users\Rubèn\Desktop\WorkInDenmark Responses\WorkInDenmark_Page1.html");
             string content = File.ReadAllText(fileInfo.FullName);
@@ -21,7 +32,8 @@ namespace NW.WIDJobsClient
 
             Console.WriteLine(totalResults); // 2039
 
-            Console.WriteLine();
         }
+
+
     }
 }

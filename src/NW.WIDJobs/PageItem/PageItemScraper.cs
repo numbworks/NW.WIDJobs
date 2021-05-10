@@ -32,7 +32,7 @@ namespace NW.WIDJobs
             Validator.ValidateObject(page, nameof(page));
 
             List<string> urls = ExtractAndFixUrls(page.Content);
-            List<string> titles = ExtractTitles(page.Content);
+            List<string> titles = ExtractAndCleanTitles(page.Content);
             List<DateTime> createDates = ExtractAndParseCreateDates(page.Content);
             List<DateTime> applicationDates = ExtractAndParseApplicationDates(page.Content);
             List<string> workAreas = ExtractAndCleanWorkAreas(page.Content);
@@ -61,25 +61,27 @@ namespace NW.WIDJobs
              */
 
             string xpath = "//div[@class='col-sm-9 ']/h1/a/@href";
+            uint attributeNr = 1;
 
-            List<string> relativeUrls = _xpathManager.GetInnerTexts(content, xpath);
+            List<string> relativeUrls = _xpathManager.GetAttributeValues(content, xpath, attributeNr);
             List<string> urls = relativeUrls.Select(relativeUrl => ConvertToAbsoluteUrl(relativeUrl)).ToList();
 
             return urls;
 
         }
-        private List<string> ExtractTitles(string content)
+        private List<string> ExtractAndCleanTitles(string content)
         {
 
             /*
-                Principal Professional Pharmacovigilance Specialist 
-                Technology Finance Business Partner
+                Principal Professional Pharmacovigilance Specialist &nbsp;
+                Technology Finance Business Partner &nbsp;
                 ...
             */
 
             string xpath = "//div[@class='col-sm-9 ']/h1";
 
-            List<string> titles = _xpathManager.GetInnerTexts(content, xpath);
+            List<string> results = _xpathManager.GetInnerTexts(content, xpath);
+            List<string> titles = results.Select(title => ReplaceWithEmptyString(title, " &nbsp;")).ToList();
 
             return titles;
 
@@ -94,8 +96,9 @@ namespace NW.WIDJobs
             */
 
             string xpath = "//div[@class='col-sm-9 ']/p[contains(.,'Created')]/time/@datetime";
+            uint attributeNr = 0;
 
-            List<string> results = _xpathManager.GetInnerTexts(content, xpath);
+            List<string> results = _xpathManager.GetAttributeValues(content, xpath, attributeNr);
             List<DateTime> createDates = results.Select(result => ParseDate(result)).ToList();
 
             return createDates;
@@ -111,8 +114,9 @@ namespace NW.WIDJobs
             */
 
             string xpath = "//div[@class='col-sm-9 ']/p[contains(.,'Application date')]/strong/time/@datetime";
+            uint attributeNr = 0;
 
-            List<string> results = _xpathManager.GetInnerTexts(content, xpath);
+            List<string> results = _xpathManager.GetAttributeValues(content, xpath, attributeNr);
             List<DateTime> applicationDates = results.Select(result => ParseDate(result)).ToList();
 
             return applicationDates;
