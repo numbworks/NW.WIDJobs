@@ -10,7 +10,7 @@ namespace NW.WIDJobsClient
         static void Main(string[] args)
         {
 
-
+            PageItemScraper_Test1_Do();
 
             Console.ReadLine();
 
@@ -26,6 +26,7 @@ namespace NW.WIDJobsClient
             uint totalResults = pageManager.GetTotalResults(content);
 
             Console.WriteLine(totalResults); // 2039
+            Console.Write($"{nameof(PageManager_Test1_GetTotalResults)}: completed.");
 
         }
         static void PageItemScraper_Test1_Do()
@@ -39,6 +40,8 @@ namespace NW.WIDJobsClient
             PageItemScraper pageItemScraper = new PageItemScraper();
             List<PageItem> pageItems = pageItemScraper.Do(page);
 
+            Console.Write($"{nameof(PageItemScraper_Test1_Do)}: completed.");
+
         }
         static void PageItemScraper_Test2_Do()
         {
@@ -50,6 +53,8 @@ namespace NW.WIDJobsClient
 
             PageItemScraper pageItemScraper = new PageItemScraper();
             List<PageItem> pageItems = pageItemScraper.Do(page);
+
+            Console.Write($"{nameof(PageItemScraper_Test2_Do)}: completed.");
 
         }
 

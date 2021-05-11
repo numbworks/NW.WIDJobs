@@ -181,6 +181,7 @@ The following fields are derivative:
 
 |Field|Action|
 |---|---|
+|`WorkAreaWithoutZone`|`WorkArea` without zone or `WorkArea`.|
 |`PageItemNumber`|Equals to the item's position in the list increased by 1.|
 |`JobId`|Extract it from `Url`.|
 |`PageItemId`|`JobId` and `Title` combined.|
@@ -197,6 +198,25 @@ The following fields require extra processing:
 |`WorkingHours`|Remove `Working hours: `.|
 |`JobType`|Remove `Job type: `.|
 |`JobId`|Parse it to `ulong`.|
+
+The `WorkAreaWithoutZone` field is required, because in many cases `WorkArea` comes with the "zone" suffix by default, which could limit further data processing activities on the `PageItem` objects such as grouping. Here some of the most common cases:
+
+|WorkArea|WorkAreaWithoutZone|
+|---|---|
+|København K|København|
+|Kgs. Lyngby|Kgs. Lyngby|
+|København V|København|
+|København Ø|København|
+|København S|København|
+|Aarhus C|Aarhus|
+|Viby J|Viby|
+|Odense S|Odense|
+|Kongens Lyngby|Kongens Lyngby|
+|Billund|Billund|
+|København SV|København|
+|Esbjerg V|Esbjerg|
+|Odense SØ|Odense|
+|Lem St|Lem|
 
 ## PageItemsExtended scraping
 

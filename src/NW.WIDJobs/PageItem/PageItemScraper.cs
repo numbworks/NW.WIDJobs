@@ -36,6 +36,7 @@ namespace NW.WIDJobs
             List<DateTime> createDates = ExtractAndParseCreateDates(page.Content);
             List<DateTime?> applicationDates = ExtractCleanAndParseApplicationDates(page.Content);
             List<string> workAreas = ExtractAndCleanWorkAreas(page.Content);
+            List<string> workAreasWithoutZones = CreateWorkAreasWithoutZones(workAreas);
             List<string> workingHours = ExtractAndCleanWorkingHours(page.Content);
             List<string> jobTypes = ExtractAndCleanJobTypes(page.Content);
             List<ulong> jobIds = ExtractAndParseJobIds(urls);
@@ -43,8 +44,19 @@ namespace NW.WIDJobs
             Validator.ThrowIfCountsAreNotEqual<Exception>
                 (urls, titles, createDates, applicationDates, workAreas, workingHours, jobTypes, jobIds);
 
-            List<PageItem> pageItems
-                = CreatePageItems(page, urls, titles, createDates, applicationDates, workAreas, workingHours, jobTypes, jobIds);
+            List<PageItem> pageItems 
+                = CreatePageItems(
+                    page, 
+                    urls, 
+                    titles, 
+                    createDates, 
+                    applicationDates, 
+                    workAreas,
+                    workAreasWithoutZones,
+                    workingHours, 
+                    jobTypes, 
+                    jobIds
+                    );
 
             return pageItems;
 
@@ -191,6 +203,52 @@ namespace NW.WIDJobs
 
         }
 
+        private List<string> CreateWorkAreasWithoutZones(List<string> workAreas)
+        {
+
+            List<string> workAreasWithoutZones = new List<string>();
+            foreach (string workArea in workAreas)
+            {
+
+                string workAreaWithoutZone = CreateWorkAreaWithoutZone(workArea);
+                workAreasWithoutZones.Add(workAreaWithoutZone);
+
+            }
+
+            return workAreasWithoutZones;
+
+        }
+        private string CreateWorkAreaWithoutZone(string workArea)
+        {
+
+            /*
+
+                København K 	=> København
+                Kgs. Lyngby		=> Kgs. Lyngby
+                København V 	=> København
+                København Ø 	=> København
+                København S		=> København
+                Aarhus C 		=> Aarhus
+                Viby J 			=> Viby
+                Odense S 		=> Odense
+                Kongens Lyngby 	=> Kongens Lyngby
+                Billund 		=> Billund
+                København SV 	=> København
+                Esbjerg V 		=> Esbjerg
+                Odense SØ 		=> Odense
+                Lem St 			=> Lem 
+                ...				
+
+            */
+
+            string pattern = "^[a-zA-ZÀ-ÖØ-öø-ÿ.]{1,}$|^[a-zA-ZÀ-ÖØ-öø-ÿ.]{1,}[ ]{1}[a-zA-ZÀ-ÖØ-öø-ÿ.]{3,}|^[a-zA-ZÀ-ÖØ-öø-ÿ.]{1,}";
+
+            if (Regex.IsMatch(workArea, pattern))
+                return Regex.Match(workArea, pattern).ToString();
+
+            return workArea;
+
+        }
         private string ConvertToAbsoluteUrl(string relativeUrl)
         {
             /*
@@ -277,6 +335,7 @@ namespace NW.WIDJobs
                     List<DateTime> createDates,
                     List<DateTime?> applicationDates,
                     List<string> workAreas,
+                    List<string> workAreasWithoutZones,
                     List<string> workingHours,
                     List<string> jobTypes,
                     List<ulong> jobIds
@@ -296,6 +355,7 @@ namespace NW.WIDJobs
                         createDate: createDates[i],
                         applicationDate: applicationDates[i],
                         workArea: workAreas[i],
+                        workAreaWithoutZone: workAreasWithoutZones[i],
                         workingHours: workingHours[i],
                         jobType: jobTypes[i],
                         jobId: jobIds[i],
@@ -317,5 +377,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 10.05.2021
+    Last Update: 11.05.2021
 */

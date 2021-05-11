@@ -14,6 +14,7 @@ namespace NW.WIDJobs
         public DateTime CreateDate { get; }
         public DateTime? ApplicationDate { get; }
         public string WorkArea { get; }
+        public string WorkAreaWithoutZone { get; }
         public string WorkingHours { get; }
         public string JobType { get; }
         public ulong JobId { get; }
@@ -29,6 +30,7 @@ namespace NW.WIDJobs
             DateTime createDate,
             DateTime? applicationDate,
             string workArea,
+            string workAreaWithoutZone,
             string workingHours,
             string jobType,
             ulong jobId,
@@ -42,6 +44,7 @@ namespace NW.WIDJobs
             Validator.ValidateStringNullOrWhiteSpace(url, nameof(url));
             Validator.ValidateStringNullOrWhiteSpace(title, nameof(title));
             Validator.ValidateStringNullOrWhiteSpace(workArea, nameof(workArea));
+            Validator.ValidateStringNullOrWhiteSpace(workAreaWithoutZone, nameof(workAreaWithoutZone));
             Validator.ValidateStringNullOrWhiteSpace(workingHours, nameof(workingHours));
             Validator.ValidateStringNullOrWhiteSpace(jobType, nameof(jobType));
             Validator.ThrowIfLessThanOne(pageItemNumber, nameof(pageItemNumber));
@@ -54,6 +57,7 @@ namespace NW.WIDJobs
             CreateDate = createDate;
             ApplicationDate = applicationDate;
             WorkArea = workArea;
+            WorkAreaWithoutZone = workAreaWithoutZone;
             WorkingHours = workingHours;
             JobType = jobType;
             JobId = jobId;
