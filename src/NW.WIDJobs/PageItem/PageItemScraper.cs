@@ -87,7 +87,7 @@ namespace NW.WIDJobs
 
             /*
                 Principal Professional Pharmacovigilance Specialist &nbsp;
-                Technology Finance Business Partner &nbsp;
+                Administrative Project Manager for the European Horizon 2020 Project "REFLOW" &nbsp;
                 ...
             */
 
@@ -268,7 +268,14 @@ namespace NW.WIDJobs
 
         }
         private string CleanTitle(string title)
-            => ReplaceWithEmptyString(title, " &nbsp;");
+        {
+
+            string cleanTitle = ReplaceWithEmptyString(title, " &nbsp;");
+            cleanTitle = ReplaceWithEmptyString(cleanTitle, "\"");
+
+            return cleanTitle;
+
+        }
         private string CleanApplicationDate(string applicationDate)
             => ReplaceWithEmptyString(applicationDate, "Application date: ");
         private string CleanWorkArea(string workArea)
