@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Linq;
 
@@ -300,16 +301,20 @@ namespace NW.WIDJobs
         {
 
             /*
-                8148179, Principal Professional Pharmacovigilance Specialist             
-                    => 8148179principalprofessionalpharmacovigilancespecialist
+                8144089, "Business Support & Pricing Manager"            
+                    => 8144089businesssupportpricingmanager
             */
 
-            string pageItemId = string.Concat(jobId, title);
-            pageItemId = ReplaceWithEmptyString(pageItemId, " ");
-            pageItemId = ReplaceWithEmptyString(pageItemId, "\\");
-            pageItemId = ReplaceWithEmptyString(pageItemId, "/");
-            pageItemId = ReplaceWithEmptyString(pageItemId, "&nbsp;");
+            string pattern = "[a-zA-Z]{1,}";
+
+            MatchCollection matches = Regex.Matches(title, pattern);
+
+            StringBuilder stringBuilder = new StringBuilder();
+            matches.Cast<Match>().ToList().ForEach(match => stringBuilder.Append(match));
+
+            string pageItemId = stringBuilder.ToString();
             pageItemId = pageItemId.ToLower();
+            pageItemId = string.Concat(jobId, pageItemId);
 
             return pageItemId;
 
