@@ -30,23 +30,38 @@ namespace NW.WIDJobs
             Validator.ValidateObject(pageItem, nameof(pageItem));
             Validator.ValidateStringNullOrWhiteSpace(content, nameof(content));
 
+            string description = ExtractDescription(content);
+            string seeCompleteTextAt = TryExtractDescriptionSeeCompleteTextAt(content);
+            HashSet<string> bulletPoints = TryExtractDescriptionBulletPoints(content);
+            string employerName = TryExtractEmployerName(content);
+            ushort? numberOfOpenings = TryExtractAndParseNumberOfOpenings(content);
+            DateTime? advertisementPublishDate = TryExtractAndParseAdvertisementPublishDate(content);
+            DateTime? applicationDeadline = TryExtractAndParseApplicationDeadline(content);
+            string startDateOfEmployment = TryExtractStartDateOfEmployment(content);
+            string reference = TryExtractReference(content);
+            string position = TryExtractPosition(content);
+            string typeOfEmployment = TryExtractTypeOfEmployment(content);
+            string contact = TryExtractContact(content);
+            string employerAddress = TryExtractEmployerAddress(content);
+            string howToApply = TryExtractHowToApply(content);
+
             PageItemExtended pageItemExtended = new PageItemExtended(
 
                     pageItem: pageItem,
-                    description: ExtractDescription(content),
-                    seeCompleteTextAt: TryExtractDescriptionSeeCompleteTextAt(content),
-                    bulletPoints: TryExtractDescriptionBulletPoints(content),
-                    employerName: TryExtractEmployerName(content),
-                    numberOfOpenings: TryExtractAndParseNumberOfOpenings(content),
-                    advertisementPublishDate: TryExtractAndParseAdvertisementPublishDate(content),
-                    applicationDeadline: TryExtractAndParseApplicationDeadline(content),
-                    startDateOfEmployment: TryExtractStartDateOfEmployment(content),
-                    reference: TryExtractReference(content),
-                    position: TryExtractPosition(content),
-                    typeOfEmployment: TryExtractTypeOfEmployment(content),
-                    contact: TryExtractContact(content),
-                    employerAddress: TryExtractEmployerAddress(content),
-                    howToApply: TryExtractHowToApply(content)
+                    description: description,
+                    seeCompleteTextAt: seeCompleteTextAt,
+                    bulletPoints: bulletPoints,
+                    employerName: employerName,
+                    numberOfOpenings: numberOfOpenings,
+                    advertisementPublishDate: advertisementPublishDate,
+                    applicationDeadline: applicationDeadline,
+                    startDateOfEmployment: startDateOfEmployment,
+                    reference: reference,
+                    position: position,
+                    typeOfEmployment: typeOfEmployment,
+                    contact: contact,
+                    employerAddress: employerAddress,
+                    howToApply: howToApply
 
                 );
 
@@ -293,5 +308,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 09.05.2021
+    Last Update: 11.05.2021
 */

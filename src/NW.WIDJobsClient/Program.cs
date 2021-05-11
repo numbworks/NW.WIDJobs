@@ -2,6 +2,9 @@
 using System.IO;
 using System.Collections.Generic;
 using NW.WIDJobs;
+using System.Text.RegularExpressions;
+using System.Linq;
+using System.Text;
 
 namespace NW.WIDJobsClient
 {
@@ -10,7 +13,27 @@ namespace NW.WIDJobsClient
         static void Main(string[] args)
         {
 
-            PageItemScraper_Test1_Do();
+            FileInfo fileInfo = new FileInfo(@"C:\Users\Rubèn\Desktop\WorkInDenmark Responses\WorkInDenmark_Page1PageItemExtended1.html");
+            string content = File.ReadAllText(fileInfo.FullName);
+
+            PageItem pageItem = new PageItem(
+                 runId: "fake_runId",
+                 pageNumber: 1,
+                 url: "https://www.workindenmark.dk/job/8144115/Learning-sales-Fulltime-Student-Position",
+                 title: "Learning sales – Fulltime Student Position",
+                 createDate: new DateTime(2021, 05, 07),
+                 applicationDate: null,
+                 workArea: "Ikast",
+                 workAreaWithoutZone: "Ikast",
+                 workingHours: "Full time (37 hours)",
+                 jobType: "Regular position",
+                 jobId: 8144115,
+                 pageItemNumber: 1,
+                 pageItemId: "8144115learningsalesfulltimestudentposition"
+              );
+
+            PageItemExtendedScraper pageItemExtendedScraper = new PageItemExtendedScraper();
+            PageItemExtended pageItemExtended = pageItemExtendedScraper.Do(pageItem, content);
 
             Console.ReadLine();
 
@@ -38,8 +61,8 @@ namespace NW.WIDJobsClient
             Page page = new Page("fake_runid", 1, content);
 
             PageItemScraper pageItemScraper = new PageItemScraper();
-            List<PageItem> pageItems = pageItemScraper.Do(page);
-
+            List<PageItem> pageItems = pageItemScraper.Do(page);      
+            
             Console.Write($"{nameof(PageItemScraper_Test1_Do)}: completed.");
 
         }
@@ -55,6 +78,15 @@ namespace NW.WIDJobsClient
             List<PageItem> pageItems = pageItemScraper.Do(page);
 
             Console.Write($"{nameof(PageItemScraper_Test2_Do)}: completed.");
+
+        }
+
+        static void Serialize(dynamic obj)
+        {
+
+            System.Text.Json.JsonSerializerOptions jso = new System.Text.Json.JsonSerializerOptions();
+            jso.Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
+            string json = System.Text.Json.JsonSerializer.Serialize(obj, jso);
 
         }
 
