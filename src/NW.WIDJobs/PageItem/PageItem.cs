@@ -62,6 +62,7 @@ namespace NW.WIDJobs
             JobType = jobType;
             JobId = jobId;
             PageItemNumber = pageItemNumber;
+            PageItemId = pageItemId;
 
         }
 
