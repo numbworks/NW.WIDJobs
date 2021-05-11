@@ -142,7 +142,7 @@ namespace NW.WIDJobs
 
             string xpath = "//div[@class='col-sm-11 ']/dl[@class='dl-justify nomargin']/dt/following-sibling::dd";
 
-            string result = _xpathManager.GetInnerText(content, xpath);
+            string result = _xpathManager.TryGetInnerText(content, xpath);
             result = result?.Trim();
 
             ushort? numberOfOpenings = null;
@@ -161,7 +161,7 @@ namespace NW.WIDJobs
 
             string xpath = "//div[@class='col-sm-11 ']/dl[@class='dl-justify nomargin']/dt[contains(.,'Advertisement publish date')]/following-sibling::dd[1]";
 
-            string result = _xpathManager.GetInnerText(content, xpath);
+            string result = _xpathManager.TryGetInnerText(content, xpath);
             result = result?.Trim();
 
             DateTime? advertisementPublishDate = TryParseDate(result);
@@ -178,7 +178,7 @@ namespace NW.WIDJobs
 
             string xpath = "//div[@class='col-sm-11 ']/dl[@class='dl-justify nomargin']/dt[contains(.,'Application deadline')]/following-sibling::dd[1]";
 
-            string result = _xpathManager.GetInnerText(content, xpath);
+            string result = _xpathManager.TryGetInnerText(content, xpath);
             result = result?.Trim();
 
             DateTime? applicationDeadline = TryParseDate(result);
@@ -195,7 +195,7 @@ namespace NW.WIDJobs
 
             string xpath = "";
 
-            string result = _xpathManager.GetInnerText(content, xpath);
+            string result = _xpathManager.TryGetInnerText(content, xpath);
             result = result?.Trim();
 
             return result;
@@ -206,7 +206,7 @@ namespace NW.WIDJobs
 
             string xpath = "//div[@class='col-ms-6 col-sm-4']/h3[contains(., 'Reference')]/following-sibling::p[1]";
 
-            string result = _xpathManager.GetInnerText(content, xpath);
+            string result = _xpathManager.TryGetInnerText(content, xpath);
             result = result?.Trim();
 
             return result;
@@ -221,7 +221,7 @@ namespace NW.WIDJobs
 
             string xpath = "//div[@class='col-ms-6 col-sm-4']/h3[contains(., 'Position')]/following-sibling::p[1]";
 
-            string result = _xpathManager.GetInnerText(content, xpath);
+            string result = _xpathManager.TryGetInnerText(content, xpath);
             result = result?.Trim();
 
             return result;
@@ -236,7 +236,7 @@ namespace NW.WIDJobs
 
             string xpath = "//div[@class='col-ms-6 col-sm-4']/h3[contains(., 'Type of employment')]/following-sibling::p[1]";
 
-            string result = _xpathManager.GetInnerText(content, xpath);
+            string result = _xpathManager.TryGetInnerText(content, xpath);
             result = result?.Trim();
 
             return result;
@@ -250,7 +250,7 @@ namespace NW.WIDJobs
 
             string xpath = "//div[@class='col-ms-6 col-sm-4']/h3[contains(., 'Contact')]/following-sibling::p[1]";
 
-            string result = _xpathManager.GetInnerText(content, xpath);
+            string result = _xpathManager.TryGetInnerText(content, xpath);
             result = result?.Trim();
 
             return result;
@@ -268,7 +268,7 @@ namespace NW.WIDJobs
 
             string xpath = "//div[@class='col-ms-6 col-sm-4']/h3[contains(., 'Employer')]/following-sibling::p[1]";
 
-            string result = _xpathManager.GetInnerText(content, xpath);
+            string result = _xpathManager.TryGetInnerText(content, xpath);
             result = result?.Trim();
 
             return result;
@@ -285,7 +285,7 @@ namespace NW.WIDJobs
 
             string xpath = "//div[@class='col-ms-6 col-sm-4']//ul|//a[@id='scphpage_0_scphcontent_1_ctl00_uiLnkHowToApplyOnline']/@href";
 
-            string result = _xpathManager.GetInnerText(content, xpath);
+            string result = _xpathManager.TryGetInnerText(content, xpath);
             result = result?.Trim();
 
             return result;
