@@ -193,7 +193,7 @@ namespace NW.WIDJobs
                 "	 As soon as possible"
             */
 
-            string xpath = "";
+            string xpath = "//div[@class='col-sm-11 ']/dl[@class='dl-justify nomargin']/dt[contains(.,'Start date of employment')]/following-sibling::dd[1]";
 
             string result = _xpathManager.TryGetInnerText(content, xpath);
             result = result?.Trim();
