@@ -153,6 +153,8 @@ namespace NW.WIDJobs
             return workAreas;
 
         }
+        private List<string> CreateWorkAreasWithoutZones(List<string> workAreas)
+            => workAreas.Select(workArea => CreateWorkAreaWithoutZone(workArea)).ToList();
         private List<string> ExtractAndCleanWorkingHours(string content)
         {
 
@@ -203,19 +205,34 @@ namespace NW.WIDJobs
 
         }
 
-        private List<string> CreateWorkAreasWithoutZones(List<string> workAreas)
+        private string ConvertToAbsoluteUrl(string relativeUrl)
+        {
+            /*
+                /job/8148174/Technology-Finance-Business-Partner
+                => https://www.workindenmark.dk/job/8148174/Technology-Finance-Business-Partner
+            */
+
+            return string.Concat("https://www.workindenmark.dk", relativeUrl);
+
+        }
+        private DateTime ParseCreateDate(string createDate)
+            => DateTime.ParseExact(createDate, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+        private DateTime? ParseApplicationDate(string applicationDate)
         {
 
-            List<string> workAreasWithoutZones = new List<string>();
-            foreach (string workArea in workAreas)
+            try
             {
 
-                string workAreaWithoutZone = CreateWorkAreaWithoutZone(workArea);
-                workAreasWithoutZones.Add(workAreaWithoutZone);
+                CultureInfo cultureInfo = new CultureInfo("en-US");
+                return DateTime.ParseExact(applicationDate, "MMMM dd, yyyy", cultureInfo);
 
             }
+            catch
+            {
 
-            return workAreasWithoutZones;
+                return null;
+
+            }
 
         }
         private string CreateWorkAreaWithoutZone(string workArea)
@@ -247,36 +264,6 @@ namespace NW.WIDJobs
                 return Regex.Match(workArea, pattern).ToString();
 
             return workArea;
-
-        }
-        private string ConvertToAbsoluteUrl(string relativeUrl)
-        {
-            /*
-                /job/8148174/Technology-Finance-Business-Partner
-                => https://www.workindenmark.dk/job/8148174/Technology-Finance-Business-Partner
-            */
-
-            return string.Concat("https://www.workindenmark.dk", relativeUrl);
-
-        }
-        private DateTime ParseCreateDate(string createDate)
-            => DateTime.ParseExact(createDate, "yyyy-MM-dd", CultureInfo.InvariantCulture);
-        private DateTime? ParseApplicationDate(string applicationDate)
-        {
-
-            try
-            {
-
-                CultureInfo cultureInfo = new CultureInfo("en-US");
-                return DateTime.ParseExact(applicationDate, "MMMM dd, yyyy", cultureInfo);
-
-            }
-            catch
-            {
-
-                return null;
-
-            }
 
         }
         private string CleanTitle(string title)
