@@ -437,6 +437,18 @@ The following fields require extra processing:
 |`EmployerAddress`|Requires trimming.|
 |`HowToApply`|Requires trimming.|
 
+If the `DescriptionBulletPoints`'s XPath pattern doesn't return anything, the `PageItemExtendedScraper` performs another "best effort" attempt to scrape as many bullet points as possible from the `Description` by using regular expressions.
+
+An example of `Description` field containing within-text bullet points:
+
+```
+"This website uses cookiesIf you choose to accept cookies, you agree that Talentech and third-parties store the cookies of your choice. If you don't consent, we only store the cookies necessary for functionality.Allow selection Allow all cookies NecessaryPreferencesStatisticsMarketing\t Show details Warning Your browser is outdated. Get the best experience with speed, security and privacy by using the latest version of Chrome, Firefox, Microsoft Edge, Safari or Opera ×  Learning sales – Fulltime Student PositionApply for this position if-\tYou want to learn and develop you sales skills-\tYou want to work in an rapidly expanding international company-\tYou want to make a difference for renewable energyIn KK Wind Solutions Service, we are looking for talented candidates to join our Spare Parts Sales Team. We are offering a fulltime student position, where you will be learning as well as performing. So if you are looking for a year of lesser studying and an opportunity to start ..."
+```
+
+|Regex pattern|Note|
+|---|---|
+|`(?<=-\\t)[\w ]{1,}(?=-\\t)`|The latest bullet point gets lost.|
+
 ## Markdown Toolset
 
 Suggested toolset to view and edit this Markdown file:

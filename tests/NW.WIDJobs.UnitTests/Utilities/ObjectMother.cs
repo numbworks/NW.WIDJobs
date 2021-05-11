@@ -39,6 +39,8 @@ namespace NW.WIDJobs.UnitTests
             });
 
         // PageItemScraperTests
+        #region
+
         internal static PageItem WorkInDenmark_Page1_PageItem01 = new PageItem(
                  runId: "fake_runId",
                  pageNumber: 1,
@@ -641,6 +643,35 @@ namespace NW.WIDJobs.UnitTests
                  pageItemId: "8144102experiencedembeddedlinuxdeveloper"
               );
 
+        #endregion
+
+        // PageItemExtendedScraperTests
+        #region
+
+        internal static PageItemExtended WorkInDenmark_Page1_PageItemExtended01 = new PageItemExtended(
+
+            pageItem: WorkInDenmark_Page1_PageItem01,
+            description: "This website uses cookiesIf you choose to accept cookies, you agree that Talentech and third-parties store the cookies of your choice. If you don't consent, we only store the cookies necessary for functionality.Allow selection Allow all cookies NecessaryPreferencesStatisticsMarketing\t Show details Warning Your browser is outdated. Get the best experience with speed, security and privacy by using the latest version of Chrome, Firefox, Microsoft Edge, Safari or Opera ×  Learning sales – Fulltime Student PositionApply for this position if-\tYou want to learn and develop you sales skills-\tYou want to work in an rapidly expanding international company-\tYou want to make a difference for renewable energyIn KK Wind Solutions Service, we are looking for talented candidates to join our Spare Parts Sales Team. We are offering a fulltime student position, where you will be learning as well as performing.\u00A0So if you are looking for a year of lesser studying and an opportunity to start ...",
+            seeCompleteTextAt: "https://candidate.hr-manager.net/ApplicationInit.aspx?cid=1119&ProjectId=144192&DepartmentId=18956&MediaId=5&SkipAdvertisement=False",
+            bulletPoints: new HashSet<string>{
+                "You want to learn and develop you sales skills",
+                "You want to work in an rapidly expanding international company"
+            },
+            employerName: null,
+            numberOfOpenings: null,
+            advertisementPublishDate: null,
+            applicationDeadline: null,
+            startDateOfEmployment: null,
+            reference: null,
+            position: null,
+            typeOfEmployment: null,
+            contact: null,
+            employerAddress: null,
+            howToApply: null
+
+        );
+
+        #endregion
 
         // Methods
         internal static void Method_ShouldThrowACertainException_WhenUnproperArguments

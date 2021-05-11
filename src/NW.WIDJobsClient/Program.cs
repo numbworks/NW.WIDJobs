@@ -13,27 +13,29 @@ namespace NW.WIDJobsClient
         static void Main(string[] args)
         {
 
-            FileInfo fileInfo = new FileInfo(@"C:\Users\Rubèn\Desktop\WorkInDenmark Responses\WorkInDenmark_Page1PageItemExtended1.html");
+            FileInfo fileInfo = new FileInfo(@"C:\Users\Rubèn\Desktop\WorkInDenmark Responses\WorkInDenmark_Page1PageItemExtended14.html");
             string content = File.ReadAllText(fileInfo.FullName);
 
             PageItem pageItem = new PageItem(
                  runId: "fake_runId",
                  pageNumber: 1,
-                 url: "https://www.workindenmark.dk/job/8144115/Learning-sales-Fulltime-Student-Position",
-                 title: "Learning sales – Fulltime Student Position",
+                 url: "https://www.workindenmark.dk/job/8144071/Lean-Professional",
+                 title: "Lean Professional",
                  createDate: new DateTime(2021, 05, 07),
-                 applicationDate: null,
-                 workArea: "Ikast",
-                 workAreaWithoutZone: "Ikast",
+                 applicationDate: new DateTime(2021, 06, 03),
+                 workArea: "Lem St",
+                 workAreaWithoutZone: "Lem",
                  workingHours: "Full time (37 hours)",
                  jobType: "Regular position",
-                 jobId: 8144115,
-                 pageItemNumber: 1,
-                 pageItemId: "8144115learningsalesfulltimestudentposition"
+                 jobId: 8144071,
+                 pageItemNumber: 14,
+                 pageItemId: "8144071leanprofessional"
               );
 
             PageItemExtendedScraper pageItemExtendedScraper = new PageItemExtendedScraper();
             PageItemExtended pageItemExtended = pageItemExtendedScraper.Do(pageItem, content);
+
+            string json = Serialize(pageItemExtended);
 
             Console.ReadLine();
 
@@ -80,13 +82,40 @@ namespace NW.WIDJobsClient
             Console.Write($"{nameof(PageItemScraper_Test2_Do)}: completed.");
 
         }
+        static void PageItemExtendedScraper_Test1_Do()
+        {
 
-        static void Serialize(dynamic obj)
+            FileInfo fileInfo = new FileInfo(@"C:\Users\Rubèn\Desktop\WorkInDenmark Responses\WorkInDenmark_Page1PageItemExtended1.html");
+            string content = File.ReadAllText(fileInfo.FullName);
+
+            PageItem pageItem = new PageItem(
+                 runId: "fake_runId",
+                 pageNumber: 1,
+                 url: "https://www.workindenmark.dk/job/8144115/Learning-sales-Fulltime-Student-Position",
+                 title: "Learning sales – Fulltime Student Position",
+                 createDate: new DateTime(2021, 05, 07),
+                 applicationDate: null,
+                 workArea: "Ikast",
+                 workAreaWithoutZone: "Ikast",
+                 workingHours: "Full time (37 hours)",
+                 jobType: "Regular position",
+                 jobId: 8144115,
+                 pageItemNumber: 1,
+                 pageItemId: "8144115learningsalesfulltimestudentposition"
+              );
+
+            PageItemExtendedScraper pageItemExtendedScraper = new PageItemExtendedScraper();
+            PageItemExtended pageItemExtended = pageItemExtendedScraper.Do(pageItem, content);
+
+        }
+
+        static string Serialize(dynamic obj)
         {
 
             System.Text.Json.JsonSerializerOptions jso = new System.Text.Json.JsonSerializerOptions();
             jso.Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
-            string json = System.Text.Json.JsonSerializer.Serialize(obj, jso);
+            
+            return System.Text.Json.JsonSerializer.Serialize(obj, jso);
 
         }
 

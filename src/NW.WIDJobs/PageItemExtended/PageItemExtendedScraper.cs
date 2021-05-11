@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Text.RegularExpressions;
+using System.Linq;
 
 namespace NW.WIDJobs
 {
@@ -32,7 +34,11 @@ namespace NW.WIDJobs
 
             string description = ExtractDescription(content);
             string seeCompleteTextAt = TryExtractDescriptionSeeCompleteTextAt(content);
-            HashSet<string> bulletPoints = TryExtractDescriptionBulletPoints(content);
+
+            HashSet<string> bulletPoints = TryExtractDescriptionBulletPointsWithXPath(content);
+            if (bulletPoints.Count == 0)
+                bulletPoints = TryExtractDescriptionBulletPointsWithRegex(description);
+
             string employerName = TryExtractEmployerName(content);
             ushort? numberOfOpenings = TryExtractAndParseNumberOfOpenings(content);
             DateTime? advertisementPublishDate = TryExtractAndParseAdvertisementPublishDate(content);
@@ -100,7 +106,7 @@ namespace NW.WIDJobs
             return result;
 
         }
-        private HashSet<string> TryExtractDescriptionBulletPoints(string content)
+        private HashSet<string> TryExtractDescriptionBulletPointsWithXPath(string content)
         {
 
             /*
@@ -114,6 +120,20 @@ namespace NW.WIDJobs
 
             List<string> results = _xpathManager.GetInnerTexts(content, xpath);
             HashSet<string> bulletPoints = new HashSet<string>(results);
+
+            return bulletPoints;
+
+        }
+        private HashSet<string> TryExtractDescriptionBulletPointsWithRegex(string description)
+        {
+
+            string pattern = "(?<=-\\t)[\\w ]{1,}(?=-\\t)";
+
+            HashSet<string> bulletPoints = new HashSet<string>();
+            
+            MatchCollection matchCollection = Regex.Matches(description, pattern);
+            if (matchCollection != null)
+                matchCollection.Cast<Match>().ToList().ForEach(match => bulletPoints.Add(match.ToString()));
 
             return bulletPoints;
 
