@@ -127,8 +127,8 @@ namespace NW.WIDJobs
 
             string xpath = "//div[@id='scphpage_0_scphcontent_1_ctl00_uiEntireJobPostingSpan']/h2";
 
-            string result = _xpathManager.GetInnerText(content, xpath);
-            result = result.Trim();
+            string result = _xpathManager.TryGetInnerText(content, xpath);
+            result = result?.Trim();
 
             return result;
 

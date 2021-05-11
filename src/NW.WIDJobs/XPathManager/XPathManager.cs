@@ -43,6 +43,16 @@ namespace NW.WIDJobs
         }
         public string GetInnerText(string html, string xpath, uint valueNr = 0)
             => GetInnerTexts(html, xpath)[(int)valueNr];
+        public string TryGetInnerText(string html, string xpath, uint valueNr = 0)
+        {
+
+            List<string> innerTexts = GetInnerTexts(html, xpath);
+            if (innerTexts.Count == 0)
+                return null;
+
+            return innerTexts[(int)valueNr];
+
+        }
 
         public List<string> GetAttributeValues(string html, string xpath, uint attributeNr = 0)
         {

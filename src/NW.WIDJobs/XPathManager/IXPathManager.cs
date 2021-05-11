@@ -6,14 +6,19 @@ namespace NW.WIDJobs
     {
 
         /// <summary>
-        /// It returns all the InnerTexts found for the provided XPath expression.
+        /// Returns all the InnerTexts found for the provided XPath expression.
         /// </summary>
         List<string> GetInnerTexts(string html, string xpath);
 
         /// <summary>
-        /// It returns the InnerText for the provided XPath expression.
+        /// Returns the InnerText for the provided XPath expression.
         /// </summary>
         string GetInnerText(string html, string xpath, uint valueNr = 0);
+
+        /// <summary>
+        /// Returns the InnerText for the provided XPath expression or null.
+        /// </summary>
+        string TryGetInnerText(string html, string xpath, uint valueNr = 0);
 
         /// <summary>
         /// This method expects XPath expressions like '//tr[contains(@id, 'subrow-')]/@*' and returns the equivalent of //tr[contains(@id, 'subrow-')]/@*[2].
