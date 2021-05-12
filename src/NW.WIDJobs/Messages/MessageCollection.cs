@@ -34,22 +34,23 @@ namespace NW.WIDJobs
             = (variableName1, variableName2) => $"Dividing '{variableName1}' by '{variableName2}' must return a whole number.";
 
         // PageItemScraper
-        public static Func<List<string>, List<string>, List<DateTime>, List<DateTime?>, List<string>, List<string>, List<string>, List<ulong>, string>
-            PageItemScraper_AtLeastOneSubScraper =
-                (urls, titles, createDates, applicationDates, workAreas, workingHours, jobTypes, jobIds)
+        public static Func<Dictionary<string, int>, string> PageItemScraper_AtLeastOneSubScraper { get; } =
+                (subscrapers)
                     => {
+
+                        /*
+                            At least one sub-scraper didn't return the expected amount of results 
+                            ('urls':'20','titles':'20','createDates':'20','applicationDates':'20','workAreas':'20',
+                            'workAreasWithoutZones':'20','workingHours':'20','jobTypes':'20','jobIds':'20').
+                        */
+
+                        List<string> results = subscrapers.Select(item => $"'{item.Key}':'{item.Value}'").ToList();
+                        string joined = string.Join(",", results);
 
                         return string.Concat(
                                 "At least one sub-scraper didn't return the expected amount of results (",
-                                $"'{nameof(urls)}':'{urls.Count}', ",
-                                $"'{nameof(titles)}':'{titles.Count}', ",
-                                $"'{nameof(createDates)}':'{createDates.Count}', ",
-                                $"'{nameof(applicationDates)}':'{applicationDates.Count}', ",
-                                $"'{nameof(workAreas)}':'{workAreas.Count}', ",
-                                $"'{nameof(workingHours)}':'{workingHours.Count}', ",
-                                $"'{nameof(jobTypes)}':'{jobTypes.Count}', ",
-                                $"'{nameof(jobIds)}':'{jobIds.Count}'",
-                                $")."
+                                joined,
+                                ")."
                                 );
 
                     };

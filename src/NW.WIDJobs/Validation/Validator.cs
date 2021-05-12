@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace NW.WIDJobs
 {
@@ -129,33 +130,15 @@ namespace NW.WIDJobs
         public static void ThrowIfModuloIsNotZero(uint value1, string variableName1, uint value2, string variableName2)
             => ThrowIfModuloIsNotZero<ArgumentException>(value1, variableName1, value2, variableName2);
 
-        public static void ThrowIfCountsAreNotEqual<T>(
-            List<string> urls,
-            List<string> titles,
-            List<DateTime> createDates,
-            List<DateTime?> applicationDates,
-            List<string> workAreas,
-            List<string> workingHours,
-            List<string> jobTypes,
-            List<ulong> jobIds
-            ) where T : Exception
+
+        public static void ThrowIfCountsAreNotEqual<T>(Dictionary<string, int> lists) where T : Exception
         {
 
-            int[] counts = {
-                    urls.Count,
-                    titles.Count,
-                    createDates.Count,
-                    applicationDates.Count,
-                    workAreas.Count,
-                    workingHours.Count,
-                    jobTypes.Count,
-                    jobIds.Count
-                };
-
+            int[] counts = lists.Select(item => item.Value).ToArray();
             bool status = AreAllEqual(counts);
 
             if (status == false)
-                throw CreateException<T>(MessageCollection.PageItemScraper_AtLeastOneSubScraper.Invoke(urls, titles, createDates, applicationDates, workAreas, workingHours, jobTypes, jobIds));
+                throw CreateException<T>(MessageCollection.PageItemScraper_AtLeastOneSubScraper.Invoke(lists));
 
         }
 

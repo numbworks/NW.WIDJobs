@@ -42,8 +42,19 @@ namespace NW.WIDJobs
             List<string> jobTypes = ExtractAndCleanJobTypes(page.Content);
             List<ulong> jobIds = ExtractAndParseJobIds(urls);
 
-            Validator.ThrowIfCountsAreNotEqual<Exception>
-                (urls, titles, createDates, applicationDates, workAreas, workingHours, jobTypes, jobIds);
+            Dictionary<string, int> subscrapers = new Dictionary<string, int>()
+            {
+                { nameof(urls), urls.Count },
+                { nameof(titles), titles.Count },
+                { nameof(createDates), createDates.Count },
+                { nameof(applicationDates), applicationDates.Count },
+                { nameof(workAreas), workAreas.Count },
+                { nameof(workAreasWithoutZones), workAreasWithoutZones.Count },
+                { nameof(workingHours), workingHours.Count },
+                { nameof(jobTypes), jobTypes.Count },
+                { nameof(jobIds), jobIds.Count }
+            };
+            Validator.ThrowIfCountsAreNotEqual<Exception>(subscrapers);
 
             List<PageItem> pageItems 
                 = CreatePageItems(
