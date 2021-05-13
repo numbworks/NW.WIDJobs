@@ -29,11 +29,19 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
+                    () => new PageItemScraper(null)
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("xpathManager").Message
+            ).SetArgDisplayNames($"{nameof(doExceptionTestCases)}_01"),
+
+            new TestCaseData(
+                new TestDelegate(
                     () => new PageItemScraper().Do(null)
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("page").Message
-            ).SetArgDisplayNames($"{nameof(doExceptionTestCases)}_01"),
+            ).SetArgDisplayNames($"{nameof(doExceptionTestCases)}_02"),
 
             new TestCaseData(
                 new TestDelegate(
@@ -44,7 +52,7 @@ namespace NW.WIDJobs.UnitTests
                         ObjectMother.Shared_Page01_NotPossibleToExtractJobId_Url, 
                         "(?<=/job/)[0-9]{5,}"
                     )
-            ).SetArgDisplayNames($"{nameof(doExceptionTestCases)}_02"),
+            ).SetArgDisplayNames($"{nameof(doExceptionTestCases)}_03"),
 
         };
 
