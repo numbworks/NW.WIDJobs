@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace NW.WIDJobs
+﻿namespace NW.WIDJobs
 {
     public class PageScraper : IPageScraper
     {
@@ -24,6 +22,8 @@ namespace NW.WIDJobs
         // Methods (public)
         public uint GetTotalResults(string content)
         {
+
+            Validator.ValidateStringNullOrWhiteSpace(content, nameof(content));
 
             string xpath = "//div[@class='col-sm-6']//strong//strong";
 
