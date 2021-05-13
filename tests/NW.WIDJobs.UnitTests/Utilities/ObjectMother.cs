@@ -744,6 +744,47 @@ namespace NW.WIDJobs.UnitTests
 
         );
 
+        internal static PageItem WorkInDenmark_Page4PageItem15 = new PageItem(
+                 runId: "fake_runid",
+                 pageNumber: 4,
+                 url: "https://www.workindenmark.dk/job/5339216/Embedded-Software-Developer-for-Medical-Device-Development",
+                 title: "Embedded Software Developer for Medical Device Development",
+                 createDate: new DateTime(2021, 05, 06),
+                 applicationDate: new DateTime(2021, 07, 01),
+                 workArea: "Herlev",
+                 workAreaWithoutZone: "Herlev",
+                 workingHours: "Full time (37 hours)",
+                 jobType: "Regular position",
+                 jobId: 5339196,
+                 pageItemNumber: 15,
+                 pageItemId: "5339216embeddedsoftwaredeveloperformedicaldevicedevelopment"
+              );
+        internal static PageItemExtended WorkInDenmark_Page4PageItemExtended15 = new PageItemExtended(
+
+            pageItem: WorkInDenmark_Page4PageItem15,
+            description: "Are you passionate about embedded software development and would you thrive working in a team dedicated to medical device development? If so, then the job as software developer in the Life Science group at Prevas A/S might be something for you!We are looking for an embedded software developer with experience from medical device development. In this assignment you will be working on development projects, from specifying the features to writing the code and seeing the code through to CE marking. We work with new technology and new ideas and develop embedded systems for many different types of customers from medical device start-up companies to larger medical device development companies.As our new colleague, it is important that you:Have extensive experience with embedded software developmentAre an experienced C/C++ programmerHave experience with software architecture, design documentation and development complying to relevant standardsCan write requirement and test specificationsHave working knowledge of medical device software standards (IEC 62304 and IEC 82304)Have an academic degree in Computer Science, Electrical Engineering, or equivalentAbout Prevas:We are a consultant and development house. For us development is a natural part of all aspects of life – from idea to product and from career to personal life. We believe that ingenuity will save the world.Our values are gathered in the acronym BOAT – Business Driven, Open Minded, Active and Team Player.We are embedded in our DNA and we are focused on being the preferred provider of embedded development to our customers. We often work very closely with our customers, and as Prevas employee, you will often come into close contact with many different customers’ development departments, either as project member at our office in Herlev, or on-site in the customer’s development team.In our department in Herlev, we are 40 employees. We have an informal corporate culture with great opportunity for influence as well as great opportunities for personal- and competence development in some of the most exciting and challenging development projects. We believe that a balance between work and private life is a prerequisite for efficiency and creativity in the office.If you are interested in the job, send your application and CV via the form on our website. We call for interviews on an ongoing basis.If you would like to know more, please contact Team Manager at Herlev, Mette Dahl Meincke at tel: +45 26 77 70 83. You can also read more about Prevas at our homepage and on LinkedIn.",
+            seeCompleteTextAt: null,
+            bulletPoints: new HashSet<string> {
+                  "Have extensive experience with embedded software development",
+                  "Are an experienced C/C++ programmer",
+                  "Have experience with software architecture, design documentation and development complying to relevant standards",
+                  "Can write requirement and test specifications",
+                  "Have working knowledge of medical device software standards (IEC 62304 and IEC 82304)",
+                  "Have an academic degree in Computer Science, Electrical Engineering, or equivalent"
+            },
+            employerName: "PREVAS A/S",
+            numberOfOpenings: 1,
+            advertisementPublishDate: new DateTime(2021, 05, 06),
+            applicationDeadline: new DateTime(2021, 07, 01),
+            startDateOfEmployment: null,
+            reference: null,
+            position: "",
+            typeOfEmployment: "Regular position",
+            contact: "Team Manager - Life Science Mette Meincke Phone: +45 26 77 70 83 Mobile: +45 26 77 70 83",
+            employerAddress: "PREVAS A/S Lysk&#230;r 3 DK 2730 Herlev Denmark",
+            howToApply: "Online: Application form"
+
+        );
 
         #endregion
 

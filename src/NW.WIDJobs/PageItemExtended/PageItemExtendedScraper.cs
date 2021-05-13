@@ -296,7 +296,6 @@ namespace NW.WIDJobs
                      Fynsvej 39
                      DK 5500 Middelfart
                      Denmark"
-
                 "DINEX A/S                        Fynsvej 39                        DK 5500 Middelfart                        Denmark"
 
             */
