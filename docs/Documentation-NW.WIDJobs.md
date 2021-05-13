@@ -30,13 +30,19 @@ The subsequent pages have the following URLs instead:
 
 For the scope of beginning the exploration of the website they are all equivalent, but we do use the the `OrderedByDate` variants.
 
-## Pages, PageItems and PageItemsExtended
+## The object model
 
-The...
+The three objects that have been identified during the exploration of `WorkInDenmark.dk` are the following ones:
 
-...
+- `Page`
+- `PageItem`
+- `PageItemExtended`
 
-## How the exploration works
+The relationship between these objects is summarized in the diagram below:
+
+![Diagram-TheObjectModel](Diagrams/Diagram-TheObjectModel.png)
+
+## The exploration
 
 The exploration starts from the initial page, which returns something like this:
 
@@ -48,13 +54,13 @@ Every page has twenty `PageItems`:
 
 Each `PageItem` provides the preliminary information about the job ad, which are:
 
-- JobId
-- Url
-- Title
-- CreatedOn
-- WorkArea
-- WorkingHours
-- JobType
+- `JobId`
+- `Url`
+- `Title`
+- `CreatedOn`
+- `WorkArea`
+- `WorkingHours`
+- `JobType`
 
 The `Url` brings us to the a `PageItemExtended`, which represents the job ad with the highest amount of information possible. The amount of informational fields provided by the job ad varies considerably, but in the basic case the `PageItemExtended` will contain the same fields found in the original `PageItem` plus the `Description`:
 
@@ -66,7 +72,7 @@ The following is an example of an `PageItemExtended` containing more fields:
 
 ...
 
-## Page scraping
+## The Page object
 
 Every "search result" page contains the number of total results:
 
@@ -113,7 +119,7 @@ The following information require extra processing:
 |`TotalResults`|Parse it to `uint`.|
 |`TotalEstimatedPages`|Parse it to `ushort`.|
 
-## PageItems scraping
+## The PageItem object
 
 Every page contains twenty (or less, if it's the last page) objects like the following one:
 
@@ -218,7 +224,7 @@ The `WorkAreaWithoutZone` field is required, because in many cases `WorkArea` co
 |Odense SØ|Odense|
 |Lem St|Lem|
 
-## PageItemsExtended scraping
+## The PageItemExtended object
 
 `Description` and `SeeCompleteTextAt`:
 
