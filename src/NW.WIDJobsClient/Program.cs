@@ -13,23 +13,23 @@ namespace NW.WIDJobsClient
         static void Main(string[] args)
         {
 
-            FileInfo fileInfo = new FileInfo(@"C:\Users\Rubèn\Desktop\WorkInDenmark Responses\WorkInDenmark_Page4PageItemExtended14.html");
+            FileInfo fileInfo = new FileInfo(@"C:\Users\Rubèn\Desktop\WorkInDenmark Responses\WorkInDenmark_Page4PageItemExtended15.html");
             string content = File.ReadAllText(fileInfo.FullName);
 
             PageItem pageItem = new PageItem(
                  runId: "fake_runid",
                  pageNumber: 4,
-                 url: "https://www.workindenmark.dk/job/8144162/Assistant-professor-adjunkt-position-in-span-class-max-ultrafast-span-span-class-max-photoelectron-span-span-class-max-spectroscopy-span",
-                 title: "Assistant professor (adjunkt) position in ultrafast photoelectron spectroscopy",
-                 createDate: new DateTime(2021, 05, 08),
-                 applicationDate: new DateTime(2021, 05, 26),
-                 workArea: "Århus C",
-                 workAreaWithoutZone: "Århus",
+                 url: "https://www.workindenmark.dk/job/5339216/Embedded-Software-Developer-for-Medical-Device-Development",
+                 title: "Embedded Software Developer for Medical Device Development",
+                 createDate: new DateTime(2021, 05, 06),
+                 applicationDate: new DateTime(2021, 07, 01),
+                 workArea: "Herlev",
+                 workAreaWithoutZone: "Herlev",
                  workingHours: "Full time (37 hours)",
                  jobType: "Regular position",
                  jobId: 5339196,
-                 pageItemNumber: 14,
-                 pageItemId: "5339196assistantprofessoradjunktpositioninultrafastphotoelectronspectroscopy"
+                 pageItemNumber: 15,
+                 pageItemId: "5339216embeddedsoftwaredeveloperformedicaldevicedevelopment"
               );
 
             PageItemExtendedScraper pageItemExtendedScraper = new PageItemExtendedScraper();

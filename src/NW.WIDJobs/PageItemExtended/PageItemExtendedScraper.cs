@@ -344,11 +344,33 @@ namespace NW.WIDJobs
         private DateTime? TryParseDate(string result)
         {
 
-            DateTime? date = null;
-            if (result != null)
-                date = DateTime.ParseExact(result, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            /*
+                AdvertisementPublishDate can be:
+                    - null
+                    - date in "dd/MM/yyyy" format
 
-            return date;
+                ApplicationDeadline can be:
+                    - null
+                    - date in "dd/MM/yyyy" format
+                    - "As soon as possible"
+            */
+
+            DateTime? date = null;
+            try
+            {
+
+                if (result != null)
+                    date = DateTime.ParseExact(result, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+
+                return date;
+
+            }
+            catch
+            {
+
+                return date;
+
+            }
 
         }
 
