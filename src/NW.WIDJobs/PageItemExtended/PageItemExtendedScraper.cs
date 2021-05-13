@@ -47,7 +47,7 @@ namespace NW.WIDJobs
             string reference = TryExtractReference(content);
             string position = TryExtractPosition(content);
             string typeOfEmployment = TryExtractTypeOfEmployment(content);
-            string contact = TryExtractContact(content);
+            string contact = TryExtractAndCleanContact(content);
             string employerAddress = TryExtractAndCleanEmployerAddress(content);
             string howToApply = TryExtractAndCleanHowToApply(content);
 
@@ -267,15 +267,22 @@ namespace NW.WIDJobs
             return result;
 
         }
-        private string TryExtractContact(string content)
+        private string TryExtractAndCleanContact(string content)
         {
             /*
                 "    Global Test Centre Manager Christian Berg Philipp"
+
+                "    Team Manager - Life Science Mette Meincke
+                     Phone: +45 26 77 70 83
+                     Mobile: +45 26 77 70 83
+                "Team Manager - Life Science Mette Meincke\\r\\n                        \\r\\n                            Phone: +45 26 77 70 83\\r\\n                        \\r\\n                            Mobile: +45 26 77 70 83"
              */
 
             string xpath = "//div[@class='col-ms-6 col-sm-4']/h3[contains(., 'Contact')]/following-sibling::p[1]";
 
             string result = _xpathManager.TryGetInnerText(content, xpath);
+            result = TryRemoveNewLines(result);
+            result = TryRemoveExtraWhiteSpaces(result);
             result = result?.Trim();
 
             return result;

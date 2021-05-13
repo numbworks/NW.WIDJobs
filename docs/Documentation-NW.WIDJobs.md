@@ -452,7 +452,7 @@ The following fields require extra processing:
 |`Reference`|Requires trimming.|
 |`Position`|Requires trimming.|
 |`TypeOfEmployment`|Requires trimming.|
-|`Contact`|Requires trimming.|
+|`Contact`|Requires removal of new lines, of extra whitespaces and trimming.|
 |`EmployerAddress`|Requires removal of new lines, of extra whitespaces and trimming.|
 |`HowToApply`|Requires removal of new lines, of extra whitespaces and trimming.|
 
