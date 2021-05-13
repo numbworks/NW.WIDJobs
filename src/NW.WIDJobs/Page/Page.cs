@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace NW.WIDJobs
+﻿namespace NW.WIDJobs
 {
     public class Page
     {
