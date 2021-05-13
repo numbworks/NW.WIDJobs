@@ -42,6 +42,7 @@ namespace NW.WIDJobs.UnitTests
         // PageItemScraperTests
         #region
 
+        internal static string FakeRunId = "fake_runId";
         internal static List<PageItem> WorkInDenmark_Page1 = new List<PageItem>()
         {
 
@@ -68,7 +69,7 @@ namespace NW.WIDJobs.UnitTests
 
         };
         internal static PageItem WorkInDenmark_Page1_PageItem01 = new PageItem(
-                 runId: "fake_runId",
+                 runId: FakeRunId,
                  pageNumber: 1,
                  url: "https://www.workindenmark.dk/job/8144115/Learning-sales-Fulltime-Student-Position",
                  title: "Learning sales – Fulltime Student Position",
@@ -83,7 +84,7 @@ namespace NW.WIDJobs.UnitTests
                  pageItemId: "8144115learningsalesfulltimestudentposition"
               );
         internal static PageItem WorkInDenmark_Page1_PageItem02 = new PageItem(
-                 runId: "fake_runId",
+                 runId: FakeRunId,
                  pageNumber: 1,
                  url: "https://www.workindenmark.dk/job/8144114/Unpaid-Internship-Sales",
                  title: "Unpaid Internship Sales",
@@ -98,7 +99,7 @@ namespace NW.WIDJobs.UnitTests
                  pageItemId: "8144114unpaidinternshipsales"
               );
         internal static PageItem WorkInDenmark_Page1_PageItem03 = new PageItem(
-                 runId: "fake_runId",
+                 runId: FakeRunId,
                  pageNumber: 1,
                  url: "https://www.workindenmark.dk/job/8144099/Site-Reliability-Engineer",
                  title: "Site Reliability Engineer",
@@ -113,7 +114,7 @@ namespace NW.WIDJobs.UnitTests
                  pageItemId: "8144099sitereliabilityengineer"
               );
         internal static PageItem WorkInDenmark_Page1_PageItem04 = new PageItem(
-                 runId: "fake_runId",
+                 runId: FakeRunId,
                  pageNumber: 1,
                  url: "https://www.workindenmark.dk/job/8144098/IT-architect-Consultant",
                  title: "IT-architect / Consultant",
@@ -128,7 +129,7 @@ namespace NW.WIDJobs.UnitTests
                  pageItemId: "8144098itarchitectconsultant"
               );
         internal static PageItem WorkInDenmark_Page1_PageItem05 = new PageItem(
-                 runId: "fake_runId",
+                 runId: FakeRunId,
                  pageNumber: 1,
                  url: "https://www.workindenmark.dk/job/8144090/Student-Worker",
                  title: "Student Worker",
@@ -143,7 +144,7 @@ namespace NW.WIDJobs.UnitTests
                  pageItemId: "8144090studentworker"
               );
         internal static PageItem WorkInDenmark_Page1_PageItem06 = new PageItem(
-                 runId: "fake_runId",
+                 runId: FakeRunId,
                  pageNumber: 1,
                  url: "https://www.workindenmark.dk/job/8144089/Business-Support-Pricing-Manager",
                  title: "Business Support & Pricing Manager",
@@ -158,7 +159,7 @@ namespace NW.WIDJobs.UnitTests
                  pageItemId: "8144089businesssupportpricingmanager"
               );
         internal static PageItem WorkInDenmark_Page1_PageItem07 = new PageItem(
-                 runId: "fake_runId",
+                 runId: FakeRunId,
                  pageNumber: 1,
                  url: "https://www.workindenmark.dk/job/8144087/Asst-Lead-Engineer-LaC",
                  title: "Asst Lead Engineer, LaC",
@@ -173,7 +174,7 @@ namespace NW.WIDJobs.UnitTests
                  pageItemId: "8144087asstleadengineerlac"
               );
         internal static PageItem WorkInDenmark_Page1_PageItem08 = new PageItem(
-                 runId: "fake_runId",
+                 runId: FakeRunId,
                  pageNumber: 1,
                  url: "https://www.workindenmark.dk/job/8144086/Clinical-Project-Manager-Office-based",
                  title: "Clinical Project Manager (Office based)",
@@ -188,7 +189,7 @@ namespace NW.WIDJobs.UnitTests
                  pageItemId: "8144086clinicalprojectmanagerofficebased"
               );
         internal static PageItem WorkInDenmark_Page1_PageItem09 = new PageItem(
-                 runId: "fake_runId",
+                 runId: FakeRunId,
                  pageNumber: 1,
                  url: "https://www.workindenmark.dk/job/8144080/Senior-Developer-Operations",
                  title: "Senior Developer, Operations",
@@ -203,7 +204,7 @@ namespace NW.WIDJobs.UnitTests
                  pageItemId: "8144080seniordeveloperoperations"
               );
         internal static PageItem WorkInDenmark_Page1_PageItem10 = new PageItem(
-                 runId: "fake_runId",
+                 runId: FakeRunId,
                  pageNumber: 1,
                  url: "https://www.workindenmark.dk/job/8144079/Manager-Global-Workplace",
                  title: "Manager, Global Workplace",
@@ -218,7 +219,7 @@ namespace NW.WIDJobs.UnitTests
                  pageItemId: "8144079managerglobalworkplace"
               );
         internal static PageItem WorkInDenmark_Page1_PageItem11 = new PageItem(
-                 runId: "fake_runId",
+                 runId: FakeRunId,
                  pageNumber: 1,
                  url: "https://www.workindenmark.dk/job/8144075/Supply-Chain-Business-Analyst",
                  title: "Supply Chain Business Analyst",
@@ -233,7 +234,7 @@ namespace NW.WIDJobs.UnitTests
                  pageItemId: "8144075supplychainbusinessanalyst"
               );
         internal static PageItem WorkInDenmark_Page1_PageItem12 = new PageItem(
-                 runId: "fake_runId",
+                 runId: FakeRunId,
                  pageNumber: 1,
                  url: "https://www.workindenmark.dk/job/8144074/Systems-Engineer",
                  title: "Systems Engineer",
@@ -248,7 +249,7 @@ namespace NW.WIDJobs.UnitTests
                  pageItemId: "8144074systemsengineer"
               );
         internal static PageItem WorkInDenmark_Page1_PageItem13 = new PageItem(
-                 runId: "fake_runId",
+                 runId: FakeRunId,
                  pageNumber: 1,
                  url: "https://www.workindenmark.dk/job/8144072/Assistant-Lead-Engineer",
                  title: "Assistant Lead Engineer",
@@ -263,7 +264,7 @@ namespace NW.WIDJobs.UnitTests
                  pageItemId: "8144072assistantleadengineer"
               );
         internal static PageItem WorkInDenmark_Page1_PageItem14 = new PageItem(
-                 runId: "fake_runId",
+                 runId: FakeRunId,
                  pageNumber: 1,
                  url: "https://www.workindenmark.dk/job/8144071/Lean-Professional",
                  title: "Lean Professional",
@@ -278,7 +279,7 @@ namespace NW.WIDJobs.UnitTests
                  pageItemId: "8144071leanprofessional"
               );
         internal static PageItem WorkInDenmark_Page1_PageItem15 = new PageItem(
-                 runId: "fake_runId",
+                 runId: FakeRunId,
                  pageNumber: 1,
                  url: "https://www.workindenmark.dk/job/8144070/Maternity-support-Logistics",
                  title: "Maternity support Logistics",
@@ -293,7 +294,7 @@ namespace NW.WIDJobs.UnitTests
                  pageItemId: "8144070maternitysupportlogistics"
               );
         internal static PageItem WorkInDenmark_Page1_PageItem16 = new PageItem(
-                 runId: "fake_runId",
+                 runId: FakeRunId,
                  pageNumber: 1,
                  url: "https://www.workindenmark.dk/job/8144061/Senior-Model-Risk-Analyst-Stockholm-Copenhagen-or-Warsaw",
                  title: "Senior Model Risk Analyst, Stockholm, Copenhagen or Warsaw",
@@ -308,7 +309,7 @@ namespace NW.WIDJobs.UnitTests
                  pageItemId: "8144061seniormodelriskanalyststockholmcopenhagenorwarsaw"
               );
         internal static PageItem WorkInDenmark_Page1_PageItem17 = new PageItem(
-                 runId: "fake_runId",
+                 runId: FakeRunId,
                  pageNumber: 1,
                  url: "https://www.workindenmark.dk/job/8144054/Quality-Assurance-and-Knowledge-Team-Lead",
                  title: "Quality Assurance and Knowledge Team Lead",
@@ -323,7 +324,7 @@ namespace NW.WIDJobs.UnitTests
                  pageItemId: "8144054qualityassuranceandknowledgeteamlead"
               );
         internal static PageItem WorkInDenmark_Page1_PageItem18 = new PageItem(
-                 runId: "fake_runId",
+                 runId: FakeRunId,
                  pageNumber: 1,
                  url: "https://www.workindenmark.dk/job/8144044/Student-Assistant",
                  title: "Student Assistant",
@@ -338,7 +339,7 @@ namespace NW.WIDJobs.UnitTests
                  pageItemId: "8144044studentassistant"
               );
         internal static PageItem WorkInDenmark_Page1_PageItem19 = new PageItem(
-                 runId: "fake_runId",
+                 runId: FakeRunId,
                  pageNumber: 1,
                  url: "https://www.workindenmark.dk/job/8144030/Senior-Consultant-Branding",
                  title: "Senior Consultant - Branding",
@@ -353,7 +354,7 @@ namespace NW.WIDJobs.UnitTests
                  pageItemId: "8144030seniorconsultantbranding"
               );
         internal static PageItem WorkInDenmark_Page1_PageItem20 = new PageItem(
-                 runId: "fake_runId",
+                 runId: FakeRunId,
                  pageNumber: 1,
                  url: "https://www.workindenmark.dk/job/8144023/Business-Development-Manager-ScrewdriverDispenser-m-f-d",
                  title: "Business Development Manager, ScrewdriverDispenser (m/f/d)",
@@ -394,7 +395,7 @@ namespace NW.WIDJobs.UnitTests
 
         };
         internal static PageItem WorkInDenmark_Page2_PageItem01 = new PageItem(
-                 runId: "fake_runid",
+                 runId: FakeRunId,
                  pageNumber: 2,
                  url: "https://www.workindenmark.dk/job/8144022/Chef-for-PET-Forebyggelse",
                  title: "Chef for PET Forebyggelse",
@@ -409,7 +410,7 @@ namespace NW.WIDJobs.UnitTests
                  pageItemId: "8144022chefforpetforebyggelse"
               );
         internal static PageItem WorkInDenmark_Page2_PageItem02 = new PageItem(
-                 runId: "fake_runid",
+                 runId: FakeRunId,
                  pageNumber: 2,
                  url: "https://www.workindenmark.dk/job/8144021/Bliv-procesoperatørelev-hos-FMC",
                  title: "Bliv procesoperatørelev hos FMC",
@@ -424,7 +425,7 @@ namespace NW.WIDJobs.UnitTests
                  pageItemId: "8144021blivprocesoperatrelevhosfmc"
               );
         internal static PageItem WorkInDenmark_Page2_PageItem03 = new PageItem(
-                 runId: "fake_runid",
+                 runId: FakeRunId,
                  pageNumber: 2,
                  url: "https://www.workindenmark.dk/job/8144020/IT-elev-til-IT-Service",
                  title: "IT-elev til IT-Service",
@@ -439,7 +440,7 @@ namespace NW.WIDJobs.UnitTests
                  pageItemId: "8144020itelevtilitservice"
               );
         internal static PageItem WorkInDenmark_Page2_PageItem04 = new PageItem(
-                 runId: "fake_runid",
+                 runId: FakeRunId,
                  pageNumber: 2,
                  url: "https://www.workindenmark.dk/job/8141253/Junior-Executive-in-Branding",
                  title: "Junior Executive in Branding",
@@ -454,7 +455,7 @@ namespace NW.WIDJobs.UnitTests
                  pageItemId: "8141253juniorexecutiveinbranding"
               );
         internal static PageItem WorkInDenmark_Page2_PageItem05 = new PageItem(
-                 runId: "fake_runid",
+                 runId: FakeRunId,
                  pageNumber: 2,
                  url: "https://www.workindenmark.dk/job/8141243/Project-Manager-for-IT-Management",
                  title: "Project Manager for IT Management",
@@ -469,7 +470,7 @@ namespace NW.WIDJobs.UnitTests
                  pageItemId: "8141243projectmanagerforitmanagement"
               );
         internal static PageItem WorkInDenmark_Page2_PageItem06 = new PageItem(
-                 runId: "fake_runid",
+                 runId: FakeRunId,
                  pageNumber: 2,
                  url: "https://www.workindenmark.dk/job/8141235/Motivated-warehouseworkers-i-Taulov",
                  title: "Motivated warehouseworkers i Taulov",
@@ -484,7 +485,7 @@ namespace NW.WIDJobs.UnitTests
                  pageItemId: "8141235motivatedwarehouseworkersitaulov"
               );
         internal static PageItem WorkInDenmark_Page2_PageItem07 = new PageItem(
-                 runId: "fake_runid",
+                 runId: FakeRunId,
                  pageNumber: 2,
                  url: "https://www.workindenmark.dk/job/8141230/System-Administrator-End-User-Devices",
                  title: "System Administrator - End User Devices",
@@ -499,7 +500,7 @@ namespace NW.WIDJobs.UnitTests
                  pageItemId: "8141230systemadministratorenduserdevices"
               );
         internal static PageItem WorkInDenmark_Page2_PageItem08 = new PageItem(
-                 runId: "fake_runid",
+                 runId: FakeRunId,
                  pageNumber: 2,
                  url: "https://www.workindenmark.dk/job/8141229/Manager-for-IT-Building-Device-Management",
                  title: "Manager for IT Building & Device Management",
@@ -514,7 +515,7 @@ namespace NW.WIDJobs.UnitTests
                  pageItemId: "8141229managerforitbuildingdevicemanagement"
               );
         internal static PageItem WorkInDenmark_Page2_PageItem09 = new PageItem(
-                 runId: "fake_runid",
+                 runId: FakeRunId,
                  pageNumber: 2,
                  url: "https://www.workindenmark.dk/job/8141228/Cloud-Solution-Architect-for-Global-IT",
                  title: "Cloud Solution Architect for Global IT",
@@ -529,7 +530,7 @@ namespace NW.WIDJobs.UnitTests
                  pageItemId: "8141228cloudsolutionarchitectforglobalit"
               );
         internal static PageItem WorkInDenmark_Page2_PageItem10 = new PageItem(
-                 runId: "fake_runid",
+                 runId: FakeRunId,
                  pageNumber: 2,
                  url: "https://www.workindenmark.dk/job/8140198/Bliv-salgstrainee-hos-Out-of-Home-Media-ApS",
                  title: "Bliv salgstrainee hos Out of Home Media ApS",
@@ -544,7 +545,7 @@ namespace NW.WIDJobs.UnitTests
                  pageItemId: "8140198blivsalgstraineehosoutofhomemediaaps"
               );
         internal static PageItem WorkInDenmark_Page2_PageItem11 = new PageItem(
-                 runId: "fake_runid",
+                 runId: FakeRunId,
                  pageNumber: 2,
                  url: "https://www.workindenmark.dk/job/8138446/Inside-Sales-Account-Manager",
                  title: "Inside Sales Account Manager",
@@ -559,7 +560,7 @@ namespace NW.WIDJobs.UnitTests
                  pageItemId: "8138446insidesalesaccountmanager"
               );
         internal static PageItem WorkInDenmark_Page2_PageItem12 = new PageItem(
-                 runId: "fake_runid",
+                 runId: FakeRunId,
                  pageNumber: 2,
                  url: "https://www.workindenmark.dk/job/8144113/Senior-Serialisation-SAP-ATTP-Consultant-I-O-Delivery",
                  title: "Senior Serialisation / SAP ATTP Consultant, I&O Delivery",
@@ -574,7 +575,7 @@ namespace NW.WIDJobs.UnitTests
                  pageItemId: "8144113seniorserialisationsapattpconsultantiodelivery"
               );
         internal static PageItem WorkInDenmark_Page2_PageItem13 = new PageItem(
-                 runId: "fake_runid",
+                 runId: FakeRunId,
                  pageNumber: 2,
                  url: "https://www.workindenmark.dk/job/8144112/SDM-Product-Owner-I-O-Delivery",
                  title: "SDM/Product Owner, I&O Delivery",
@@ -589,7 +590,7 @@ namespace NW.WIDJobs.UnitTests
                  pageItemId: "8144112sdmproductowneriodelivery"
               );
         internal static PageItem WorkInDenmark_Page2_PageItem14 = new PageItem(
-                 runId: "fake_runid",
+                 runId: FakeRunId,
                  pageNumber: 2,
                  url: "https://www.workindenmark.dk/job/8144111/Head-of-Third-Party-Management",
                  title: "Head of Third Party Management",
@@ -604,7 +605,7 @@ namespace NW.WIDJobs.UnitTests
                  pageItemId: "8144111headofthirdpartymanagement"
               );
         internal static PageItem WorkInDenmark_Page2_PageItem15 = new PageItem(
-                 runId: "fake_runid",
+                 runId: FakeRunId,
                  pageNumber: 2,
                  url: "https://www.workindenmark.dk/job/8144110/00000000",
                  title: "00000000",
@@ -619,7 +620,7 @@ namespace NW.WIDJobs.UnitTests
                  pageItemId: "8144110"
               );
         internal static PageItem WorkInDenmark_Page2_PageItem16 = new PageItem(
-                 runId: "fake_runid",
+                 runId: FakeRunId,
                  pageNumber: 2,
                  url: "https://www.workindenmark.dk/job/8144109/Technology-Vendor-Contract-Manager",
                  title: "Technology Vendor & Contract Manager",
@@ -634,7 +635,7 @@ namespace NW.WIDJobs.UnitTests
                  pageItemId: "8144109technologyvendorcontractmanager"
               );
         internal static PageItem WorkInDenmark_Page2_PageItem17 = new PageItem(
-                 runId: "fake_runid",
+                 runId: FakeRunId,
                  pageNumber: 2,
                  url: "https://www.workindenmark.dk/job/8144108/EDI-Integration-Architect",
                  title: "EDI Integration Architect",
@@ -649,7 +650,7 @@ namespace NW.WIDJobs.UnitTests
                  pageItemId: "8144108ediintegrationarchitect"
               );
         internal static PageItem WorkInDenmark_Page2_PageItem18 = new PageItem(
-                 runId: "fake_runid",
+                 runId: FakeRunId,
                  pageNumber: 2,
                  url: "https://www.workindenmark.dk/job/8144107/Dutch-speaking-Salesperson",
                  title: "Dutch speaking Salesperson",
@@ -664,7 +665,7 @@ namespace NW.WIDJobs.UnitTests
                  pageItemId: "8144107dutchspeakingsalesperson"
               );
         internal static PageItem WorkInDenmark_Page2_PageItem19 = new PageItem(
-                 runId: "fake_runid",
+                 runId: FakeRunId,
                  pageNumber: 2,
                  url: "https://www.workindenmark.dk/job/8144104/Id-146047-Administrative-Project-Manager-for-the-European-Horizon-2020-Project-REFLOW",
                  title: "Id 146047 - Administrative Project Manager for the European Horizon 2020 Project REFLOW",
@@ -679,7 +680,7 @@ namespace NW.WIDJobs.UnitTests
                  pageItemId: "8144104idadministrativeprojectmanagerfortheeuropeanhorizonprojectreflow"
               );
         internal static PageItem WorkInDenmark_Page2_PageItem20 = new PageItem(
-                 runId: "fake_runid",
+                 runId: FakeRunId,
                  pageNumber: 2,
                  url: "https://www.workindenmark.dk/job/8144102/Experienced-Embedded-Linux-Developer",
                  title: "Experienced Embedded Linux Developer",
@@ -761,7 +762,7 @@ namespace NW.WIDJobs.UnitTests
         );
 
         internal static PageItem WorkInDenmark_Page4PageItem14 = new PageItem(
-                 runId: "fake_runid",
+                 runId: FakeRunId,
                  pageNumber: 4,
                  url: "https://www.workindenmark.dk/job/8144162/Assistant-professor-adjunkt-position-in-span-class-max-ultrafast-span-span-class-max-photoelectron-span-span-class-max-spectroscopy-span",
                  title: "Assistant professor (adjunkt) position in ultrafast photoelectron spectroscopy",
@@ -796,7 +797,7 @@ namespace NW.WIDJobs.UnitTests
         );
 
         internal static PageItem WorkInDenmark_Page4PageItem15 = new PageItem(
-                 runId: "fake_runid",
+                 runId: FakeRunId,
                  pageNumber: 4,
                  url: "https://www.workindenmark.dk/job/5339216/Embedded-Software-Developer-for-Medical-Device-Development",
                  title: "Embedded Software Developer for Medical Device Development",
@@ -838,7 +839,7 @@ namespace NW.WIDJobs.UnitTests
         );
 
         internal static PageItem WorkInDenmark_Page4PageItem19 = new PageItem(
-                 runId: "fake_runid",
+                 runId: FakeRunId,
                  pageNumber: 4,
                  url: "https://www.workindenmark.dk/job/5339811/Warehouse-Team-Lead",
                  title: "Warehouse Team Lead",
@@ -884,7 +885,7 @@ namespace NW.WIDJobs.UnitTests
                 );
 
         internal static PageItem WorkInDenmark_Page5PageItem1 = new PageItem(
-                 runId: "fake_runid",
+                 runId: FakeRunId,
                  pageNumber: 5,
                  url: "https://www.workindenmark.dk/job/5340215/NVH-Test-Engineer",
                  title: "NVH Test Engineer",
