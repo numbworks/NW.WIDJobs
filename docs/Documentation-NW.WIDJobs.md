@@ -452,9 +452,9 @@ The following fields require extra processing:
 |`Reference`|Requires trimming.|
 |`Position`|Requires trimming.|
 |`TypeOfEmployment`|Requires trimming.|
-|`Contact`|Requires removal of new lines, of extra whitespaces and trimming.|
-|`EmployerAddress`|Requires removal of new lines, of extra whitespaces and trimming.|
-|`HowToApply`|Requires removal of new lines, of extra whitespaces and trimming.|
+|`Contact`|Requires removal of new lines, removal of extra whitespaces and trimming.|
+|`EmployerAddress`|Requires removal of new lines, removal of extra whitespaces, removal of HTML encoded characters and trimming.|
+|`HowToApply`|Requires removal of new lines, removal of extra whitespaces and trimming.|
 
 If the `DescriptionBulletPoints`'s XPath pattern doesn't return anything, the `PageItemExtendedScraper` performs another "best effort" attempt to scrape as many bullet points as possible from the `Description` by using regular expressions.
 

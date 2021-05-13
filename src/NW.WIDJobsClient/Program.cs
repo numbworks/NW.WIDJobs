@@ -186,6 +186,32 @@ namespace NW.WIDJobsClient
             PageItemExtended pageItemExtended = pageItemExtendedScraper.Do(pageItem, content);
 
         }
+        static void PageItemExtendedScraper_Test5_Do()
+        {
+
+            FileInfo fileInfo = new FileInfo(@"C:\Users\Rubèn\Desktop\WorkInDenmark Responses\WorkInDenmark_Page4PageItemExtended15.html");
+            string content = File.ReadAllText(fileInfo.FullName);
+
+            PageItem pageItem = new PageItem(
+                 runId: "fake_runid",
+                 pageNumber: 4,
+                 url: "https://www.workindenmark.dk/job/5339216/Embedded-Software-Developer-for-Medical-Device-Development",
+                 title: "Embedded Software Developer for Medical Device Development",
+                 createDate: new DateTime(2021, 05, 06),
+                 applicationDate: new DateTime(2021, 07, 01),
+                 workArea: "Herlev",
+                 workAreaWithoutZone: "Herlev",
+                 workingHours: "Full time (37 hours)",
+                 jobType: "Regular position",
+                 jobId: 5339196,
+                 pageItemNumber: 15,
+                 pageItemId: "5339216embeddedsoftwaredeveloperformedicaldevicedevelopment"
+              );
+
+            PageItemExtendedScraper pageItemExtendedScraper = new PageItemExtendedScraper();
+            PageItemExtended pageItemExtended = pageItemExtendedScraper.Do(pageItem, content);
+
+        }
 
         static string Serialize(dynamic obj)
         {

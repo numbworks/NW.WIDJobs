@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Text.RegularExpressions;
 using System.Linq;
+using System.Web;
 
 namespace NW.WIDJobs
 {
@@ -298,6 +299,7 @@ namespace NW.WIDJobs
                      Denmark"
                 "DINEX A/S                        Fynsvej 39                        DK 5500 Middelfart                        Denmark"
 
+                "PREVAS A/S Lysk&#230;r 3 DK 2730 Herlev Denmark"
             */
 
             string xpath = "//div[@class='col-ms-6 col-sm-4']/h3[contains(., 'Employer')]/following-sibling::p[1]";
@@ -305,6 +307,7 @@ namespace NW.WIDJobs
             string result = _xpathManager.TryGetInnerText(content, xpath);
             result = TryRemoveNewLines(result);
             result = TryRemoveExtraWhiteSpaces(result);
+            result = TryHtmlDecode(result);
             result = result?.Trim();
 
             return result;
@@ -339,7 +342,7 @@ namespace NW.WIDJobs
             => str.Replace("\u00A0", " ");
         private string TryRemoveNewLines(string str)
             => str?.Replace(Environment.NewLine, string.Empty);
-        private static string TryRemoveExtraWhiteSpaces(string str)
+        private string TryRemoveExtraWhiteSpaces(string str)
         {
 
             if (str != null)
@@ -347,7 +350,7 @@ namespace NW.WIDJobs
 
             return str;
         }
-        private DateTime? TryParseDate(string result)
+        private DateTime? TryParseDate(string str)
         {
 
             /*
@@ -365,8 +368,8 @@ namespace NW.WIDJobs
             try
             {
 
-                if (result != null)
-                    date = DateTime.ParseExact(result, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                if (str != null)
+                    date = DateTime.ParseExact(str, "dd/MM/yyyy", CultureInfo.InvariantCulture);
 
                 return date;
 
@@ -377,6 +380,15 @@ namespace NW.WIDJobs
                 return date;
 
             }
+
+        }
+        private string TryHtmlDecode(string str)
+        {
+
+            if (str != null)
+                return HttpUtility.HtmlDecode(str);
+
+            return str;
 
         }
 

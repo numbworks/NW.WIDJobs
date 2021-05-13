@@ -739,7 +739,7 @@ namespace NW.WIDJobs.UnitTests
             position: "Academical work / University research and teaching positions -  science",
             typeOfEmployment: "Regular position",
             contact: "Philip Hofmann",
-            employerAddress: "Aarhus Universitet Ny Munkegade 120 DK 8000 &#197;rhus C Denmark",
+            employerAddress: "Aarhus Universitet Ny Munkegade 120 DK 8000 Århus C Denmark",
             howToApply: "Online: Application form"
 
         );
@@ -781,7 +781,7 @@ namespace NW.WIDJobs.UnitTests
             position: "",
             typeOfEmployment: "Regular position",
             contact: "Team Manager - Life Science Mette Meincke Phone: +45 26 77 70 83 Mobile: +45 26 77 70 83",
-            employerAddress: "PREVAS A/S Lysk&#230;r 3 DK 2730 Herlev Denmark",
+            employerAddress: "PREVAS A/S Lyskær 3 DK 2730 Herlev Denmark",
             howToApply: "Online: Application form"
 
         );
