@@ -48,8 +48,8 @@ namespace NW.WIDJobs
             string position = TryExtractPosition(content);
             string typeOfEmployment = TryExtractTypeOfEmployment(content);
             string contact = TryExtractContact(content);
-            string employerAddress = TryExtractEmployerAddress(content);
-            string howToApply = TryExtractHowToApply(content);
+            string employerAddress = TryExtractAndCleanEmployerAddress(content);
+            string howToApply = TryExtractAndCleanHowToApply(content);
 
             PageItemExtended pageItemExtended = new PageItemExtended(
 
@@ -279,7 +279,7 @@ namespace NW.WIDJobs
             return result;
 
         }
-        private string TryExtractEmployerAddress(string content)
+        private string TryExtractAndCleanEmployerAddress(string content)
         {
 
             /*
@@ -287,28 +287,40 @@ namespace NW.WIDJobs
                      Fynsvej 39
                      DK 5500 Middelfart
                      Denmark"
+
+                "DINEX A/S                        Fynsvej 39                        DK 5500 Middelfart                        Denmark"
+
             */
 
             string xpath = "//div[@class='col-ms-6 col-sm-4']/h3[contains(., 'Employer')]/following-sibling::p[1]";
 
             string result = _xpathManager.TryGetInnerText(content, xpath);
+            result = TryRemoveNewLines(result);
+            result = TryRemoveExtraWhiteSpaces(result);
             result = result?.Trim();
 
             return result;
 
         }
-        private string TryExtractHowToApply(string content)
+        private string TryExtractAndCleanHowToApply(string content)
         {
 
             /*
                 "     Online:
                       Application form"
                 https://dinex.career.emply.com/ad/nvh-test-engineer/03leyh"
+
+                "   Via e-mail:                             
+                    nj@bixter.com                                                                            
+                    Written"
+                "Via e-mail:                             nj@bixter.com                                                                            Written"
             */
 
             string xpath = "//div[@class='col-ms-6 col-sm-4']//ul|//a[@id='scphpage_0_scphcontent_1_ctl00_uiLnkHowToApplyOnline']/@href";
 
             string result = _xpathManager.TryGetInnerText(content, xpath);
+            result = TryRemoveNewLines(result);
+            result = TryRemoveExtraWhiteSpaces(result);
             result = result?.Trim();
 
             return result;
@@ -317,6 +329,16 @@ namespace NW.WIDJobs
 
         private string RemoveNonBreakingSpaceCharacters(string str)
             => str.Replace("\u00A0", " ");
+        private string TryRemoveNewLines(string str)
+            => str?.Replace(Environment.NewLine, string.Empty);
+        private static string TryRemoveExtraWhiteSpaces(string str)
+        {
+
+            if (str != null)
+                return String.Join(" ", str.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries));
+
+            return str;
+        }
         private DateTime? TryParseDate(string result)
         {
 
@@ -333,5 +355,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 11.05.2021
+    Last Update: 13.05.2021
 */

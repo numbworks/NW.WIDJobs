@@ -443,7 +443,7 @@ The following fields require extra processing:
 
 |Field|Action|
 |---|---|
-|`Description`|Requires trimming.|
+|`Description`|Requires removal of non-breaking space characters and trimming.|
 |`EmployerName`|Requires trimming.|
 |`NumberOfOpenings`|Requires trimming and parsing to `ushort` (if not null).|
 |`AdvertisementPublishDate`|Requires trimming and parsing to `DateTime` (if not null).|
@@ -453,8 +453,8 @@ The following fields require extra processing:
 |`Position`|Requires trimming.|
 |`TypeOfEmployment`|Requires trimming.|
 |`Contact`|Requires trimming.|
-|`EmployerAddress`|Requires trimming.|
-|`HowToApply`|Requires trimming.|
+|`EmployerAddress`|Requires removal of new lines, of extra whitespaces and trimming.|
+|`HowToApply`|Requires removal of new lines, of extra whitespaces and trimming.|
 
 If the `DescriptionBulletPoints`'s XPath pattern doesn't return anything, the `PageItemExtendedScraper` performs another "best effort" attempt to scrape as many bullet points as possible from the `Description` by using regular expressions.
 
