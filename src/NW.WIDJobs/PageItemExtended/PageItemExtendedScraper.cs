@@ -104,7 +104,7 @@ namespace NW.WIDJobs
 
             string xpath = "//div[@class='row']/div[@class='col-sm-11']/a/@href";
 
-            string result = _xpathManager.GetFirstAttributeValue(content, xpath);
+            string result = _xpathManager.TryGetFirstAttributeValue(content, xpath);
 
             return result;
 

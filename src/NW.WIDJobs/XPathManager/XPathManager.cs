@@ -26,12 +26,11 @@ namespace NW.WIDJobs
         public List<string> GetInnerTexts(string html, string xpath)
         {
 
-            // Validation
+            Validator.ValidateStringNullOrWhiteSpace(html, nameof(html));
+            Validator.ValidateStringNullOrWhiteSpace(xpath, nameof(xpath));
 
             _htmlDocumentAdapter.LoadHtml(html);
             HtmlNodeCollection nodeCollection = _htmlDocumentAdapter.SelectNodes(xpath);
-
-            // if (nodeCollection == null)
 
             List<string> innerTexts = new List<string>();
             if (nodeCollection != null)
@@ -57,12 +56,11 @@ namespace NW.WIDJobs
         public List<string> GetAttributeValues(string html, string xpath, uint attributeNr = 0)
         {
 
-            // Validation
+            Validator.ValidateStringNullOrWhiteSpace(html, nameof(html));
+            Validator.ValidateStringNullOrWhiteSpace(xpath, nameof(xpath));
 
             _htmlDocumentAdapter.LoadHtml(html);
             HtmlNodeCollection nodeCollection = _htmlDocumentAdapter.SelectNodes(xpath);
-
-            // if (nodeCollection == null)
 
             List<string> attributeValues = new List<string>();
             if (nodeCollection != null)
@@ -74,11 +72,21 @@ namespace NW.WIDJobs
         }
         public string GetFirstAttributeValue(string html, string xpath)
             => GetAttributeValues(html, xpath, 0)[0];
+        public string TryGetFirstAttributeValue(string html, string xpath)
+        {
+
+            List<string> attributeValues = GetAttributeValues(html, xpath, 0);
+            if (attributeValues.Count == 0)
+                return null;
+
+            return attributeValues[0];
+
+        }
 
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 06.05.2021
+    Last Update: 13.05.2021
 */
