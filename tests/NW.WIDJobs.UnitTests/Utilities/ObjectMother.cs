@@ -709,6 +709,42 @@ namespace NW.WIDJobs.UnitTests
 
         );
 
+        internal static PageItem WorkInDenmark_Page4PageItem14 = new PageItem(
+                 runId: "fake_runid",
+                 pageNumber: 4,
+                 url: "https://www.workindenmark.dk/job/8144162/Assistant-professor-adjunkt-position-in-span-class-max-ultrafast-span-span-class-max-photoelectron-span-span-class-max-spectroscopy-span",
+                 title: "Assistant professor (adjunkt) position in ultrafast photoelectron spectroscopy",
+                 createDate: new DateTime(2021, 05, 08),
+                 applicationDate: new DateTime(2021, 05, 26),
+                 workArea: "Århus C",
+                 workAreaWithoutZone: "Århus",
+                 workingHours: "Full time (37 hours)",
+                 jobType: "Regular position",
+                 jobId: 5339196,
+                 pageItemNumber: 14,
+                 pageItemId: "5339196assistantprofessoradjunktpositioninultrafastphotoelectronspectroscopy"
+              );
+        internal static PageItemExtended WorkInDenmark_Page4PageItemExtended14 = new PageItemExtended(
+
+            pageItem: WorkInDenmark_Page4PageItem14,
+            description: "We are seeking applicants for an assistant professor position in the area of ultrafast photoelectron spectroscopy. The successful applicant will establish time-resolved X-ray photoemission spectroscopy and X-ray photoelectron diffraction using free electron lasers and high harmonic laser sources.Starting Date and PeriodThe starting date is September 1, 2021, and the position ends on the 31.3.2024.Job descriptionThe successful applicant will take a leading role in the development of ultrafast X-ray photoelectron spectroscopy (XPS) and photoelectron diffraction techniques, using free electron lasers such as FLASH or LCLS, as well as high harmonic laser sources. Time-resolved XPS is in its infancy and the applicant will address both the technical development of the technique, as well as its application to open problems in selected quantum materials. Exploration of materials with synchrotron radiation-based photoelectron spectroscopy will be an essential part and prerequisite for the time-resolved studies.The applicant is also expected to build up experience in teaching and contribute to the department’s courses.ProfileThe candidate must hold a PhD in physics or in a related field. Having already prior experience as a postdoc and in giving guidance to PhD, master and bachelor students will be an advantage.Experience with synchrotron-radiation based photoemission techniques such as XPS, X-ray photoelectron diffraction, angle-resolved photoemission spectroscopy is essential for this project. Additional experience with time-resolved techniques, especially with work at X-ray free electron lasers is highly desirable. The experiments planned here require an advanced level of computational techniques for data handling and analysis and a solid background in computation and coding is essential. Finally, the experiments are typically carried out by several collaborating groups and it is of high importance that the candidate is able to work in (and lead) a team of scientists.Place of work is Ny Munkegade 120, Aarhus CPlease contact Philip Hofmann (philip@phys.au.dk) for further questions. Application procedureShortlisting is used. This means that after the deadline for applications – and with the assistance from the assessment committee chairman, and the assessment committee if necessary, – the head of department selects the candidates to be evaluated. The selection is made on the basis of an assessment of who of the candidates are most relevant considering the requirements of the advertisement. All applicants will be notified within 6 weeks whether or not their applications have been sent to an expert assessment committee for evaluation. The selected applicants will be informed about the composition of the committee and will receive his/her assessment. Once the recruitment process is completed a final letter of rejection is sent to the deselected applicants.Letter of referenceIf you want a referee to upload a letter of reference on your behalf, please state the referee’s contact information when you submit your application. We strongly recommend that you make an agreement with the person in question before you enter the referee’s contact information, and that you ensure that the referee has enough time to write the letter of reference before the application deadline. Unfortunately, it is not possible to ensure that letters of reference received after the application deadline will be taken into consideration.Formalities and salary range Formalities and salary rangeNatural Sciences refers to the Ministerial Order on the Appointment of Academic Staff at Danish Universities under the Danish Ministry of Science, Technology and Innovation.The application must be in English and include a curriculum vitae, degree certificate, a complete list of publications, a statement of future research plans and information about research activities, teaching portfolio and verified information on previous teaching experience (if any). Guidelines for applicants can be found here.Appointment shall be in accordance with the collective labour agreement between the Danish Ministry of Finance and the Danish Confederation of Professional Associations. Further information on qualification requirements and job content may be found in the Memorandum on Job Structure for Academic Staff at Danish Universities.Salary depends on seniority as agreed between the Danish Ministry of Finance and the Confederation of Professional Associations.All interested candidates are encouraged to apply, regardless of their personal background. Research activities will be evaluated in relation to actual research time. Thus, we encourage applicants to specify periods of leave without research activities, in order to be able to subtract these periods from the span of the scientific career during the evaluation of scientific productivity.Aarhus University offers a broad variety of services for international researchers and accompanying families, including relocation service and career counselling to expat partners. Read more here. Please find more information about entering and working in Denmark here.The application must be submitted via Aarhus University’s recruitment system, which can be accessed under the job advertisement on Aarhus University's website.Aarhus UniversityAarhus University is an academically diverse and research-intensive university with a strong commitment to high-quality research and education and the development of society nationally and globally. The university offers an inspiring research and teaching environment to its 38,000 students (FTEs) and 8,000 employees, and has an annual revenues of EUR 885 million. Learn more at www.international.au.dk/.Deadline26. May 2021.",
+            seeCompleteTextAt: null,
+            bulletPoints: new HashSet<string> { },
+            employerName: "Aarhus Universitet",
+            numberOfOpenings: 1,
+            advertisementPublishDate: new DateTime(2021, 05, 06),
+            applicationDeadline: new DateTime(2021, 05, 26),
+            startDateOfEmployment: "2021-06-09",
+            reference: null,
+            position: "Academical work / University research and teaching positions -  science",
+            typeOfEmployment: "Regular position",
+            contact: "Philip Hofmann",
+            employerAddress: "Aarhus Universitet Ny Munkegade 120 DK 8000 &#197;rhus C Denmark",
+            howToApply: "Online: Application form"
+
+        );
+
+
         #endregion
 
         // Methods
