@@ -754,8 +754,7 @@ namespace NW.WIDJobs.UnitTests
 
         #region Shared_Page03
 
-        internal static string Shared_Page3_PageItemExtended01_Content;
-
+        internal static string Shared_Page03_PageItemExtended01_Content = Properties.Resources.Page03_PageItemExtended01;
         internal static PageItem Shared_Page03_PageItem01 = new PageItem(
                          runId: Shared_FakeRunId,
                          pageNumber: 3,
@@ -791,8 +790,7 @@ namespace NW.WIDJobs.UnitTests
 
         );
 
-        internal static string Shared_Page3_PageItemExtended02_Content;
-
+        internal static string Shared_Page03_PageItemExtended02_Content = Properties.Resources.Page03_PageItemExtended02;
         internal static PageItem Shared_Page03_PageItem02 = new PageItem(
                  runId: Shared_FakeRunId,
                  pageNumber: 3,
@@ -825,7 +823,7 @@ namespace NW.WIDJobs.UnitTests
             numberOfOpenings: 1,
             advertisementPublishDate: new DateTime(2021, 05, 06),
             applicationDeadline: new DateTime(2021, 07, 01),
-            startDateOfEmployment: null,
+            startDateOfEmployment: "As soon as possible",
             reference: null,
             position: "",
             typeOfEmployment: "Regular position",
@@ -835,8 +833,7 @@ namespace NW.WIDJobs.UnitTests
 
         );
 
-        internal static string Shared_Page3_PageItemExtended03_Content;
-
+        internal static string Shared_Page03_PageItemExtended03_Content = Properties.Resources.Page03_PageItemExtended03;
         internal static PageItem Shared_Page03_PageItem03 = new PageItem(
                  runId: Shared_FakeRunId,
                  pageNumber: 3,
@@ -873,7 +870,7 @@ namespace NW.WIDJobs.UnitTests
                     numberOfOpenings: 1,
                     advertisementPublishDate: new DateTime(2021, 05, 07),
                     applicationDeadline: new DateTime(2021, 07, 02),
-                    startDateOfEmployment: null,
+                    startDateOfEmployment: "As soon as possible",
                     reference: null,
                     position: "Transport / Warehouse and logistics operatives",
                     typeOfEmployment: "Regular position",
@@ -883,8 +880,7 @@ namespace NW.WIDJobs.UnitTests
 
                 );
 
-        internal static string Shared_Page3_PageItemExtended04_Content;
-
+        internal static string Shared_Page03_PageItemExtended04_Content = Properties.Resources.Page03_PageItemExtended04;
         internal static PageItem Shared_Page03_PageItem04 = new PageItem(
                  runId: Shared_FakeRunId,
                  pageNumber: 3,
@@ -937,7 +933,7 @@ namespace NW.WIDJobs.UnitTests
                     numberOfOpenings: 1,
                     advertisementPublishDate: new DateTime(2021, 05, 07),
                     applicationDeadline: new DateTime(2021, 06, 07),
-                    startDateOfEmployment: null,
+                    startDateOfEmployment: "As soon as possible",
                     reference: null,
                     position: "Academical work / Engineering professionals",
                     typeOfEmployment: "Regular position",

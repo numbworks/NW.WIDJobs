@@ -41,7 +41,29 @@ namespace NW.WIDJobs.UnitTests
                     ObjectMother.Shared_Page02_PageItemExtended18
                 ).SetArgDisplayNames($"{nameof(doTestCases)}_03"),
 
-                // Page02_PageItemExtended18
+            new TestCaseData(
+                    ObjectMother.Shared_Page03_PageItem01,
+                    ObjectMother.Shared_Page03_PageItemExtended01_Content,
+                    ObjectMother.Shared_Page03_PageItemExtended01
+                ).SetArgDisplayNames($"{nameof(doTestCases)}_04"),
+
+            new TestCaseData(
+                    ObjectMother.Shared_Page03_PageItem02,
+                    ObjectMother.Shared_Page03_PageItemExtended02_Content,
+                    ObjectMother.Shared_Page03_PageItemExtended02
+                ).SetArgDisplayNames($"{nameof(doTestCases)}_05"),
+
+            new TestCaseData(
+                    ObjectMother.Shared_Page03_PageItem03,
+                    ObjectMother.Shared_Page03_PageItemExtended03_Content,
+                    ObjectMother.Shared_Page03_PageItemExtended03
+                ).SetArgDisplayNames($"{nameof(doTestCases)}_06"),
+
+            new TestCaseData(
+                    ObjectMother.Shared_Page03_PageItem04,
+                    ObjectMother.Shared_Page03_PageItemExtended04_Content,
+                    ObjectMother.Shared_Page03_PageItemExtended04
+                ).SetArgDisplayNames($"{nameof(doTestCases)}_07")
 
         };
         private static TestCaseData[] doExceptionTestCases =
