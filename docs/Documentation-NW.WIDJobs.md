@@ -443,7 +443,8 @@ The following fields require extra processing:
 
 |Field|Action|
 |---|---|
-|`Description`|Requires removal of non-breaking space characters and trimming.|
+|`Description`|Requires replecement of non-breaking space characters and trimming.|
+|`DescriptionBulletPoints`|Requires removal of non-breaking space characters.|
 |`EmployerName`|Requires trimming.|
 |`NumberOfOpenings`|Requires trimming and parsing to `ushort` (if not null).|
 |`AdvertisementPublishDate`|Requires trimming and parsing to `DateTime` (if not null).|

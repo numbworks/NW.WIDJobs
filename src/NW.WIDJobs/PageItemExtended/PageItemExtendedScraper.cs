@@ -39,6 +39,7 @@ namespace NW.WIDJobs
             HashSet<string> bulletPoints = TryExtractDescriptionBulletPointsWithXPath(content);
             if (bulletPoints.Count == 0)
                 bulletPoints = TryExtractDescriptionBulletPointsWithRegex(description);
+            bulletPoints = TryCleanBulletPoints(bulletPoints);
 
             string employerName = TryExtractEmployerName(content);
             ushort? numberOfOpenings = TryExtractAndParseNumberOfOpenings(content);
@@ -89,7 +90,7 @@ namespace NW.WIDJobs
             string xpath = "//div[@class='row']/div[@class='col-sm-11']/div[@class='JobPresentation job-description' or @class='job-description']";
 
             string result = _xpathManager.GetInnerText(content, xpath);
-            result = RemoveNonBreakingSpaceCharacters(result);
+            result = ReplaceNonBreakingSpaceCharacters(result);
             result = result.Trim();
 
             return result;
@@ -338,8 +339,10 @@ namespace NW.WIDJobs
 
         }
 
-        private string RemoveNonBreakingSpaceCharacters(string str)
+        private string ReplaceNonBreakingSpaceCharacters(string str)
             => str.Replace("\u00A0", " ");
+        private string RemoveNonBreakingSpaceCharacters(string str)
+            => str.Replace("\u00A0", string.Empty);
         private string TryRemoveNewLines(string str)
             => str?.Replace(Environment.NewLine, string.Empty);
         private string TryRemoveExtraWhiteSpaces(string str)
@@ -389,6 +392,25 @@ namespace NW.WIDJobs
                 return HttpUtility.HtmlDecode(str);
 
             return str;
+
+        }
+        private HashSet<string> TryCleanBulletPoints(HashSet<string> bulletPoints)
+        {
+
+            /*
+                ...
+                "Competitive - as we're driven by performance",
+                "A great communicator in English (As English is our Company language)\\u00A0"
+                ...
+            */
+
+            if (bulletPoints.Count == 0)
+                return bulletPoints;
+
+            List<string> results 
+                = bulletPoints.Select(bulletPoint => RemoveNonBreakingSpaceCharacters(bulletPoint)).ToList();
+
+            return new HashSet<string>(results);
 
         }
 
