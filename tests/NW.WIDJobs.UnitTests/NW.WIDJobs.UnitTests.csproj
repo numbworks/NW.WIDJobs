@@ -32,7 +32,8 @@
 
   <ItemGroup>
     <Folder Include="Pages\" />
-    <Folder Include="Resources\" />
+    <Folder Include="Resources\HTML\" />
+    <Folder Include="Resources\JSON\" />
   </ItemGroup>
 
 </Project>
