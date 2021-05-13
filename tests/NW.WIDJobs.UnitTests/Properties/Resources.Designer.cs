@@ -81,5 +81,27 @@ namespace NW.WIDJobs.UnitTests.Properties {
                 return ResourceManager.GetString("Page01", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 
+        ///
+        ///
+        ///&lt;!DOCTYPE html&gt;
+        ///&lt;!--[if lt IE 7]&gt;      &lt;html lang=&quot;en&quot; class=&quot;no-js lt-ie9 lt-ie8 lt-ie7&quot;&gt; &lt;![endif]--&gt;
+        ///&lt;!--[if IE 7]&gt;         &lt;html lang=&quot;en&quot; class=&quot;no-js lt-ie9 lt-ie8&quot;&gt; &lt;![endif]--&gt;
+        ///&lt;!--[if IE 8]&gt;         &lt;html lang=&quot;en&quot; class=&quot;no-js lt-ie9&quot;&gt; &lt;![endif]--&gt;
+        ///&lt;!--[if gt IE 8]&gt;&lt;!--&gt;
+        ///&lt;html lang=&quot;en&quot; class=&quot;no-js&quot;  data-pagetype=&quot;jobSearch&quot;&gt;
+        ///&lt;!--&lt;![endif]--&gt;
+        ///&lt;head&gt;
+        ///        &lt;meta charset=&quot;utf-8&quot;&gt;
+        ///        &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+        ///        &lt;meta name=&quot;viewport&quot; content=&quot; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Page02 {
+            get {
+                return ResourceManager.GetString("Page02", resourceCulture);
+            }
+        }
     }
 }

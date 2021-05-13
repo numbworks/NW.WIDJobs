@@ -308,7 +308,7 @@ namespace NW.WIDJobs
             string pattern = "(?<=/job/)[0-9]{5,}";
 
             if (!Regex.IsMatch(url, pattern))
-                throw new Exception($"Not possible to extract JobId from '{url}' with pattern: '{pattern}'.");
+                throw new Exception(MessageCollection.PageItemScraper_NotPossibleToExtractJobId.Invoke(url, pattern));
 
             return Regex.Match(url, pattern).ToString();
 

@@ -402,7 +402,7 @@ namespace NW.WIDJobs.UnitTests
 
         #region Shared_Page02
 
-        internal static string Shared_Page02_Content = "somecontent";
+        internal static string Shared_Page02_Content = Properties.Resources.Page02;
         internal static Page Shared_Page02 = new Page(Shared_FakeRunId, 2, Shared_Page02_Content);
 
         internal static PageItem Shared_Page02_PageItem01 = new PageItem(
