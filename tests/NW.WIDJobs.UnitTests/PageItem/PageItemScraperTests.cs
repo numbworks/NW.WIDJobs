@@ -9,6 +9,18 @@ namespace NW.WIDJobs.UnitTests
     {
 
         // Fields
+        private static TestCaseData[] pageItemScraperExceptionTestCases =
+        {
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new PageItemScraper(null)
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("xpathManager").Message
+            ).SetArgDisplayNames($"{nameof(doExceptionTestCases)}_01"),
+
+        };
         private static TestCaseData[] doTestCases =
         {
 
@@ -29,19 +41,11 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new PageItemScraper(null)
-                ),
-                typeof(ArgumentNullException),
-                new ArgumentNullException("xpathManager").Message
-            ).SetArgDisplayNames($"{nameof(doExceptionTestCases)}_01"),
-
-            new TestCaseData(
-                new TestDelegate(
                     () => new PageItemScraper().Do(null)
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("page").Message
-            ).SetArgDisplayNames($"{nameof(doExceptionTestCases)}_02"),
+            ).SetArgDisplayNames($"{nameof(doExceptionTestCases)}_01"),
 
             new TestCaseData(
                 new TestDelegate(
@@ -52,12 +56,17 @@ namespace NW.WIDJobs.UnitTests
                         ObjectMother.Shared_Page01_NotPossibleToExtractJobId_Url, 
                         "(?<=/job/)[0-9]{5,}"
                     )
-            ).SetArgDisplayNames($"{nameof(doExceptionTestCases)}_03"),
+            ).SetArgDisplayNames($"{nameof(doExceptionTestCases)}_02")
 
         };
 
         // SetUp
         // Tests
+        [TestCaseSource(nameof(pageItemScraperExceptionTestCases))]
+        public void PageItemScraper_ShouldThrowACertainException_WhenUnproperArguments
+            (TestDelegate del, Type expectedType, string expectedMessage)
+                => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
+
         [TestCaseSource(nameof(doTestCases))]
         public void Do_ShouldReturnExpectedPageItems_WhenProperArguments
             (Page page, List<PageItem> expected)
@@ -73,6 +82,7 @@ namespace NW.WIDJobs.UnitTests
                 );
 
         }
+        
         [TestCaseSource(nameof(doExceptionTestCases))]
         public void Do_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
