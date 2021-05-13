@@ -85,7 +85,7 @@ namespace NW.WIDJobs
                 ...
              */
 
-            string xpath = "//div[@class='row']/div[@class='col-sm-11']/div[@class='JobPresentation job-description']";
+            string xpath = "//div[@class='row']/div[@class='col-sm-11']/div[@class='JobPresentation job-description' or @class='job-description']";
 
             string result = _xpathManager.GetInnerText(content, xpath);
             result = RemoveNonBreakingSpaceCharacters(result);

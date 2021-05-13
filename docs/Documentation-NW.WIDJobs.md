@@ -226,7 +226,7 @@ The `WorkAreaWithoutZone` field is required, because in many cases `WorkArea` co
 
 ## The PageItemExtended object
 
-`Description` and `SeeCompleteTextAt`:
+`Description` with `SeeCompleteTextAt`:
 
 ```html
 ...
@@ -245,6 +245,19 @@ The `WorkAreaWithoutZone` field is required, because in many cases `WorkArea` co
 
     </div>
 </div>
+...
+```
+
+`Description` without `SeeCompleteTextAt`:
+
+```html
+...
+<div class="row">
+    <div class="col-sm-11">
+        <div id="jobDescription" class="job-description">
+            <p>Bixter.dk ApS in Kolding is looking for several new talented salespeople for the Dutch market.</p><br /><p> </p><br /><p><strong>About the position:</strong></p><br /><p>Bixter.dk ApS is dealing with English- and German-speaking workforce worldwide. We currently have a strong focus on the agricultural area in the Netherlands, which is the reason why we are looking for you!</p><br /><p> </p><br /><p><strong>About you...</strong></p><br /><p>You either have experience from a previous position of telephone sales, cold-calling or have the courage to learn it.</p><br /><p>You can imagine an everyday life where your phone is your most important work tool.</p><br /><p>You are smiley, openminded and outgoing by nature.</p><br /><p>You can easily start a conversation over the phone with people you do not know.</p><br /><p>You are persistent, and do not give up, even if you experience a lot of resistance in the procedure of selling.</p><br /><p>You have the ambition and aspiration in the long run, to become a top salesperson, coach, or leader in one of our ever-growing departments. You speak and write English and Dutch fluently.</p><br /><p>As a seller with us, your most important task will be to contact all types of farmers, employers in the Netherlands over the phone. You must enter into agreements with them in relation to cooperation on the dissemination of English-speaking agricultural trainees from several different countries. You will receive internal sales training, and for the right person, there are many opportunities to grow together with us.</p><br /><p> </p><br /><p><strong>We can offer:</strong></p><br /><p>New and modern premises in a rural setting and with a view to Kolding-fjord.</p><br /><p>Skilled, sales-oriented colleagues who help each other and have a good humor.</p><br /><p>An office with high ceilings, where everyone is welcomed regardless of culture, religion and hair color.</p><br /><p>Lunch arrangement and social events, Christmas lunch and cozy evenings with dinner and such.</p><br /><p>Salary is agreed at the job interview and depends on experience and qualifications ...</p><br /><p> </p><br /><p>If you are interested, send your application and CV to nj@bixter.com</p><br /><p>or call Nataliya Jørgensen on tel. +45 27 11 78 64 to hear more about the position.</p><br />
+        </div>
+        <br />
 ...
 ```
 
