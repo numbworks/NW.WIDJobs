@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
 using NSubstitute;
+using System.Globalization;
 
 namespace NW.WIDJobs.UnitTests
 {
@@ -918,13 +919,87 @@ namespace NW.WIDJobs.UnitTests
             return result;
 
         }
+        
         internal static bool AreEqual(PageItem pageItem1, PageItem pageItem2)
-            => throw new NotImplementedException();
+        {
+
+            return (pageItem1.ApplicationDate == pageItem2.ApplicationDate)
+                        && (pageItem1.CreateDate == pageItem2.CreateDate)
+                        && (pageItem1.JobId == pageItem2.JobId)
+                        && string.Equals(pageItem1.JobType, pageItem2.JobType, StringComparison.InvariantCulture)
+                        && string.Equals(pageItem1.PageItemId, pageItem2.PageItemId, StringComparison.InvariantCulture)
+                        && (pageItem1.PageItemNumber == pageItem2.PageItemNumber)
+                        && (pageItem1.PageNumber == pageItem2.PageNumber)
+                        && string.Equals(pageItem1.RunId, pageItem2.RunId, StringComparison.InvariantCulture)
+                        && string.Equals(pageItem1.Title, pageItem2.Title, StringComparison.InvariantCulture)
+                        && string.Equals(pageItem1.Url, pageItem2.Url, StringComparison.InvariantCulture)
+                        && string.Equals(pageItem1.WorkArea, pageItem2.WorkArea, StringComparison.InvariantCulture)
+                        && string.Equals(pageItem1.WorkAreaWithoutZone, pageItem2.WorkAreaWithoutZone, StringComparison.InvariantCulture)
+                        && string.Equals(pageItem1.WorkingHours, pageItem2.WorkingHours, StringComparison.InvariantCulture);
+
+        }
+        internal static bool AreEqual(PageItemExtended pageItemExtended1, PageItemExtended pageItemExtended2)
+        {
+
+            return (pageItemExtended1.AdvertisementPublishDate == pageItemExtended2.AdvertisementPublishDate)
+                        && (pageItemExtended1.ApplicationDeadline == pageItemExtended2.ApplicationDeadline)
+                        && string.Equals(pageItemExtended1.Contact, pageItemExtended2.Contact, StringComparison.InvariantCulture)
+                        && string.Equals(pageItemExtended1.Description, pageItemExtended2.Description, StringComparison.InvariantCulture)
+                        && (pageItemExtended1.DescriptionBulletPoints == pageItemExtended2.DescriptionBulletPoints)
+                        && string.Equals(pageItemExtended1.DescriptionSeeCompleteTextAt, pageItemExtended2.DescriptionSeeCompleteTextAt, StringComparison.InvariantCulture)
+                        && string.Equals(pageItemExtended1.EmployerAddress, pageItemExtended2.EmployerAddress, StringComparison.InvariantCulture)
+                        && string.Equals(pageItemExtended1.EmployerName, pageItemExtended2.EmployerName, StringComparison.InvariantCulture)
+                        && string.Equals(pageItemExtended1.HowToApply, pageItemExtended2.HowToApply, StringComparison.InvariantCulture)
+                        && (pageItemExtended1.NumberOfOpenings == pageItemExtended2.NumberOfOpenings)
+                        && AreEqual(pageItemExtended1.PageItem, pageItemExtended2.PageItem)
+                        && string.Equals(pageItemExtended1.Position, pageItemExtended2.Position, StringComparison.InvariantCulture)
+                        && string.Equals(pageItemExtended1.Reference, pageItemExtended2.Reference, StringComparison.InvariantCulture)
+                        && string.Equals(pageItemExtended1.StartDateOfEmployment, pageItemExtended2.StartDateOfEmployment, StringComparison.InvariantCulture);
+        
+        }
+        internal static bool AreEqual(List<PageItem> list1, List<PageItem> list2)
+        {
+
+            if (list1 == null && list2 == null)
+                return true;
+
+            if (list1 == null || list2 == null)
+                return false;
+
+            if (list1.Count != list2.Count)
+                return false;
+
+            for (int i = 0; i < list1.Count; i++)
+                if (AreEqual(list1[i], list2[i]) == false)
+                    return false;
+
+            return true;
+
+        }
+        internal static bool AreEqual(List<PageItemExtended> list1, List<PageItemExtended> list2)
+        {
+
+            if (list1 == null && list2 == null)
+                return true;
+
+            if (list1 == null || list2 == null)
+                return false;
+
+            if (list1.Count != list2.Count)
+                return false;
+
+            for (int i = 0; i < list1.Count; i++)
+                if (AreEqual(list1[i], list2[i]) == false)
+                    return false;
+
+            return true;
+
+        }
 
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 11.05.2021
+    Last Update: 13.05.2021
 */
