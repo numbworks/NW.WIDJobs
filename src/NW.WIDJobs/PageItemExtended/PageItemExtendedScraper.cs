@@ -32,7 +32,7 @@ namespace NW.WIDJobs
             Validator.ValidateObject(pageItem, nameof(pageItem));
             Validator.ValidateStringNullOrWhiteSpace(content, nameof(content));
 
-            string description = ExtractDescription(content);
+            string description = ExtractAndCleanDescription(content);
             string seeCompleteTextAt = TryExtractDescriptionSeeCompleteTextAt(content);
 
             HashSet<string> bulletPoints = TryExtractDescriptionBulletPointsWithXPath(content);
@@ -76,16 +76,19 @@ namespace NW.WIDJobs
         }
 
         // Methods (private)
-        private string ExtractDescription(string content)
+        private string ExtractAndCleanDescription(string content)
         {
 
             /*
                 "     Technology Finance Business PartnerDenmark Copenhagen Local Finance/Accounting...   "
+                "     Apply now »\\u00A0\\u00A0Lean Professional\\u00A0DK,...     "
+                ...
              */
 
             string xpath = "//div[@class='row']/div[@class='col-sm-11']/div[@class='JobPresentation job-description']";
 
             string result = _xpathManager.GetInnerText(content, xpath);
+            result = RemoveNonBreakingSpaceCharacters(result);
             result = result.Trim();
 
             return result;
@@ -312,6 +315,8 @@ namespace NW.WIDJobs
 
         }
 
+        private string RemoveNonBreakingSpaceCharacters(string str)
+            => str.Replace("\u00A0", " ");
         private DateTime? TryParseDate(string result)
         {
 
