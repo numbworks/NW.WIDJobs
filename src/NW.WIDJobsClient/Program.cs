@@ -108,6 +108,32 @@ namespace NW.WIDJobsClient
             PageItemExtended pageItemExtended = pageItemExtendedScraper.Do(pageItem, content);
 
         }
+        static void PageItemExtendedScraper_Test2_Do()
+        {
+
+            FileInfo fileInfo = new FileInfo(@"C:\Users\Rubèn\Desktop\WorkInDenmark Responses\WorkInDenmark_Page1PageItemExtended14.html");
+            string content = File.ReadAllText(fileInfo.FullName);
+
+            PageItem pageItem = new PageItem(
+                 runId: "fake_runId",
+                 pageNumber: 1,
+                 url: "https://www.workindenmark.dk/job/8144071/Lean-Professional",
+                 title: "Lean Professional",
+                 createDate: new DateTime(2021, 05, 07),
+                 applicationDate: new DateTime(2021, 06, 03),
+                 workArea: "Lem St",
+                 workAreaWithoutZone: "Lem",
+                 workingHours: "Full time (37 hours)",
+                 jobType: "Regular position",
+                 jobId: 8144071,
+                 pageItemNumber: 14,
+                 pageItemId: "8144071leanprofessional"
+              );
+
+            PageItemExtendedScraper pageItemExtendedScraper = new PageItemExtendedScraper();
+            PageItemExtended pageItemExtended = pageItemExtendedScraper.Do(pageItem, content);
+
+        }
 
         static string Serialize(dynamic obj)
         {

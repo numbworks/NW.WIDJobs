@@ -670,6 +670,25 @@ namespace NW.WIDJobs.UnitTests
             howToApply: null
 
         );
+        internal static PageItemExtended WorkInDenmark_Page1_PageItemExtended14 = new PageItemExtended(
+
+            pageItem: WorkInDenmark_Page1_PageItem14,
+            description: "Apply now »  Lean Professional DK, Lem | Professional | Full-Time | ID: 14167Are you a role model for continuous improvement and business change? If you’ve got motivation for Lean and Continuous Improvement Culture and are a communicator at all levels, then this is the role for you! Manufacturing & Global Procurement > Blades > Continuous ImprovementVestas Blades Launch & Execution center (BLEC) is a function within the Blades Organisation within Vestas Manufacturing. The function is responsible for delivering our manufacturing production design, inducing special projects, development of process and tooling for the blades in Vestas. In Continuous Improvement (CI), we are responsible for developing and implementing the Vestas Toolbox towards internal and external blade manufacturers. You will take part in developing and deploying continuous improvement activities towards new product projects as well as into our exiting toolbox.You will be working in a multicultural organisati...",
+            seeCompleteTextAt: "https://careers.vestas.com/job/Lem-Lean-Professional-6940/672167601/",
+            bulletPoints: new HashSet<string>{},
+            employerName: null,
+            numberOfOpenings: null,
+            advertisementPublishDate: null,
+            applicationDeadline: null,
+            startDateOfEmployment: null,
+            reference: null,
+            position: null,
+            typeOfEmployment: null,
+            contact: null,
+            employerAddress: null,
+            howToApply: null
+
+        );
 
         #endregion
 
