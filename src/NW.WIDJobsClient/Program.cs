@@ -13,29 +13,9 @@ namespace NW.WIDJobsClient
         static void Main(string[] args)
         {
 
-            FileInfo fileInfo = new FileInfo(@"C:\Users\Rubèn\Desktop\WorkInDenmark Responses\WorkInDenmark_Page4PageItemExtended19.html");
-            string content = File.ReadAllText(fileInfo.FullName);
 
-            PageItem pageItem = new PageItem(
-                 runId: "fake_runid",
-                 pageNumber: 4,
-                 url: "https://www.workindenmark.dk/job/5339811/Warehouse-Team-Lead",
-                 title: "Warehouse Team Lead",
-                 createDate: new DateTime(2021, 05, 07),
-                 applicationDate: new DateTime(2021, 07, 02),
-                 workArea: "Greve",
-                 workAreaWithoutZone: "Greve",
-                 workingHours: "Full time (37 hours)",
-                 jobType: "Regular position",
-                 jobId: 5339811,
-                 pageItemNumber: 19,
-                 pageItemId: "5339811warehouseteamlead"
-              );
 
-            PageItemExtendedScraper pageItemExtendedScraper = new PageItemExtendedScraper();
-            PageItemExtended pageItemExtended = pageItemExtendedScraper.Do(pageItem, content);
-
-            string json = Serialize(pageItemExtended);
+            // string json = Serialize(pageItemExtended);
 
             Console.ReadLine();
 
@@ -232,6 +212,32 @@ namespace NW.WIDJobsClient
                  jobId: 5339811,
                  pageItemNumber: 19,
                  pageItemId: "5339811warehouseteamlead"
+              );
+
+            PageItemExtendedScraper pageItemExtendedScraper = new PageItemExtendedScraper();
+            PageItemExtended pageItemExtended = pageItemExtendedScraper.Do(pageItem, content);
+
+        }
+        static void PageItemExtendedScraper_Test7_Do()
+        {
+
+            FileInfo fileInfo = new FileInfo(@"C:\Users\Rubèn\Desktop\WorkInDenmark Responses\WorkInDenmark_Page5PageItemExtended1.html");
+            string content = File.ReadAllText(fileInfo.FullName);
+
+            PageItem pageItem = new PageItem(
+                 runId: "fake_runid",
+                 pageNumber: 5,
+                 url: "https://www.workindenmark.dk/job/5340215/NVH-Test-Engineer",
+                 title: "NVH Test Engineer",
+                 createDate: new DateTime(2021, 05, 07),
+                 applicationDate: new DateTime(2021, 06, 07),
+                 workArea: "Middelfart",
+                 workAreaWithoutZone: "Middelfart",
+                 workingHours: "Full time (37 hours)",
+                 jobType: "Regular position",
+                 jobId: 5340215,
+                 pageItemNumber: 1,
+                 pageItemId: "5340215nvhtestengineer"
               );
 
             PageItemExtendedScraper pageItemExtendedScraper = new PageItemExtendedScraper();

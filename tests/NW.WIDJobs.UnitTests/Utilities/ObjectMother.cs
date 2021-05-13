@@ -832,6 +832,68 @@ namespace NW.WIDJobs.UnitTests
 
                 );
 
+        internal static PageItem WorkInDenmark_Page5PageItem1 = new PageItem(
+                 runId: "fake_runid",
+                 pageNumber: 5,
+                 url: "https://www.workindenmark.dk/job/5340215/NVH-Test-Engineer",
+                 title: "NVH Test Engineer",
+                 createDate: new DateTime(2021, 05, 07),
+                 applicationDate: new DateTime(2021, 06, 07),
+                 workArea: "Middelfart",
+                 workAreaWithoutZone: "Middelfart",
+                 workingHours: "Full time (37 hours)",
+                 jobType: "Regular position",
+                 jobId: 5340215,
+                 pageItemNumber: 1,
+                 pageItemId: "5340215nvhtestengineer"
+              );
+        internal static PageItemExtended WorkInDenmark_Page5PageItemExtended1 = new PageItemExtended(
+
+                    pageItem: WorkInDenmark_Page5PageItem1,
+                    description: "Do you want to join our growth journey? Are you ready to walk the extra mile to create results? Dinex is looking for an NVH and Test Engineer, who will support the validation of tomorrows exhaust and emission systems for diesel and gas engines and in co-ordination with our customers. The position holds many personal and professional development opportunities and for the right candidate great career opportunities in an exciting local as well as global environment.QualificationsEngineering degree within acoustics & vibrationDetailed knowledge of material testing and dynamic vibration testingDetailed knowledge within NVH data acquisition systems and electrodynamic test equipmentDetailed knowledge within test data analysisDetailed knowledge in the field of signal analysis, material fatigue & sound transmissionMechatronic experience is an advantageGood English skills both written and oralAbility to apply creative problem solvingAgile, customer-focused, and result-orientedGood level with MS Office packageAble to keep agreements and stick to deadlinesProactive and wants to make a differenceOrganized and systematic mindset with great attention to detailTeam playerFlexible working hours are occasionally requiredRoles & ResponsibilitiesYou will take the role as NVH and Test Engineer with the main responsibility of:Setting up tests and data acquisition for NVH testing.Carry out hot vibration testing on exhaust aftertreatment systems.Analyze road load data and extract vibration profiles for subsequent use in vibration testing.Continuous improvement and standardization of hot vibration testing.Carry out various tests on heater/blower setupMaintenance of hot shake test cell, flow rig and all related measuring equipment and hardware.High focus on securing safety and usage of PPE (personal protective equipment)Responsible for 5S and cleanliness in selected areasHourly registrationBe a good representative of the Test Center in relation to customersTravel to Dinex test centres, customers, and engine test cell suppliers and field vehicle testing 5-10 days per yearAbout us:Dinex GroupThe Dinex Group is a leading global manufacturer and distributor of innovative engineered gas or diesel exhaust aftertreatment emission solutions for the heavy-duty truck, construction & agricultural vehicle industryThe Dinex Group, headquartered in Denmark, operates through 20 companies and 2,000 dedicated people worldwide. Dinex is present in 15 different countries, 4 regions, with 5 global tech centres and facilities in Denmark, USA, India, China, Russia, Turkey, UK, Finland, Germany and Latvia. Additionally, Dinex has sales and distribution companies in Spain, Italy, France, Germany, UK, Poland and Serbia.Dinex OEMThe OEM division of Dinex is a leading global manufacturer and distributor of innovative engineered gas and diesel exhaust aftertreatment emission solutions for the heavy truck, construction & agricultural vehicle industry with activities in Europe, North America, Russia, China and India.With our core technologies within coating and system design, we deliver highly sophisticated aftertreatment solutions to prominent OEM customers globally. For cost efficient solutions we support our customers with global tech & test centres, as well as local application engineering that speaks the language.",
+                    seeCompleteTextAt: null,
+                    bulletPoints: new HashSet<string> {
+                      "Engineering degree within acoustics & vibration",
+                      "Detailed knowledge of material testing and dynamic vibration testing",
+                      "Detailed knowledge within NVH data acquisition systems and electrodynamic test equipment",
+                      "Detailed knowledge within test data analysis",
+                      "Detailed knowledge in the field of signal analysis, material fatigue & sound transmission",
+                      "Mechatronic experience is an advantage",
+                      "Good English skills both written and oral",
+                      "Ability to apply creative problem solving",
+                      "Agile, customer-focused, and result-oriented",
+                      "Good level with MS Office package",
+                      "Able to keep agreements and stick to deadlines",
+                      "Proactive and wants to make a difference",
+                      "Organized and systematic mindset with great attention to detail",
+                      "Team player",
+                      "Flexible working hours are occasionally required",
+                      "Setting up tests and data acquisition for NVH testing.",
+                      "Carry out hot vibration testing on exhaust aftertreatment systems.",
+                      "Analyze road load data and extract vibration profiles for subsequent use in vibration testing.",
+                      "Continuous improvement and standardization of hot vibration testing.",
+                      "Carry out various tests on heater/blower setup",
+                      "Maintenance of hot shake test cell, flow rig and all related measuring equipment and hardware.",
+                      "High focus on securing safety and usage of PPE (personal protective equipment)",
+                      "Responsible for 5S and cleanliness in selected areas",
+                      "Hourly registration",
+                      "Be a good representative of the Test Centerin relation to customers",
+                      "Travel to Dinex test centres, customers, and engine test cell suppliers and field vehicle testing 5-10 days per year"
+                    },
+                    employerName: "DINEX A/S",
+                    numberOfOpenings: 1,
+                    advertisementPublishDate: new DateTime(2021, 05, 07),
+                    applicationDeadline: new DateTime(2021, 06, 07),
+                    startDateOfEmployment: null,
+                    reference: null,
+                    position: "Academical work / Engineering professionals",
+                    typeOfEmployment: "Regular position",
+                    contact: "Global Test Centre Manager Christian Berg Philipp",
+                    employerAddress: "DINEX A/S Fynsvej 39 DK 5500 Middelfart Denmark",
+                    howToApply: "Online: Application form"
+
+                );
+
         #endregion
 
         // Methods
