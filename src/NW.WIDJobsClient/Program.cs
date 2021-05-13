@@ -134,6 +134,32 @@ namespace NW.WIDJobsClient
             PageItemExtended pageItemExtended = pageItemExtendedScraper.Do(pageItem, content);
 
         }
+        static void PageItemExtendedScraper_Test3_Do()
+        {
+
+            FileInfo fileInfo = new FileInfo(@"C:\Users\Rubèn\Desktop\WorkInDenmark Responses\WorkInDenmark_Page2PageItemExtended18.html");
+            string content = File.ReadAllText(fileInfo.FullName);
+
+            PageItem pageItem = new PageItem(
+                 runId: "fake_runid",
+                 pageNumber: 2,
+                 url: "https://www.workindenmark.dk/job/8144107/Dutch-speaking-Salesperson",
+                 title: "Dutch speaking Salesperson",
+                 createDate: new DateTime(2021, 05, 07),
+                 applicationDate: new DateTime(2021, 07, 01),
+                 workArea: "Bjert",
+                 workAreaWithoutZone: "Bjert",
+                 workingHours: "Full time (37 hours)",
+                 jobType: "Regular position",
+                 jobId: 8144107,
+                 pageItemNumber: 18,
+                 pageItemId: "8144107dutchspeakingsalesperson"
+              );
+
+            PageItemExtendedScraper pageItemExtendedScraper = new PageItemExtendedScraper();
+            PageItemExtended pageItemExtended = pageItemExtendedScraper.Do(pageItem, content);
+
+        }
 
         static string Serialize(dynamic obj)
         {
