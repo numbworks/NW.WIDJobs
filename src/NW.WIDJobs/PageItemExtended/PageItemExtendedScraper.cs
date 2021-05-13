@@ -223,7 +223,10 @@ namespace NW.WIDJobs
 
             string result = _xpathManager.TryGetInnerText(content, xpath);
             result = result?.Trim();
-            result = TryParseDate(result)?.ToString("yyyy-MM-dd");
+
+            DateTime? date = TryParseDate(result);
+            if (date != null)
+                return ((DateTime)date).ToString("yyyy-MM-dd");
 
             return result;
 

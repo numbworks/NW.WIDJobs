@@ -121,7 +121,28 @@
   <data name="Page01" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\html\page01.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="Page01_PageItemExtended01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\html\page01_pageitemextended01.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Page01_PageItemExtended14" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\html\page01_pageitemextended14.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
   <data name="Page02" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\html\page02.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Page02_PageItemExtended18" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\html\page02_pageitemextended18.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Page03_PageItemExtended01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\html\page03_pageitemextended01.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Page03_PageItemExtended02" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\html\page03_pageitemextended02.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Page03_PageItemExtended03" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\html\page03_pageitemextended03.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Page03_PageItemExtended04" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\html\page03_pageitemextended04.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
 </root>

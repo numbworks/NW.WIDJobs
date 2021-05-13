@@ -91,6 +91,50 @@ namespace NW.WIDJobs.UnitTests.Properties {
         ///&lt;!--[if IE 7]&gt;         &lt;html lang=&quot;en&quot; class=&quot;no-js lt-ie9 lt-ie8&quot;&gt; &lt;![endif]--&gt;
         ///&lt;!--[if IE 8]&gt;         &lt;html lang=&quot;en&quot; class=&quot;no-js lt-ie9&quot;&gt; &lt;![endif]--&gt;
         ///&lt;!--[if gt IE 8]&gt;&lt;!--&gt;
+        ///&lt;html lang=&quot;en&quot; class=&quot;no-js&quot;  data-pagetype=&quot;jobview&quot;&gt;
+        ///&lt;!--&lt;![endif]--&gt;
+        ///&lt;head&gt;
+        ///        &lt;meta charset=&quot;utf-8&quot;&gt;
+        ///        &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+        ///        &lt;meta name=&quot;viewport&quot; content=&quot;wi [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Page01_PageItemExtended01 {
+            get {
+                return ResourceManager.GetString("Page01_PageItemExtended01", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 
+        ///
+        ///
+        ///&lt;!DOCTYPE html&gt;
+        ///&lt;!--[if lt IE 7]&gt;      &lt;html lang=&quot;en&quot; class=&quot;no-js lt-ie9 lt-ie8 lt-ie7&quot;&gt; &lt;![endif]--&gt;
+        ///&lt;!--[if IE 7]&gt;         &lt;html lang=&quot;en&quot; class=&quot;no-js lt-ie9 lt-ie8&quot;&gt; &lt;![endif]--&gt;
+        ///&lt;!--[if IE 8]&gt;         &lt;html lang=&quot;en&quot; class=&quot;no-js lt-ie9&quot;&gt; &lt;![endif]--&gt;
+        ///&lt;!--[if gt IE 8]&gt;&lt;!--&gt;
+        ///&lt;html lang=&quot;en&quot; class=&quot;no-js&quot;  data-pagetype=&quot;jobview&quot;&gt;
+        ///&lt;!--&lt;![endif]--&gt;
+        ///&lt;head&gt;
+        ///        &lt;meta charset=&quot;utf-8&quot;&gt;
+        ///        &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+        ///        &lt;meta name=&quot;viewport&quot; content=&quot;wi [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Page01_PageItemExtended14 {
+            get {
+                return ResourceManager.GetString("Page01_PageItemExtended14", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 
+        ///
+        ///
+        ///&lt;!DOCTYPE html&gt;
+        ///&lt;!--[if lt IE 7]&gt;      &lt;html lang=&quot;en&quot; class=&quot;no-js lt-ie9 lt-ie8 lt-ie7&quot;&gt; &lt;![endif]--&gt;
+        ///&lt;!--[if IE 7]&gt;         &lt;html lang=&quot;en&quot; class=&quot;no-js lt-ie9 lt-ie8&quot;&gt; &lt;![endif]--&gt;
+        ///&lt;!--[if IE 8]&gt;         &lt;html lang=&quot;en&quot; class=&quot;no-js lt-ie9&quot;&gt; &lt;![endif]--&gt;
+        ///&lt;!--[if gt IE 8]&gt;&lt;!--&gt;
         ///&lt;html lang=&quot;en&quot; class=&quot;no-js&quot;  data-pagetype=&quot;jobSearch&quot;&gt;
         ///&lt;!--&lt;![endif]--&gt;
         ///&lt;head&gt;
@@ -101,6 +145,116 @@ namespace NW.WIDJobs.UnitTests.Properties {
         internal static string Page02 {
             get {
                 return ResourceManager.GetString("Page02", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 
+        ///
+        ///
+        ///&lt;!DOCTYPE html&gt;
+        ///&lt;!--[if lt IE 7]&gt;      &lt;html lang=&quot;en&quot; class=&quot;no-js lt-ie9 lt-ie8 lt-ie7&quot;&gt; &lt;![endif]--&gt;
+        ///&lt;!--[if IE 7]&gt;         &lt;html lang=&quot;en&quot; class=&quot;no-js lt-ie9 lt-ie8&quot;&gt; &lt;![endif]--&gt;
+        ///&lt;!--[if IE 8]&gt;         &lt;html lang=&quot;en&quot; class=&quot;no-js lt-ie9&quot;&gt; &lt;![endif]--&gt;
+        ///&lt;!--[if gt IE 8]&gt;&lt;!--&gt;
+        ///&lt;html lang=&quot;en&quot; class=&quot;no-js&quot;  data-pagetype=&quot;jobview&quot;&gt;
+        ///&lt;!--&lt;![endif]--&gt;
+        ///&lt;head&gt;
+        ///        &lt;meta charset=&quot;utf-8&quot;&gt;
+        ///        &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+        ///        &lt;meta name=&quot;viewport&quot; content=&quot;wi [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Page02_PageItemExtended18 {
+            get {
+                return ResourceManager.GetString("Page02_PageItemExtended18", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 
+        ///
+        ///
+        ///&lt;!DOCTYPE html&gt;
+        ///&lt;!--[if lt IE 7]&gt;      &lt;html lang=&quot;en&quot; class=&quot;no-js lt-ie9 lt-ie8 lt-ie7&quot;&gt; &lt;![endif]--&gt;
+        ///&lt;!--[if IE 7]&gt;         &lt;html lang=&quot;en&quot; class=&quot;no-js lt-ie9 lt-ie8&quot;&gt; &lt;![endif]--&gt;
+        ///&lt;!--[if IE 8]&gt;         &lt;html lang=&quot;en&quot; class=&quot;no-js lt-ie9&quot;&gt; &lt;![endif]--&gt;
+        ///&lt;!--[if gt IE 8]&gt;&lt;!--&gt;
+        ///&lt;html lang=&quot;en&quot; class=&quot;no-js&quot;  data-pagetype=&quot;jobview&quot;&gt;
+        ///&lt;!--&lt;![endif]--&gt;
+        ///&lt;head&gt;
+        ///        &lt;meta charset=&quot;utf-8&quot;&gt;
+        ///        &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+        ///        &lt;meta name=&quot;viewport&quot; content=&quot;wi [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Page03_PageItemExtended01 {
+            get {
+                return ResourceManager.GetString("Page03_PageItemExtended01", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 
+        ///
+        ///
+        ///&lt;!DOCTYPE html&gt;
+        ///&lt;!--[if lt IE 7]&gt;      &lt;html lang=&quot;en&quot; class=&quot;no-js lt-ie9 lt-ie8 lt-ie7&quot;&gt; &lt;![endif]--&gt;
+        ///&lt;!--[if IE 7]&gt;         &lt;html lang=&quot;en&quot; class=&quot;no-js lt-ie9 lt-ie8&quot;&gt; &lt;![endif]--&gt;
+        ///&lt;!--[if IE 8]&gt;         &lt;html lang=&quot;en&quot; class=&quot;no-js lt-ie9&quot;&gt; &lt;![endif]--&gt;
+        ///&lt;!--[if gt IE 8]&gt;&lt;!--&gt;
+        ///&lt;html lang=&quot;en&quot; class=&quot;no-js&quot;  data-pagetype=&quot;jobview&quot;&gt;
+        ///&lt;!--&lt;![endif]--&gt;
+        ///&lt;head&gt;
+        ///        &lt;meta charset=&quot;utf-8&quot;&gt;
+        ///        &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+        ///        &lt;meta name=&quot;viewport&quot; content=&quot;wi [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Page03_PageItemExtended02 {
+            get {
+                return ResourceManager.GetString("Page03_PageItemExtended02", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 
+        ///
+        ///
+        ///&lt;!DOCTYPE html&gt;
+        ///&lt;!--[if lt IE 7]&gt;      &lt;html lang=&quot;en&quot; class=&quot;no-js lt-ie9 lt-ie8 lt-ie7&quot;&gt; &lt;![endif]--&gt;
+        ///&lt;!--[if IE 7]&gt;         &lt;html lang=&quot;en&quot; class=&quot;no-js lt-ie9 lt-ie8&quot;&gt; &lt;![endif]--&gt;
+        ///&lt;!--[if IE 8]&gt;         &lt;html lang=&quot;en&quot; class=&quot;no-js lt-ie9&quot;&gt; &lt;![endif]--&gt;
+        ///&lt;!--[if gt IE 8]&gt;&lt;!--&gt;
+        ///&lt;html lang=&quot;en&quot; class=&quot;no-js&quot;  data-pagetype=&quot;jobview&quot;&gt;
+        ///&lt;!--&lt;![endif]--&gt;
+        ///&lt;head&gt;
+        ///        &lt;meta charset=&quot;utf-8&quot;&gt;
+        ///        &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+        ///        &lt;meta name=&quot;viewport&quot; content=&quot;wi [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Page03_PageItemExtended03 {
+            get {
+                return ResourceManager.GetString("Page03_PageItemExtended03", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 
+        ///
+        ///
+        ///&lt;!DOCTYPE html&gt;
+        ///&lt;!--[if lt IE 7]&gt;      &lt;html lang=&quot;en&quot; class=&quot;no-js lt-ie9 lt-ie8 lt-ie7&quot;&gt; &lt;![endif]--&gt;
+        ///&lt;!--[if IE 7]&gt;         &lt;html lang=&quot;en&quot; class=&quot;no-js lt-ie9 lt-ie8&quot;&gt; &lt;![endif]--&gt;
+        ///&lt;!--[if IE 8]&gt;         &lt;html lang=&quot;en&quot; class=&quot;no-js lt-ie9&quot;&gt; &lt;![endif]--&gt;
+        ///&lt;!--[if gt IE 8]&gt;&lt;!--&gt;
+        ///&lt;html lang=&quot;en&quot; class=&quot;no-js&quot;  data-pagetype=&quot;jobview&quot;&gt;
+        ///&lt;!--&lt;![endif]--&gt;
+        ///&lt;head&gt;
+        ///        &lt;meta charset=&quot;utf-8&quot;&gt;
+        ///        &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+        ///        &lt;meta name=&quot;viewport&quot; content=&quot;wi [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Page03_PageItemExtended04 {
+            get {
+                return ResourceManager.GetString("Page03_PageItemExtended04", resourceCulture);
             }
         }
     }

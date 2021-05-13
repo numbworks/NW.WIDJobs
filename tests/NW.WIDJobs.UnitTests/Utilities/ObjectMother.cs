@@ -351,12 +351,11 @@ namespace NW.WIDJobs.UnitTests
 
         };
 
-        internal static string Shared_Page01_PageItemExtended01_Content;
-
+        internal static string Shared_Page01_PageItemExtended01_Content = Properties.Resources.Page01_PageItemExtended01;
         internal static PageItemExtended Shared_Page01_PageItemExtended01 = new PageItemExtended(
 
             pageItem: Shared_Page01_PageItem01,
-            description: "This website uses cookiesIf you choose to accept cookies, you agree that Talentech and third-parties store the cookies of your choice. If you don't consent, we only store the cookies necessary for functionality.Allow selection Allow all cookies NecessaryPreferencesStatisticsMarketing\t Show details Warning Your browser is outdated. Get the best experience with speed, security and privacy by using the latest version of Chrome, Firefox, Microsoft Edge, Safari or Opera ×  Learning sales – Fulltime Student PositionApply for this position if-\tYou want to learn and develop you sales skills-\tYou want to work in an rapidly expanding international company-\tYou want to make a difference for renewable energyIn KK Wind Solutions Service, we are looking for talented candidates to join our Spare Parts Sales Team. We are offering a fulltime student position, where you will be learning as well as performing.\u00A0So if you are looking for a year of lesser studying and an opportunity to start ...",
+            description: "This website uses cookiesIf you choose to accept cookies, you agree that Talentech and third-parties store the cookies of your choice. If you don't consent, we only store the cookies necessary for functionality.Allow selection Allow all cookies NecessaryPreferencesStatisticsMarketing\t Show details Warning Your browser is outdated. Get the best experience with speed, security and privacy by using the latest version of Chrome, Firefox, Microsoft Edge, Safari or Opera ×  Learning sales – Fulltime Student PositionApply for this position if-\tYou want to learn and develop you sales skills-\tYou want to work in an rapidly expanding international company-\tYou want to make a difference for renewable energyIn KK Wind Solutions Service, we are looking for talented candidates to join our Spare Parts Sales Team. We are offering a fulltime student position, where you will be learning as well as performing. So if you are looking for a year of lesser studying and an opportunity to start ...",
             seeCompleteTextAt: "https://candidate.hr-manager.net/ApplicationInit.aspx?cid=1119&ProjectId=144192&DepartmentId=18956&MediaId=5&SkipAdvertisement=False",
             bulletPoints: new HashSet<string>{
                 "You want to learn and develop you sales skills",
@@ -376,8 +375,7 @@ namespace NW.WIDJobs.UnitTests
 
         );
 
-        internal static string Shared_Page01_PageItemExtended14_Content;
-
+        internal static string Shared_Page01_PageItemExtended14_Content = Properties.Resources.Page01_PageItemExtended14;
         internal static PageItemExtended Shared_Page01_PageItemExtended14 = new PageItemExtended(
 
             pageItem: Shared_Page01_PageItem14,
@@ -731,8 +729,7 @@ namespace NW.WIDJobs.UnitTests
 
         };
 
-        internal static string Shared_Page02_PageItemExtended18_Content;
-
+        internal static string Shared_Page02_PageItemExtended18_Content = Properties.Resources.Page02_PageItemExtended18;
         internal static PageItemExtended Shared_Page02_PageItemExtended18 = new PageItemExtended(
 
             pageItem: Shared_Page02_PageItem18,
@@ -1070,7 +1067,7 @@ namespace NW.WIDJobs.UnitTests
                         && (pageItemExtended1.ApplicationDeadline == pageItemExtended2.ApplicationDeadline)
                         && string.Equals(pageItemExtended1.Contact, pageItemExtended2.Contact, StringComparison.InvariantCulture)
                         && string.Equals(pageItemExtended1.Description, pageItemExtended2.Description, StringComparison.InvariantCulture)
-                        && (pageItemExtended1.DescriptionBulletPoints == pageItemExtended2.DescriptionBulletPoints)
+                        && AreEqual(pageItemExtended1.DescriptionBulletPoints, pageItemExtended2.DescriptionBulletPoints)
                         && string.Equals(pageItemExtended1.DescriptionSeeCompleteTextAt, pageItemExtended2.DescriptionSeeCompleteTextAt, StringComparison.InvariantCulture)
                         && string.Equals(pageItemExtended1.EmployerAddress, pageItemExtended2.EmployerAddress, StringComparison.InvariantCulture)
                         && string.Equals(pageItemExtended1.EmployerName, pageItemExtended2.EmployerName, StringComparison.InvariantCulture)
@@ -1115,6 +1112,28 @@ namespace NW.WIDJobs.UnitTests
 
             for (int i = 0; i < list1.Count; i++)
                 if (AreEqual(list1[i], list2[i]) == false)
+                    return false;
+
+            return true;
+
+        }
+        internal static bool AreEqual(HashSet<string> hashset1, HashSet<string> hashset2)
+        {
+
+            List<string> list1 = new List<string>(hashset1);
+            List<string> list2 = new List<string>(hashset2);
+
+            if (list1 == null && list2 == null)
+                return true;
+
+            if (list1 == null || list2 == null)
+                return false;
+
+            if (list1.Count != list2.Count)
+                return false;
+
+            for (int i = 0; i < list1.Count; i++)
+                if (string.Equals(list1[i], list2[i], StringComparison.InvariantCulture) == false)
                     return false;
 
             return true;
