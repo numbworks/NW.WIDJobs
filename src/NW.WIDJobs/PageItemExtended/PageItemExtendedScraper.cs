@@ -43,7 +43,7 @@ namespace NW.WIDJobs
             ushort? numberOfOpenings = TryExtractAndParseNumberOfOpenings(content);
             DateTime? advertisementPublishDate = TryExtractAndParseAdvertisementPublishDate(content);
             DateTime? applicationDeadline = TryExtractAndParseApplicationDeadline(content);
-            string startDateOfEmployment = TryExtractStartDateOfEmployment(content);
+            string startDateOfEmployment = TryExtractAndFormatStartDateOfEmployment(content);
             string reference = TryExtractReference(content);
             string position = TryExtractPosition(content);
             string typeOfEmployment = TryExtractTypeOfEmployment(content);
@@ -209,17 +209,19 @@ namespace NW.WIDJobs
             return applicationDeadline;
 
         }
-        private string TryExtractStartDateOfEmployment(string content)
+        private string TryExtractAndFormatStartDateOfEmployment(string content)
         {
 
             /*
                 "	 As soon as possible"
+                "09/06/2021"
             */
 
             string xpath = "//div[@class='col-sm-11 ']/dl[@class='dl-justify nomargin']/dt[contains(.,'Start date of employment')]/following-sibling::dd[1]";
 
             string result = _xpathManager.TryGetInnerText(content, xpath);
             result = result?.Trim();
+            result = TryParseDate(result)?.ToString("yyyy-MM-dd");
 
             return result;
 

@@ -448,7 +448,7 @@ The following fields require extra processing:
 |`NumberOfOpenings`|Requires trimming and parsing to `ushort` (if not null).|
 |`AdvertisementPublishDate`|Requires trimming and parsing to `DateTime` (if not null).|
 |`ApplicationDeadline`|Requires trimming and parsing to `DateTime` (if not null).|
-|`StartDateOfEmployment`|Requires trimming.|
+|`StartDateOfEmployment`|Requires trimming and parsing to `yyyy-MM-dd` (if not null).|
 |`Reference`|Requires trimming.|
 |`Position`|Requires trimming.|
 |`TypeOfEmployment`|Requires trimming.|
