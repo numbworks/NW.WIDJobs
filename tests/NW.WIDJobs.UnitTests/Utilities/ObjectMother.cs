@@ -42,6 +42,31 @@ namespace NW.WIDJobs.UnitTests
         // PageItemScraperTests
         #region
 
+        internal static List<PageItem> WorkInDenmark_Page1 = new List<PageItem>()
+        {
+
+            WorkInDenmark_Page1_PageItem01,
+            WorkInDenmark_Page1_PageItem02,
+            WorkInDenmark_Page1_PageItem03,
+            WorkInDenmark_Page1_PageItem04,
+            WorkInDenmark_Page1_PageItem05,
+            WorkInDenmark_Page1_PageItem06,
+            WorkInDenmark_Page1_PageItem07,
+            WorkInDenmark_Page1_PageItem08,
+            WorkInDenmark_Page1_PageItem09,
+            WorkInDenmark_Page1_PageItem10,
+            WorkInDenmark_Page1_PageItem11,
+            WorkInDenmark_Page1_PageItem12,
+            WorkInDenmark_Page1_PageItem13,
+            WorkInDenmark_Page1_PageItem14,
+            WorkInDenmark_Page1_PageItem15,
+            WorkInDenmark_Page1_PageItem16,
+            WorkInDenmark_Page1_PageItem17,
+            WorkInDenmark_Page1_PageItem18,
+            WorkInDenmark_Page1_PageItem19,
+            WorkInDenmark_Page1_PageItem20
+
+        };
         internal static PageItem WorkInDenmark_Page1_PageItem01 = new PageItem(
                  runId: "fake_runId",
                  pageNumber: 1,
@@ -343,6 +368,31 @@ namespace NW.WIDJobs.UnitTests
                  pageItemId: "8144023businessdevelopmentmanagerscrewdriverdispensermfd"
               );
 
+        internal static List<PageItem> WorkInDenmark_Page2 = new List<PageItem>()
+        {
+
+            WorkInDenmark_Page2_PageItem01,
+            WorkInDenmark_Page2_PageItem02,
+            WorkInDenmark_Page2_PageItem03,
+            WorkInDenmark_Page2_PageItem04,
+            WorkInDenmark_Page2_PageItem05,
+            WorkInDenmark_Page2_PageItem06,
+            WorkInDenmark_Page2_PageItem07,
+            WorkInDenmark_Page2_PageItem08,
+            WorkInDenmark_Page2_PageItem09,
+            WorkInDenmark_Page2_PageItem10,
+            WorkInDenmark_Page2_PageItem11,
+            WorkInDenmark_Page2_PageItem12,
+            WorkInDenmark_Page2_PageItem13,
+            WorkInDenmark_Page2_PageItem14,
+            WorkInDenmark_Page2_PageItem15,
+            WorkInDenmark_Page2_PageItem16,
+            WorkInDenmark_Page2_PageItem17,
+            WorkInDenmark_Page2_PageItem18,
+            WorkInDenmark_Page2_PageItem19,
+            WorkInDenmark_Page2_PageItem20
+
+        };
         internal static PageItem WorkInDenmark_Page2_PageItem01 = new PageItem(
                  runId: "fake_runid",
                  pageNumber: 2,
