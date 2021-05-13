@@ -1013,7 +1013,15 @@ namespace NW.WIDJobs.UnitTests
             return result;
 
         }
-        
+
+        internal static bool AreEqual(Page page1, Page page2)
+        {
+
+            return string.Equals(page1.RunId, page2.RunId, StringComparison.InvariantCulture)
+                        && (page1.PageNumber == page2.PageNumber)
+                        && string.Equals(page1.Content, page2.Content, StringComparison.InvariantCulture);
+
+        }
         internal static bool AreEqual(PageItem pageItem1, PageItem pageItem2)
         {
 
