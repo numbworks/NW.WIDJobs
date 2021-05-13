@@ -33,7 +33,18 @@ namespace NW.WIDJobs.UnitTests
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("page").Message
-            ).SetArgDisplayNames($"{nameof(doExceptionTestCases)}_01")
+            ).SetArgDisplayNames($"{nameof(doExceptionTestCases)}_01"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new PageItemScraper().Do(ObjectMother.Shared_Page01_NotPossibleToExtractJobId.Invoke())
+                ),
+                typeof(Exception),
+                MessageCollection.PageItemScraper_NotPossibleToExtractJobId.Invoke(
+                        ObjectMother.Shared_Page01_NotPossibleToExtractJobId_Url, 
+                        "(?<=/job/)[0-9]{5,}"
+                    )
+            ).SetArgDisplayNames($"{nameof(doExceptionTestCases)}_02"),
 
         };
 

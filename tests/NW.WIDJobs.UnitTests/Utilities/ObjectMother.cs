@@ -952,6 +952,29 @@ namespace NW.WIDJobs.UnitTests
 
         #endregion
 
+        #region Shared_EdgeCases
+
+        internal static string Shared_Page01_NotPossibleToExtractJobId_Url =
+            "https://www.workindenmark.dk/job/8144/Learning-sales-Fulltime-Student-Position";
+        internal static Func<Page> Shared_Page01_NotPossibleToExtractJobId =
+            () =>
+                {
+
+                    string content
+                    = Shared_Page01_Content.Replace(
+                        "/job/8144115/Learning-sales-Fulltime-Student-Position",
+                        "/job/8144/Learning-sales-Fulltime-Student-Position"
+                        );
+
+                    return new Page(
+                            Shared_Page01.RunId,
+                            Shared_Page01.PageNumber,
+                            content
+                        );
+
+                };
+
+        #endregion
 
         // PageScraperTests
 

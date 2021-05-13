@@ -272,10 +272,7 @@ namespace NW.WIDJobs
 
             string pattern = "^[a-zA-ZÀ-ÖØ-öø-ÿ.]{1,}$|^[a-zA-ZÀ-ÖØ-öø-ÿ.]{1,}[ ]{1}[a-zA-ZÀ-ÖØ-öø-ÿ.]{3,}|^[a-zA-ZÀ-ÖØ-öø-ÿ.]{1,}";
 
-            if (Regex.IsMatch(workArea, pattern))
-                return Regex.Match(workArea, pattern).ToString();
-
-            return workArea;
+            return Regex.Match(workArea, pattern).ToString();
 
         }
         private string CleanTitle(string title)
