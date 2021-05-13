@@ -240,8 +240,38 @@ namespace NW.WIDJobs.UnitTests
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
+        [Test]
+        public void PageItem_ShouldInitializeANewPageItemObject_WhenProperArguments()
+        {
+
+            // Arrange
+            // Act
+            PageItem actual
+                = new PageItem(
+                                ObjectMother.Shared_Page01_PageItem01.RunId,
+                                ObjectMother.Shared_Page01_PageItem01.PageNumber,
+                                ObjectMother.Shared_Page01_PageItem01.Url,
+                                ObjectMother.Shared_Page01_PageItem01.Title,
+                                ObjectMother.Shared_Page01_PageItem01.CreateDate,
+                                ObjectMother.Shared_Page01_PageItem01.ApplicationDate,
+                                ObjectMother.Shared_Page01_PageItem01.WorkArea,
+                                ObjectMother.Shared_Page01_PageItem01.WorkAreaWithoutZone,
+                                ObjectMother.Shared_Page01_PageItem01.WorkingHours,
+                                ObjectMother.Shared_Page01_PageItem01.JobType,
+                                ObjectMother.Shared_Page01_PageItem01.JobId,
+                                ObjectMother.Shared_Page01_PageItem01.PageItemNumber,
+                                ObjectMother.Shared_Page01_PageItem01.PageItemId
+                        );
+
+            // Assert
+            Assert.IsTrue(
+                    ObjectMother.AreEqual(ObjectMother.Shared_Page01_PageItem01, actual)
+                );
+
+        }
+
         // TearDown
-  
+
     }
 }
 
