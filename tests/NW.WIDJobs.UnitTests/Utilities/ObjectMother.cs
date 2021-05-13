@@ -21,7 +21,7 @@ namespace NW.WIDJobs.UnitTests
 
         internal static uint Shared_Page01_TotalResults = 2039;
 
-        internal static string Shared_Page01_Content = "somecontent";
+        internal static string Shared_Page01_Content = Properties.Resources.Page01;
         internal static Page Shared_Page01 = new Page(Shared_FakeRunId, 1, Shared_Page01_Content);
 
         internal static PageItem Shared_Page01_PageItem01 = new PageItem(
