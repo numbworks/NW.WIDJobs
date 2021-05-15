@@ -130,7 +130,6 @@ namespace NW.WIDJobs
         public static void ThrowIfModuloIsNotZero(uint value1, string variableName1, uint value2, string variableName2)
             => ThrowIfModuloIsNotZero<ArgumentException>(value1, variableName1, value2, variableName2);
 
-
         public static void ThrowIfCountsAreNotEqual<T>(Dictionary<string, int> lists) where T : Exception
         {
 
