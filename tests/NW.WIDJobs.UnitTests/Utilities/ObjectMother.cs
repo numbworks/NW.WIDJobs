@@ -1053,6 +1053,35 @@ namespace NW.WIDJobs.UnitTests
                 RunIdManager_Until.ToString(RunIdManager.FormatDate)
             );
 
+        // XPathManagerTests
+        internal static string XPathManager_HTML =
+            string.Concat(
+                "<html>",
+                "<body>",
+                "<h1>This is the title.</h1>",
+                "<p>This is a paragraph.</p>",
+                "<ul>",
+                "<li><a href=\"https://github.com/numbworks\">This is a link</a></li>",
+                "<li><a href=\"https://www.nuget.org/profiles/numbworks\">This is another link</a></li>",
+                "</ul>",
+                "</html>"
+                );
+        internal static string XPathManager_GetInnerTexts_XPath = "//ul/li";
+        internal static List<string> XPathManager_GetInnerTexts_Results 
+            = new List<string>() 
+            {
+                "This is a link",
+                "This is another link"
+            };
+        internal static string XPathManager_GetAttributeValues_XPath = "//ul/li/a/@href";
+        internal static List<string> XPathManager_GetAttributeValues_Results
+            = new List<string>()
+            {
+                "https://github.com/numbworks",
+                "https://www.nuget.org/profiles/numbworks"
+            };
+        internal static string XPathManager_TryGetInnerText_XPath = "//div";
+
         // ValidatorTests
         internal static string[] Validator_Array1 = new[] { "Dodge", "Datsun", "Jaguar", "DeLorean" };
         internal static Car Validator_Object1 = new Car()
@@ -1197,10 +1226,9 @@ namespace NW.WIDJobs.UnitTests
 
         }
         internal static bool AreEqual(HashSet<string> hashset1, HashSet<string> hashset2)
+            => AreEqual(new List<string>(hashset1), new List<string>(hashset2));
+        internal static bool AreEqual(List<string> list1, List<string> list2)
         {
-
-            List<string> list1 = new List<string>(hashset1);
-            List<string> list2 = new List<string>(hashset2);
 
             if (list1 == null && list2 == null)
                 return true;
@@ -1234,5 +1262,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 13.05.2021
+    Last Update: 15.05.2021
 */
