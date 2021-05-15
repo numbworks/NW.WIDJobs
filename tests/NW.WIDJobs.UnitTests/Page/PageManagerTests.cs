@@ -191,6 +191,21 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
+        [Test]
+        public void GetTotalResults_ShouldRetrieveExpectedResults_WhenInvoked()
+        {
+
+            // Arrange
+            // Act
+            uint actual
+                = ObjectMother.PageManager_PageManagerWithFakeGetRequestManager
+                        .GetTotalResults(ObjectMother.Shared_Page01_Content);
+
+            // Assert
+            Assert.AreEqual(ObjectMother.Shared_Page01_TotalResults, actual);
+
+        }
+
 
         [TestCaseSource(nameof(pageManagerExceptionTestCases))]
         public void PageManager_ShouldThrowACertainException_WhenUnproperArguments
