@@ -7,6 +7,12 @@ namespace NW.WIDJobs
 
         // Fields
         // Properties
+        public static string TemplateId { get; } = "ID:{0}";
+        public static string TemplateFromTo { get; } = "{0}|FROM:{1}|TO:{2}";
+        public static string TemplateUntil{ get; } = "{0}|UNTIL:{1}";
+        public static string FormatDateTime { get; } = "yyyyMMddHHmmssfff";
+        public static string FormatDate { get; } = "yyyyMMddHH";
+
         // Constructors
         public RunIdManager() { }
 
@@ -15,8 +21,8 @@ namespace NW.WIDJobs
         {
 
             return string.Format(
-                "ID:{0}",
-                now.ToString("yyyyMMddHHmmssfff")
+                TemplateId,
+                now.ToString(FormatDateTime)
             );
 
         }
@@ -24,10 +30,10 @@ namespace NW.WIDJobs
         {
 
             return string.Format(
-                "{0}|FROM:{1}|TO:{2}",
+                TemplateFromTo,
                 Create(now),
-                startDate.ToString("yyyyMMddHH"),
-                endDate.ToString("yyyyMMddHH")
+                startDate.ToString(FormatDate),
+                endDate.ToString(FormatDate)
             );
 
         }
@@ -35,9 +41,9 @@ namespace NW.WIDJobs
         {
 
             return string.Format(
-                "{0}|UNTIL:{1}",
+                TemplateUntil,
                 Create(now),
-                untilDate.ToString("yyyyMMddHH")
+                untilDate.ToString(FormatDate)
             );
 
         }
