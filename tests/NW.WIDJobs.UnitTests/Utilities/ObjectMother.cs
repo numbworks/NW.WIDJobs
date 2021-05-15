@@ -980,12 +980,33 @@ namespace NW.WIDJobs.UnitTests
             = (url) =>
             {
 
+                List<(string url, string content)> tuples = new List<(string url, string content)>()
+                {
+
+                    (Shared_Page01_Url, Shared_Page01_Content),
+                    (Shared_Page02_Url, Shared_Page02_Content),
+
+                    (Shared_Page01_PageItemExtended01.PageItem.Url, Shared_Page01_PageItemExtended01_Content),
+                    (Shared_Page01_PageItemExtended14.PageItem.Url, Shared_Page01_PageItemExtended14_Content),
+
+                    (Shared_Page02_PageItemExtended18.PageItem.Url, Shared_Page02_PageItemExtended18_Content),
+
+                    (Shared_Page03_PageItemExtended01.PageItem.Url, Shared_Page03_PageItemExtended01_Content),
+                    (Shared_Page03_PageItemExtended02.PageItem.Url, Shared_Page03_PageItemExtended02_Content),
+                    (Shared_Page03_PageItemExtended03.PageItem.Url, Shared_Page03_PageItemExtended03_Content),
+                    (Shared_Page03_PageItemExtended04.PageItem.Url, Shared_Page03_PageItemExtended04_Content),
+
+                };
+
                 IGetRequestManager fakeGetRequestManager = Substitute.For<IGetRequestManager>();
 
-                if (string.Equals(url, Shared_Page01_Url, StringComparison.InvariantCulture))
-                    fakeGetRequestManager.Send(Shared_Page01_Url, Arg.Any<Encoding>()).Returns(Shared_Page01_Content);
-                if (string.Equals(url, Shared_Page02_Url, StringComparison.InvariantCulture))
-                    fakeGetRequestManager.Send(Shared_Page02_Url, Arg.Any<Encoding>()).Returns(Shared_Page02_Content);
+                foreach((string url, string content)tuple in tuples)
+                    if (string.Equals(url, tuple.url, StringComparison.InvariantCulture))
+                    {
+                        fakeGetRequestManager.Send(tuple.url, Arg.Any<Encoding>()).Returns(tuple.content);
+                        break;
+                    };
+                    // We don't consider the case in which we do provide an url that it's not among the ones in the list. 
 
                 return fakeGetRequestManager;
 
