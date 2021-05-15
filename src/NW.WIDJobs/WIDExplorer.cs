@@ -44,6 +44,16 @@ namespace NW.WIDJobs
             return new List<Page>();
 
         }
+        public uint GetTotalResults()
+        {
+
+            string url = _components.PageManager.CreateUrl(1);
+            string content = _components.PageManager.GetContent(url);
+            uint totalResults = _components.PageManager.GetTotalResults(content);
+
+            return totalResults;
+
+        }
 
         // Methods (private)
         private void ConditionallySleep

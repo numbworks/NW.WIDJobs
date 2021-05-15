@@ -28,6 +28,17 @@ namespace NW.WIDJobs
             : this(new GetRequestManager(), new PageScraper()) { }
 
         // Methods (public)
+        public string CreateUrl(ushort pageNumber)
+        {
+
+            Validator.ThrowIfLessThanOne(pageNumber, nameof(pageNumber));
+
+            if (pageNumber == 1)
+                return "https://www.workindenmark.dk/Search/Job-search?q=&orderBy=date";
+
+            return $"https://www.workindenmark.dk/Search/Job-search?q=&orderBy=date&PageNum={pageNumber}&";
+
+        }
         public Page GetPage(string runId, ushort pageNumber)
         {
 
@@ -40,16 +51,6 @@ namespace NW.WIDJobs
             Page page = new Page(runId, pageNumber, content);
 
             return page;
-
-        }
-        public uint GetTotalResults()
-        {
-
-            string url = CreateUrl(1);
-            string content = GetContent(url);
-            uint totalResults = _pageScraper.GetTotalResults(content);
-
-            return totalResults;
 
         }
         public uint GetTotalResults(string content)
@@ -94,20 +95,11 @@ namespace NW.WIDJobs
         }
 
         // Methods (private)
-        private string CreateUrl(ushort pageNumber)
-        {
-
-            if (pageNumber == 1)
-                return "https://www.workindenmark.dk/Search/Job-search?q=&orderBy=date";
-
-            return $"https://www.workindenmark.dk/Search/Job-search?q=&orderBy=date&PageNum={pageNumber}&";
 
         }
-
     }
-}
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 09.05.2021
+    Last Update: 15.05.2021
 */
