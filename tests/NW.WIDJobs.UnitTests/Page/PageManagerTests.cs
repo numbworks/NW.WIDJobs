@@ -8,6 +8,36 @@ namespace NW.WIDJobs.UnitTests
     {
 
         // Fields
+        private static TestCaseData[] getTotalEstimatedPagesTestCases =
+        {
+
+            new TestCaseData(
+                    (uint)0,
+                    (ushort)0
+                ).SetArgDisplayNames($"{nameof(getTotalEstimatedPagesTestCases)}_01"),
+
+            new TestCaseData(
+                    (uint)1,
+                    (ushort)1
+                ).SetArgDisplayNames($"{nameof(getTotalEstimatedPagesTestCases)}_02"),
+
+            new TestCaseData(
+                    (uint)20,
+                    (ushort)1
+                ).SetArgDisplayNames($"{nameof(getTotalEstimatedPagesTestCases)}_03"),
+
+            new TestCaseData(
+                    (uint)22,
+                    (ushort)2
+                ).SetArgDisplayNames($"{nameof(getTotalEstimatedPagesTestCases)}_04"),
+
+            new TestCaseData(
+                    (uint)2000,
+                    (ushort)100
+                ).SetArgDisplayNames($"{nameof(getTotalEstimatedPagesTestCases)}_05")
+
+        };
+
         private static TestCaseData[] pageManagerExceptionTestCases =
         {
 
@@ -72,38 +102,36 @@ namespace NW.WIDJobs.UnitTests
             ).SetArgDisplayNames($"{nameof(getContentExceptionTestCases)}_01")
 
         };
-        private static TestCaseData[] getTotalEstimatedPagesTestCases =
+        private static TestCaseData[] createUrlExceptionTestCases =
         {
 
             new TestCaseData(
-                    (uint)0,
-                    (ushort)0
-                ).SetArgDisplayNames($"{nameof(getTotalEstimatedPagesTestCases)}_01"),
-
-            new TestCaseData(
-                    (uint)1,
-                    (ushort)1
-                ).SetArgDisplayNames($"{nameof(getTotalEstimatedPagesTestCases)}_02"),
-
-            new TestCaseData(
-                    (uint)20,
-                    (ushort)1
-                ).SetArgDisplayNames($"{nameof(getTotalEstimatedPagesTestCases)}_03"),
-
-            new TestCaseData(
-                    (uint)22,
-                    (ushort)2
-                ).SetArgDisplayNames($"{nameof(getTotalEstimatedPagesTestCases)}_04"),
-
-            new TestCaseData(
-                    (uint)2000,
-                    (ushort)100
-                ).SetArgDisplayNames($"{nameof(getTotalEstimatedPagesTestCases)}_05")
+                new TestDelegate(
+                    () => new PageManager().CreateUrl(0)
+                ),
+                typeof(ArgumentException),
+                MessageCollection.Validator_VariableCantBeLessThanOne.Invoke("pageNumber")
+            ).SetArgDisplayNames($"{nameof(createUrlExceptionTestCases)}_01")
 
         };
 
         // SetUp
-        // Tests       
+        // Tests
+        [TestCaseSource(nameof(getTotalEstimatedPagesTestCases))]
+        public void GetTotalEstimatedPages_ShouldReturnExpectedTotalEstimatedPages_WhenInvoked
+            (uint totalResults, ushort expected)
+        {
+
+            // Arrange
+            // Act
+            ushort actual = new PageManager().GetTotalEstimatedPages(totalResults);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+
+        }
+
+
         [TestCaseSource(nameof(pageManagerExceptionTestCases))]
         public void PageManager_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
@@ -124,19 +152,11 @@ namespace NW.WIDJobs.UnitTests
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
-        [TestCaseSource(nameof(getTotalEstimatedPagesTestCases))]
-        public void GetTotalEstimatedPages_ShouldReturnExpectedTotalEstimatedPages_WhenInvoked
-            (uint totalResults, ushort expected)
-        {
+        [TestCaseSource(nameof(getTotalResultsExceptionTestCases))]
+        public void CreateUrl_ShouldThrowACertainException_WhenUnproperArguments
+            (TestDelegate del, Type expectedType, string expectedMessage)
+                => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
-            // Arrange
-            // Act
-            ushort actual = new PageManager().GetTotalEstimatedPages(totalResults);
-
-            // Assert
-            Assert.AreEqual(expected, actual);
-
-        }
 
         // TearDown		
 
