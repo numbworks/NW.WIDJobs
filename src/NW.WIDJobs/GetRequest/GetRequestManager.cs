@@ -29,7 +29,7 @@ namespace NW.WIDJobs
             )
         {
 
-            // Validation
+            Validator.ValidateObject(httpWebRequestFactory, nameof(httpWebRequestFactory));
 
             HttpWebRequestFactory = new HttpWebRequestFactory();
             Headers = headers;
@@ -46,13 +46,12 @@ namespace NW.WIDJobs
         public string Send(string url, Encoding encoding = null)
         {
 
-            // Validation
-
-            HttpWebResponse httpWebResponse = Send(url);
+            Validator.ValidateStringNullOrWhiteSpace(url, nameof(url));
 
             if (encoding == null)
                 encoding = Encoding.ASCII;
 
+            HttpWebResponse httpWebResponse = Send(url);
             string response = ConvertToString(httpWebResponse, encoding);
 
             return response;
