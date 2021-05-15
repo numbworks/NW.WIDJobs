@@ -1,6 +1,5 @@
 ﻿using NUnit.Framework;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace NW.WIDJobs.UnitTests
@@ -28,7 +27,14 @@ namespace NW.WIDJobs.UnitTests
                     ObjectMother.XPathManager_GetInnerTexts_XPath,
                     (uint)0,
                     ObjectMother.XPathManager_GetInnerTexts_Results[0]
-                ).SetArgDisplayNames($"{nameof(getInnerTextTestCases)}_01")
+                ).SetArgDisplayNames($"{nameof(getInnerTextTestCases)}_01"),
+
+            new TestCaseData(
+                    ObjectMother.XPathManager_HTML,
+                    ObjectMother.XPathManager_GetInnerTexts_XPath,
+                    (uint)1,
+                    ObjectMother.XPathManager_GetInnerTexts_Results[1]
+                ).SetArgDisplayNames($"{nameof(getInnerTextTestCases)}_02")
 
         };
         private static TestCaseData[] tryGetInnerTextTestCases =
@@ -56,18 +62,20 @@ namespace NW.WIDJobs.UnitTests
         {
 
             new TestCaseData(
-                    "Some message",
-                    false
-                ).SetArgDisplayNames($"{nameof(getInnerTextTestCases)}_01")
+                    ObjectMother.XPathManager_HTML,
+                    ObjectMother.XPathManager_GetAttributeValues_XPath,
+                    ObjectMother.XPathManager_GetAttributeValues_Results[0]
+                ).SetArgDisplayNames($"{nameof(getFirstAttributeValueTestCases)}_01")
 
         };
         private static TestCaseData[] tryGetFirstAttributeValueTestCases =
  {
 
             new TestCaseData(
-                    "Some message",
-                    false
-                ).SetArgDisplayNames($"{nameof(getInnerTextTestCases)}_01")
+                    ObjectMother.XPathManager_HTML,
+                    ObjectMother.XPathManager_TryGetFirstAttributeValue_XPath,
+                    null
+                ).SetArgDisplayNames($"{nameof(tryGetFirstAttributeValueTestCases)}_01")
 
         };
         private static TestCaseData[] xpathManagerExceptionTestCases =
@@ -186,24 +194,30 @@ namespace NW.WIDJobs.UnitTests
         }
 
         [TestCaseSource(nameof(getFirstAttributeValueTestCases))]
-        public void GetFirstAttributeValue_Should_When
-            (string html, string xpath)
+        public void GetFirstAttributeValue_ShouldReturnFirstAttributeValue_WhenInvoked
+            (string html, string xpath, string expected)
         {
 
             // Arrange
             // Act
+            string actual = new XPathManager().GetFirstAttributeValue(html, xpath);
+
             // Assert
+            Assert.AreEqual(expected, actual);
 
         }
 
         [TestCaseSource(nameof(tryGetFirstAttributeValueTestCases))]
-        public void TryGetFirstAttributeValue_Should_When
-            (string html, string xpath)
+        public void TryGetFirstAttributeValue_ShouldReturnFirstAttributeValueOrNull_WhenInvoked
+            (string html, string xpath, string expected)
         {
 
             // Arrange
             // Act
+            string actual = new XPathManager().TryGetFirstAttributeValue(html, xpath);
+
             // Assert
+            Assert.AreEqual(expected, actual);
 
         }
 

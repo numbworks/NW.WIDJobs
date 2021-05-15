@@ -1081,6 +1081,7 @@ namespace NW.WIDJobs.UnitTests
                 "https://www.nuget.org/profiles/numbworks"
             };
         internal static string XPathManager_TryGetInnerText_XPath = "//div";
+        internal static string XPathManager_TryGetFirstAttributeValue_XPath = "//div/@class";
 
         // ValidatorTests
         internal static string[] Validator_Array1 = new[] { "Dodge", "Datsun", "Jaguar", "DeLorean" };
