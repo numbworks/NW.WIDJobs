@@ -14,7 +14,7 @@ namespace NW.WIDJobs
         public XPathManager(IHtmlDocumentAdapter htmlDocumentAdapter)
         {
 
-            // Validation
+            Validator.ValidateObject(htmlDocumentAdapter, nameof(htmlDocumentAdapter));
 
             _htmlDocumentAdapter = htmlDocumentAdapter;
 
