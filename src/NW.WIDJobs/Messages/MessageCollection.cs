@@ -32,9 +32,7 @@ namespace NW.WIDJobs
             = (variableName) => $"'{variableName}' can't be less than one.";
         public static Func<string, string, string> Validator_DividingMustReturnWholeNumber { get; }
             = (variableName1, variableName2) => $"Dividing '{variableName1}' by '{variableName2}' must return a whole number.";
-
-        // PageItemScraper
-        public static Func<Dictionary<string, int>, string> PageItemScraper_AtLeastOneSubScraper { get; } =
+        public static Func<Dictionary<string, int>, string> Validator_AtLeastOneSubScraper { get; } =
                 (subscrapers)
                     => {
 
@@ -54,6 +52,8 @@ namespace NW.WIDJobs
                                 );
 
                     };
+
+        // PageItemScraper
         public static Func<string, string, string> PageItemScraper_NotPossibleToExtractJobId =
             (url, pattern) => $"Not possible to extract {nameof(PageItem.JobId)} from '{url}' with pattern: '{pattern}'.";
     }

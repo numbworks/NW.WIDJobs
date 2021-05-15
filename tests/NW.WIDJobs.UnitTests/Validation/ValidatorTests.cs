@@ -262,11 +262,9 @@ namespace NW.WIDJobs.UnitTests
                 ).SetArgDisplayNames($"{nameof(throwIfFirstIsGreaterExceptionTestCases)}_02")
 
         };
-
         private static TestCaseData[] throwIfFirstIsGreaterOrEqualExceptionTestCases =
-                {
+        {
 
-            // ThrowIfFirstIsGreater<T>
             new TestCaseData(
                 new TestDelegate(
                         () => Validator.ThrowIfFirstIsGreaterOrEqual<Exception>(
@@ -282,7 +280,6 @@ namespace NW.WIDJobs.UnitTests
                                     )
                 ).SetArgDisplayNames($"{nameof(throwIfFirstIsGreaterOrEqualExceptionTestCases)}_01"),
 
-            // ThrowIfFirstIsGreater
             new TestCaseData(
                 new TestDelegate(
                         () => Validator.ThrowIfFirstIsGreaterOrEqual(
@@ -297,6 +294,21 @@ namespace NW.WIDJobs.UnitTests
                                         ObjectMother.Validator_VariableName_N2
                                     )
                 ).SetArgDisplayNames($"{nameof(throwIfFirstIsGreaterOrEqualExceptionTestCases)}_02")
+
+        };
+        private static TestCaseData[] throwIfCountsAreNotEqualExceptionTestCases =
+        {
+
+            new TestCaseData(
+                new TestDelegate(
+                        () => Validator.ThrowIfCountsAreNotEqual<Exception>(
+                                            ObjectMother.Validator_SubScrapers_Wrong
+                            )),
+                typeof(Exception),
+                MessageCollection.Validator_AtLeastOneSubScraper.Invoke(
+                                        ObjectMother.Validator_SubScrapers_Wrong
+                                    )
+                ).SetArgDisplayNames($"{nameof(throwIfCountsAreNotEqualExceptionTestCases)}_01")
 
         };
 
@@ -346,6 +358,12 @@ namespace NW.WIDJobs.UnitTests
         public void ThrowIfFirstIsGreaterOrEqual_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
+
+        [TestCaseSource(nameof(throwIfCountsAreNotEqualExceptionTestCases))]
+        public void ThrowIfCountsAreNotEqual_ShouldThrowACertainException_WhenUnproperArguments
+            (TestDelegate del, Type expectedType, string expectedMessage)
+                => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
+
 
         [Test]
         public void ValidateLength_ShouldDoNothing_WhenProperArgument()
@@ -410,6 +428,13 @@ namespace NW.WIDJobs.UnitTests
             => Method_ShouldDoNothing_WhenProperArgument(
                     new Action[] {
                         () => Validator.ThrowIfLessThanOne(ObjectMother.Validator_Value, nameof(ObjectMother.Validator_Value))
+                    });
+
+        [Test]
+        public void ThrowIfCountsAreNotEqual_ShouldDoNothing_WhenProperArgument()
+            => Method_ShouldDoNothing_WhenProperArgument(
+                    new Action[] {
+                        () => Validator.ThrowIfCountsAreNotEqual<Exception>(ObjectMother.Validator_SubScrapers_Proper)
                     });
 
         // TearDown

@@ -137,7 +137,7 @@ namespace NW.WIDJobs
             bool status = AreAllEqual(counts);
 
             if (status == false)
-                throw CreateException<T>(MessageCollection.PageItemScraper_AtLeastOneSubScraper.Invoke(lists));
+                throw CreateException<T>(MessageCollection.Validator_AtLeastOneSubScraper.Invoke(lists));
 
         }
 

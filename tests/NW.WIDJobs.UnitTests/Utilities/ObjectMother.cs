@@ -1072,6 +1072,34 @@ namespace NW.WIDJobs.UnitTests
         internal static uint Validator_Value = Validator_Length1;
         internal static string Validator_String1 = "Dodge";
         internal static string Validator_StringOnlyWhiteSpaces = "   ";
+        internal static Dictionary<string, int> Validator_SubScrapers_Proper = new Dictionary<string, int>()
+        {
+
+            { "urls", 20 },
+            { "titles", 20 },
+            { "createDates", 20 },
+            { "applicationDates", 20 },
+            { "workAreas", 20 },
+            { "workAreasWithoutZones", 20 },
+            { "workingHours", 20 },
+            { "jobTypes", 20 },
+            { "jobIds", 20 }
+
+        };
+        internal static Dictionary<string, int> Validator_SubScrapers_Wrong = new Dictionary<string, int>()
+        {
+
+            { "urls", 19 },
+            { "titles", 20 },
+            { "createDates", 20 },
+            { "applicationDates", 20 },
+            { "workAreas", 20 },
+            { "workAreasWithoutZones", 20 },
+            { "workingHours", 20 },
+            { "jobTypes", 20 },
+            { "jobIds", 20 }
+
+        };
 
         // Methods
         internal static void Method_ShouldThrowACertainException_WhenUnproperArguments
@@ -1085,17 +1113,6 @@ namespace NW.WIDJobs.UnitTests
             Assert.AreEqual(expectedMessage, actual.Message);
 
         }
-
-        internal static List<PageItem> RemoveItems(List<PageItem> pageItems, int index, int count)
-        {
-
-            List<PageItem> result = new List<PageItem>(pageItems);
-            result.RemoveRange(index, count);
-
-            return result;
-
-        }
-
         internal static bool AreEqual(Page page1, Page page2)
         {
 
@@ -1199,6 +1216,16 @@ namespace NW.WIDJobs.UnitTests
                     return false;
 
             return true;
+
+        }
+
+        internal static List<PageItem> RemoveItems(List<PageItem> pageItems, int index, int count)
+        {
+
+            List<PageItem> result = new List<PageItem>(pageItems);
+            result.RemoveRange(index, count);
+
+            return result;
 
         }
 
