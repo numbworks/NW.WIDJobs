@@ -124,7 +124,7 @@ namespace NW.WIDJobs
         {
 
             if (value1 % value2 != 0)
-                throw CreateException<T>(MessageCollection.Validator_DividingMustReturnWholeNumber(variableName1, variableName2));
+                throw CreateException<T>(MessageCollection.Validator_DividingMustReturnWholeNumber.Invoke(variableName1, variableName2));
 
         }
         public static void ThrowIfModuloIsNotZero(uint value1, string variableName1, uint value2, string variableName2)

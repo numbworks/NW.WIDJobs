@@ -311,6 +311,25 @@ namespace NW.WIDJobs.UnitTests
                 ).SetArgDisplayNames($"{nameof(throwIfCountsAreNotEqualExceptionTestCases)}_01")
 
         };
+        private static TestCaseData[] throwIfModuloIsNotZeroExceptionTestCases =
+        {
+
+            new TestCaseData(
+                new TestDelegate(
+                        () => Validator.ThrowIfModuloIsNotZero(
+                                            4,
+                                            ObjectMother.Validator_VariableName_N1,
+                                            3,
+                                            ObjectMother.Validator_VariableName_N2
+                            )),
+                typeof(ArgumentException),
+                MessageCollection.Validator_DividingMustReturnWholeNumber.Invoke(
+                                        ObjectMother.Validator_VariableName_N1,
+                                        ObjectMother.Validator_VariableName_N2
+                                    )
+                ).SetArgDisplayNames($"{nameof(throwIfModuloIsNotZeroExceptionTestCases)}_01")
+
+        };
 
         // SetUp
         // Tests
@@ -361,6 +380,11 @@ namespace NW.WIDJobs.UnitTests
 
         [TestCaseSource(nameof(throwIfCountsAreNotEqualExceptionTestCases))]
         public void ThrowIfCountsAreNotEqual_ShouldThrowACertainException_WhenUnproperArguments
+            (TestDelegate del, Type expectedType, string expectedMessage)
+                => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
+
+        [TestCaseSource(nameof(throwIfModuloIsNotZeroExceptionTestCases))]
+        public void ThrowIfModuloIsNotZero_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
@@ -435,6 +459,18 @@ namespace NW.WIDJobs.UnitTests
             => Method_ShouldDoNothing_WhenProperArgument(
                     new Action[] {
                         () => Validator.ThrowIfCountsAreNotEqual<Exception>(ObjectMother.Validator_SubScrapers_Proper)
+                    });
+
+        [Test]
+        public void ThrowIfModuloIsNotZero_ShouldDoNothing_WhenProperArgument()
+            => Method_ShouldDoNothing_WhenProperArgument(
+                    new Action[] {
+                        () => Validator.ThrowIfModuloIsNotZero(
+                                2,
+                                ObjectMother.Validator_VariableName_N1,
+                                1,
+                                ObjectMother.Validator_VariableName_N2
+                            )
                     });
 
         // TearDown
