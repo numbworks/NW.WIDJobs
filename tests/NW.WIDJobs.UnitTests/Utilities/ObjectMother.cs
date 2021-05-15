@@ -1021,11 +1021,13 @@ namespace NW.WIDJobs.UnitTests
         // PageItemExtendedScraperTests
 
         // PageManagerTests       
-        internal static PageManager PageManager_PageManagerWithFakeGetRequestManager
+        internal static PageManager PageManager_WithFakeGetRequestManager
                     = new PageManager(
                             Shared_FakeGetRequestManager.Invoke(Shared_Page01_Url),
                             new PageScraper()
                             );
+
+        // PageItemExtendedManagerTests
 
         // RunIdManagerTests
         internal static DateTime RunIdManager_Now = new DateTime(2020, 01, 01, 19, 25, 40, 980);

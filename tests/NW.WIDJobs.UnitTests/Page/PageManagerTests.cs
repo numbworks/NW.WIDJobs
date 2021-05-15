@@ -165,7 +165,7 @@ namespace NW.WIDJobs.UnitTests
             // Arrange
             // Act
             string actual 
-                = ObjectMother.PageManager_PageManagerWithFakeGetRequestManager
+                = ObjectMother.PageManager_WithFakeGetRequestManager
                     .GetContent(ObjectMother.Shared_Page01_Url);
 
             // Assert
@@ -180,7 +180,7 @@ namespace NW.WIDJobs.UnitTests
             // Arrange
             // Act
             Page actual
-                = ObjectMother.PageManager_PageManagerWithFakeGetRequestManager
+                = ObjectMother.PageManager_WithFakeGetRequestManager
                     .GetPage(ObjectMother.Shared_FakeRunId, 1);
 
             // Assert
@@ -198,7 +198,7 @@ namespace NW.WIDJobs.UnitTests
             // Arrange
             // Act
             uint actual
-                = ObjectMother.PageManager_PageManagerWithFakeGetRequestManager
+                = ObjectMother.PageManager_WithFakeGetRequestManager
                         .GetTotalResults(ObjectMother.Shared_Page01_Content);
 
             // Assert
