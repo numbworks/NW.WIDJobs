@@ -4,6 +4,7 @@ using System.Linq;
 using NUnit.Framework;
 using NSubstitute;
 using System.Globalization;
+using System.Text;
 
 namespace NW.WIDJobs.UnitTests
 {
@@ -396,6 +397,8 @@ namespace NW.WIDJobs.UnitTests
 
         );
 
+        internal static string Shared_Page01_Url = "https://www.workindenmark.dk/Search/Job-search?q=&orderBy=date";
+
         #endregion
 
         #region Shared_Page02
@@ -750,6 +753,8 @@ namespace NW.WIDJobs.UnitTests
 
         );
 
+        internal static string Shared_Page02_Url = "https://www.workindenmark.dk/Search/Job-search?q=&orderBy=date&PageNum=2&";
+
         #endregion
 
         #region Shared_Page03
@@ -969,11 +974,37 @@ namespace NW.WIDJobs.UnitTests
 
         #endregion
 
+        #region Shared_GetRequestManager
+
+        internal static Func<string, IGetRequestManager> Shared_FakeGetRequestManager
+            = (url) =>
+            {
+
+                IGetRequestManager fakeGetRequestManager = Substitute.For<IGetRequestManager>();
+
+                if (string.Equals(url, Shared_Page01_Url, StringComparison.InvariantCulture))
+                    fakeGetRequestManager.Send(Shared_Page01_Url, Arg.Any<Encoding>()).Returns(Shared_Page01_Content);
+                if (string.Equals(url, Shared_Page02_Url, StringComparison.InvariantCulture))
+                    fakeGetRequestManager.Send(Shared_Page02_Url, Arg.Any<Encoding>()).Returns(Shared_Page02_Content);
+
+                return fakeGetRequestManager;
+
+            };
+
+        #endregion
+
         // PageScraperTests
 
         // PageItemScraperTests
 
         // PageItemExtendedScraperTests
+
+        // PageManagerTests       
+        internal static PageManager PageManager_PageManagerWithFakeGetRequestManager
+                    = new PageManager(
+                            Shared_FakeGetRequestManager.Invoke(Shared_Page01_Url),
+                            new PageScraper()
+                            );
 
         // RunIdManagerTests
         internal static DateTime RunIdManager_Now = new DateTime(2020, 01, 01, 19, 25, 40, 980);
@@ -999,7 +1030,6 @@ namespace NW.WIDJobs.UnitTests
                 RunIdManager_Until.ToString(RunIdManager.FormatDate)
             );
 
-
         // ValidatorTests
         internal static string[] Validator_Array1 = new[] { "Dodge", "Datsun", "Jaguar", "DeLorean" };
         internal static Car Validator_Object1 = new Car()
@@ -1019,15 +1049,6 @@ namespace NW.WIDJobs.UnitTests
         internal static uint Validator_Value = Validator_Length1;
         internal static string Validator_String1 = "Dodge";
         internal static string Validator_StringOnlyWhiteSpaces = "   ";
-
-        // PageItemScraperTests ?
-        internal static Func<IGetRequestManager> PageItemScraper_FuncEmptyHTML
-            = new Func<IGetRequestManager>(() =>
-            {
-                IGetRequestManager fakeGetRequest = Substitute.For<IGetRequestManager>();
-                fakeGetRequest.Send(Arg.Any<string>()).Returns("<html></<html>");
-                return fakeGetRequest;
-            });
 
         // Methods
         internal static void Method_ShouldThrowACertainException_WhenUnproperArguments

@@ -8,6 +8,20 @@ namespace NW.WIDJobs.UnitTests
     {
 
         // Fields
+        private static TestCaseData[] createUrlTestCases =
+        {
+
+            new TestCaseData(
+                    (ushort)1,
+                    ObjectMother.Shared_Page01_Url
+                ).SetArgDisplayNames($"{nameof(createUrlTestCases)}_01"),
+
+            new TestCaseData(
+                    (ushort)2,
+                    ObjectMother.Shared_Page02_Url
+                ).SetArgDisplayNames($"{nameof(createUrlTestCases)}_02")
+
+        };
         private static TestCaseData[] getTotalEstimatedPagesTestCases =
         {
 
@@ -37,7 +51,6 @@ namespace NW.WIDJobs.UnitTests
                 ).SetArgDisplayNames($"{nameof(getTotalEstimatedPagesTestCases)}_05")
 
         };
-
         private static TestCaseData[] pageManagerExceptionTestCases =
         {
 
@@ -117,6 +130,20 @@ namespace NW.WIDJobs.UnitTests
 
         // SetUp
         // Tests
+        [TestCaseSource(nameof(createUrlTestCases))]
+        public void CreateUrl_ShouldReturnExpectedUrl_WhenInvoked
+            (ushort pageNumber, string expected)
+        {
+
+            // Arrange
+            // Act
+            string actual = new PageManager().CreateUrl(pageNumber);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+
+        }
+
         [TestCaseSource(nameof(getTotalEstimatedPagesTestCases))]
         public void GetTotalEstimatedPages_ShouldReturnExpectedTotalEstimatedPages_WhenInvoked
             (uint totalResults, ushort expected)
@@ -128,6 +155,39 @@ namespace NW.WIDJobs.UnitTests
 
             // Assert
             Assert.AreEqual(expected, actual);
+
+        }
+
+        [Test]
+        public void GetContent_ShouldRetrieveExpectedContent_WhenInvoked()
+        {
+
+            // Arrange
+            // Act
+            string actual 
+                = ObjectMother.PageManager_PageManagerWithFakeGetRequestManager
+                    .GetContent(ObjectMother.Shared_Page01_Url);
+
+            // Assert
+            Assert.AreEqual(ObjectMother.Shared_Page01_Content, actual);
+
+        }
+
+        [Test]
+        public void GetPage_ShouldRetrieveExpectedPage_WhenInvoked()
+        {
+
+            // Arrange
+            // Act
+            Page actual
+                = ObjectMother.PageManager_PageManagerWithFakeGetRequestManager
+                    .GetPage(ObjectMother.Shared_FakeRunId, 1);
+
+            // Assert
+            Assert.IsTrue(
+                     ObjectMother.AreEqual(
+                         ObjectMother.Shared_Page01, 
+                         actual));
 
         }
 
@@ -156,7 +216,6 @@ namespace NW.WIDJobs.UnitTests
         public void CreateUrl_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
-
 
         // TearDown		
 
