@@ -236,7 +236,7 @@ namespace NW.WIDJobs.UnitTests
         // SetUp
         // Tests
         [TestCaseSource(nameof(pageItemExceptionTestCases))]
-        public void SomeMethod_ShouldThrowACertainException_WhenUnproperArguments
+        public void PageItem_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
