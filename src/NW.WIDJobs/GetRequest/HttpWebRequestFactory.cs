@@ -2,7 +2,7 @@
 
 namespace NW.WIDJobs
 {
-    /// <summary>Wrapper for WebRequest.Create().</summary>
+    /// <inheritdoc cref="IHttpWebRequestFactory"/>
     public class HttpWebRequestFactory : IHttpWebRequestFactory
     {
 
