@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text.Json;
 using System.Text.Encodings.Web;
 using System.Threading;
+using System.Linq;
 
 namespace NW.WIDJobs
 {
@@ -108,7 +109,7 @@ namespace NW.WIDJobs
                 pages.Add(currentPage);
                 pageItems.AddRange(currentPageItems);
 
-                _components.LoggingAction.Invoke($"Page #'{i}' - '{currentPageItems.Count}' '{nameof(PageItem)}' objects have been scraped out of it.");
+                _components.LoggingAction.Invoke($"Page '{i}' - '{currentPageItems.Count}' '{nameof(PageItem)}' objects have been scraped.");
 
                 ConditionallySleep(i, _settings.ParallelRequests, _settings.PauseBetweenRequestsMs);
 
@@ -128,7 +129,7 @@ namespace NW.WIDJobs
                 PageItemExtended current = _components.PageItemExtendedManager.Get(pageItem);
                 pageItemsExtended.Add(current);
 
-                _components.LoggingAction.Invoke($"Page #'{pageItem.PageNumber}', PageItem #'{pageItem.PageItemNumber}': a '{nameof(PageItemExtended)}' object has been scraped.");
+                _components.LoggingAction.Invoke($"Page '{pageItem.PageNumber}', PageItem '{pageItem.PageItemNumber}' - A '{nameof(PageItemExtended)}' object has been scraped.");
 
                 ConditionallySleep(pageItem.PageItemNumber, _settings.ParallelRequests, _settings.PauseBetweenRequestsMs);
 
@@ -153,15 +154,25 @@ namespace NW.WIDJobs
             ushort initialPageNumber, ushort finalPageNumber, Categories category, ExplorationStages stage)
                 => Explore(DateTime.Now, initialPageNumber, finalPageNumber, category, stage);
 
-        public string Serialize(dynamic obj)
+        public string Serialize(ExplorationResult explorationResult)
         {
 
             // Validation?
 
+            ExplorationResult clean
+                = new ExplorationResult(
+                        explorationResult.RunId,
+                        explorationResult.TotalResults,
+                        explorationResult.TotalEstimatedPages,
+                        explorationResult.Pages?.Select(page => new Page(page.RunId, page.PageNumber, "<skipped>")).ToList(),
+                        explorationResult.PageItems,
+                        explorationResult.PageItemsExtended
+                        );
+
             JsonSerializerOptions jso = new JsonSerializerOptions();
             jso.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
 
-            return JsonSerializer.Serialize(obj, jso);
+            return JsonSerializer.Serialize(clean, jso);
 
         }
 

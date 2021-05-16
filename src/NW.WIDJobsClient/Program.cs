@@ -24,6 +24,7 @@ namespace NW.WIDJobsClient
             string json = widExplorer.Serialize(explorationResult);
             File.WriteAllText(@"C:\Users\Rubèn\Desktop\ExplorationResult.json", json);
 
+            WIDExplorerComponents.DefaultLoggingAction.Invoke("Press a button to close the window.");
             Console.ReadLine();
 
         }
