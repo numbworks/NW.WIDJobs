@@ -7,10 +7,11 @@
         ushort GetTotalEstimatedPages(uint totalResults);
         uint GetTotalResults(string content);
         string CreateUrl(ushort pageNumber);
+        string CreateUrl(ushort pageNumber, Categories category);
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 15.05.2021
+    Last Update: 16.05.2021
 */

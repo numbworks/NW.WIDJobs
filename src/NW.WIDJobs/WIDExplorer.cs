@@ -31,132 +31,86 @@ namespace NW.WIDJobs
             : this(new WIDExplorerComponents(), new WIDExplorerSettings()) { }
 
         // Methods (public)
-        public uint GetTotalResults()
+        public ExplorationResult Explore(
+            string runId, ushort initialPageNumber, ushort finalPageNumber, Categories category, ExplorationStages stage)
         {
 
-            string url = _components.PageManager.CreateUrl(1);
+            Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
+            Validator.ThrowIfLessThanOne(initialPageNumber, nameof(initialPageNumber));
+            Validator.ThrowIfLessThanOne(finalPageNumber, nameof(finalPageNumber));
+
+            string url = _components.PageManager.CreateUrl(initialPageNumber, category);
             string content = _components.PageManager.GetContent(url);
-            uint totalResults = _components.PageManager.GetTotalResults(content);
+            uint totalResults = _components.PageScraper.GetTotalResults(content);
 
-            return totalResults;
+            if (stage == ExplorationStages.Stage1_TotalResults)
+                return new ExplorationResult(runId, totalResults);
 
-        }
-        public ushort GetTotalEstimatedPages()
-        {
+            ushort totalExpectedPages = _components.PageManager.GetTotalEstimatedPages(totalResults);
 
-            uint totalResults = GetTotalResults();
-            ushort totalEstimatedPages = _components.PageManager.GetTotalEstimatedPages(totalResults);
+            if (stage == ExplorationStages.Stage2_TotalEstimatedPages)
+                return new ExplorationResult(runId, totalResults, totalExpectedPages);
 
-            return totalEstimatedPages;
+            Page initialPage = new Page(runId, initialPageNumber, content);
+            List<Page> pages = new List<Page>() { initialPage };            
+            if (finalPageNumber == 1 && stage == ExplorationStages.Stage3_Pages)
+                return new ExplorationResult(runId, totalResults, totalExpectedPages, pages);
 
-        }
+            List<PageItem> pageItems = _components.PageItemScraper.Do(initialPage);
+            if (finalPageNumber == 1 && stage == ExplorationStages.Stage4_PageItems)
+                return new ExplorationResult(runId, totalResults, totalExpectedPages, pages, pageItems);
 
-        public List<Page> GetPages
-            (string runId, ushort initialPageNumber, ushort finalPageNumber, Categories category)
-        {
+            if (finalPageNumber > totalExpectedPages)
+                finalPageNumber = totalExpectedPages;
 
-            Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
-            Validator.ThrowIfLessThanOne(initialPageNumber, nameof(initialPageNumber));
-            Validator.ThrowIfLessThanOne(finalPageNumber, nameof(finalPageNumber));
+            for (ushort i = 2; i <= finalPageNumber; i++)
+            {
 
-            List<Page> pages = new List<Page>();
+                Page currentPage = _components.PageManager.GetPage(runId, i);
+                List<PageItem> currentPageItems = _components.PageItemScraper.Do(currentPage);
 
-            /* ... */
+                pages.Add(currentPage);
+                pageItems.AddRange(currentPageItems);
 
-            return pages;
+                ConditionallySleep(i, _settings.ParallelRequests, _settings.PauseBetweenRequestsMs);
 
-        }
-        public List<Page> GetPages
-            (string runId, ushort initialPageNumber, ushort finalPageNumber)
-        {
-
-            Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
-            Validator.ThrowIfLessThanOne(initialPageNumber, nameof(initialPageNumber));
-            Validator.ThrowIfLessThanOne(finalPageNumber, nameof(finalPageNumber));
-
-            List<Page> pages = new List<Page>();
-
-            /* ... */
-
-            return pages;
-
-        }
-        public List<Page> GetPages
-            (ushort initialPageNumber, ushort finalPageNumber, Categories category)
-                => GetPages(_components.RunIdManager.Create(DateTime.Now), initialPageNumber, finalPageNumber, category);
-        public List<Page> GetPages
-            (ushort initialPageNumber, ushort finalPageNumber)
-                => GetPages(_components.RunIdManager.Create(DateTime.Now), initialPageNumber, finalPageNumber);
-
-        public List<PageItem> GetPageItems
-            (string runId, ushort initialPageNumber, ushort finalPageNumber)
-        {
-
-            List<Page> pages = GetPages(runId, initialPageNumber, finalPageNumber);
-            List<PageItem> pageItems = new List<PageItem>();
-
-            /* ... */
-
-            return pageItems;
-
-        }
-        public List<PageItem> GetPageItems
-            (ushort initialPageNumber, ushort finalPageNumber)
-                => GetPageItems(_components.RunIdManager.Create(DateTime.Now), initialPageNumber, finalPageNumber);
-        public List<PageItem> GetPageItems(string runId, DateTime untilDate)
-        {
-
-            // Validate: untilDate can't be later than DateTime.Now
-            
-            List<PageItem> pageItems = new List<PageItem>();
-
-            /* ... */
-
-            return pageItems;
-
-        }
-        public List<PageItem> GetPageItems(DateTime untilDate)
-            => GetPageItems(_components.RunIdManager.Create(DateTime.Now), untilDate);
-
-        public List<PageItemExtended> GetPageItemsExtended
-            (string runId, ushort initialPageNumber, ushort finalPageNumber)
-        {
-
-            List<PageItem> pageItems = GetPageItems(runId, initialPageNumber, finalPageNumber);
-            List<PageItemExtended> pageItemsExtended = new List<PageItemExtended>();
-
-            /* ... */
-
-            return pageItemsExtended;
-
-        }
-        public List<PageItemExtended> GetPageItemsExtended
-            (ushort initialPageNumber, ushort finalPageNumber)
-                => GetPageItemsExtended(_components.RunIdManager.Create(DateTime.Now), initialPageNumber, finalPageNumber);
-        public List<PageItemExtended> GetPageItemsExtended(string runId, DateTime untilDate)
-        {
-
-            // Validate: untilDate can't be later than DateTime.Now
+            }
+            if (stage == ExplorationStages.Stage4_PageItems)
+                return new ExplorationResult(runId, totalResults, totalExpectedPages, pages, pageItems);
 
             List<PageItemExtended> pageItemsExtended = new List<PageItemExtended>();
+            foreach (PageItem pageItem in pageItems)
+            {
 
-            /* ... */
+                PageItemExtended current = _components.PageItemExtendedManager.Get(pageItem);
+                pageItemsExtended.Add(current);
 
-            return pageItemsExtended;
+                ConditionallySleep(pageItem.PageItemNumber, _settings.ParallelRequests, _settings.PauseBetweenRequestsMs);
+
+            }
+
+            return new ExplorationResult(runId, totalResults, totalExpectedPages, pages, pageItems, pageItemsExtended);
 
         }
-        public List<PageItemExtended> GetPageItemsExtended(DateTime untilDate)
-            => GetPageItemsExtended(_components.RunIdManager.Create(DateTime.Now), untilDate);
+        public ExplorationResult Explore(
+            DateTime now, ushort initialPageNumber, ushort finalPageNumber, Categories category, ExplorationStages stage)
+        {
+
+            string runId = _components.RunIdManager.Create(now, initialPageNumber, finalPageNumber);
+
+            return Explore(runId, initialPageNumber, finalPageNumber, category, stage);
+
+        }
 
         // Methods (private)
         private void ConditionallySleep
-            (ushort i, ushort parallelRequests, int pauseBetweenRequestsMs)
+            (ushort i, ushort parallelRequests, uint pauseBetweenRequestsMs)
         {
 
             // Do a pause of x each y requests
             // i != 0, because 0 % x = 0...
             if (i != 0 && i % parallelRequests == 0)
-                Thread.Sleep(pauseBetweenRequestsMs);
+                Thread.Sleep((int)pauseBetweenRequestsMs);
 
         }
 
