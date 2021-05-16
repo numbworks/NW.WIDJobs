@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using System.Text;
+using System.Text.Json;
+using System.Text.Encodings.Web;
 using System.Threading;
 
 namespace NW.WIDJobs
@@ -152,6 +152,18 @@ namespace NW.WIDJobs
         public ExplorationResult Explore(
             ushort initialPageNumber, ushort finalPageNumber, Categories category, ExplorationStages stage)
                 => Explore(DateTime.Now, initialPageNumber, finalPageNumber, category, stage);
+
+        public string Serialize(dynamic obj)
+        {
+
+            // Validation?
+
+            JsonSerializerOptions jso = new JsonSerializerOptions();
+            jso.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
+
+            return JsonSerializer.Serialize(obj, jso);
+
+        }
 
         // Methods (private)
         private void ConditionallySleep
