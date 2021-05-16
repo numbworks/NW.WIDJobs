@@ -74,10 +74,6 @@ namespace NW.WIDJobs
             (string runId, ushort initialPageNumber, ushort finalPageNumber)
         {
 
-            Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
-            Validator.ThrowIfLessThanOne(initialPageNumber, nameof(initialPageNumber));
-            Validator.ThrowIfLessThanOne(finalPageNumber, nameof(finalPageNumber));
-
             List<Page> pages = GetPages(runId, initialPageNumber, finalPageNumber);
             List<PageItem> pageItems = new List<PageItem>();
 
@@ -92,9 +88,7 @@ namespace NW.WIDJobs
         public List<PageItem> GetPageItems(string runId, DateTime untilDate)
         {
 
-            Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
             // Validate: untilDate can't be later than DateTime.Now
-
             
             List<PageItem> pageItems = new List<PageItem>();
 
@@ -106,7 +100,35 @@ namespace NW.WIDJobs
         public List<PageItem> GetPageItems(DateTime untilDate)
             => GetPageItems(_components.RunIdManager.Create(DateTime.Now), untilDate);
 
+        public List<PageItemExtended> GetPageItemsExtended
+            (string runId, ushort initialPageNumber, ushort finalPageNumber)
+        {
 
+            List<PageItem> pageItems = GetPageItems(runId, initialPageNumber, finalPageNumber);
+            List<PageItemExtended> pageItemsExtended = new List<PageItemExtended>();
+
+            /* ... */
+
+            return pageItemsExtended;
+
+        }
+        public List<PageItemExtended> GetPageItemsExtended
+            (ushort initialPageNumber, ushort finalPageNumber)
+                => GetPageItemsExtended(_components.RunIdManager.Create(DateTime.Now), initialPageNumber, finalPageNumber);
+        public List<PageItemExtended> GetPageItemsExtended(string runId, DateTime untilDate)
+        {
+
+            // Validate: untilDate can't be later than DateTime.Now
+
+            List<PageItemExtended> pageItemsExtended = new List<PageItemExtended>();
+
+            /* ... */
+
+            return pageItemsExtended;
+
+        }
+        public List<PageItemExtended> GetPageItemsExtended(DateTime untilDate)
+            => GetPageItemsExtended(_components.RunIdManager.Create(DateTime.Now), untilDate);
 
         // Methods (private)
         private void ConditionallySleep
