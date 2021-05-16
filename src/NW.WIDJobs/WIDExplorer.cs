@@ -52,6 +52,21 @@ namespace NW.WIDJobs
         }
 
         public List<Page> GetPages
+            (string runId, ushort initialPageNumber, ushort finalPageNumber, Categories category)
+        {
+
+            Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
+            Validator.ThrowIfLessThanOne(initialPageNumber, nameof(initialPageNumber));
+            Validator.ThrowIfLessThanOne(finalPageNumber, nameof(finalPageNumber));
+
+            List<Page> pages = new List<Page>();
+
+            /* ... */
+
+            return pages;
+
+        }
+        public List<Page> GetPages
             (string runId, ushort initialPageNumber, ushort finalPageNumber)
         {
 
@@ -66,6 +81,9 @@ namespace NW.WIDJobs
             return pages;
 
         }
+        public List<Page> GetPages
+            (ushort initialPageNumber, ushort finalPageNumber, Categories category)
+                => GetPages(_components.RunIdManager.Create(DateTime.Now), initialPageNumber, finalPageNumber, category);
         public List<Page> GetPages
             (ushort initialPageNumber, ushort finalPageNumber)
                 => GetPages(_components.RunIdManager.Create(DateTime.Now), initialPageNumber, finalPageNumber);
@@ -147,5 +165,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 15.05.2021
+    Last Update: 16.05.2021
 */
