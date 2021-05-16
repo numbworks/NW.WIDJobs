@@ -39,26 +39,44 @@ namespace NW.WIDJobs
             Validator.ThrowIfLessThanOne(initialPageNumber, nameof(initialPageNumber));
             Validator.ThrowIfLessThanOne(finalPageNumber, nameof(finalPageNumber));
 
+            _components.LoggingAction.Invoke("Exploration started...");
+            _components.LoggingAction.Invoke($"{nameof(runId)}:'{runId}'.");
+            _components.LoggingAction.Invoke($"{nameof(initialPageNumber)}:'{initialPageNumber}'.");
+            _components.LoggingAction.Invoke($"{nameof(finalPageNumber)}:'{finalPageNumber}'.");
+            _components.LoggingAction.Invoke($"{nameof(category)}:'{category}'.");
+            _components.LoggingAction.Invoke($"{nameof(stage)}:'{stage}'.");
+
             string url = _components.PageManager.CreateUrl(initialPageNumber, category);
+            _components.LoggingAction.Invoke($"Url has been created for the provided parameters ('{url}').");
+
             string content = _components.PageManager.GetContent(url);
+            _components.LoggingAction.Invoke($"Content has been successfully retrieved for url:'{url}'.");
+
             uint totalResults = _components.PageScraper.GetTotalResults(content);
+            _components.LoggingAction.Invoke($"{nameof(totalResults)}:'{totalResults}'.");
 
             if (stage == ExplorationStages.Stage1_TotalResults)
-                return new ExplorationResult(runId, totalResults);
+                LogAndReturn(new ExplorationResult(runId, totalResults));
 
             ushort totalExpectedPages = _components.PageManager.GetTotalEstimatedPages(totalResults);
+            _components.LoggingAction.Invoke($"{nameof(totalExpectedPages)}:'{totalExpectedPages}'.");
 
             if (stage == ExplorationStages.Stage2_TotalEstimatedPages)
-                return new ExplorationResult(runId, totalResults, totalExpectedPages);
+                LogAndReturn(
+                    new ExplorationResult(runId, totalResults, totalExpectedPages));
 
             Page initialPage = new Page(runId, initialPageNumber, content);
-            List<Page> pages = new List<Page>() { initialPage };            
+            List<Page> pages = new List<Page>() { initialPage };
+            _components.LoggingAction.Invoke($"Initial '{nameof(Page)}' object has been created for the provided parameters.");
+
             if (finalPageNumber == 1 && stage == ExplorationStages.Stage3_Pages)
-                return new ExplorationResult(runId, totalResults, totalExpectedPages, pages);
+                LogAndReturn(
+                    new ExplorationResult(runId, totalResults, totalExpectedPages, pages));
 
             List<PageItem> pageItems = _components.PageItemScraper.Do(initialPage);
             if (finalPageNumber == 1 && stage == ExplorationStages.Stage4_PageItems)
-                return new ExplorationResult(runId, totalResults, totalExpectedPages, pages, pageItems);
+                LogAndReturn(
+                    new ExplorationResult(runId, totalResults, totalExpectedPages, pages, pageItems));
 
             if (finalPageNumber > totalExpectedPages)
                 finalPageNumber = totalExpectedPages;
@@ -76,7 +94,8 @@ namespace NW.WIDJobs
 
             }
             if (stage == ExplorationStages.Stage4_PageItems)
-                return new ExplorationResult(runId, totalResults, totalExpectedPages, pages, pageItems);
+                LogAndReturn(
+                    new ExplorationResult(runId, totalResults, totalExpectedPages, pages, pageItems));
 
             List<PageItemExtended> pageItemsExtended = new List<PageItemExtended>();
             foreach (PageItem pageItem in pageItems)
@@ -89,7 +108,9 @@ namespace NW.WIDJobs
 
             }
 
-            return new ExplorationResult(runId, totalResults, totalExpectedPages, pages, pageItems, pageItemsExtended);
+            return LogAndReturn(
+                    new ExplorationResult
+                        (runId, totalResults, totalExpectedPages, pages, pageItems, pageItemsExtended));
 
         }
         public ExplorationResult Explore(
@@ -114,6 +135,14 @@ namespace NW.WIDJobs
             // i != 0, because 0 % x = 0...
             if (i != 0 && i % parallelRequests == 0)
                 Thread.Sleep((int)pauseBetweenRequestsMs);
+
+        }
+        private ExplorationResult LogAndReturn(ExplorationResult explorationAndResult)
+        {
+
+            _components.LoggingAction.Invoke($"Exploration has been completed.");
+
+            return explorationAndResult;
 
         }
 
