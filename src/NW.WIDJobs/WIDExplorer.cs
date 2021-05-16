@@ -31,19 +31,6 @@ namespace NW.WIDJobs
             : this(new WIDExplorerComponents(), new WIDExplorerSettings()) { }
 
         // Methods (public)
-        public List<Page> GetPages
-            (string runId, ushort initialPageNumber, ushort finalPageNumber)
-        {
-
-            Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
-            Validator.ThrowIfLessThanOne(initialPageNumber, nameof(initialPageNumber));
-            Validator.ThrowIfLessThanOne(finalPageNumber, nameof(finalPageNumber));
-
-            /* ... */
-
-            return new List<Page>();
-
-        }
         public uint GetTotalResults()
         {
 
@@ -54,6 +41,72 @@ namespace NW.WIDJobs
             return totalResults;
 
         }
+        public ushort GetTotalEstimatedPages()
+        {
+
+            uint totalResults = GetTotalResults();
+            ushort totalEstimatedPages = _components.PageManager.GetTotalEstimatedPages(totalResults);
+
+            return totalEstimatedPages;
+
+        }
+
+        public List<Page> GetPages
+            (string runId, ushort initialPageNumber, ushort finalPageNumber)
+        {
+
+            Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
+            Validator.ThrowIfLessThanOne(initialPageNumber, nameof(initialPageNumber));
+            Validator.ThrowIfLessThanOne(finalPageNumber, nameof(finalPageNumber));
+
+            List<Page> pages = new List<Page>();
+
+            /* ... */
+
+            return pages;
+
+        }
+        public List<Page> GetPages
+            (ushort initialPageNumber, ushort finalPageNumber)
+                => GetPages(_components.RunIdManager.Create(DateTime.Now), initialPageNumber, finalPageNumber);
+
+        public List<PageItem> GetPageItems
+            (string runId, ushort initialPageNumber, ushort finalPageNumber)
+        {
+
+            Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
+            Validator.ThrowIfLessThanOne(initialPageNumber, nameof(initialPageNumber));
+            Validator.ThrowIfLessThanOne(finalPageNumber, nameof(finalPageNumber));
+
+            List<Page> pages = GetPages(runId, initialPageNumber, finalPageNumber);
+            List<PageItem> pageItems = new List<PageItem>();
+
+            /* ... */
+
+            return pageItems;
+
+        }
+        public List<PageItem> GetPageItems
+            (ushort initialPageNumber, ushort finalPageNumber)
+                => GetPageItems(_components.RunIdManager.Create(DateTime.Now), initialPageNumber, finalPageNumber);
+        public List<PageItem> GetPageItems(string runId, DateTime untilDate)
+        {
+
+            Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
+            // Validate: untilDate can't be later than DateTime.Now
+
+            
+            List<PageItem> pageItems = new List<PageItem>();
+
+            /* ... */
+
+            return pageItems;
+
+        }
+        public List<PageItem> GetPageItems(DateTime untilDate)
+            => GetPageItems(_components.RunIdManager.Create(DateTime.Now), untilDate);
+
+
 
         // Methods (private)
         private void ConditionallySleep
@@ -72,5 +125,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 09.05.2021
+    Last Update: 15.05.2021
 */
