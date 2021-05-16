@@ -22,6 +22,22 @@ namespace NW.WIDJobs.UnitTests
                 ).SetArgDisplayNames($"{nameof(createUrlTestCases)}_02")
 
         };
+        private static TestCaseData[] createUrlWithCategoryTestCases =
+        {
+
+            new TestCaseData(
+                    (ushort)1,
+                    Categories.Analysis,
+                    ObjectMother.Shared_Page01_UrlForAnalysis
+                ).SetArgDisplayNames($"{nameof(createUrlWithCategoryTestCases)}_01"),
+
+            new TestCaseData(
+                    (ushort)2,
+                    Categories.Analysis,
+                    ObjectMother.Shared_Page02_UrlForAnalysis
+                ).SetArgDisplayNames($"{nameof(createUrlWithCategoryTestCases)}_02")
+
+        };
         private static TestCaseData[] getTotalEstimatedPagesTestCases =
         {
 
@@ -56,7 +72,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new PageManager(null, new PageScraper())
+                    () => new PageManager(null, new PageScraper(), new CategoryManager())
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("getRequestManager").Message
@@ -64,11 +80,19 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new PageManager(new GetRequestManager(), null)
+                    () => new PageManager(new GetRequestManager(), null, new CategoryManager())
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("pageScraper").Message
-            ).SetArgDisplayNames($"{nameof(pageManagerExceptionTestCases)}_02")
+            ).SetArgDisplayNames($"{nameof(pageManagerExceptionTestCases)}_02"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new PageManager(new GetRequestManager(), new PageScraper(), null)
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("categoryManager").Message
+            ).SetArgDisplayNames($"{nameof(pageManagerExceptionTestCases)}_03")
 
         };
         private static TestCaseData[] getPageExceptionTestCases =
@@ -124,7 +148,15 @@ namespace NW.WIDJobs.UnitTests
                 ),
                 typeof(ArgumentException),
                 MessageCollection.Validator_VariableCantBeLessThanOne.Invoke("pageNumber")
-            ).SetArgDisplayNames($"{nameof(createUrlExceptionTestCases)}_01")
+            ).SetArgDisplayNames($"{nameof(createUrlExceptionTestCases)}_01"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new PageManager().CreateUrl(0, Categories.Analysis)
+                ),
+                typeof(ArgumentException),
+                MessageCollection.Validator_VariableCantBeLessThanOne.Invoke("pageNumber")
+            ).SetArgDisplayNames($"{nameof(createUrlExceptionTestCases)}_02")
 
         };
 
@@ -138,6 +170,20 @@ namespace NW.WIDJobs.UnitTests
             // Arrange
             // Act
             string actual = new PageManager().CreateUrl(pageNumber);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+
+        }
+
+        [TestCaseSource(nameof(createUrlWithCategoryTestCases))]
+        public void CreateUrl_ShouldReturnExpectedUrl_WhenInvoked
+            (ushort pageNumber, Categories category, string expected)
+        {
+
+            // Arrange
+            // Act
+            string actual = new PageManager().CreateUrl(pageNumber, category);
 
             // Assert
             Assert.AreEqual(expected, actual);

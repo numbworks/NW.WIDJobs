@@ -9,23 +9,27 @@ namespace NW.WIDJobs
         // Fields
         private IGetRequestManager _getRequestManager;
         private IPageScraper _pageScraper;
+        private ICategoryManager _categoryManager;
 
         // Properties
         public static ushort PageItemsPerPage = 20;
 
         // Constructors
-        public PageManager(IGetRequestManager getRequestManager, IPageScraper pageScraper)
+        public PageManager(
+            IGetRequestManager getRequestManager, IPageScraper pageScraper, ICategoryManager categoryManager)
         {
 
             Validator.ValidateObject(getRequestManager, nameof(getRequestManager));
             Validator.ValidateObject(pageScraper, nameof(pageScraper));
+            Validator.ValidateObject(categoryManager, nameof(categoryManager));
 
             _getRequestManager = getRequestManager;
             _pageScraper = pageScraper;
+            _categoryManager = categoryManager;
 
         }
         public PageManager()
-            : this(new GetRequestManager(), new PageScraper()) { }
+            : this(new GetRequestManager(), new PageScraper(), new CategoryManager()) { }
 
         // Methods (public)
         public string CreateUrl(ushort pageNumber)
@@ -37,6 +41,19 @@ namespace NW.WIDJobs
                 return "https://www.workindenmark.dk/Search/Job-search?q=&orderBy=date";
 
             return $"https://www.workindenmark.dk/Search/Job-search?q=&orderBy=date&PageNum={pageNumber}&";
+
+        }
+        public string CreateUrl(ushort pageNumber, Categories category)
+        {
+
+            Validator.ThrowIfLessThanOne(pageNumber, nameof(pageNumber));
+
+            string token = _categoryManager.GetCategoryToken(category);
+
+            if (pageNumber == 1)
+                return $"https://www.workindenmark.dk/search/Job-search?q=&categories={token}&orderBy=date";
+
+            return $"https://www.workindenmark.dk/search/Job-search?q=&categories={token}&orderBy=date&PageNum={pageNumber}";
 
         }
         public Page GetPage(string runId, ushort pageNumber)

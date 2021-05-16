@@ -397,7 +397,10 @@ namespace NW.WIDJobs.UnitTests
 
         );
 
-        internal static string Shared_Page01_Url = "https://www.workindenmark.dk/Search/Job-search?q=&orderBy=date";
+        internal static string Shared_Page01_Url 
+            = "https://www.workindenmark.dk/Search/Job-search?q=&orderBy=date";
+        internal static string Shared_Page01_UrlForAnalysis 
+            = "https://www.workindenmark.dk/search/Job-search?q=&categories=Analysis&orderBy=date";
 
         #endregion
 
@@ -753,7 +756,10 @@ namespace NW.WIDJobs.UnitTests
 
         );
 
-        internal static string Shared_Page02_Url = "https://www.workindenmark.dk/Search/Job-search?q=&orderBy=date&PageNum=2&";
+        internal static string Shared_Page02_Url 
+            = "https://www.workindenmark.dk/Search/Job-search?q=&orderBy=date&PageNum=2&";
+        internal static string Shared_Page02_UrlForAnalysis
+            = "https://www.workindenmark.dk/search/Job-search?q=&categories=Analysis&orderBy=date&PageNum=2";
 
         #endregion
 
@@ -1024,7 +1030,8 @@ namespace NW.WIDJobs.UnitTests
         internal static PageManager PageManager_WithFakeGetRequestManager
                     = new PageManager(
                             Shared_FakeGetRequestManager.Invoke(Shared_Page01_Url),
-                            new PageScraper()
+                            new PageScraper(),
+                            new CategoryManager()
                             );
 
         // PageItemExtendedManagerTests
