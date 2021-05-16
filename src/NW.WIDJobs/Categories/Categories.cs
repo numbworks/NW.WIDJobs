@@ -21,7 +21,6 @@ namespace NW.WIDJobs
         [Description("Biology/Chemistry")] BiologyChemistry,
         Support,
         [Description("Transportation/Logistics")] TransportationLogistics,
-        [Description("R")]Restore,
         Design,
         Cleaning,
         [Description("Safety/Security")] SafetySecurity,
