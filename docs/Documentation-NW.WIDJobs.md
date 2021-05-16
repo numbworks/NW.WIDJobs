@@ -34,9 +34,9 @@ In the case we decide to filter results by `Category`, the URLs are the followin
 
 For the scope of this library we do use the the `OrderedByDate` variants.
 
-The available `Categories` are the following ones:
+The available `Categories` are the following ones, and the `Token` is the variable piece for the urls above:
 
-|Name|WID Name|
+|Name|Token|
 |---|---|---|
 |`NotSpecified`|`Not%20specified`|
 |`Management`|`Management`|
