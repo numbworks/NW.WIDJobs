@@ -16,7 +16,9 @@ namespace NW.WIDJobsClient
 
             WIDExplorer widExplorer = new WIDExplorer();
             ExplorationResult explorationResult 
-                = widExplorer.Explore(1, 1, Categories.ItTech, ExplorationStages.Stage1_TotalResults);
+                = widExplorer.Explore(1, 1, Categories.ItTech, ExplorationStages.Stage3_Pages);
+
+            WIDExplorerComponents.DefaultLoggingAction.Invoke(explorationResult.ToString());
 
             Console.ReadLine();
 

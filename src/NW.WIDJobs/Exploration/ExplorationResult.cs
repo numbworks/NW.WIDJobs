@@ -19,17 +19,17 @@ namespace NW.WIDJobs
         // Constructors
         public ExplorationResult(
             string runId,
-            uint totalResults, 
+            uint totalResults,
             ushort? totalEstimatedPages = null,
             List<Page> pages = null,
             List<PageItem> pageItems = null,
-            List<PageItemExtended> pageItemsExtended = null) 
+            List<PageItemExtended> pageItemsExtended = null)
         {
 
             Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
 
             RunId = runId;
-            TotalResults = totalResults;           
+            TotalResults = totalResults;
             TotalEstimatedPages = totalEstimatedPages;
             Pages = pages;
             PageItems = pageItems;
@@ -38,6 +38,22 @@ namespace NW.WIDJobs
         }
 
         // Methods (public)
+        public override string ToString()
+        {
+
+            return string.Concat(
+                "{ ",
+                $"'{nameof(RunId)}':'{RunId}', ",
+                $"'{nameof(TotalResults)}':'{TotalResults}', ",
+                $"'{nameof(TotalEstimatedPages)}':'{TotalEstimatedPages?.ToString() ?? "null"}', ",
+                $"'{nameof(Pages)}':'{Pages?.Count.ToString() ?? "null"}', ",
+                $"'{nameof(PageItems)}':'{PageItems?.Count.ToString() ?? "null"}', ",
+                $"'{nameof(PageItemsExtended)}':'{PageItemsExtended?.Count.ToString() ?? "null"}'",
+                " }"
+                );
+
+        }
+
         // Methods (private)
 
     }

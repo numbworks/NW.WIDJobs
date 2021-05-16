@@ -40,46 +40,64 @@ namespace NW.WIDJobs
             Validator.ThrowIfLessThanOne(finalPageNumber, nameof(finalPageNumber));
 
             _components.LoggingAction.Invoke("Exploration started...");
-            _components.LoggingAction.Invoke($"{nameof(runId)}:'{runId}'.");
-            _components.LoggingAction.Invoke($"{nameof(initialPageNumber)}:'{initialPageNumber}'.");
-            _components.LoggingAction.Invoke($"{nameof(finalPageNumber)}:'{finalPageNumber}'.");
-            _components.LoggingAction.Invoke($"{nameof(category)}:'{category}'.");
-            _components.LoggingAction.Invoke($"{nameof(stage)}:'{stage}'.");
+            _components.LoggingAction.Invoke($"RunId:'{runId}'.");
+            _components.LoggingAction.Invoke($"InitialPageNumber:'{initialPageNumber}'.");
+            _components.LoggingAction.Invoke($"FinalPageNumber:'{finalPageNumber}'.");
+            _components.LoggingAction.Invoke($"Category:'{category}'.");
+            _components.LoggingAction.Invoke($"ExplorationStage:'{stage}'.");
+            _components.LoggingAction.Invoke($"The execution of the '{ExplorationStages.Stage1_TotalResults}' has been started.");
 
             string url = _components.PageManager.CreateUrl(initialPageNumber, category);
-            _components.LoggingAction.Invoke($"Url has been created for the provided parameters ('{url}').");
+            _components.LoggingAction.Invoke($"Url has been created for the provided parameters");
+            _components.LoggingAction.Invoke($"Url:'{url}'.");
 
             string content = _components.PageManager.GetContent(url);
-            _components.LoggingAction.Invoke($"Content has been successfully retrieved for url:'{url}'.");
+            _components.LoggingAction.Invoke($"Content has been successfully retrieved for the provided url.");
 
             uint totalResults = _components.PageScraper.GetTotalResults(content);
-            _components.LoggingAction.Invoke($"{nameof(totalResults)}:'{totalResults}'.");
+            _components.LoggingAction.Invoke($"TotalResults:'{totalResults}'.");
 
             if (stage == ExplorationStages.Stage1_TotalResults)
-                LogAndReturn(new ExplorationResult(runId, totalResults));
+                return CompleteExploration(runId, totalResults);
 
-            ushort totalExpectedPages = _components.PageManager.GetTotalEstimatedPages(totalResults);
-            _components.LoggingAction.Invoke($"{nameof(totalExpectedPages)}:'{totalExpectedPages}'.");
+            _components.LoggingAction.Invoke($"The execution of the '{ExplorationStages.Stage2_TotalEstimatedPages}' has been started.");
+
+            ushort totalEstimatedPages = _components.PageManager.GetTotalEstimatedPages(totalResults);
+            _components.LoggingAction.Invoke($"TotalEstimatedPages:'{totalEstimatedPages}'.");
 
             if (stage == ExplorationStages.Stage2_TotalEstimatedPages)
-                LogAndReturn(
-                    new ExplorationResult(runId, totalResults, totalExpectedPages));
+                return CompleteExploration(runId, totalResults, totalEstimatedPages);
+
+            _components.LoggingAction.Invoke($"The execution of the '{ExplorationStages.Stage3_Pages}' has been started.");
 
             Page initialPage = new Page(runId, initialPageNumber, content);
             List<Page> pages = new List<Page>() { initialPage };
             _components.LoggingAction.Invoke($"Initial '{nameof(Page)}' object has been created for the provided parameters.");
 
             if (finalPageNumber == 1 && stage == ExplorationStages.Stage3_Pages)
-                LogAndReturn(
-                    new ExplorationResult(runId, totalResults, totalExpectedPages, pages));
+                return CompleteExploration(runId, totalResults, totalEstimatedPages, pages);
+
+            _components.LoggingAction.Invoke($"The execution of the '{ExplorationStages.Stage4_PageItems}' has been started.");
 
             List<PageItem> pageItems = _components.PageItemScraper.Do(initialPage);
-            if (finalPageNumber == 1 && stage == ExplorationStages.Stage4_PageItems)
-                LogAndReturn(
-                    new ExplorationResult(runId, totalResults, totalExpectedPages, pages, pageItems));
+            _components.LoggingAction.Invoke($"'{pageItems.Count}' '{nameof(PageItem)}' objects have been scraped out of the initial page.");
 
-            if (finalPageNumber > totalExpectedPages)
-                finalPageNumber = totalExpectedPages;
+            if (finalPageNumber == 1 && stage == ExplorationStages.Stage4_PageItems)
+                return CompleteExploration(runId, totalResults, totalEstimatedPages, pages, pageItems);
+
+            if (finalPageNumber > totalEstimatedPages)
+            {
+
+                _components.LoggingAction.Invoke($"'FinalPageNumber' ('{finalPageNumber}') is higher than 'TotalEstimatedPages' ('{totalEstimatedPages}').");
+                _components.LoggingAction.Invoke($"'FinalPageNumber' will be now equal to '{totalEstimatedPages}'.");
+
+                finalPageNumber = totalEstimatedPages;
+
+            }
+
+            _components.LoggingAction.Invoke("An anti-flooding strategy based on the provided settings is now in use.");
+            _components.LoggingAction.Invoke($"{nameof(_settings.ParallelRequests)}:'{_settings.ParallelRequests}'.");
+            _components.LoggingAction.Invoke($"{nameof(_settings.ParallelRequests)}:'{_settings.PauseBetweenRequestsMs}'.");
 
             for (ushort i = 2; i <= finalPageNumber; i++)
             {
@@ -90,12 +108,18 @@ namespace NW.WIDJobs
                 pages.Add(currentPage);
                 pageItems.AddRange(currentPageItems);
 
+                _components.LoggingAction.Invoke($"Page #'{i}' - '{currentPageItems.Count}' '{nameof(PageItem)}' objects have been scraped out of it.");
+
                 ConditionallySleep(i, _settings.ParallelRequests, _settings.PauseBetweenRequestsMs);
 
             }
+            
+            _components.LoggingAction.Invoke($"'{pageItems.Count}' '{nameof(PageItem)}' objects have been scraped in total.");
+
             if (stage == ExplorationStages.Stage4_PageItems)
-                LogAndReturn(
-                    new ExplorationResult(runId, totalResults, totalExpectedPages, pages, pageItems));
+                return CompleteExploration(runId, totalResults, totalEstimatedPages, pages, pageItems);
+
+            _components.LoggingAction.Invoke($"The execution of the '{ExplorationStages.Stage5_PageItemsExtended}' has been started.");
 
             List<PageItemExtended> pageItemsExtended = new List<PageItemExtended>();
             foreach (PageItem pageItem in pageItems)
@@ -104,13 +128,16 @@ namespace NW.WIDJobs
                 PageItemExtended current = _components.PageItemExtendedManager.Get(pageItem);
                 pageItemsExtended.Add(current);
 
+                _components.LoggingAction.Invoke($"Page #'{pageItem.PageNumber}', PageItem #'{pageItem.PageItemNumber}': a '{nameof(PageItemExtended)}' object has been scraped.");
+
                 ConditionallySleep(pageItem.PageItemNumber, _settings.ParallelRequests, _settings.PauseBetweenRequestsMs);
 
             }
 
-            return LogAndReturn(
-                    new ExplorationResult
-                        (runId, totalResults, totalExpectedPages, pages, pageItems, pageItemsExtended));
+            _components.LoggingAction.Invoke($"'{pageItemsExtended.Count}' '{nameof(PageItemExtended)}' objects have been scraped in total.");
+
+            return CompleteExploration
+                        (runId, totalResults, totalEstimatedPages, pages, pageItems, pageItemsExtended);
 
         }
         public ExplorationResult Explore(
@@ -137,12 +164,19 @@ namespace NW.WIDJobs
                 Thread.Sleep((int)pauseBetweenRequestsMs);
 
         }
-        private ExplorationResult LogAndReturn(ExplorationResult explorationAndResult)
+        private ExplorationResult CompleteExploration(
+            string runId, 
+            uint totalResults, 
+            ushort? totalEstimatedPages = null,
+            List<Page> pages = null,
+            List<PageItem> pageItems = null,
+            List<PageItemExtended> pageItemsExtended = null)
         {
 
             _components.LoggingAction.Invoke($"Exploration has been completed.");
 
-            return explorationAndResult;
+            return new ExplorationResult
+                        (runId, totalResults, totalEstimatedPages, pages, pageItems, pageItemsExtended);
 
         }
 
