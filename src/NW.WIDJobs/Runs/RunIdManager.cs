@@ -9,7 +9,6 @@ namespace NW.WIDJobs
         // Properties
         public static string TemplateId { get; } = "ID:{0}";
         public static string TemplateFromTo { get; } = "{0}|FROM:{1}|TO:{2}";
-        public static string TemplateFromPageToPage { get; } = "{0}|FROM_PAGE:{1}|TO_PAGE:{2}";
         public static string TemplateUntil{ get; } = "{0}|UNTIL:{1}";
         public static string FormatDateTime { get; } = "yyyyMMddHHmmssfff";
         public static string FormatDate { get; } = "yyyyMMddHH";
@@ -52,7 +51,7 @@ namespace NW.WIDJobs
         {
 
             return string.Format(
-                TemplateFromPageToPage,
+                TemplateFromTo,
                 Create(now),
                 initialPageNumber,
                 finalPageNumber

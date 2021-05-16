@@ -101,6 +101,9 @@ namespace NW.WIDJobs
             return Explore(runId, initialPageNumber, finalPageNumber, category, stage);
 
         }
+        public ExplorationResult Explore(
+            ushort initialPageNumber, ushort finalPageNumber, Categories category, ExplorationStages stage)
+                => Explore(DateTime.Now, initialPageNumber, finalPageNumber, category, stage);
 
         // Methods (private)
         private void ConditionallySleep
