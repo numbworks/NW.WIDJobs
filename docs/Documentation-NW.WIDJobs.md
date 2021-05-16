@@ -13,22 +13,53 @@ Contact: numbworks@gmail.com
 
 ## The page URLs
 
-The exploration of `WorkInDenmark.dk` starts from an initial page, which can have three different URLs:
+The exploration of `WorkInDenmark.dk` starts from an initial page and then it continues for x subsequent pages. The page URLs have have different schema according to given criteria:
 
-|Criteria|Url|
-|---|---|
-|`Default`|`https://www.workindenmark.dk/Search/Job-search?q=`|
-|`OrderedByDate`|`https://www.workindenmark.dk/Search/Job-search?q=&orderBy=date`|
-|`OrderedByRelevance`|`https://www.workindenmark.dk/Search/Job-search?q=&orderBy=`|
+|Criteria|Page|Url|
+|---|---|---|
+|`Default`|1|`https://www.workindenmark.dk/Search/Job-search?q=`|
+|`OrderedByRelevance`|1|`https://www.workindenmark.dk/Search/Job-search?q=&orderBy=`|
+|`OrderedByRelevance`|2, ...|`https://www.workindenmark.dk/Search/Job-search?q=&orderBy=&PageNum={pageNumber}`|
+|`OrderedByDate`|1|`https://www.workindenmark.dk/Search/Job-search?q=&orderBy=date`|
+|`OrderedByDate`|2, ...|`https://www.workindenmark.dk/Search/Job-search?q=&orderBy=date&PageNum={pageNumber}&`|
 
-The subsequent pages have the following URLs instead:
+In the case we decide to filter results by `Category`, the URLs are the following ones:
 
-|Criteria|Url|
-|---|---|
-|`OrderedByDate`|`https://www.workindenmark.dk/Search/Job-search?q=&orderBy=date&PageNum={pageNumber}&`|
-|`OrderedByRelevance`|`https://www.workindenmark.dk/Search/Job-search?q=&orderBy=&PageNum={pageNumber}`|
+|Criteria|Page|Url|
+|---|---|---|
+|`OrderedByRelevance`|1|`https://www.workindenmark.dk/search/Job-search?categories={category}`|
+|`OrderedByRelevance`|2, ...|`https://www.workindenmark.dk/search/Job-search?categories={category}&ajax=1&PageNum=2`|
+|`OrderedByDate`|1|`https://www.workindenmark.dk/search/Job-search?q=&categories={category}&orderBy=date`|
+|`OrderedByDate`|2, ...|`https://www.workindenmark.dk/search/Job-search?q=&categories={category}&orderBy=date&PageNum={pageNumber}`|
 
-For the scope of beginning the exploration of the website they are all equivalent, but we do use the the `OrderedByDate` variants.
+For the scope of this library we do use the the `OrderedByDate` variants.
+
+The available `Categories` are the following ones:
+
+|Name|WID Name|
+|---|---|---|
+|`NotSpecified`|`Not%20specified`|
+|`Management`|`Management`|
+|`ResearchEducation`|`Research/Education`|
+|`ItTech`|`It/Tech`|
+|`Engineering`|`Engineering`|
+|`StudentGraduate`|`Student/Graduate`|
+|`Consulting`|`Consulting`|
+|`Others`|`Others`|
+|`FinanceEconomics`|`Finance/Economics`|
+|`FoodRestaurant`|`Food/Restaurant`|
+|`HealthMedical`|`Health/Medical`|
+|`Analysis`|`Analysis`|
+|`Quality`|`Quality`|
+|`BiologyChemistry`|`Biology/Chemistry`|
+|`Support`|`Support`|
+|`TransportationLogistics`|`Transportation/Logistics`|
+|`Design`|`Design`|
+|`Cleaning`|`Cleaning`|
+|`SafetySecurity`|`Safety/Security`|
+|`Communication`|`Communication`|
+|`Legal`|`Legal`|
+|`HR`|`HR`|
 
 ## The object model
 
