@@ -94,10 +94,14 @@ namespace NW.WIDJobs
             = (parallelRequests) => $"ParallelRequests:'{parallelRequests}'.";
         public static Func<uint, string> WIDExplorer_PauseBetweenRequestsIs
             = (pauseBetweenRequestsMs) => $"PauseBetweenRequestsMs:'{pauseBetweenRequestsMs}'.";
-        public static Func<ushort, List<PageItem>, string> WIDExplorer_XPageItemObjectsScraped
+        public static Func<ushort, List<PageItem>, string> WIDExplorer_PageItemObjectsScraped
             = (i, currentPageItems) => $"Page '{i}' - '{currentPageItems.Count}' '{nameof(PageItem)}' objects have been scraped.";
-        public static Func<List<PageItem>, string> WIDExplorer_XPageItemObjectsScrapedTotal
+        public static Func<List<PageItem>, string> WIDExplorer_PageItemObjectsScrapedTotal
             = (stage4bPageItems) => $"'{stage4bPageItems.Count}' '{nameof(PageItem)}' objects have been scraped in total.";
+        public static Func<PageItem, string> WIDExplorer_PageItemExtendedScraped
+            = (pageItem) => $"Page '{pageItem.PageNumber}', PageItem '{pageItem.PageItemNumber}' - A '{nameof(PageItemExtended)}' object has been scraped.";
+        public static Func<List<PageItemExtended>, string> WIDExplorer_PageItemExtendedScrapedTotal
+            = (pageItemsExtended) => $"'{pageItemsExtended.Count}' '{nameof(PageItemExtended)}' objects have been scraped in total.";
 
     }
 }

@@ -64,8 +64,7 @@ namespace NW.WIDJobs
             if (stage == ExplorationStages.Stage4_PageItems)
                 return CompleteExploration(runId, stage1.totalResults, stage2TotalEstimatedPages, stage3Pages, stage4B.pageItems);
 
-            List<PageItemExtended> stage5PageItemsExtended 
-                = ProcessStage5(stage4B.finalPageNumber, stage4B.pages, stage4B.pageItems);
+            List<PageItemExtended> stage5PageItemsExtended = ProcessStage5(stage4B.pageItems);
 
             return CompleteExploration
                 (runId, stage1.totalResults, stage2TotalEstimatedPages, stage4B.pages, stage4B.pageItems, stage5PageItemsExtended);
@@ -225,21 +224,22 @@ namespace NW.WIDJobs
                 stage4bPages.Add(currentPage);
                 stage4bPageItems.AddRange(currentPageItems);
 
-                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_XPageItemObjectsScraped(i, currentPageItems));
+                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemObjectsScraped(i, currentPageItems));
 
                 ConditionallySleep(i, _settings.ParallelRequests, _settings.PauseBetweenRequestsMs);
 
             }
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_XPageItemObjectsScrapedTotal(stage4bPageItems));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemObjectsScrapedTotal(stage4bPageItems));
 
             return (stage4bFinalPageNumber, stage4bPages, stage4bPageItems);
 
         }
         private List<PageItemExtended> ProcessStage5
-            (ushort finalPageNumber, List<Page> pages, List<PageItem> pageItems)
+            (List<PageItem> pageItems)
         {
-            _components.LoggingAction.Invoke($"The execution of the '{ExplorationStages.Stage5_PageItemsExtended}' has been started.");
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(ExplorationStages.Stage5_PageItemsExtended));
 
             List<PageItemExtended> pageItemsExtended = new List<PageItemExtended>();
             foreach (PageItem pageItem in pageItems)
@@ -248,13 +248,13 @@ namespace NW.WIDJobs
                 PageItemExtended current = _components.PageItemExtendedManager.Get(pageItem);
                 pageItemsExtended.Add(current);
 
-                _components.LoggingAction.Invoke($"Page '{pageItem.PageNumber}', PageItem '{pageItem.PageItemNumber}' - A '{nameof(PageItemExtended)}' object has been scraped.");
+                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemExtendedScraped(pageItem));
 
                 ConditionallySleep(pageItem.PageItemNumber, _settings.ParallelRequests, _settings.PauseBetweenRequestsMs);
 
             }
 
-            _components.LoggingAction.Invoke($"'{pageItemsExtended.Count}' '{nameof(PageItemExtended)}' objects have been scraped in total.");
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemExtendedScrapedTotal(pageItemsExtended));
             
             return pageItemsExtended;
         
