@@ -51,7 +51,7 @@ namespace NW.WIDJobs
             if (stage == ExplorationStages.Stage2_TotalEstimatedPages)
                 return CompleteExploration(runId, stage1.totalResults, stage2TotalEstimatedPages);
 
-            List<Page> stage3Pages = ProcessStage3(runId, initialPageNumber, stage1.content, stage1.totalResults);
+            List<Page> stage3Pages = ProcessStage3(runId, initialPageNumber, stage1.content);
             if (finalPageNumber == 1 && stage == ExplorationStages.Stage3_Pages)
                 return CompleteExploration(runId, stage1.totalResults, stage2TotalEstimatedPages, stage3Pages);
 
@@ -170,7 +170,7 @@ namespace NW.WIDJobs
 
         }
         private List<Page> ProcessStage3
-            (string runId, ushort initialPageNumber, string content, uint totalResults)
+            (string runId, ushort initialPageNumber, string content)
         {
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(ExplorationStages.Stage3_Pages));
