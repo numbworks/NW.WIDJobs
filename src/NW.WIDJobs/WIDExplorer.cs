@@ -137,23 +137,23 @@ namespace NW.WIDJobs
             (string runId, ushort initialPageNumber, ushort finalPageNumber, Categories category, ExplorationStages stage)
         {
 
-            _components.LoggingAction.Invoke("Exploration started...");
-            _components.LoggingAction.Invoke($"RunId:'{runId}'.");
-            _components.LoggingAction.Invoke($"InitialPageNumber:'{initialPageNumber}'.");
-            _components.LoggingAction.Invoke($"FinalPageNumber:'{finalPageNumber}'.");
-            _components.LoggingAction.Invoke($"Category:'{category}'.");
-            _components.LoggingAction.Invoke($"ExplorationStage:'{stage}'.");
-            _components.LoggingAction.Invoke($"The execution of the '{ExplorationStages.Stage1_TotalResults}' has been started.");
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationStarted);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs(runId));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_InitialPageNumberIs(initialPageNumber));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FinalPageNumberIs(finalPageNumber));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_CategoryIs(category));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationStageIs(stage));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionOfStageStarted(stage));
 
             string url = _components.PageManager.CreateUrl(initialPageNumber, category);
-            _components.LoggingAction.Invoke($"Url has been created for the provided parameters");
-            _components.LoggingAction.Invoke($"Url:'{url}'.");
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_UrlCreated);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_UrlIs(url));
 
             string content = _components.PageManager.GetContent(url);
-            _components.LoggingAction.Invoke($"Content has been successfully retrieved for the provided url.");
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ContentSuccessfullyRetrieved);
 
             uint totalResults = _components.PageScraper.GetTotalResults(content);
-            _components.LoggingAction.Invoke($"TotalResults:'{totalResults}'.");
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_TotalResultsAre(totalResults));
 
             return (content, totalResults);
 

@@ -30,9 +30,9 @@ namespace NW.WIDJobs
             = (variableName) => $"'{variableName}' contains zero items.";
         public static Func<string, string> Validator_VariableCantBeLessThanOne
             = (variableName) => $"'{variableName}' can't be less than one.";
-        public static Func<string, string, string> Validator_DividingMustReturnWholeNumber { get; }
+        public static Func<string, string, string> Validator_DividingMustReturnWholeNumber 
             = (variableName1, variableName2) => $"Dividing '{variableName1}' by '{variableName2}' must return a whole number.";
-        public static Func<Dictionary<string, int>, string> Validator_AtLeastOneSubScraper { get; } =
+        public static Func<Dictionary<string, int>, string> Validator_AtLeastOneSubScraper =
                 (subscrapers)
                     => {
 
@@ -56,12 +56,35 @@ namespace NW.WIDJobs
         // PageItemScraper
         public static Func<string, string, string> PageItemScraper_NotPossibleToExtractJobId =
             (url, pattern) => $"Not possible to extract {nameof(PageItem.JobId)} from '{url}' with pattern: '{pattern}'.";
+
+        // WIDExplorer
+        public static string WIDExplorer_ExplorationStarted = "Exploration started...";
+        public static Func<string, string> WIDExplorer_RunIdIs 
+            = (runId) => $"RunId:'{runId}'.";
+        public static Func<ushort, string> WIDExplorer_InitialPageNumberIs
+            = (initialPageNumber) => $"InitialPageNumber:'{initialPageNumber}'.";
+        public static Func<ushort, string> WIDExplorer_FinalPageNumberIs
+            = (finalPageNumber) => $"FinalPageNumber:'{finalPageNumber}'.";
+        public static Func<Categories, string> WIDExplorer_CategoryIs
+            = (category) => $"Category:'{category}'.";
+        public static Func<ExplorationStages, string> WIDExplorer_ExplorationStageIs
+            = (stage) => $"ExplorationStage:'{stage}'.";
+        public static Func<ExplorationStages, string> WIDExplorer_ExecutionOfStageStarted
+            = (stage) => $"The execution of the '{stage}' has been started.";
+        public static string WIDExplorer_UrlCreated = "Url has been created for the provided parameters.";
+        public static Func<string, string> WIDExplorer_UrlIs
+            = (url) => $"Url:'{url}'.";
+        public static string WIDExplorer_ContentSuccessfullyRetrieved
+            = "Content has been successfully retrieved for the provided url.";
+        public static Func<uint, string> WIDExplorer_TotalResultsAre
+            = (totalResults) => $"TotalResults:'{totalResults}'.";
+
     }
 }
 
 /*
 
     Author: numbworks@gmail.com
-    Last Update: 10.05.2021
+    Last Update: 18.05.2021
 
 */
