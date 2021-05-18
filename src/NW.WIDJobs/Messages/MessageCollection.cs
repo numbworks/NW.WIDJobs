@@ -69,7 +69,7 @@ namespace NW.WIDJobs
             = (category) => $"Category:'{category}'.";
         public static Func<ExplorationStages, string> WIDExplorer_ExplorationStageIs
             = (stage) => $"ExplorationStage:'{stage}'.";
-        public static Func<ExplorationStages, string> WIDExplorer_ExecutionOfStageStarted
+        public static Func<ExplorationStages, string> WIDExplorer_ExecutionStageStarted
             = (stage) => $"The execution of the '{stage}' has been started.";
         public static string WIDExplorer_UrlCreated = "Url has been created for the provided parameters.";
         public static Func<string, string> WIDExplorer_UrlIs
@@ -78,6 +78,8 @@ namespace NW.WIDJobs
             = "Content has been successfully retrieved for the provided url.";
         public static Func<uint, string> WIDExplorer_TotalResultsAre
             = (totalResults) => $"TotalResults:'{totalResults}'.";
+        public static Func<ushort, string> WIDExplorer_TotalEstimatedPagesAre
+            = (totalEstimatedPages) => $"TotalEstimatedPages:'{totalEstimatedPages}'.";
 
     }
 }

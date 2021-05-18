@@ -143,7 +143,7 @@ namespace NW.WIDJobs
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FinalPageNumberIs(finalPageNumber));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_CategoryIs(category));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationStageIs(stage));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionOfStageStarted(stage));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(stage));
 
             string url = _components.PageManager.CreateUrl(initialPageNumber, category);
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_UrlCreated);
@@ -162,10 +162,10 @@ namespace NW.WIDJobs
             (uint totalResults)
         {
 
-            _components.LoggingAction.Invoke($"The execution of the '{ExplorationStages.Stage2_TotalEstimatedPages}' has been started.");
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(ExplorationStages.Stage2_TotalEstimatedPages));
 
             ushort totalEstimatedPages = _components.PageManager.GetTotalEstimatedPages(totalResults);
-            _components.LoggingAction.Invoke($"TotalEstimatedPages:'{totalEstimatedPages}'.");
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_TotalEstimatedPagesAre(totalEstimatedPages));
 
             return totalEstimatedPages;
 
