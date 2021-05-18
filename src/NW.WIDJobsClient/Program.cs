@@ -21,8 +21,13 @@ namespace NW.WIDJobsClient
 
             WIDExplorerComponents.DefaultLoggingAction.Invoke(explorationResult.ToString());
 
-            string json = widExplorer.Serialize(explorationResult);
-            File.WriteAllText(@"C:\Users\Rubèn\Desktop\ExplorationResult.json", json);
+            string json = widExplorer.ToJson(explorationResult);
+            string filename = string.Concat(
+                    @"C:\Users\Rubèn\Desktop\ExplorationResult",
+                    $"{DateTime.Now.ToString(RunIdManager.FormatDateTime)}",
+                    ".json"
+                );
+            File.WriteAllText(filename, json);
 
             WIDExplorerComponents.DefaultLoggingAction.Invoke("Press a button to close the window.");
             Console.ReadLine();
