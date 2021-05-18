@@ -82,8 +82,22 @@ namespace NW.WIDJobs
             = (totalEstimatedPages) => $"TotalEstimatedPages:'{totalEstimatedPages}'.";
         public static string WIDExplorer_InitialPageCreated
             = $"Initial '{nameof(Page)}' object has been created for the provided parameters.";
-        public static Func<List<PageItem>, string> WIDExplorer_PageItemScrapedOut
+        public static Func<List<PageItem>, string> WIDExplorer_PageItemScrapedInitial
             = (pageItems) => $"'{pageItems.Count}' '{nameof(PageItem)}' objects have been scraped out of the initial page.";
+        public static Func<ushort, ushort, string> WIDExplorer_FinalPageNumberIsHigher
+            = (finalPageNumber, totalEstimatedPages) => $"'FinalPageNumber' ('{finalPageNumber}') is higher than 'TotalEstimatedPages' ('{totalEstimatedPages}').";
+        public static Func<ushort, string> WIDExplorer_FinalPageNumberWillBeNow
+            = (totalEstimatedPages) => $"'FinalPageNumber' will be now equal to '{totalEstimatedPages}'.";
+        public static string WIDExplorer_AntiFloodingStrategy
+            = "An anti-flooding strategy based on the provided settings is now in use.";
+        public static Func<ushort, string> WIDExplorer_ParallelRequestsAre
+            = (parallelRequests) => $"ParallelRequests:'{parallelRequests}'.";
+        public static Func<uint, string> WIDExplorer_PauseBetweenRequestsIs
+            = (pauseBetweenRequestsMs) => $"PauseBetweenRequestsMs:'{pauseBetweenRequestsMs}'.";
+        public static Func<ushort, List<PageItem>, string> WIDExplorer_XPageItemObjectsScraped
+            = (i, currentPageItems) => $"Page '{i}' - '{currentPageItems.Count}' '{nameof(PageItem)}' objects have been scraped.";
+        public static Func<List<PageItem>, string> WIDExplorer_XPageItemObjectsScrapedTotal
+            = (stage4bPageItems) => $"'{stage4bPageItems.Count}' '{nameof(PageItem)}' objects have been scraped in total.";
 
     }
 }

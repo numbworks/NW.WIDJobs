@@ -190,7 +190,7 @@ namespace NW.WIDJobs
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(ExplorationStages.Stage4_PageItems));
 
             List<PageItem> pageItems = _components.PageItemScraper.Do(pages[0]);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemScrapedOut(pageItems));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemScrapedInitial(pageItems));
 
             return pageItems;
 
@@ -199,41 +199,41 @@ namespace NW.WIDJobs
             (string runId, ushort finalPageNumber, ushort totalEstimatedPages, List<Page> pages, List<PageItem> pageItems)
         {
 
-            ushort finalPageNumberNew = finalPageNumber;
-            if (finalPageNumberNew > totalEstimatedPages)
+            ushort stage4bFinalPageNumber = finalPageNumber;
+            if (stage4bFinalPageNumber > totalEstimatedPages)
             {
 
-                _components.LoggingAction.Invoke($"'FinalPageNumber' ('{finalPageNumberNew}') is higher than 'TotalEstimatedPages' ('{totalEstimatedPages}').");
-                _components.LoggingAction.Invoke($"'FinalPageNumber' will be now equal to '{totalEstimatedPages}'.");
+                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FinalPageNumberIsHigher(stage4bFinalPageNumber, totalEstimatedPages));
+                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FinalPageNumberWillBeNow(totalEstimatedPages));
 
-                finalPageNumberNew = totalEstimatedPages;
+                stage4bFinalPageNumber = totalEstimatedPages;
 
             }
 
-            _components.LoggingAction.Invoke("An anti-flooding strategy based on the provided settings is now in use.");
-            _components.LoggingAction.Invoke($"{nameof(_settings.ParallelRequests)}:'{_settings.ParallelRequests}'.");
-            _components.LoggingAction.Invoke($"{nameof(_settings.ParallelRequests)}:'{_settings.PauseBetweenRequestsMs}'.");
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_AntiFloodingStrategy);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ParallelRequestsAre(_settings.ParallelRequests));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PauseBetweenRequestsIs(_settings.PauseBetweenRequestsMs));
 
-            List<Page> pagesNew = new List<Page>(pages);
-            List<PageItem> pageItemsNew = new List<PageItem>(pageItems);
-            for (ushort i = 2; i <= finalPageNumberNew; i++)
+            List<Page> stage4bPages = new List<Page>(pages);
+            List<PageItem> stage4bPageItems = new List<PageItem>(pageItems);
+            for (ushort i = 2; i <= stage4bFinalPageNumber; i++)
             {
 
                 Page currentPage = _components.PageManager.GetPage(runId, i);
                 List<PageItem> currentPageItems = _components.PageItemScraper.Do(currentPage);
 
-                pagesNew.Add(currentPage);
-                pageItemsNew.AddRange(currentPageItems);
+                stage4bPages.Add(currentPage);
+                stage4bPageItems.AddRange(currentPageItems);
 
-                _components.LoggingAction.Invoke($"Page '{i}' - '{currentPageItems.Count}' '{nameof(PageItem)}' objects have been scraped.");
+                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_XPageItemObjectsScraped(i, currentPageItems));
 
                 ConditionallySleep(i, _settings.ParallelRequests, _settings.PauseBetweenRequestsMs);
 
             }
 
-            _components.LoggingAction.Invoke($"'{pageItemsNew.Count}' '{nameof(PageItem)}' objects have been scraped in total.");
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_XPageItemObjectsScrapedTotal(stage4bPageItems));
 
-            return (finalPageNumberNew, pagesNew, pageItemsNew);
+            return (stage4bFinalPageNumber, stage4bPages, stage4bPageItems);
 
         }
         private List<PageItemExtended> ProcessStage5
