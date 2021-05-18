@@ -80,6 +80,8 @@ namespace NW.WIDJobs
             = (totalResults) => $"TotalResults:'{totalResults}'.";
         public static Func<ushort, string> WIDExplorer_TotalEstimatedPagesAre
             = (totalEstimatedPages) => $"TotalEstimatedPages:'{totalEstimatedPages}'.";
+        public static string WIDExplorer_InitialPageCreated
+            = $"Initial '{nameof(Page)}' object has been created for the provided parameters.";
 
     }
 }

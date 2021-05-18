@@ -174,11 +174,11 @@ namespace NW.WIDJobs
             (string runId, ushort initialPageNumber, string content, uint totalResults)
         {
 
-            _components.LoggingAction.Invoke($"The execution of the '{ExplorationStages.Stage3_Pages}' has been started.");
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(ExplorationStages.Stage3_Pages));
 
             Page initialPage = new Page(runId, initialPageNumber, content);
             List<Page> pages = new List<Page>() { initialPage };
-            _components.LoggingAction.Invoke($"Initial '{nameof(Page)}' object has been created for the provided parameters.");
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_InitialPageCreated);
 
             return pages;
 
