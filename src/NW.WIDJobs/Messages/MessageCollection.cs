@@ -82,6 +82,8 @@ namespace NW.WIDJobs
             = (totalEstimatedPages) => $"TotalEstimatedPages:'{totalEstimatedPages}'.";
         public static string WIDExplorer_InitialPageCreated
             = $"Initial '{nameof(Page)}' object has been created for the provided parameters.";
+        public static Func<List<PageItem>, string> WIDExplorer_PageItemScrapedOut
+            = (pageItems) => $"'{pageItems.Count}' '{nameof(PageItem)}' objects have been scraped out of the initial page.";
 
     }
 }

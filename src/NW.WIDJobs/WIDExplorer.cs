@@ -187,10 +187,10 @@ namespace NW.WIDJobs
             (List<Page> pages)
         {
 
-            _components.LoggingAction.Invoke($"The execution of the '{ExplorationStages.Stage4_PageItems}' has been started.");
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(ExplorationStages.Stage4_PageItems));
 
             List<PageItem> pageItems = _components.PageItemScraper.Do(pages[0]);
-            _components.LoggingAction.Invoke($"'{pageItems.Count}' '{nameof(PageItem)}' objects have been scraped out of the initial page.");
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemScrapedOut(pageItems));
 
             return pageItems;
 
