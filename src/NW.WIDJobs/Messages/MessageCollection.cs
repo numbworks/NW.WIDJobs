@@ -63,14 +63,18 @@ namespace NW.WIDJobs
         public static string WIDExplorer_ExplorationStarted = "The exploration has started...";
         public static Func<string, string> WIDExplorer_RunIdIs 
             = (runId) => $"RunId:'{runId}'.";
-        public static Func<ushort, string> WIDExplorer_InitialPageNumberIs
-            = (initialPageNumber) => $"InitialPageNumber:'{initialPageNumber}'.";
+        public static Func<DateTime, string> WIDExplorer_NowIs
+            = (now) => $"Now:'{now.ToString(RunIdManager.FormatDate)}'.";
+        public static Func<ushort, string> WIDExplorer_DefaultInitialPageNumberIs
+            = (defaultInitialPageNumber) => $"DefaultInitialPageNumber:'{defaultInitialPageNumber}'.";
         public static Func<ushort, string> WIDExplorer_UntilPageNumberIs
             = (finalPageNumber) => $"UntilPageNumber:'{finalPageNumber}'.";
+        public static Func<DateTime, string> WIDExplorer_UntilDateIs
+            = (untilDate) => $"UntilDate:'{untilDate.ToString(RunIdManager.FormatDate)}'.";
         public static Func<WIDCategories, string> WIDExplorer_CategoryIs
             = (category) => $"Category:'{category}'.";
-        public static Func<WIDStages, string> WIDExplorer_ExplorationStageIs
-            = (stage) => $"ExplorationStage:'{stage}'.";
+        public static Func<WIDStages, string> WIDExplorer_StageIs
+            = (stage) => $"Stage:'{stage}'.";
         public static Func<WIDStages, string> WIDExplorer_ExecutionStageStarted
             = (stage) => $"The execution of the '{stage}' has been started.";
         public static string WIDExplorer_UrlCreated = "Url has been created for the provided parameters.";
