@@ -59,6 +59,18 @@ namespace NW.WIDJobs.UnitTests
             ).SetArgDisplayNames($"{nameof(doExceptionTestCases)}_02")
 
         };
+        private static TestCaseData[] extractAndParseCreateDatesExceptionTestCases =
+        {
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new PageItemScraper().ExtractAndParseCreateDates(null)
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("content").Message
+            ).SetArgDisplayNames($"{nameof(extractAndParseCreateDatesExceptionTestCases)}_01")
+
+        };
 
         // SetUp
         // Tests
@@ -88,6 +100,11 @@ namespace NW.WIDJobs.UnitTests
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
+        [TestCaseSource(nameof(extractAndParseCreateDatesExceptionTestCases))]
+        public void ExtractAndParseCreateDates_ShouldThrowACertainException_WhenUnproperArguments
+            (TestDelegate del, Type expectedType, string expectedMessage)
+                => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
+
         // TearDown		
 
     }
@@ -95,5 +112,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 13.05.2021
+    Last Update: 19.05.2021
 */
