@@ -8,8 +8,8 @@ namespace NW.WIDJobs
 
         List<PageItem> Do(Page page);
         List<DateTime> ExtractAndParseCreateDates(string content);
-        bool IsWithinRange(DateTime untilDate, List<DateTime> createDates);
-        List<PageItem> RemoveOlderThan(List<PageItem> pageItems, DateTime createDate);
+        bool HasBeenFound(DateTime thresholdDate, List<DateTime> createDates);
+        List<PageItem> RemoveOlderThan(List<PageItem> pageItems, DateTime thresholdDate);
 
     }
 }

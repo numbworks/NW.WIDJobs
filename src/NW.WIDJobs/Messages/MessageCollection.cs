@@ -67,10 +67,10 @@ namespace NW.WIDJobs
             = (now) => $"Now:'{now.ToString(RunIdManager.FormatDate)}'.";
         public static Func<ushort, string> WIDExplorer_DefaultInitialPageNumberIs
             = (defaultInitialPageNumber) => $"DefaultInitialPageNumber:'{defaultInitialPageNumber}'.";
-        public static Func<ushort, string> WIDExplorer_UntilPageNumberIs
-            = (finalPageNumber) => $"UntilPageNumber:'{finalPageNumber}'.";
-        public static Func<DateTime, string> WIDExplorer_UntilDateIs
-            = (untilDate) => $"UntilDate:'{untilDate.ToString(RunIdManager.FormatDate)}'.";
+        public static Func<ushort, string> WIDExplorer_FinalPageNumberIs
+            = (finalPageNumber) => $"FinalPageNumber:'{finalPageNumber}'.";
+        public static Func<DateTime, string> WIDExplorer_ThresholdDateIs
+            = (thresholdDate) => $"ThresholdDate:'{thresholdDate.ToString(RunIdManager.FormatDate)}'.";
         public static Func<WIDCategories, string> WIDExplorer_CategoryIs
             = (category) => $"Category:'{category}'.";
         public static Func<WIDStages, string> WIDExplorer_StageIs
@@ -101,7 +101,7 @@ namespace NW.WIDJobs
         public static Func<ushort, List<PageItem>, string> WIDExplorer_PageItemObjectsScraped
             = (i, currentPageItems) => $"Page '{i}' - '{currentPageItems.Count}' '{nameof(PageItem)}' objects have been scraped.";
         public static Func<List<PageItem>, string> WIDExplorer_PageItemObjectsScrapedTotal
-            = (stage4bPageItems) => $"'{stage4bPageItems.Count}' '{nameof(PageItem)}' objects have been scraped in total.";
+            = (pageItems) => $"'{pageItems.Count}' '{nameof(PageItem)}' objects have been scraped in total.";
         public static Func<PageItem, string> WIDExplorer_PageItemExtendedScraped
             = (pageItem) => $"Page '{pageItem.PageNumber}', PageItem '{pageItem.PageItemNumber}' - A '{nameof(PageItemExtended)}' object has been scraped.";
         public static Func<List<PageItemExtended>, string> WIDExplorer_PageItemExtendedScrapedTotal

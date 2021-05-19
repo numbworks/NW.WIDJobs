@@ -93,23 +93,22 @@ namespace NW.WIDJobs
             return createDates;
 
         }
-        public bool IsWithinRange(DateTime untilDate, List<DateTime> createDates)
+        public bool HasBeenFound(DateTime thresholdDate, List<DateTime> createDates)
         {
 
             Validator.ValidateList(createDates, nameof(createDates));
 
-            DateTime newest = createDates.OrderByDescending(x => x.Date).First();
-            DateTime oldest = createDates.OrderByDescending(x => x.Date).Reverse().First();
+            DateTime leastRecent = createDates.OrderByDescending(createDate => createDate.Date).Reverse().First();
 
-            return (untilDate >= oldest && untilDate <= newest);
+            return (thresholdDate > leastRecent);
 
         }
-        public List<PageItem> RemoveOlderThan(List<PageItem> pageItems, DateTime createDate)
+        public List<PageItem> RemoveOlderThan(List<PageItem> pageItems, DateTime thresholdDate)
         {
 
             Validator.ValidateList(pageItems, nameof(pageItems));
 
-            List<PageItem> subset = pageItems.Where(pageItem => pageItem.CreateDate < createDate).ToList();
+            List<PageItem> subset = pageItems.Where(pageItem => pageItem.CreateDate >= thresholdDate).ToList();
 
             return subset;
 

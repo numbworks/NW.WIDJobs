@@ -64,19 +64,19 @@ namespace NW.WIDJobs
         }
 
         public WIDExploration Explore
-            (string runId, ushort untilPageNumber, WIDCategories category, WIDStages stage)
+            (string runId, ushort finalPageNumber, WIDCategories category, WIDStages stage)
         {
 
             Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
-            Validator.ThrowIfLessThanOne(untilPageNumber, nameof(untilPageNumber));
+            Validator.ThrowIfLessThanOne(finalPageNumber, nameof(finalPageNumber));
 
-            LogInitializationMessage(runId, untilPageNumber, category, stage);
+            LogInitializationMessage(runId, finalPageNumber, category, stage);
 
             WIDExploration exploration = ProcessStage1(runId, DefaultInitialPageNumber, category, stage);
             if (exploration.IsCompleted)
                 return LogCompletionMessageAndReturn(exploration);
 
-            exploration = ProcessStage2(exploration, untilPageNumber, stage);
+            exploration = ProcessStage2(exploration, finalPageNumber, stage);
             if (exploration.IsCompleted)
                 return LogCompletionMessageAndReturn(exploration);
 
@@ -86,32 +86,50 @@ namespace NW.WIDJobs
 
         }
         public WIDExploration Explore
-            (ushort untilPageNumber, WIDCategories category, WIDStages stage)
+            (ushort finalPageNumber, WIDCategories category, WIDStages stage)
         {
 
             ushort initialPageNumber = 1;
-            string runId = _components.RunIdManager.Create(Now, initialPageNumber, untilPageNumber);
+            string runId = _components.RunIdManager.Create(Now, initialPageNumber, finalPageNumber);
 
-            return Explore(runId, untilPageNumber, category, stage);
+            return Explore(runId, finalPageNumber, category, stage);
 
         }
 
         public WIDExploration Explore
-            (string runId, DateTime untilDate, WIDCategories category, WIDStages stage)
+            (string runId, DateTime thresholdDate, WIDCategories category, WIDStages stage)
         {
 
             Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
-            Validator.ThrowIfFirstIsOlderOrEqual(Now, nameof(Now), untilDate, nameof(untilDate));
+            Validator.ThrowIfFirstIsOlderOrEqual(Now, nameof(Now), thresholdDate, nameof(thresholdDate));
 
-            LogInitializationMessage(runId, untilDate, category, stage);
+            LogInitializationMessage(runId, thresholdDate, category, stage);
 
             WIDExploration exploration 
-                = ProcessStage1WhenUntilDate(runId, DefaultInitialPageNumber, category, stage, untilDate);
+                = ProcessStage1WhenThresholdDate(runId, DefaultInitialPageNumber, category, stage, thresholdDate);
             if (exploration.IsCompleted)
                 return LogCompletionMessageAndReturn(exploration);
 
-            foreach (ushort i in Enumerable.Range(DefaultInitialPageNumber, exploration.TotalEstimatedPages))
+            List<Page> pages = new List<Page>() { exploration.Pages[0] };
+            List<PageItem> pageItems = _components.PageItemScraper.Do(exploration.Pages[0]);
+
+            ushort secondPageNumber = (ushort)(DefaultInitialPageNumber + 1);
+            ushort untilPageNumber = exploration.TotalEstimatedPages;
+
+            foreach (ushort i in Enumerable.Range(secondPageNumber, exploration.TotalEstimatedPages))
             {
+
+                string url = _components.PageManager.CreateUrl(i, category);
+                string content = _components.PageManager.GetContent(url);
+
+                Page page = new Page(runId, i, content);
+                pages.Add(page);
+
+                List<DateTime> createDates = _components.PageItemScraper.ExtractAndParseCreateDates(content);
+                bool hasBeenFound = _components.PageItemScraper.HasBeenFound(thresholdDate, createDates);
+
+                //
+
 
 
             }
@@ -133,27 +151,27 @@ namespace NW.WIDJobs
 
         }
         private void LogInitializationMessage
-            (string runId, ushort untilPageNumber, WIDCategories category, WIDStages stage)
+            (string runId, ushort finalPageNumber, WIDCategories category, WIDStages stage)
         {
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationStarted);
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs(runId));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_NowIs(Now));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DefaultInitialPageNumberIs(DefaultInitialPageNumber));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_UntilPageNumberIs(untilPageNumber));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FinalPageNumberIs(finalPageNumber));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_CategoryIs(category));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_StageIs(stage));
 
         }
         private void LogInitializationMessage
-            (string runId, DateTime untilDate, WIDCategories category, WIDStages stage)
+            (string runId, DateTime thresholdDate, WIDCategories category, WIDStages stage)
         {
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationStarted);
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs(runId));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_NowIs(Now));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DefaultInitialPageNumberIs(DefaultInitialPageNumber));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_UntilDateIs(untilDate));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ThresholdDateIs(thresholdDate));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_CategoryIs(category));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_StageIs(stage));
 
@@ -206,7 +224,7 @@ namespace NW.WIDJobs
 
         }
         private WIDExploration ProcessStage2
-            (WIDExploration exploration, ushort untilPageNumber, WIDStages stage)
+            (WIDExploration exploration, ushort finalPageNumber, WIDStages stage)
         {
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(stage));
@@ -214,14 +232,14 @@ namespace NW.WIDJobs
             List<PageItem> stage2PageItems = _components.PageItemScraper.Do(exploration.Pages[0]);
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemScrapedInitial(stage2PageItems));
 
-            ushort stage2UntilPageNumber = untilPageNumber;
-            if (stage2UntilPageNumber > exploration.TotalEstimatedPages)
+            ushort stage2FinalPageNumber = finalPageNumber;
+            if (stage2FinalPageNumber > exploration.TotalEstimatedPages)
             {
 
-                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FinalPageNumberIsHigher(stage2UntilPageNumber, exploration.TotalEstimatedPages));
+                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FinalPageNumberIsHigher(stage2FinalPageNumber, exploration.TotalEstimatedPages));
                 _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FinalPageNumberWillBeNow(exploration.TotalEstimatedPages));
 
-                stage2UntilPageNumber = exploration.TotalEstimatedPages;
+                stage2FinalPageNumber = exploration.TotalEstimatedPages;
 
             }
 
@@ -230,7 +248,7 @@ namespace NW.WIDJobs
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PauseBetweenRequestsIs(_settings.PauseBetweenRequestsMs));
 
             List<Page> stage2Pages = new List<Page>(exploration.Pages);
-            for (ushort i = 2; i <= stage2UntilPageNumber; i++)
+            for (ushort i = 2; i <= stage2FinalPageNumber; i++)
             {
 
                 Page currentPage = _components.PageManager.GetPage(exploration.RunId, i, exploration.Category);
@@ -300,8 +318,8 @@ namespace NW.WIDJobs
 
         }
 
-        private WIDExploration ProcessStage1WhenUntilDate
-            (string runId, ushort initialPageNumber, WIDCategories category, WIDStages stage, DateTime untilDate)
+        private WIDExploration ProcessStage1WhenThresholdDate
+            (string runId, ushort initialPageNumber, WIDCategories category, WIDStages stage, DateTime thresholdDate)
         {
 
             WIDExploration exploration = ProcessStage1(runId, DefaultInitialPageNumber, category, stage);
@@ -309,12 +327,12 @@ namespace NW.WIDJobs
             // Log message
 
             List<DateTime> createDates = _components.PageItemScraper.ExtractAndParseCreateDates(exploration.Pages[0].Content);
-            bool isWithinRange = _components.PageItemScraper.IsWithinRange(untilDate, createDates);
+            bool hasBeenFound = _components.PageItemScraper.HasBeenFound(thresholdDate, createDates);
 
             // Log message
 
             bool isCompleted = false;
-            if (isWithinRange == true && stage == WIDStages.Stage1_OnlyMetrics)
+            if (hasBeenFound == true && stage == WIDStages.Stage1_OnlyMetrics)
                 isCompleted = true;
 
             return
