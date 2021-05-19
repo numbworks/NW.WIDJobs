@@ -122,7 +122,25 @@ namespace NW.WIDJobs
             Validator.ThrowIfFirstIsOlderOrEqual(Now, nameof(Now), untilDate, nameof(untilDate));
 
             ushort initialPageNumber = 1;
-            ushort untilPageNumber = 1;
+            string url = _components.PageManager.CreateUrl(initialPageNumber, category);
+            string content = _components.PageManager.GetContent(url);
+            uint totalResults = _components.PageManager.GetTotalResults(content);
+            List<DateTime> createDates = _components.PageItemScraper.ExtractAndParseCreateDates(content);
+            bool status = _components.PageItemScraper.IsWithinRange(untilDate, createDates);
+
+            if (status == true && stage == WIDStages.Stage1_TotalResults)
+                return CompleteExploration(runId, totalResults);
+
+            ushort totalEstimatedPages = _components.PageManager.GetTotalEstimatedPages(totalResults);
+            if (status == true && stage == WIDStages.Stage2_TotalEstimatedPages)
+                return CompleteExploration(runId, totalResults, totalEstimatedPages);
+
+
+            foreach (ushort i in Enumerable.Range(initialPageNumber, totalEstimatedPages))
+            {
+
+
+            }
 
 
 
