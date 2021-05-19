@@ -63,8 +63,8 @@ namespace NW.WIDJobs
             = (runId) => $"RunId:'{runId}'.";
         public static Func<ushort, string> WIDExplorer_InitialPageNumberIs
             = (initialPageNumber) => $"InitialPageNumber:'{initialPageNumber}'.";
-        public static Func<ushort, string> WIDExplorer_FinalPageNumberIs
-            = (finalPageNumber) => $"FinalPageNumber:'{finalPageNumber}'.";
+        public static Func<ushort, string> WIDExplorer_UntilPageNumberIs
+            = (finalPageNumber) => $"UntilPageNumber:'{finalPageNumber}'.";
         public static Func<Categories, string> WIDExplorer_CategoryIs
             = (category) => $"Category:'{category}'.";
         public static Func<ExplorationStages, string> WIDExplorer_ExplorationStageIs

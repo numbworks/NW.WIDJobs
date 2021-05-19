@@ -17,10 +17,11 @@ namespace NW.WIDJobs
 
         // Properties
         public static string NotSerialized { get; } = "<not_serialized>";
+        public DateTime Now { get; }
 
         // Constructors
         public WIDExplorer
-            (WIDExplorerComponents components, WIDExplorerSettings settings)
+            (WIDExplorerComponents components, WIDExplorerSettings settings, DateTime now)
         {
 
             Validator.ValidateObject(components, nameof(components));
@@ -28,22 +29,24 @@ namespace NW.WIDJobs
 
             _components = components;
             _settings = settings;
+            Now = now;
 
         }
         public WIDExplorer()
-            : this(new WIDExplorerComponents(), new WIDExplorerSettings()) { }
+            : this(new WIDExplorerComponents(), new WIDExplorerSettings(), DateTime.Now) { }
 
         // Methods (public)
         public ExplorationResult Explore
-            (string runId, ushort initialPageNumber, ushort finalPageNumber, Categories category, ExplorationStages stage)
+            (string runId, ushort untilPageNumber, Categories category, ExplorationStages stage)
         {
 
             Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
-            Validator.ThrowIfLessThanOne(initialPageNumber, nameof(initialPageNumber));
-            Validator.ThrowIfLessThanOne(finalPageNumber, nameof(finalPageNumber));
+            Validator.ThrowIfLessThanOne(untilPageNumber, nameof(untilPageNumber));
 
-            (string content, uint totalResults) stage1 =
-                ProcessStage1(runId, initialPageNumber, finalPageNumber, category, stage);
+            ushort initialPageNumber = 1;
+            LogInitialization(runId, initialPageNumber, untilPageNumber, category, stage);
+
+            (string content, uint totalResults) stage1 = ProcessStage1(initialPageNumber, category, stage);
             if (stage == ExplorationStages.Stage1_TotalResults)
                 return CompleteExploration(runId, stage1.totalResults);
 
@@ -52,15 +55,15 @@ namespace NW.WIDJobs
                 return CompleteExploration(runId, stage1.totalResults, stage2TotalEstimatedPages);
 
             List<Page> stage3Pages = ProcessStage3(runId, initialPageNumber, stage1.content);
-            if (finalPageNumber == 1 && stage == ExplorationStages.Stage3_Pages)
+            if (untilPageNumber == 1 && stage == ExplorationStages.Stage3_Pages)
                 return CompleteExploration(runId, stage1.totalResults, stage2TotalEstimatedPages, stage3Pages);
 
             List<PageItem> stage4aPageItems = ProcessStage4A(stage3Pages);
-            if (finalPageNumber == 1 && stage == ExplorationStages.Stage4_PageItems)
+            if (untilPageNumber == 1 && stage == ExplorationStages.Stage4_PageItems)
                 return CompleteExploration(runId, stage1.totalResults, stage2TotalEstimatedPages, stage3Pages, stage4aPageItems);
 
             (ushort finalPageNumber, List<Page> pages, List<PageItem> pageItems) stage4B
-                = ProcessStage4B(runId, finalPageNumber, stage2TotalEstimatedPages, stage3Pages, stage4aPageItems);
+                = ProcessStage4B(runId, untilPageNumber, stage2TotalEstimatedPages, stage3Pages, stage4aPageItems);
             if (stage == ExplorationStages.Stage4_PageItems)
                 return CompleteExploration(runId, stage1.totalResults, stage2TotalEstimatedPages, stage3Pages, stage4B.pageItems);
 
@@ -71,17 +74,46 @@ namespace NW.WIDJobs
 
         }
         public ExplorationResult Explore
-            (DateTime now, ushort initialPageNumber, ushort finalPageNumber, Categories category, ExplorationStages stage)
+            (ushort untilPageNumber, Categories category, ExplorationStages stage)
         {
 
-            string runId = _components.RunIdManager.Create(now, initialPageNumber, finalPageNumber);
+            ushort initialPageNumber = 1;
+            string runId = _components.RunIdManager.Create(Now, initialPageNumber, untilPageNumber);
 
-            return Explore(runId, initialPageNumber, finalPageNumber, category, stage);
+            return Explore(runId, untilPageNumber, category, stage);
 
         }
-        public ExplorationResult Explore(
-            ushort initialPageNumber, ushort finalPageNumber, Categories category, ExplorationStages stage)
-                => Explore(DateTime.Now, initialPageNumber, finalPageNumber, category, stage);
+
+        public ExplorationResult Explore
+            (string runId, DateTime untilDate, Categories category, ExplorationStages stage)
+        {
+
+            Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
+            // Date validation
+
+            ushort initialPageNumber = 1;
+            // LogInitialization(runId, initialPageNumber, untilPageNumber, category, stage);
+
+            (string content, uint totalResults) stage1 = ProcessStage1(initialPageNumber, category, stage);
+            ushort stage2TotalEstimatedPages = ProcessStage2(stage1.totalResults);
+            List<Page> stage3Pages = ProcessStage3(runId, initialPageNumber, stage1.content);
+            List<PageItem> stage4aPageItems = ProcessStage4A(stage3Pages);
+
+            // check CreateDate < untilDate Condition
+            // ... 
+
+            return null;
+
+        }
+        public ExplorationResult Explore
+            (DateTime untilDate, Categories category, ExplorationStages stage)
+        {
+
+            string runId = _components.RunIdManager.Create(Now, untilDate);
+
+            return Explore(runId, untilDate, category, stage);
+
+        }
 
         public string ToJson(ExplorationResult explorationResult)
         {
@@ -132,17 +164,22 @@ namespace NW.WIDJobs
 
         }
 
-        private (string content, uint totalResults) ProcessStage1
-            (string runId, ushort initialPageNumber, ushort finalPageNumber, Categories category, ExplorationStages stage)
+        private void LogInitialization
+            (string runId, ushort initialPageNumber, ushort untilPageNumber, Categories category, ExplorationStages stage)
         {
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationStarted);
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs(runId));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_InitialPageNumberIs(initialPageNumber));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FinalPageNumberIs(finalPageNumber));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_UntilPageNumberIs(untilPageNumber));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_CategoryIs(category));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationStageIs(stage));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(stage));
+
+        }
+        private (string content, uint totalResults) ProcessStage1
+            (ushort initialPageNumber, Categories category, ExplorationStages stage)
+        {
 
             string url = _components.PageManager.CreateUrl(initialPageNumber, category);
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_UrlCreated);
