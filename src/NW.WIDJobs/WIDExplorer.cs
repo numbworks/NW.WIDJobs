@@ -119,18 +119,12 @@ namespace NW.WIDJobs
         {
 
             Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
-            // Date validation
+            Validator.ThrowIfFirstIsOlderOrEqual(Now, nameof(Now), untilDate, nameof(untilDate));
 
             ushort initialPageNumber = 1;
-            // LogInitialization(runId, initialPageNumber, untilPageNumber, category, stage);
+            ushort untilPageNumber = 1;
 
-            (string content, uint totalResults) stage1 = ProcessStage1Category(initialPageNumber, category);
-            ushort stage2TotalEstimatedPages = ProcessStage2(stage1.totalResults);
-            List<Page> stage3Pages = ProcessStage3(runId, initialPageNumber, stage1.content);
-            List<PageItem> stage4aPageItems = ProcessStage4A(stage3Pages);
 
-            // check CreateDate < untilDate Condition
-            // ... 
 
             return null;
 
@@ -321,17 +315,6 @@ namespace NW.WIDJobs
                 (runId, stage1.totalResults, stage2TotalEstimatedPages, stage4B.pages, stage4B.pageItems, stage5PageItemsExtended);
 
         }
-
-        private void ConditionallySleep
-            (ushort i, ushort parallelRequests, uint pauseBetweenRequestsMs)
-        {
-
-            // Do a pause of x each y requests
-            // i != 0, because 0 % x = 0...
-            if (i != 0 && i % parallelRequests == 0)
-                Thread.Sleep((int)pauseBetweenRequestsMs);
-
-        }
         private (string content, uint totalResults) ProcessStage1(string url)
         {
 
@@ -360,6 +343,17 @@ namespace NW.WIDJobs
 
             return new WIDResult
                     (runId, totalResults, totalEstimatedPages, pages, pageItems, pageItemsExtended);
+
+        }
+
+        private void ConditionallySleep
+            (ushort i, ushort parallelRequests, uint pauseBetweenRequestsMs)
+        {
+
+            // Do a pause of x each y requests
+            // i != 0, because 0 % x = 0...
+            if (i != 0 && i % parallelRequests == 0)
+                Thread.Sleep((int)pauseBetweenRequestsMs);
 
         }
 
