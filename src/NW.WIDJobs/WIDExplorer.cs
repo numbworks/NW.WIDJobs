@@ -106,10 +106,9 @@ namespace NW.WIDJobs
             LogInitializationMessage(runId, untilDate, category, stage);
 
             WIDExploration exploration 
-                = ProcessStage1(runId, DefaultInitialPageNumber, category, stage, untilDate);
+                = ProcessStage1WhenUntilDate(runId, DefaultInitialPageNumber, category, stage, untilDate);
             if (exploration.IsCompleted)
                 return LogCompletionMessageAndReturn(exploration);
-
 
             foreach (ushort i in Enumerable.Range(DefaultInitialPageNumber, exploration.TotalEstimatedPages))
             {
@@ -301,7 +300,7 @@ namespace NW.WIDJobs
 
         }
 
-        private WIDExploration ProcessStage1
+        private WIDExploration ProcessStage1WhenUntilDate
             (string runId, ushort initialPageNumber, WIDCategories category, WIDStages stage, DateTime untilDate)
         {
 

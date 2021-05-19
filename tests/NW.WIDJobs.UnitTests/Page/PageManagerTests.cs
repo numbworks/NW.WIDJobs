@@ -13,29 +13,27 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                     (ushort)1,
+                    WIDCategories.AllCategories,
                     ObjectMother.Shared_Page01_Url
                 ).SetArgDisplayNames($"{nameof(createUrlTestCases)}_01"),
 
             new TestCaseData(
                     (ushort)2,
+                    WIDCategories.AllCategories,
                     ObjectMother.Shared_Page02_Url
-                ).SetArgDisplayNames($"{nameof(createUrlTestCases)}_02")
-
-        };
-        private static TestCaseData[] createUrlWithCategoryTestCases =
-        {
+                ).SetArgDisplayNames($"{nameof(createUrlTestCases)}_02"),
 
             new TestCaseData(
                     (ushort)1,
                     WIDCategories.Analysis,
                     ObjectMother.Shared_Page01_UrlForAnalysis
-                ).SetArgDisplayNames($"{nameof(createUrlWithCategoryTestCases)}_01"),
+                ).SetArgDisplayNames($"{nameof(createUrlTestCases)}_03"),
 
             new TestCaseData(
                     (ushort)2,
                     WIDCategories.Analysis,
                     ObjectMother.Shared_Page02_UrlForAnalysis
-                ).SetArgDisplayNames($"{nameof(createUrlWithCategoryTestCases)}_02")
+                ).SetArgDisplayNames($"{nameof(createUrlTestCases)}_04")
 
         };
         private static TestCaseData[] getTotalEstimatedPagesTestCases =
@@ -100,7 +98,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new PageManager().GetPage(null, 1)
+                    () => new PageManager().GetPage(null, 1, WIDCategories.AllCategories)
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("runId").Message
@@ -108,7 +106,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new PageManager().GetPage(ObjectMother.Shared_FakeRunId, 0)
+                    () => new PageManager().GetPage(ObjectMother.Shared_FakeRunId, 0, WIDCategories.AllCategories)
                 ),
                 typeof(ArgumentException),
                 MessageCollection.Validator_VariableCantBeLessThanOne.Invoke("pageNumber")
@@ -144,7 +142,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new PageManager().CreateUrl(0)
+                    () => new PageManager().CreateUrl(0, WIDCategories.AllCategories)
                 ),
                 typeof(ArgumentException),
                 MessageCollection.Validator_VariableCantBeLessThanOne.Invoke("pageNumber")
@@ -163,20 +161,6 @@ namespace NW.WIDJobs.UnitTests
         // SetUp
         // Tests
         [TestCaseSource(nameof(createUrlTestCases))]
-        public void CreateUrl_ShouldReturnExpectedUrl_WhenInvoked
-            (ushort pageNumber, string expected)
-        {
-
-            // Arrange
-            // Act
-            string actual = new PageManager().CreateUrl(pageNumber);
-
-            // Assert
-            Assert.AreEqual(expected, actual);
-
-        }
-
-        [TestCaseSource(nameof(createUrlWithCategoryTestCases))]
         public void CreateUrl_ShouldReturnExpectedUrl_WhenInvoked
             (ushort pageNumber, WIDCategories category, string expected)
         {
@@ -227,7 +211,7 @@ namespace NW.WIDJobs.UnitTests
             // Act
             Page actual
                 = ObjectMother.PageManager_WithFakeGetRequestManager
-                    .GetPage(ObjectMother.Shared_FakeRunId, 1);
+                    .GetPage(ObjectMother.Shared_FakeRunId, 1, WIDCategories.AllCategories);
 
             // Assert
             Assert.IsTrue(
@@ -285,5 +269,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 15.05.2021
+    Last Update: 19.05.2021
 */
