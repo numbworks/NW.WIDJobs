@@ -1,18 +1,31 @@
 ﻿namespace NW.WIDJobs
 {
+
+    /// <summary>
+    /// The depth of the exploration.
+    /// </summary>
     public enum WIDStages
     {
 
-        Stage1_TotalResults,
-        Stage2_TotalEstimatedPages,
-        Stage3_Pages,
-        Stage4_PageItems,
-        Stage5_PageItemsExtended
+        /// <summary>
+        /// Retrieves <see cref="WIDExploration.TotalResults"/> and <see cref="WIDExploration.TotalEstimatedPages"/>.
+        /// </summary>
+        Stage1_OnlyMetrics,
+
+        /// <summary>
+        /// Retrieves <see cref="WIDExploration.TotalResults"/>, <see cref="WIDExploration.TotalEstimatedPages"/>, <see cref="WIDExploration.Pages"/> and <see cref="WIDExploration.PageItems"/>.
+        /// </summary>
+        Stage2_UpToAllPageItems,
+
+        /// <summary>
+        /// Retrieves <see cref="WIDExploration.TotalResults"/>, <see cref="WIDExploration.TotalEstimatedPages"/>, <see cref="WIDExploration.Pages"/>, <see cref="WIDExploration.PageItems"/> and <see cref="WIDExploration.PageItemsExtended"/>.
+        /// </summary>
+        Stage3_UpToAllPageItemsExtended
 
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 16.05.2021
+    Last Update: 19.05.2021
 */

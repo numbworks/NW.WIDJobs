@@ -2,26 +2,37 @@
 
 namespace NW.WIDJobs
 {
-    public class WIDResult
+
+    /// <summary>
+    /// The result of the exploration.
+    /// </summary>
+    public class WIDExploration
     {
 
         // Fields
         // Properties
         public string RunId { get; }
         public uint TotalResults { get; }
-        public ushort? TotalEstimatedPages { get; }
+        public ushort TotalEstimatedPages { get; }
+        public WIDCategories Category { get; }
+        public WIDStages Stage { get; }
+        public bool IsCompleted { get; }
         public List<Page> Pages { get; }
         public List<PageItem> PageItems { get; }
         public List<PageItemExtended> PageItemsExtended { get; }
 
         // Constructors
-        public WIDResult(
+        public WIDExploration(
             string runId,
             uint totalResults,
-            ushort? totalEstimatedPages = null,
+            ushort totalEstimatedPages,
+            WIDCategories category,
+            WIDStages stage,
+            bool isCompleted,
             List<Page> pages = null,
             List<PageItem> pageItems = null,
-            List<PageItemExtended> pageItemsExtended = null)
+            List<PageItemExtended> pageItemsExtended = null
+            )
         {
 
             Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
@@ -29,6 +40,10 @@ namespace NW.WIDJobs
             RunId = runId;
             TotalResults = totalResults;
             TotalEstimatedPages = totalEstimatedPages;
+            Category = category;
+            Stage = stage;
+            IsCompleted = isCompleted;
+
             Pages = pages;
             PageItems = pageItems;
             PageItemsExtended = pageItemsExtended;
@@ -43,7 +58,10 @@ namespace NW.WIDJobs
                 "{ ",
                 $"'{nameof(RunId)}':'{RunId}', ",
                 $"'{nameof(TotalResults)}':'{TotalResults}', ",
-                $"'{nameof(TotalEstimatedPages)}':'{TotalEstimatedPages?.ToString() ?? "null"}', ",
+                $"'{nameof(TotalEstimatedPages)}':'{TotalEstimatedPages}', ",
+                $"'{nameof(Category)}':'{Category}', ",
+                $"'{nameof(Stage)}':'{Stage}', ",
+                $"'{nameof(IsCompleted)}':'{IsCompleted}', ",
                 $"'{nameof(Pages)}':'{Pages?.Count.ToString() ?? "null"}', ",
                 $"'{nameof(PageItems)}':'{PageItems?.Count.ToString() ?? "null"}', ",
                 $"'{nameof(PageItemsExtended)}':'{PageItemsExtended?.Count.ToString() ?? "null"}'",
@@ -59,5 +77,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 16.05.2021
+    Last Update: 19.05.2021
 */

@@ -32,21 +32,16 @@ namespace NW.WIDJobs
             : this(new GetRequestManager(), new PageScraper(), new WIDCategoryManager()) { }
 
         // Methods (public)
-        public string CreateUrl(ushort pageNumber)
-        {
-
-            Validator.ThrowIfLessThanOne(pageNumber, nameof(pageNumber));
-
-            if (pageNumber == 1)
-                return "https://www.workindenmark.dk/Search/Job-search?q=&orderBy=date";
-
-            return $"https://www.workindenmark.dk/Search/Job-search?q=&orderBy=date&PageNum={pageNumber}&";
-
-        }
         public string CreateUrl(ushort pageNumber, WIDCategories category)
         {
 
             Validator.ThrowIfLessThanOne(pageNumber, nameof(pageNumber));
+
+            if (category == WIDCategories.AllCategories && pageNumber == 1)
+                return "https://www.workindenmark.dk/Search/Job-search?q=&orderBy=date";
+
+            if (category == WIDCategories.AllCategories && pageNumber > 1)
+                return $"https://www.workindenmark.dk/Search/Job-search?q=&orderBy=date&PageNum={pageNumber}&";
 
             string token = _categoryManager.GetCategoryToken(category);
 
@@ -54,20 +49,6 @@ namespace NW.WIDJobs
                 return $"https://www.workindenmark.dk/search/Job-search?q=&categories={token}&orderBy=date";
 
             return $"https://www.workindenmark.dk/search/Job-search?q=&categories={token}&orderBy=date&PageNum={pageNumber}";
-
-        }
-        public Page GetPage(string runId, ushort pageNumber)
-        {
-
-            Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
-            Validator.ThrowIfLessThanOne(pageNumber, nameof(pageNumber));
-
-            string url = CreateUrl(pageNumber);
-            string content = GetContent(url);
-
-            Page page = new Page(runId, pageNumber, content);
-
-            return page;
 
         }
         public uint GetTotalResults(string content)
@@ -110,10 +91,24 @@ namespace NW.WIDJobs
             return _getRequestManager.Send(url, Encoding.UTF8);
 
         }
+        public Page GetPage(string runId, ushort pageNumber, WIDCategories category)
+        {
+
+            Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
+            Validator.ThrowIfLessThanOne(pageNumber, nameof(pageNumber));
+
+            string url = CreateUrl(pageNumber, category);
+            string content = GetContent(url);
+
+            Page page = new Page(runId, pageNumber, content);
+
+            return page;
+
+        }
 
         // Methods (private)
 
-        }
+    }
     }
 
 /*

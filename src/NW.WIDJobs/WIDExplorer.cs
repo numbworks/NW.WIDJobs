@@ -19,6 +19,7 @@ namespace NW.WIDJobs
         public static string DefaultNotSerialized { get; } = "<not_serialized>";
         public static ushort DefaultInitialPageNumber { get; } = 1;
         public DateTime Now { get; }
+        public string RunId { get; }
 
         // Constructors
         public WIDExplorer
@@ -37,19 +38,22 @@ namespace NW.WIDJobs
             : this(new WIDExplorerComponents(), new WIDExplorerSettings(), DateTime.Now) { }
 
         // Methods (public)
-        public string ToJson(WIDResult result)
+        public string ToJson(WIDExploration exploration)
         {
 
-            Validator.ValidateObject(result, nameof(result));
+            Validator.ValidateObject(exploration, nameof(exploration));
 
-            WIDResult clean
-                = new WIDResult(
-                        result.RunId,
-                        result.TotalResults,
-                        result.TotalEstimatedPages,
-                        result.Pages?.Select(page => new Page(page.RunId, page.PageNumber, DefaultNotSerialized)).ToList(),
-                        result.PageItems,
-                        result.PageItemsExtended
+            WIDExploration clean
+                = new WIDExploration(
+                        exploration.RunId,
+                        exploration.TotalResults,
+                        exploration.TotalEstimatedPages,
+                        exploration.Category,
+                        exploration.Stage,
+                        exploration.IsCompleted,
+                        exploration.Pages?.Select(page => new Page(page.RunId, page.PageNumber, DefaultNotSerialized)).ToList(),
+                        exploration.PageItems,
+                        exploration.PageItemsExtended
                         );
 
             JsonSerializerOptions jso = new JsonSerializerOptions();
@@ -59,51 +63,27 @@ namespace NW.WIDJobs
 
         }
 
-
-        public WIDResult Explore
-            (string runId, ushort untilPageNumber, WIDStages stage)
-        {
-
-            Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
-            Validator.ThrowIfLessThanOne(untilPageNumber, nameof(untilPageNumber));
-
-            LogInitialization(runId, DefaultInitialPageNumber, untilPageNumber, stage);
-
-            (string content, uint totalResults) stage1 = ProcessStage1All(DefaultInitialPageNumber);
-            if (stage == WIDStages.Stage1_TotalResults)
-                return CompleteExploration(runId, stage1.totalResults);
-
-            return ProcessStage2to5(runId, untilPageNumber, stage, stage1);
-
-        }
-        public WIDResult Explore
-            (ushort untilPageNumber, WIDStages stage)
-        {
-
-            ushort initialPageNumber = 1;
-            string runId = _components.RunIdManager.Create(Now, initialPageNumber, untilPageNumber);
-
-            return Explore(runId, untilPageNumber, stage);
-
-        }
-
-        public WIDResult Explore
+        public WIDExploration Explore
             (string runId, ushort untilPageNumber, WIDCategories category, WIDStages stage)
         {
 
             Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
             Validator.ThrowIfLessThanOne(untilPageNumber, nameof(untilPageNumber));
 
-            LogInitialization(runId, DefaultInitialPageNumber, untilPageNumber, category, stage);
+            WIDExploration exploration = ProcessStage1(runId, DefaultInitialPageNumber, category, stage);
+            if (exploration.IsCompleted)
+                return LogCompletionMessageAndReturn(exploration);
 
-            (string content, uint totalResults) stage1 = ProcessStage1Category(DefaultInitialPageNumber, category);
-            if (stage == WIDStages.Stage1_TotalResults)
-                return CompleteExploration(runId, stage1.totalResults);
+            exploration = ProcessStage2(exploration, untilPageNumber, stage);
+            if (exploration.IsCompleted)
+                return LogCompletionMessageAndReturn(exploration);
 
-            return ProcessStage2to5(runId, untilPageNumber, stage, stage1);
+            exploration = ProcessStage3(exploration, stage);
+
+            return LogCompletionMessageAndReturn(exploration);
 
         }
-        public WIDResult Explore
+        public WIDExploration Explore
             (ushort untilPageNumber, WIDCategories category, WIDStages stage)
         {
 
@@ -112,146 +92,85 @@ namespace NW.WIDJobs
 
             return Explore(runId, untilPageNumber, category, stage);
 
-        }
-
-        public WIDResult Explore
-            (string runId, DateTime untilDate, WIDCategories category, WIDStages stage)
-        {
-
-            Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
-            Validator.ThrowIfFirstIsOlderOrEqual(Now, nameof(Now), untilDate, nameof(untilDate));
-
-            ushort initialPageNumber = 1;
-            string url = _components.PageManager.CreateUrl(initialPageNumber, category);
-            string content = _components.PageManager.GetContent(url);
-            uint totalResults = _components.PageManager.GetTotalResults(content);
-            List<DateTime> createDates = _components.PageItemScraper.ExtractAndParseCreateDates(content);
-            bool status = _components.PageItemScraper.IsWithinRange(untilDate, createDates);
-
-            if (status == true && stage == WIDStages.Stage1_TotalResults)
-                return CompleteExploration(runId, totalResults);
-
-            ushort totalEstimatedPages = _components.PageManager.GetTotalEstimatedPages(totalResults);
-            if (status == true && stage == WIDStages.Stage2_TotalEstimatedPages)
-                return CompleteExploration(runId, totalResults, totalEstimatedPages);
-
-
-            foreach (ushort i in Enumerable.Range(initialPageNumber, totalEstimatedPages))
-            {
-
-
-            }
-
-
-
-            return null;
 
         }
-        public WIDResult Explore
-            (DateTime untilDate, WIDCategories category, WIDStages stage)
-        {
 
-            string runId = _components.RunIdManager.Create(Now, untilDate);
-
-            return Explore(runId, untilDate, category, stage);
-
-        }
 
         // Methods (private)
-        private void LogInitialization
-            (string runId, ushort initialPageNumber, ushort untilPageNumber, WIDCategories category, WIDStages stage)
+        private void ConditionallySleep
+            (ushort i, ushort parallelRequests, uint pauseBetweenRequestsMs)
         {
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationStarted);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs(runId));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_InitialPageNumberIs(initialPageNumber));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_UntilPageNumberIs(untilPageNumber));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_CategoryIs(category));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationStageIs(stage));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(stage));
+            // Do a pause of x each y requests
+            // i != 0, because 0 % x = 0...
+            if (i != 0 && i % parallelRequests == 0)
+                Thread.Sleep((int)pauseBetweenRequestsMs);
 
         }
-        private void LogInitialization
-            (string runId, ushort initialPageNumber, ushort untilPageNumber, WIDStages stage)
+        private WIDExploration LogCompletionMessageAndReturn(WIDExploration exploration)
         {
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationStarted);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs(runId));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_InitialPageNumberIs(initialPageNumber));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_UntilPageNumberIs(untilPageNumber));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_NoCategoryFilter);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationStageIs(stage));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(stage));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationCompleted);
+
+            return exploration;
 
         }
 
-        private (string content, uint totalResults) ProcessStage1Category
-            (ushort initialPageNumber, WIDCategories category)
+        private WIDExploration ProcessStage1
+            (string runId, ushort initialPageNumber, WIDCategories category, WIDStages stage)
         {
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(stage));
 
             string url = _components.PageManager.CreateUrl(initialPageNumber, category);
 
-            return ProcessStage1(url);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_UrlCreated);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_UrlIs(url));
 
-        }
-        private (string content, uint totalResults) ProcessStage1All
-            (ushort initialPageNumber)
-        {
+            string content = _components.PageManager.GetContent(url);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ContentSuccessfullyRetrieved);
 
-            string url = _components.PageManager.CreateUrl(initialPageNumber);
-
-            return ProcessStage1(url);
-
-        }
-        private ushort ProcessStage2
-            (uint totalResults)
-        {
-
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(WIDStages.Stage2_TotalEstimatedPages));
+            uint totalResults = _components.PageScraper.GetTotalResults(content);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_TotalResultsAre(totalResults));
 
             ushort totalEstimatedPages = _components.PageManager.GetTotalEstimatedPages(totalResults);
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_TotalEstimatedPagesAre(totalEstimatedPages));
 
-            return totalEstimatedPages;
+            bool isCompleted = false;
+            if (stage == WIDStages.Stage1_OnlyMetrics)
+                isCompleted = true;
+
+            Page page = new Page(runId, initialPageNumber, content);
+            List<Page> pages = new List<Page>() { page };
+
+            return 
+                new WIDExploration(
+                        runId, 
+                        totalResults, 
+                        totalEstimatedPages, 
+                        category, 
+                        stage, 
+                        isCompleted, 
+                        pages);
 
         }
-        private List<Page> ProcessStage3
-            (string runId, ushort initialPageNumber, string content)
+        private WIDExploration ProcessStage2
+            (WIDExploration exploration, ushort untilPageNumber, WIDStages stage)
         {
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(WIDStages.Stage3_Pages));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(stage));
 
-            Page initialPage = new Page(runId, initialPageNumber, content);
-            List<Page> pages = new List<Page>() { initialPage };
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_InitialPageCreated);
+            List<PageItem> stage2PageItems = _components.PageItemScraper.Do(exploration.Pages[0]);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemScrapedInitial(stage2PageItems));
 
-            return pages;
-
-        }
-        private List<PageItem> ProcessStage4A
-            (List<Page> pages)
-        {
-
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(WIDStages.Stage4_PageItems));
-
-            List<PageItem> pageItems = _components.PageItemScraper.Do(pages[0]);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemScrapedInitial(pageItems));
-
-            return pageItems;
-
-        }
-        private (ushort finalPageNumber, List<Page> pages, List<PageItem> pageItems) ProcessStage4B
-            (string runId, ushort finalPageNumber, ushort totalEstimatedPages, List<Page> pages, List<PageItem> pageItems)
-        {
-
-            ushort stage4bFinalPageNumber = finalPageNumber;
-            if (stage4bFinalPageNumber > totalEstimatedPages)
+            ushort stage2UntilPageNumber = untilPageNumber;
+            if (stage2UntilPageNumber > exploration.TotalEstimatedPages)
             {
 
-                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FinalPageNumberIsHigher(stage4bFinalPageNumber, totalEstimatedPages));
-                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FinalPageNumberWillBeNow(totalEstimatedPages));
+                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FinalPageNumberIsHigher(stage2UntilPageNumber, exploration.TotalEstimatedPages));
+                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FinalPageNumberWillBeNow(exploration.TotalEstimatedPages));
 
-                stage4bFinalPageNumber = totalEstimatedPages;
+                stage2UntilPageNumber = exploration.TotalEstimatedPages;
 
             }
 
@@ -259,16 +178,15 @@ namespace NW.WIDJobs
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ParallelRequestsAre(_settings.ParallelRequests));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PauseBetweenRequestsIs(_settings.PauseBetweenRequestsMs));
 
-            List<Page> stage4bPages = new List<Page>(pages);
-            List<PageItem> stage4bPageItems = new List<PageItem>(pageItems);
-            for (ushort i = 2; i <= stage4bFinalPageNumber; i++)
+            List<Page> stage2Pages = new List<Page>(exploration.Pages);
+            for (ushort i = 2; i <= stage2UntilPageNumber; i++)
             {
 
-                Page currentPage = _components.PageManager.GetPage(runId, i);
+                Page currentPage = _components.PageManager.GetPage(exploration.RunId, i, exploration.Category);
                 List<PageItem> currentPageItems = _components.PageItemScraper.Do(currentPage);
 
-                stage4bPages.Add(currentPage);
-                stage4bPageItems.AddRange(currentPageItems);
+                stage2Pages.Add(currentPage);
+                stage2PageItems.AddRange(currentPageItems);
 
                 _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemObjectsScraped(i, currentPageItems));
 
@@ -276,19 +194,32 @@ namespace NW.WIDJobs
 
             }
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemObjectsScrapedTotal(stage4bPageItems));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemObjectsScrapedTotal(stage2PageItems));
 
-            return (stage4bFinalPageNumber, stage4bPages, stage4bPageItems);
+            bool isCompleted = false;
+            if (stage == WIDStages.Stage2_UpToAllPageItems)
+                isCompleted = true;
+
+            return 
+                new WIDExploration(
+                        exploration.RunId, 
+                        exploration.TotalResults,
+                        exploration.TotalEstimatedPages,
+                        exploration.Category, 
+                        stage, 
+                        isCompleted,
+                        stage2Pages,
+                        stage2PageItems);
 
         }
-        private List<PageItemExtended> ProcessStage5
-            (List<PageItem> pageItems)
+        private WIDExploration ProcessStage3
+            (WIDExploration exploration, WIDStages stage)
         {
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(WIDStages.Stage5_PageItemsExtended));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(stage));
 
             List<PageItemExtended> pageItemsExtended = new List<PageItemExtended>();
-            foreach (PageItem pageItem in pageItems)
+            foreach (PageItem pageItem in exploration.PageItems)
             {
 
                 PageItemExtended current = _components.PageItemExtendedManager.Get(pageItem);
@@ -301,77 +232,20 @@ namespace NW.WIDJobs
             }
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemExtendedScrapedTotal(pageItemsExtended));
-            
-            return pageItemsExtended;
-        
-        }
 
-        private WIDResult ProcessStage2to5
-            (string runId, ushort untilPageNumber, WIDStages stage, (string content, uint totalResults) stage1)
-        {
+            bool isCompleted =  true;
 
-            ushort stage2TotalEstimatedPages = ProcessStage2(stage1.totalResults);
-            if (stage == WIDStages.Stage2_TotalEstimatedPages)
-                return CompleteExploration(runId, stage1.totalResults, stage2TotalEstimatedPages);
-
-            List<Page> stage3Pages = ProcessStage3(runId, DefaultInitialPageNumber, stage1.content);
-            if (untilPageNumber == 1 && stage == WIDStages.Stage3_Pages)
-                return CompleteExploration(runId, stage1.totalResults, stage2TotalEstimatedPages, stage3Pages);
-
-            List<PageItem> stage4aPageItems = ProcessStage4A(stage3Pages);
-            if (untilPageNumber == 1 && stage == WIDStages.Stage4_PageItems)
-                return CompleteExploration(runId, stage1.totalResults, stage2TotalEstimatedPages, stage3Pages, stage4aPageItems);
-
-            (ushort finalPageNumber, List<Page> pages, List<PageItem> pageItems) stage4B
-                = ProcessStage4B(runId, untilPageNumber, stage2TotalEstimatedPages, stage3Pages, stage4aPageItems);
-            if (stage == WIDStages.Stage4_PageItems)
-                return CompleteExploration(runId, stage1.totalResults, stage2TotalEstimatedPages, stage3Pages, stage4B.pageItems);
-
-            List<PageItemExtended> stage5PageItemsExtended = ProcessStage5(stage4B.pageItems);
-
-            return CompleteExploration
-                (runId, stage1.totalResults, stage2TotalEstimatedPages, stage4B.pages, stage4B.pageItems, stage5PageItemsExtended);
-
-        }
-        private (string content, uint totalResults) ProcessStage1(string url)
-        {
-
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_UrlCreated);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_UrlIs(url));
-
-            string content = _components.PageManager.GetContent(url);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ContentSuccessfullyRetrieved);
-
-            uint totalResults = _components.PageScraper.GetTotalResults(content);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_TotalResultsAre(totalResults));
-
-            return (content, totalResults);
-
-        }
-        private WIDResult CompleteExploration(
-            string runId,
-            uint totalResults,
-            ushort? totalEstimatedPages = null,
-            List<Page> pages = null,
-            List<PageItem> pageItems = null,
-            List<PageItemExtended> pageItemsExtended = null)
-        {
-
-            _components.LoggingAction.Invoke($"Exploration has been completed.");
-
-            return new WIDResult
-                    (runId, totalResults, totalEstimatedPages, pages, pageItems, pageItemsExtended);
-
-        }
-
-        private void ConditionallySleep
-            (ushort i, ushort parallelRequests, uint pauseBetweenRequestsMs)
-        {
-
-            // Do a pause of x each y requests
-            // i != 0, because 0 % x = 0...
-            if (i != 0 && i % parallelRequests == 0)
-                Thread.Sleep((int)pauseBetweenRequestsMs);
+            return
+                new WIDExploration(
+                        exploration.RunId,
+                        exploration.TotalResults,
+                        exploration.TotalEstimatedPages,
+                        exploration.Category,
+                        stage,
+                        isCompleted,
+                        exploration.Pages,
+                        exploration.PageItems,
+                        pageItemsExtended);
 
         }
 
@@ -380,5 +254,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 18.05.2021
+    Last Update: 19.05.2021
 */

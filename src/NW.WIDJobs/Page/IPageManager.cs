@@ -3,15 +3,14 @@
     public interface IPageManager
     {
         string GetContent(string url);
-        Page GetPage(string runId, ushort pageNumber);
         ushort GetTotalEstimatedPages(uint totalResults);
         uint GetTotalResults(string content);
-        string CreateUrl(ushort pageNumber);
         string CreateUrl(ushort pageNumber, WIDCategories category);
+        Page GetPage(string runId, ushort pageNumber, WIDCategories category);
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 16.05.2021
+    Last Update: 19.05.2021
 */

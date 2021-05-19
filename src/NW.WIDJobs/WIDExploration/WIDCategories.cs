@@ -4,6 +4,7 @@ namespace NW.WIDJobs
 {
     public enum WIDCategories
     {
+        AllCategories,
         [Description("Not%20specified")] NotSpecified,
         Management,
         [Description("Research/Education")] ResearchEducation,
@@ -32,5 +33,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 16.05.2021
+    Last Update: 19.05.2021
 */

@@ -60,7 +60,7 @@ namespace NW.WIDJobs
             (url, pattern) => $"Not possible to extract {nameof(PageItem.JobId)} from '{url}' with pattern: '{pattern}'.";
 
         // WIDExplorer
-        public static string WIDExplorer_ExplorationStarted = "Exploration started...";
+        public static string WIDExplorer_ExplorationStarted = "The exploration has started...";
         public static Func<string, string> WIDExplorer_RunIdIs 
             = (runId) => $"RunId:'{runId}'.";
         public static Func<ushort, string> WIDExplorer_InitialPageNumberIs
@@ -82,8 +82,6 @@ namespace NW.WIDJobs
             = (totalResults) => $"TotalResults:'{totalResults}'.";
         public static Func<ushort, string> WIDExplorer_TotalEstimatedPagesAre
             = (totalEstimatedPages) => $"TotalEstimatedPages:'{totalEstimatedPages}'.";
-        public static string WIDExplorer_InitialPageCreated
-            = $"Initial '{nameof(Page)}' object has been created for the provided parameters.";
         public static Func<List<PageItem>, string> WIDExplorer_PageItemScrapedInitial
             = (pageItems) => $"'{pageItems.Count}' '{nameof(PageItem)}' objects have been scraped out of the initial page.";
         public static Func<ushort, ushort, string> WIDExplorer_FinalPageNumberIsHigher
@@ -104,8 +102,8 @@ namespace NW.WIDJobs
             = (pageItem) => $"Page '{pageItem.PageNumber}', PageItem '{pageItem.PageItemNumber}' - A '{nameof(PageItemExtended)}' object has been scraped.";
         public static Func<List<PageItemExtended>, string> WIDExplorer_PageItemExtendedScrapedTotal
             = (pageItemsExtended) => $"'{pageItemsExtended.Count}' '{nameof(PageItemExtended)}' objects have been scraped in total.";
-        public static string WIDExplorer_NoCategoryFilter
-            = "No category filter has been selected.";
+        public static string WIDExplorer_ExplorationCompleted
+            = "The exploration has been completed.";
 
 
     }
