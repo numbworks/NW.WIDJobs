@@ -111,6 +111,8 @@ namespace NW.WIDJobs
             if (exploration.IsCompleted)
                 return LogCompletionMessageAndReturn(exploration);
 
+            // Remove Items?
+
             List<Page> pages = new List<Page>() { exploration.Pages[0] };
             List<PageItem> pageItems = _components.PageItemScraper.Do(exploration.Pages[0]);
 
