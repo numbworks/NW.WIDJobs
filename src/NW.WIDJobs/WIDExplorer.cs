@@ -37,6 +37,56 @@ namespace NW.WIDJobs
             : this(new WIDExplorerComponents(), new WIDExplorerSettings(), DateTime.Now) { }
 
         // Methods (public)
+        public string ToJson(WIDResult result)
+        {
+
+            Validator.ValidateObject(result, nameof(result));
+
+            WIDResult clean
+                = new WIDResult(
+                        result.RunId,
+                        result.TotalResults,
+                        result.TotalEstimatedPages,
+                        result.Pages?.Select(page => new Page(page.RunId, page.PageNumber, DefaultNotSerialized)).ToList(),
+                        result.PageItems,
+                        result.PageItemsExtended
+                        );
+
+            JsonSerializerOptions jso = new JsonSerializerOptions();
+            jso.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
+
+            return JsonSerializer.Serialize(clean, jso);
+
+        }
+
+
+        public WIDResult Explore
+            (string runId, ushort untilPageNumber, WIDStages stage)
+        {
+
+            Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
+            Validator.ThrowIfLessThanOne(untilPageNumber, nameof(untilPageNumber));
+
+            LogInitialization(runId, DefaultInitialPageNumber, untilPageNumber, stage);
+
+            (string content, uint totalResults) stage1 = ProcessStage1All(DefaultInitialPageNumber);
+            if (stage == WIDStages.Stage1_TotalResults)
+                return CompleteExploration(runId, stage1.totalResults);
+
+            return ProcessStage2to5(runId, untilPageNumber, stage, stage1);
+
+        }
+        public WIDResult Explore
+            (ushort untilPageNumber, WIDStages stage)
+        {
+
+            ushort initialPageNumber = 1;
+            string runId = _components.RunIdManager.Create(Now, initialPageNumber, untilPageNumber);
+
+            return Explore(runId, untilPageNumber, stage);
+
+        }
+
         public WIDResult Explore
             (string runId, ushort untilPageNumber, WIDCategories category, WIDStages stage)
         {
@@ -50,27 +100,7 @@ namespace NW.WIDJobs
             if (stage == WIDStages.Stage1_TotalResults)
                 return CompleteExploration(runId, stage1.totalResults);
 
-            ushort stage2TotalEstimatedPages = ProcessStage2(stage1.totalResults);
-            if (stage == WIDStages.Stage2_TotalEstimatedPages)
-                return CompleteExploration(runId, stage1.totalResults, stage2TotalEstimatedPages);
-
-            List<Page> stage3Pages = ProcessStage3(runId, DefaultInitialPageNumber, stage1.content);
-            if (untilPageNumber == 1 && stage == WIDStages.Stage3_Pages)
-                return CompleteExploration(runId, stage1.totalResults, stage2TotalEstimatedPages, stage3Pages);
-
-            List<PageItem> stage4aPageItems = ProcessStage4A(stage3Pages);
-            if (untilPageNumber == 1 && stage == WIDStages.Stage4_PageItems)
-                return CompleteExploration(runId, stage1.totalResults, stage2TotalEstimatedPages, stage3Pages, stage4aPageItems);
-
-            (ushort finalPageNumber, List<Page> pages, List<PageItem> pageItems) stage4B
-                = ProcessStage4B(runId, untilPageNumber, stage2TotalEstimatedPages, stage3Pages, stage4aPageItems);
-            if (stage == WIDStages.Stage4_PageItems)
-                return CompleteExploration(runId, stage1.totalResults, stage2TotalEstimatedPages, stage3Pages, stage4B.pageItems);
-
-            List<PageItemExtended> stage5PageItemsExtended = ProcessStage5(stage4B.pageItems);
-
-            return CompleteExploration
-                (runId, stage1.totalResults, stage2TotalEstimatedPages, stage4B.pages, stage4B.pageItems, stage5PageItemsExtended);
+            return ProcessStage2to5(runId, untilPageNumber, stage, stage1);
 
         }
         public WIDResult Explore
@@ -115,28 +145,6 @@ namespace NW.WIDJobs
 
         }
 
-        public string ToJson(WIDResult result)
-        {
-
-            Validator.ValidateObject(result, nameof(result));
-
-            WIDResult clean
-                = new WIDResult(
-                        result.RunId,
-                        result.TotalResults,
-                        result.TotalEstimatedPages,
-                        result.Pages?.Select(page => new Page(page.RunId, page.PageNumber, DefaultNotSerialized)).ToList(),
-                        result.PageItems,
-                        result.PageItemsExtended
-                        );
-
-            JsonSerializerOptions jso = new JsonSerializerOptions();
-            jso.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
-
-            return JsonSerializer.Serialize(clean, jso);
-
-        }
-
         // Methods (private)
         private void LogInitialization
             (string runId, ushort initialPageNumber, ushort untilPageNumber, WIDCategories category, WIDStages stage)
@@ -151,6 +159,20 @@ namespace NW.WIDJobs
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(stage));
 
         }
+        private void LogInitialization
+            (string runId, ushort initialPageNumber, ushort untilPageNumber, WIDStages stage)
+        {
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationStarted);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs(runId));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_InitialPageNumberIs(initialPageNumber));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_UntilPageNumberIs(untilPageNumber));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_NoCategoryFilter);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationStageIs(stage));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(stage));
+
+        }
+
         private (string content, uint totalResults) ProcessStage1Category
             (ushort initialPageNumber, WIDCategories category)
         {
@@ -270,6 +292,34 @@ namespace NW.WIDJobs
             
             return pageItemsExtended;
         
+        }
+
+        private WIDResult ProcessStage2to5
+            (string runId, ushort untilPageNumber, WIDStages stage, (string content, uint totalResults) stage1)
+        {
+
+            ushort stage2TotalEstimatedPages = ProcessStage2(stage1.totalResults);
+            if (stage == WIDStages.Stage2_TotalEstimatedPages)
+                return CompleteExploration(runId, stage1.totalResults, stage2TotalEstimatedPages);
+
+            List<Page> stage3Pages = ProcessStage3(runId, DefaultInitialPageNumber, stage1.content);
+            if (untilPageNumber == 1 && stage == WIDStages.Stage3_Pages)
+                return CompleteExploration(runId, stage1.totalResults, stage2TotalEstimatedPages, stage3Pages);
+
+            List<PageItem> stage4aPageItems = ProcessStage4A(stage3Pages);
+            if (untilPageNumber == 1 && stage == WIDStages.Stage4_PageItems)
+                return CompleteExploration(runId, stage1.totalResults, stage2TotalEstimatedPages, stage3Pages, stage4aPageItems);
+
+            (ushort finalPageNumber, List<Page> pages, List<PageItem> pageItems) stage4B
+                = ProcessStage4B(runId, untilPageNumber, stage2TotalEstimatedPages, stage3Pages, stage4aPageItems);
+            if (stage == WIDStages.Stage4_PageItems)
+                return CompleteExploration(runId, stage1.totalResults, stage2TotalEstimatedPages, stage3Pages, stage4B.pageItems);
+
+            List<PageItemExtended> stage5PageItemsExtended = ProcessStage5(stage4B.pageItems);
+
+            return CompleteExploration
+                (runId, stage1.totalResults, stage2TotalEstimatedPages, stage4B.pages, stage4B.pageItems, stage5PageItemsExtended);
+
         }
 
         private void ConditionallySleep
