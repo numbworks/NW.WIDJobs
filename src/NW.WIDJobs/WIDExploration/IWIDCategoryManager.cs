@@ -1,8 +1,8 @@
 ﻿namespace NW.WIDJobs
 {
-    public interface ICategoryManager
+    public interface IWIDCategoryManager
     {
-        string GetCategoryToken(Categories category);
+        string GetCategoryToken(WIDCategories category);
     }
 }
 

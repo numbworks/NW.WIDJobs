@@ -7,7 +7,7 @@
         ushort GetTotalEstimatedPages(uint totalResults);
         uint GetTotalResults(string content);
         string CreateUrl(ushort pageNumber);
-        string CreateUrl(ushort pageNumber, Categories category);
+        string CreateUrl(ushort pageNumber, WIDCategories category);
     }
 }
 

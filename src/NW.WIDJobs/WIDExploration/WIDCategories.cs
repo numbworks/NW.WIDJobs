@@ -2,7 +2,7 @@
 
 namespace NW.WIDJobs
 {
-    public enum Categories
+    public enum WIDCategories
     {
         [Description("Not%20specified")] NotSpecified,
         Management,

@@ -1031,7 +1031,7 @@ namespace NW.WIDJobs.UnitTests
                     = new PageManager(
                             Shared_FakeGetRequestManager.Invoke(Shared_Page01_Url),
                             new PageScraper(),
-                            new CategoryManager()
+                            new WIDCategoryManager()
                             );
 
         // PageItemExtendedManagerTests

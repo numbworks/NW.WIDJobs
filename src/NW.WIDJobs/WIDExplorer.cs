@@ -38,7 +38,7 @@ namespace NW.WIDJobs
 
         // Methods (public)
         public WIDResult Explore
-            (string runId, ushort untilPageNumber, Categories category, WIDStages stage)
+            (string runId, ushort untilPageNumber, WIDCategories category, WIDStages stage)
         {
 
             Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
@@ -74,7 +74,7 @@ namespace NW.WIDJobs
 
         }
         public WIDResult Explore
-            (ushort untilPageNumber, Categories category, WIDStages stage)
+            (ushort untilPageNumber, WIDCategories category, WIDStages stage)
         {
 
             ushort initialPageNumber = 1;
@@ -85,7 +85,7 @@ namespace NW.WIDJobs
         }
 
         public WIDResult Explore
-            (string runId, DateTime untilDate, Categories category, WIDStages stage)
+            (string runId, DateTime untilDate, WIDCategories category, WIDStages stage)
         {
 
             Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
@@ -106,7 +106,7 @@ namespace NW.WIDJobs
 
         }
         public WIDResult Explore
-            (DateTime untilDate, Categories category, WIDStages stage)
+            (DateTime untilDate, WIDCategories category, WIDStages stage)
         {
 
             string runId = _components.RunIdManager.Create(Now, untilDate);
@@ -139,7 +139,7 @@ namespace NW.WIDJobs
 
         // Methods (private)
         private void LogInitialization
-            (string runId, ushort initialPageNumber, ushort untilPageNumber, Categories category, WIDStages stage)
+            (string runId, ushort initialPageNumber, ushort untilPageNumber, WIDCategories category, WIDStages stage)
         {
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationStarted);
@@ -152,7 +152,7 @@ namespace NW.WIDJobs
 
         }
         private (string content, uint totalResults) ProcessStage1Category
-            (ushort initialPageNumber, Categories category)
+            (ushort initialPageNumber, WIDCategories category)
         {
 
             string url = _components.PageManager.CreateUrl(initialPageNumber, category);

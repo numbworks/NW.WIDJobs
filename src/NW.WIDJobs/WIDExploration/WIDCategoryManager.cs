@@ -4,16 +4,16 @@ using System.Reflection;
 
 namespace NW.WIDJobs
 {
-    public class CategoryManager : ICategoryManager
+    public class WIDCategoryManager : IWIDCategoryManager
     {
 
         // Fields
         // Properties
         // Constructors
-        public CategoryManager() { }
+        public WIDCategoryManager() { }
 
         // Methods (public)
-        public string GetCategoryToken(Categories category)
+        public string GetCategoryToken(WIDCategories category)
         {
 
             DescriptionAttribute attribute =

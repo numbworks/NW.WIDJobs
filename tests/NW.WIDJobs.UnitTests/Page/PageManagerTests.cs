@@ -27,13 +27,13 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                     (ushort)1,
-                    Categories.Analysis,
+                    WIDCategories.Analysis,
                     ObjectMother.Shared_Page01_UrlForAnalysis
                 ).SetArgDisplayNames($"{nameof(createUrlWithCategoryTestCases)}_01"),
 
             new TestCaseData(
                     (ushort)2,
-                    Categories.Analysis,
+                    WIDCategories.Analysis,
                     ObjectMother.Shared_Page02_UrlForAnalysis
                 ).SetArgDisplayNames($"{nameof(createUrlWithCategoryTestCases)}_02")
 
@@ -72,7 +72,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new PageManager(null, new PageScraper(), new CategoryManager())
+                    () => new PageManager(null, new PageScraper(), new WIDCategoryManager())
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("getRequestManager").Message
@@ -80,7 +80,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new PageManager(new GetRequestManager(), null, new CategoryManager())
+                    () => new PageManager(new GetRequestManager(), null, new WIDCategoryManager())
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("pageScraper").Message
@@ -152,7 +152,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new PageManager().CreateUrl(0, Categories.Analysis)
+                    () => new PageManager().CreateUrl(0, WIDCategories.Analysis)
                 ),
                 typeof(ArgumentException),
                 MessageCollection.Validator_VariableCantBeLessThanOne.Invoke("pageNumber")
@@ -178,7 +178,7 @@ namespace NW.WIDJobs.UnitTests
 
         [TestCaseSource(nameof(createUrlWithCategoryTestCases))]
         public void CreateUrl_ShouldReturnExpectedUrl_WhenInvoked
-            (ushort pageNumber, Categories category, string expected)
+            (ushort pageNumber, WIDCategories category, string expected)
         {
 
             // Arrange

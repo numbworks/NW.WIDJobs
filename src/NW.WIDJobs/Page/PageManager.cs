@@ -9,14 +9,14 @@ namespace NW.WIDJobs
         // Fields
         private IGetRequestManager _getRequestManager;
         private IPageScraper _pageScraper;
-        private ICategoryManager _categoryManager;
+        private IWIDCategoryManager _categoryManager;
 
         // Properties
         public static ushort PageItemsPerPage = 20;
 
         // Constructors
         public PageManager(
-            IGetRequestManager getRequestManager, IPageScraper pageScraper, ICategoryManager categoryManager)
+            IGetRequestManager getRequestManager, IPageScraper pageScraper, IWIDCategoryManager categoryManager)
         {
 
             Validator.ValidateObject(getRequestManager, nameof(getRequestManager));
@@ -29,7 +29,7 @@ namespace NW.WIDJobs
 
         }
         public PageManager()
-            : this(new GetRequestManager(), new PageScraper(), new CategoryManager()) { }
+            : this(new GetRequestManager(), new PageScraper(), new WIDCategoryManager()) { }
 
         // Methods (public)
         public string CreateUrl(ushort pageNumber)
@@ -43,7 +43,7 @@ namespace NW.WIDJobs
             return $"https://www.workindenmark.dk/Search/Job-search?q=&orderBy=date&PageNum={pageNumber}&";
 
         }
-        public string CreateUrl(ushort pageNumber, Categories category)
+        public string CreateUrl(ushort pageNumber, WIDCategories category)
         {
 
             Validator.ThrowIfLessThanOne(pageNumber, nameof(pageNumber));
