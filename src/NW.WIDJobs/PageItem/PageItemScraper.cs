@@ -73,6 +73,26 @@ namespace NW.WIDJobs
             return pageItems;
 
         }
+        public List<DateTime> ExtractAndParseCreateDates(string content)
+        {
+
+            /*
+                2021-05-09
+                2021-05-09
+                ...
+            */
+
+            Validator.ValidateStringNullOrEmpty(content, nameof(content));
+
+            string xpath = "//div[@class='col-sm-9 ']/p[contains(.,'Created')]/time/@datetime";
+            uint attributeNr = 0;
+
+            List<string> results = _xpathManager.GetAttributeValues(content, xpath, attributeNr);
+            List<DateTime> createDates = results.Select(result => ParseCreateDate(result)).ToList();
+
+            return createDates;
+
+        }
 
         // Methods (private)
         private List<string> ExtractAndFixUrls(string content)
@@ -108,24 +128,6 @@ namespace NW.WIDJobs
             titles = titles.Select(title => CleanTitle(title)).ToList();
 
             return titles;
-
-        }
-        private List<DateTime> ExtractAndParseCreateDates(string content)
-        {
-
-            /*
-                2021-05-09
-                2021-05-09
-                ...
-            */
-
-            string xpath = "//div[@class='col-sm-9 ']/p[contains(.,'Created')]/time/@datetime";
-            uint attributeNr = 0;
-
-            List<string> results = _xpathManager.GetAttributeValues(content, xpath, attributeNr);
-            List<DateTime> createDates = results.Select(result => ParseCreateDate(result)).ToList();
-
-            return createDates;
 
         }
         private List<DateTime?> ExtractCleanAndParseApplicationDates(string content)
@@ -384,5 +386,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 11.05.2021
+    Last Update: 19.05.2021
 */
