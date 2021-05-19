@@ -70,6 +70,8 @@ namespace NW.WIDJobs
             Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
             Validator.ThrowIfLessThanOne(untilPageNumber, nameof(untilPageNumber));
 
+            LogInitializationMessage(runId, DefaultInitialPageNumber, untilPageNumber, category, stage);
+
             WIDExploration exploration = ProcessStage1(runId, DefaultInitialPageNumber, category, stage);
             if (exploration.IsCompleted)
                 return LogCompletionMessageAndReturn(exploration);
@@ -95,7 +97,6 @@ namespace NW.WIDJobs
 
         }
 
-
         // Methods (private)
         private void ConditionallySleep
             (ushort i, ushort parallelRequests, uint pauseBetweenRequestsMs)
@@ -105,6 +106,18 @@ namespace NW.WIDJobs
             // i != 0, because 0 % x = 0...
             if (i != 0 && i % parallelRequests == 0)
                 Thread.Sleep((int)pauseBetweenRequestsMs);
+
+        }
+        private void LogInitializationMessage
+            (string runId, ushort initialPageNumber, ushort untilPageNumber, WIDCategories category, WIDStages stage)
+        {
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationStarted);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs(runId));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_InitialPageNumberIs(initialPageNumber));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_UntilPageNumberIs(untilPageNumber));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_CategoryIs(category));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationStageIs(stage));
 
         }
         private WIDExploration LogCompletionMessageAndReturn(WIDExploration exploration)
