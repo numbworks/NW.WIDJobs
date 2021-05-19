@@ -51,6 +51,7 @@ namespace NW.WIDJobs
                         exploration.Category,
                         exploration.Stage,
                         exploration.IsCompleted,
+                        exploration.IsPageItemsCleanupRequired,
                         exploration.Pages?.Select(page => new Page(page.RunId, page.PageNumber, DefaultNotSerialized)).ToList(),
                         exploration.PageItems,
                         exploration.PageItemsExtended
@@ -106,7 +107,7 @@ namespace NW.WIDJobs
             LogInitializationMessage(runId, thresholdDate, category, stage);
 
             WIDExploration exploration 
-                = ProcessStage1WhenThresholdDate(runId, DefaultInitialPageNumber, category, stage, thresholdDate);
+                = ProcessStage1WhenThresholdDate(runId, category, stage, thresholdDate);
             if (exploration.IsCompleted)
                 return LogCompletionMessageAndReturn(exploration);
 
@@ -209,6 +210,8 @@ namespace NW.WIDJobs
             if (stage == WIDStages.Stage1_OnlyMetrics)
                 isCompleted = true;
 
+            bool isPageItemsCleanupRequired = false;
+
             Page page = new Page(runId, initialPageNumber, content);
             List<Page> pages = new List<Page>() { page };
 
@@ -219,7 +222,8 @@ namespace NW.WIDJobs
                         totalEstimatedPages, 
                         category, 
                         stage, 
-                        isCompleted, 
+                        isCompleted,
+                        isPageItemsCleanupRequired,
                         pages);
 
         }
@@ -269,6 +273,8 @@ namespace NW.WIDJobs
             if (stage == WIDStages.Stage2_UpToAllPageItems)
                 isCompleted = true;
 
+            bool isPageItemsCleanupRequired = false;
+
             return 
                 new WIDExploration(
                         exploration.RunId, 
@@ -277,6 +283,7 @@ namespace NW.WIDJobs
                         exploration.Category, 
                         stage, 
                         isCompleted,
+                        isPageItemsCleanupRequired,
                         stage2Pages,
                         stage2PageItems);
 
@@ -303,6 +310,7 @@ namespace NW.WIDJobs
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemExtendedScrapedTotal(pageItemsExtended));
 
             bool isCompleted =  true;
+            bool isPageItemsCleanupRequired = false;
 
             return
                 new WIDExploration(
@@ -312,6 +320,7 @@ namespace NW.WIDJobs
                         exploration.Category,
                         stage,
                         isCompleted,
+                        isPageItemsCleanupRequired,
                         exploration.Pages,
                         exploration.PageItems,
                         pageItemsExtended);
@@ -319,7 +328,7 @@ namespace NW.WIDJobs
         }
 
         private WIDExploration ProcessStage1WhenThresholdDate
-            (string runId, ushort initialPageNumber, WIDCategories category, WIDStages stage, DateTime thresholdDate)
+            (string runId, WIDCategories category, WIDStages stage, DateTime thresholdDate)
         {
 
             WIDExploration exploration = ProcessStage1(runId, DefaultInitialPageNumber, category, stage);
@@ -332,8 +341,12 @@ namespace NW.WIDJobs
             // Log message
 
             bool isCompleted = false;
-            if (hasBeenFound == true && stage == WIDStages.Stage1_OnlyMetrics)
-                isCompleted = true;
+            bool isPageItemsCleanupRequired = false;
+            if (stage == WIDStages.Stage1_OnlyMetrics)
+                 isCompleted = true;
+
+            if (hasBeenFound == true && stage != WIDStages.Stage1_OnlyMetrics)
+                isPageItemsCleanupRequired = true;
 
             return
                 new WIDExploration(
@@ -343,6 +356,7 @@ namespace NW.WIDJobs
                         exploration.Category,
                         exploration.Stage,
                         isCompleted,
+                        isPageItemsCleanupRequired,
                         exploration.Pages);
 
         }
