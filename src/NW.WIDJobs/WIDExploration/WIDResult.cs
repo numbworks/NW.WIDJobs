@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace NW.WIDJobs
 {
-    public class ExplorationResult
+    public class WIDResult
     {
 
         // Fields
@@ -17,7 +15,7 @@ namespace NW.WIDJobs
         public List<PageItemExtended> PageItemsExtended { get; }
 
         // Constructors
-        public ExplorationResult(
+        public WIDResult(
             string runId,
             uint totalResults,
             ushort? totalEstimatedPages = null,

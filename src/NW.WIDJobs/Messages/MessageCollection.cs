@@ -67,9 +67,9 @@ namespace NW.WIDJobs
             = (finalPageNumber) => $"UntilPageNumber:'{finalPageNumber}'.";
         public static Func<Categories, string> WIDExplorer_CategoryIs
             = (category) => $"Category:'{category}'.";
-        public static Func<ExplorationStages, string> WIDExplorer_ExplorationStageIs
+        public static Func<WIDStages, string> WIDExplorer_ExplorationStageIs
             = (stage) => $"ExplorationStage:'{stage}'.";
-        public static Func<ExplorationStages, string> WIDExplorer_ExecutionStageStarted
+        public static Func<WIDStages, string> WIDExplorer_ExecutionStageStarted
             = (stage) => $"The execution of the '{stage}' has been started.";
         public static string WIDExplorer_UrlCreated = "Url has been created for the provided parameters.";
         public static Func<string, string> WIDExplorer_UrlIs

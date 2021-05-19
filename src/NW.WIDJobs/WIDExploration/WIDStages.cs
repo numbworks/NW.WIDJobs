@@ -1,6 +1,6 @@
 ﻿namespace NW.WIDJobs
 {
-    public enum ExplorationStages
+    public enum WIDStages
     {
 
         Stage1_TotalResults,
