@@ -140,6 +140,15 @@ namespace NW.WIDJobs
                 throw CreateException<T>(MessageCollection.Validator_AtLeastOneSubScraper.Invoke(lists));
 
         }
+        public static void ThrowIfFirstIsOlderOrEqual<T>(DateTime dt1, string variableName1, DateTime dt2, string variableName2) where T : Exception
+        {
+
+            if (dt1 >= dt2)
+                throw CreateException<T>(MessageCollection.Validator_FirstValueIsGreaterOrEqualThanSecondValue.Invoke(variableName1, variableName2));
+
+        }
+        public static void ThrowIfFirstIsOlderOrEqual(DateTime dt1, string variableName1, DateTime dt2, string variableName2)
+            => ThrowIfFirstIsOlderOrEqual<ArgumentException>(dt1, variableName1, dt2, variableName2);
 
         // Methods (private)
         private static T CreateException<T>(string message) where T : Exception

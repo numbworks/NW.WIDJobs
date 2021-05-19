@@ -52,6 +52,8 @@ namespace NW.WIDJobs
                                 );
 
                     };
+        public static Func<string, string, string> Validator_FirstDateIsOlderOrEqual
+            = (variableName1, variableName2) => $"'{variableName1}''s is older or equal than '{variableName2}'.";
 
         // PageItemScraper
         public static Func<string, string, string> PageItemScraper_NotPossibleToExtractJobId =
