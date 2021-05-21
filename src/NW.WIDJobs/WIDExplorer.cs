@@ -77,6 +77,8 @@ namespace NW.WIDJobs
             if (exploration.IsCompleted)
                 return LogCompletionMessageAndReturn(exploration);
 
+            finalPageNumber = EstablishFinalPageNumber(finalPageNumber, exploration.TotalEstimatedPages);
+
             exploration = ProcessStage2(exploration, finalPageNumber, stage);
             if (exploration.IsCompleted)
                 return LogCompletionMessageAndReturn(exploration);
@@ -106,8 +108,7 @@ namespace NW.WIDJobs
 
             LogInitializationMessage(runId, thresholdDate, category, stage);
 
-            WIDExploration exploration 
-                = ProcessStage1WhenThresholdDate(runId, category, stage, thresholdDate);
+            WIDExploration exploration = ProcessStage1(runId, DefaultInitialPageNumber, category, stage);
             if (exploration.IsCompleted)
                 return LogCompletionMessageAndReturn(exploration);
 
@@ -213,6 +214,7 @@ namespace NW.WIDJobs
                 isCompleted = true;
 
             bool isPageItemsCleanupRequired = false;
+            // This flag will be used in later stages.
 
             Page page = new Page(runId, initialPageNumber, content);
             List<Page> pages = new List<Page>() { page };
@@ -229,39 +231,45 @@ namespace NW.WIDJobs
                         pages);
 
         }
+        private ushort EstablishFinalPageNumber
+            (ushort finalPageNumber, ushort totalEstimatedPages)
+        {
+
+            if (finalPageNumber > totalEstimatedPages)
+            {
+
+                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FinalPageNumberIsHigher(finalPageNumber, totalEstimatedPages));
+                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FinalPageNumberWillBeNow(totalEstimatedPages));
+
+                return totalEstimatedPages;
+
+            }
+
+            return finalPageNumber;
+
+        }       
         private WIDExploration ProcessStage2
             (WIDExploration exploration, ushort finalPageNumber, WIDStages stage)
         {
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(stage));
 
-            List<PageItem> stage2PageItems = _components.PageItemScraper.Do(exploration.Pages[0]);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemScrapedInitial(stage2PageItems));
+            List<PageItem> pageItems = _components.PageItemScraper.Do(exploration.Pages[0]);
 
-            ushort stage2FinalPageNumber = finalPageNumber;
-            if (stage2FinalPageNumber > exploration.TotalEstimatedPages)
-            {
-
-                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FinalPageNumberIsHigher(stage2FinalPageNumber, exploration.TotalEstimatedPages));
-                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FinalPageNumberWillBeNow(exploration.TotalEstimatedPages));
-
-                stage2FinalPageNumber = exploration.TotalEstimatedPages;
-
-            }
-
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemScrapedInitial(pageItems));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_AntiFloodingStrategy);
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ParallelRequestsAre(_settings.ParallelRequests));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PauseBetweenRequestsIs(_settings.PauseBetweenRequestsMs));
 
             List<Page> stage2Pages = new List<Page>(exploration.Pages);
-            for (ushort i = 2; i <= stage2FinalPageNumber; i++)
+            for (ushort i = 2; i <= finalPageNumber; i++)
             {
 
                 Page currentPage = _components.PageManager.GetPage(exploration.RunId, i, exploration.Category);
                 List<PageItem> currentPageItems = _components.PageItemScraper.Do(currentPage);
 
                 stage2Pages.Add(currentPage);
-                stage2PageItems.AddRange(currentPageItems);
+                pageItems.AddRange(currentPageItems);
 
                 _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemObjectsScraped(i, currentPageItems));
 
@@ -269,7 +277,7 @@ namespace NW.WIDJobs
 
             }
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemObjectsScrapedTotal(stage2PageItems));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemObjectsScrapedTotal(pageItems));
 
             bool isCompleted = false;
             if (stage == WIDStages.Stage2_UpToAllPageItems)
@@ -287,7 +295,7 @@ namespace NW.WIDJobs
                         isCompleted,
                         isPageItemsCleanupRequired,
                         stage2Pages,
-                        stage2PageItems);
+                        pageItems);
 
         }
         private WIDExploration ProcessStage3
@@ -329,13 +337,11 @@ namespace NW.WIDJobs
 
         }
 
-        private WIDExploration ProcessStage1WhenThresholdDate
-            (string runId, WIDCategories category, WIDStages stage, DateTime thresholdDate)
+        private WIDExploration ProcessStage2WhenThresholdDate
+            (WIDExploration exploration, WIDStages stage, DateTime thresholdDate)
         {
 
-            WIDExploration exploration = ProcessStage1(runId, DefaultInitialPageNumber, category, stage);
-
-            // Log message
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(stage));
 
             List<DateTime> createDates = _components.PageItemScraper.ExtractAndParseCreateDates(exploration.Pages[0].Content);
             bool hasBeenFound = _components.PageItemScraper.HasBeenFound(thresholdDate, createDates);
@@ -343,10 +349,10 @@ namespace NW.WIDJobs
             // Log message
 
             bool isCompleted = false;
-            bool isPageItemsCleanupRequired = false;
             if (stage == WIDStages.Stage1_OnlyMetrics)
                  isCompleted = true;
 
+            bool isPageItemsCleanupRequired = false;
             if (hasBeenFound == true && stage != WIDStages.Stage1_OnlyMetrics)
                 isPageItemsCleanupRequired = true;
 
