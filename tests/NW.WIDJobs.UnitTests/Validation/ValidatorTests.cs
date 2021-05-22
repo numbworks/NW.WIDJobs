@@ -330,6 +330,25 @@ namespace NW.WIDJobs.UnitTests
                 ).SetArgDisplayNames($"{nameof(throwIfModuloIsNotZeroExceptionTestCases)}_01")
 
         };
+        private static TestCaseData[] throwIfFirstIsOlderOrEqualExceptionTestCases =
+        {
+
+            new TestCaseData(
+                new TestDelegate(
+                        () => Validator.ThrowIfFirstIsOlderOrEqual(
+                                            ObjectMother.Validator_DateTime2,
+                                            nameof(ObjectMother.Validator_DateTime2),
+                                            ObjectMother.Validator_DateTime1,
+                                            nameof(ObjectMother.Validator_DateTime1)
+                            )),
+                typeof(ArgumentException),
+                MessageCollection.Validator_FirstValueIsGreaterOrEqualThanSecondValue.Invoke(
+                                        nameof(ObjectMother.Validator_DateTime2),
+                                        nameof(ObjectMother.Validator_DateTime1)
+                                    )
+                ).SetArgDisplayNames($"{nameof(throwIfFirstIsOlderOrEqualExceptionTestCases)}_01")
+
+        };
 
         // SetUp
         // Tests
@@ -388,6 +407,10 @@ namespace NW.WIDJobs.UnitTests
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
+        [TestCaseSource(nameof(throwIfFirstIsOlderOrEqualExceptionTestCases))]
+        public void ThrowIfFirstIsOlderOrEqual_ShouldThrowACertainException_WhenUnproperArguments
+            (TestDelegate del, Type expectedType, string expectedMessage)
+                => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
         [Test]
         public void ValidateLength_ShouldDoNothing_WhenProperArgument()
