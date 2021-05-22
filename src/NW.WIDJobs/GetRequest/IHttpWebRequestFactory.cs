@@ -6,6 +6,7 @@ namespace NW.WIDJobs
     public interface IHttpWebRequestFactory
     {
 
+        /// <summary>Creates a <see cref="HttpWebRequest"/> object for the provided <paramref name="url"/>.</summary>
         HttpWebRequest Create(string url);
 
     }
@@ -13,5 +14,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 06.05.2021
+    Last Update: 22.05.2021
 */

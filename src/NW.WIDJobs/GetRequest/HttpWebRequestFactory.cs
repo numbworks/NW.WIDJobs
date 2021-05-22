@@ -6,19 +6,30 @@ namespace NW.WIDJobs
     public class HttpWebRequestFactory : IHttpWebRequestFactory
     {
 
-        // Fields
-        // Properties
-        // Constructors
+        #region Fields
+        #endregion
+
+        #region Properties
+        #endregion
+
+        #region Constructors
+
+        /// <summary>Initializes a <see cref="HttpWebRequestFactory"/> instance.</summary>
         public HttpWebRequestFactory() { }
 
-        // Methods
+        #endregion
+
+        #region Methods_public
+
         public HttpWebRequest Create(string url)
             => (HttpWebRequest)WebRequest.Create(url);
+
+        #endregion
 
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 06.05.2021
+    Last Update: 22.05.2021
 */
