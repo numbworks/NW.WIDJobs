@@ -93,7 +93,7 @@ namespace NW.WIDJobs
             return createDates;
 
         }
-        public bool HasBeenFound(DateTime thresholdDate, List<DateTime> createDates)
+        public bool IsThresholdConditionMet(DateTime thresholdDate, List<DateTime> createDates)
         {
 
             Validator.ValidateList(createDates, nameof(createDates));

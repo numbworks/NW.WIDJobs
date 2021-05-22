@@ -78,7 +78,7 @@ namespace NW.WIDJobs.UnitTests
             new TestCaseData(
                 new TestDelegate(
                     () => new PageItemScraper()
-                            .HasBeenFound(
+                            .IsThresholdConditionMet(
                                 ObjectMother.Shared_Page01Alternate_ThresholdDate,
                                 null
                                 )
@@ -88,7 +88,7 @@ namespace NW.WIDJobs.UnitTests
             ).SetArgDisplayNames($"{nameof(hasBeenFoundExceptionTestCases)}_01")
 
         };
-        private static TestCaseData[] hasBeenFoundTestCases =
+        private static TestCaseData[] isThresholdConditionMetTestCases =
         {
 
             // ThresholdDate > MostRecent
@@ -96,28 +96,28 @@ namespace NW.WIDJobs.UnitTests
                    ObjectMother.Shared_Page01Alternate_CreateDates.OrderByDescending(createDate => createDate.Date).First().AddDays(1),
                    ObjectMother.Shared_Page01Alternate_CreateDates,
                    false
-            ).SetArgDisplayNames($"{nameof(hasBeenFoundTestCases)}_01"),
+            ).SetArgDisplayNames($"{nameof(isThresholdConditionMetTestCases)}_01"),
 
             // ThresholdDate > LeastRecent && ThresholdDate <= MostRecent
             new TestCaseData(
                    ObjectMother.Shared_Page01Alternate_ThresholdDate,
                    ObjectMother.Shared_Page01Alternate_CreateDates,
                    true
-            ).SetArgDisplayNames($"{nameof(hasBeenFoundTestCases)}_02"),
+            ).SetArgDisplayNames($"{nameof(isThresholdConditionMetTestCases)}_02"),
 
             // ThresholdDate == LeastRecent
             new TestCaseData(
                    ObjectMother.Shared_Page01Alternate_CreateDates.OrderByDescending(createDate => createDate.Date).Reverse().First(),
                    ObjectMother.Shared_Page01Alternate_CreateDates,
                    false
-            ).SetArgDisplayNames($"{nameof(hasBeenFoundTestCases)}_03"),
+            ).SetArgDisplayNames($"{nameof(isThresholdConditionMetTestCases)}_03"),
 
             // ThresholdDate < LeastRecent
             new TestCaseData(
                    ObjectMother.Shared_Page01Alternate_CreateDates.OrderByDescending(createDate => createDate.Date).Reverse().First().AddDays(-1),
                    ObjectMother.Shared_Page01Alternate_CreateDates,
                    false
-            ).SetArgDisplayNames($"{nameof(hasBeenFoundTestCases)}_04"),
+            ).SetArgDisplayNames($"{nameof(isThresholdConditionMetTestCases)}_04"),
 
         };
 
@@ -159,14 +159,14 @@ namespace NW.WIDJobs.UnitTests
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
-        [TestCaseSource(nameof(hasBeenFoundTestCases))]
-        public void HasBeenFound_ShouldReturnExpectedBoolean_WhenProperArguments
+        [TestCaseSource(nameof(isThresholdConditionMetTestCases))]
+        public void IsThresholdConditionMet_ShouldReturnExpectedBoolean_WhenProperArguments
             (DateTime thresholdDate, List<DateTime> createDates, bool expected)
         {
 
             // Arrange
             // Act
-            bool actual = new PageItemScraper().HasBeenFound(thresholdDate, createDates);
+            bool actual = new PageItemScraper().IsThresholdConditionMet(thresholdDate, createDates);
 
             // Assert
             Assert.AreEqual(expected, actual);

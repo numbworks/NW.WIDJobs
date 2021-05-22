@@ -353,9 +353,9 @@ namespace NW.WIDJobs
                 }
 
                 List<DateTime> createDates = currentPageItems.Select(pageItem => pageItem.CreateDate).ToList();
-                bool hasBeenFound = _components.PageItemScraper.HasBeenFound(thresholdDate, createDates);
+                bool isThresholdConditionMet = _components.PageItemScraper.IsThresholdConditionMet(thresholdDate, createDates);
 
-                if (hasBeenFound)
+                if (isThresholdConditionMet)
                 {
 
                     _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ThresholdDateFoundPageNr(thresholdDate, i));
