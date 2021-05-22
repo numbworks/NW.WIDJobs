@@ -473,6 +473,18 @@ namespace NW.WIDJobs.UnitTests
                             )
                     });
 
+        [Test]
+        public void ThrowIfFirstIsOlderOrEqual_ShouldDoNothing_WhenProperArgument()
+            => Method_ShouldDoNothing_WhenProperArgument(
+                    new Action[] {
+                        () => Validator.ThrowIfFirstIsOlderOrEqual(
+                                ObjectMother.Validator_DateTime1,
+                                nameof(ObjectMother.Validator_DateTime1),
+                                ObjectMother.Validator_DateTime2,
+                                nameof(ObjectMother.Validator_DateTime2)
+                            )
+                    });
+
         // TearDown
         // Support methods
         public void Method_ShouldDoNothing_WhenProperArgument(Action[] actions)
@@ -501,8 +513,6 @@ namespace NW.WIDJobs.UnitTests
 }
 
 /*
-
     Author: numbworks@gmail.com
-    Last Update: 28.04.2021
-
+    Last Update: 22.05.2021
 */
