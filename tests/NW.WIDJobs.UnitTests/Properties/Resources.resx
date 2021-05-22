@@ -133,6 +133,9 @@
   <data name="Page02" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\html\page02.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="Page02Alternate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\html\page02alternate.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
   <data name="Page02_PageItemExtended18" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\html\page02_pageitemextended18.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>

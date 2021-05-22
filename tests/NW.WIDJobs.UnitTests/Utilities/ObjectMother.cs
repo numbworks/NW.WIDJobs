@@ -1026,8 +1026,252 @@ namespace NW.WIDJobs.UnitTests
 
         #endregion
 
+        #region Shared_Page01Alternate
+
+        internal static uint Shared_Page01Alternate_TotalResults = 2039;
+        internal static string Shared_Page01Alternate_Content = Properties.Resources.Page01Alternate;
+        internal static Page Shared_Page01Alternate = new Page(Shared_FakeRunId, 1, Shared_Page01Alternate_Content);
+
+        internal static DateTime Shared_Page01Alternate_CreateDate01 = new DateTime(2021, 05, 07);
+        internal static DateTime Shared_Page01Alternate_CreateDate02 = new DateTime(2021, 05, 07);
+        internal static DateTime Shared_Page01Alternate_CreateDate03 = new DateTime(2021, 05, 07);
+        internal static DateTime Shared_Page01Alternate_CreateDate04 = new DateTime(2021, 05, 05);
+        internal static DateTime Shared_Page01Alternate_CreateDate05 = new DateTime(2021, 05, 05);
+        internal static DateTime Shared_Page01Alternate_CreateDate06 = new DateTime(2021, 05, 05);
+        internal static DateTime Shared_Page01Alternate_CreateDate07 = new DateTime(2021, 05, 05);
+        internal static DateTime Shared_Page01Alternate_CreateDate08 = new DateTime(2021, 05, 01);
+        internal static DateTime Shared_Page01Alternate_CreateDate09 = new DateTime(2021, 05, 01);
+        internal static DateTime Shared_Page01Alternate_CreateDate10 = new DateTime(2021, 05, 01);
+        internal static DateTime Shared_Page01Alternate_CreateDate11 = new DateTime(2021, 04, 30);
+        internal static DateTime Shared_Page01Alternate_CreateDate12 = new DateTime(2021, 04, 30);
+        internal static DateTime Shared_Page01Alternate_CreateDate13 = new DateTime(2021, 04, 30);
+        internal static DateTime Shared_Page01Alternate_CreateDate14 = new DateTime(2021, 04, 30);
+        internal static DateTime Shared_Page01Alternate_CreateDate15 = new DateTime(2021, 04, 30);
+        internal static DateTime Shared_Page01Alternate_CreateDate16 = new DateTime(2021, 04, 30);
+        internal static DateTime Shared_Page01Alternate_CreateDate17 = new DateTime(2021, 04, 28);
+        internal static DateTime Shared_Page01Alternate_CreateDate18 = new DateTime(2021, 04, 28);
+        internal static DateTime Shared_Page01Alternate_CreateDate19 = new DateTime(2021, 04, 28);
+        internal static DateTime Shared_Page01Alternate_CreateDate20 = new DateTime(2021, 04, 28);
+
+        internal static List<DateTime> Shared_Page01Alternate_CreateDates
+            = new List<DateTime>()
+            {
+                Shared_Page01Alternate_CreateDate01,
+                Shared_Page01Alternate_CreateDate02,
+                Shared_Page01Alternate_CreateDate03,
+                Shared_Page01Alternate_CreateDate04,
+                Shared_Page01Alternate_CreateDate05,
+                Shared_Page01Alternate_CreateDate06,
+                Shared_Page01Alternate_CreateDate07,
+                Shared_Page01Alternate_CreateDate08,
+                Shared_Page01Alternate_CreateDate09,
+                Shared_Page01Alternate_CreateDate10,
+                Shared_Page01Alternate_CreateDate11,
+                Shared_Page01Alternate_CreateDate12,
+                Shared_Page01Alternate_CreateDate13,
+                Shared_Page01Alternate_CreateDate14,
+                Shared_Page01Alternate_CreateDate15,
+                Shared_Page01Alternate_CreateDate16,
+                Shared_Page01Alternate_CreateDate17,
+                Shared_Page01Alternate_CreateDate18,
+                Shared_Page01Alternate_CreateDate19,
+                Shared_Page01Alternate_CreateDate20
+            };
+
+        internal static PageItem Shared_Page01Alternate_PageItem01
+            = SwapCreateDate(Shared_Page01_PageItem01, Shared_Page01Alternate_CreateDate01);
+        internal static PageItem Shared_Page01Alternate_PageItem02
+            = SwapCreateDate(Shared_Page01_PageItem02, Shared_Page01Alternate_CreateDate02);
+        internal static PageItem Shared_Page01Alternate_PageItem03
+            = SwapCreateDate(Shared_Page01_PageItem03, Shared_Page01Alternate_CreateDate03);
+        internal static PageItem Shared_Page01Alternate_PageItem04
+            = SwapCreateDate(Shared_Page01_PageItem04, Shared_Page01Alternate_CreateDate04);
+        internal static PageItem Shared_Page01Alternate_PageItem05
+            = SwapCreateDate(Shared_Page01_PageItem05, Shared_Page01Alternate_CreateDate05);
+        internal static PageItem Shared_Page01Alternate_PageItem06
+            = SwapCreateDate(Shared_Page01_PageItem06, Shared_Page01Alternate_CreateDate06);
+        internal static PageItem Shared_Page01Alternate_PageItem07
+            = SwapCreateDate(Shared_Page01_PageItem07, Shared_Page01Alternate_CreateDate07);
+        internal static PageItem Shared_Page01Alternate_PageItem08
+            = SwapCreateDate(Shared_Page01_PageItem08, Shared_Page01Alternate_CreateDate08);
+        internal static PageItem Shared_Page01Alternate_PageItem09
+            = SwapCreateDate(Shared_Page01_PageItem09, Shared_Page01Alternate_CreateDate09);
+        internal static PageItem Shared_Page01Alternate_PageItem10
+            = SwapCreateDate(Shared_Page01_PageItem10, Shared_Page01Alternate_CreateDate10);
+        internal static PageItem Shared_Page01Alternate_PageItem11
+            = SwapCreateDate(Shared_Page01_PageItem11, Shared_Page01Alternate_CreateDate11);
+        internal static PageItem Shared_Page01Alternate_PageItem12
+            = SwapCreateDate(Shared_Page01_PageItem12, Shared_Page01Alternate_CreateDate12);
+        internal static PageItem Shared_Page01Alternate_PageItem13
+            = SwapCreateDate(Shared_Page01_PageItem13, Shared_Page01Alternate_CreateDate13);
+        internal static PageItem Shared_Page01Alternate_PageItem14
+            = SwapCreateDate(Shared_Page01_PageItem14, Shared_Page01Alternate_CreateDate14);
+        internal static PageItem Shared_Page01Alternate_PageItem15
+            = SwapCreateDate(Shared_Page01_PageItem15, Shared_Page01Alternate_CreateDate15);
+        internal static PageItem Shared_Page01Alternate_PageItem16
+            = SwapCreateDate(Shared_Page01_PageItem16, Shared_Page01Alternate_CreateDate16);
+        internal static PageItem Shared_Page01Alternate_PageItem17
+            = SwapCreateDate(Shared_Page01_PageItem17, Shared_Page01Alternate_CreateDate17);
+        internal static PageItem Shared_Page01Alternate_PageItem18
+            = SwapCreateDate(Shared_Page01_PageItem18, Shared_Page01Alternate_CreateDate18);
+        internal static PageItem Shared_Page01Alternate_PageItem19
+            = SwapCreateDate(Shared_Page01_PageItem19, Shared_Page01Alternate_CreateDate19);
+        internal static PageItem Shared_Page01Alternate_PageItem20
+            = SwapCreateDate(Shared_Page01_PageItem20, Shared_Page01Alternate_CreateDate20);
+
+        internal static List<PageItem> Shared_Page01Alternate_PageItems
+            = new List<PageItem>()
+            {
+                Shared_Page01Alternate_PageItem01,
+                Shared_Page01Alternate_PageItem02,
+                Shared_Page01Alternate_PageItem03,
+                Shared_Page01Alternate_PageItem04,
+                Shared_Page01Alternate_PageItem05,
+                Shared_Page01Alternate_PageItem06,
+                Shared_Page01Alternate_PageItem07,
+                Shared_Page01Alternate_PageItem08,
+                Shared_Page01Alternate_PageItem09,
+                Shared_Page01Alternate_PageItem10,
+                Shared_Page01Alternate_PageItem11,
+                Shared_Page01Alternate_PageItem12,
+                Shared_Page01Alternate_PageItem13,
+                Shared_Page01Alternate_PageItem14,
+                Shared_Page01Alternate_PageItem15,
+                Shared_Page01Alternate_PageItem16,
+                Shared_Page01Alternate_PageItem17,
+                Shared_Page01Alternate_PageItem18,
+                Shared_Page01Alternate_PageItem19,
+                Shared_Page01Alternate_PageItem20
+            };
+
+        internal static DateTime Shared_Page01Alternate_ThresholdDate = new DateTime(2021, 04, 30);
+
+        #endregion
+
+        #region Shared_Page02Alternate
+
+        internal static uint Shared_Page02Alternate_TotalResults = 2039;
+        internal static string Shared_Page02Alternate_Content = Properties.Resources.Page02Alternate;
+        internal static Page Shared_Page02Alternate = new Page(Shared_FakeRunId, 1, Shared_Page02Alternate_Content);
+
+        internal static DateTime Shared_Page02Alternate_CreateDate01 = new DateTime(2021, 04, 28);
+        internal static DateTime Shared_Page02Alternate_CreateDate02 = new DateTime(2021, 04, 28);
+        internal static DateTime Shared_Page02Alternate_CreateDate03 = new DateTime(2021, 04, 28);
+        internal static DateTime Shared_Page02Alternate_CreateDate04 = new DateTime(2021, 04, 28);
+        internal static DateTime Shared_Page02Alternate_CreateDate05 = new DateTime(2021, 04, 28);
+        internal static DateTime Shared_Page02Alternate_CreateDate06 = new DateTime(2021, 04, 28);
+        internal static DateTime Shared_Page02Alternate_CreateDate07 = new DateTime(2021, 04, 28);
+        internal static DateTime Shared_Page02Alternate_CreateDate08 = new DateTime(2021, 04, 28);
+        internal static DateTime Shared_Page02Alternate_CreateDate09 = new DateTime(2021, 04, 27);
+        internal static DateTime Shared_Page02Alternate_CreateDate10 = new DateTime(2021, 04, 27);
+        internal static DateTime Shared_Page02Alternate_CreateDate11 = new DateTime(2021, 04, 27);
+        internal static DateTime Shared_Page02Alternate_CreateDate12 = new DateTime(2021, 04, 27);
+        internal static DateTime Shared_Page02Alternate_CreateDate13 = new DateTime(2021, 04, 25);
+        internal static DateTime Shared_Page02Alternate_CreateDate14 = new DateTime(2021, 04, 25);
+        internal static DateTime Shared_Page02Alternate_CreateDate15 = new DateTime(2021, 04, 25);
+        internal static DateTime Shared_Page02Alternate_CreateDate16 = new DateTime(2021, 04, 25);
+        internal static DateTime Shared_Page02Alternate_CreateDate17 = new DateTime(2021, 04, 25);
+        internal static DateTime Shared_Page02Alternate_CreateDate18 = new DateTime(2021, 04, 25);
+        internal static DateTime Shared_Page02Alternate_CreateDate19 = new DateTime(2021, 04, 25);
+        internal static DateTime Shared_Page02Alternate_CreateDate20 = new DateTime(2021, 04, 24);
+
+        internal static List<DateTime> Shared_Page02Alternate_CreateDates
+            = new List<DateTime>()
+            {
+                Shared_Page02Alternate_CreateDate01,
+                Shared_Page02Alternate_CreateDate02,
+                Shared_Page02Alternate_CreateDate03,
+                Shared_Page02Alternate_CreateDate04,
+                Shared_Page02Alternate_CreateDate05,
+                Shared_Page02Alternate_CreateDate06,
+                Shared_Page02Alternate_CreateDate07,
+                Shared_Page02Alternate_CreateDate08,
+                Shared_Page02Alternate_CreateDate09,
+                Shared_Page02Alternate_CreateDate10,
+                Shared_Page02Alternate_CreateDate11,
+                Shared_Page02Alternate_CreateDate12,
+                Shared_Page02Alternate_CreateDate13,
+                Shared_Page02Alternate_CreateDate14,
+                Shared_Page02Alternate_CreateDate15,
+                Shared_Page02Alternate_CreateDate16,
+                Shared_Page02Alternate_CreateDate17,
+                Shared_Page02Alternate_CreateDate18,
+                Shared_Page02Alternate_CreateDate19,
+                Shared_Page02Alternate_CreateDate20
+            };
+
+        internal static PageItem Shared_Page02Alternate_PageItem01
+            = SwapCreateDate(Shared_Page02_PageItem01, Shared_Page02Alternate_CreateDate01);
+        internal static PageItem Shared_Page02Alternate_PageItem02
+            = SwapCreateDate(Shared_Page02_PageItem02, Shared_Page02Alternate_CreateDate02);
+        internal static PageItem Shared_Page02Alternate_PageItem03
+            = SwapCreateDate(Shared_Page02_PageItem03, Shared_Page02Alternate_CreateDate03);
+        internal static PageItem Shared_Page02Alternate_PageItem04
+            = SwapCreateDate(Shared_Page02_PageItem04, Shared_Page02Alternate_CreateDate04);
+        internal static PageItem Shared_Page02Alternate_PageItem05
+            = SwapCreateDate(Shared_Page02_PageItem05, Shared_Page02Alternate_CreateDate05);
+        internal static PageItem Shared_Page02Alternate_PageItem06
+            = SwapCreateDate(Shared_Page02_PageItem06, Shared_Page02Alternate_CreateDate06);
+        internal static PageItem Shared_Page02Alternate_PageItem07
+            = SwapCreateDate(Shared_Page02_PageItem07, Shared_Page02Alternate_CreateDate07);
+        internal static PageItem Shared_Page02Alternate_PageItem08
+            = SwapCreateDate(Shared_Page02_PageItem08, Shared_Page02Alternate_CreateDate08);
+        internal static PageItem Shared_Page02Alternate_PageItem09
+            = SwapCreateDate(Shared_Page02_PageItem09, Shared_Page02Alternate_CreateDate09);
+        internal static PageItem Shared_Page02Alternate_PageItem10
+            = SwapCreateDate(Shared_Page02_PageItem10, Shared_Page02Alternate_CreateDate10);
+        internal static PageItem Shared_Page02Alternate_PageItem11
+            = SwapCreateDate(Shared_Page02_PageItem11, Shared_Page02Alternate_CreateDate11);
+        internal static PageItem Shared_Page02Alternate_PageItem12
+            = SwapCreateDate(Shared_Page02_PageItem12, Shared_Page02Alternate_CreateDate12);
+        internal static PageItem Shared_Page02Alternate_PageItem13
+            = SwapCreateDate(Shared_Page02_PageItem13, Shared_Page02Alternate_CreateDate13);
+        internal static PageItem Shared_Page02Alternate_PageItem14
+            = SwapCreateDate(Shared_Page02_PageItem14, Shared_Page02Alternate_CreateDate14);
+        internal static PageItem Shared_Page02Alternate_PageItem15
+            = SwapCreateDate(Shared_Page02_PageItem15, Shared_Page02Alternate_CreateDate15);
+        internal static PageItem Shared_Page02Alternate_PageItem16
+            = SwapCreateDate(Shared_Page02_PageItem16, Shared_Page02Alternate_CreateDate16);
+        internal static PageItem Shared_Page02Alternate_PageItem17
+            = SwapCreateDate(Shared_Page02_PageItem17, Shared_Page02Alternate_CreateDate17);
+        internal static PageItem Shared_Page02Alternate_PageItem18
+            = SwapCreateDate(Shared_Page02_PageItem18, Shared_Page02Alternate_CreateDate18);
+        internal static PageItem Shared_Page02Alternate_PageItem19
+            = SwapCreateDate(Shared_Page02_PageItem19, Shared_Page02Alternate_CreateDate19);
+        internal static PageItem Shared_Page02Alternate_PageItem20
+            = SwapCreateDate(Shared_Page02_PageItem20, Shared_Page02Alternate_CreateDate20);
+
+        internal static List<PageItem> Shared_Page02Alternate_PageItems
+            = new List<PageItem>()
+            {
+                Shared_Page02Alternate_PageItem01,
+                Shared_Page02Alternate_PageItem02,
+                Shared_Page02Alternate_PageItem03,
+                Shared_Page02Alternate_PageItem04,
+                Shared_Page02Alternate_PageItem05,
+                Shared_Page02Alternate_PageItem06,
+                Shared_Page02Alternate_PageItem07,
+                Shared_Page02Alternate_PageItem08,
+                Shared_Page02Alternate_PageItem09,
+                Shared_Page02Alternate_PageItem10,
+                Shared_Page02Alternate_PageItem11,
+                Shared_Page02Alternate_PageItem12,
+                Shared_Page02Alternate_PageItem13,
+                Shared_Page02Alternate_PageItem14,
+                Shared_Page02Alternate_PageItem15,
+                Shared_Page02Alternate_PageItem16,
+                Shared_Page02Alternate_PageItem17,
+                Shared_Page02Alternate_PageItem18,
+                Shared_Page02Alternate_PageItem19,
+                Shared_Page02Alternate_PageItem20
+            };
+
+        internal static DateTime Shared_Page02Alternate_ThresholdDate = new DateTime(2021, 04, 24);
+
+        #endregion
+
         #region PageManagerTests       
-        
+
         internal static PageManager PageManager_WithFakeGetRequestManager
                     = new PageManager(
                             Shared_FakeGetRequestManager.Invoke(Shared_Page01_Url),
@@ -1168,129 +1412,8 @@ namespace NW.WIDJobs.UnitTests
 
         #endregion
 
-        #region Shared_Page01Alternate
+        #region ValidatorTests
 
-        internal static uint Shared_Page01Alternate_TotalResults = 2039;
-        internal static string Shared_Page01Alternate_Content = Properties.Resources.Page01Alternate;
-        internal static Page Shared_Page01Alternate = new Page(Shared_FakeRunId, 1, Shared_Page01Alternate_Content);
-
-        internal static DateTime Shared_Page01Alternate_CreateDate01 = new DateTime(2021, 05, 07);
-        internal static DateTime Shared_Page01Alternate_CreateDate02 = new DateTime(2021, 05, 07);
-        internal static DateTime Shared_Page01Alternate_CreateDate03 = new DateTime(2021, 05, 07);
-        internal static DateTime Shared_Page01Alternate_CreateDate04 = new DateTime(2021, 05, 05);
-        internal static DateTime Shared_Page01Alternate_CreateDate05 = new DateTime(2021, 05, 05);
-        internal static DateTime Shared_Page01Alternate_CreateDate06 = new DateTime(2021, 05, 05);
-        internal static DateTime Shared_Page01Alternate_CreateDate07 = new DateTime(2021, 05, 05);
-        internal static DateTime Shared_Page01Alternate_CreateDate08 = new DateTime(2021, 05, 01);
-        internal static DateTime Shared_Page01Alternate_CreateDate09 = new DateTime(2021, 05, 01);
-        internal static DateTime Shared_Page01Alternate_CreateDate10 = new DateTime(2021, 05, 01);
-        internal static DateTime Shared_Page01Alternate_CreateDate11 = new DateTime(2021, 04, 30);
-        internal static DateTime Shared_Page01Alternate_CreateDate12 = new DateTime(2021, 04, 30);
-        internal static DateTime Shared_Page01Alternate_CreateDate13 = new DateTime(2021, 04, 30);
-        internal static DateTime Shared_Page01Alternate_CreateDate14 = new DateTime(2021, 04, 30);
-        internal static DateTime Shared_Page01Alternate_CreateDate15 = new DateTime(2021, 04, 30);
-        internal static DateTime Shared_Page01Alternate_CreateDate16 = new DateTime(2021, 04, 30);
-        internal static DateTime Shared_Page01Alternate_CreateDate17 = new DateTime(2021, 04, 28);
-        internal static DateTime Shared_Page01Alternate_CreateDate18 = new DateTime(2021, 04, 28);
-        internal static DateTime Shared_Page01Alternate_CreateDate19 = new DateTime(2021, 04, 28);
-        internal static DateTime Shared_Page01Alternate_CreateDate20 = new DateTime(2021, 04, 28);
-
-        internal static List<DateTime> Shared_Page01Alternate_CreateDates
-            = new List<DateTime>()
-            {
-                Shared_Page01Alternate_CreateDate01,
-                Shared_Page01Alternate_CreateDate02,
-                Shared_Page01Alternate_CreateDate03,
-                Shared_Page01Alternate_CreateDate04,
-                Shared_Page01Alternate_CreateDate05,
-                Shared_Page01Alternate_CreateDate06,
-                Shared_Page01Alternate_CreateDate07,
-                Shared_Page01Alternate_CreateDate08,
-                Shared_Page01Alternate_CreateDate09,
-                Shared_Page01Alternate_CreateDate10,
-                Shared_Page01Alternate_CreateDate11,
-                Shared_Page01Alternate_CreateDate12,
-                Shared_Page01Alternate_CreateDate13,
-                Shared_Page01Alternate_CreateDate14,
-                Shared_Page01Alternate_CreateDate15,
-                Shared_Page01Alternate_CreateDate16,
-                Shared_Page01Alternate_CreateDate17,
-                Shared_Page01Alternate_CreateDate18,
-                Shared_Page01Alternate_CreateDate19,
-                Shared_Page01Alternate_CreateDate20
-            };
-
-        internal static PageItem Shared_Page01Alternate_PageItem01
-            = SwapCreateDate(Shared_Page01_PageItem01, Shared_Page01Alternate_CreateDate01);
-        internal static PageItem Shared_Page01Alternate_PageItem02
-            = SwapCreateDate(Shared_Page01_PageItem02, Shared_Page01Alternate_CreateDate02);
-        internal static PageItem Shared_Page01Alternate_PageItem03
-            = SwapCreateDate(Shared_Page01_PageItem03, Shared_Page01Alternate_CreateDate03);
-        internal static PageItem Shared_Page01Alternate_PageItem04
-            = SwapCreateDate(Shared_Page01_PageItem04, Shared_Page01Alternate_CreateDate04);
-        internal static PageItem Shared_Page01Alternate_PageItem05
-            = SwapCreateDate(Shared_Page01_PageItem05, Shared_Page01Alternate_CreateDate05);
-        internal static PageItem Shared_Page01Alternate_PageItem06
-            = SwapCreateDate(Shared_Page01_PageItem06, Shared_Page01Alternate_CreateDate06);
-        internal static PageItem Shared_Page01Alternate_PageItem07
-            = SwapCreateDate(Shared_Page01_PageItem07, Shared_Page01Alternate_CreateDate07);
-        internal static PageItem Shared_Page01Alternate_PageItem08
-            = SwapCreateDate(Shared_Page01_PageItem08, Shared_Page01Alternate_CreateDate08);
-        internal static PageItem Shared_Page01Alternate_PageItem09
-            = SwapCreateDate(Shared_Page01_PageItem09, Shared_Page01Alternate_CreateDate09);
-        internal static PageItem Shared_Page01Alternate_PageItem10
-            = SwapCreateDate(Shared_Page01_PageItem10, Shared_Page01Alternate_CreateDate10);
-        internal static PageItem Shared_Page01Alternate_PageItem11
-            = SwapCreateDate(Shared_Page01_PageItem11, Shared_Page01Alternate_CreateDate11);
-        internal static PageItem Shared_Page01Alternate_PageItem12
-            = SwapCreateDate(Shared_Page01_PageItem12, Shared_Page01Alternate_CreateDate12);
-        internal static PageItem Shared_Page01Alternate_PageItem13
-            = SwapCreateDate(Shared_Page01_PageItem13, Shared_Page01Alternate_CreateDate13);
-        internal static PageItem Shared_Page01Alternate_PageItem14
-            = SwapCreateDate(Shared_Page01_PageItem14, Shared_Page01Alternate_CreateDate14);
-        internal static PageItem Shared_Page01Alternate_PageItem15
-            = SwapCreateDate(Shared_Page01_PageItem15, Shared_Page01Alternate_CreateDate15);
-        internal static PageItem Shared_Page01Alternate_PageItem16
-            = SwapCreateDate(Shared_Page01_PageItem16, Shared_Page01Alternate_CreateDate16);
-        internal static PageItem Shared_Page01Alternate_PageItem17
-            = SwapCreateDate(Shared_Page01_PageItem17, Shared_Page01Alternate_CreateDate17);
-        internal static PageItem Shared_Page01Alternate_PageItem18
-            = SwapCreateDate(Shared_Page01_PageItem18, Shared_Page01Alternate_CreateDate18);
-        internal static PageItem Shared_Page01Alternate_PageItem19
-            = SwapCreateDate(Shared_Page01_PageItem19, Shared_Page01Alternate_CreateDate19);
-        internal static PageItem Shared_Page01Alternate_PageItem20
-            = SwapCreateDate(Shared_Page01_PageItem20, Shared_Page01Alternate_CreateDate20);
-
-        internal static List<PageItem> Shared_Page01Alternate_PageItems
-            = new List<PageItem>()
-            {
-                Shared_Page01Alternate_PageItem01,
-                Shared_Page01Alternate_PageItem02,
-                Shared_Page01Alternate_PageItem03,
-                Shared_Page01Alternate_PageItem04,
-                Shared_Page01Alternate_PageItem05,
-                Shared_Page01Alternate_PageItem06,
-                Shared_Page01Alternate_PageItem07,
-                Shared_Page01Alternate_PageItem08,
-                Shared_Page01Alternate_PageItem09,
-                Shared_Page01Alternate_PageItem10,
-                Shared_Page01Alternate_PageItem11,
-                Shared_Page01Alternate_PageItem12,
-                Shared_Page01Alternate_PageItem13,
-                Shared_Page01Alternate_PageItem14,
-                Shared_Page01Alternate_PageItem15,
-                Shared_Page01Alternate_PageItem16,
-                Shared_Page01Alternate_PageItem17,
-                Shared_Page01Alternate_PageItem18,
-                Shared_Page01Alternate_PageItem19,
-                Shared_Page01Alternate_PageItem20
-            };
-
-        internal static DateTime Shared_Page01Alternate_ThresholdDate = new DateTime(2021, 04, 30);
-
-        #endregion
-
-        // ValidatorTests
         internal static string[] Validator_Array1 = new[] { "Dodge", "Datsun", "Jaguar", "DeLorean" };
         internal static Car Validator_Object1 = new Car()
         {
@@ -1340,7 +1463,10 @@ namespace NW.WIDJobs.UnitTests
         internal static DateTime Validator_DateTime1 = new DateTime(2019, 09, 01, 00, 00, 00, 000);
         internal static DateTime Validator_DateTime2 = new DateTime(2019, 12, 31, 23, 59, 59, 999);
 
-        // Methods
+        #endregion
+
+        #region Methods
+
         internal static void Method_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
         {
@@ -1477,20 +1603,12 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
-        internal static List<PageItem> RemoveItems(List<PageItem> pageItems, int index, int count)
-        {
-
-            List<PageItem> result = new List<PageItem>(pageItems);
-            result.RemoveRange(index, count);
-
-            return result;
-
-        }
+        #endregion
 
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 15.05.2021
+    Last Update: 22.05.2021
 */
