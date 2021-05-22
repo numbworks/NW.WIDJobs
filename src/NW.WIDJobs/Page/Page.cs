@@ -1,17 +1,29 @@
-﻿namespace NW.WIDJobs
+﻿using System;
+
+namespace NW.WIDJobs
 {
+    /// <summary>A <see href="http://www.workindenmark.dk">WorkInDenmark</see>'s page.</summary>
     public class Page
     {
 
-        // Fields
-        // Properties
+        #region Fields
+        #endregion
+
+        #region Properties
+
         public string RunId { get; }
         public ushort PageNumber { get; }
         public string Content { get; }
 
-        // Constructors
+        #endregion
+
+        #region Constructors
+
+        ///<summary>Initializes a <see cref="Page"/> instance.</summary>
+        /// <exception cref="ArgumentNullException"/>
+        /// <exception cref="ArgumentException"/> 
         public Page
-            (string runId, ushort pageNumber, string content) 
+            (string runId, ushort pageNumber, string content)
         {
 
             Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
@@ -24,7 +36,10 @@
 
         }
 
-        // Methods
+        #endregion
+
+        #region Methods_public
+        #endregion
 
     }
 }
