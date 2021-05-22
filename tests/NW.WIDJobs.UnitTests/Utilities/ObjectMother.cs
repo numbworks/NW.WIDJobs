@@ -20,7 +20,6 @@ namespace NW.WIDJobs.UnitTests
         #region Shared_Page01
 
         internal static uint Shared_Page01_TotalResults = 2039;
-
         internal static string Shared_Page01_Content = Properties.Resources.Page01;
         internal static Page Shared_Page01 = new Page(Shared_FakeRunId, 1, Shared_Page01_Content);
 
@@ -1170,6 +1169,10 @@ namespace NW.WIDJobs.UnitTests
         #endregion
 
         #region Shared_Page01Alternate
+
+        internal static uint Shared_Page01Alternate_TotalResults = 2039;
+        internal static string Shared_Page01Alternate_Content = Properties.Resources.Page01Alternate;
+        internal static Page Shared_Page01Alternate = new Page(Shared_FakeRunId, 1, Shared_Page01Alternate_Content);
 
         internal static DateTime Shared_Page01Alternate_CreateDate01 = new DateTime(2021, 05, 07);
         internal static DateTime Shared_Page01Alternate_CreateDate02 = new DateTime(2021, 05, 07);
