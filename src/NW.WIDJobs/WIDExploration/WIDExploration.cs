@@ -17,7 +17,6 @@ namespace NW.WIDJobs
         public WIDCategories Category { get; }
         public WIDStages Stage { get; }
         public bool IsCompleted { get; }
-        public bool IsPageItemsCleanupRequired { get; }
         public List<Page> Pages { get; }
         public List<PageItem> PageItems { get; }
         public List<PageItemExtended> PageItemsExtended { get; }
@@ -30,7 +29,6 @@ namespace NW.WIDJobs
             WIDCategories category,
             WIDStages stage,
             bool isCompleted,
-            bool isPageItemsCleanupRequired,
             List<Page> pages = null,
             List<PageItem> pageItems = null,
             List<PageItemExtended> pageItemsExtended = null
@@ -45,7 +43,6 @@ namespace NW.WIDJobs
             Category = category;
             Stage = stage;
             IsCompleted = isCompleted;
-            IsPageItemsCleanupRequired = isPageItemsCleanupRequired;
 
             Pages = pages;
             PageItems = pageItems;
@@ -65,7 +62,6 @@ namespace NW.WIDJobs
                 $"'{nameof(Category)}':'{Category}', ",
                 $"'{nameof(Stage)}':'{Stage}', ",
                 $"'{nameof(IsCompleted)}':'{IsCompleted}', ",
-                $"'{nameof(IsPageItemsCleanupRequired)}':'{IsPageItemsCleanupRequired}', ",
                 $"'{nameof(Pages)}':'{Pages?.Count.ToString() ?? "null"}', ",
                 $"'{nameof(PageItems)}':'{PageItems?.Count.ToString() ?? "null"}', ",
                 $"'{nameof(PageItemsExtended)}':'{PageItemsExtended?.Count.ToString() ?? "null"}'",

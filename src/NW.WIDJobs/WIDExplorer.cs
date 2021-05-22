@@ -51,7 +51,6 @@ namespace NW.WIDJobs
                         exploration.Category,
                         exploration.Stage,
                         exploration.IsCompleted,
-                        exploration.IsPageItemsCleanupRequired,
                         exploration.Pages?.Select(page => new Page(page.RunId, page.PageNumber, DefaultNotSerialized)).ToList(),
                         exploration.PageItems,
                         exploration.PageItemsExtended
@@ -213,9 +212,6 @@ namespace NW.WIDJobs
             if (stage == WIDStages.Stage1_OnlyMetrics)
                 isCompleted = true;
 
-            bool isPageItemsCleanupRequired = false;
-            // This flag will be used in later stages.
-
             Page page = new Page(runId, initialPageNumber, content);
             List<Page> pages = new List<Page>() { page };
 
@@ -227,7 +223,6 @@ namespace NW.WIDJobs
                         category, 
                         stage, 
                         isCompleted,
-                        isPageItemsCleanupRequired,
                         pages);
 
         }
@@ -283,8 +278,6 @@ namespace NW.WIDJobs
             if (stage == WIDStages.Stage2_UpToAllPageItems)
                 isCompleted = true;
 
-            bool isPageItemsCleanupRequired = false;
-
             return 
                 new WIDExploration(
                         exploration.RunId, 
@@ -293,7 +286,6 @@ namespace NW.WIDJobs
                         exploration.Category, 
                         stage, 
                         isCompleted,
-                        isPageItemsCleanupRequired,
                         stage2Pages,
                         pageItems);
 
@@ -320,7 +312,6 @@ namespace NW.WIDJobs
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemExtendedScrapedTotal(pageItemsExtended));
 
             bool isCompleted =  true;
-            bool isPageItemsCleanupRequired = false;
 
             return
                 new WIDExploration(
@@ -330,7 +321,6 @@ namespace NW.WIDJobs
                         exploration.Category,
                         stage,
                         isCompleted,
-                        isPageItemsCleanupRequired,
                         exploration.Pages,
                         exploration.PageItems,
                         pageItemsExtended);
@@ -343,18 +333,49 @@ namespace NW.WIDJobs
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(stage));
 
-            List<DateTime> createDates = _components.PageItemScraper.ExtractAndParseCreateDates(exploration.Pages[0].Content);
-            bool hasBeenFound = _components.PageItemScraper.HasBeenFound(thresholdDate, createDates);
+            List<Page> stage2Pages = new List<Page>() { exploration.Pages[0] };
+            List<PageItem> stage2PageItems = new List<PageItem>();
 
-            // Log message
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_AntiFloodingStrategy);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ParallelRequestsAre(_settings.ParallelRequests));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PauseBetweenRequestsIs(_settings.PauseBetweenRequestsMs));
+
+            for (int i = 1; i < exploration.TotalEstimatedPages; i++)
+            {
+
+                if (i == 1)
+                {
+
+                    List<PageItem> currentPageItems = _components.PageItemScraper.Do(exploration.Pages[0]);
+                    stage2PageItems.AddRange(currentPageItems);
+
+                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemScrapedInitial(currentPageItems));
+
+                    List<DateTime> createDates = currentPageItems.Select(pageItem => pageItem.CreateDate).ToList();
+                    bool hasBeenFound = _components.PageItemScraper.HasBeenFound(thresholdDate, createDates);
+
+                    if (hasBeenFound)
+                    {
+
+                        currentPageItems = _components.PageItemScraper.RemoveOlderThan(currentPageItems, thresholdDate);
+
+
+                    }
+                    else
+                        stage2PageItems.AddRange(currentPageItems);
+
+
+                }
+
+
+
+
+
+            }
 
             bool isCompleted = false;
-            if (stage == WIDStages.Stage1_OnlyMetrics)
-                 isCompleted = true;
-
-            bool isPageItemsCleanupRequired = false;
-            if (hasBeenFound == true && stage != WIDStages.Stage1_OnlyMetrics)
-                isPageItemsCleanupRequired = true;
+            if (stage == WIDStages.Stage2_UpToAllPageItems)
+                isCompleted = true;
 
             return
                 new WIDExploration(
@@ -364,8 +385,8 @@ namespace NW.WIDJobs
                         exploration.Category,
                         exploration.Stage,
                         isCompleted,
-                        isPageItemsCleanupRequired,
-                        exploration.Pages);
+                        stage2Pages,
+                        stage2PageItems);
 
         }
 
@@ -374,5 +395,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 19.05.2021
+    Last Update: 22.05.2021
 */
