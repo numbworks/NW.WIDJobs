@@ -38,7 +38,19 @@ namespace NW.WIDJobs.UnitTests
                                 ObjectMother.RunIdManager_Threshold
                         )),
                     ObjectMother.RunIdManager_RunId_Threshold
-                ).SetArgDisplayNames($"{nameof(createTestCases)}_03")
+                ).SetArgDisplayNames($"{nameof(createTestCases)}_03"),
+
+            new TestCaseData(
+                new Func<string>(
+                    () => new RunIdManager()
+                            .Create(
+                                ObjectMother.RunIdManager_Now,
+                                ObjectMother.RunIdManager_InitialPageNumber,
+                                ObjectMother.RunIdManager_FinalPageNumber
+                        )),
+                    ObjectMother.RunIdManager_RunId_FromTo
+                ).SetArgDisplayNames($"{nameof(createTestCases)}_04")
+
 
         };
 

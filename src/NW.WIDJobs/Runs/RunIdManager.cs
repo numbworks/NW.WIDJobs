@@ -9,7 +9,7 @@ namespace NW.WIDJobs
         // Properties
         public static string TemplateId { get; } = "ID:{0}";
         public static string TemplateFromTo { get; } = "{0}|FROM:{1}|TO:{2}";
-        public static string TemplateUntil{ get; } = "{0}|UNTIL:{1}";
+        public static string TemplateThreshold{ get; } = "{0}|THRESHOLD:{1}";
         public static string FormatDateTime { get; } = "yyyyMMddHHmmssfff";
         public static string FormatDate { get; } = "yyyyMMddHH";
 
@@ -41,7 +41,7 @@ namespace NW.WIDJobs
         {
 
             return string.Format(
-                TemplateUntil,
+                TemplateThreshold,
                 Create(now),
                 thresholdDate.ToString(FormatDate)
             );
