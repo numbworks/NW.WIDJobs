@@ -500,6 +500,54 @@ An example of `Description` field containing within-text bullet points:
 |---|---|
 |`(?<=-\\t)[\w ]{1,}(?=-\\t)`|The latest bullet point gets lost.|
 
+## The logic behind PageItemScraper.IsThresholdConditionMet()
+
+During an exploration and while evaluating the content of a `Page`, the `PageItemScraper.IsThresholdConditionMet()` method establishes if the `ThresholdDate` condition is met and the exploration should stop there, or if the exploration should continue.
+
+Since the logic is a not immediate to understand, I'll show how it works by using an example.
+
+Given the the following `ThresholdDate` and `CreateDates`, we can see which kind of case we are in on the rightmost column:
+
+|ThresholdDate|
+|---|
+|2021-04-28|
+
+|CreateDate|DateType|Threshold|
+|---|---|---|
+|||Case 1|
+|2021-05-07|MostRecent|Case 2|
+|2021-05-07||Case 2|
+|2021-05-07||Case 2|
+|2021-05-05||Case 2|
+|2021-05-05||Case 2|
+|2021-05-05||Case 2|
+|2021-05-05||Case 2|
+|2021-05-01||Case 2|
+|2021-05-01||Case 2|
+|2021-05-01||Case 2|
+|2021-04-30||Case 2|
+|2021-04-30||Case 2|
+|2021-04-30||Case 2|
+|2021-04-30||Case 2|
+|2021-04-30||Case 2|
+|2021-04-30||Case 2|
+|2021-04-28||Case 3|
+|2021-04-28||Case 3|
+|2021-04-28||Case 3|
+|2021-04-28|LeastRecent|Case 3|
+|||Case 4|
+
+The case numbers above correspond to the following conditions and to the following `IsThresholdConditionMet()` returns:
+
+|Threshold|Condition|Return|
+|---|---|---|
+|Case 1|ThresholdDate > MostRecent|False|
+|Case 2|ThresholdDate > LeastRecent && ThresholdDate <= MostRecent|True|
+|Case 3|ThresholdDate == LeastRecent|False|
+|Case 4|ThresholdDate < LeastRecent|False|
+
+`Case 3` and `Case 3` are `False` because the next `Page` could contain other `PageItem` objects with the same date, therefore the exploration should continue.
+
 ## Markdown Toolset
 
 Suggested toolset to view and edit this Markdown file:
