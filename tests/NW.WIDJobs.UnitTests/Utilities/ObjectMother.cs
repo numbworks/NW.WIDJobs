@@ -10,7 +10,6 @@ namespace NW.WIDJobs.UnitTests
     public static class ObjectMother
     {
 
-        // Shared
         #region Shared
 
         internal static string Shared_FakeRunId = "FakeRunId";
