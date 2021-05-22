@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace NW.WIDJobs.UnitTests
 {
@@ -87,6 +88,38 @@ namespace NW.WIDJobs.UnitTests
             ).SetArgDisplayNames($"{nameof(hasBeenFoundExceptionTestCases)}_01")
 
         };
+        private static TestCaseData[] hasBeenFoundTestCases =
+        {
+
+            // ThresholdDate > MostRecent
+            new TestCaseData(
+                   ObjectMother.Shared_Page01Alternate_CreateDates.OrderByDescending(createDate => createDate.Date).First().AddDays(1),
+                   ObjectMother.Shared_Page01Alternate_CreateDates,
+                   false
+            ).SetArgDisplayNames($"{nameof(hasBeenFoundTestCases)}_01"),
+
+            // ThresholdDate > LeastRecent && ThresholdDate <= MostRecent
+            new TestCaseData(
+                   ObjectMother.Shared_Page01Alternate_ThresholdDate,
+                   ObjectMother.Shared_Page01Alternate_CreateDates,
+                   true
+            ).SetArgDisplayNames($"{nameof(hasBeenFoundTestCases)}_02"),
+
+            // ThresholdDate == LeastRecent
+            new TestCaseData(
+                   ObjectMother.Shared_Page01Alternate_CreateDates.OrderByDescending(createDate => createDate.Date).Reverse().First(),
+                   ObjectMother.Shared_Page01Alternate_CreateDates,
+                   false
+            ).SetArgDisplayNames($"{nameof(hasBeenFoundTestCases)}_03"),
+
+            // ThresholdDate < LeastRecent
+            new TestCaseData(
+                   ObjectMother.Shared_Page01Alternate_CreateDates.OrderByDescending(createDate => createDate.Date).Reverse().First().AddDays(-1),
+                   ObjectMother.Shared_Page01Alternate_CreateDates,
+                   false
+            ).SetArgDisplayNames($"{nameof(hasBeenFoundTestCases)}_04"),
+
+        };
 
         // SetUp
         // Tests
@@ -126,6 +159,20 @@ namespace NW.WIDJobs.UnitTests
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
+        [TestCaseSource(nameof(hasBeenFoundTestCases))]
+        public void HasBeenFound_ShouldReturnExpectedBoolean_WhenProperArguments
+            (DateTime thresholdDate, List<DateTime> createDates, bool expected)
+        {
+
+            // Arrange
+            // Act
+            bool actual = new PageItemScraper().HasBeenFound(thresholdDate, createDates);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+
+        }
+
         // TearDown		
 
     }
@@ -133,5 +180,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 19.05.2021
+    Last Update: 22.05.2021
 */

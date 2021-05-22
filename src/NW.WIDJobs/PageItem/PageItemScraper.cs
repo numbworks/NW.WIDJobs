@@ -98,9 +98,13 @@ namespace NW.WIDJobs
 
             Validator.ValidateList(createDates, nameof(createDates));
 
+            DateTime mostRecent = createDates.OrderByDescending(createDate => createDate.Date).First();
             DateTime leastRecent = createDates.OrderByDescending(createDate => createDate.Date).Reverse().First();
 
-            return (thresholdDate > leastRecent);
+            if (thresholdDate > leastRecent && thresholdDate <= mostRecent)
+                return true;
+
+            return false;
 
         }
         public List<PageItem> RemoveOlderThan(List<PageItem> pageItems, DateTime thresholdDate)
