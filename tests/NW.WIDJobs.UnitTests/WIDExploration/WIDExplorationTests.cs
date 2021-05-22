@@ -1,6 +1,5 @@
-﻿using NUnit.Framework;
-using System;
-using System.Collections.Generic;
+﻿using System;
+using NUnit.Framework;
 
 namespace NW.WIDJobs.UnitTests
 {
@@ -64,6 +63,30 @@ namespace NW.WIDJobs.UnitTests
 
             // Assert
             Assert.AreEqual(expected, actual);
+
+        }
+
+        [Test]
+        public void WIDExploration_ShouldInitializeANewWIDExplorationObject_WhenDefaultConstructor()
+        {
+
+            // Arrange
+            // Act
+            WIDExploration actual =
+                new WIDExploration(
+                    ObjectMother.WIDExploration_Exploration1_RunId,
+                    ObjectMother.WIDExploration_Exploration1_TotalResults,
+                    ObjectMother.WIDExploration_Exploration1_TotalEstimatedPages,
+                    ObjectMother.WIDExploration_Exploration1_Category,
+                    ObjectMother.WIDExploration_Exploration1_Stage,
+                    ObjectMother.WIDExploration_Exploration1_IsCompleted,
+                    ObjectMother.Shared_Pages_Page01,
+                    ObjectMother.Shared_Page01_PageItems,
+                    ObjectMother.Shared_Page01_PageItemsExtended
+                    );
+
+            // Assert
+            Assert.IsInstanceOf<WIDExploration>(actual);
 
         }
 
