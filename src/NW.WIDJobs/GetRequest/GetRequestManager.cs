@@ -5,11 +5,15 @@ using System.Text;
 
 namespace NW.WIDJobs
 {
+    /// <summary><inheritdoc cref="IGetRequestManager"/></summary>
     public class GetRequestManager : IGetRequestManager
     {
 
-        // Fields
-        // Properties
+        #region Fields 
+        #endregion
+
+        #region Properties
+        
         public string Method { get; } = "GET";
         public IHttpWebRequestFactory HttpWebRequestFactory { get; }
         public WebHeaderCollection Headers { get; }
@@ -18,7 +22,12 @@ namespace NW.WIDJobs
         public string UserAgent { get; }
         public Version ProtocolVersion { get; }
 
-        // Constructors
+        #endregion
+
+        #region Constructors
+
+        /// <summary>Initializes a <see cref="GetRequestManager"/> instance.</summary>
+        /// <exception cref="ArgumentNullException"/>
         public GetRequestManager(
             IHttpWebRequestFactory httpWebRequestFactory,
             WebHeaderCollection headers,
@@ -39,10 +48,15 @@ namespace NW.WIDJobs
             ProtocolVersion = protocolVersion;
 
         }
+
+        /// <summary>Initializes a <see cref="GetRequestManager"/> instance using default parameters.</summary>
         public GetRequestManager()
             : this(new HttpWebRequestFactory(), null, null, null, null, null) { }
 
-        // Methods
+        #endregion
+
+        #region Methods_public
+
         public string Send(string url, Encoding encoding = null)
         {
 
@@ -58,7 +72,10 @@ namespace NW.WIDJobs
 
         }
 
-        // Methods (private)
+        #endregion
+
+        #region Methods_private
+
         private HttpWebResponse Send(string url)
         {
 
@@ -99,10 +116,12 @@ namespace NW.WIDJobs
 
         }
 
+        #endregion
+
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 06.05.2021
+    Last Update: 22.05.2021
 */

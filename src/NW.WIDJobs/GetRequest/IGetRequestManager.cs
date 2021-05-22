@@ -4,6 +4,7 @@ using System.Text;
 
 namespace NW.WIDJobs
 {
+    /// <summary>Collects methods related to HTTP GET requests.</summary>
     public interface IGetRequestManager
     {
         string ContentType { get; }
@@ -14,11 +15,13 @@ namespace NW.WIDJobs
         Version ProtocolVersion { get; }
         string UserAgent { get; }
 
+        /// <summary>Sends a HTTP GET request.</summary>
+        /// <exception cref="ArgumentNullException"/>
         string Send(string url, Encoding encoding = null);
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 06.05.2021
+    Last Update: 22.05.2021
 */
