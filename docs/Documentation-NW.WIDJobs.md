@@ -548,6 +548,39 @@ The case numbers above correspond to the following conditions and to the followi
 
 `Case 3` and `Case 3` are `False` because the next `Page` could contain other `PageItem` objects with the same date, therefore the exploration should continue.
 
+## The logic behind PageItemScraper.RemoveUnsuitable()
+
+If the `PageItemScraper.IsThresholdConditionMet()` method returns `True` for a given `Page`, the exploration must stops and the "extra" `PageItem` objects should not be part of the `WIDExploration` object.
+
+The `RemoveUnsuitable()` method is intended for the purpose above, and it works using the following logic:
+
+|ThresholdDate|
+|---|
+|2021-04-28|
+
+|PageItem.CreateDate|Action|
+|---|---|---|
+|2021-05-07|Keep|
+|2021-05-07|Keep|
+|2021-05-07|Keep|
+|2021-05-05|Keep|
+|2021-05-05|Keep|
+|2021-05-05|Keep|
+|2021-05-05|Keep|
+|2021-05-01|Keep|
+|2021-05-01|Keep|
+|2021-05-01|Keep|
+|2021-04-30|Keep|
+|2021-04-30|Keep|
+|2021-04-30|Keep|
+|2021-04-30|Keep|
+|2021-04-30|Keep|
+|2021-04-30|Keep|
+|2021-04-28|Remove|
+|2021-04-28|Remove|
+|2021-04-28|Remove|
+|2021-04-28|Remove|
+
 ## Markdown Toolset
 
 Suggested toolset to view and edit this Markdown file:
