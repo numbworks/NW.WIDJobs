@@ -37,7 +37,12 @@ namespace NW.WIDJobs.UnitTests
             new TestCaseData(
                     ObjectMother.WIDExploration_Exploration1,
                     ObjectMother.WIDExploration_Exploration1_ToString
-                ).SetArgDisplayNames($"{nameof(toStringTestCases)}_01")
+                ).SetArgDisplayNames($"{nameof(toStringTestCases)}_01"),
+
+            new TestCaseData(
+                    ObjectMother.WIDExploration_Exploration2,
+                    ObjectMother.WIDExploration_Exploration2_ToString
+                ).SetArgDisplayNames($"{nameof(toStringTestCases)}_02")
 
         };
 

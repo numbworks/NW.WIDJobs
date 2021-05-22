@@ -402,6 +402,14 @@ namespace NW.WIDJobs.UnitTests
         internal static string Shared_Page01_UrlForAnalysis 
             = "https://www.workindenmark.dk/search/Job-search?q=&categories=Analysis&orderBy=date";
 
+        internal static List<Page> Shared_Pages_Page01 = new List<Page>() { Shared_Page01 };
+        internal static List<PageItemExtended> Shared_Page01_PageItemsExtended
+            = new List<PageItemExtended>()
+            {
+                Shared_Page01_PageItemExtended01,
+                Shared_Page01_PageItemExtended14
+            };
+
         #endregion
 
         #region Shared_Page02
@@ -1126,6 +1134,32 @@ namespace NW.WIDJobs.UnitTests
                 $"'{nameof(WIDExploration.Pages)}':'null', ",
                 $"'{nameof(WIDExploration.PageItems)}':'null', ",
                 $"'{nameof(WIDExploration.PageItemsExtended)}':'null'",
+                " }"
+                );
+        internal static WIDExploration WIDExploration_Exploration2
+            = new WIDExploration(
+                    WIDExploration_Exploration1_RunId,
+                    WIDExploration_Exploration1_TotalResults,
+                    WIDExploration_Exploration1_TotalEstimatedPages,
+                    WIDExploration_Exploration1_Category,
+                    WIDExploration_Exploration1_Stage,
+                    WIDExploration_Exploration1_IsCompleted,
+                    Shared_Pages_Page01,
+                    Shared_Page01_PageItems,
+                    Shared_Page01_PageItemsExtended
+                    );
+        internal static string WIDExploration_Exploration2_ToString
+            = string.Concat(
+                "{ ",
+                $"'{nameof(WIDExploration.RunId)}':'{WIDExploration_Exploration1_RunId}', ",
+                $"'{nameof(WIDExploration.TotalResults)}':'{WIDExploration_Exploration1_TotalResults}', ",
+                $"'{nameof(WIDExploration.TotalEstimatedPages)}':'{WIDExploration_Exploration1_TotalEstimatedPages}', ",
+                $"'{nameof(WIDExploration.Category)}':'{WIDExploration_Exploration1_Category}', ",
+                $"'{nameof(WIDExploration.Stage)}':'{WIDExploration_Exploration1_Stage}', ",
+                $"'{nameof(WIDExploration.IsCompleted)}':'{WIDExploration_Exploration1_IsCompleted}', ",
+                $"'{nameof(WIDExploration.Pages)}':'{Shared_Pages_Page01.Count}', ",
+                $"'{nameof(WIDExploration.PageItems)}':'{Shared_Page01_PageItems.Count}', ",
+                $"'{nameof(WIDExploration.PageItemsExtended)}':'{Shared_Page01_PageItemsExtended.Count}'",
                 " }"
                 );
 
