@@ -4,24 +4,12 @@ using System.Linq;
 
 namespace NW.WIDJobs
 {
+    ///<summary>Collects all the messages used for logging and exceptions.</summary>
     public static class MessageCollection
     {
 
-        private static string RollOutCollection(List<double> coll)
-            => RollOutCollection(coll.Cast<object>().ToList());
-        private static string RollOutCollection(IEnumerable<object> coll)
-        {
-
-            List<string> list = new List<string>();
-
-            foreach (object obj in coll)
-                list.Add(obj.ToString());
-
-            return $"[{string.Join(", ", list)}]";
-
-        }
-
-        // Validator
+        #region Validator
+        
         public static Func<string, string, string> Validator_FirstValueIsGreaterOrEqualThanSecondValue
             = (variableName1, variableName2) => $"The '{variableName1}''s value is greater or equal than '{variableName2}''s value.";
         public static Func<string, string, string> Validator_FirstValueIsGreaterThanSecondValue
@@ -55,11 +43,17 @@ namespace NW.WIDJobs
         public static Func<string, string, string> Validator_FirstDateIsOlderOrEqual
             = (variableName1, variableName2) => $"'{variableName1}''s is older or equal than '{variableName2}'.";
 
-        // PageItemScraper
+        #endregion
+
+        #region PageItemScraper
+        
         public static Func<string, string, string> PageItemScraper_NotPossibleToExtractJobId =
             (url, pattern) => $"Not possible to extract {nameof(PageItem.JobId)} from '{url}' with pattern: '{pattern}'.";
 
-        // WIDExplorer
+        #endregion
+
+        #region WIDExplorer
+
         public static string WIDExplorer_ExplorationStarted = "The exploration has started...";
         public static Func<string, string> WIDExplorer_RunIdIs 
             = (runId) => $"RunId:'{runId}'.";
@@ -114,6 +108,26 @@ namespace NW.WIDJobs
             = (pageItems, i) => $"'{20 - pageItems.Count}' has been removed from page nr. '{i}'.";
         public static Func<ushort, string> WIDExplorer_FinalPageNumberThresholdDate
             = (finalPageNumber) => $"The 'FinalPageNumber' for the provided 'ThresholdDate' is '{finalPageNumber}'.";
+
+        #endregion
+
+        #region Methods_private
+
+        private static string RollOutCollection(List<double> coll)
+            => RollOutCollection(coll.Cast<object>().ToList());
+        private static string RollOutCollection(IEnumerable<object> coll)
+        {
+
+            List<string> list = new List<string>();
+
+            foreach (object obj in coll)
+                list.Add(obj.ToString());
+
+            return $"[{string.Join(", ", list)}]";
+
+        }
+
+        #endregion
 
     }
 }
