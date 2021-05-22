@@ -1020,12 +1020,6 @@ namespace NW.WIDJobs.UnitTests
 
         #endregion
 
-        // PageScraperTests
-
-        // PageItemScraperTests
-
-        // PageItemExtendedScraperTests
-
         // PageManagerTests       
         internal static PageManager PageManager_WithFakeGetRequestManager
                     = new PageManager(
@@ -1033,8 +1027,6 @@ namespace NW.WIDJobs.UnitTests
                             new PageScraper(),
                             new WIDCategoryManager()
                             );
-
-        // PageItemExtendedManagerTests
 
         // RunIdManagerTests
         internal static DateTime RunIdManager_Now = new DateTime(2020, 01, 01, 19, 25, 40, 980);
@@ -1099,6 +1091,43 @@ namespace NW.WIDJobs.UnitTests
             };
         internal static string XPathManager_TryGetInnerText_XPath = "//div";
         internal static string XPathManager_TryGetFirstAttributeValue_XPath = "//div/@class";
+
+        // WIDExplorationTests
+        internal static string WIDExploration_Exploration1_RunId = RunIdManager_RunId_Now;
+        internal static uint WIDExploration_Exploration1_TotalResults = Shared_Page01_TotalResults;
+        internal static ushort WIDExploration_Exploration1_TotalEstimatedPages = 102;
+        internal static WIDCategories WIDExploration_Exploration1_Category = WIDCategories.AllCategories;
+        internal static WIDStages WIDExploration_Exploration1_Stage = WIDStages.Stage1_OnlyMetrics;
+        internal static bool WIDExploration_Exploration1_IsCompleted = true;
+        internal static List<Page> WIDExploration_Exploration1_Pages = null;
+        internal static List<PageItem> WIDExploration_Exploration1_PageItems = null;
+        internal static List<PageItemExtended> WIDExploration_Exploration1_PageItemsExtended = null;
+        internal static WIDExploration WIDExploration_Exploration1
+            = new WIDExploration(
+                    WIDExploration_Exploration1_RunId,
+                    WIDExploration_Exploration1_TotalResults,
+                    WIDExploration_Exploration1_TotalEstimatedPages,
+                    WIDExploration_Exploration1_Category,
+                    WIDExploration_Exploration1_Stage,
+                    WIDExploration_Exploration1_IsCompleted,
+                    WIDExploration_Exploration1_Pages,
+                    WIDExploration_Exploration1_PageItems,
+                    WIDExploration_Exploration1_PageItemsExtended
+                    );
+        internal static string WIDExploration_Exploration1_ToString
+            = string.Concat(
+                "{ ",
+                $"'{nameof(WIDExploration.RunId)}':'{WIDExploration_Exploration1_RunId}', ",
+                $"'{nameof(WIDExploration.TotalResults)}':'{WIDExploration_Exploration1_TotalResults}', ",
+                $"'{nameof(WIDExploration.TotalEstimatedPages)}':'{WIDExploration_Exploration1_TotalEstimatedPages}', ",
+                $"'{nameof(WIDExploration.Category)}':'{WIDExploration_Exploration1_Category}', ",
+                $"'{nameof(WIDExploration.Stage)}':'{WIDExploration_Exploration1_Stage}', ",
+                $"'{nameof(WIDExploration.IsCompleted)}':'{WIDExploration_Exploration1_IsCompleted}', ",
+                $"'{nameof(WIDExploration.Pages)}':'null', ",
+                $"'{nameof(WIDExploration.PageItems)}':'null', ",
+                $"'{nameof(WIDExploration.PageItemsExtended)}':'null'",
+                " }"
+                );
 
         // ValidatorTests
         internal static string[] Validator_Array1 = new[] { "Dodge", "Datsun", "Jaguar", "DeLorean" };
