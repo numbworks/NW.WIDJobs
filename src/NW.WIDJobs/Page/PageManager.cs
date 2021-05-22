@@ -3,20 +3,30 @@ using System.Text;
 
 namespace NW.WIDJobs
 {
+    /// <summary><inheritdoc cref="IPageManager"/></summary>
     public class PageManager : IPageManager
     {
 
-        // Fields
+        #region Fields
+
         private IGetRequestManager _getRequestManager;
         private IPageScraper _pageScraper;
         private IWIDCategoryManager _categoryManager;
 
-        // Properties
+        #endregion
+
+        #region Properties
+
         public static ushort PageItemsPerPage = 20;
 
-        // Constructors
+        #endregion
+
+        #region Constructors
+
+        /// <summary>Initializes a <see cref="PageManager"/> instance.</summary>
+        /// <exception cref="ArgumentNullException"/>
         public PageManager(
-            IGetRequestManager getRequestManager, IPageScraper pageScraper, IWIDCategoryManager categoryManager)
+           IGetRequestManager getRequestManager, IPageScraper pageScraper, IWIDCategoryManager categoryManager)
         {
 
             Validator.ValidateObject(getRequestManager, nameof(getRequestManager));
@@ -28,10 +38,15 @@ namespace NW.WIDJobs
             _categoryManager = categoryManager;
 
         }
+
+        /// <summary>Initializes a <see cref="PageManager"/> instance using default parameters.</summary>
         public PageManager()
             : this(new GetRequestManager(), new PageScraper(), new WIDCategoryManager()) { }
 
-        // Methods (public)
+        #endregion
+
+        #region Methods_public
+
         public string CreateUrl(ushort pageNumber, WIDCategories category)
         {
 
@@ -106,10 +121,10 @@ namespace NW.WIDJobs
 
         }
 
-        // Methods (private)
+        #endregion
 
     }
-    }
+}
 
 /*
     Author: numbworks@gmail.com
