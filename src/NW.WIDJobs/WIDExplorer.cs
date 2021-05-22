@@ -360,7 +360,7 @@ namespace NW.WIDJobs
 
                     _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ThresholdDateFoundPageNr(thresholdDate, i));
 
-                    currentPageItems = _components.PageItemScraper.RemoveOlderThan(currentPageItems, thresholdDate);
+                    currentPageItems = _components.PageItemScraper.RemoveUnsuitable(thresholdDate, currentPageItems);
                     _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_XPageItemsRemovedPageNr(currentPageItems, i));
 
                     stage2PageItems.AddRange(currentPageItems);

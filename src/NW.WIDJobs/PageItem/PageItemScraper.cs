@@ -107,7 +107,7 @@ namespace NW.WIDJobs
             return false;
 
         }
-        public List<PageItem> RemoveOlderThan(List<PageItem> pageItems, DateTime thresholdDate)
+        public List<PageItem> RemoveUnsuitable(DateTime thresholdDate, List<PageItem> pageItems)
         {
 
             Validator.ValidateList(pageItems, nameof(pageItems));

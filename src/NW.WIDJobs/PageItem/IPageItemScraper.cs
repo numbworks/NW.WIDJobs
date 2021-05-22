@@ -9,7 +9,7 @@ namespace NW.WIDJobs
         List<PageItem> Do(Page page);
         List<DateTime> ExtractAndParseCreateDates(string content);
         bool IsThresholdConditionMet(DateTime thresholdDate, List<DateTime> createDates);
-        List<PageItem> RemoveOlderThan(List<PageItem> pageItems, DateTime thresholdDate);
+        List<PageItem> RemoveUnsuitable(DateTime thresholdDate, List<PageItem> pageItems);
 
     }
 }
