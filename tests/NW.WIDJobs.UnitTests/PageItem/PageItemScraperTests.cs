@@ -71,6 +71,22 @@ namespace NW.WIDJobs.UnitTests
             ).SetArgDisplayNames($"{nameof(extractAndParseCreateDatesExceptionTestCases)}_01")
 
         };
+        private static TestCaseData[] hasBeenFoundExceptionTestCases =
+        {
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new PageItemScraper()
+                            .HasBeenFound(
+                                ObjectMother.Shared_Page01Alternate_ThresholdDate,
+                                null
+                                )
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("createDates").Message
+            ).SetArgDisplayNames($"{nameof(hasBeenFoundExceptionTestCases)}_01")
+
+        };
 
         // SetUp
         // Tests
@@ -102,6 +118,11 @@ namespace NW.WIDJobs.UnitTests
 
         [TestCaseSource(nameof(extractAndParseCreateDatesExceptionTestCases))]
         public void ExtractAndParseCreateDates_ShouldThrowACertainException_WhenUnproperArguments
+            (TestDelegate del, Type expectedType, string expectedMessage)
+                => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
+
+        [TestCaseSource(nameof(hasBeenFoundExceptionTestCases))]
+        public void HasBeenFound_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 

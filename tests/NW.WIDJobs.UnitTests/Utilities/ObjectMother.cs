@@ -1195,6 +1195,31 @@ namespace NW.WIDJobs.UnitTests
         internal static DateTime Shared_Page01Alternate_CreateDate19 = new DateTime(2021, 04, 28);
         internal static DateTime Shared_Page01Alternate_CreateDate20 = new DateTime(2021, 04, 28);
 
+        internal static List<DateTime> Shared_Page01Alternate_CreateDates
+            = new List<DateTime>()
+            {
+                Shared_Page01Alternate_CreateDate01,
+                Shared_Page01Alternate_CreateDate02,
+                Shared_Page01Alternate_CreateDate03,
+                Shared_Page01Alternate_CreateDate04,
+                Shared_Page01Alternate_CreateDate05,
+                Shared_Page01Alternate_CreateDate06,
+                Shared_Page01Alternate_CreateDate07,
+                Shared_Page01Alternate_CreateDate08,
+                Shared_Page01Alternate_CreateDate09,
+                Shared_Page01Alternate_CreateDate10,
+                Shared_Page01Alternate_CreateDate11,
+                Shared_Page01Alternate_CreateDate12,
+                Shared_Page01Alternate_CreateDate13,
+                Shared_Page01Alternate_CreateDate14,
+                Shared_Page01Alternate_CreateDate15,
+                Shared_Page01Alternate_CreateDate16,
+                Shared_Page01Alternate_CreateDate17,
+                Shared_Page01Alternate_CreateDate18,
+                Shared_Page01Alternate_CreateDate19,
+                Shared_Page01Alternate_CreateDate20
+            };
+
         internal static PageItem Shared_Page01Alternate_PageItem01
             = SwapCreateDate(Shared_Page01_PageItem01, Shared_Page01Alternate_CreateDate01);
         internal static PageItem Shared_Page01Alternate_PageItem02
@@ -1259,7 +1284,6 @@ namespace NW.WIDJobs.UnitTests
                 Shared_Page01Alternate_PageItem18,
                 Shared_Page01Alternate_PageItem19,
                 Shared_Page01Alternate_PageItem20
-
             };
 
         internal static DateTime Shared_Page01Alternate_ThresholdDate = new DateTime(2021, 04, 30);
