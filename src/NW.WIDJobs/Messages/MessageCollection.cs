@@ -108,7 +108,12 @@ namespace NW.WIDJobs
             = (pageItemsExtended) => $"'{pageItemsExtended.Count}' '{nameof(PageItemExtended)}' objects have been scraped in total.";
         public static string WIDExplorer_ExplorationCompleted
             = "The exploration has been completed.";
-
+        public static Func<DateTime, ushort, string> WIDExplorer_ThresholdDateFoundPageNr 
+            = (thresholdDate, i) => $"'{thresholdDate}' has been found in page nr. '{i}'.";
+        public static Func<List<PageItem>, ushort, string> WIDExplorer_XPageItemsRemovedPageNr
+            = (pageItems, i) => $"'{20 - pageItems.Count}' has been removed from page nr. '{i}'.";
+        public static Func<ushort, string> WIDExplorer_FinalPageNumberThresholdDate
+            = (finalPageNumber) => $"The 'FinalPageNumber' for the provided 'ThresholdDate' is '{finalPageNumber}'.";
 
     }
 }

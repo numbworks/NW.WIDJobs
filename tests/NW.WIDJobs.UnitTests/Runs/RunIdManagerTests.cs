@@ -35,9 +35,9 @@ namespace NW.WIDJobs.UnitTests
                     () => new RunIdManager()
                             .Create(
                                 ObjectMother.RunIdManager_Now,
-                                ObjectMother.RunIdManager_Until
+                                ObjectMother.RunIdManager_Threshold
                         )),
-                    ObjectMother.RunIdManager_RunId_Until
+                    ObjectMother.RunIdManager_RunId_Threshold
                 ).SetArgDisplayNames($"{nameof(createTestCases)}_03")
 
         };

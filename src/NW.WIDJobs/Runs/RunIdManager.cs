@@ -37,13 +37,13 @@ namespace NW.WIDJobs
             );
 
         }
-        public string Create(DateTime now, DateTime untilDate)
+        public string Create(DateTime now, DateTime thresholdDate)
         {
 
             return string.Format(
                 TemplateUntil,
                 Create(now),
-                untilDate.ToString(FormatDate)
+                thresholdDate.ToString(FormatDate)
             );
 
         }

@@ -111,36 +111,24 @@ namespace NW.WIDJobs
             if (exploration.IsCompleted)
                 return LogCompletionMessageAndReturn(exploration);
 
-            // Remove Items?
+            exploration = ProcessStage2WhenThresholdDate(exploration, stage, thresholdDate);
+            if (exploration.IsCompleted)
+                return LogCompletionMessageAndReturn(exploration);
 
-            List<Page> pages = new List<Page>() { exploration.Pages[0] };
-            List<PageItem> pageItems = _components.PageItemScraper.Do(exploration.Pages[0]);
+            exploration = ProcessStage3(exploration, stage);
 
-            ushort secondPageNumber = (ushort)(DefaultInitialPageNumber + 1);
-            ushort untilPageNumber = exploration.TotalEstimatedPages;
-
-            foreach (ushort i in Enumerable.Range(secondPageNumber, exploration.TotalEstimatedPages))
-            {
-
-                string url = _components.PageManager.CreateUrl(i, category);
-                string content = _components.PageManager.GetContent(url);
-
-                Page page = new Page(runId, i, content);
-                pages.Add(page);
-
-                List<DateTime> createDates = _components.PageItemScraper.ExtractAndParseCreateDates(content);
-                bool hasBeenFound = _components.PageItemScraper.HasBeenFound(thresholdDate, createDates);
-
-                //
-
-
-
-            }
-
-            return null;
+            return LogCompletionMessageAndReturn(exploration);
 
         }
+        public WIDExploration Explore
+            (DateTime thresholdDate, WIDCategories category, WIDStages stage)
+        {
 
+            string runId = _components.RunIdManager.Create(Now, thresholdDate);
+
+            return Explore(runId, thresholdDate, category, stage);
+
+        }
 
         // Methods (private)
         private void ConditionallySleep
@@ -340,38 +328,55 @@ namespace NW.WIDJobs
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ParallelRequestsAre(_settings.ParallelRequests));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PauseBetweenRequestsIs(_settings.PauseBetweenRequestsMs));
 
-            for (int i = 1; i < exploration.TotalEstimatedPages; i++)
+            ushort finalPageNumber = exploration.TotalEstimatedPages;
+            for (ushort i = 1; i <= exploration.TotalEstimatedPages; i++)
             {
+
+                List<PageItem> currentPageItems = new List<PageItem>();
 
                 if (i == 1)
                 {
 
-                    List<PageItem> currentPageItems = _components.PageItemScraper.Do(exploration.Pages[0]);
-                    stage2PageItems.AddRange(currentPageItems);
-
+                    currentPageItems = _components.PageItemScraper.Do(exploration.Pages[0]);
                     _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemScrapedInitial(currentPageItems));
 
-                    List<DateTime> createDates = currentPageItems.Select(pageItem => pageItem.CreateDate).ToList();
-                    bool hasBeenFound = _components.PageItemScraper.HasBeenFound(thresholdDate, createDates);
+                }
+                else
+                {
 
-                    if (hasBeenFound)
-                    {
+                    Page currentPage = _components.PageManager.GetPage(exploration.RunId, i, exploration.Category);
+                    currentPageItems = _components.PageItemScraper.Do(currentPage);
 
-                        currentPageItems = _components.PageItemScraper.RemoveOlderThan(currentPageItems, thresholdDate);
-
-
-                    }
-                    else
-                        stage2PageItems.AddRange(currentPageItems);
-
+                    stage2Pages.Add(currentPage);
+                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemObjectsScraped(i, currentPageItems));
 
                 }
 
+                List<DateTime> createDates = currentPageItems.Select(pageItem => pageItem.CreateDate).ToList();
+                bool hasBeenFound = _components.PageItemScraper.HasBeenFound(thresholdDate, createDates);
 
+                if (hasBeenFound)
+                {
 
+                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ThresholdDateFoundPageNr(thresholdDate, i));
 
+                    currentPageItems = _components.PageItemScraper.RemoveOlderThan(currentPageItems, thresholdDate);
+                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_XPageItemsRemovedPageNr(currentPageItems, i));
+
+                    stage2PageItems.AddRange(currentPageItems);
+                    finalPageNumber = i;
+
+                    break;
+
+                }
+                else
+                    stage2PageItems.AddRange(currentPageItems);
+
+                ConditionallySleep(i, _settings.ParallelRequests, _settings.PauseBetweenRequestsMs);
 
             }
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FinalPageNumberThresholdDate(finalPageNumber));
 
             bool isCompleted = false;
             if (stage == WIDStages.Stage2_UpToAllPageItems)

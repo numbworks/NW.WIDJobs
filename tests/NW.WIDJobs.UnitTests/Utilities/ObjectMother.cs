@@ -1040,7 +1040,7 @@ namespace NW.WIDJobs.UnitTests
         internal static DateTime RunIdManager_Now = new DateTime(2020, 01, 01, 19, 25, 40, 980);
         internal static DateTime RunIdManager_StartDate = new DateTime(2019, 09, 01, 00, 00, 00, 000);
         internal static DateTime RunIdManager_EndDate = new DateTime(2019, 12, 31, 23, 59, 59, 999);
-        internal static DateTime RunIdManager_Until = new DateTime(2020, 03, 31, 00, 00, 00, 000);
+        internal static DateTime RunIdManager_Threshold = new DateTime(2020, 03, 31, 00, 00, 00, 000);
         internal static string RunIdManager_RunId_Now 
             = string.Format(
                 RunIdManager.TemplateId,
@@ -1053,11 +1053,11 @@ namespace NW.WIDJobs.UnitTests
                 RunIdManager_StartDate.ToString(RunIdManager.FormatDate),
                 RunIdManager_EndDate.ToString(RunIdManager.FormatDate)
             );
-        internal static string RunIdManager_RunId_Until
+        internal static string RunIdManager_RunId_Threshold
             = string.Format(
                 RunIdManager.TemplateUntil,
                 RunIdManager_RunId_Now,
-                RunIdManager_Until.ToString(RunIdManager.FormatDate)
+                RunIdManager_Threshold.ToString(RunIdManager.FormatDate)
             );
 
         // XPathManagerTests
