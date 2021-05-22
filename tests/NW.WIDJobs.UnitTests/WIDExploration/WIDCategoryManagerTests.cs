@@ -3,7 +3,7 @@
 namespace NW.WIDJobs.UnitTests
 {
     [TestFixture]
-    public class CategoryManagerTests
+    public class WIDCategoryManagerTests
     {
 
         // Fields
@@ -125,6 +125,10 @@ namespace NW.WIDJobs.UnitTests
                     "HR"
                 ).SetArgDisplayNames($"{nameof(getCategoryTokenTestCases)}_23"),
 
+            new TestCaseData(
+                    WIDCategories.AllCategories,
+                    "AllCategories"
+                ).SetArgDisplayNames($"{nameof(getCategoryTokenTestCases)}_24")
 
         };
 
