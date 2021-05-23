@@ -34,7 +34,7 @@ In the case we decide to filter results by `Category`, the URLs are the followin
 
 For the scope of this library we do use the the `OrderedByDate` variants.
 
-The available `Categories` are the following ones, and the `Token` is the variable piece for the urls above:
+The `Categories` natively available on the website are the following ones, and the `Token` is the variable piece for the urls above:
 
 |Name|Token|
 |---|---|---|
@@ -60,6 +60,12 @@ The available `Categories` are the following ones, and the `Token` is the variab
 |`Communication`|`Communication`|
 |`Legal`|`Legal`|
 |`HR`|`HR`|
+
+For commodity, the library introduced an extra one:
+
+|Name|Token|
+|---|---|---|
+|`AllCategories`|`AllCategories`|
 
 ## The object model
 
