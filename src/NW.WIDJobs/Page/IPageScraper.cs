@@ -1,8 +1,18 @@
-﻿namespace NW.WIDJobs
+﻿using System;
+
+namespace NW.WIDJobs
 {
+
+    /// <summary>A scraper for <see href="http://www.workindenmark.dk">WorkInDenmark</see>'s pages.</summary>
     public interface IPageScraper
     {
-        uint GetTotalResults(string content);
+
+        /// <summary>
+        /// Extracts the total results from a <see href="http://www.workindenmark.dk">WorkInDenmark</see>'s page (usually the first one).
+        /// </summary>
+        /// <exception cref="ArgumentNullException"/>
+        uint GetTotalResults(string content);    
+    
     }
 }
 

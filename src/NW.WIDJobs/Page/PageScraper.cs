@@ -1,13 +1,24 @@
-﻿namespace NW.WIDJobs
+﻿using System;
+
+namespace NW.WIDJobs
 {
+    /// <inheritdoc cref="IPageScraper"/>
     public class PageScraper : IPageScraper
     {
 
-        // Fields
+        #region Fields
+
         private IXPathManager _xpathManager;
 
-        // Properties
-        // Constructors
+        #endregion
+
+        #region Properties
+        #endregion
+
+        #region Constructors
+
+        /// <summary>Initializes a <see cref="PageScraper"/> instance.</summary>
+        /// <exception cref="ArgumentNullException"/>
         public PageScraper(IXPathManager xpathManager)
         {
 
@@ -16,10 +27,15 @@
             _xpathManager = xpathManager;
 
         }
-        public PageScraper() 
-            : this (new XPathManager()) { }
 
-        // Methods (public)
+        /// <summary>Initializes a <see cref="PageScraper"/> instance using default parameters.</summary>
+        public PageScraper()
+            : this(new XPathManager()) { }
+
+        #endregion
+
+        #region Methods_public
+
         public uint GetTotalResults(string content)
         {
 
@@ -33,7 +49,7 @@
 
         }
 
-        // Methods (private)
+        #endregion
 
     }
 }
