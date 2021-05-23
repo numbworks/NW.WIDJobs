@@ -502,7 +502,7 @@ An example of `Description` field containing within-text bullet points:
 
 ## The logic behind PageItemScraper.IsThresholdConditionMet()
 
-During an exploration and while evaluating the content of a `Page`, the `PageItemScraper.IsThresholdConditionMet()` method establishes if the `ThresholdDate` condition is met and the exploration should stop there, or if the exploration should continue.
+During an exploration and while evaluating the content of a `Page`, the `PageItemScraper.IsThresholdConditionMet()` method establishes if the `ThresholdDate` condition is met and the exploration should stop (`true` case), or if the exploration should continue (`false` case).
 
 Since the logic is a not immediate to understand, I'll show how it works by using an example.
 
@@ -550,7 +550,7 @@ The case numbers above correspond to the following conditions and to the followi
 
 ## The logic behind PageItemScraper.RemoveUnsuitable()
 
-If the `PageItemScraper.IsThresholdConditionMet()` method returns `True` for a given `Page`, the exploration must stops and the "extra" `PageItem` objects should not be part of the `WIDExploration` object.
+If the `PageItemScraper.IsThresholdConditionMet()` method returns `True` for a given `Page`, the exploration must stop and the unsuitable `PageItem` objects must be removed.
 
 The `RemoveUnsuitable()` method is intended for the purpose above, and it works using the following logic:
 

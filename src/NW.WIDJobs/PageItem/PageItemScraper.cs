@@ -7,14 +7,23 @@ using System.Linq;
 
 namespace NW.WIDJobs
 {
+    /// <inheritdoc cref="IPageItemScraper"/>
     public class PageItemScraper : IPageItemScraper
     {
 
-        // Fields
+        #region Fields
+
         private IXPathManager _xpathManager;
 
-        // Properties
-        // Constructors
+        #endregion
+
+        #region Properties
+        #endregion
+
+        #region Constructors
+
+        /// <summary>Initializes a <see cref="PageItemScraper"/> instance.</summary>
+        /// <exception cref="ArgumentNullException"/>
         public PageItemScraper(IXPathManager xpathManager)
         {
 
@@ -23,10 +32,15 @@ namespace NW.WIDJobs
             _xpathManager = xpathManager;
 
         }
+
+        /// <summary>Initializes a <see cref="PageItemScraper"/> instance using default parameters.</summary>
         public PageItemScraper()
             : this(new XPathManager()) { }
 
-        // Methods (public)
+        #endregion
+
+        #region Methods_public
+
         public List<PageItem> Do(Page page)
         {
 
@@ -56,17 +70,17 @@ namespace NW.WIDJobs
             };
             Validator.ThrowIfCountsAreNotEqual<Exception>(subscrapers);
 
-            List<PageItem> pageItems 
+            List<PageItem> pageItems
                 = CreatePageItems(
-                    page, 
-                    urls, 
-                    titles, 
-                    createDates, 
-                    applicationDates, 
+                    page,
+                    urls,
+                    titles,
+                    createDates,
+                    applicationDates,
                     workAreas,
                     workAreasWithoutZones,
-                    workingHours, 
-                    jobTypes, 
+                    workingHours,
+                    jobTypes,
                     jobIds
                     );
 
@@ -118,7 +132,10 @@ namespace NW.WIDJobs
 
         }
 
-        // Methods (private)
+        #endregion
+
+        #region Methods_private
+
         private List<string> ExtractAndFixUrls(string content)
         {
 
@@ -168,7 +185,7 @@ namespace NW.WIDJobs
 
             List<string> results = _xpathManager.GetInnerTexts(content, xpath);
             results = results.Select(result => CleanApplicationDate(result)).ToList();
-            
+
             List<DateTime?> applicationDates = results.Select(result => ParseApplicationDate(result)).ToList();
 
             return applicationDates;
@@ -404,6 +421,8 @@ namespace NW.WIDJobs
             return pageItems;
 
         }
+
+        #endregion
 
     }
 }
