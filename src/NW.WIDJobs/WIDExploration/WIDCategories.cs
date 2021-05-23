@@ -2,6 +2,7 @@
 
 namespace NW.WIDJobs
 {
+    /// <summary>Categories of <see cref="PageItem"/> to include in the exploration.</summary>
     public enum WIDCategories
     {
         AllCategories,

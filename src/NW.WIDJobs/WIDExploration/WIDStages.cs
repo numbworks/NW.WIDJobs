@@ -1,9 +1,6 @@
 ﻿namespace NW.WIDJobs
 {
-
-    /// <summary>
-    /// The depth of the exploration.
-    /// </summary>
+    /// <summary>The depth of the exploration.</summary>
     public enum WIDStages
     {
 
