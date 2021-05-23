@@ -2,11 +2,15 @@
 
 namespace NW.WIDJobs
 {
+    /// <summary>A <see href="http://www.workindenmark.dk">WorkInDenmark</see>'s page item.</summary>
     public class PageItem
     {
 
-        // Fields
-        // Properties
+        #region Fields
+        #endregion
+
+        #region Properties
+
         public string RunId { get; }
         public ushort PageNumber { get; }
         public string Url { get; }
@@ -21,7 +25,13 @@ namespace NW.WIDJobs
         public ushort PageItemNumber { get; }
         public string PageItemId { get; }
 
-        // Constructors
+        #endregion
+
+        #region Constructors
+
+        ///<summary>Initializes a <see cref="PageItem"/> instance.</summary>
+        /// <exception cref="ArgumentNullException"/>
+        /// <exception cref="ArgumentException"/> 
         public PageItem(
             string runId,
             ushort pageNumber,
@@ -36,7 +46,7 @@ namespace NW.WIDJobs
             ulong jobId,
             ushort pageItemNumber,
             string pageItemId
-            ) 
+            )
         {
 
             Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
@@ -66,7 +76,10 @@ namespace NW.WIDJobs
 
         }
 
-        // Methods
+        #endregion
+
+        #region Methods_public
+        #endregion
 
     }
 }
