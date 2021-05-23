@@ -7,14 +7,23 @@ using System.Web;
 
 namespace NW.WIDJobs
 {
+    /// <inheritdoc cref="IPageItemExtendedScraper"/>
     public class PageItemExtendedScraper : IPageItemExtendedScraper
     {
 
-        // Fields
+        #region Fields
+
         private IXPathManager _xpathManager;
 
-        // Properties
-        // Constructors
+        #endregion
+
+        #region Properties
+        #endregion
+
+        #region Constructors
+
+        /// <summary>Initializes a <see cref="PageItemExtendedScraper"/> instance.</summary>
+        /// <exception cref="ArgumentNullException"/>
         public PageItemExtendedScraper(IXPathManager xpathManager)
         {
 
@@ -23,10 +32,15 @@ namespace NW.WIDJobs
             _xpathManager = xpathManager;
 
         }
+
+        /// <summary>Initializes a <see cref="PageItemExtendedScraper"/> instance using default parameters.</summary>
         public PageItemExtendedScraper()
             : this(new XPathManager()) { }
 
-        // Methods (public)
+        #endregion
+
+        #region Methods_public
+
         public PageItemExtended Do(PageItem pageItem, string content)
         {
 
@@ -77,7 +91,10 @@ namespace NW.WIDJobs
 
         }
 
-        // Methods (private)
+        #endregion
+
+        #region Methods_private
+
         private string ExtractAndCleanDescription(string content)
         {
 
@@ -135,7 +152,7 @@ namespace NW.WIDJobs
             string pattern = "(?<=-\\t)[\\w ]{1,}(?=-\\t)";
 
             HashSet<string> bulletPoints = new HashSet<string>();
-            
+
             MatchCollection matchCollection = Regex.Matches(description, pattern);
             if (matchCollection != null)
                 matchCollection.Cast<Match>().ToList().ForEach(match => bulletPoints.Add(match.ToString()));
@@ -230,7 +247,7 @@ namespace NW.WIDJobs
 
             return result;
 
-        }      
+        }
         private string TryExtractReference(string content)
         {
 
@@ -410,12 +427,14 @@ namespace NW.WIDJobs
             if (bulletPoints.Count == 0)
                 return bulletPoints;
 
-            List<string> results 
+            List<string> results
                 = bulletPoints.Select(bulletPoint => RemoveNonBreakingSpaceCharacters(bulletPoint)).ToList();
 
             return new HashSet<string>(results);
 
         }
+
+        #endregion
 
     }
 }
