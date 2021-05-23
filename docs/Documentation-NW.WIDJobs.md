@@ -581,6 +581,109 @@ The `RemoveUnsuitable()` method is intended for the purpose above, and it works 
 |2021-04-28|Remove|
 |2021-04-28|Remove|
 
+## WIDExplorer.Explore(), processing stages by FinalPageNumber
+
+In order to avoid to call the server even one time more than needed, the exploration is performed in subsequent phases called "stages". The standard scenario is the exploration "by FinalPageNumber", which works like below:
+
+**Stage1**:
+
+|Type|Field|Result|
+|---|---|---|
+|Input|RunId|Value|
+|Input|InitialPageNumber|1|
+|Input|FinalPageNumber|x|
+|Input|Category|Value|
+|Input|Stage|Stage1 OR Stage2 OR Stage3|
+||||
+|Output|RunId|=|
+|Output|TotalResults|Value|
+|Output|TotalEstimatedPages|Value|
+|Output|Category|=|
+|Output|Stage|Stage1 OR Stage2 OR Stage3|
+|Output|IsCompleted|True OR False|
+|Output|Pages|1 Pages|
+|Output|PageItems|Null|
+|Output|PageItemsExtended|Null|
+
+**EstablishFinalPageNumber**:
+
+|Type|Field|Result|
+|---|---|---|
+|Input|FinalPageNumber|Value|
+|Input|TotalEstimatedPages|Value|
+||||
+|Output|FinalPageNumber|Value|
+
+**Stage 2**:
+
+|Type|Field|Result|
+|---|---|---|
+|Input|WIDExploration|Value|
+|Input|FinalPageNumber|x|
+|Input|Stage|Stage2 OR Stage3|
+||||
+|Output|RunId|=|
+|Output|TotalResults|=|
+|Output|TotalEstimatedPages|=|
+|Output|Category|=|
+|Output|Stage|Stage2 OR Stage3|
+|Output|IsCompleted|True OR False|
+|Output|Pages|x Pages|
+|Output|PageItems|(x * 20) PageItems|
+|Output|PageItemsExtended|Null|
+
+**Stage 3**:
+
+|Type|Field|Result|
+|---|---|---|
+|Input|WIDExploration|Value|
+|Input|Stage|Stage3|
+||||
+|Output|RunId|=|
+|Output|TotalResults|=|
+|Output|TotalEstimatedPages|=|
+|Output|Category|=|
+|Output|Stage|Stage3|
+|Output|IsCompleted|True|
+|Output|Pages|=|
+|Output|PageItems|=|
+|Output|PageItemsExtended|(x * 20) PageItemsExtended|
+
+## WIDExplorer.Explore(), processing stages by  by ThresholdDate
+
+The "commodity" scenario is the exploration "by ThresholdDate". The only difference with there is no `FinalPageNumber`, therefore the library has to evaluate each  `Page` from `PageNumber` 1 to  `TotalEstimatedPages` until the threshold condition is met. 
+
+Please give a look to the "flow" below:
+
+**Stage 1**:
+
+|Type|Field|Result|
+|---|---|---|
+|...|...|...|
+|Input|FinalPageNumber|**?**|
+|...|...|...|
+||||
+|...|...|...|
+
+**Stage 2**:
+
+|Type|Field|Result|
+|---|---|---|
+|...|...|...|
+|Input|**ThresholdDate**|VALUE|
+|...|...|...|
+||||
+|...|...|...|
+|Output|Pages|**x Pages until threshold condtion is met**|
+|Output|PageItems|**(x * 20) PageItems - PageItems not meeting the condition**|
+|...|...|...|
+
+**Stage 3**:
+
+|Type|Field|Result|
+|---|---|---|
+|...|...|...|
+
 ## Markdown Toolset
 
 Suggested toolset to view and edit this Markdown file:
