@@ -4,15 +4,25 @@ using System.Reflection;
 
 namespace NW.WIDJobs
 {
+    /// <summary><inheritdoc cref="IWIDCategoryManager"/></summary>
     public class WIDCategoryManager : IWIDCategoryManager
     {
 
-        // Fields
-        // Properties
-        // Constructors
+        #region Fields
+        #endregion
+
+        #region Properties
+        #endregion
+
+        #region Constructors
+
+        /// <summary>Initializes a <see cref="WIDCategoryManager"/> instance.</summary>
         public WIDCategoryManager() { }
 
-        // Methods (public)
+        #endregion
+
+        #region Methods_public
+
         public string GetCategoryToken(WIDCategories category)
         {
 
@@ -28,7 +38,7 @@ namespace NW.WIDJobs
 
         }
 
-        // Methods (private)
+        #endregion
 
     }
 }
