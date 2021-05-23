@@ -1,16 +1,26 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 
 namespace NW.WIDJobs
 {
+    /// <inheritdoc cref="IPageItemExtendedManager"/>
     public class PageItemExtendedManager : IPageItemExtendedManager
     {
 
-        // Fields
+        #region Fields
+
         private IGetRequestManager _getRequestManager;
         private IPageItemExtendedScraper _pageItemExtendedScraper;
 
-        // Properties
-        // Constructors
+        #endregion
+
+        #region Properties
+        #endregion
+
+        #region Constructors
+
+        /// <summary>Initializes a <see cref="PageItemExtendedManager"/> instance.</summary>
+        /// <exception cref="ArgumentNullException"/>
         public PageItemExtendedManager
             (IGetRequestManager getRequestManager, IPageItemExtendedScraper pageItemExtendedScraper)
         {
@@ -22,10 +32,15 @@ namespace NW.WIDJobs
             _pageItemExtendedScraper = pageItemExtendedScraper;
 
         }
+
+        /// <summary>Initializes a <see cref="PageItemExtendedManager"/> instance using default parameters.</summary>
         public PageItemExtendedManager()
             : this(new GetRequestManager(), new PageItemExtendedScraper()) { }
 
-        // Methods (public)
+        #endregion
+
+        #region Methods_public
+
         public PageItemExtended Get(PageItem pageItem)
         {
 
@@ -46,7 +61,7 @@ namespace NW.WIDJobs
 
         }
 
-        // Methods (private)
+        #endregion
 
     }
 }
