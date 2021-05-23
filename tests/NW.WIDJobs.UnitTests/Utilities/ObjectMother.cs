@@ -1475,6 +1475,13 @@ namespace NW.WIDJobs.UnitTests
 
         #endregion
 
+        #region WIDExplorerTests
+
+        internal static DateTime WIDExplorer_FakeNow = new DateTime(2021, 05, 01);
+        internal static DateTime WIDExplorer_FakeNowTwoMonthsBefore = WIDExplorer_FakeNow.AddMonths(-2);
+
+        #endregion
+
         #region ValidatorTests
 
         internal static string[] Validator_Array1 = new[] { "Dodge", "Datsun", "Jaguar", "DeLorean" };

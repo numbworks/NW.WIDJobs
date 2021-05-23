@@ -143,7 +143,7 @@ namespace NW.WIDJobs
         public static void ThrowIfFirstIsOlderOrEqual<T>(DateTime dt1, string variableName1, DateTime dt2, string variableName2) where T : Exception
         {
 
-            if (dt1 >= dt2)
+            if (dt1 <= dt2)
                 throw CreateException<T>(MessageCollection.Validator_FirstValueIsGreaterOrEqualThanSecondValue.Invoke(variableName1, variableName2));
 
         }
