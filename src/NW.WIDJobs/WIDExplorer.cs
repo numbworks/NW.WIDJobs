@@ -7,21 +7,27 @@ using System.Linq;
 
 namespace NW.WIDJobs
 {
-
     public class WIDExplorer
     {
 
-        // Fields
+        #region Fields
+
         private WIDExplorerComponents _components;
         private WIDExplorerSettings _settings;
 
-        // Properties
+        #endregion
+
+        #region Properties
+
         public static string DefaultNotSerialized { get; } = "<not_serialized>";
         public static ushort DefaultInitialPageNumber { get; } = 1;
         public DateTime Now { get; }
         public string RunId { get; }
 
-        // Constructors
+        #endregion
+
+        #region Constructors
+
         public WIDExplorer
             (WIDExplorerComponents components, WIDExplorerSettings settings, DateTime now)
         {
@@ -34,10 +40,14 @@ namespace NW.WIDJobs
             Now = now;
 
         }
+        
         public WIDExplorer()
             : this(new WIDExplorerComponents(), new WIDExplorerSettings(), DateTime.Now) { }
 
-        // Methods (public)
+        #endregion
+
+        #region Methods_public
+
         public string ToJson(WIDExploration exploration)
         {
 
@@ -130,7 +140,10 @@ namespace NW.WIDJobs
 
         }
 
-        // Methods (private)
+        #endregion
+
+        #region Methods_private
+
         private void ConditionallySleep
             (ushort i, ushort parallelRequests, uint pauseBetweenRequestsMs)
         {
@@ -203,13 +216,13 @@ namespace NW.WIDJobs
             Page page = new Page(runId, initialPageNumber, content);
             List<Page> pages = new List<Page>() { page };
 
-            return 
+            return
                 new WIDExploration(
-                        runId, 
-                        totalResults, 
-                        totalEstimatedPages, 
-                        category, 
-                        stage, 
+                        runId,
+                        totalResults,
+                        totalEstimatedPages,
+                        category,
+                        stage,
                         isCompleted,
                         pages);
 
@@ -230,7 +243,7 @@ namespace NW.WIDJobs
 
             return finalPageNumber;
 
-        }       
+        }
         private WIDExploration ProcessStage2
             (WIDExploration exploration, ushort finalPageNumber, WIDStages stage)
         {
@@ -266,41 +279,6 @@ namespace NW.WIDJobs
             if (stage == WIDStages.Stage2_UpToAllPageItems)
                 isCompleted = true;
 
-            return 
-                new WIDExploration(
-                        exploration.RunId, 
-                        exploration.TotalResults,
-                        exploration.TotalEstimatedPages,
-                        exploration.Category, 
-                        stage, 
-                        isCompleted,
-                        stage2Pages,
-                        pageItems);
-
-        }
-        private WIDExploration ProcessStage3
-            (WIDExploration exploration, WIDStages stage)
-        {
-
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(stage));
-
-            List<PageItemExtended> pageItemsExtended = new List<PageItemExtended>();
-            foreach (PageItem pageItem in exploration.PageItems)
-            {
-
-                PageItemExtended current = _components.PageItemExtendedManager.Get(pageItem);
-                pageItemsExtended.Add(current);
-
-                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemExtendedScraped(pageItem));
-
-                ConditionallySleep(pageItem.PageItemNumber, _settings.ParallelRequests, _settings.PauseBetweenRequestsMs);
-
-            }
-
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemExtendedScrapedTotal(pageItemsExtended));
-
-            bool isCompleted =  true;
-
             return
                 new WIDExploration(
                         exploration.RunId,
@@ -309,12 +287,10 @@ namespace NW.WIDJobs
                         exploration.Category,
                         stage,
                         isCompleted,
-                        exploration.Pages,
-                        exploration.PageItems,
-                        pageItemsExtended);
+                        stage2Pages,
+                        pageItems);
 
         }
-
         private WIDExploration ProcessStage2WhenThresholdDate
             (WIDExploration exploration, WIDStages stage, DateTime thresholdDate)
         {
@@ -394,6 +370,44 @@ namespace NW.WIDJobs
                         stage2PageItems);
 
         }
+        private WIDExploration ProcessStage3
+            (WIDExploration exploration, WIDStages stage)
+        {
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(stage));
+
+            List<PageItemExtended> pageItemsExtended = new List<PageItemExtended>();
+            foreach (PageItem pageItem in exploration.PageItems)
+            {
+
+                PageItemExtended current = _components.PageItemExtendedManager.Get(pageItem);
+                pageItemsExtended.Add(current);
+
+                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemExtendedScraped(pageItem));
+
+                ConditionallySleep(pageItem.PageItemNumber, _settings.ParallelRequests, _settings.PauseBetweenRequestsMs);
+
+            }
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemExtendedScrapedTotal(pageItemsExtended));
+
+            bool isCompleted = true;
+
+            return
+                new WIDExploration(
+                        exploration.RunId,
+                        exploration.TotalResults,
+                        exploration.TotalEstimatedPages,
+                        exploration.Category,
+                        stage,
+                        isCompleted,
+                        exploration.Pages,
+                        exploration.PageItems,
+                        pageItemsExtended);
+
+        }
+
+        #endregion
 
     }
 }
