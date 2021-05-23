@@ -2,11 +2,15 @@
 
 namespace NW.WIDJobs
 {
+    /// <summary>Collects all the dependencies required by <see cref="WIDExplorer"/>.</summary>
     public class WIDExplorerComponents
     {
 
-        // Fields
-        // Properties
+        #region Fields
+        #endregion
+
+        #region Properties
+
         public static Action<string> DefaultLoggingAction { get; }
             = (message) => Console.WriteLine($"[{DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss:fff")}] {message}");
 
@@ -21,10 +25,15 @@ namespace NW.WIDJobs
         public IRunIdManager RunIdManager { get; }
         public IBulletPointManager BulletPointManager { get; }
 
-        // Constructors	
+        #endregion
+
+        #region Constructors
+
+        /// <summary>Initializes a <see cref="WIDExplorerComponents"/> instance.</summary>
+        /// <exception cref="ArgumentNullException"/>
         public WIDExplorerComponents(
-            Action<string> loggingAction, 
-            IXPathManager xpathManager, 
+            Action<string> loggingAction,
+            IXPathManager xpathManager,
             IGetRequestManager getRequestManager,
             IPageManager pageManager,
             IPageScraper pageScraper,
@@ -59,10 +68,12 @@ namespace NW.WIDJobs
             BulletPointManager = bulletPointManager;
 
         }
+
+        /// <summary>Initializes a <see cref="WIDExplorerComponents"/> instance using default parameters.</summary>
         public WIDExplorerComponents()
             : this(
                   DefaultLoggingAction,
-                  new XPathManager(), 
+                  new XPathManager(),
                   new GetRequestManager(),
                   new PageManager(),
                   new PageScraper(),
@@ -71,9 +82,13 @@ namespace NW.WIDJobs
                   new PageItemExtendedScraper(),
                   new RunIdManager(),
                   new BulletPointManager()
-                  ) { }
+                  )
+        { }
 
-        // Methods
+        #endregion
+
+        #region Methods_public
+        #endregion
 
     }
 }
