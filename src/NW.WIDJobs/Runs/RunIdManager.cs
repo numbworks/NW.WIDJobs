@@ -2,21 +2,32 @@
 
 namespace NW.WIDJobs
 {
+    /// <summary><inheritdoc cref="IRunIdManager"/></summary>
     public class RunIdManager : IRunIdManager
     {
 
-        // Fields
-        // Properties
+        #region Fields
+        #endregion
+
+        #region Properties
+
         public static string TemplateId { get; } = "ID:{0}";
+        public static string TemplateThreshold { get; } = "{0}|THRESHOLD:{1}";
         public static string TemplateFromTo { get; } = "{0}|FROM:{1}|TO:{2}";
-        public static string TemplateThreshold{ get; } = "{0}|THRESHOLD:{1}";
         public static string FormatDateTime { get; } = "yyyyMMddHHmmssfff";
         public static string FormatDate { get; } = "yyyyMMddHH";
 
-        // Constructors
+        #endregion
+
+        #region Constructors
+
+        /// <summary>Initializes a <see cref="RunIdManager"/> instance.</summary>
         public RunIdManager() { }
 
-        // Methods (public)
+        #endregion
+
+        #region Methods_public
+
         public string Create(DateTime now)
         {
 
@@ -59,7 +70,7 @@ namespace NW.WIDJobs
 
         }
 
-        // Methods (private)
+        #endregion
 
     }
 }
