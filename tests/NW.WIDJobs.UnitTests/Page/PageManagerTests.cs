@@ -113,18 +113,6 @@ namespace NW.WIDJobs.UnitTests
             ).SetArgDisplayNames($"{nameof(getPageExceptionTestCases)}_02")
 
         };
-        private static TestCaseData[] getTotalResultsExceptionTestCases =
-        {
-
-            new TestCaseData(
-                new TestDelegate(
-                    () => new PageManager().GetTotalResults(null)
-                ),
-                typeof(ArgumentNullException),
-                new ArgumentNullException("content").Message
-            ).SetArgDisplayNames($"{nameof(getTotalResultsExceptionTestCases)}_01")
-
-        };
         private static TestCaseData[] getContentExceptionTestCases =
         {
 
@@ -221,21 +209,6 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
-        [Test]
-        public void GetTotalResults_ShouldRetrieveExpectedResults_WhenInvoked()
-        {
-
-            // Arrange
-            // Act
-            uint actual
-                = ObjectMother.PageManager_WithFakeGetRequestManager
-                        .GetTotalResults(ObjectMother.Shared_Page01_Content);
-
-            // Assert
-            Assert.AreEqual(ObjectMother.Shared_Page01_TotalResults, actual);
-
-        }
-
 
         [TestCaseSource(nameof(pageManagerExceptionTestCases))]
         public void PageManager_ShouldThrowACertainException_WhenUnproperArguments
@@ -247,17 +220,12 @@ namespace NW.WIDJobs.UnitTests
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
-        [TestCaseSource(nameof(getTotalResultsExceptionTestCases))]
-        public void GetTotalResults_ShouldThrowACertainException_WhenUnproperArguments
+        [TestCaseSource(nameof(getContentExceptionTestCases))]
+        public void GetContent_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
-        [TestCaseSource(nameof(getTotalResultsExceptionTestCases))]
-        public void GetTotal_ShouldThrowACertainException_WhenUnproperArguments
-            (TestDelegate del, Type expectedType, string expectedMessage)
-                => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
-
-        [TestCaseSource(nameof(getTotalResultsExceptionTestCases))]
+        [TestCaseSource(nameof(createUrlExceptionTestCases))]
         public void CreateUrl_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);

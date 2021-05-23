@@ -13,12 +13,6 @@ namespace NW.WIDJobs
         string CreateUrl(ushort pageNumber, WIDCategories category);
 
         /// <summary>
-        /// Extracts the total results from a <see href="http://www.workindenmark.dk">WorkInDenmark</see>'s page (usually the first one).
-        /// </summary>
-        /// <exception cref="ArgumentNullException"/>
-        uint GetTotalResults(string content);
-
-        /// <summary>
         /// Estimates the total amount of pages on <see href="http://www.workindenmark.dk">WorkInDenmark</see> according to the provided <paramref name="totalResults"/>.
         /// </summary>
         ushort GetTotalEstimatedPages(uint totalResults);

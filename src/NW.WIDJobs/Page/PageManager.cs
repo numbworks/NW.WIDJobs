@@ -66,16 +66,6 @@ namespace NW.WIDJobs
             return $"https://www.workindenmark.dk/search/Job-search?q=&categories={token}&orderBy=date&PageNum={pageNumber}";
 
         }
-        public uint GetTotalResults(string content)
-        {
-
-            Validator.ValidateStringNullOrWhiteSpace(content, nameof(content));
-
-            uint totalResults = _pageScraper.GetTotalResults(content);
-
-            return totalResults;
-
-        }
         public ushort GetTotalEstimatedPages(uint totalResults)
         {
 
