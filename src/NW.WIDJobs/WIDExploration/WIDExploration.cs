@@ -1,16 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace NW.WIDJobs
 {
-
-    /// <summary>
-    /// The result of the exploration.
-    /// </summary>
+    /// <summary>The result of an exploration on <see href="http://www.workindenmark.dk">WorkInDenmark</see>.</summary>
     public class WIDExploration
     {
 
-        // Fields
-        // Properties
+        #region Fields
+        #endregion
+
+        #region Properties
+
         public string RunId { get; }
         public uint TotalResults { get; }
         public ushort TotalEstimatedPages { get; }
@@ -21,7 +22,12 @@ namespace NW.WIDJobs
         public List<PageItem> PageItems { get; }
         public List<PageItemExtended> PageItemsExtended { get; }
 
-        // Constructors
+        #endregion
+
+        #region Constructors
+
+        /// <summary>Initializes a <see cref="WIDExploration"/> instance.</summary>
+        /// <exception cref="ArgumentNullException"/>
         public WIDExploration(
             string runId,
             uint totalResults,
@@ -50,7 +56,10 @@ namespace NW.WIDJobs
 
         }
 
-        // Methods (public)
+        #endregion
+
+        #region Methods_public
+
         public override string ToString()
         {
 
@@ -70,7 +79,7 @@ namespace NW.WIDJobs
 
         }
 
-        // Methods (private)
+        #endregion
 
     }
 }
