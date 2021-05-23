@@ -336,15 +336,15 @@ namespace NW.WIDJobs.UnitTests
             new TestCaseData(
                 new TestDelegate(
                         () => Validator.ThrowIfFirstIsOlderOrEqual(
-                                            ObjectMother.Validator_DateTime2,
-                                            nameof(ObjectMother.Validator_DateTime2),
-                                            ObjectMother.Validator_DateTime1,
-                                            nameof(ObjectMother.Validator_DateTime1)
+                                            ObjectMother.Validator_DateTimeOlder,
+                                            nameof(ObjectMother.Validator_DateTimeOlder),
+                                            ObjectMother.Validator_DateTimeNewer,
+                                            nameof(ObjectMother.Validator_DateTimeNewer)
                             )),
                 typeof(ArgumentException),
-                MessageCollection.Validator_FirstValueIsGreaterOrEqualThanSecondValue.Invoke(
-                                        nameof(ObjectMother.Validator_DateTime2),
-                                        nameof(ObjectMother.Validator_DateTime1)
+                MessageCollection.Validator_FirstDateIsOlderOrEqual.Invoke(
+                                        nameof(ObjectMother.Validator_DateTimeOlder),
+                                        nameof(ObjectMother.Validator_DateTimeNewer)
                                     )
                 ).SetArgDisplayNames($"{nameof(throwIfFirstIsOlderOrEqualExceptionTestCases)}_01")
 
@@ -501,10 +501,10 @@ namespace NW.WIDJobs.UnitTests
             => Method_ShouldDoNothing_WhenProperArgument(
                     new Action[] {
                         () => Validator.ThrowIfFirstIsOlderOrEqual(
-                                ObjectMother.Validator_DateTime1,
-                                nameof(ObjectMother.Validator_DateTime1),
-                                ObjectMother.Validator_DateTime2,
-                                nameof(ObjectMother.Validator_DateTime2)
+                                ObjectMother.Validator_DateTimeNewer,
+                                nameof(ObjectMother.Validator_DateTimeNewer),
+                                ObjectMother.Validator_DateTimeOlder,
+                                nameof(ObjectMother.Validator_DateTimeOlder)
                             )
                     });
 

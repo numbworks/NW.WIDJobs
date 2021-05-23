@@ -1530,8 +1530,8 @@ namespace NW.WIDJobs.UnitTests
             { "jobIds", 20 }
 
         };
-        internal static DateTime Validator_DateTime1 = new DateTime(2019, 09, 01, 00, 00, 00, 000);
-        internal static DateTime Validator_DateTime2 = new DateTime(2019, 12, 31, 23, 59, 59, 999);
+        internal static DateTime Validator_DateTimeOlder = new DateTime(2019, 09, 01, 00, 00, 00, 000);
+        internal static DateTime Validator_DateTimeNewer = new DateTime(2019, 12, 31, 23, 59, 59, 999);
 
         #endregion
 

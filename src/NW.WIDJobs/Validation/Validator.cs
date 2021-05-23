@@ -144,7 +144,7 @@ namespace NW.WIDJobs
         {
 
             if (dt1 <= dt2)
-                throw CreateException<T>(MessageCollection.Validator_FirstValueIsGreaterOrEqualThanSecondValue.Invoke(variableName1, variableName2));
+                throw CreateException<T>(MessageCollection.Validator_FirstDateIsOlderOrEqual.Invoke(variableName1, variableName2));
 
         }
         public static void ThrowIfFirstIsOlderOrEqual(DateTime dt1, string variableName1, DateTime dt2, string variableName2)
