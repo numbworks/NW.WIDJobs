@@ -3,11 +3,15 @@ using System.Collections.Generic;
 
 namespace NW.WIDJobs
 {
+    /// <summary>A <see href="http://www.workindenmark.dk">WorkInDenmark</see>'s page item extended.</summary>
     public class PageItemExtended
     {
 
-        // Fields
-        // Properties
+        #region Fields
+        #endregion
+
+        #region Properties
+
         public PageItem PageItem { get; }
         public string Description { get; }
 
@@ -25,7 +29,12 @@ namespace NW.WIDJobs
         public string EmployerAddress { get; }
         public string HowToApply { get; }
 
-        // Constructors
+        #endregion
+
+        #region Constructors
+
+        ///<summary>Initializes a <see cref="PageItemExtended"/> instance.</summary>
+        /// <exception cref="ArgumentNullException"/>
         public PageItemExtended(
                 PageItem pageItem,
                 string description,
@@ -42,7 +51,7 @@ namespace NW.WIDJobs
                 string contact = null,
                 string employerAddress = null,
                 string howToApply = null
-            ) 
+            )
         {
 
             Validator.ValidateObject(pageItem, nameof(pageItem));
@@ -67,7 +76,10 @@ namespace NW.WIDJobs
 
         }
 
-        // Methods
+        #endregion
+
+        #region Methods_public
+        #endregion
 
     }
 }
