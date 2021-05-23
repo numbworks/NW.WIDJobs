@@ -4,12 +4,12 @@ using System.Linq;
 
 namespace NW.WIDJobs
 {
+    /// <summary>Collects all the validation methods.</summary>
     public static class Validator
     {
 
-        // Fields
-        // Properties
-        // Methods (public)
+        #region Methods_public
+
         public static void ValidateLength<T>(uint length) where T : Exception
         {
 
@@ -150,11 +150,16 @@ namespace NW.WIDJobs
         public static void ThrowIfFirstIsOlderOrEqual(DateTime dt1, string variableName1, DateTime dt2, string variableName2)
             => ThrowIfFirstIsOlderOrEqual<ArgumentException>(dt1, variableName1, dt2, variableName2);
 
-        // Methods (private)
+        #endregion
+
+        #region Methods_private
+
         private static T CreateException<T>(string message) where T : Exception
             => (T)Activator.CreateInstance(typeof(T), message);
         private static bool AreAllEqual(int[] integers)
             => Array.TrueForAll(integers, val => (integers[0] == val));
+
+        #endregion
 
     }
 }
