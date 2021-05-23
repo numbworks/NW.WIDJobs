@@ -34,7 +34,17 @@ namespace NW.WIDJobs.UnitTests
             new TestCaseData(
                     ObjectMother.Shared_Page02,
                     ObjectMother.Shared_Page02_PageItems
-                ).SetArgDisplayNames($"{nameof(doTestCases)}_02")
+                ).SetArgDisplayNames($"{nameof(doTestCases)}_02"),
+
+            new TestCaseData(
+                    ObjectMother.AdditionalCases_PageItemScraper01_Page.Invoke(),
+                    ObjectMother.AdditionalCases_PageItemScraper01_ExpectedPageItems
+                ).SetArgDisplayNames($"{nameof(doTestCases)}_03"),
+
+            new TestCaseData(
+                    ObjectMother.AdditionalCases_PageItemScraper02_Page.Invoke(),
+                    ObjectMother.AdditionalCases_PageItemScraper02_ExpectedPageItems
+                ).SetArgDisplayNames($"{nameof(doTestCases)}_04")
 
         };
         private static TestCaseData[] doExceptionTestCases =
@@ -50,11 +60,11 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new PageItemScraper().Do(ObjectMother.Shared_Page01_NotPossibleToExtractJobId.Invoke())
+                    () => new PageItemScraper().Do(ObjectMother.AdditionalCases_PageItemScraper03_Page.Invoke())
                 ),
                 typeof(Exception),
                 MessageCollection.PageItemScraper_NotPossibleToExtractJobId.Invoke(
-                        ObjectMother.Shared_Page01_NotPossibleToExtractJobId_Url, 
+                        ObjectMother.AdditionalCases_PageItemScraper03_Url, 
                         "(?<=/job/)[0-9]{5,}"
                     )
             ).SetArgDisplayNames($"{nameof(doExceptionTestCases)}_02")

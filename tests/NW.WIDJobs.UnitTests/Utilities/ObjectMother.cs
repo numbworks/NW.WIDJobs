@@ -961,27 +961,91 @@ namespace NW.WIDJobs.UnitTests
 
         #endregion
 
-        #region Shared_EdgeCases
+        #region AdditionalCases
 
-        internal static string Shared_Page01_NotPossibleToExtractJobId_Url =
-            "https://www.workindenmark.dk/job/8144/Learning-sales-Fulltime-Student-Position";
-        internal static Func<Page> Shared_Page01_NotPossibleToExtractJobId =
+        internal static string AdditionalCases_PageItemScraper01_Title 
+            = "Software Engineer â€“ Forecasting and Modelling";
+        internal static Func<Page> AdditionalCases_PageItemScraper01_Page =
             () =>
-                {
+            {
 
-                    string content
-                    = Shared_Page01_Content.Replace(
-                        "/job/8144115/Learning-sales-Fulltime-Student-Position",
-                        "/job/8144/Learning-sales-Fulltime-Student-Position"
-                        );
+                string content
+                = Shared_Page01_Content.Replace(
+                        Shared_Page01_PageItem01.Title,
+                        AdditionalCases_PageItemScraper01_Title
+                    );
 
-                    return new Page(
-                            Shared_Page01.RunId,
-                            Shared_Page01.PageNumber,
-                            content
-                        );
+                return new Page(
+                        Shared_Page01.RunId,
+                        Shared_Page01.PageNumber,
+                        content
+                    );
 
-                };
+            };
+        internal static string AdditionalCases_PageItemScraper01_ExpectedTitle
+            = "Software Engineer  Forecasting and Modelling";
+        internal static string AdditionalCases_PageItemScraper01_ExpectedPageItemId
+            = "8144115softwareengineerforecastingandmodelling";
+        internal static PageItem AdditionalCases_PageItemScraper01_ExpectedPageItem01 
+            = SwapTitlePageItemId(
+                    Shared_Page01_PageItem01, 
+                    AdditionalCases_PageItemScraper01_ExpectedTitle,
+                    AdditionalCases_PageItemScraper01_ExpectedPageItemId);
+        internal static List<PageItem> AdditionalCases_PageItemScraper01_ExpectedPageItems
+            = SwapFirstPageItem(Shared_Page01_PageItems, AdditionalCases_PageItemScraper01_ExpectedPageItem01);
+
+
+        internal static string AdditionalCases_PageItemScraper02_Title
+            = "Student with flair for UX and UI Design\n\u00A0Job Details";
+        internal static Func<Page> AdditionalCases_PageItemScraper02_Page =
+            () =>
+            {
+
+                string content
+                = Shared_Page01_Content.Replace(
+                        Shared_Page01_PageItem01.Title,
+                        AdditionalCases_PageItemScraper02_Title
+                    );
+
+                return new Page(
+                        Shared_Page01.RunId,
+                        Shared_Page01.PageNumber,
+                        content
+                    );
+
+            };
+        internal static string AdditionalCases_PageItemScraper02_ExpectedTitle
+            = "Student with flair for UX and UI Design Job Details";
+        internal static string AdditionalCases_PageItemScraper02_ExpectedPageItemId
+            = "8144115studentwithflairforuxanduidesignjobdetails";
+        internal static PageItem AdditionalCases_PageItemScraper02_ExpectedPageItem01 =
+            SwapTitlePageItemId(
+                Shared_Page01_PageItem01,
+                AdditionalCases_PageItemScraper02_ExpectedTitle,
+                AdditionalCases_PageItemScraper02_ExpectedPageItemId);
+        internal static List<PageItem> AdditionalCases_PageItemScraper02_ExpectedPageItems
+            = SwapFirstPageItem(Shared_Page01_PageItems, AdditionalCases_PageItemScraper02_ExpectedPageItem01);
+
+        internal static string AdditionalCases_PageItemScraper03_Url =
+            "https://www.workindenmark.dk/job/8144/Learning-sales-Fulltime-Student-Position";
+        internal static Func<Page> AdditionalCases_PageItemScraper03_Page =
+            () =>
+            {
+
+                string content
+                = Shared_Page01_Content.Replace(
+                    "/job/8144115/Learning-sales-Fulltime-Student-Position",
+                    AdditionalCases_PageItemScraper03_Url.Replace("https://www.workindenmark.dk", string.Empty)
+                    );
+
+                return new Page(
+                        Shared_Page01.RunId,
+                        Shared_Page01.PageNumber,
+                        content
+                    );
+
+            };
+
 
         #endregion
 
@@ -1599,6 +1663,36 @@ namespace NW.WIDJobs.UnitTests
                      pageItemNumber: pageItem.PageItemNumber,
                      pageItemId: pageItem.PageItemId
                 );
+
+        }
+        internal static PageItem SwapTitlePageItemId(PageItem pageItem, string title, string pageItemId)
+        {
+
+            return new PageItem(
+                     runId: pageItem.RunId,
+                     pageNumber: pageItem.PageNumber,
+                     url: pageItem.Url,
+                     title: title,
+                     createDate: pageItem.CreateDate,
+                     applicationDate: pageItem.ApplicationDate,
+                     workArea: pageItem.WorkArea,
+                     workAreaWithoutZone: pageItem.WorkAreaWithoutZone,
+                     workingHours: pageItem.WorkingHours,
+                     jobType: pageItem.JobType,
+                     jobId: pageItem.JobId,
+                     pageItemNumber: pageItem.PageItemNumber,
+                     pageItemId: pageItemId
+                );
+
+        }
+        internal static List<PageItem> SwapFirstPageItem(List<PageItem> pageItems, PageItem pageItem)
+        {
+
+            List<PageItem> newPageItems = new List<PageItem>();
+            newPageItems.Add(pageItem);
+            newPageItems.AddRange(pageItems.Where(item => item.PageItemNumber > 1));
+
+            return newPageItems;
 
         }
 

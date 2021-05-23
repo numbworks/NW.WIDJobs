@@ -234,7 +234,7 @@ The following fields require extra processing:
 |Field|Action|
 |---|---|
 |`Url`|Convert from relative to absolute.|
-|`Title`|Remove `&nbsp;`.|
+|`Title`|Remove `&nbsp;`, `\"`, `\n` and `â€“`. Replace non-break character (`\u00A0`) with whitespace.|
 |`CreateDate`|Parse it to `DateTime`.|
 |`ApplicationDate`|Remove `Application date: ` and parse it to `DateTime` when it's a date, or set it to `null` when it's "As soon as possible".|
 |`WorkArea`|Remove `Work area: `.|

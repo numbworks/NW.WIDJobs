@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Linq;
+using System.Web;
 
 namespace NW.WIDJobs
 {
@@ -323,6 +324,9 @@ namespace NW.WIDJobs
 
             string cleanTitle = ReplaceWithEmptyString(title, " &nbsp;");
             cleanTitle = ReplaceWithEmptyString(cleanTitle, "\"");
+            cleanTitle = ReplaceWithEmptyString(cleanTitle, "\n");
+            cleanTitle = ReplaceWithEmptyString(cleanTitle, "â€“");
+            cleanTitle = FixNonBreakCharacter(cleanTitle);
 
             return cleanTitle;
 
@@ -337,6 +341,8 @@ namespace NW.WIDJobs
             => ReplaceWithEmptyString(jobType, "Job type: ");
         private string ReplaceWithEmptyString(string str, string toReplace)
             => str.Replace(toReplace, string.Empty);
+        private string FixNonBreakCharacter(string str)
+            => str.Replace("\u00A0", " ");
         private string ExtractJobId(string url)
         {
 
