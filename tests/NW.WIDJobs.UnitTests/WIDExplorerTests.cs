@@ -70,24 +70,7 @@ namespace NW.WIDJobs.UnitTests
                         )),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("runId").Message
-            ).SetArgDisplayNames($"{nameof(widExplorerExceptionTestCases)}_03"),
-
-            new TestCaseData(
-                new TestDelegate(
-                    () => new WIDExplorer(
-                                new WIDExplorerComponents(), 
-                                new WIDExplorerSettings(),
-                                ObjectMother.WIDExplorer_FakeNowTwoMonthsBefore
-                                ).Explore(
-                                    ObjectMother.Shared_FakeRunId,
-                                    ObjectMother.WIDExplorer_FakeNow,
-                                    WIDCategories.AllCategories,
-                                    WIDStages.Stage1_OnlyMetrics
-
-                        )),
-                typeof(ArgumentException),
-                MessageCollection.Validator_FirstValueIsGreaterOrEqualThanSecondValue.Invoke("Now", "thresholdDate")
-            ).SetArgDisplayNames($"{nameof(widExplorerExceptionTestCases)}_04"),
+            ).SetArgDisplayNames($"{nameof(widExplorerExceptionTestCases)}_03")
 
         };
 

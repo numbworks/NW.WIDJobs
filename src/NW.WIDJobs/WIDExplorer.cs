@@ -113,7 +113,6 @@ namespace NW.WIDJobs
         {
 
             Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
-            Validator.ThrowIfFirstIsOlderOrEqual(Now, nameof(Now), thresholdDate, nameof(thresholdDate));
 
             LogInitializationMessage(runId, thresholdDate, category, stage);
 
