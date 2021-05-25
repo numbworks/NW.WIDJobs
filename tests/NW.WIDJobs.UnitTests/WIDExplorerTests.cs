@@ -105,7 +105,15 @@ namespace NW.WIDJobs.UnitTests
                     new RunIdManager(),
                     new BulletPointManager()
                   );
+            WIDExplorerSettings settings = new WIDExplorerSettings(3, 0);
+            WIDExplorer explorer
+                = new WIDExplorer(components, settings, ObjectMother.WIDExplorer_FakeNow);
+
             string runIdFakeNow = new RunIdManager().Create(ObjectMother.WIDExplorer_FakeNow, 1, 2);
+            List<Page> pages = new List<Page>()
+            {
+                ObjectMother.Shared_Page01Alternate
+            };
             WIDExploration expected
                 = new WIDExploration(
                         runIdFakeNow,
@@ -113,16 +121,17 @@ namespace NW.WIDJobs.UnitTests
                         ObjectMother.Shared_Page01_TotalEstimatedPages,
                         WIDCategories.AllCategories,
                         WIDStages.Stage1_OnlyMetrics,
-                        true
-                        );           
-                
-            WIDExplorer explorer
-                = new WIDExplorer(components, new WIDExplorerSettings(), ObjectMother.WIDExplorer_FakeNow);
+                        true,
+                        pages                          
+                        );                          
 
             // Act
             WIDExploration actual = explorer.Explore(2, WIDCategories.AllCategories, WIDStages.Stage1_OnlyMetrics);
 
             // Assert
+            Assert.IsTrue(
+                    ObjectMother.AreEqual(expected, actual)
+                );
 
         }
 

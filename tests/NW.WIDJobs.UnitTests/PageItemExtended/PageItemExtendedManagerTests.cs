@@ -12,43 +12,43 @@ namespace NW.WIDJobs.UnitTests
         {
 
             new TestCaseData(
-                    ObjectMother.PageItemExtendedManager_FakeGetRequestManager.Invoke(ObjectMother.Shared_Page01_PageItemExtended01.PageItem.Url),
+                    ObjectMother.Shared_FakeGetRequestManager.Invoke(ObjectMother.Shared_Page01_PageItemExtended01.PageItem.Url),
                     ObjectMother.Shared_Page01_PageItem01,
                     ObjectMother.Shared_Page01_PageItemExtended01
                 ).SetArgDisplayNames($"{nameof(getTestCases)}_01"),
 
             new TestCaseData(
-                    ObjectMother.PageItemExtendedManager_FakeGetRequestManager.Invoke(ObjectMother.Shared_Page01_PageItemExtended14.PageItem.Url),
+                    ObjectMother.Shared_FakeGetRequestManager.Invoke(ObjectMother.Shared_Page01_PageItemExtended14.PageItem.Url),
                     ObjectMother.Shared_Page01_PageItem14,
                     ObjectMother.Shared_Page01_PageItemExtended14
                 ).SetArgDisplayNames($"{nameof(getTestCases)}_02"),
 
             new TestCaseData(
-                    ObjectMother.PageItemExtendedManager_FakeGetRequestManager.Invoke(ObjectMother.Shared_Page02_PageItemExtended18.PageItem.Url),
+                    ObjectMother.Shared_FakeGetRequestManager.Invoke(ObjectMother.Shared_Page02_PageItemExtended18.PageItem.Url),
                     ObjectMother.Shared_Page02_PageItem18,
                     ObjectMother.Shared_Page02_PageItemExtended18
                 ).SetArgDisplayNames($"{nameof(getTestCases)}_03"),
 
             new TestCaseData(
-                    ObjectMother.PageItemExtendedManager_FakeGetRequestManager.Invoke(ObjectMother.Shared_Page03_PageItemExtended01.PageItem.Url),
+                    ObjectMother.Shared_FakeGetRequestManager.Invoke(ObjectMother.Shared_Page03_PageItemExtended01.PageItem.Url),
                     ObjectMother.Shared_Page03_PageItem01,
                     ObjectMother.Shared_Page03_PageItemExtended01
                 ).SetArgDisplayNames($"{nameof(getTestCases)}_04"),
 
             new TestCaseData(
-                    ObjectMother.PageItemExtendedManager_FakeGetRequestManager.Invoke(ObjectMother.Shared_Page03_PageItemExtended02.PageItem.Url),
+                    ObjectMother.Shared_FakeGetRequestManager.Invoke(ObjectMother.Shared_Page03_PageItemExtended02.PageItem.Url),
                     ObjectMother.Shared_Page03_PageItem02,
                     ObjectMother.Shared_Page03_PageItemExtended02
                 ).SetArgDisplayNames($"{nameof(getTestCases)}_05"),
 
             new TestCaseData(
-                    ObjectMother.PageItemExtendedManager_FakeGetRequestManager.Invoke(ObjectMother.Shared_Page03_PageItemExtended03.PageItem.Url),
+                    ObjectMother.Shared_FakeGetRequestManager.Invoke(ObjectMother.Shared_Page03_PageItemExtended03.PageItem.Url),
                     ObjectMother.Shared_Page03_PageItem03,
                     ObjectMother.Shared_Page03_PageItemExtended03
                 ).SetArgDisplayNames($"{nameof(getTestCases)}_06"),
 
             new TestCaseData(
-                    ObjectMother.PageItemExtendedManager_FakeGetRequestManager.Invoke(ObjectMother.Shared_Page03_PageItemExtended04.PageItem.Url),
+                    ObjectMother.Shared_FakeGetRequestManager.Invoke(ObjectMother.Shared_Page03_PageItemExtended04.PageItem.Url),
                     ObjectMother.Shared_Page03_PageItem04,
                     ObjectMother.Shared_Page03_PageItemExtended04
                 ).SetArgDisplayNames($"{nameof(getTestCases)}_07")
