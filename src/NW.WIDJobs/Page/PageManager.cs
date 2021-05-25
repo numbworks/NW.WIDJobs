@@ -18,13 +18,21 @@ namespace NW.WIDJobs
         #region Properties
 
         public static ushort PageItemsPerPage = 20;
+        public static string UrlAllCategoriesFirstPage 
+            = "https://www.workindenmark.dk/Search/Job-search?q=&orderBy=date";
+        public static Func<ushort, string> UrlAllCategoriesOtherPages
+            = (pageNumber) => $"https://www.workindenmark.dk/Search/Job-search?q=&orderBy=date&PageNum={pageNumber}&";
+        public static Func<string, string> UrlCategoryFirstPage
+            = (token) => $"https://www.workindenmark.dk/search/Job-search?q=&categories={token}&orderBy=date";
+        public static Func<string, ushort, string> UrlCategoryOtherPages
+            = (token, pageNumber) => $"https://www.workindenmark.dk/search/Job-search?q=&categories={token}&orderBy=date&PageNum={pageNumber}";
 
         #endregion
 
-        #region Constructors
+            #region Constructors
 
-        /// <summary>Initializes a <see cref="PageManager"/> instance.</summary>
-        /// <exception cref="ArgumentNullException"/>
+            /// <summary>Initializes a <see cref="PageManager"/> instance.</summary>
+            /// <exception cref="ArgumentNullException"/>
         public PageManager(
            IGetRequestManager getRequestManager, IPageScraper pageScraper, IWIDCategoryManager categoryManager)
         {
@@ -53,17 +61,17 @@ namespace NW.WIDJobs
             Validator.ThrowIfLessThanOne(pageNumber, nameof(pageNumber));
 
             if (category == WIDCategories.AllCategories && pageNumber == 1)
-                return "https://www.workindenmark.dk/Search/Job-search?q=&orderBy=date";
+                return UrlAllCategoriesFirstPage;
 
             if (category == WIDCategories.AllCategories && pageNumber > 1)
-                return $"https://www.workindenmark.dk/Search/Job-search?q=&orderBy=date&PageNum={pageNumber}&";
+                return UrlAllCategoriesOtherPages(pageNumber);
 
             string token = _categoryManager.GetCategoryToken(category);
 
             if (pageNumber == 1)
-                return $"https://www.workindenmark.dk/search/Job-search?q=&categories={token}&orderBy=date";
+                return UrlCategoryFirstPage(token);
 
-            return $"https://www.workindenmark.dk/search/Job-search?q=&categories={token}&orderBy=date&PageNum={pageNumber}";
+            return UrlCategoryOtherPages(token, pageNumber);
 
         }
         public ushort GetTotalEstimatedPages(uint totalResults)
