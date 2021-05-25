@@ -1657,6 +1657,25 @@ namespace NW.WIDJobs.UnitTests
                         && string.Equals(pageItemExtended1.StartDateOfEmployment, pageItemExtended2.StartDateOfEmployment, StringComparison.InvariantCulture);
         
         }
+        internal static bool AreEqual(List<Page> list1, List<Page> list2)
+        {
+
+            if (list1 == null && list2 == null)
+                return true;
+
+            if (list1 == null || list2 == null)
+                return false;
+
+            if (list1.Count != list2.Count)
+                return false;
+
+            for (int i = 0; i < list1.Count; i++)
+                if (AreEqual(list1[i], list2[i]) == false)
+                    return false;
+
+            return true;
+
+        }
         internal static bool AreEqual(List<PageItem> list1, List<PageItem> list2)
         {
 
@@ -1764,6 +1783,20 @@ namespace NW.WIDJobs.UnitTests
             newPageItems.AddRange(pageItems.Where(item => item.PageItemNumber > 1));
 
             return newPageItems;
+
+        }
+        internal static bool AreEqual(WIDExploration exploration1, WIDExploration exploration2)
+        {
+
+            return string.Equals(exploration1.RunId, exploration2.RunId, StringComparison.InvariantCulture)
+                        && (exploration1.TotalResults == exploration2.TotalResults)
+                        && (exploration1.TotalEstimatedPages == exploration2.TotalEstimatedPages)
+                        && (exploration1.Category == exploration2.Category)
+                        && (exploration1.Stage == exploration2.Stage)
+                        && (exploration1.IsCompleted == exploration2.IsCompleted)
+                        && AreEqual(exploration1.Pages, exploration2.Pages)
+                        && AreEqual(exploration1.PageItems, exploration2.PageItems)
+                        && AreEqual(exploration1.PageItemsExtended, exploration2.PageItemsExtended);
 
         }
 
