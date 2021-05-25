@@ -1208,7 +1208,7 @@ namespace NW.WIDJobs.UnitTests
 
         internal static uint Shared_Page02Alternate_TotalResults = 2039;
         internal static string Shared_Page02Alternate_Content = Properties.Resources.Page02Alternate;
-        internal static Page Shared_Page02Alternate = new Page(Shared_FakeRunId, 1, Shared_Page02Alternate_Content);
+        internal static Page Shared_Page02Alternate = new Page(Shared_FakeRunId, 2, Shared_Page02Alternate_Content);
 
         internal static DateTime Shared_Page02Alternate_CreateDate01 = new DateTime(2021, 04, 28);
         internal static DateTime Shared_Page02Alternate_CreateDate02 = new DateTime(2021, 04, 28);

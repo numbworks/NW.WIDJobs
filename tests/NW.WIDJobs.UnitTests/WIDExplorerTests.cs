@@ -148,6 +148,74 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
+        [Test]
+        public void Explore_ShouldReturnExpectedWIDExploration_WhenFinalPageNumberAndStage2()
+        {
+
+            // Arrange
+            FakeLogger fakeLogger = new FakeLogger();
+            Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
+            WIDExplorerComponents components = new WIDExplorerComponents(
+                    fakeLoggingAction,
+                    new XPathManager(),
+                    ObjectMother.WIDExplorer_FakeGetRequestManagerAlternate(),
+                    new PageManager(
+                            ObjectMother.WIDExplorer_FakeGetRequestManagerAlternate(),
+                            new PageScraper(),
+                            new WIDCategoryManager()
+                            ),
+                    new PageScraper(),
+                    new PageItemScraper(),
+                    new PageItemExtendedManager(
+                            ObjectMother.WIDExplorer_FakeGetRequestManagerAlternate(),
+                            new PageItemExtendedScraper()
+                            ),
+                    new PageItemExtendedScraper(),
+                    new RunIdManager(),
+                    new BulletPointManager()
+                  );
+            WIDExplorerSettings settings = new WIDExplorerSettings(3, 0);
+            WIDExplorer explorer
+                = new WIDExplorer(components, settings, ObjectMother.WIDExplorer_FakeNow);
+
+            List<Page> pages = new List<Page>()
+            {
+
+                ObjectMother.Shared_Page01Alternate,
+                ObjectMother.Shared_Page02Alternate
+
+            };
+            List<PageItem> pageItems = new List<PageItem>() { };
+            pageItems.AddRange(ObjectMother.Shared_Page01Alternate_PageItems);
+            pageItems.AddRange(ObjectMother.Shared_Page02Alternate_PageItems);
+            WIDExploration expected
+                = new WIDExploration(
+                        ObjectMother.Shared_FakeRunId,
+                        ObjectMother.Shared_Page01_TotalResults,
+                        ObjectMother.Shared_Page01_TotalEstimatedPages,
+                        WIDCategories.AllCategories,
+                        WIDStages.Stage2_UpToAllPageItems,
+                        true,
+                        pages,
+                        pageItems
+                        );
+
+            // Act
+            WIDExploration actual 
+                = explorer.Explore(
+                            ObjectMother.Shared_FakeRunId,
+                            2, 
+                            WIDCategories.AllCategories, 
+                            WIDStages.Stage2_UpToAllPageItems);
+
+            // Assert
+            Assert.IsTrue(
+                    ObjectMother.AreEqual(expected, actual)
+                );
+
+        }
+
+
     }
 }
 
