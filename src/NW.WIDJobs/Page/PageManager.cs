@@ -29,10 +29,10 @@ namespace NW.WIDJobs
 
         #endregion
 
-            #region Constructors
+        #region Constructors
 
-            /// <summary>Initializes a <see cref="PageManager"/> instance.</summary>
-            /// <exception cref="ArgumentNullException"/>
+        /// <summary>Initializes a <see cref="PageManager"/> instance.</summary>
+        /// <exception cref="ArgumentNullException"/>
         public PageManager(
            IGetRequestManager getRequestManager, IPageScraper pageScraper, IWIDCategoryManager categoryManager)
         {
