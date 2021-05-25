@@ -1063,9 +1063,7 @@ namespace NW.WIDJobs.UnitTests
 
                     (Shared_Page01_PageItemExtended01.PageItem.Url, Shared_Page01_PageItemExtended01_Content),
                     (Shared_Page01_PageItemExtended14.PageItem.Url, Shared_Page01_PageItemExtended14_Content),
-
                     (Shared_Page02_PageItemExtended18.PageItem.Url, Shared_Page02_PageItemExtended18_Content),
-
                     (Shared_Page03_PageItemExtended01.PageItem.Url, Shared_Page03_PageItemExtended01_Content),
                     (Shared_Page03_PageItemExtended02.PageItem.Url, Shared_Page03_PageItemExtended02_Content),
                     (Shared_Page03_PageItemExtended03.PageItem.Url, Shared_Page03_PageItemExtended03_Content),
@@ -1082,6 +1080,75 @@ namespace NW.WIDJobs.UnitTests
                         break;
                     };
                     // We don't consider the case in which we do provide an url that it's not among the ones in the list. 
+
+                return fakeGetRequestManager;
+
+            };
+
+        internal static Func<string, IGetRequestManager> Shared_FakeGetRequestManager_Alternate
+            = (url) =>
+            {
+
+                List<(string url, string content)> tuples = new List<(string url, string content)>()
+                {
+
+                    (Shared_Page01_Url, Shared_Page01Alternate_Content),
+                    (Shared_Page02_Url, Shared_Page02Alternate_Content),
+
+                    // We return the same *Content for each url, because it only matters that get parsed correctly.
+                    (Shared_Page01_PageItem01.Url, Shared_Page01_PageItemExtended01_Content),
+                    (Shared_Page01_PageItem02.Url, Shared_Page01_PageItemExtended01_Content),
+                    (Shared_Page01_PageItem03.Url, Shared_Page01_PageItemExtended01_Content),
+                    (Shared_Page01_PageItem04.Url, Shared_Page01_PageItemExtended01_Content),
+                    (Shared_Page01_PageItem05.Url, Shared_Page01_PageItemExtended01_Content),
+                    (Shared_Page01_PageItem06.Url, Shared_Page01_PageItemExtended01_Content),
+                    (Shared_Page01_PageItem07.Url, Shared_Page01_PageItemExtended01_Content),
+                    (Shared_Page01_PageItem08.Url, Shared_Page01_PageItemExtended01_Content),
+                    (Shared_Page01_PageItem09.Url, Shared_Page01_PageItemExtended01_Content),
+                    (Shared_Page01_PageItem10.Url, Shared_Page01_PageItemExtended01_Content),
+                    (Shared_Page01_PageItem11.Url, Shared_Page01_PageItemExtended01_Content),
+                    (Shared_Page01_PageItem12.Url, Shared_Page01_PageItemExtended01_Content),
+                    (Shared_Page01_PageItem13.Url, Shared_Page01_PageItemExtended01_Content),
+                    (Shared_Page01_PageItem14.Url, Shared_Page01_PageItemExtended01_Content),
+                    (Shared_Page01_PageItem15.Url, Shared_Page01_PageItemExtended01_Content),
+                    (Shared_Page01_PageItem16.Url, Shared_Page01_PageItemExtended01_Content),
+                    (Shared_Page01_PageItem17.Url, Shared_Page01_PageItemExtended01_Content),
+                    (Shared_Page01_PageItem18.Url, Shared_Page01_PageItemExtended01_Content),
+                    (Shared_Page01_PageItem19.Url, Shared_Page01_PageItemExtended01_Content),
+                    (Shared_Page01_PageItem20.Url, Shared_Page01_PageItemExtended01_Content),
+
+                    (Shared_Page02_PageItem01.Url, Shared_Page01_PageItemExtended01_Content),
+                    (Shared_Page02_PageItem02.Url, Shared_Page01_PageItemExtended01_Content),
+                    (Shared_Page02_PageItem03.Url, Shared_Page01_PageItemExtended01_Content),
+                    (Shared_Page02_PageItem04.Url, Shared_Page01_PageItemExtended01_Content),
+                    (Shared_Page02_PageItem05.Url, Shared_Page01_PageItemExtended01_Content),
+                    (Shared_Page02_PageItem06.Url, Shared_Page01_PageItemExtended01_Content),
+                    (Shared_Page02_PageItem07.Url, Shared_Page01_PageItemExtended01_Content),
+                    (Shared_Page02_PageItem08.Url, Shared_Page01_PageItemExtended01_Content),
+                    (Shared_Page02_PageItem09.Url, Shared_Page01_PageItemExtended01_Content),
+                    (Shared_Page02_PageItem10.Url, Shared_Page01_PageItemExtended01_Content),
+                    (Shared_Page02_PageItem11.Url, Shared_Page01_PageItemExtended01_Content),
+                    (Shared_Page02_PageItem12.Url, Shared_Page01_PageItemExtended01_Content),
+                    (Shared_Page02_PageItem13.Url, Shared_Page01_PageItemExtended01_Content),
+                    (Shared_Page02_PageItem14.Url, Shared_Page01_PageItemExtended01_Content),
+                    (Shared_Page02_PageItem15.Url, Shared_Page01_PageItemExtended01_Content),
+                    (Shared_Page02_PageItem16.Url, Shared_Page01_PageItemExtended01_Content),
+                    (Shared_Page02_PageItem17.Url, Shared_Page01_PageItemExtended01_Content),
+                    (Shared_Page02_PageItem18.Url, Shared_Page01_PageItemExtended01_Content),
+                    (Shared_Page02_PageItem19.Url, Shared_Page01_PageItemExtended01_Content),
+                    (Shared_Page02_PageItem20.Url, Shared_Page01_PageItemExtended01_Content)
+
+                };
+
+                IGetRequestManager fakeGetRequestManager = Substitute.For<IGetRequestManager>();
+
+                foreach ((string url, string content) tuple in tuples)
+                    if (string.Equals(url, tuple.url, StringComparison.InvariantCulture))
+                    {
+                        fakeGetRequestManager.Send(tuple.url, Arg.Any<Encoding>()).Returns(tuple.content);
+                        break;
+                    };
+                // We don't consider the case in which we do provide an url that it's not among the ones in the list. 
 
                 return fakeGetRequestManager;
 
