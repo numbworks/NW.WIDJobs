@@ -97,10 +97,17 @@ namespace NW.WIDJobs.UnitTests
                     fakeLoggingAction,
                     new XPathManager(),
                     ObjectMother.WIDExplorer_FakeGetRequestManagerAlternate(),
-                    new PageManager(),
+                    new PageManager(
+                            ObjectMother.WIDExplorer_FakeGetRequestManagerAlternate(),
+                            new PageScraper(),
+                            new WIDCategoryManager()
+                            ),
                     new PageScraper(),
                     new PageItemScraper(),
-                    new PageItemExtendedManager(),
+                    new PageItemExtendedManager(
+                            ObjectMother.WIDExplorer_FakeGetRequestManagerAlternate(),
+                            new PageItemExtendedScraper()
+                            ),
                     new PageItemExtendedScraper(),
                     new RunIdManager(),
                     new BulletPointManager()
@@ -112,7 +119,13 @@ namespace NW.WIDJobs.UnitTests
             string runIdFakeNow = new RunIdManager().Create(ObjectMother.WIDExplorer_FakeNow, 1, 2);
             List<Page> pages = new List<Page>()
             {
-                ObjectMother.Shared_Page01Alternate
+
+                new Page(
+                    runIdFakeNow,
+                    ObjectMother.Shared_Page01Alternate.PageNumber,
+                    ObjectMother.Shared_Page01Alternate.Content
+                    )
+            
             };
             WIDExploration expected
                 = new WIDExploration(
