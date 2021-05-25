@@ -74,17 +74,6 @@ namespace NW.WIDJobs.UnitTests
 
         };
 
-        private static TestCaseData[] exploreTestCases =
-        {
-
-            new TestCaseData(
-                    "Some message",
-                    false
-                ).SetArgDisplayNames($"{nameof(exploreTestCases)}_01")
-
-        };
-
-
         // SetUp
         // Tests
         [TestCaseSource(nameof(widExplorerExceptionTestCases))]
@@ -97,25 +86,42 @@ namespace NW.WIDJobs.UnitTests
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
-
-
-        [TestCaseSource(nameof(exploreTestCases))]
-        public void SomeMethod_Should_When
-            (string message, bool expected)
-        {
-
-            // Arrange
-            // Act
-            // Assert
-
-        }
-
         [Test]
-        public void SomeMethod_Should_When()
+        public void Explore_ShouldReturnExpectedWIDExploration_WhenFinalPageNumberAndStage1()
         {
 
             // Arrange
+            FakeLogger fakeLogger = new FakeLogger();
+            Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
+            WIDExplorerComponents components = new WIDExplorerComponents(
+                    fakeLoggingAction,
+                    new XPathManager(),
+                    ObjectMother.WIDExplorer_FakeGetRequestManagerAlternate(),
+                    new PageManager(),
+                    new PageScraper(),
+                    new PageItemScraper(),
+                    new PageItemExtendedManager(),
+                    new PageItemExtendedScraper(),
+                    new RunIdManager(),
+                    new BulletPointManager()
+                  );
+            string runIdFakeNow = new RunIdManager().Create(ObjectMother.WIDExplorer_FakeNow, 1, 2);
+            WIDExploration expected
+                = new WIDExploration(
+                        runIdFakeNow,
+                        ObjectMother.Shared_Page01_TotalResults,
+                        ObjectMother.Shared_Page01_TotalEstimatedPages,
+                        WIDCategories.AllCategories,
+                        WIDStages.Stage1_OnlyMetrics,
+                        true
+                        );           
+                
+            WIDExplorer explorer
+                = new WIDExplorer(components, new WIDExplorerSettings(), ObjectMother.WIDExplorer_FakeNow);
+
             // Act
+            WIDExploration actual = explorer.Explore(2, WIDCategories.AllCategories, WIDStages.Stage1_OnlyMetrics);
+
             // Assert
 
         }
