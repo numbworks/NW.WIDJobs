@@ -72,23 +72,23 @@ namespace NW.WIDJobs.UnitTests
             ).SetArgDisplayNames($"{nameof(widExplorerExceptionTestCases)}_03")
 
         };
-        private static TestCaseData[] exploreTestCases =
+        private static TestCaseData[] exploreThresholdDateAndStage2TestCases =
         {
 
             new TestCaseData(
                     ObjectMother.Shared_Page02Alternate_ThresholdDate01,
                     ObjectMother.Shared_Page02Alternate_PageItems01
-            ).SetArgDisplayNames($"{nameof(exploreTestCases)}_01"),
+            ).SetArgDisplayNames($"{nameof(exploreThresholdDateAndStage2TestCases)}_01"),
 
             new TestCaseData(
                     ObjectMother.Shared_Page02Alternate_ThresholdDate02,
                     ObjectMother.Shared_Page02Alternate_PageItems02
-            ).SetArgDisplayNames($"{nameof(exploreTestCases)}_02"),
+            ).SetArgDisplayNames($"{nameof(exploreThresholdDateAndStage2TestCases)}_02"),
 
             new TestCaseData(
                     ObjectMother.Shared_Page02Alternate_ThresholdDate03,
                     ObjectMother.Shared_Page02Alternate_PageItems03
-            ).SetArgDisplayNames($"{nameof(exploreTestCases)}_03")
+            ).SetArgDisplayNames($"{nameof(exploreThresholdDateAndStage2TestCases)}_03")
 
         };
 
@@ -367,7 +367,7 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
-        [TestCaseSource(nameof(exploreTestCases))]
+        [TestCaseSource(nameof(exploreThresholdDateAndStage2TestCases))]
         public void Explore_ShouldReturnExpectedWIDExploration_WhenThresholdDateAndStage2
             (DateTime thresholdDate, Func<List<PageItem>> expectedPageItems)
         {
