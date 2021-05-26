@@ -1323,44 +1323,13 @@ namespace NW.WIDJobs.UnitTests
             };
 
         internal static DateTime Shared_Page02Alternate_ThresholdDate01 = new DateTime(2021, 04, 25);
-        internal static Func<List<PageItem>> Shared_Page02Alternate_PageItems01 =
-            () =>
-            {
+        internal static ushort Shared_Page02Alternate_Index01 = 19;
 
-                List<PageItem> pageItems = new List<PageItem>() { };
-
-                pageItems.AddRange(Shared_Page01Alternate_PageItems);
-                pageItems.AddRange(Shared_Page02Alternate_PageItems.GetRange(0, 19));
-
-                return pageItems;
-
-            };
         internal static DateTime Shared_Page02Alternate_ThresholdDate02 = new DateTime(2021, 04, 27);
-        internal static Func<List<PageItem>> Shared_Page02Alternate_PageItems02 =
-            () =>
-            {
+        internal static ushort Shared_Page02Alternate_Index02 = 12;
 
-                List<PageItem> pageItems = new List<PageItem>() { };
-
-                pageItems.AddRange(Shared_Page01Alternate_PageItems);
-                pageItems.AddRange(Shared_Page02Alternate_PageItems.GetRange(0, 12));
-
-                return pageItems;
-
-            };
         internal static DateTime Shared_Page02Alternate_ThresholdDate03 = new DateTime(2021, 04, 28);
-        internal static Func<List<PageItem>> Shared_Page02Alternate_PageItems03 =
-            () =>
-            {
-
-                List<PageItem> pageItems = new List<PageItem>() { };
-
-                pageItems.AddRange(Shared_Page01Alternate_PageItems);
-                pageItems.AddRange(Shared_Page02Alternate_PageItems.GetRange(0, 8));
-
-                return pageItems;
-
-            };
+        internal static ushort Shared_Page02Alternate_Index03 = 8;
 
         #endregion
 
@@ -1622,6 +1591,19 @@ namespace NW.WIDJobs.UnitTests
                 pageItemsExtended.Add(CreateDummyPageItemExtended(Shared_Page02Alternate_PageItem20));
 
                 return pageItemsExtended;
+
+            };
+
+        internal static Func<ushort, List<PageItem>> Shared_Page02Alternate_GetPageItemsSubset =
+            (index) =>
+            {
+
+                List<PageItem> pageItems = new List<PageItem>() { };
+
+                pageItems.AddRange(Shared_Page01Alternate_PageItems);
+                pageItems.AddRange(Shared_Page02Alternate_PageItems.GetRange(0, index));
+
+                return pageItems;
 
             };
 

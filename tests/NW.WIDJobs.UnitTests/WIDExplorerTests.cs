@@ -77,17 +77,17 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                     ObjectMother.Shared_Page02Alternate_ThresholdDate01,
-                    ObjectMother.Shared_Page02Alternate_PageItems01
+                    ObjectMother.Shared_Page02Alternate_Index01
             ).SetArgDisplayNames($"{nameof(exploreThresholdDateAndStage2TestCases)}_01"),
 
             new TestCaseData(
                     ObjectMother.Shared_Page02Alternate_ThresholdDate02,
-                    ObjectMother.Shared_Page02Alternate_PageItems02
+                    ObjectMother.Shared_Page02Alternate_Index02
             ).SetArgDisplayNames($"{nameof(exploreThresholdDateAndStage2TestCases)}_02"),
 
             new TestCaseData(
                     ObjectMother.Shared_Page02Alternate_ThresholdDate03,
-                    ObjectMother.Shared_Page02Alternate_PageItems03
+                    ObjectMother.Shared_Page02Alternate_Index03
             ).SetArgDisplayNames($"{nameof(exploreThresholdDateAndStage2TestCases)}_03")
 
         };
@@ -369,7 +369,7 @@ namespace NW.WIDJobs.UnitTests
 
         [TestCaseSource(nameof(exploreThresholdDateAndStage2TestCases))]
         public void Explore_ShouldReturnExpectedWIDExploration_WhenThresholdDateAndStage2
-            (DateTime thresholdDate, Func<List<PageItem>> expectedPageItems)
+            (DateTime thresholdDate, ushort expectedIndex)
         {
 
             // Arrange
@@ -415,7 +415,7 @@ namespace NW.WIDJobs.UnitTests
                         WIDStages.Stage2_UpToAllPageItems,
                         true,
                         pages,
-                        expectedPageItems.Invoke()
+                        ObjectMother.Shared_Page02Alternate_GetPageItemsSubset.Invoke(expectedIndex)
                         );
 
             // Act
