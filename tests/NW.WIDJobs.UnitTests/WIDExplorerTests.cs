@@ -77,18 +77,40 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                     ObjectMother.Shared_Page02Alternate_ThresholdDate01,
-                    ObjectMother.Shared_Page02Alternate_Index01
+                    ObjectMother.Shared_Page02Alternate_PageItemsIndex01
             ).SetArgDisplayNames($"{nameof(exploreThresholdDateAndStage2TestCases)}_01"),
 
             new TestCaseData(
                     ObjectMother.Shared_Page02Alternate_ThresholdDate02,
-                    ObjectMother.Shared_Page02Alternate_Index02
+                    ObjectMother.Shared_Page02Alternate_PageItemsIndex02
             ).SetArgDisplayNames($"{nameof(exploreThresholdDateAndStage2TestCases)}_02"),
 
             new TestCaseData(
                     ObjectMother.Shared_Page02Alternate_ThresholdDate03,
-                    ObjectMother.Shared_Page02Alternate_Index03
+                    ObjectMother.Shared_Page02Alternate_PageItemsIndex03
             ).SetArgDisplayNames($"{nameof(exploreThresholdDateAndStage2TestCases)}_03")
+
+        };
+        private static TestCaseData[] exploreThresholdDateAndStage3TestCases =
+        {
+
+            new TestCaseData(
+                    ObjectMother.Shared_Page02Alternate_ThresholdDate01,
+                    ObjectMother.Shared_Page02Alternate_PageItemsIndex01,
+                    ObjectMother.Shared_Page02Alternate_PageItemsExtendedIndex01
+            ).SetArgDisplayNames($"{nameof(exploreThresholdDateAndStage3TestCases)}_01"),
+
+            new TestCaseData(
+                    ObjectMother.Shared_Page02Alternate_ThresholdDate02,
+                    ObjectMother.Shared_Page02Alternate_PageItemsIndex02,
+                    ObjectMother.Shared_Page02Alternate_PageItemsExtendedIndex02
+            ).SetArgDisplayNames($"{nameof(exploreThresholdDateAndStage3TestCases)}_02"),
+
+            new TestCaseData(
+                    ObjectMother.Shared_Page02Alternate_ThresholdDate03,
+                    ObjectMother.Shared_Page02Alternate_PageItemsIndex03,
+                    ObjectMother.Shared_Page02Alternate_PageItemsExtendedIndex03
+            ).SetArgDisplayNames($"{nameof(exploreThresholdDateAndStage3TestCases)}_03")
 
         };
 
@@ -369,7 +391,7 @@ namespace NW.WIDJobs.UnitTests
 
         [TestCaseSource(nameof(exploreThresholdDateAndStage2TestCases))]
         public void Explore_ShouldReturnExpectedWIDExploration_WhenThresholdDateAndStage2
-            (DateTime thresholdDate, ushort expectedIndex)
+            (DateTime thresholdDate, ushort expectedPageItemsIndex)
         {
 
             // Arrange
@@ -415,7 +437,7 @@ namespace NW.WIDJobs.UnitTests
                         WIDStages.Stage2_UpToAllPageItems,
                         true,
                         pages,
-                        ObjectMother.Shared_Page02Alternate_GetPageItemsSubset.Invoke(expectedIndex)
+                        ObjectMother.Shared_Page02Alternate_GetPageItemsSubset.Invoke(expectedPageItemsIndex)
                         );
 
             // Act
@@ -433,10 +455,77 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
+        [TestCaseSource(nameof(exploreThresholdDateAndStage3TestCases))]
+        public void Explore_ShouldReturnExpectedWIDExploration_WhenThresholdDateAndStage3
+            (DateTime thresholdDate, ushort expectedPageItemsIndex, ushort expectedPageItemsExtendedIndex)
+        {
+
+            // Arrange
+            FakeLogger fakeLogger = new FakeLogger();
+            Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
+            WIDExplorerComponents components = new WIDExplorerComponents(
+                    fakeLoggingAction,
+                    new XPathManager(),
+                    ObjectMother.WIDExplorer_FakeGetRequestManagerAlternate(),
+                    new PageManager(
+                            ObjectMother.WIDExplorer_FakeGetRequestManagerAlternate(),
+                            new PageScraper(),
+                            new WIDCategoryManager()
+                            ),
+                    new PageScraper(),
+                    new PageItemScraper(),
+                    new PageItemExtendedManager(
+                            ObjectMother.WIDExplorer_FakeGetRequestManagerAlternate(),
+                            new PageItemExtendedScraper()
+                            ),
+                    new PageItemExtendedScraper(),
+                    new RunIdManager(),
+                    new BulletPointManager()
+                  );
+            WIDExplorerSettings settings = new WIDExplorerSettings(3, 0);
+            WIDExplorer explorer
+                = new WIDExplorer(components, settings, ObjectMother.WIDExplorer_FakeNow);
+
+            List<Page> pages = new List<Page>()
+            {
+
+                ObjectMother.Shared_Page01Alternate,
+                ObjectMother.Shared_Page02Alternate
+
+            };
+
+            WIDExploration expected
+                = new WIDExploration(
+                        ObjectMother.Shared_FakeRunId,
+                        ObjectMother.Shared_Page01_TotalResults,
+                        ObjectMother.Shared_Page01_TotalEstimatedPages,
+                        WIDCategories.AllCategories,
+                        WIDStages.Stage3_UpToAllPageItemsExtended,
+                        true,
+                        pages,
+                        ObjectMother.Shared_Page02Alternate_GetPageItemsSubset.Invoke(expectedPageItemsIndex),
+                        ObjectMother.Shared_Page02Alternate_GetPageItemsExtendedSubset.Invoke(expectedPageItemsExtendedIndex)
+                        );
+
+            // Act
+            WIDExploration actual
+                = explorer.Explore(
+                            ObjectMother.Shared_FakeRunId,
+                            thresholdDate,
+                            WIDCategories.AllCategories,
+                            WIDStages.Stage3_UpToAllPageItemsExtended);
+
+            // Assert
+            Assert.IsTrue(
+                    ObjectMother.AreEqual(expected, actual)
+                );
+
+        }
+
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 25.05.2021
+    Last Update: 26.05.2021
 */

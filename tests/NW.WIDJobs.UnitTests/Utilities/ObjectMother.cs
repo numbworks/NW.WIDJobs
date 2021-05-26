@@ -1323,13 +1323,16 @@ namespace NW.WIDJobs.UnitTests
             };
 
         internal static DateTime Shared_Page02Alternate_ThresholdDate01 = new DateTime(2021, 04, 25);
-        internal static ushort Shared_Page02Alternate_Index01 = 19;
+        internal static ushort Shared_Page02Alternate_PageItemsIndex01 = 19;
+        internal static ushort Shared_Page02Alternate_PageItemsExtendedIndex01 = 39;
 
         internal static DateTime Shared_Page02Alternate_ThresholdDate02 = new DateTime(2021, 04, 27);
-        internal static ushort Shared_Page02Alternate_Index02 = 12;
+        internal static ushort Shared_Page02Alternate_PageItemsIndex02 = 12;
+        internal static ushort Shared_Page02Alternate_PageItemsExtendedIndex02 = 32;
 
         internal static DateTime Shared_Page02Alternate_ThresholdDate03 = new DateTime(2021, 04, 28);
-        internal static ushort Shared_Page02Alternate_Index03 = 8;
+        internal static ushort Shared_Page02Alternate_PageItemsIndex03 = 8;
+        internal static ushort Shared_Page02Alternate_PageItemsExtendedIndex03 = 28;
 
         #endregion
 
@@ -1604,6 +1607,15 @@ namespace NW.WIDJobs.UnitTests
                 pageItems.AddRange(Shared_Page02Alternate_PageItems.GetRange(0, index));
 
                 return pageItems;
+
+            };
+        internal static Func<ushort, List<PageItemExtended>> Shared_Page02Alternate_GetPageItemsExtendedSubset =
+            (index) =>
+            {
+
+                List<PageItemExtended> pageItemsExtended = WIDExplorer_FakePageItemsExtended.Invoke();
+
+                return pageItemsExtended.GetRange(0, index);
 
             };
 
