@@ -301,6 +301,72 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
+        [Test]
+        public void Explore_ShouldReturnExpectedWIDExploration_WhenThresholdDateAndStage1()
+        {
+
+            // Arrange
+            FakeLogger fakeLogger = new FakeLogger();
+            Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
+            WIDExplorerComponents components = new WIDExplorerComponents(
+                    fakeLoggingAction,
+                    new XPathManager(),
+                    ObjectMother.WIDExplorer_FakeGetRequestManagerAlternate(),
+                    new PageManager(
+                            ObjectMother.WIDExplorer_FakeGetRequestManagerAlternate(),
+                            new PageScraper(),
+                            new WIDCategoryManager()
+                            ),
+                    new PageScraper(),
+                    new PageItemScraper(),
+                    new PageItemExtendedManager(
+                            ObjectMother.WIDExplorer_FakeGetRequestManagerAlternate(),
+                            new PageItemExtendedScraper()
+                            ),
+                    new PageItemExtendedScraper(),
+                    new RunIdManager(),
+                    new BulletPointManager()
+                  );
+            WIDExplorerSettings settings = new WIDExplorerSettings(3, 0);
+            WIDExplorer explorer
+                = new WIDExplorer(components, settings, ObjectMother.WIDExplorer_FakeNow);
+
+            string runIdFakeNow = new RunIdManager().Create(ObjectMother.WIDExplorer_FakeNow, ObjectMother.Shared_Page02Alternate_ThresholdDate01);
+            List<Page> pages = new List<Page>()
+            {
+
+                new Page(
+                    runIdFakeNow,
+                    ObjectMother.Shared_Page01Alternate.PageNumber,
+                    ObjectMother.Shared_Page01Alternate.Content
+                    )
+
+            };
+            WIDExploration expected
+                = new WIDExploration(
+                        runIdFakeNow,
+                        ObjectMother.Shared_Page01_TotalResults,
+                        ObjectMother.Shared_Page01_TotalEstimatedPages,
+                        WIDCategories.AllCategories,
+                        WIDStages.Stage1_OnlyMetrics,
+                        true,
+                        pages
+                        );
+
+            // Act
+            WIDExploration actual
+                = explorer.Explore(
+                            ObjectMother.Shared_Page02Alternate_ThresholdDate01,
+                            WIDCategories.AllCategories,
+                            WIDStages.Stage1_OnlyMetrics);
+
+            // Assert
+            Assert.IsTrue(
+                    ObjectMother.AreEqual(expected, actual)
+                );
+
+        }
+
         [TestCaseSource(nameof(exploreTestCases))]
         public void Explore_ShouldReturnExpectedWIDExploration_WhenThresholdDateAndStage2
             (DateTime thresholdDate, Func<List<PageItem>> expectedPageItems)
