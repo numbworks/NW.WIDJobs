@@ -1,8 +1,6 @@
-﻿using NUnit.Framework;
-using System;
-using System.Collections;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using NUnit.Framework;
 
 namespace NW.WIDJobs.UnitTests
 {
@@ -72,6 +70,25 @@ namespace NW.WIDJobs.UnitTests
                 typeof(ArgumentNullException),
                 new ArgumentNullException("runId").Message
             ).SetArgDisplayNames($"{nameof(widExplorerExceptionTestCases)}_03")
+
+        };
+        private static TestCaseData[] exploreTestCases =
+        {
+
+            new TestCaseData(
+                    ObjectMother.Shared_Page02Alternate_ThresholdDate01,
+                    ObjectMother.Shared_Page02Alternate_PageItems01
+            ).SetArgDisplayNames($"{nameof(exploreTestCases)}_01"),
+
+            new TestCaseData(
+                    ObjectMother.Shared_Page02Alternate_ThresholdDate02,
+                    ObjectMother.Shared_Page02Alternate_PageItems02
+            ).SetArgDisplayNames($"{nameof(exploreTestCases)}_02"),
+
+            new TestCaseData(
+                    ObjectMother.Shared_Page02Alternate_ThresholdDate03,
+                    ObjectMother.Shared_Page02Alternate_PageItems03
+            ).SetArgDisplayNames($"{nameof(exploreTestCases)}_03")
 
         };
 
@@ -284,8 +301,9 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
-        [Test]
-        public void Explore_ShouldReturnExpectedWIDExploration_WhenThresholdDateAndStage2()
+        [TestCaseSource(nameof(exploreTestCases))]
+        public void Explore_ShouldReturnExpectedWIDExploration_WhenThresholdDateAndStage2
+            (DateTime thresholdDate, Func<List<PageItem>> expectedPageItems)
         {
 
             // Arrange
@@ -321,9 +339,7 @@ namespace NW.WIDJobs.UnitTests
                 ObjectMother.Shared_Page02Alternate
 
             };
-            List<PageItem> pageItems = new List<PageItem>() { };
-            pageItems.AddRange(ObjectMother.Shared_Page01Alternate_PageItems);
-            pageItems.AddRange(ObjectMother.Shared_Page02Alternate_PageItems.GetRange(0, 19));
+
             WIDExploration expected
                 = new WIDExploration(
                         ObjectMother.Shared_FakeRunId,
@@ -333,14 +349,14 @@ namespace NW.WIDJobs.UnitTests
                         WIDStages.Stage2_UpToAllPageItems,
                         true,
                         pages,
-                        pageItems
+                        expectedPageItems.Invoke()
                         );
 
             // Act
             WIDExploration actual
                 = explorer.Explore(
                             ObjectMother.Shared_FakeRunId,
-                            ObjectMother.Shared_Page02Alternate_ThresholdDate,
+                            thresholdDate,
                             WIDCategories.AllCategories,
                             WIDStages.Stage2_UpToAllPageItems);
 
@@ -350,7 +366,6 @@ namespace NW.WIDJobs.UnitTests
                 );
 
         }
-
 
     }
 }

@@ -1322,7 +1322,45 @@ namespace NW.WIDJobs.UnitTests
                 Shared_Page02Alternate_PageItem20
             };
 
-        internal static DateTime Shared_Page02Alternate_ThresholdDate = new DateTime(2021, 04, 25);
+        internal static DateTime Shared_Page02Alternate_ThresholdDate01 = new DateTime(2021, 04, 25);
+        internal static Func<List<PageItem>> Shared_Page02Alternate_PageItems01 =
+            () =>
+            {
+
+                List<PageItem> pageItems = new List<PageItem>() { };
+
+                pageItems.AddRange(Shared_Page01Alternate_PageItems);
+                pageItems.AddRange(Shared_Page02Alternate_PageItems.GetRange(0, 19));
+
+                return pageItems;
+
+            };
+        internal static DateTime Shared_Page02Alternate_ThresholdDate02 = new DateTime(2021, 04, 27);
+        internal static Func<List<PageItem>> Shared_Page02Alternate_PageItems02 =
+            () =>
+            {
+
+                List<PageItem> pageItems = new List<PageItem>() { };
+
+                pageItems.AddRange(Shared_Page01Alternate_PageItems);
+                pageItems.AddRange(Shared_Page02Alternate_PageItems.GetRange(0, 12));
+
+                return pageItems;
+
+            };
+        internal static DateTime Shared_Page02Alternate_ThresholdDate03 = new DateTime(2021, 04, 28);
+        internal static Func<List<PageItem>> Shared_Page02Alternate_PageItems03 =
+            () =>
+            {
+
+                List<PageItem> pageItems = new List<PageItem>() { };
+
+                pageItems.AddRange(Shared_Page01Alternate_PageItems);
+                pageItems.AddRange(Shared_Page02Alternate_PageItems.GetRange(0, 8));
+
+                return pageItems;
+
+            };
 
         #endregion
 
