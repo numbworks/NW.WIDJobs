@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace NW.WIDJobs.UnitTests
 {
@@ -215,11 +216,78 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
+        [Test]
+        public void Explore_ShouldReturnExpectedWIDExploration_WhenFinalPageNumberAndStage3()
+        {
+
+            // Arrange
+            FakeLogger fakeLogger = new FakeLogger();
+            Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
+            WIDExplorerComponents components = new WIDExplorerComponents(
+                    fakeLoggingAction,
+                    new XPathManager(),
+                    ObjectMother.WIDExplorer_FakeGetRequestManagerAlternate(),
+                    new PageManager(
+                            ObjectMother.WIDExplorer_FakeGetRequestManagerAlternate(),
+                            new PageScraper(),
+                            new WIDCategoryManager()
+                            ),
+                    new PageScraper(),
+                    new PageItemScraper(),
+                    new PageItemExtendedManager(
+                            ObjectMother.WIDExplorer_FakeGetRequestManagerAlternate(),
+                            new PageItemExtendedScraper()
+                            ),
+                    new PageItemExtendedScraper(),
+                    new RunIdManager(),
+                    new BulletPointManager()
+                  );
+            WIDExplorerSettings settings = new WIDExplorerSettings(3, 0);
+            WIDExplorer explorer
+                = new WIDExplorer(components, settings, ObjectMother.WIDExplorer_FakeNow);
+
+            List<Page> pages = new List<Page>()
+            {
+
+                ObjectMother.Shared_Page01Alternate,
+                ObjectMother.Shared_Page02Alternate
+
+            };
+            List<PageItem> pageItems = new List<PageItem>() { };
+            pageItems.AddRange(ObjectMother.Shared_Page01Alternate_PageItems);
+            pageItems.AddRange(ObjectMother.Shared_Page02Alternate_PageItems);
+            WIDExploration expected
+                = new WIDExploration(
+                        ObjectMother.Shared_FakeRunId,
+                        ObjectMother.Shared_Page01_TotalResults,
+                        ObjectMother.Shared_Page01_TotalEstimatedPages,
+                        WIDCategories.AllCategories,
+                        WIDStages.Stage3_UpToAllPageItemsExtended,
+                        true,
+                        pages,
+                        pageItems,
+                        ObjectMother.WIDExplorer_FakePageItemsExtended.Invoke()
+                        );
+
+            // Act
+            WIDExploration actual
+                = explorer.Explore(
+                            ObjectMother.Shared_FakeRunId,
+                            2,
+                            WIDCategories.AllCategories,
+                            WIDStages.Stage3_UpToAllPageItemsExtended);
+
+            // Assert
+            Assert.IsTrue(
+                    ObjectMother.AreEqual(expected, actual)
+                );
+
+        }
 
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 23.05.2021
+    Last Update: 25.05.2021
 */

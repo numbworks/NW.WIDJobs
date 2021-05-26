@@ -1470,7 +1470,7 @@ namespace NW.WIDJobs.UnitTests
 
         #region WIDExplorerTests
 
-        internal static DateTime WIDExplorer_FakeNow = new DateTime(2021, 05, 01);
+        internal static DateTime WIDExplorer_FakeNow = new DateTime(2021, 05, 01);           
         internal static Func<IGetRequestManager> WIDExplorer_FakeGetRequestManagerAlternate
             = () =>
             {
@@ -1535,7 +1535,57 @@ namespace NW.WIDJobs.UnitTests
                 return fakeGetRequestManager;
 
             };
+        internal static Func<List<PageItemExtended>> WIDExplorer_FakePageItemsExtended
+            = () =>
+            {
 
+                List<PageItemExtended> pageItemsExtended = new List<PageItemExtended>();
+
+                pageItemsExtended.Add(CreateDummyPageItemExtended(Shared_Page01Alternate_PageItem01));
+                pageItemsExtended.Add(CreateDummyPageItemExtended(Shared_Page01Alternate_PageItem02));
+                pageItemsExtended.Add(CreateDummyPageItemExtended(Shared_Page01Alternate_PageItem03));
+                pageItemsExtended.Add(CreateDummyPageItemExtended(Shared_Page01Alternate_PageItem04));
+                pageItemsExtended.Add(CreateDummyPageItemExtended(Shared_Page01Alternate_PageItem05));
+                pageItemsExtended.Add(CreateDummyPageItemExtended(Shared_Page01Alternate_PageItem06));
+                pageItemsExtended.Add(CreateDummyPageItemExtended(Shared_Page01Alternate_PageItem07));
+                pageItemsExtended.Add(CreateDummyPageItemExtended(Shared_Page01Alternate_PageItem08));
+                pageItemsExtended.Add(CreateDummyPageItemExtended(Shared_Page01Alternate_PageItem09));
+                pageItemsExtended.Add(CreateDummyPageItemExtended(Shared_Page01Alternate_PageItem10));
+                pageItemsExtended.Add(CreateDummyPageItemExtended(Shared_Page01Alternate_PageItem11));
+                pageItemsExtended.Add(CreateDummyPageItemExtended(Shared_Page01Alternate_PageItem12));
+                pageItemsExtended.Add(CreateDummyPageItemExtended(Shared_Page01Alternate_PageItem13));
+                pageItemsExtended.Add(CreateDummyPageItemExtended(Shared_Page01Alternate_PageItem14));
+                pageItemsExtended.Add(CreateDummyPageItemExtended(Shared_Page01Alternate_PageItem15));
+                pageItemsExtended.Add(CreateDummyPageItemExtended(Shared_Page01Alternate_PageItem16));
+                pageItemsExtended.Add(CreateDummyPageItemExtended(Shared_Page01Alternate_PageItem17));
+                pageItemsExtended.Add(CreateDummyPageItemExtended(Shared_Page01Alternate_PageItem18));
+                pageItemsExtended.Add(CreateDummyPageItemExtended(Shared_Page01Alternate_PageItem19));
+                pageItemsExtended.Add(CreateDummyPageItemExtended(Shared_Page01Alternate_PageItem20));
+
+                pageItemsExtended.Add(CreateDummyPageItemExtended(Shared_Page02Alternate_PageItem01));
+                pageItemsExtended.Add(CreateDummyPageItemExtended(Shared_Page02Alternate_PageItem02));
+                pageItemsExtended.Add(CreateDummyPageItemExtended(Shared_Page02Alternate_PageItem03));
+                pageItemsExtended.Add(CreateDummyPageItemExtended(Shared_Page02Alternate_PageItem04));
+                pageItemsExtended.Add(CreateDummyPageItemExtended(Shared_Page02Alternate_PageItem05));
+                pageItemsExtended.Add(CreateDummyPageItemExtended(Shared_Page02Alternate_PageItem06));
+                pageItemsExtended.Add(CreateDummyPageItemExtended(Shared_Page02Alternate_PageItem07));
+                pageItemsExtended.Add(CreateDummyPageItemExtended(Shared_Page02Alternate_PageItem08));
+                pageItemsExtended.Add(CreateDummyPageItemExtended(Shared_Page02Alternate_PageItem09));
+                pageItemsExtended.Add(CreateDummyPageItemExtended(Shared_Page02Alternate_PageItem10));
+                pageItemsExtended.Add(CreateDummyPageItemExtended(Shared_Page02Alternate_PageItem11));
+                pageItemsExtended.Add(CreateDummyPageItemExtended(Shared_Page02Alternate_PageItem12));
+                pageItemsExtended.Add(CreateDummyPageItemExtended(Shared_Page02Alternate_PageItem13));
+                pageItemsExtended.Add(CreateDummyPageItemExtended(Shared_Page02Alternate_PageItem14));
+                pageItemsExtended.Add(CreateDummyPageItemExtended(Shared_Page02Alternate_PageItem15));
+                pageItemsExtended.Add(CreateDummyPageItemExtended(Shared_Page02Alternate_PageItem16));
+                pageItemsExtended.Add(CreateDummyPageItemExtended(Shared_Page02Alternate_PageItem17));
+                pageItemsExtended.Add(CreateDummyPageItemExtended(Shared_Page02Alternate_PageItem18));
+                pageItemsExtended.Add(CreateDummyPageItemExtended(Shared_Page02Alternate_PageItem19));
+                pageItemsExtended.Add(CreateDummyPageItemExtended(Shared_Page02Alternate_PageItem20));
+
+                return pageItemsExtended;
+
+            };
 
         #endregion
 
@@ -1728,6 +1778,20 @@ namespace NW.WIDJobs.UnitTests
             return true;
 
         }
+        internal static bool AreEqual(WIDExploration exploration1, WIDExploration exploration2)
+        {
+
+            return string.Equals(exploration1.RunId, exploration2.RunId, StringComparison.InvariantCulture)
+                        && (exploration1.TotalResults == exploration2.TotalResults)
+                        && (exploration1.TotalEstimatedPages == exploration2.TotalEstimatedPages)
+                        && (exploration1.Category == exploration2.Category)
+                        && (exploration1.Stage == exploration2.Stage)
+                        && (exploration1.IsCompleted == exploration2.IsCompleted)
+                        && AreEqual(exploration1.Pages, exploration2.Pages)
+                        && AreEqual(exploration1.PageItems, exploration2.PageItems)
+                        && AreEqual(exploration1.PageItemsExtended, exploration2.PageItemsExtended);
+
+        }
         internal static PageItem SwapCreateDate(PageItem pageItem, DateTime createDate)
         {
 
@@ -1778,22 +1842,32 @@ namespace NW.WIDJobs.UnitTests
             return newPageItems;
 
         }
-        internal static bool AreEqual(WIDExploration exploration1, WIDExploration exploration2)
+        internal static PageItemExtended CreateDummyPageItemExtended(PageItem pageItem)
         {
 
-            return string.Equals(exploration1.RunId, exploration2.RunId, StringComparison.InvariantCulture)
-                        && (exploration1.TotalResults == exploration2.TotalResults)
-                        && (exploration1.TotalEstimatedPages == exploration2.TotalEstimatedPages)
-                        && (exploration1.Category == exploration2.Category)
-                        && (exploration1.Stage == exploration2.Stage)
-                        && (exploration1.IsCompleted == exploration2.IsCompleted)
-                        && AreEqual(exploration1.Pages, exploration2.Pages)
-                        && AreEqual(exploration1.PageItems, exploration2.PageItems)
-                        && AreEqual(exploration1.PageItemsExtended, exploration2.PageItemsExtended);
+            return new PageItemExtended(
+                        pageItem: pageItem,
+                        description: Shared_Page01_PageItemExtended01.Description,
+                        seeCompleteTextAt: Shared_Page01_PageItemExtended01.DescriptionSeeCompleteTextAt,
+                        bulletPoints: Shared_Page01_PageItemExtended01.DescriptionBulletPoints,
+                        employerName: Shared_Page01_PageItemExtended01.EmployerName,
+                        numberOfOpenings: Shared_Page01_PageItemExtended01.NumberOfOpenings,
+                        advertisementPublishDate: Shared_Page01_PageItemExtended01.AdvertisementPublishDate,
+                        applicationDeadline: Shared_Page01_PageItemExtended01.ApplicationDeadline,
+                        startDateOfEmployment: Shared_Page01_PageItemExtended01.StartDateOfEmployment,
+                        reference: Shared_Page01_PageItemExtended01.Reference,
+                        position: Shared_Page01_PageItemExtended01.Position,
+                        typeOfEmployment: Shared_Page01_PageItemExtended01.TypeOfEmployment,
+                        contact: Shared_Page01_PageItemExtended01.Contact,
+                        employerAddress: Shared_Page01_PageItemExtended01.EmployerAddress,
+                        howToApply: Shared_Page01_PageItemExtended01.HowToApply
+                );
 
         }
 
         #endregion
+
+
 
     }
 }
