@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace NW.WIDJobs
 {
-    public class WIDMetricsManager
+    public class WIDMetricsManager : IWIDMetricsManager
     {
 
         #region Fields
@@ -78,7 +78,7 @@ namespace NW.WIDJobs
                 itemsByContact: itemsByContact,
                 itemsByEmployerAddress: itemsByEmployerAddress,
                 itemsByHowToApply: itemsByHowToApply,
-                null, 
+                null,
                 0
                 );
 
@@ -158,7 +158,7 @@ namespace NW.WIDJobs
                     group item by item.ApplicationDate into groups
                     select new
                     {
-                        ApplicationDate = groups.Key?.ToString(FormatDate) ?? FormatNull, 
+                        ApplicationDate = groups.Key?.ToString(FormatDate) ?? FormatNull,
                         Items = groups.Count()
                     };
 
