@@ -51,6 +51,10 @@ namespace NW.WIDJobs
                 = GroupItemsByStartDateOfEmployment(exploration.PageItemsExtended);
             Dictionary<string, uint> itemsByReference
                 = GroupItemsByReference(exploration.PageItemsExtended);
+            Dictionary<string, uint> itemsByPosition
+                = GroupItemsByPosition(exploration.PageItemsExtended);
+
+
 
 
             return null;
@@ -294,7 +298,26 @@ namespace NW.WIDJobs
             return grouped;
 
         }
+        private Dictionary<string, uint> GroupItemsByPosition(List<PageItemExtended> pageItemsExtended)
+        {
 
+            var results =
+                    from item in pageItemsExtended
+                    group item by item.Position into groups
+                    select new
+                    {
+                        Position = groups.Key ?? FormatNull,
+                        Items = groups.Count()
+                    };
+
+            Dictionary<string, uint> grouped
+                = results.ToDictionary(
+                                result => result.Position,
+                                result => (uint)result.Items);
+
+            return grouped;
+
+        }
 
         #endregion
 
