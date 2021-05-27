@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace NW.WIDJobs
 {
+    /// <inheritdoc cref="IWIDMetricsManager"/>
     public class WIDMetricsManager : IWIDMetricsManager
     {
 
@@ -29,6 +30,7 @@ namespace NW.WIDJobs
 
         #region Constructors
 
+        /// <summary>Initializes a <see cref="WIDMetricsManager"/> instance.</summary>
         public WIDMetricsManager() { }
 
         #endregion
