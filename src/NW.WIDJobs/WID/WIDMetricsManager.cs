@@ -36,6 +36,11 @@ namespace NW.WIDJobs
                 = GroupItemsByWorkAreaWithoutZone(exploration.PageItems);
             Dictionary<string, uint> itemsByCreateDate
                 = GroupItemsByCreateDate(exploration.PageItems);
+            Dictionary<string, uint> itemsByApplicationDate
+                = GroupItemsByApplicationDate(exploration.PageItems);
+
+
+
 
             return null;
 
@@ -98,7 +103,33 @@ namespace NW.WIDJobs
             return grouped;
 
         }
+        private Dictionary<string, uint> GroupItemsByApplicationDate(List<PageItem> pageItems)
+        {
 
+            /*
+    			- ("2021-05-21", 57)
+			    - ("2021-05-10", 23)
+                - ("null", 4)
+			    - ...
+            */
+
+            var results =
+                    from item in pageItems
+                    group item by item.ApplicationDate into groups
+                    select new
+                    {
+                        ApplicationDate = groups.Key?.ToString(FormatDate) ?? FormatNull, 
+                        Items = groups.Count()
+                    };
+
+            Dictionary<string, uint> grouped
+                = results.ToDictionary(
+                                result => result.ApplicationDate,
+                                result => (uint)result.Items);
+
+            return grouped;
+
+        }
 
         #endregion
 
