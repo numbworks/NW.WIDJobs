@@ -138,6 +138,7 @@ namespace NW.WIDJobs
         #endregion
 
         #region Methods_private
+
         private Dictionary<string, uint> GroupItemsByWorkAreaWithoutZone(List<PageItem> pageItems)
         {
 
