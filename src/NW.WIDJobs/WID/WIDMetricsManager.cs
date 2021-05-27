@@ -55,7 +55,8 @@ namespace NW.WIDJobs
                 = GroupItemsByPosition(exploration.PageItemsExtended);
             Dictionary<string, uint> itemsByTypeOfEmployment
                 = GroupItemsByTypeOfEmployment(exploration.PageItemsExtended);
-
+            Dictionary<string, uint> itemsByContact
+                = GroupItemsByContact(exploration.PageItemsExtended);
 
 
             return null;
@@ -339,7 +340,26 @@ namespace NW.WIDJobs
             return grouped;
 
         }
+        private Dictionary<string, uint> GroupItemsByContact(List<PageItemExtended> pageItemsExtended)
+        {
 
+            var results =
+                    from item in pageItemsExtended
+                    group item by item.Contact into groups
+                    select new
+                    {
+                        Contact = groups.Key ?? FormatNull,
+                        Items = groups.Count()
+                    };
+
+            Dictionary<string, uint> grouped
+                = results.ToDictionary(
+                                result => result.Contact,
+                                result => (uint)result.Items);
+
+            return grouped;
+
+        }
 
 
         #endregion
