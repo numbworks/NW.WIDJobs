@@ -72,6 +72,17 @@ namespace NW.WIDJobs
             return JsonSerializer.Serialize(clean, jso);
 
         }
+        public string ToJson(WIDMetrics metrics)
+        {
+
+            Validator.ValidateObject(metrics, nameof(metrics));
+
+            JsonSerializerOptions jso = new JsonSerializerOptions();
+            jso.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
+
+            return JsonSerializer.Serialize(metrics, jso);
+
+        }
 
         public WIDExploration Explore
             (string runId, ushort finalPageNumber, WIDCategories category, WIDStages stage)
