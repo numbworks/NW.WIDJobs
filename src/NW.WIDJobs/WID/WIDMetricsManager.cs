@@ -14,11 +14,15 @@ namespace NW.WIDJobs
         #region Properties
         public static string FormatDate { get; } = "yyyy-MM-dd";
         public static string FormatNull { get; } = "null";
-        public static Func<uint, uint, double> CalculatePercentage =
+        public static Func<uint, uint, double?> CalculatePercentage =
             (value, totalValue) => {
 
                 if (value == 0)
                     return value;
+                if (value == 0 && totalValue == 0)
+                    return value;
+                if (totalValue == 0)
+                    return null;
 
                 return Math.Round((double)(value / totalValue * 100), 2);
 
@@ -124,7 +128,7 @@ namespace NW.WIDJobs
             foreach (KeyValuePair<string, uint> item in dict)
             {
 
-                double value = CalculatePercentage.Invoke(item.Value, totalValue);
+                double value = (double)CalculatePercentage.Invoke(item.Value, totalValue); // Can't be null.
                 string percentage = FormatPercentage.Invoke(value);
 
                 percentages.Add(item.Key, percentage);
