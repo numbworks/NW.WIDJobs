@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -57,9 +56,33 @@ namespace NW.WIDJobs
                 = GroupItemsByTypeOfEmployment(exploration.PageItemsExtended);
             Dictionary<string, uint> itemsByContact
                 = GroupItemsByContact(exploration.PageItemsExtended);
+            Dictionary<string, uint> itemsByEmployerAddress
+                = GroupItemsByEmployerAddress(exploration.PageItemsExtended);
+            Dictionary<string, uint> itemsByHowToApply
+                = GroupItemsByHowToApply(exploration.PageItemsExtended);
+            // Add missing ones
 
+            WIDMetrics metrics = new WIDMetrics(
+                runId: exploration.RunId,
+                itemsByWorkAreaWithoutZone: itemsByWorkAreaWithoutZone,
+                itemsByCreateDate: itemsByCreateDate,
+                itemsByApplicationDate: itemsByApplicationDate,
+                itemsByEmployerName: itemsByEmployerName,
+                itemsByNumberOfOpenings: itemsByNumberOfOpenings,
+                itemsByAdvertisementPublishDate: itemsByAdvertisementPublishDate,
+                itemsByApplicationDeadline: itemsByApplicationDeadline,
+                itemsByStartDateOfEmployment: itemsByStartDateOfEmployment,
+                itemsByReference: itemsByReference,
+                itemsByPosition: itemsByPosition,
+                itemsByTypeOfEmployment: itemsByTypeOfEmployment,
+                itemsByContact: itemsByContact,
+                itemsByEmployerAddress: itemsByEmployerAddress,
+                itemsByHowToApply: itemsByHowToApply,
+                null, 
+                0
+                );
 
-            return null;
+            return metrics;
 
         }
 
@@ -360,7 +383,46 @@ namespace NW.WIDJobs
             return grouped;
 
         }
+        private Dictionary<string, uint> GroupItemsByEmployerAddress(List<PageItemExtended> pageItemsExtended)
+        {
 
+            var results =
+                    from item in pageItemsExtended
+                    group item by item.EmployerAddress into groups
+                    select new
+                    {
+                        EmployerAddress = groups.Key ?? FormatNull,
+                        Items = groups.Count()
+                    };
+
+            Dictionary<string, uint> grouped
+                = results.ToDictionary(
+                                result => result.EmployerAddress,
+                                result => (uint)result.Items);
+
+            return grouped;
+
+        }
+        private Dictionary<string, uint> GroupItemsByHowToApply(List<PageItemExtended> pageItemsExtended)
+        {
+
+            var results =
+                    from item in pageItemsExtended
+                    group item by item.HowToApply into groups
+                    select new
+                    {
+                        HowToApply = groups.Key ?? FormatNull,
+                        Items = groups.Count()
+                    };
+
+            Dictionary<string, uint> grouped
+                = results.ToDictionary(
+                                result => result.HowToApply,
+                                result => (uint)result.Items);
+
+            return grouped;
+
+        }
 
         #endregion
 
