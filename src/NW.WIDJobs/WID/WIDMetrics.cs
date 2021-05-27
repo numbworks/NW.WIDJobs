@@ -14,13 +14,13 @@ namespace NW.WIDJobs
 
         public string RunId { get; }
         public Dictionary<string, uint> ItemsByWorkAreaWithoutZone { get; }
-        public Dictionary<DateTime?, uint> ItemsByCreateDate { get; }
-        public Dictionary<DateTime?, uint> ItemsByApplicationDate { get; }
+        public Dictionary<string, uint> ItemsByCreateDate { get; }
+        public Dictionary<string, uint> ItemsByApplicationDate { get; }
         public Dictionary<string, uint> ItemsByEmployerName { get; }
-        public Dictionary<uint?, uint> ItemsByNumberOfOpenings { get; }
-        public Dictionary<DateTime?, uint> ItemsByAdvertisementPublishDate { get; }
-        public Dictionary<DateTime?, uint> ItemsByApplicationDeadline { get; }
-        public Dictionary<DateTime?, uint> ItemsByStartDateOfEmployment { get; }
+        public Dictionary<string, uint> ItemsByNumberOfOpenings { get; }
+        public Dictionary<string, uint> ItemsByAdvertisementPublishDate { get; }
+        public Dictionary<string, uint> ItemsByApplicationDeadline { get; }
+        public Dictionary<string, uint> ItemsByStartDateOfEmployment { get; }
         public Dictionary<string, uint> ItemsByReference { get; }
         public Dictionary<string, uint> ItemsByPosition { get; }
         public Dictionary<string, uint> ItemsByTypeOfEmployment { get; }
@@ -38,13 +38,13 @@ namespace NW.WIDJobs
         public WIDMetrics(
             string runId,
             Dictionary<string, uint> itemsByWorkAreaWithoutZone,
-            Dictionary<DateTime?, uint> itemsByCreateDate,
-            Dictionary<DateTime?, uint> itemsByApplicationDate,
+            Dictionary<string, uint> itemsByCreateDate,
+            Dictionary<string, uint> itemsByApplicationDate,
             Dictionary<string, uint> itemsByEmployerName,
-            Dictionary<uint?, uint> itemsByNumberOfOpenings,
-            Dictionary<DateTime?, uint> itemsByAdvertisementPublishDate,
-            Dictionary<DateTime?, uint> itemsByApplicationDeadline,
-            Dictionary<DateTime?, uint> itemsByStartDateOfEmployment,
+            Dictionary<string, uint> itemsByNumberOfOpenings,
+            Dictionary<string, uint> itemsByAdvertisementPublishDate,
+            Dictionary<string, uint> itemsByApplicationDeadline,
+            Dictionary<string, uint> itemsByStartDateOfEmployment,
             Dictionary<string, uint> itemsByReference,
             Dictionary<string, uint> itemsByPosition,
             Dictionary<string, uint> itemsByTypeOfEmployment,

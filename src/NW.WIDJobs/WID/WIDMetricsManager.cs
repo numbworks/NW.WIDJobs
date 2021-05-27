@@ -12,6 +12,9 @@ namespace NW.WIDJobs
         #endregion
 
         #region Properties
+        public static string FormatDate { get; } = "yyyy-MM-dd";
+        public static string FormatNull { get; } = "null";
+
         #endregion
 
         #region Constructors

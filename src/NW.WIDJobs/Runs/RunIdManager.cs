@@ -15,7 +15,7 @@ namespace NW.WIDJobs
         public static string TemplateThreshold { get; } = "{0}|THRESHOLD:{1}";
         public static string TemplateFromTo { get; } = "{0}|FROM:{1}|TO:{2}";
         public static string FormatDateTime { get; } = "yyyyMMddHHmmssfff";
-        public static string FormatDate { get; } = "yyyyMMddHH";
+        public static string FormatDate { get; } = "yyyyMMdd";
 
         #endregion
 
