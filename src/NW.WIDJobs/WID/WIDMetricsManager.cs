@@ -64,6 +64,8 @@ namespace NW.WIDJobs
 
             WIDMetrics metrics = new WIDMetrics(
                 runId: exploration.RunId,
+                totalPages: (uint)exploration.Pages.Count,
+                totalItems: (uint)exploration.PageItems.Count,
                 itemsByWorkAreaWithoutZone: itemsByWorkAreaWithoutZone,
                 itemsByCreateDate: itemsByCreateDate,
                 itemsByApplicationDate: itemsByApplicationDate,
@@ -109,6 +111,8 @@ namespace NW.WIDJobs
                         Items = groups.Count()
                     };
 
+            results = results.OrderByDescending(result => result.Items);
+
             Dictionary<string, uint> grouped
                 = results.ToDictionary(
                                 result => result.WorkAreaWithoutZone,
@@ -134,6 +138,8 @@ namespace NW.WIDJobs
                         CreateDate = groups.Key.ToString(FormatDate), // This is never null, so we don't handle that case.
                         Items = groups.Count()
                     };
+
+            results = results.OrderByDescending(result => result.CreateDate);
 
             Dictionary<string, uint> grouped
                 = results.ToDictionary(
@@ -162,6 +168,8 @@ namespace NW.WIDJobs
                         Items = groups.Count()
                     };
 
+            results = results.OrderByDescending(result => result.ApplicationDate);
+
             Dictionary<string, uint> grouped
                 = results.ToDictionary(
                                 result => result.ApplicationDate,
@@ -188,6 +196,8 @@ namespace NW.WIDJobs
                         Items = groups.Count()
                     };
 
+            results = results.OrderByDescending(result => result.Items);
+
             Dictionary<string, uint> grouped
                 = results.ToDictionary(
                                 result => result.EmployerName,
@@ -213,6 +223,8 @@ namespace NW.WIDJobs
                         NumberOfOpenings = groups.Key?.ToString() ?? FormatNull,
                         Items = groups.Count()
                     };
+
+            results = results.OrderByDescending(result => result.Items);
 
             Dictionary<string, uint> grouped
                 = results.ToDictionary(
@@ -241,6 +253,8 @@ namespace NW.WIDJobs
                         Items = groups.Count()
                     };
 
+            results = results.OrderByDescending(result => result.AdvertisementPublishDate);
+
             Dictionary<string, uint> grouped
                 = results.ToDictionary(
                                 result => result.AdvertisementPublishDate,
@@ -267,6 +281,8 @@ namespace NW.WIDJobs
                         ApplicationDeadline = groups.Key?.ToString(FormatDate) ?? FormatNull,
                         Items = groups.Count()
                     };
+
+            results = results.OrderByDescending(result => result.ApplicationDeadline);
 
             Dictionary<string, uint> grouped
                 = results.ToDictionary(
@@ -295,6 +311,8 @@ namespace NW.WIDJobs
                         Items = groups.Count()
                     };
 
+            results = results.OrderByDescending(result => result.StartDateOfEmployment);
+
             Dictionary<string, uint> grouped
                 = results.ToDictionary(
                                 result => result.StartDateOfEmployment,
@@ -314,6 +332,8 @@ namespace NW.WIDJobs
                         Reference = groups.Key ?? FormatNull,
                         Items = groups.Count()
                     };
+
+            results = results.OrderByDescending(result => result.Items);
 
             Dictionary<string, uint> grouped
                 = results.ToDictionary(
@@ -335,6 +355,8 @@ namespace NW.WIDJobs
                         Items = groups.Count()
                     };
 
+            results = results.OrderByDescending(result => result.Items);
+
             Dictionary<string, uint> grouped
                 = results.ToDictionary(
                                 result => result.Position,
@@ -354,6 +376,8 @@ namespace NW.WIDJobs
                         TypeOfEmployment = groups.Key ?? FormatNull,
                         Items = groups.Count()
                     };
+
+            results = results.OrderByDescending(result => result.Items);
 
             Dictionary<string, uint> grouped
                 = results.ToDictionary(
@@ -375,6 +399,8 @@ namespace NW.WIDJobs
                         Items = groups.Count()
                     };
 
+            results = results.OrderByDescending(result => result.Items);
+
             Dictionary<string, uint> grouped
                 = results.ToDictionary(
                                 result => result.Contact,
@@ -394,6 +420,8 @@ namespace NW.WIDJobs
                         EmployerAddress = groups.Key ?? FormatNull,
                         Items = groups.Count()
                     };
+
+            results = results.OrderByDescending(result => result.Items);
 
             Dictionary<string, uint> grouped
                 = results.ToDictionary(
@@ -415,6 +443,8 @@ namespace NW.WIDJobs
                         Items = groups.Count()
                     };
 
+            results = results.OrderByDescending(result => result.Items);
+
             Dictionary<string, uint> grouped
                 = results.ToDictionary(
                                 result => result.HowToApply,
@@ -431,5 +461,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 26.05.2021
+    Last Update: 27.05.2021
 */

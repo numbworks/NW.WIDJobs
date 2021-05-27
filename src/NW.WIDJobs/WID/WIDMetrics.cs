@@ -13,6 +13,8 @@ namespace NW.WIDJobs
         #region Properties
 
         public string RunId { get; }
+        public uint TotalPages { get; }
+        public uint TotalItems { get; }
         public Dictionary<string, uint> ItemsByWorkAreaWithoutZone { get; }
         public Dictionary<string, uint> ItemsByCreateDate { get; }
         public Dictionary<string, uint> ItemsByApplicationDate { get; }
@@ -37,6 +39,8 @@ namespace NW.WIDJobs
         ///<summary>Initializes a <see cref="WIDMetrics"/> instance.</summary>
         public WIDMetrics(
             string runId,
+            uint totalPages,
+            uint totalItems,
             Dictionary<string, uint> itemsByWorkAreaWithoutZone,
             Dictionary<string, uint> itemsByCreateDate,
             Dictionary<string, uint> itemsByApplicationDate,
@@ -60,6 +64,8 @@ namespace NW.WIDJobs
             // Add validation
 
             RunId = runId;
+            TotalPages = totalPages;
+            TotalItems = totalItems;
             ItemsByWorkAreaWithoutZone = itemsByWorkAreaWithoutZone;
             ItemsByCreateDate = itemsByCreateDate;
             ItemsByApplicationDate = itemsByApplicationDate;
@@ -89,5 +95,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 26.05.2021
+    Last Update: 27.05.2021
 */
