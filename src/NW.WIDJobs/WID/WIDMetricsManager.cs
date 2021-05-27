@@ -47,6 +47,9 @@ namespace NW.WIDJobs
                 = GroupItemsByAdvertisementPublishDate(exploration.PageItemsExtended);
             Dictionary<string, uint> itemsByApplicationDeadline
                 = GroupItemsByApplicationDeadline(exploration.PageItemsExtended);
+            Dictionary<string, uint> itemsByStartDateOfEmployment
+                = GroupItemsByStartDateOfEmployment(exploration.PageItemsExtended);
+
 
 
             return null;
@@ -243,6 +246,35 @@ namespace NW.WIDJobs
             return grouped;
 
         }
+        private Dictionary<string, uint> GroupItemsByStartDateOfEmployment(List<PageItemExtended> pageItemsExtended)
+        {
+
+            /*
+    			- ("2021-05-21", 57)
+			    - ("2021-05-10", 23)
+                - ("null", 4)
+			    - ...
+            */
+
+            var results =
+                    from item in pageItemsExtended
+                    group item by item.StartDateOfEmployment into groups
+                    select new
+                    {
+                        StartDateOfEmployment = groups.Key ?? FormatNull,
+                        Items = groups.Count()
+                    };
+
+            Dictionary<string, uint> grouped
+                = results.ToDictionary(
+                                result => result.StartDateOfEmployment,
+                                result => (uint)result.Items);
+
+            return grouped;
+
+        }
+
+
 
         #endregion
 
