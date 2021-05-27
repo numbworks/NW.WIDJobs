@@ -32,6 +32,8 @@ namespace NW.WIDJobsClient
             filename = string.Concat(@"C:\Users\Rubèn\Desktop\Metrics", dateToken, ".json");
             File.WriteAllText(filename, json);
 
+            WIDExplorerComponents.DefaultLoggingAction.Invoke(metrics.ToString());
+
             WIDExplorerComponents.DefaultLoggingAction.Invoke("Press a button to close the window.");
             Console.ReadLine();
 
