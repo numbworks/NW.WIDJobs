@@ -13,6 +13,17 @@ namespace NW.WIDJobs
         #region Properties
         public static string FormatDate { get; } = "yyyy-MM-dd";
         public static string FormatNull { get; } = "null";
+        public static Func<uint, uint, double> CalculatePercentage =
+            (value, totalValue) => {
+
+                if (value == 0)
+                    return value;
+
+                return Math.Round((double)(value / totalValue * 100), 2);
+
+            };
+        public static Func<double, string> FormatPercentage =
+            (value) => $"{value}%";
 
         #endregion
 
@@ -30,6 +41,7 @@ namespace NW.WIDJobs
             Validator.ValidateObject(exploration, nameof(exploration));
             Validator.ValidateList(exploration.PageItems, nameof(exploration.PageItems));
             Validator.ValidateList(exploration.PageItemsExtended, nameof(exploration.PageItemsExtended));
+            
             // How to validate bulletpoints?
 
             Dictionary<string, uint> itemsByWorkAreaWithoutZone
@@ -90,11 +102,40 @@ namespace NW.WIDJobs
             return metrics;
 
         }
+        public Dictionary<string, string> ConvertToPercentages(Dictionary<string, uint> dict)
+        {
+
+            /*
+    			- ("København", 45) => ("København", "73.78%")
+	    		- ("Nordborg", 12) => ("Nordborg", "19.67%")
+		    	- ("Vejen", 4) => ("Vejen", "6.3%")
+
+                TotalValue: 61
+                % = Value / TotalValue * 100             
+             */
+
+            // Validation
+
+            uint totalValue = (uint)dict.Sum(item => item.Value);
+
+            Dictionary<string, string> percentages = new Dictionary<string, string>();
+            foreach (KeyValuePair<string, uint> item in dict)
+            {
+
+                double value = CalculatePercentage.Invoke(item.Value, totalValue);
+                string percentage = FormatPercentage.Invoke(value);
+
+                percentages.Add(item.Key, percentage);
+
+            }
+
+            return percentages;
+
+        }
 
         #endregion
 
         #region Methods_private
-
         private Dictionary<string, uint> GroupItemsByWorkAreaWithoutZone(List<PageItem> pageItems)
         {
 
