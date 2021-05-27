@@ -43,8 +43,8 @@ namespace NW.WIDJobs
                 = GroupItemsByEmployerName(exploration.PageItemsExtended);
             Dictionary<string, uint> itemsByNumberOfOpenings
                 = GroupItemsByNumberOfOpenings(exploration.PageItemsExtended);
-
-
+            Dictionary<string, uint> itemsByAdvertisementPublishDate
+                = GroupItemsByAdvertisementPublishDate(exploration.PageItemsExtended);
 
 
             return null;
