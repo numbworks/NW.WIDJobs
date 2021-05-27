@@ -2,14 +2,22 @@
 
 namespace NW.WIDJobs
 {
+    /// <inheritdoc cref="IHtmlDocumentAdapter"/>
     public class HtmlDocumentAdapter : IHtmlDocumentAdapter
     {
 
-        // Fields
+        #region Fields
+
         private HtmlDocument _htmlDocument;
 
-        // Properties
-        // Constructors
+        #endregion
+
+        #region Properties
+        #endregion
+
+        #region Constructors
+
+        /// <summary>Initializes a <see cref="HtmlDocumentAdapter"/> instance.</summary>
         public HtmlDocumentAdapter()
         {
 
@@ -17,13 +25,16 @@ namespace NW.WIDJobs
 
         }
 
-        // Methods (public)
+        #endregion
+
+        #region Methods_public
+
         public void LoadHtml(string html)
             => _htmlDocument.LoadHtml(html);
         public HtmlNodeCollection SelectNodes(string xpath)
             => _htmlDocument.DocumentNode.SelectNodes(xpath);
 
-        // Methods (private)
+        #endregion
 
     }
 }
