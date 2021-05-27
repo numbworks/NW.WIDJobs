@@ -40,6 +40,10 @@ namespace NW.WIDJobs
                 = GroupItemsByApplicationDate(exploration.PageItems);
             Dictionary<string, uint> itemsByEmployerName
                 = GroupItemsByEmployerName(exploration.PageItemsExtended);
+            Dictionary<string, uint> itemsByNumberOfOpenings
+                = GroupItemsByNumberOfOpenings(exploration.PageItemsExtended);
+
+
 
 
             return null;
@@ -151,6 +155,32 @@ namespace NW.WIDJobs
             Dictionary<string, uint> grouped
                 = results.ToDictionary(
                                 result => result.EmployerName,
+                                result => (uint)result.Items);
+
+            return grouped;
+
+        }
+        private Dictionary<string, uint> GroupItemsByNumberOfOpenings(List<PageItemExtended> pageItemsExtended)
+        {
+
+            /*
+			    - ("1", 1)
+                - ("null", 4)
+			    - ...
+            */
+
+            var results =
+                    from item in pageItemsExtended
+                    group item by item.NumberOfOpenings into groups
+                    select new
+                    {
+                        NumberOfOpenings = groups.Key?.ToString() ?? FormatNull,
+                        Items = groups.Count()
+                    };
+
+            Dictionary<string, uint> grouped
+                = results.ToDictionary(
+                                result => result.NumberOfOpenings,
                                 result => (uint)result.Items);
 
             return grouped;
