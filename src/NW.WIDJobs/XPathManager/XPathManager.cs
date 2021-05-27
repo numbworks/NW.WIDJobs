@@ -3,14 +3,22 @@ using HtmlAgilityPack;
 
 namespace NW.WIDJobs
 {
+    /// <inheritdoc cref="IXPathManager"/>
     public class XPathManager : IXPathManager
     {
 
-        // Fields
+        #region Fields
+
         private IHtmlDocumentAdapter _htmlDocumentAdapter;
 
-        // Properties
-        // Constructors
+        #endregion
+
+        #region Properties
+        #endregion
+
+        #region Constructors
+
+        /// <summary>Initializes a <see cref="XPathManager"/> instance.</summary>
         public XPathManager(IHtmlDocumentAdapter htmlDocumentAdapter)
         {
 
@@ -19,10 +27,15 @@ namespace NW.WIDJobs
             _htmlDocumentAdapter = htmlDocumentAdapter;
 
         }
+
+        /// <summary>Initializes a <see cref="XPathManager"/> instance using default parameters.</summary>
         public XPathManager()
             : this(new HtmlDocumentAdapter()) { }
 
-        // Methods
+        #endregion
+
+        #region Methods_public
+
         public List<string> GetInnerTexts(string html, string xpath)
         {
 
@@ -82,6 +95,8 @@ namespace NW.WIDJobs
             return attributeValues[0];
 
         }
+
+        #endregion
 
     }
 }
