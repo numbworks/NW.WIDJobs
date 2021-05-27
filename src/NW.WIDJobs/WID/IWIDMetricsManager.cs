@@ -9,6 +9,7 @@ namespace NW.WIDJobs
 
         /// <summary>
         /// Calculates <see cref="WIDMetrics"/> out of <paramref name="exploration"/>.
+        /// <para>Only explorations on <see cref="WIDStages.Stage3_UpToAllPageItemsExtended"/> are supported.</para>
         /// </summary>
         /// <exception cref="ArgumentNullException"/>
         /// <exception cref="ArgumentException"/> 
@@ -16,6 +17,7 @@ namespace NW.WIDJobs
 
         /// <summary>
         /// Convert each value in <paramref name="dict"/> to the corresponding percentage.
+        /// <para>Intended to be executed against <see cref="WIDMetrics"/> dictionaries.</para>
         /// </summary>
         /// <exception cref="ArgumentNullException"/>
         Dictionary<string, string> ConvertToPercentages(Dictionary<string, uint> dict);

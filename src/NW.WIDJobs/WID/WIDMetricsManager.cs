@@ -47,8 +47,6 @@ namespace NW.WIDJobs
             Validator.ValidateObject(exploration, nameof(exploration));
             Validator.ValidateList(exploration.PageItems, nameof(exploration.PageItems));
             Validator.ValidateList(exploration.PageItemsExtended, nameof(exploration.PageItemsExtended));
-            
-            // How to validate bulletpoints?
 
             Dictionary<string, uint> itemsByWorkAreaWithoutZone
                 = GroupItemsByWorkAreaWithoutZone(exploration.PageItems);
@@ -120,7 +118,7 @@ namespace NW.WIDJobs
                 % = Value / TotalValue * 100             
              */
 
-            // Validation
+            Validator.ValidateList(dict.ToList(), nameof(dict));
 
             uint totalValue = (uint)dict.Sum(item => item.Value);
 
