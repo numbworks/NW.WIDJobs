@@ -36,6 +36,7 @@ namespace NW.WIDJobs
 
         ///<summary>Initializes a <see cref="WIDMetrics"/> instance.</summary>
         public WIDMetrics(
+            string runId,
             Dictionary<string, uint> itemsByWorkAreaWithoutZone,
             Dictionary<DateTime?, uint> itemsByCreateDate,
             Dictionary<DateTime?, uint> itemsByApplicationDate,
@@ -55,6 +56,10 @@ namespace NW.WIDJobs
             ) 
         {
 
+            Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
+            // Add validation
+
+            RunId = runId;
             ItemsByWorkAreaWithoutZone = itemsByWorkAreaWithoutZone;
             ItemsByCreateDate = itemsByCreateDate;
             ItemsByApplicationDate = itemsByApplicationDate;
