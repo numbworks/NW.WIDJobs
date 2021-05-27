@@ -31,6 +31,7 @@ namespace NW.WIDJobs
             Validator.ValidateObject(exploration, nameof(exploration));
             Validator.ValidateList(exploration.PageItems, nameof(exploration.PageItems));
             Validator.ValidateList(exploration.PageItemsExtended, nameof(exploration.PageItemsExtended));
+            // How to validate bulletpoints?
 
             Dictionary<string, uint> itemsByWorkAreaWithoutZone
                 = GroupItemsByWorkAreaWithoutZone(exploration.PageItems);
@@ -181,6 +182,33 @@ namespace NW.WIDJobs
             Dictionary<string, uint> grouped
                 = results.ToDictionary(
                                 result => result.NumberOfOpenings,
+                                result => (uint)result.Items);
+
+            return grouped;
+
+        }
+        private Dictionary<string, uint> GroupItemsByAdvertisementPublishDate(List<PageItemExtended> pageItemsExtended)
+        {
+
+            /*
+    			- ("2021-05-21", 57)
+			    - ("2021-05-10", 23)
+                - ("null", 4)
+			    - ...
+            */
+
+            var results =
+                    from item in pageItemsExtended
+                    group item by item.AdvertisementPublishDate into groups
+                    select new
+                    {
+                        AdvertisementPublishDate = groups.Key?.ToString(FormatDate) ?? FormatNull,
+                        Items = groups.Count()
+                    };
+
+            Dictionary<string, uint> grouped
+                = results.ToDictionary(
+                                result => result.AdvertisementPublishDate,
                                 result => (uint)result.Items);
 
             return grouped;
