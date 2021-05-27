@@ -45,6 +45,8 @@ namespace NW.WIDJobs
                 = GroupItemsByNumberOfOpenings(exploration.PageItemsExtended);
             Dictionary<string, uint> itemsByAdvertisementPublishDate
                 = GroupItemsByAdvertisementPublishDate(exploration.PageItemsExtended);
+            Dictionary<string, uint> itemsByApplicationDeadline
+                = GroupItemsByApplicationDeadline(exploration.PageItemsExtended);
 
 
             return null;
@@ -209,6 +211,33 @@ namespace NW.WIDJobs
             Dictionary<string, uint> grouped
                 = results.ToDictionary(
                                 result => result.AdvertisementPublishDate,
+                                result => (uint)result.Items);
+
+            return grouped;
+
+        }
+        private Dictionary<string, uint> GroupItemsByApplicationDeadline(List<PageItemExtended> pageItemsExtended)
+        {
+
+            /*
+    			- ("2021-05-21", 57)
+			    - ("2021-05-10", 23)
+                - ("null", 4)
+			    - ...
+            */
+
+            var results =
+                    from item in pageItemsExtended
+                    group item by item.ApplicationDeadline into groups
+                    select new
+                    {
+                        ApplicationDeadline = groups.Key?.ToString(FormatDate) ?? FormatNull,
+                        Items = groups.Count()
+                    };
+
+            Dictionary<string, uint> grouped
+                = results.ToDictionary(
+                                result => result.ApplicationDeadline,
                                 result => (uint)result.Items);
 
             return grouped;
