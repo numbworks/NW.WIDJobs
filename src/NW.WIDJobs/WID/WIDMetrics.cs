@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace NW.WIDJobs
 {
@@ -61,7 +62,23 @@ namespace NW.WIDJobs
         {
 
             Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
-            // Add validation
+            Validator.ThrowIfLessThanOne(totalPages, nameof(totalPages));
+            Validator.ThrowIfLessThanOne(totalItems, nameof(totalItems));
+            Validator.ValidateList(itemsByWorkAreaWithoutZone.ToList(), nameof(itemsByWorkAreaWithoutZone));
+            Validator.ValidateList(itemsByCreateDate.ToList(), nameof(itemsByCreateDate));
+            Validator.ValidateList(itemsByApplicationDate.ToList(), nameof(itemsByApplicationDate));
+            Validator.ValidateList(itemsByEmployerName.ToList(), nameof(itemsByEmployerName));
+            Validator.ValidateList(itemsByNumberOfOpenings.ToList(), nameof(itemsByNumberOfOpenings));
+            Validator.ValidateList(itemsByAdvertisementPublishDate.ToList(), nameof(itemsByAdvertisementPublishDate));
+            Validator.ValidateList(itemsByApplicationDeadline.ToList(), nameof(itemsByApplicationDeadline));
+            Validator.ValidateList(itemsByStartDateOfEmployment.ToList(), nameof(itemsByStartDateOfEmployment));
+            Validator.ValidateList(itemsByReference.ToList(), nameof(itemsByReference));
+            Validator.ValidateList(itemsByPosition.ToList(), nameof(itemsByPosition));
+            Validator.ValidateList(itemsByTypeOfEmployment.ToList(), nameof(itemsByTypeOfEmployment));
+            Validator.ValidateList(itemsByContact.ToList(), nameof(itemsByContact));
+            Validator.ValidateList(itemsByEmployerAddress.ToList(), nameof(itemsByEmployerAddress));
+            Validator.ValidateList(itemsByHowToApply.ToList(), nameof(itemsByHowToApply));
+            Validator.ValidateList(bulletPointsByPageItemId.ToList(), nameof(bulletPointsByPageItemId));
 
             RunId = runId;
             TotalPages = totalPages;
