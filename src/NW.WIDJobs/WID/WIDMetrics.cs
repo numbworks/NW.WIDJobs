@@ -30,7 +30,7 @@ namespace NW.WIDJobs
         public Dictionary<string, uint> ItemsByEmployerAddress { get; }
         public Dictionary<string, uint> ItemsByHowToApply { get; }
         public Dictionary<string, uint> BulletPointsByPageItemId { get; }
-        public uint BulletPointsTotal { get; }
+        public uint TotalBulletPoints { get; }
 
         #endregion
 
@@ -56,7 +56,7 @@ namespace NW.WIDJobs
             Dictionary<string, uint> itemsByEmployerAddress,
             Dictionary<string, uint> itemsByHowToApply,
             Dictionary<string, uint> bulletPointsByPageItemId,
-            uint bulletPointsTotal
+            uint totalBulletPoints
             ) 
         {
 
@@ -81,7 +81,7 @@ namespace NW.WIDJobs
             ItemsByEmployerAddress = itemsByEmployerAddress;
             ItemsByHowToApply = itemsByHowToApply;
             BulletPointsByPageItemId = bulletPointsByPageItemId;
-            BulletPointsTotal = bulletPointsTotal;
+            TotalBulletPoints = totalBulletPoints;
 
         }
 

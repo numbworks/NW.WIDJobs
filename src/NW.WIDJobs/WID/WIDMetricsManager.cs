@@ -60,7 +60,10 @@ namespace NW.WIDJobs
                 = GroupItemsByEmployerAddress(exploration.PageItemsExtended);
             Dictionary<string, uint> itemsByHowToApply
                 = GroupItemsByHowToApply(exploration.PageItemsExtended);
-            // Add missing ones
+            Dictionary<string, uint> bulletPointsByPageItemId
+                = SumBulletPointsByPageItemId(exploration.PageItemsExtended);
+
+            uint totalBulletPoints = SumBulletPoints(exploration.PageItemsExtended);
 
             WIDMetrics metrics = new WIDMetrics(
                 runId: exploration.RunId,
@@ -80,8 +83,8 @@ namespace NW.WIDJobs
                 itemsByContact: itemsByContact,
                 itemsByEmployerAddress: itemsByEmployerAddress,
                 itemsByHowToApply: itemsByHowToApply,
-                null,
-                0
+                bulletPointsByPageItemId: bulletPointsByPageItemId,
+                totalBulletPoints: totalBulletPoints
                 );
 
             return metrics;
@@ -451,6 +454,46 @@ namespace NW.WIDJobs
                                 result => (uint)result.Items);
 
             return grouped;
+
+        }
+        private Dictionary<string, uint> SumBulletPointsByPageItemId(List<PageItemExtended> pageItemsExtended)
+        {
+
+            /*
+                - ("8144099sitereliabilityengineer, 10)
+                - ("8144114unpaidinternshipsales, 6)
+                - ("8144115learningsalesfulltimestudentposition, 0)
+                - ...
+            */
+
+            var results =
+                    from item in pageItemsExtended
+                    group item.DescriptionBulletPoints.Count by item.PageItem.PageItemId into groups
+                    select new
+                    {
+                        PageItemId = groups.Key, // This is never null, so we don't handle that case.
+                        BulletPoints = groups.Sum()
+                    };
+
+            results = results.OrderByDescending(result => result.BulletPoints);
+
+            Dictionary<string, uint> grouped
+                = results.ToDictionary(
+                                result => result.PageItemId,
+                                result => (uint)result.BulletPoints);
+
+            return grouped;
+
+        }
+        private uint SumBulletPoints(List<PageItemExtended> pageItemsExtended)
+        {
+
+            uint totalBulletPoints = 0;
+            foreach (PageItemExtended pageItemExtended in pageItemsExtended)
+                // This is never null, so we don't handle that case.
+                totalBulletPoints += (uint)pageItemExtended.DescriptionBulletPoints.Count; 
+
+            return totalBulletPoints;
 
         }
 
