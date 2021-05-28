@@ -294,7 +294,7 @@ namespace NW.WIDJobs.UnitTests
                  jobType: "Regular position",
                  jobId: 8144061,
                  pageItemNumber: 16,
-                 pageItemId: "8144061seniormodelriskanalyststockholmcopenhagenorwarsaw"
+                 pageItemId: "8144061seniormodelriskanalyststockholm"
               );
         internal static PageItem Shared_Page01_PageItem17 = new PageItem(
                  runId: Shared_FakeRunId,
@@ -309,7 +309,7 @@ namespace NW.WIDJobs.UnitTests
                  jobType: "Regular position",
                  jobId: 8144054,
                  pageItemNumber: 17,
-                 pageItemId: "8144054qualityassuranceandknowledgeteamlead"
+                 pageItemId: "8144054qualityassuranceandknowledgeteam"
               );
         internal static PageItem Shared_Page01_PageItem18 = new PageItem(
                  runId: Shared_FakeRunId,
@@ -354,7 +354,7 @@ namespace NW.WIDJobs.UnitTests
                  jobType: "Regular position",
                  jobId: 8144023,
                  pageItemNumber: 20,
-                 pageItemId: "8144023businessdevelopmentmanagerscrewdriverdispensermfd"
+                 pageItemId: "8144023businessdevelopmentmanagerscrewdriverdispenserm"
               );
 
         internal static List<PageItem> Shared_Page01_PageItems = new List<PageItem>()
@@ -566,7 +566,7 @@ namespace NW.WIDJobs.UnitTests
                  jobType: "Regular position",
                  jobId: 8141229,
                  pageItemNumber: 8,
-                 pageItemId: "8141229managerforitbuildingdevicemanagement"
+                 pageItemId: "8141229managerforitbuildingdevice"
               );
         internal static PageItem Shared_Page02_PageItem09 = new PageItem(
                  runId: Shared_FakeRunId,
@@ -581,7 +581,7 @@ namespace NW.WIDJobs.UnitTests
                  jobType: "Regular position",
                  jobId: 8141228,
                  pageItemNumber: 9,
-                 pageItemId: "8141228cloudsolutionarchitectforglobalit"
+                 pageItemId: "8141228cloudsolutionarchitectforglobal"
               );
         internal static PageItem Shared_Page02_PageItem10 = new PageItem(
                  runId: Shared_FakeRunId,
@@ -596,7 +596,7 @@ namespace NW.WIDJobs.UnitTests
                  jobType: "Regular position",
                  jobId: 8140198,
                  pageItemNumber: 10,
-                 pageItemId: "8140198blivsalgstraineehosoutofhomemediaaps"
+                 pageItemId: "8140198blivsalgstraineehosoutof"
               );
         internal static PageItem Shared_Page02_PageItem11 = new PageItem(
                  runId: Shared_FakeRunId,
@@ -626,7 +626,7 @@ namespace NW.WIDJobs.UnitTests
                  jobType: "Regular position",
                  jobId: 8144113,
                  pageItemNumber: 12,
-                 pageItemId: "8144113seniorserialisationsapattpconsultantiodelivery"
+                 pageItemId: "8144113seniorserialisationsapattpconsultant"
               );
         internal static PageItem Shared_Page02_PageItem13 = new PageItem(
                  runId: Shared_FakeRunId,
@@ -641,7 +641,7 @@ namespace NW.WIDJobs.UnitTests
                  jobType: "Regular position",
                  jobId: 8144112,
                  pageItemNumber: 13,
-                 pageItemId: "8144112sdmproductowneriodelivery"
+                 pageItemId: "8144112sdmproductownerio"
               );
         internal static PageItem Shared_Page02_PageItem14 = new PageItem(
                  runId: Shared_FakeRunId,
@@ -731,7 +731,7 @@ namespace NW.WIDJobs.UnitTests
                  jobType: "Regular position",
                  jobId: 8144104,
                  pageItemNumber: 19,
-                 pageItemId: "8144104idadministrativeprojectmanagerfortheeuropeanhorizonprojectreflow"
+                 pageItemId: "8144104idadministrativeprojectmanagerfor"
               );
         internal static PageItem Shared_Page02_PageItem20 = new PageItem(
                  runId: Shared_FakeRunId,
@@ -818,7 +818,7 @@ namespace NW.WIDJobs.UnitTests
                          jobType: "Regular position",
                          jobId: 5339196,
                          pageItemNumber: 1,
-                         pageItemId: "5339196assistantprofessoradjunktpositioninultrafastphotoelectronspectroscopy"
+                         pageItemId: "5339196assistantprofessoradjunktpositionin"
                       );
         internal static PageItemExtended Shared_Page03_PageItemExtended01 = new PageItemExtended(
 
@@ -854,7 +854,7 @@ namespace NW.WIDJobs.UnitTests
                  jobType: "Regular position",
                  jobId: 5339196,
                  pageItemNumber: 2,
-                 pageItemId: "5339216embeddedsoftwaredeveloperformedicaldevicedevelopment"
+                 pageItemId: "5339216embeddedsoftwaredeveloperformedical"
               );
         internal static PageItemExtended Shared_Page03_PageItemExtended02 = new PageItemExtended(
 
@@ -1051,7 +1051,7 @@ namespace NW.WIDJobs.UnitTests
         internal static string AdditionalCases_PageItemScraper02_ExpectedTitle
             = "Student with flair for UX and UI Design Job Details";
         internal static string AdditionalCases_PageItemScraper02_ExpectedPageItemId
-            = "8144115studentwithflairforuxanduidesignjobdetails";
+            = "8144115studentwithflairforux";
         internal static PageItem AdditionalCases_PageItemScraper02_ExpectedPageItem01 =
             SwapTitlePageItemId(
                 Shared_Page01_PageItem01,

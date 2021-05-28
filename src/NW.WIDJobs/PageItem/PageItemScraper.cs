@@ -4,7 +4,6 @@ using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Linq;
-using System.Web;
 
 namespace NW.WIDJobs
 {
@@ -367,17 +366,24 @@ namespace NW.WIDJobs
             /*
                 8144089, "Business Support & Pricing Manager"            
                     => 8144089businesssupportpricingmanager
+
+                8180759, "Technical Officer, GOARN, Copenhagen, DenmarkOrganization: World Health Organization"
+                    => "8180759technicalofficergoarncopenhagendenmarkorganizationworldhealthorganization"
+                            => "8180759technicalofficergoarncopenhagendenmark"
             */
 
             string pattern = "[a-zA-Z]{1,}";
 
-            MatchCollection matches = Regex.Matches(title, pattern);
+            string[] words = Regex.Matches(title, pattern).Cast<Match>().Select(m => m.Value.ToLower()).ToArray();
+            
+            int threshold = 5;
+            if (words.Length > threshold)
+                words = words.Take(threshold).ToArray();
 
             StringBuilder stringBuilder = new StringBuilder();
-            matches.Cast<Match>().ToList().ForEach(match => stringBuilder.Append(match));
+            words.ToList().ForEach(match => stringBuilder.Append(match));
 
             string pageItemId = stringBuilder.ToString();
-            pageItemId = pageItemId.ToLower();
             pageItemId = string.Concat(jobId, pageItemId);
 
             return pageItemId;
