@@ -227,7 +227,7 @@ The following fields are derivative:
 |`WorkAreaWithoutZone`|`WorkArea` without zone or `WorkArea`.|
 |`PageItemNumber`|Equals to the item's position in the list increased by 1.|
 |`JobId`|Extract it from `Url`.|
-|`PageItemId`|`JobId` and `Title` combined.|
+|`PageItemId`|`JobId` and `Title` combined. If `Title` is longer than five words, only the first five words are used.|
 
 The following fields require extra processing:
 
