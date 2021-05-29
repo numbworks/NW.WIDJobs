@@ -3,6 +3,7 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace NW.WIDJobs.UnitTests
@@ -1621,6 +1622,32 @@ namespace NW.WIDJobs.UnitTests
 
         #endregion
 
+        #region WIDMetrics
+
+        internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByWorkAreaWithoutZone
+            = GroupItemsByWorkAreaWithoutZone(Shared_Page01_PageItems);
+        internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByCreateDate
+            = GroupItemsByCreateDate(Shared_Page01_PageItems);
+        internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByApplicationDate
+            = GroupItemsByApplicationDate(Shared_Page01_PageItems);
+
+        internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByEmployerName;
+        internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByNumberOfOpenings;
+        internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByAdvertisementPublishDate;
+        internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByApplicationDeadline;
+        internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByStartDateOfEmployment;
+        internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByReference;
+        internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByPosition;
+        internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByTypeOfEmployment;
+        internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByContact;
+        internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByEmployerAddress;
+        internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByHowToApply;
+        internal static Dictionary<string, uint> WIDMetrics_Page01_DescriptionLengthByPageItemId;
+        internal static Dictionary<string, uint> WIDMetrics_Page01_BulletPointsByPageItemId;
+        internal static uint WIDMetrics_Page01_TotalBulletPoints;
+
+        #endregion
+
         #region ValidatorTests
 
         internal static string[] Validator_Array1 = new[] { "Dodge", "Datsun", "Jaguar", "DeLorean" };
@@ -1687,6 +1714,7 @@ namespace NW.WIDJobs.UnitTests
             Assert.AreEqual(expectedMessage, actual.Message);
 
         }
+        
         internal static bool AreEqual(Page page1, Page page2)
         {
 
@@ -1824,6 +1852,7 @@ namespace NW.WIDJobs.UnitTests
                         && AreEqual(exploration1.PageItemsExtended, exploration2.PageItemsExtended);
 
         }
+        
         internal static PageItem SwapCreateDate(PageItem pageItem, DateTime createDate)
         {
 
@@ -1896,6 +1925,32 @@ namespace NW.WIDJobs.UnitTests
                 );
 
         }
+
+        internal static Dictionary<string, uint> GroupItemsByWorkAreaWithoutZone(List<PageItem> pageItems)
+            => CallPrivateMethod<Dictionary<string, uint>, WIDMetricsManager>(
+                        nameof(GroupItemsByWorkAreaWithoutZone), 
+                        new object[] { pageItems }                    );
+        internal static Dictionary<string, uint> GroupItemsByCreateDate(List<PageItem> pageItems)
+            => CallPrivateMethod<Dictionary<string, uint>, WIDMetricsManager>(
+                        nameof(GroupItemsByCreateDate),
+                        new object[] { pageItems }
+                    );
+        internal static Dictionary<string, uint> GroupItemsByApplicationDate(List<PageItem> pageItems)
+            => CallPrivateMethod<Dictionary<string, uint>, WIDMetricsManager>(
+                        nameof(GroupItemsByApplicationDate),
+                        new object[] { pageItems }
+                    );
+
+        internal static T CallPrivateMethod<T, U>(string methodName, object[] args)
+        {
+
+            Type type = typeof(U);
+            WIDMetricsManager obj = new WIDMetricsManager();
+
+            return (T)type.GetTypeInfo().GetDeclaredMethod(methodName).Invoke(obj, args);
+
+        }
+
 
         #endregion
 
