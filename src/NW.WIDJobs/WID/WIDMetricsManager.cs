@@ -574,12 +574,6 @@ namespace NW.WIDJobs
             return totalBulletPoints;
 
         }
-        private uint GetHighestValue (Dictionary<string, uint> dict)
-        {
-
-            return dict.Values.OrderByDescending(item => item).First();
-
-        }
 
         #endregion
 
