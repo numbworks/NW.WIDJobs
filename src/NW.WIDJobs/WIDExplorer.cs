@@ -159,6 +159,39 @@ namespace NW.WIDJobs
 
         }
 
+        public WIDExploration ExploreAll
+            (string runId, WIDCategories category, WIDStages stage)
+        {
+
+            Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
+
+            LogInitializationMessage(runId, category, stage);
+
+            WIDExploration exploration = ProcessStage1(runId, DefaultInitialPageNumber, category, stage);
+            if (exploration.IsCompleted)
+                return LogCompletionMessageAndReturn(exploration);
+
+            ushort finalPageNumber = exploration.TotalEstimatedPages;
+
+            exploration = ProcessStage2(exploration, finalPageNumber, stage);
+            if (exploration.IsCompleted)
+                return LogCompletionMessageAndReturn(exploration);
+
+            exploration = ProcessStage3(exploration, stage);
+
+            return LogCompletionMessageAndReturn(exploration);
+
+        }
+        public WIDExploration ExploreAll
+            (WIDCategories category, WIDStages stage)
+        {
+
+            string runId = _components.RunIdManager.Create(Now);
+
+            return ExploreAll(runId, category, stage);
+
+        }
+
         #endregion
 
         #region Methods_private
@@ -195,6 +228,19 @@ namespace NW.WIDJobs
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_NowIs(Now));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DefaultInitialPageNumberIs(DefaultInitialPageNumber));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ThresholdDateIs(thresholdDate));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_CategoryIs(category));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_StageIs(stage));
+
+        }
+        private void LogInitializationMessage
+            (string runId, WIDCategories category, WIDStages stage)
+        {
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationStarted);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs(runId));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_NowIs(Now));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DefaultInitialPageNumberIs(DefaultInitialPageNumber));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FinalPageNumberIsLastPage);
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_CategoryIs(category));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_StageIs(stage));
 
@@ -433,5 +479,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 22.05.2021
+    Last Update: 28.05.2021
 */

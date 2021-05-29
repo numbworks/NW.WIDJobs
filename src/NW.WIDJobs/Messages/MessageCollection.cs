@@ -63,6 +63,8 @@ namespace NW.WIDJobs
             = (defaultInitialPageNumber) => $"DefaultInitialPageNumber:'{defaultInitialPageNumber}'.";
         public static Func<ushort, string> WIDExplorer_FinalPageNumberIs
             = (finalPageNumber) => $"FinalPageNumber:'{finalPageNumber}'.";
+        public static string WIDExplorer_FinalPageNumberIsLastPage
+            = "FinalPageNumber: The last available page on the website.";
         public static Func<DateTime, string> WIDExplorer_ThresholdDateIs
             = (thresholdDate) => $"ThresholdDate:'{thresholdDate.ToString(RunIdManager.FormatDate)}'.";
         public static Func<WIDCategories, string> WIDExplorer_CategoryIs
