@@ -15,8 +15,17 @@ namespace NW.WIDJobsClient
         {
 
 
+            Do();
+
+            WIDExplorerComponents.DefaultLoggingAction.Invoke("Press a button to close the window.");
+            Console.ReadLine();
+
+        }
+        static void Do()
+        {
+
             WIDExplorer explorer = new WIDExplorer();
-            WIDExploration exploration 
+            WIDExploration exploration
                 = explorer.Explore(1, WIDCategories.ItTech, WIDStages.Stage3_UpToAllPageItemsExtended);
 
             WIDExplorerComponents.DefaultLoggingAction.Invoke(exploration.ToString());
@@ -33,9 +42,6 @@ namespace NW.WIDJobsClient
             File.WriteAllText(filename, json);
 
             WIDExplorerComponents.DefaultLoggingAction.Invoke(metrics.ToString());
-
-            WIDExplorerComponents.DefaultLoggingAction.Invoke("Press a button to close the window.");
-            Console.ReadLine();
 
         }
 
