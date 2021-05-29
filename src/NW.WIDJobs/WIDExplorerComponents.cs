@@ -23,6 +23,7 @@ namespace NW.WIDJobs
         public IPageItemExtendedManager PageItemExtendedManager { get; }
         public IPageItemExtendedScraper PageItemExtendedScraper { get; }
         public IRunIdManager RunIdManager { get; }
+        public IWIDCategoryManager CategoryManager { get; }
         public IBulletPointManager BulletPointManager { get; }
 
         #endregion
@@ -41,6 +42,7 @@ namespace NW.WIDJobs
             IPageItemExtendedManager pageItemExtendedManager,
             IPageItemExtendedScraper pageItemExtendedScraper,
             IRunIdManager runIdManager,
+            IWIDCategoryManager categoryManager,
             IBulletPointManager bulletPointManager
             )
         {
@@ -54,6 +56,7 @@ namespace NW.WIDJobs
             Validator.ValidateObject(pageItemExtendedManager, nameof(pageItemExtendedManager));
             Validator.ValidateObject(pageItemExtendedScraper, nameof(pageItemExtendedScraper));
             Validator.ValidateObject(runIdManager, nameof(runIdManager));
+            Validator.ValidateObject(categoryManager, nameof(categoryManager));
             Validator.ValidateObject(bulletPointManager, nameof(bulletPointManager));
 
             LoggingAction = loggingAction;
@@ -65,6 +68,7 @@ namespace NW.WIDJobs
             PageItemExtendedManager = pageItemExtendedManager;
             PageItemExtendedScraper = pageItemExtendedScraper;
             RunIdManager = runIdManager;
+            CategoryManager = categoryManager;
             BulletPointManager = bulletPointManager;
 
         }
@@ -81,6 +85,7 @@ namespace NW.WIDJobs
                   new PageItemExtendedManager(),
                   new PageItemExtendedScraper(),
                   new RunIdManager(),
+                  new WIDCategoryManager(),
                   new BulletPointManager()
                   )
         { }
@@ -95,5 +100,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 09.05.2021
+    Last Update: 28.05.2021
 */
