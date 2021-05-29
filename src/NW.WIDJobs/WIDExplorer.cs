@@ -56,6 +56,7 @@ namespace NW.WIDJobs
 
             JsonSerializerOptions options = new JsonSerializerOptions();
             options.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
+            options.Converters.Add(new DateTimeToDateConverter());
 
             dynamic dyn = new ExpandoObject();
             dyn.RunId = exploration.RunId;
@@ -81,6 +82,7 @@ namespace NW.WIDJobs
 
             JsonSerializerOptions options = new JsonSerializerOptions();
             options.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
+            options.Converters.Add(new DateTimeToDateConverter());
 
             return JsonSerializer.Serialize(metrics, options);
 

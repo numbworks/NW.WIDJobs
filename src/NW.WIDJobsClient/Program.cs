@@ -1,11 +1,6 @@
 ﻿using System;
 using System.IO;
-using System.Collections.Generic;
 using NW.WIDJobs;
-using System.Text.RegularExpressions;
-using System.Linq;
-using System.Text.Json;
-using System.Text.Encodings.Web;
 
 namespace NW.WIDJobsClient
 {
@@ -13,7 +8,6 @@ namespace NW.WIDJobsClient
     {
         static void Main(string[] args)
         {
-
 
             Do();
 
@@ -26,7 +20,7 @@ namespace NW.WIDJobsClient
 
             WIDExplorer explorer = new WIDExplorer();
             WIDExploration exploration
-                = explorer.Explore(1, WIDCategories.ItTech, WIDStages.Stage3_UpToAllPageItemsExtended);
+                = explorer.Explore(1, WIDCategories.AllCategories, WIDStages.Stage3_UpToAllPageItemsExtended);
 
             WIDExplorerComponents.DefaultLoggingAction.Invoke(exploration.ToString());
 
@@ -46,4 +40,5 @@ namespace NW.WIDJobsClient
         }
 
     }
+
 }
