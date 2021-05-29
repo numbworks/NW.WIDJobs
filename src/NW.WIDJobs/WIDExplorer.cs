@@ -79,10 +79,10 @@ namespace NW.WIDJobs
 
             Validator.ValidateObject(metrics, nameof(metrics));
 
-            JsonSerializerOptions jso = new JsonSerializerOptions();
-            jso.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
+            JsonSerializerOptions options = new JsonSerializerOptions();
+            options.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
 
-            return JsonSerializer.Serialize(metrics, jso);
+            return JsonSerializer.Serialize(metrics, options);
 
         }
 
