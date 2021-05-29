@@ -4,6 +4,7 @@ using System.Text.Json;
 using System.Text.Encodings.Web;
 using System.Threading;
 using System.Linq;
+using System.Dynamic;
 
 namespace NW.WIDJobs
 {
@@ -19,7 +20,7 @@ namespace NW.WIDJobs
 
         #region Properties
 
-        public static string DefaultNotSerialized { get; } = "<not_serialized>";
+        public static string DefaultNotSerialized { get; } = "This item has been exluded from the serializazion.";
         public static ushort DefaultInitialPageNumber { get; } = 1;
         public DateTime Now { get; }
         public string RunId { get; }
@@ -53,23 +54,24 @@ namespace NW.WIDJobs
 
             Validator.ValidateObject(exploration, nameof(exploration));
 
-            WIDExploration clean
-                = new WIDExploration(
-                        exploration.RunId,
-                        exploration.TotalResults,
-                        exploration.TotalEstimatedPages,
-                        exploration.Category,
-                        exploration.Stage,
-                        exploration.IsCompleted,
-                        exploration.Pages?.Select(page => new Page(page.RunId, page.PageNumber, DefaultNotSerialized)).ToList(),
-                        exploration.PageItems,
-                        exploration.PageItemsExtended
-                        );
+            JsonSerializerOptions options = new JsonSerializerOptions();
+            options.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
 
-            JsonSerializerOptions jso = new JsonSerializerOptions();
-            jso.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
+            dynamic dyn = new ExpandoObject();
+            dyn.RunId = exploration.RunId;
+            dyn.TotalResults = exploration.TotalResults;
+            dyn.TotalEstimatedPages = exploration.TotalEstimatedPages;
+            dyn.Category = exploration.Category;
+            dyn.Stage = exploration.Stage;
+            dyn.IsCompleted = exploration.IsCompleted;
+            dyn.Pages = exploration.Pages?.Select(page => new Page(page.RunId, page.PageNumber, DefaultNotSerialized)).ToList();
 
-            return JsonSerializer.Serialize(clean, jso);
+            if (exploration.Stage == WIDStages.Stage3_UpToAllPageItemsExtended)
+                dyn.PageItems = DefaultNotSerialized;
+            
+            dyn.PageItemsExtended = exploration.PageItemsExtended;
+
+            return JsonSerializer.Serialize(dyn, options);
 
         }
         public string ToJson(WIDMetrics metrics)
