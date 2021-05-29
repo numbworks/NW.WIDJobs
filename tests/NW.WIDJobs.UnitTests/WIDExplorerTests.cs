@@ -150,7 +150,7 @@ namespace NW.WIDJobs.UnitTests
                             ),
                     new PageItemExtendedScraper(),
                     new RunIdManager(),
-                    new WIDCategoryManager(),
+                    new WIDMetricsManager(),
                     new BulletPointManager()
                   );
             WIDExplorerSettings settings = new WIDExplorerSettings(3, 0);
@@ -213,7 +213,7 @@ namespace NW.WIDJobs.UnitTests
                             ),
                     new PageItemExtendedScraper(),
                     new RunIdManager(),
-                    new WIDCategoryManager(),
+                    new WIDMetricsManager(),
                     new BulletPointManager()
                   );
             WIDExplorerSettings settings = new WIDExplorerSettings(3, 0);
@@ -281,7 +281,7 @@ namespace NW.WIDJobs.UnitTests
                             ),
                     new PageItemExtendedScraper(),
                     new RunIdManager(),
-                    new WIDCategoryManager(),
+                    new WIDMetricsManager(),
                     new BulletPointManager()
                   );
             WIDExplorerSettings settings = new WIDExplorerSettings(3, 0);
@@ -350,7 +350,7 @@ namespace NW.WIDJobs.UnitTests
                             ),
                     new PageItemExtendedScraper(),
                     new RunIdManager(),
-                    new WIDCategoryManager(),
+                    new WIDMetricsManager(),
                     new BulletPointManager()
                   );
             WIDExplorerSettings settings = new WIDExplorerSettings(3, 0);
@@ -418,7 +418,7 @@ namespace NW.WIDJobs.UnitTests
                             ),
                     new PageItemExtendedScraper(),
                     new RunIdManager(),
-                    new WIDCategoryManager(),
+                    new WIDMetricsManager(),
                     new BulletPointManager()
                   );
             WIDExplorerSettings settings = new WIDExplorerSettings(3, 0);
@@ -485,7 +485,7 @@ namespace NW.WIDJobs.UnitTests
                             ),
                     new PageItemExtendedScraper(),
                     new RunIdManager(),
-                    new WIDCategoryManager(),
+                    new WIDMetricsManager(),
                     new BulletPointManager()
                   );
             WIDExplorerSettings settings = new WIDExplorerSettings(3, 0);

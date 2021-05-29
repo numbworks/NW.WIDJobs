@@ -87,6 +87,11 @@ namespace NW.WIDJobs
             return JsonSerializer.Serialize(metrics, options);
 
         }
+        
+        public WIDMetrics Calculate(WIDExploration exploration)
+            => _components.MetricsManager.Calculate(exploration);
+        public Dictionary<string, string> ConvertToPercentages(Dictionary<string, uint> dict)
+            => _components.MetricsManager.ConvertToPercentages(dict);
 
         public WIDExploration Explore
             (string runId, ushort finalPageNumber, WIDCategories category, WIDStages stage)

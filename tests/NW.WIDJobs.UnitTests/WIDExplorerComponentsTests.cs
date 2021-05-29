@@ -23,7 +23,7 @@ namespace NW.WIDJobs.UnitTests
                                 new PageItemExtendedManager(),
                                 new PageItemExtendedScraper(),
                                 new RunIdManager(),
-                                new WIDCategoryManager(),
+                                new WIDMetricsManager(),
                                 new BulletPointManager()
                         )
                 ),
@@ -43,7 +43,7 @@ namespace NW.WIDJobs.UnitTests
                                 new PageItemExtendedManager(),
                                 new PageItemExtendedScraper(),
                                 new RunIdManager(),
-                                new WIDCategoryManager(),
+                                new WIDMetricsManager(),
                                 new BulletPointManager()
                         )
                 ),
@@ -63,7 +63,7 @@ namespace NW.WIDJobs.UnitTests
                                 new PageItemExtendedManager(),
                                 new PageItemExtendedScraper(),
                                 new RunIdManager(),
-                                new WIDCategoryManager(),
+                                new WIDMetricsManager(),
                                 new BulletPointManager()
                         )
                 ),
@@ -83,7 +83,7 @@ namespace NW.WIDJobs.UnitTests
                                 new PageItemExtendedManager(),
                                 new PageItemExtendedScraper(),
                                 new RunIdManager(),
-                                new WIDCategoryManager(),
+                                new WIDMetricsManager(),
                                 new BulletPointManager()
                         )
                 ),
@@ -103,7 +103,7 @@ namespace NW.WIDJobs.UnitTests
                                 new PageItemExtendedManager(),
                                 new PageItemExtendedScraper(),
                                 new RunIdManager(),
-                                new WIDCategoryManager(),
+                                new WIDMetricsManager(),
                                 new BulletPointManager()
                         )
                 ),
@@ -123,7 +123,7 @@ namespace NW.WIDJobs.UnitTests
                                 new PageItemExtendedManager(),
                                 new PageItemExtendedScraper(),
                                 new RunIdManager(),
-                                new WIDCategoryManager(),
+                                new WIDMetricsManager(),
                                 new BulletPointManager()
                         )
                 ),
@@ -143,7 +143,7 @@ namespace NW.WIDJobs.UnitTests
                                 null,
                                 new PageItemExtendedScraper(),
                                 new RunIdManager(),
-                                new WIDCategoryManager(),
+                                new WIDMetricsManager(),
                                 new BulletPointManager()
                         )
                 ),
@@ -163,7 +163,7 @@ namespace NW.WIDJobs.UnitTests
                                 new PageItemExtendedManager(),
                                 null,
                                 new RunIdManager(),
-                                new WIDCategoryManager(),
+                                new WIDMetricsManager(),
                                 new BulletPointManager()
                         )
                 ),
@@ -183,7 +183,7 @@ namespace NW.WIDJobs.UnitTests
                                 new PageItemExtendedManager(),
                                 new PageItemExtendedScraper(),
                                 null,
-                                new WIDCategoryManager(),
+                                new WIDMetricsManager(),
                                 new BulletPointManager()
                         )
                 ),
@@ -208,7 +208,7 @@ namespace NW.WIDJobs.UnitTests
                         )
                 ),
                 typeof(ArgumentNullException),
-                new ArgumentNullException("categoryManager").Message
+                new ArgumentNullException("metricsManager").Message
             ).SetArgDisplayNames($"{nameof(widExplorerComponentsExceptionTestCases)}_10"),
 
             new TestCaseData(
@@ -223,7 +223,7 @@ namespace NW.WIDJobs.UnitTests
                                 new PageItemExtendedManager(),
                                 new PageItemExtendedScraper(),
                                 new RunIdManager(),
-                                new WIDCategoryManager(),
+                                new WIDMetricsManager(),
                                 null
                         )
                 ),
@@ -252,7 +252,7 @@ namespace NW.WIDJobs.UnitTests
                             new PageItemExtendedManager(),
                             new PageItemExtendedScraper(),
                             new RunIdManager(),
-                            new WIDCategoryManager(),
+                            new WIDMetricsManager(),
                             new BulletPointManager()
                         );
 
