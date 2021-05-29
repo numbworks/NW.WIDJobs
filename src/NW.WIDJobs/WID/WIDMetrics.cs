@@ -30,6 +30,7 @@ namespace NW.WIDJobs
         public Dictionary<string, uint> ItemsByContact { get; }
         public Dictionary<string, uint> ItemsByEmployerAddress { get; }
         public Dictionary<string, uint> ItemsByHowToApply { get; }
+        public Dictionary<string, uint> DescriptionLengthByPageItemId { get; }
         public Dictionary<string, uint> BulletPointsByPageItemId { get; }
         public uint TotalBulletPoints { get; }
 
@@ -56,6 +57,7 @@ namespace NW.WIDJobs
             Dictionary<string, uint> itemsByContact,
             Dictionary<string, uint> itemsByEmployerAddress,
             Dictionary<string, uint> itemsByHowToApply,
+            Dictionary<string, uint> descriptionLengthByPageItemId,
             Dictionary<string, uint> bulletPointsByPageItemId,
             uint totalBulletPoints
             ) 
@@ -78,11 +80,13 @@ namespace NW.WIDJobs
             Validator.ValidateList(itemsByContact.ToList(), nameof(itemsByContact));
             Validator.ValidateList(itemsByEmployerAddress.ToList(), nameof(itemsByEmployerAddress));
             Validator.ValidateList(itemsByHowToApply.ToList(), nameof(itemsByHowToApply));
+            Validator.ValidateList(descriptionLengthByPageItemId.ToList(), nameof(descriptionLengthByPageItemId));
             Validator.ValidateList(bulletPointsByPageItemId.ToList(), nameof(bulletPointsByPageItemId));
 
             RunId = runId;
             TotalPages = totalPages;
             TotalItems = totalItems;
+
             ItemsByWorkAreaWithoutZone = itemsByWorkAreaWithoutZone;
             ItemsByCreateDate = itemsByCreateDate;
             ItemsByApplicationDate = itemsByApplicationDate;
@@ -97,7 +101,9 @@ namespace NW.WIDJobs
             ItemsByContact = itemsByContact;
             ItemsByEmployerAddress = itemsByEmployerAddress;
             ItemsByHowToApply = itemsByHowToApply;
+            DescriptionLengthByPageItemId = descriptionLengthByPageItemId;
             BulletPointsByPageItemId = bulletPointsByPageItemId;
+
             TotalBulletPoints = totalBulletPoints;
 
         }
@@ -112,5 +118,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 27.05.2021
+    Last Update: 28.05.2021
 */

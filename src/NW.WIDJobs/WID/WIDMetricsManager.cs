@@ -76,6 +76,8 @@ namespace NW.WIDJobs
                 = GroupItemsByEmployerAddress(exploration.PageItemsExtended);
             Dictionary<string, uint> itemsByHowToApply
                 = GroupItemsByHowToApply(exploration.PageItemsExtended);
+            Dictionary<string, uint> descriptionLengthByPageItemId
+                = SumDescriptionLengthByPageItemId(exploration.PageItemsExtended);
             Dictionary<string, uint> bulletPointsByPageItemId
                 = SumBulletPointsByPageItemId(exploration.PageItemsExtended);
 
@@ -99,6 +101,7 @@ namespace NW.WIDJobs
                 itemsByContact: itemsByContact,
                 itemsByEmployerAddress: itemsByEmployerAddress,
                 itemsByHowToApply: itemsByHowToApply,
+                descriptionLengthByPageItemId: descriptionLengthByPageItemId,
                 bulletPointsByPageItemId: bulletPointsByPageItemId,
                 totalBulletPoints: totalBulletPoints
                 );
@@ -502,6 +505,35 @@ namespace NW.WIDJobs
             return grouped;
 
         }
+        private Dictionary<string, uint> SumDescriptionLengthByPageItemId(List<PageItemExtended> pageItemsExtended)
+        {
+
+            /*
+                - ("8144099sitereliabilityengineer, 985)
+                - ("8144114unpaidinternshipsales, 992)
+                - ("8144115learningsalesfulltimestudentposition, 1003)
+                - ...
+            */
+
+            var results =
+                    from item in pageItemsExtended
+                    group item.Description.Length by item.PageItem.PageItemId into groups
+                    select new
+                    {
+                        PageItemId = groups.Key, // This is never null, so we don't handle that case.
+                        DescriptionLength = groups.Sum()
+                    };
+
+            results = results.OrderByDescending(result => result.DescriptionLength);
+
+            Dictionary<string, uint> grouped
+                = results.ToDictionary(
+                                result => result.PageItemId,
+                                result => (uint)result.DescriptionLength);
+
+            return grouped;
+
+        }
         private Dictionary<string, uint> SumBulletPointsByPageItemId(List<PageItemExtended> pageItemsExtended)
         {
 
@@ -542,6 +574,12 @@ namespace NW.WIDJobs
             return totalBulletPoints;
 
         }
+        private uint GetHighestValue (Dictionary<string, uint> dict)
+        {
+
+            return dict.Values.OrderByDescending(item => item).First();
+
+        }
 
         #endregion
 
@@ -550,5 +588,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 27.05.2021
+    Last Update: 28.05.2021
 */
