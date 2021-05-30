@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -1840,6 +1841,40 @@ namespace NW.WIDJobs.UnitTests
         };
         internal static DateTime Validator_DateTimeOlder = new DateTime(2019, 09, 01, 00, 00, 00, 000);
         internal static DateTime Validator_DateTimeNewer = new DateTime(2019, 12, 31, 23, 59, 59, 999);
+
+        #endregion
+
+        #region FileManagerTests
+
+        internal static string FileManager_ContentSingleLine = "First line";
+        internal static IEnumerable<string> FileManager_ContentMultipleLines =
+            new List<string>() {
+                "First line",
+                "Second line"
+            };
+        internal static string FileManager_FileInfoAdapterFullName = @"C:\somefile.txt";
+        internal static IFileInfoAdapter FileManager_FileInfoAdapterDoesntExist
+            => new FakeFileInfoAdapter(false, FileManager_FileInfoAdapterFullName);
+        internal static IFileInfoAdapter FileManager_FileInfoAdapterExists
+            => new FakeFileInfoAdapter(true, FileManager_FileInfoAdapterFullName);
+        internal static IOException FileManager_FileAdapterIOException = new IOException("Impossible to access the file.");
+        internal static IFileAdapter FileManager_FileAdapterReadAllMethodsThrowIOException
+            => new FakeFileAdapter(
+                    fakeReadAllLines: () => throw FileManager_FileAdapterIOException,
+                    fakeReadAllText: () => throw FileManager_FileAdapterIOException
+                );
+        internal static IFileAdapter FileManager_FileAdapterWriteAllMethodsThrowIOException
+            => new FakeFileAdapter(
+                    fakeWriteAllLines: () => throw FileManager_FileAdapterIOException,
+                    fakeWriteAllText: () => throw FileManager_FileAdapterIOException
+                );
+        internal static IFileAdapter FileManager_FileAdapterAllMethodsWork
+            => new FakeFileAdapter(
+                    fakeReadAllLines: () => FileManager_ContentMultipleLines.ToArray(),
+                    fakeReadAllText: () => FileManager_ContentSingleLine,
+                    fakeWriteAllLines: () => { },
+                    fakeWriteAllText: () => { }
+                );
 
         #endregion
 
