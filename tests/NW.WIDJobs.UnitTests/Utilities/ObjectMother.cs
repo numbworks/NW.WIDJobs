@@ -1643,7 +1643,11 @@ namespace NW.WIDJobs.UnitTests
         internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByApplicationDate
             = new Dictionary<string, uint>()
             {
-                { "null", 2 }
+                { "null", 16 },
+                { "2021-11-30", 1 },
+                { "2021-06-03", 1 },
+                { "2021-05-25", 1 },
+                { "2021-05-16", 1 }
             };
         internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByEmployerName
             = new Dictionary<string, uint>()
@@ -1709,8 +1713,8 @@ namespace NW.WIDJobs.UnitTests
         internal static Dictionary<string, uint> WIDMetrics_Page01_BulletPointsByPageItemId
             = new Dictionary<string, uint>()
             {
-                { "8144071leanprofessional", 2 },
-                { "8144115learningsalesfulltimestudentposition", 0 }
+                { "8144115learningsalesfulltimestudentposition", 2 },
+                { "8144071leanprofessional", 0 }
             };
         internal static uint WIDMetrics_Page01_TotalBulletPoints = 2;
 
@@ -1759,6 +1763,30 @@ namespace NW.WIDJobs.UnitTests
                 { "Vejen", $"{WIDMetricsManager.FormatPercentage(6.56)}" }
 
             };
+
+        internal static WIDMetrics WIDMetrics_Exploration02_Metrics =
+            new WIDMetrics(
+                    WIDExploration_Exploration01_RunId,
+                    (uint)Shared_Pages_Page01.Count,
+                    (uint)Shared_Page01_PageItems.Count,
+                    WIDMetrics_Page01_ItemsByWorkAreaWithoutZone,
+                    WIDMetrics_Page01_ItemsByCreateDate,
+                    WIDMetrics_Page01_ItemsByApplicationDate,
+                    WIDMetrics_Page01_ItemsByEmployerName,
+                    WIDMetrics_Page01_ItemsByNumberOfOpenings,
+                    WIDMetrics_Page01_ItemsByAdvertisementPublishDate,
+                    WIDMetrics_Page01_ItemsByApplicationDeadline,
+                    WIDMetrics_Page01_ItemsByStartDateOfEmployment,
+                    WIDMetrics_Page01_ItemsByReference,
+                    WIDMetrics_Page01_ItemsByPosition,
+                    WIDMetrics_Page01_ItemsByTypeOfEmployment,
+                    WIDMetrics_Page01_ItemsByContact,
+                    WIDMetrics_Page01_ItemsByEmployerAddress,
+                    WIDMetrics_Page01_ItemsByHowToApply,
+                    WIDMetrics_Page01_DescriptionLengthByPageItemId,
+                    WIDMetrics_Page01_BulletPointsByPageItemId,
+                    WIDMetrics_Page01_TotalBulletPoints
+                );
 
         #endregion
 
@@ -2075,91 +2103,6 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
-        internal static Dictionary<string, uint> GroupItemsByWorkAreaWithoutZone(List<PageItem> pageItems)
-            => CallPrivateMethod<Dictionary<string, uint>, WIDMetricsManager>(
-                        nameof(GroupItemsByWorkAreaWithoutZone), 
-                        new object[] { pageItems }                    );
-        internal static Dictionary<string, uint> GroupItemsByCreateDate(List<PageItem> pageItems)
-            => CallPrivateMethod<Dictionary<string, uint>, WIDMetricsManager>(
-                        nameof(GroupItemsByCreateDate),
-                        new object[] { pageItems }
-                    );
-        internal static Dictionary<string, uint> GroupItemsByApplicationDate(List<PageItem> pageItems)
-            => CallPrivateMethod<Dictionary<string, uint>, WIDMetricsManager>(
-                        nameof(GroupItemsByApplicationDate),
-                        new object[] { pageItems }
-                    );
-        internal static Dictionary<string, uint> GroupItemsByEmployerName(List<PageItemExtended> pageItemsExtended)
-            => CallPrivateMethod<Dictionary<string, uint>, WIDMetricsManager>(
-                        nameof(GroupItemsByEmployerName),
-                        new object[] { pageItemsExtended }
-                    );
-        internal static Dictionary<string, uint> GroupItemsByNumberOfOpenings(List<PageItemExtended> pageItemsExtended)
-            => CallPrivateMethod<Dictionary<string, uint>, WIDMetricsManager>(
-                        nameof(GroupItemsByNumberOfOpenings),
-                        new object[] { pageItemsExtended }
-                    );
-        internal static Dictionary<string, uint> GroupItemsByAdvertisementPublishDate(List<PageItemExtended> pageItemsExtended)
-            => CallPrivateMethod<Dictionary<string, uint>, WIDMetricsManager>(
-                        nameof(GroupItemsByAdvertisementPublishDate),
-                        new object[] { pageItemsExtended }
-                    );
-        internal static Dictionary<string, uint> GroupItemsByApplicationDeadline(List<PageItemExtended> pageItemsExtended)
-            => CallPrivateMethod<Dictionary<string, uint>, WIDMetricsManager>(
-                        nameof(GroupItemsByApplicationDeadline),
-                        new object[] { pageItemsExtended }
-                    );
-        internal static Dictionary<string, uint> GroupItemsByStartDateOfEmployment(List<PageItemExtended> pageItemsExtended)
-            => CallPrivateMethod<Dictionary<string, uint>, WIDMetricsManager>(
-                        nameof(GroupItemsByStartDateOfEmployment),
-                        new object[] { pageItemsExtended }
-                    );
-        internal static Dictionary<string, uint> GroupItemsByReference(List<PageItemExtended> pageItemsExtended)
-            => CallPrivateMethod<Dictionary<string, uint>, WIDMetricsManager>(
-                        nameof(GroupItemsByReference),
-                        new object[] { pageItemsExtended }
-                    );
-        internal static Dictionary<string, uint> GroupItemsByPosition(List<PageItemExtended> pageItemsExtended)
-            => CallPrivateMethod<Dictionary<string, uint>, WIDMetricsManager>(
-                        nameof(GroupItemsByPosition),
-                        new object[] { pageItemsExtended }
-                    );
-        internal static Dictionary<string, uint> GroupItemsByTypeOfEmployment(List<PageItemExtended> pageItemsExtended)
-            => CallPrivateMethod<Dictionary<string, uint>, WIDMetricsManager>(
-                        nameof(GroupItemsByTypeOfEmployment),
-                        new object[] { pageItemsExtended }
-                    );
-        internal static Dictionary<string, uint> GroupItemsByContact(List<PageItemExtended> pageItemsExtended)
-            => CallPrivateMethod<Dictionary<string, uint>, WIDMetricsManager>(
-                        nameof(GroupItemsByContact),
-                        new object[] { pageItemsExtended }
-                    );
-        internal static Dictionary<string, uint> GroupItemsByEmployerAddress(List<PageItemExtended> pageItemsExtended)
-            => CallPrivateMethod<Dictionary<string, uint>, WIDMetricsManager>(
-                        nameof(GroupItemsByEmployerAddress),
-                        new object[] { pageItemsExtended }
-                    );
-        internal static Dictionary<string, uint> GroupItemsByHowToApply(List<PageItemExtended> pageItemsExtended)
-            => CallPrivateMethod<Dictionary<string, uint>, WIDMetricsManager>(
-                        nameof(GroupItemsByHowToApply),
-                        new object[] { pageItemsExtended }
-                    );
-        internal static Dictionary<string, uint> SumDescriptionLengthByPageItemId(List<PageItemExtended> pageItemsExtended)
-            => CallPrivateMethod<Dictionary<string, uint>, WIDMetricsManager>(
-                        nameof(SumDescriptionLengthByPageItemId),
-                        new object[] { pageItemsExtended }
-                    );
-        internal static Dictionary<string, uint> SumBulletPointsByPageItemId(List<PageItemExtended> pageItemsExtended)
-            => CallPrivateMethod<Dictionary<string, uint>, WIDMetricsManager>(
-                        nameof(SumBulletPointsByPageItemId),
-                        new object[] { pageItemsExtended }
-                    );
-        internal static uint SumBulletPoints(List<PageItemExtended> pageItemsExtended)
-            => CallPrivateMethod<uint, WIDMetricsManager>(
-                        nameof(SumBulletPoints),
-                        new object[] { pageItemsExtended }
-                    );
-
         internal static T CallPrivateMethod<T, U>(string methodName, object[] args)
         {
 
@@ -2170,15 +2113,12 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
-
         #endregion
-
-
 
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 22.05.2021
+    Last Update: 30.05.2021
 */

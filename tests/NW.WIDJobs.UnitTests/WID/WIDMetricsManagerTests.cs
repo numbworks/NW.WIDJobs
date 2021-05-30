@@ -65,40 +65,16 @@ namespace NW.WIDJobs.UnitTests
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
         [Test]
-        public void Calculate_Should_When()
+        public void Calculate_ShouldReturnExpectedMetrics_WhenInvoked()
         {
 
             // Arrange
-            WIDMetrics WIDMetrics_Exploration02_Metrics =
-                new WIDMetrics(
-                        ObjectMother.WIDExploration_Exploration01_RunId,
-                        (uint)ObjectMother.Shared_Pages_Page01.Count,
-                        (uint)ObjectMother.Shared_Page01_PageItems.Count,
-                        ObjectMother.WIDMetrics_Page01_ItemsByWorkAreaWithoutZone,
-                        ObjectMother.WIDMetrics_Page01_ItemsByCreateDate,
-                        ObjectMother.WIDMetrics_Page01_ItemsByApplicationDate,
-                        ObjectMother.WIDMetrics_Page01_ItemsByEmployerName,
-                        ObjectMother.WIDMetrics_Page01_ItemsByNumberOfOpenings,
-                        ObjectMother.WIDMetrics_Page01_ItemsByAdvertisementPublishDate,
-                        ObjectMother.WIDMetrics_Page01_ItemsByApplicationDeadline,
-                        ObjectMother.WIDMetrics_Page01_ItemsByStartDateOfEmployment,
-                        ObjectMother.WIDMetrics_Page01_ItemsByReference,
-                        ObjectMother.WIDMetrics_Page01_ItemsByPosition,
-                        ObjectMother.WIDMetrics_Page01_ItemsByTypeOfEmployment,
-                        ObjectMother.WIDMetrics_Page01_ItemsByContact,
-                        ObjectMother.WIDMetrics_Page01_ItemsByEmployerAddress,
-                        ObjectMother.WIDMetrics_Page01_ItemsByHowToApply,
-                        ObjectMother.WIDMetrics_Page01_DescriptionLengthByPageItemId,
-                        ObjectMother.WIDMetrics_Page01_BulletPointsByPageItemId,
-                        ObjectMother.WIDMetrics_Page01_TotalBulletPoints
-                    );
-
             // Act        
             WIDMetrics actual = new WIDMetricsManager().Calculate(ObjectMother.WIDExploration_Exploration02);
 
             // Assert
             Assert.IsTrue(
-                ObjectMother.AreEqual(WIDMetrics_Exploration02_Metrics, actual)
+                ObjectMother.AreEqual(ObjectMother.WIDMetrics_Exploration02_Metrics, actual)
                 );
 
         }
