@@ -658,6 +658,41 @@ namespace NW.WIDJobs.UnitTests
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
+        [Test]
+        public void WIDMetrics_ShouldInitializeANewWIDMetricsObject_WhenProperArguments()
+        {
+
+            // Arrange
+            // Act
+            WIDMetrics actual = 
+                new WIDMetrics(
+                        ObjectMother.Shared_FakeRunId,
+                        2,
+                        (uint)ObjectMother.Shared_Page01_PageItems.Count,
+                        ObjectMother.WIDMetrics_Page01_ItemsByWorkAreaWithoutZone,
+                        ObjectMother.WIDMetrics_Page01_ItemsByCreateDate,
+                        ObjectMother.WIDMetrics_Page01_ItemsByApplicationDate,
+                        ObjectMother.WIDMetrics_Page01_ItemsByEmployerName,
+                        ObjectMother.WIDMetrics_Page01_ItemsByNumberOfOpenings,
+                        ObjectMother.WIDMetrics_Page01_ItemsByAdvertisementPublishDate,
+                        ObjectMother.WIDMetrics_Page01_ItemsByApplicationDeadline,
+                        ObjectMother.WIDMetrics_Page01_ItemsByStartDateOfEmployment,
+                        ObjectMother.WIDMetrics_Page01_ItemsByReference,
+                        ObjectMother.WIDMetrics_Page01_ItemsByPosition,
+                        ObjectMother.WIDMetrics_Page01_ItemsByTypeOfEmployment,
+                        ObjectMother.WIDMetrics_Page01_ItemsByContact,
+                        ObjectMother.WIDMetrics_Page01_ItemsByEmployerAddress,
+                        ObjectMother.WIDMetrics_Page01_ItemsByHowToApply,
+                        ObjectMother.WIDMetrics_Page01_DescriptionLengthByPageItemId,
+                        ObjectMother.WIDMetrics_Page01_BulletPointsByPageItemId,
+                        ObjectMother.WIDMetrics_Page01_TotalBulletPoints
+                    );
+
+            // Assert
+            Assert.IsInstanceOf<WIDMetrics>(actual);
+
+        }
+
     }
 }
 
