@@ -1,7 +1,5 @@
 ﻿using NUnit.Framework;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 
 namespace NW.WIDJobs.UnitTests
 {
@@ -390,7 +388,266 @@ namespace NW.WIDJobs.UnitTests
                 new ArgumentNullException("itemsByApplicationDeadline").Message
             ).SetArgDisplayNames($"{nameof(widMetricsExceptionTestCases)}_13"),
 
+            new TestCaseData(
+                new TestDelegate(
+                    () => new WIDMetrics(
+                                ObjectMother.Shared_FakeRunId,
+                                2,
+                                (uint)ObjectMother.Shared_Page01_PageItems.Count,
+                                ObjectMother.WIDMetrics_Page01_ItemsByWorkAreaWithoutZone,
+                                ObjectMother.WIDMetrics_Page01_ItemsByCreateDate,
+                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDate,
+                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerName,
+                                ObjectMother.WIDMetrics_Page01_ItemsByNumberOfOpenings,
+                                ObjectMother.WIDMetrics_Page01_ItemsByAdvertisementPublishDate,
+                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDeadline,
+                                null,
+                                ObjectMother.WIDMetrics_Page01_ItemsByReference,
+                                ObjectMother.WIDMetrics_Page01_ItemsByPosition,
+                                ObjectMother.WIDMetrics_Page01_ItemsByTypeOfEmployment,
+                                ObjectMother.WIDMetrics_Page01_ItemsByContact,
+                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerAddress,
+                                ObjectMother.WIDMetrics_Page01_ItemsByHowToApply,
+                                ObjectMother.WIDMetrics_Page01_DescriptionLengthByPageItemId,
+                                ObjectMother.WIDMetrics_Page01_BulletPointsByPageItemId,
+                                ObjectMother.WIDMetrics_Page01_TotalBulletPoints
+                            )
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("itemsByStartDateOfEmployment").Message
+            ).SetArgDisplayNames($"{nameof(widMetricsExceptionTestCases)}_14"),
 
+            new TestCaseData(
+                new TestDelegate(
+                    () => new WIDMetrics(
+                                ObjectMother.Shared_FakeRunId,
+                                2,
+                                (uint)ObjectMother.Shared_Page01_PageItems.Count,
+                                ObjectMother.WIDMetrics_Page01_ItemsByWorkAreaWithoutZone,
+                                ObjectMother.WIDMetrics_Page01_ItemsByCreateDate,
+                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDate,
+                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerName,
+                                ObjectMother.WIDMetrics_Page01_ItemsByNumberOfOpenings,
+                                ObjectMother.WIDMetrics_Page01_ItemsByAdvertisementPublishDate,
+                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDeadline,
+                                ObjectMother.WIDMetrics_Page01_ItemsByStartDateOfEmployment,
+                                null,
+                                ObjectMother.WIDMetrics_Page01_ItemsByPosition,
+                                ObjectMother.WIDMetrics_Page01_ItemsByTypeOfEmployment,
+                                ObjectMother.WIDMetrics_Page01_ItemsByContact,
+                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerAddress,
+                                ObjectMother.WIDMetrics_Page01_ItemsByHowToApply,
+                                ObjectMother.WIDMetrics_Page01_DescriptionLengthByPageItemId,
+                                ObjectMother.WIDMetrics_Page01_BulletPointsByPageItemId,
+                                ObjectMother.WIDMetrics_Page01_TotalBulletPoints
+                            )
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("itemsByReference").Message
+            ).SetArgDisplayNames($"{nameof(widMetricsExceptionTestCases)}_15"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new WIDMetrics(
+                                ObjectMother.Shared_FakeRunId,
+                                2,
+                                (uint)ObjectMother.Shared_Page01_PageItems.Count,
+                                ObjectMother.WIDMetrics_Page01_ItemsByWorkAreaWithoutZone,
+                                ObjectMother.WIDMetrics_Page01_ItemsByCreateDate,
+                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDate,
+                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerName,
+                                ObjectMother.WIDMetrics_Page01_ItemsByNumberOfOpenings,
+                                ObjectMother.WIDMetrics_Page01_ItemsByAdvertisementPublishDate,
+                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDeadline,
+                                ObjectMother.WIDMetrics_Page01_ItemsByStartDateOfEmployment,
+                                ObjectMother.WIDMetrics_Page01_ItemsByReference,
+                                null,
+                                ObjectMother.WIDMetrics_Page01_ItemsByTypeOfEmployment,
+                                ObjectMother.WIDMetrics_Page01_ItemsByContact,
+                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerAddress,
+                                ObjectMother.WIDMetrics_Page01_ItemsByHowToApply,
+                                ObjectMother.WIDMetrics_Page01_DescriptionLengthByPageItemId,
+                                ObjectMother.WIDMetrics_Page01_BulletPointsByPageItemId,
+                                ObjectMother.WIDMetrics_Page01_TotalBulletPoints
+                            )
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("itemsByPosition").Message
+            ).SetArgDisplayNames($"{nameof(widMetricsExceptionTestCases)}_16"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new WIDMetrics(
+                                ObjectMother.Shared_FakeRunId,
+                                2,
+                                (uint)ObjectMother.Shared_Page01_PageItems.Count,
+                                ObjectMother.WIDMetrics_Page01_ItemsByWorkAreaWithoutZone,
+                                ObjectMother.WIDMetrics_Page01_ItemsByCreateDate,
+                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDate,
+                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerName,
+                                ObjectMother.WIDMetrics_Page01_ItemsByNumberOfOpenings,
+                                ObjectMother.WIDMetrics_Page01_ItemsByAdvertisementPublishDate,
+                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDeadline,
+                                ObjectMother.WIDMetrics_Page01_ItemsByStartDateOfEmployment,
+                                ObjectMother.WIDMetrics_Page01_ItemsByReference,
+                                ObjectMother.WIDMetrics_Page01_ItemsByPosition,
+                                null,
+                                ObjectMother.WIDMetrics_Page01_ItemsByContact,
+                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerAddress,
+                                ObjectMother.WIDMetrics_Page01_ItemsByHowToApply,
+                                ObjectMother.WIDMetrics_Page01_DescriptionLengthByPageItemId,
+                                ObjectMother.WIDMetrics_Page01_BulletPointsByPageItemId,
+                                ObjectMother.WIDMetrics_Page01_TotalBulletPoints
+                            )
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("itemsByTypeOfEmployment").Message
+            ).SetArgDisplayNames($"{nameof(widMetricsExceptionTestCases)}_17"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new WIDMetrics(
+                                ObjectMother.Shared_FakeRunId,
+                                2,
+                                (uint)ObjectMother.Shared_Page01_PageItems.Count,
+                                ObjectMother.WIDMetrics_Page01_ItemsByWorkAreaWithoutZone,
+                                ObjectMother.WIDMetrics_Page01_ItemsByCreateDate,
+                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDate,
+                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerName,
+                                ObjectMother.WIDMetrics_Page01_ItemsByNumberOfOpenings,
+                                ObjectMother.WIDMetrics_Page01_ItemsByAdvertisementPublishDate,
+                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDeadline,
+                                ObjectMother.WIDMetrics_Page01_ItemsByStartDateOfEmployment,
+                                ObjectMother.WIDMetrics_Page01_ItemsByReference,
+                                ObjectMother.WIDMetrics_Page01_ItemsByPosition,
+                                ObjectMother.WIDMetrics_Page01_ItemsByTypeOfEmployment,
+                                null,
+                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerAddress,
+                                ObjectMother.WIDMetrics_Page01_ItemsByHowToApply,
+                                ObjectMother.WIDMetrics_Page01_DescriptionLengthByPageItemId,
+                                ObjectMother.WIDMetrics_Page01_BulletPointsByPageItemId,
+                                ObjectMother.WIDMetrics_Page01_TotalBulletPoints
+                            )
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("itemsByContact").Message
+            ).SetArgDisplayNames($"{nameof(widMetricsExceptionTestCases)}_18"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new WIDMetrics(
+                                ObjectMother.Shared_FakeRunId,
+                                2,
+                                (uint)ObjectMother.Shared_Page01_PageItems.Count,
+                                ObjectMother.WIDMetrics_Page01_ItemsByWorkAreaWithoutZone,
+                                ObjectMother.WIDMetrics_Page01_ItemsByCreateDate,
+                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDate,
+                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerName,
+                                ObjectMother.WIDMetrics_Page01_ItemsByNumberOfOpenings,
+                                ObjectMother.WIDMetrics_Page01_ItemsByAdvertisementPublishDate,
+                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDeadline,
+                                ObjectMother.WIDMetrics_Page01_ItemsByStartDateOfEmployment,
+                                ObjectMother.WIDMetrics_Page01_ItemsByReference,
+                                ObjectMother.WIDMetrics_Page01_ItemsByPosition,
+                                ObjectMother.WIDMetrics_Page01_ItemsByTypeOfEmployment,
+                                ObjectMother.WIDMetrics_Page01_ItemsByContact,
+                                null,
+                                ObjectMother.WIDMetrics_Page01_ItemsByHowToApply,
+                                ObjectMother.WIDMetrics_Page01_DescriptionLengthByPageItemId,
+                                ObjectMother.WIDMetrics_Page01_BulletPointsByPageItemId,
+                                ObjectMother.WIDMetrics_Page01_TotalBulletPoints
+                            )
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("itemsByEmployerAddress").Message
+            ).SetArgDisplayNames($"{nameof(widMetricsExceptionTestCases)}_19"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new WIDMetrics(
+                                ObjectMother.Shared_FakeRunId,
+                                2,
+                                (uint)ObjectMother.Shared_Page01_PageItems.Count,
+                                ObjectMother.WIDMetrics_Page01_ItemsByWorkAreaWithoutZone,
+                                ObjectMother.WIDMetrics_Page01_ItemsByCreateDate,
+                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDate,
+                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerName,
+                                ObjectMother.WIDMetrics_Page01_ItemsByNumberOfOpenings,
+                                ObjectMother.WIDMetrics_Page01_ItemsByAdvertisementPublishDate,
+                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDeadline,
+                                ObjectMother.WIDMetrics_Page01_ItemsByStartDateOfEmployment,
+                                ObjectMother.WIDMetrics_Page01_ItemsByReference,
+                                ObjectMother.WIDMetrics_Page01_ItemsByPosition,
+                                ObjectMother.WIDMetrics_Page01_ItemsByTypeOfEmployment,
+                                ObjectMother.WIDMetrics_Page01_ItemsByContact,
+                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerAddress,
+                                null,
+                                ObjectMother.WIDMetrics_Page01_DescriptionLengthByPageItemId,
+                                ObjectMother.WIDMetrics_Page01_BulletPointsByPageItemId,
+                                ObjectMother.WIDMetrics_Page01_TotalBulletPoints
+                            )
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("itemsByHowToApply").Message
+            ).SetArgDisplayNames($"{nameof(widMetricsExceptionTestCases)}_20"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new WIDMetrics(
+                                ObjectMother.Shared_FakeRunId,
+                                2,
+                                (uint)ObjectMother.Shared_Page01_PageItems.Count,
+                                ObjectMother.WIDMetrics_Page01_ItemsByWorkAreaWithoutZone,
+                                ObjectMother.WIDMetrics_Page01_ItemsByCreateDate,
+                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDate,
+                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerName,
+                                ObjectMother.WIDMetrics_Page01_ItemsByNumberOfOpenings,
+                                ObjectMother.WIDMetrics_Page01_ItemsByAdvertisementPublishDate,
+                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDeadline,
+                                ObjectMother.WIDMetrics_Page01_ItemsByStartDateOfEmployment,
+                                ObjectMother.WIDMetrics_Page01_ItemsByReference,
+                                ObjectMother.WIDMetrics_Page01_ItemsByPosition,
+                                ObjectMother.WIDMetrics_Page01_ItemsByTypeOfEmployment,
+                                ObjectMother.WIDMetrics_Page01_ItemsByContact,
+                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerAddress,
+                                ObjectMother.WIDMetrics_Page01_ItemsByHowToApply,
+                                null,
+                                ObjectMother.WIDMetrics_Page01_BulletPointsByPageItemId,
+                                ObjectMother.WIDMetrics_Page01_TotalBulletPoints
+                            )
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("descriptionLengthByPageItemId").Message
+            ).SetArgDisplayNames($"{nameof(widMetricsExceptionTestCases)}_21"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new WIDMetrics(
+                                ObjectMother.Shared_FakeRunId,
+                                2,
+                                (uint)ObjectMother.Shared_Page01_PageItems.Count,
+                                ObjectMother.WIDMetrics_Page01_ItemsByWorkAreaWithoutZone,
+                                ObjectMother.WIDMetrics_Page01_ItemsByCreateDate,
+                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDate,
+                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerName,
+                                ObjectMother.WIDMetrics_Page01_ItemsByNumberOfOpenings,
+                                ObjectMother.WIDMetrics_Page01_ItemsByAdvertisementPublishDate,
+                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDeadline,
+                                ObjectMother.WIDMetrics_Page01_ItemsByStartDateOfEmployment,
+                                ObjectMother.WIDMetrics_Page01_ItemsByReference,
+                                ObjectMother.WIDMetrics_Page01_ItemsByPosition,
+                                ObjectMother.WIDMetrics_Page01_ItemsByTypeOfEmployment,
+                                ObjectMother.WIDMetrics_Page01_ItemsByContact,
+                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerAddress,
+                                ObjectMother.WIDMetrics_Page01_ItemsByHowToApply,
+                                ObjectMother.WIDMetrics_Page01_DescriptionLengthByPageItemId,
+                                null,
+                                ObjectMother.WIDMetrics_Page01_TotalBulletPoints
+                            )
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("bulletPointsByPageItemId").Message
+            ).SetArgDisplayNames($"{nameof(widMetricsExceptionTestCases)}_22")
 
         };
 
@@ -406,5 +663,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 28.05.2021
+    Last Update: 30.05.2021
 */
