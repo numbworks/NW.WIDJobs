@@ -50,7 +50,6 @@ namespace NW.WIDJobs.UnitTests
                 new ArgumentNullException("dict").Message
             ).SetArgDisplayNames($"{nameof(convertToPercentagesExceptionTestCases)}_01")
 
-
         };
         private static TestCaseData[] calculatePercentageTestCases =
         {
