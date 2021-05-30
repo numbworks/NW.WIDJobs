@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace NW.WIDJobs.UnitTests
 {
@@ -122,6 +123,23 @@ namespace NW.WIDJobs.UnitTests
             Assert.IsTrue(
                 ObjectMother.AreEqual(ObjectMother.WIDMetricsManager_WorkAreasAsPercentages, actual)
                 );
+
+        }
+
+        [Test]
+        public void FormatPercentage_ShouldReturnExpectedString_WhenInvoked()
+        {
+
+            // Arrange
+            double value = 73.67;
+            CultureInfo culture = CultureInfo.CreateSpecificCulture("en-US");
+            string expected = $"{value.ToString(culture)}%";
+
+            // Act
+            string actual = WIDMetricsManager.FormatPercentage(value);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
 
         }
 
