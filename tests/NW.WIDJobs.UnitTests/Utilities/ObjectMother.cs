@@ -1688,6 +1688,23 @@ namespace NW.WIDJobs.UnitTests
                     null
                 );
 
+        internal static Dictionary<string, uint> WIDMetricsManager_WorkAreas = new Dictionary<string, uint>()
+            {
+
+                { "København", 45 },
+                { "Nordborg", 12 },
+                { "Vejen", 4 }
+
+            };
+        internal static Dictionary<string, string> WIDMetricsManager_WorkAreasAsPercentages = new Dictionary<string, string>()
+            {
+
+                { "København", $"{WIDMetricsManager.FormatPercentage(73.77)}" },
+                { "Nordborg", $"{WIDMetricsManager.FormatPercentage(19.67)}" },
+                { "Vejen", $"{WIDMetricsManager.FormatPercentage(6.56)}" }
+
+            };
+
         #endregion
 
         #region ValidatorTests

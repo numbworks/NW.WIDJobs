@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 namespace NW.WIDJobs
@@ -24,11 +25,18 @@ namespace NW.WIDJobs
                 if (totalValue == 0)
                     return null;
 
-                return Math.Round((double)(value / totalValue * 100), 2);
+                return Math.Round(value / (double)totalValue * 100, 2);
 
             };
         public static Func<double, string> FormatPercentage =
-            (value) => $"{value}%";
+            (value) =>
+            {
+
+                CultureInfo culture = CultureInfo.CreateSpecificCulture("en-US");
+
+                return $"{value.ToString(culture)}%";
+
+            };
 
         #endregion
 
@@ -113,9 +121,9 @@ namespace NW.WIDJobs
         {
 
             /*
-    			- ("København", 45) => ("København", "73.78%")
+    			- ("København", 45) => ("København", "73.77%")
 	    		- ("Nordborg", 12) => ("Nordborg", "19.67%")
-		    	- ("Vejen", 4) => ("Vejen", "6.3%")
+		    	- ("Vejen", 4) => ("Vejen", "6.56%")
 
                 TotalValue: 61
                 % = Value / TotalValue * 100             

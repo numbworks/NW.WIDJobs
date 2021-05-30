@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using System;
+using System.Collections.Generic;
 
 namespace NW.WIDJobs.UnitTests
 {
@@ -70,6 +71,22 @@ namespace NW.WIDJobs.UnitTests
             // Arrange
             // Act
             // Assert
+
+        }
+
+        [Test]
+        public void ConvertToPercentages_ShouldReturnExpectedPercentages_WhenInvoked()
+        {
+
+            // Arrange
+            // Act
+            Dictionary<string, string> actual 
+                = new WIDMetricsManager().ConvertToPercentages(ObjectMother.WIDMetricsManager_WorkAreas);
+
+            // Assert
+            Assert.IsTrue(
+                ObjectMother.AreEqual(ObjectMother.WIDMetricsManager_WorkAreasAsPercentages, actual)
+                );
 
         }
 
