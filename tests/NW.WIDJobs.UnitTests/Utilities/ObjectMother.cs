@@ -1654,7 +1654,8 @@ namespace NW.WIDJobs.UnitTests
             = GroupItemsByHowToApply(Shared_Page01_PageItemsExtended);
         internal static Dictionary<string, uint> WIDMetrics_Page01_DescriptionLengthByPageItemId
             = SumDescriptionLengthByPageItemId(Shared_Page01_PageItemsExtended);
-        internal static Dictionary<string, uint> WIDMetrics_Page01_BulletPointsByPageItemId;
+        internal static Dictionary<string, uint> WIDMetrics_Page01_BulletPointsByPageItemId
+            = SumBulletPointsByPageItemId(Shared_Page01_PageItemsExtended);
         internal static uint WIDMetrics_Page01_TotalBulletPoints
             => SumBulletPoints(Shared_Page01_PageItemsExtended);
 
