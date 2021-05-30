@@ -24,6 +24,7 @@ namespace NW.WIDJobs
         public IPageItemExtendedScraper PageItemExtendedScraper { get; }
         public IRunIdManager RunIdManager { get; }
         public IWIDMetricsManager MetricsManager { get; }
+        public IFileManager FileManager { get; }
         public IBulletPointManager BulletPointManager { get; }
 
         #endregion
@@ -43,6 +44,7 @@ namespace NW.WIDJobs
             IPageItemExtendedScraper pageItemExtendedScraper,
             IRunIdManager runIdManager,
             IWIDMetricsManager metricsManager,
+            IFileManager fileManager,
             IBulletPointManager bulletPointManager
             )
         {
@@ -57,6 +59,7 @@ namespace NW.WIDJobs
             Validator.ValidateObject(pageItemExtendedScraper, nameof(pageItemExtendedScraper));
             Validator.ValidateObject(runIdManager, nameof(runIdManager));
             Validator.ValidateObject(metricsManager, nameof(metricsManager));
+            Validator.ValidateObject(fileManager, nameof(fileManager));
             Validator.ValidateObject(bulletPointManager, nameof(bulletPointManager));
 
             LoggingAction = loggingAction;
@@ -69,6 +72,7 @@ namespace NW.WIDJobs
             PageItemExtendedScraper = pageItemExtendedScraper;
             RunIdManager = runIdManager;
             MetricsManager = metricsManager;
+            FileManager = fileManager;
             BulletPointManager = bulletPointManager;
 
         }
@@ -86,6 +90,7 @@ namespace NW.WIDJobs
                   new PageItemExtendedScraper(),
                   new RunIdManager(),
                   new WIDMetricsManager(),
+                  new FileManager(),
                   new BulletPointManager()
                   )
         { }
