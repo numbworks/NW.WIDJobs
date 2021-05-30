@@ -1864,7 +1864,42 @@ namespace NW.WIDJobs.UnitTests
                         && AreEqual(exploration1.PageItemsExtended, exploration2.PageItemsExtended);
 
         }
-        
+        internal static bool AreEqual<TKey, TValue>(Dictionary<TKey, TValue> dict1, Dictionary<TKey, TValue> dict2)
+        {
+
+            IEqualityComparer<TValue> valueComparer = EqualityComparer<TValue>.Default;
+
+            return dict1.Count == dict2.Count
+                    && dict1.Keys.All(key => dict2.ContainsKey(key)
+                    && valueComparer.Equals(dict1[key], dict2[key]));
+
+        }
+        internal static bool AreEqual(WIDMetrics metrics1, WIDMetrics metrics2)
+        {
+
+            return string.Equals(metrics1.RunId, metrics2.RunId, StringComparison.InvariantCulture)
+                        && (metrics1.TotalPages == metrics2.TotalPages)
+                        && (metrics1.TotalItems == metrics2.TotalItems)
+                        && AreEqual(metrics1.ItemsByWorkAreaWithoutZone, metrics2.ItemsByWorkAreaWithoutZone)
+                        && AreEqual(metrics1.ItemsByCreateDate, metrics2.ItemsByCreateDate)
+                        && AreEqual(metrics1.ItemsByApplicationDate, metrics2.ItemsByApplicationDate)
+                        && AreEqual(metrics1.ItemsByEmployerName, metrics2.ItemsByEmployerName)
+                        && AreEqual(metrics1.ItemsByNumberOfOpenings, metrics2.ItemsByNumberOfOpenings)
+                        && AreEqual(metrics1.ItemsByAdvertisementPublishDate, metrics2.ItemsByAdvertisementPublishDate)
+                        && AreEqual(metrics1.ItemsByApplicationDeadline, metrics2.ItemsByApplicationDeadline)
+                        && AreEqual(metrics1.ItemsByStartDateOfEmployment, metrics2.ItemsByStartDateOfEmployment)
+                        && AreEqual(metrics1.ItemsByReference, metrics2.ItemsByReference)
+                        && AreEqual(metrics1.ItemsByPosition, metrics2.ItemsByPosition)
+                        && AreEqual(metrics1.ItemsByTypeOfEmployment, metrics2.ItemsByTypeOfEmployment)
+                        && AreEqual(metrics1.ItemsByContact, metrics2.ItemsByContact)
+                        && AreEqual(metrics1.ItemsByEmployerAddress, metrics2.ItemsByEmployerAddress)
+                        && AreEqual(metrics1.ItemsByHowToApply, metrics2.ItemsByHowToApply)
+                        && AreEqual(metrics1.DescriptionLengthByPageItemId, metrics2.DescriptionLengthByPageItemId)
+                        && AreEqual(metrics1.BulletPointsByPageItemId, metrics2.BulletPointsByPageItemId)
+                        && (metrics1.TotalBulletPoints == metrics2.TotalBulletPoints);
+
+        }
+
         internal static PageItem SwapCreateDate(PageItem pageItem, DateTime createDate)
         {
 
