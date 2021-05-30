@@ -42,11 +42,13 @@ namespace NW.WIDJobs
                     };
         public static Func<string, string, string> Validator_FirstDateIsOlderOrEqual
             = (variableName1, variableName2) => $"'{variableName1}''s is older or equal than '{variableName2}'.";
+        public static Func<IFileInfoAdapter, string> Validator_ProvidedPathDoesntExist
+            = (file) => $"The provided path doesn't exist: '{file.FullName}'.";
 
         #endregion
 
         #region PageItemScraper
-        
+
         public static Func<string, string, string> PageItemScraper_NotPossibleToExtractJobId =
             (url, pattern) => $"Not possible to extract {nameof(PageItem.JobId)} from '{url}' with pattern: '{pattern}'.";
 
@@ -110,6 +112,15 @@ namespace NW.WIDJobs
             = (pageItems, i) => $"'{20 - pageItems.Count}' has been removed from page nr. '{i}'.";
         public static Func<ushort, string> WIDExplorer_FinalPageNumberThresholdDate
             = (finalPageNumber) => $"The 'FinalPageNumber' for the provided 'ThresholdDate' is '{finalPageNumber}'.";
+
+        #endregion
+
+        #region FileManager
+
+        public static Func<IFileInfoAdapter, Exception, string> FileManager_NotPossibleToRead
+            = (file, e) => $"It hasn't been possible to read from the provided file: '{file.FullName}': '{e.Message}'.";
+        public static Func<IFileInfoAdapter, Exception, string> FileManager_NotPossibleToWrite
+            = (file, e) => $"It hasn't been possible to write to the provided file: '{file.FullName}': '{e.Message}'.";
 
         #endregion
 

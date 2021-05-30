@@ -150,6 +150,16 @@ namespace NW.WIDJobs
         public static void ThrowIfFirstIsOlderOrEqual(DateTime dt1, string variableName1, DateTime dt2, string variableName2)
             => ThrowIfFirstIsOlderOrEqual<ArgumentException>(dt1, variableName1, dt2, variableName2);
 
+        public static void ValidateFileExistance<T>(IFileInfoAdapter file) where T : Exception
+        {
+
+            if (!file.Exists)
+                throw CreateException<T>(MessageCollection.Validator_ProvidedPathDoesntExist.Invoke(file));
+
+        }
+        public static void ValidateFileExistance(IFileInfoAdapter file)
+            => ValidateFileExistance<ArgumentException>(file);
+
         #endregion
 
         #region Methods_private
