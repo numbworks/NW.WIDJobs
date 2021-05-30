@@ -121,7 +121,7 @@ namespace NW.WIDJobs
                 % = Value / TotalValue * 100             
              */
 
-            Validator.ValidateList(dict.ToList(), nameof(dict));
+            Validator.ValidateList(dict?.ToList(), nameof(dict));
 
             uint totalValue = (uint)dict.Sum(item => item.Value);
 

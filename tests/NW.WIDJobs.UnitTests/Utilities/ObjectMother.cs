@@ -1661,6 +1661,35 @@ namespace NW.WIDJobs.UnitTests
 
         #endregion
 
+        #region WIDMetricsManager
+
+        internal static WIDExploration WIDMetricsManager_ExplorationWithNullPageItems
+            = new WIDExploration(
+                    Shared_FakeRunId,
+                    Shared_Page01_TotalResults,
+                    Shared_Page01_TotalEstimatedPages,
+                    WIDCategories.AllCategories,
+                    WIDStages.Stage3_UpToAllPageItemsExtended,
+                    true,
+                    Shared_Pages_Page01,
+                    null,
+                    Shared_Page01_PageItemsExtended
+                );
+        internal static WIDExploration WIDMetricsManager_ExplorationWithNullPageItemsExtended
+            = new WIDExploration(
+                    Shared_FakeRunId,
+                    Shared_Page01_TotalResults,
+                    Shared_Page01_TotalEstimatedPages,
+                    WIDCategories.AllCategories,
+                    WIDStages.Stage3_UpToAllPageItemsExtended,
+                    true,
+                    Shared_Pages_Page01,
+                    Shared_Page01_PageItems,
+                    null
+                );
+
+        #endregion
+
         #region ValidatorTests
 
         internal static string[] Validator_Array1 = new[] { "Dodge", "Datsun", "Jaguar", "DeLorean" };
