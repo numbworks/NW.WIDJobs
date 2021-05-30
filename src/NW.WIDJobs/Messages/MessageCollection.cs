@@ -112,6 +112,10 @@ namespace NW.WIDJobs
             = (pageItems, i) => $"'{20 - pageItems.Count}' has been removed from page nr. '{i}'.";
         public static Func<ushort, string> WIDExplorer_FinalPageNumberThresholdDate
             = (finalPageNumber) => $"The 'FinalPageNumber' for the provided 'ThresholdDate' is '{finalPageNumber}'.";
+        public static Func<IFileInfoAdapter, string> WIDExplorer_ExploringProvidedFile
+            = (fileInfoAdapter) => $"Exploring the provided file ('{fileInfoAdapter.FullName}')...";
+        public static string WIDExplorer_ProvidedFileSuccessfullyExplored
+            = "The provided file has been successfully explored.";
 
         #endregion
 

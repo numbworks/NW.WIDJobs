@@ -192,6 +192,30 @@ namespace NW.WIDJobs
 
         }
 
+        public List<PageItem> GetPageItemsFromHtml(IFileInfoAdapter fileInfoAdapter)
+        {
+
+            Validator.ValidateObject(fileInfoAdapter, nameof(fileInfoAdapter));
+            Validator.ValidateFileExistance(fileInfoAdapter);
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExploringProvidedFile.Invoke(fileInfoAdapter));
+
+            string runId = _components.RunIdManager.Create(Now);
+            ushort pageNumber = 1;
+
+            string content = _components.FileManager.ReadAllText(fileInfoAdapter);
+            Page page = new Page(runId, pageNumber, content);
+            List<PageItem> pageItems = _components.PageItemScraper.Do(page);
+            
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemObjectsScrapedTotal.Invoke(pageItems));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ProvidedFileSuccessfullyExplored);
+
+            return pageItems;
+
+        }
+        public List<PageItem> GetPageItemsFromHtml(string filePath)
+            => GetPageItemsFromHtml(_components.FileManager.Create(filePath));
+
         #endregion
 
         #region Methods_private
