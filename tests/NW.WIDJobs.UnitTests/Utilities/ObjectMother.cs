@@ -1415,62 +1415,62 @@ namespace NW.WIDJobs.UnitTests
         internal static string XPathManager_TryGetFirstAttributeValue_XPath = "//div/@class";
 
         // WIDExplorationTests
-        internal static string WIDExploration_Exploration1_RunId = RunIdManager_RunId_Now;
-        internal static uint WIDExploration_Exploration1_TotalResults = Shared_Page01_TotalResults;
-        internal static ushort WIDExploration_Exploration1_TotalEstimatedPages = 102;
-        internal static WIDCategories WIDExploration_Exploration1_Category = WIDCategories.AllCategories;
-        internal static WIDStages WIDExploration_Exploration1_Stage = WIDStages.Stage1_OnlyMetrics;
-        internal static bool WIDExploration_Exploration1_IsCompleted = true;
-        internal static List<Page> WIDExploration_Exploration1_Pages = null;
-        internal static List<PageItem> WIDExploration_Exploration1_PageItems = null;
-        internal static List<PageItemExtended> WIDExploration_Exploration1_PageItemsExtended = null;
-        internal static WIDExploration WIDExploration_Exploration1
+        internal static string WIDExploration_Exploration01_RunId = RunIdManager_RunId_Now;
+        internal static uint WIDExploration_Exploration01_TotalResults = Shared_Page01_TotalResults;
+        internal static ushort WIDExploration_Exploration01_TotalEstimatedPages = 102;
+        internal static WIDCategories WIDExploration_Exploration01_Category = WIDCategories.AllCategories;
+        internal static WIDStages WIDExploration_Exploration01_Stage = WIDStages.Stage1_OnlyMetrics;
+        internal static bool WIDExploration_Exploration01_IsCompleted = true;
+        internal static List<Page> WIDExploration_Exploration01_Pages = null;
+        internal static List<PageItem> WIDExploration_Exploration01_PageItems = null;
+        internal static List<PageItemExtended> WIDExploration_Exploration01_PageItemsExtended = null;
+        internal static WIDExploration WIDExploration_Exploration01
             = new WIDExploration(
-                    WIDExploration_Exploration1_RunId,
-                    WIDExploration_Exploration1_TotalResults,
-                    WIDExploration_Exploration1_TotalEstimatedPages,
-                    WIDExploration_Exploration1_Category,
-                    WIDExploration_Exploration1_Stage,
-                    WIDExploration_Exploration1_IsCompleted,
-                    WIDExploration_Exploration1_Pages,
-                    WIDExploration_Exploration1_PageItems,
-                    WIDExploration_Exploration1_PageItemsExtended
+                    WIDExploration_Exploration01_RunId,
+                    WIDExploration_Exploration01_TotalResults,
+                    WIDExploration_Exploration01_TotalEstimatedPages,
+                    WIDExploration_Exploration01_Category,
+                    WIDExploration_Exploration01_Stage,
+                    WIDExploration_Exploration01_IsCompleted,
+                    WIDExploration_Exploration01_Pages,
+                    WIDExploration_Exploration01_PageItems,
+                    WIDExploration_Exploration01_PageItemsExtended
                     );
-        internal static string WIDExploration_Exploration1_ToString
+        internal static string WIDExploration_Exploration01_ToString
             = string.Concat(
                 "{ ",
-                $"'{nameof(WIDExploration.RunId)}':'{WIDExploration_Exploration1_RunId}', ",
-                $"'{nameof(WIDExploration.TotalResults)}':'{WIDExploration_Exploration1_TotalResults}', ",
-                $"'{nameof(WIDExploration.TotalEstimatedPages)}':'{WIDExploration_Exploration1_TotalEstimatedPages}', ",
-                $"'{nameof(WIDExploration.Category)}':'{WIDExploration_Exploration1_Category}', ",
-                $"'{nameof(WIDExploration.Stage)}':'{WIDExploration_Exploration1_Stage}', ",
-                $"'{nameof(WIDExploration.IsCompleted)}':'{WIDExploration_Exploration1_IsCompleted}', ",
+                $"'{nameof(WIDExploration.RunId)}':'{WIDExploration_Exploration01_RunId}', ",
+                $"'{nameof(WIDExploration.TotalResults)}':'{WIDExploration_Exploration01_TotalResults}', ",
+                $"'{nameof(WIDExploration.TotalEstimatedPages)}':'{WIDExploration_Exploration01_TotalEstimatedPages}', ",
+                $"'{nameof(WIDExploration.Category)}':'{WIDExploration_Exploration01_Category}', ",
+                $"'{nameof(WIDExploration.Stage)}':'{WIDExploration_Exploration01_Stage}', ",
+                $"'{nameof(WIDExploration.IsCompleted)}':'{WIDExploration_Exploration01_IsCompleted}', ",
                 $"'{nameof(WIDExploration.Pages)}':'null', ",
                 $"'{nameof(WIDExploration.PageItems)}':'null', ",
                 $"'{nameof(WIDExploration.PageItemsExtended)}':'null'",
                 " }"
                 );
-        internal static WIDExploration WIDExploration_Exploration2
+        internal static WIDExploration WIDExploration_Exploration02
             = new WIDExploration(
-                    WIDExploration_Exploration1_RunId,
-                    WIDExploration_Exploration1_TotalResults,
-                    WIDExploration_Exploration1_TotalEstimatedPages,
-                    WIDExploration_Exploration1_Category,
-                    WIDExploration_Exploration1_Stage,
-                    WIDExploration_Exploration1_IsCompleted,
+                    WIDExploration_Exploration01_RunId,
+                    WIDExploration_Exploration01_TotalResults,
+                    WIDExploration_Exploration01_TotalEstimatedPages,
+                    WIDExploration_Exploration01_Category,
+                    WIDExploration_Exploration01_Stage,
+                    WIDExploration_Exploration01_IsCompleted,
                     Shared_Pages_Page01,
                     Shared_Page01_PageItems,
                     Shared_Page01_PageItemsExtended
                     );
-        internal static string WIDExploration_Exploration2_ToString
+        internal static string WIDExploration_Exploration02_ToString
             = string.Concat(
                 "{ ",
-                $"'{nameof(WIDExploration.RunId)}':'{WIDExploration_Exploration1_RunId}', ",
-                $"'{nameof(WIDExploration.TotalResults)}':'{WIDExploration_Exploration1_TotalResults}', ",
-                $"'{nameof(WIDExploration.TotalEstimatedPages)}':'{WIDExploration_Exploration1_TotalEstimatedPages}', ",
-                $"'{nameof(WIDExploration.Category)}':'{WIDExploration_Exploration1_Category}', ",
-                $"'{nameof(WIDExploration.Stage)}':'{WIDExploration_Exploration1_Stage}', ",
-                $"'{nameof(WIDExploration.IsCompleted)}':'{WIDExploration_Exploration1_IsCompleted}', ",
+                $"'{nameof(WIDExploration.RunId)}':'{WIDExploration_Exploration01_RunId}', ",
+                $"'{nameof(WIDExploration.TotalResults)}':'{WIDExploration_Exploration01_TotalResults}', ",
+                $"'{nameof(WIDExploration.TotalEstimatedPages)}':'{WIDExploration_Exploration01_TotalEstimatedPages}', ",
+                $"'{nameof(WIDExploration.Category)}':'{WIDExploration_Exploration01_Category}', ",
+                $"'{nameof(WIDExploration.Stage)}':'{WIDExploration_Exploration01_Stage}', ",
+                $"'{nameof(WIDExploration.IsCompleted)}':'{WIDExploration_Exploration01_IsCompleted}', ",
                 $"'{nameof(WIDExploration.Pages)}':'{Shared_Pages_Page01.Count}', ",
                 $"'{nameof(WIDExploration.PageItems)}':'{Shared_Page01_PageItems.Count}', ",
                 $"'{nameof(WIDExploration.PageItemsExtended)}':'{Shared_Page01_PageItemsExtended.Count}'",
@@ -1625,39 +1625,94 @@ namespace NW.WIDJobs.UnitTests
         #region WIDMetrics
 
         internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByWorkAreaWithoutZone
-            = GroupItemsByWorkAreaWithoutZone(Shared_Page01_PageItems);
+            = new Dictionary<string, uint>()
+            {
+                { "København", 9 },
+                { "Århus", 3 },
+                { "Lem", 3 },
+                { "Ikast", 2 },
+                { "Nordborg", 1 },
+                { "Vejle", 1 },
+                { "Odense", 1 }
+            };
         internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByCreateDate
-            = GroupItemsByCreateDate(Shared_Page01_PageItems);
+            = new Dictionary<string, uint>()
+            {
+                { "2021-05-07", 20}
+            };
         internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByApplicationDate
-            = GroupItemsByApplicationDate(Shared_Page01_PageItems);
+            = new Dictionary<string, uint>()
+            {
+                { "null", 2 }
+            };
         internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByEmployerName
-            = GroupItemsByEmployerName(Shared_Page01_PageItemsExtended);
+            = new Dictionary<string, uint>()
+            {
+                { "null", 2 }
+            };
         internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByNumberOfOpenings
-            = GroupItemsByNumberOfOpenings(Shared_Page01_PageItemsExtended);
+            = new Dictionary<string, uint>()
+            {
+                { "null", 2 }
+            };
         internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByAdvertisementPublishDate
-            = GroupItemsByAdvertisementPublishDate(Shared_Page01_PageItemsExtended);
+            = new Dictionary<string, uint>()
+            {
+                { "null", 2 }
+            };
         internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByApplicationDeadline
-            = GroupItemsByApplicationDeadline(Shared_Page01_PageItemsExtended);
+            = new Dictionary<string, uint>()
+            {
+                { "null", 2 }
+            };
         internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByStartDateOfEmployment
-            = GroupItemsByStartDateOfEmployment(Shared_Page01_PageItemsExtended);
+            = new Dictionary<string, uint>()
+            {
+                { "null", 2 }
+            };
         internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByReference
-            = GroupItemsByReference(Shared_Page01_PageItemsExtended);
+            = new Dictionary<string, uint>()
+            {
+                { "null", 2 }
+            };
         internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByPosition
-            = GroupItemsByPosition(Shared_Page01_PageItemsExtended);
+            = new Dictionary<string, uint>()
+            {
+                { "null", 2 }
+            };
         internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByTypeOfEmployment
-            = GroupItemsByTypeOfEmployment(Shared_Page01_PageItemsExtended);
+            = new Dictionary<string, uint>()
+            {
+                { "null", 2 }
+            };
         internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByContact
-            = GroupItemsByContact(Shared_Page01_PageItemsExtended);
+            = new Dictionary<string, uint>()
+            {
+                { "null", 2 }
+            };
         internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByEmployerAddress
-            = GroupItemsByEmployerAddress(Shared_Page01_PageItemsExtended);
+            = new Dictionary<string, uint>()
+            {
+                { "null", 2 }
+            };
         internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByHowToApply
-            = GroupItemsByHowToApply(Shared_Page01_PageItemsExtended);
+            = new Dictionary<string, uint>()
+            {
+                { "null", 2 }
+            };
         internal static Dictionary<string, uint> WIDMetrics_Page01_DescriptionLengthByPageItemId
-            = SumDescriptionLengthByPageItemId(Shared_Page01_PageItemsExtended);
+            = new Dictionary<string, uint>()
+            {
+                { "8144071leanprofessional", 992 },
+                { "8144115learningsalesfulltimestudentposition", 988 }
+            };
         internal static Dictionary<string, uint> WIDMetrics_Page01_BulletPointsByPageItemId
-            = SumBulletPointsByPageItemId(Shared_Page01_PageItemsExtended);
-        internal static uint WIDMetrics_Page01_TotalBulletPoints
-            => SumBulletPoints(Shared_Page01_PageItemsExtended);
+            = new Dictionary<string, uint>()
+            {
+                { "8144071leanprofessional", 2 },
+                { "8144115learningsalesfulltimestudentposition", 0 }
+            };
+        internal static uint WIDMetrics_Page01_TotalBulletPoints = 2;
 
         #endregion
 

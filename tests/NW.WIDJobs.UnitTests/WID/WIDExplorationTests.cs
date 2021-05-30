@@ -15,14 +15,14 @@ namespace NW.WIDJobs.UnitTests
                 new TestDelegate(
                     () => new WIDExploration(
                                 null,
-                                ObjectMother.WIDExploration_Exploration1_TotalResults,
-                                ObjectMother.WIDExploration_Exploration1_TotalEstimatedPages,
-                                ObjectMother.WIDExploration_Exploration1_Category,
-                                ObjectMother.WIDExploration_Exploration1_Stage,
-                                ObjectMother.WIDExploration_Exploration1_IsCompleted,
-                                ObjectMother.WIDExploration_Exploration1_Pages,
-                                ObjectMother.WIDExploration_Exploration1_PageItems,
-                                ObjectMother.WIDExploration_Exploration1_PageItemsExtended
+                                ObjectMother.WIDExploration_Exploration01_TotalResults,
+                                ObjectMother.WIDExploration_Exploration01_TotalEstimatedPages,
+                                ObjectMother.WIDExploration_Exploration01_Category,
+                                ObjectMother.WIDExploration_Exploration01_Stage,
+                                ObjectMother.WIDExploration_Exploration01_IsCompleted,
+                                ObjectMother.WIDExploration_Exploration01_Pages,
+                                ObjectMother.WIDExploration_Exploration01_PageItems,
+                                ObjectMother.WIDExploration_Exploration01_PageItemsExtended
                             )
                 ),
                 typeof(ArgumentNullException),
@@ -34,13 +34,13 @@ namespace NW.WIDJobs.UnitTests
         {
 
             new TestCaseData(
-                    ObjectMother.WIDExploration_Exploration1,
-                    ObjectMother.WIDExploration_Exploration1_ToString
+                    ObjectMother.WIDExploration_Exploration01,
+                    ObjectMother.WIDExploration_Exploration01_ToString
                 ).SetArgDisplayNames($"{nameof(toStringTestCases)}_01"),
 
             new TestCaseData(
-                    ObjectMother.WIDExploration_Exploration2,
-                    ObjectMother.WIDExploration_Exploration2_ToString
+                    ObjectMother.WIDExploration_Exploration02,
+                    ObjectMother.WIDExploration_Exploration02_ToString
                 ).SetArgDisplayNames($"{nameof(toStringTestCases)}_02")
 
         };
@@ -74,12 +74,12 @@ namespace NW.WIDJobs.UnitTests
             // Act
             WIDExploration actual =
                 new WIDExploration(
-                    ObjectMother.WIDExploration_Exploration1_RunId,
-                    ObjectMother.WIDExploration_Exploration1_TotalResults,
-                    ObjectMother.WIDExploration_Exploration1_TotalEstimatedPages,
-                    ObjectMother.WIDExploration_Exploration1_Category,
-                    ObjectMother.WIDExploration_Exploration1_Stage,
-                    ObjectMother.WIDExploration_Exploration1_IsCompleted,
+                    ObjectMother.WIDExploration_Exploration01_RunId,
+                    ObjectMother.WIDExploration_Exploration01_TotalResults,
+                    ObjectMother.WIDExploration_Exploration01_TotalEstimatedPages,
+                    ObjectMother.WIDExploration_Exploration01_Category,
+                    ObjectMother.WIDExploration_Exploration01_Stage,
+                    ObjectMother.WIDExploration_Exploration01_IsCompleted,
                     ObjectMother.Shared_Pages_Page01,
                     ObjectMother.Shared_Page01_PageItems,
                     ObjectMother.Shared_Page01_PageItemsExtended
