@@ -20,8 +20,6 @@ namespace NW.WIDJobs
 
                 if (value == 0)
                     return value;
-                if (value == 0 && totalValue == 0)
-                    return value;
                 if (totalValue == 0)
                     return null;
 

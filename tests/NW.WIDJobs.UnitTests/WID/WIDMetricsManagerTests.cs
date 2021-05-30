@@ -51,6 +51,22 @@ namespace NW.WIDJobs.UnitTests
 
 
         };
+        private static TestCaseData[] calculatePercentageTestCases =
+        {
+
+            new TestCaseData(
+                    (uint)0,
+                    (uint)61,
+                    (double?)0
+            ).SetArgDisplayNames($"{nameof(calculatePercentageTestCases)}_01"),
+
+            new TestCaseData(
+                    (uint)45,
+                    (uint)0,
+                    null
+            ).SetArgDisplayNames($"{nameof(calculatePercentageTestCases)}_02")
+
+        };
 
         // SetUp
         // Tests
@@ -63,6 +79,20 @@ namespace NW.WIDJobs.UnitTests
         public void ConvertToPercentages_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
+
+        [TestCaseSource(nameof(calculatePercentageTestCases))]
+        public void CalculatePercentage_ShouldReturnExpectedPercentage_WhenInvoked
+            (uint value, uint totalValue, double? expected)
+        {
+
+            // Arrange
+            // Act        
+            double? actual = WIDMetricsManager.CalculatePercentage(value, totalValue);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+
+        }
 
         [Test]
         public void Calculate_ShouldReturnExpectedMetrics_WhenInvoked()
