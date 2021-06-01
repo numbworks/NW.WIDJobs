@@ -216,6 +216,17 @@ namespace NW.WIDJobs
         public List<PageItem> GetPageItemsFromHtml(string filePath)
             => GetPageItemsFromHtml(_components.FileManager.Create(filePath));
 
+        public PageItemExtended TryGetPageItemExtendedFromHtml(IFileInfoAdapter fileInfoAdapter)
+        {
+
+            // ...
+
+            return null;
+
+        }
+        public PageItemExtended TryGetPageItemExtendedFromHtml(string filePath)
+            => TryGetPageItemExtendedFromHtml(_components.FileManager.Create(filePath));
+
         #endregion
 
         #region Methods_private

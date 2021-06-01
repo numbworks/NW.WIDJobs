@@ -434,6 +434,23 @@ namespace NW.WIDJobs
 
         }
 
+        private string ExtractTitle(string content)
+        {
+
+            /*
+                International Project Controller
+                ...
+            */
+
+            string xpath = "//div[@class='col-sm-9 col-sm-push-3']/h1[@class='widk-h1-black']";
+
+            string title = _xpathManager.GetInnerText(content, xpath);
+
+            return title;
+
+        }
+
+
         #endregion
 
     }
