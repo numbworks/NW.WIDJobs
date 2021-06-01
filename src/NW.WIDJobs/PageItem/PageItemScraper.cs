@@ -14,6 +14,7 @@ namespace NW.WIDJobs
         #region Fields
 
         private IXPathManager _xpathManager;
+        private IPageItemScraperHelper _scraperHelper;
 
         #endregion
 
@@ -24,18 +25,20 @@ namespace NW.WIDJobs
 
         /// <summary>Initializes a <see cref="PageItemScraper"/> instance.</summary>
         /// <exception cref="ArgumentNullException"/>
-        public PageItemScraper(IXPathManager xpathManager)
+        public PageItemScraper(IXPathManager xpathManager, IPageItemScraperHelper scraperHelper)
         {
 
             Validator.ValidateObject(xpathManager, nameof(xpathManager));
+            Validator.ValidateObject(scraperHelper, nameof(scraperHelper));
 
             _xpathManager = xpathManager;
+            _scraperHelper = scraperHelper;
 
         }
 
         /// <summary>Initializes a <see cref="PageItemScraper"/> instance using default parameters.</summary>
         public PageItemScraper()
-            : this(new XPathManager()) { }
+            : this(new XPathManager(), new PageItemScraperHelper()) { }
 
         #endregion
 
@@ -149,7 +152,7 @@ namespace NW.WIDJobs
             uint attributeNr = 1;
 
             List<string> relativeUrls = _xpathManager.GetAttributeValues(content, xpath, attributeNr);
-            List<string> urls = relativeUrls.Select(relativeUrl => ConvertToAbsoluteUrl(relativeUrl)).ToList();
+            List<string> urls = relativeUrls.Select(relativeUrl => _scraperHelper.ConvertToAbsoluteUrl(relativeUrl)).ToList();
 
             return urls;
 
@@ -260,16 +263,6 @@ namespace NW.WIDJobs
 
         }
 
-        private string ConvertToAbsoluteUrl(string relativeUrl)
-        {
-            /*
-                /job/8148174/Technology-Finance-Business-Partner
-                => https://www.workindenmark.dk/job/8148174/Technology-Finance-Business-Partner
-            */
-
-            return string.Concat("https://www.workindenmark.dk", relativeUrl);
-
-        }
         private DateTime ParseCreateDate(string createDate)
             => DateTime.ParseExact(createDate, "yyyy-MM-dd", CultureInfo.InvariantCulture);
         private DateTime? ParseApplicationDate(string applicationDate)
