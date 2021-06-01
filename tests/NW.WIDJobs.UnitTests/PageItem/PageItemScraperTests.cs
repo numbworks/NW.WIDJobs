@@ -71,7 +71,7 @@ namespace NW.WIDJobs.UnitTests
                     () => new PageItemScraper().Do(ObjectMother.AdditionalCases_PageItemScraper03_Page.Invoke())
                 ),
                 typeof(Exception),
-                MessageCollection.PageItemScraper_NotPossibleToExtractJobId.Invoke(
+                MessageCollection.PageItemScraperHelper_NotPossibleToExtractJobId.Invoke(
                         ObjectMother.AdditionalCases_PageItemScraper03_Url, 
                         "(?<=/job/)[0-9]{5,}"
                     )

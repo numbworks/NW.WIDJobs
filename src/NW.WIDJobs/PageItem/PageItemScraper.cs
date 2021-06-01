@@ -256,7 +256,7 @@ namespace NW.WIDJobs
                 ...
              */
 
-            List<string> results = urls.Select(result => ExtractJobId(result)).ToList();
+            List<string> results = urls.Select(result => _scraperHelper.ExtractJobId(result)).ToList();
             List<ulong> jobIds = results.Select(result => ulong.Parse(result)).ToList();
 
             return jobIds;
@@ -299,22 +299,6 @@ namespace NW.WIDJobs
             => applicationDate.Replace("Application date: ", string.Empty);
         private string FixNonBreakCharacter(string str)
             => str.Replace("\u00A0", " ");
-        private string ExtractJobId(string url)
-        {
-
-            /*
-                https://www.workindenmark.dk/job/8148174/Technology-Finance-Business-Partner
-                    => 8148174
-            */
-
-            string pattern = "(?<=/job/)[0-9]{5,}";
-
-            if (!Regex.IsMatch(url, pattern))
-                throw new Exception(MessageCollection.PageItemScraper_NotPossibleToExtractJobId.Invoke(url, pattern));
-
-            return Regex.Match(url, pattern).ToString();
-
-        }
         private ushort CalculatePageItemNumber(ushort i)
             => (ushort)(i + 1);
         private string CreatePageItemId(ulong jobId, string title)

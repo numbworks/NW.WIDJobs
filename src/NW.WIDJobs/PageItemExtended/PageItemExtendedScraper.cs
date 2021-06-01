@@ -114,6 +114,7 @@ namespace NW.WIDJobs
             string workAreaWithoutZone = _scraperHelper.CreateWorkAreaWithoutZone(workArea);
             string workingHours = ExtractAndCleanWorkingHours(content);
             string jobType = ExtractAndCleanJobType(content);
+            string jobId = _scraperHelper.ExtractJobId(url);
 
             return null;
         

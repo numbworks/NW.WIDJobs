@@ -31,10 +31,17 @@ namespace NW.WIDJobs
         string CleanJobType(string jobType);
 
         /// <summary>
-        /// Prepares <paramref name="workArea"/> so that it can be assigned to <see cref="PageItem.WorkAreaWithoutZone"/>.
+        /// Processes <paramref name="workArea"/> so that the resulting string can be assigned to <see cref="PageItem.WorkAreaWithoutZone"/>.
         /// </summary>
         /// <exception cref="ArgumentNullException"/> 
         string CreateWorkAreaWithoutZone(string workArea);
+
+        /// <summary>
+        /// Processes <paramref name="url"/> so that the resulting string can be assigned to <see cref="PageItem.JobId"/>.
+        /// </summary>
+        /// <exception cref="ArgumentNullException"/> 
+        /// <exception cref="Exception"/> 
+        string ExtractJobId(string url);
 
     }
 }

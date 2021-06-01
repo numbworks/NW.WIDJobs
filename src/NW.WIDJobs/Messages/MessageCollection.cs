@@ -47,9 +47,9 @@ namespace NW.WIDJobs
 
         #endregion
 
-        #region PageItemScraper
+        #region PageItemScraperHelper
 
-        public static Func<string, string, string> PageItemScraper_NotPossibleToExtractJobId =
+        public static Func<string, string, string> PageItemScraperHelper_NotPossibleToExtractJobId =
             (url, pattern) => $"Not possible to extract {nameof(PageItem.JobId)} from '{url}' with pattern: '{pattern}'.";
 
         #endregion

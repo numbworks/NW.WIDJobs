@@ -89,6 +89,24 @@ namespace NW.WIDJobs
             return Regex.Match(workArea, pattern).ToString();
 
         }
+        public string ExtractJobId(string url)
+        {
+
+            /*
+                https://www.workindenmark.dk/job/8148174/Technology-Finance-Business-Partner
+                    => 8148174
+            */
+
+            Validator.ValidateStringNullOrWhiteSpace(url, nameof(url));
+
+            string pattern = "(?<=/job/)[0-9]{5,}";
+
+            if (!Regex.IsMatch(url, pattern))
+                throw new Exception(MessageCollection.PageItemScraperHelper_NotPossibleToExtractJobId.Invoke(url, pattern));
+
+            return Regex.Match(url, pattern).ToString();
+
+        }
 
         #endregion
 
