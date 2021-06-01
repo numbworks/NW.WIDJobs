@@ -43,6 +43,12 @@ namespace NW.WIDJobs
         /// <exception cref="Exception"/> 
         string ExtractJobId(string url);
 
+        /// <summary>
+        /// Processes <paramref name="jobId"/> and <paramref name="title"/> so that the resulting string can be assigned to <see cref="PageItem.PageItemId"/>.
+        /// </summary>
+        /// <exception cref="ArgumentNullException"/> 
+        string CreatePageItemId(ulong jobId, string title);
+
     }
 }
 

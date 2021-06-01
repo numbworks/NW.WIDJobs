@@ -114,10 +114,25 @@ namespace NW.WIDJobs
             string workAreaWithoutZone = _scraperHelper.CreateWorkAreaWithoutZone(workArea);
             string workingHours = ExtractAndCleanWorkingHours(content);
             string jobType = ExtractAndCleanJobType(content);
-            string jobId = _scraperHelper.ExtractJobId(url);
+            ulong jobId = ulong.Parse(_scraperHelper.ExtractJobId(url));
+            string pageItemId = _scraperHelper.CreatePageItemId(jobId, title);
 
-            return null;
-        
+            return new PageItem(
+                        runId: runId,
+                        pageNumber: pageNumber,
+                        url: url,
+                        title: title,
+                        createDate: createDate,
+                        applicationDate: applicationDate,
+                        workArea: workArea,
+                        workAreaWithoutZone: workAreaWithoutZone,
+                        workingHours: workingHours,
+                        jobType: jobType,
+                        jobId: jobId,
+                        pageItemNumber: pageItemNumber,
+                        pageItemId: pageItemId
+                    );
+
         }
         public PageItem TryExtractPageItem(string content)
             => TryExtractPageItem(DummyPageItemRunId, DummyPageNumber, DummyPageItemNumber, content);

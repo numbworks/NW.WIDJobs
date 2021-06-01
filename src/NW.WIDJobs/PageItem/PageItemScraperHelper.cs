@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace NW.WIDJobs
@@ -105,6 +107,37 @@ namespace NW.WIDJobs
                 throw new Exception(MessageCollection.PageItemScraperHelper_NotPossibleToExtractJobId.Invoke(url, pattern));
 
             return Regex.Match(url, pattern).ToString();
+
+        }
+        public string CreatePageItemId(ulong jobId, string title)
+        {
+
+            /*
+                8144089, "Business Support & Pricing Manager"            
+                    => 8144089businesssupportpricingmanager
+
+                8180759, "Technical Officer, GOARN, Copenhagen, DenmarkOrganization: World Health Organization"
+                    => "8180759technicalofficergoarncopenhagendenmarkorganizationworldhealthorganization"
+                            => "8180759technicalofficergoarncopenhagendenmark"
+            */
+
+            Validator.ValidateStringNullOrWhiteSpace(title, nameof(title));
+
+            string pattern = "[a-zA-Z]{1,}";
+
+            string[] words = Regex.Matches(title, pattern).Cast<Match>().Select(m => m.Value.ToLower()).ToArray();
+
+            int threshold = 5;
+            if (words.Length > threshold)
+                words = words.Take(threshold).ToArray();
+
+            StringBuilder stringBuilder = new StringBuilder();
+            words.ToList().ForEach(match => stringBuilder.Append(match));
+
+            string pageItemId = stringBuilder.ToString();
+            pageItemId = string.Concat(jobId, pageItemId);
+
+            return pageItemId;
 
         }
 
