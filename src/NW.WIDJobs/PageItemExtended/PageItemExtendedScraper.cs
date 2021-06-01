@@ -109,6 +109,8 @@ namespace NW.WIDJobs
             string url = ExtractUrl(content);
             string title = ExtractTitle(content);
             DateTime createDate = (DateTime)TryExtractCreateDate(content);
+            DateTime? applicationDate = TryExtractApplicationDate(content);
+
 
             return null;
         
@@ -501,6 +503,20 @@ namespace NW.WIDJobs
             string createDate = _xpathManager.GetInnerText(content, xpath);
 
             return TryParseDate(createDate);
+
+        }
+        private DateTime? TryExtractApplicationDate(string content)
+        {
+
+            /*
+                "30/05/2021"
+            */
+
+            string xpath = "//div[@class='col-sm-11']/dl[@class='dl-justify nomargin']/dt[contains(.,'Application')]/following-sibling::dd[1]";
+
+            string applicationDate = _xpathManager.GetInnerText(content, xpath);
+
+            return TryParseDate(applicationDate);
 
         }
 
