@@ -219,9 +219,22 @@ namespace NW.WIDJobs
         public PageItemExtended TryGetPageItemExtendedFromHtml(IFileInfoAdapter fileInfoAdapter)
         {
 
-            // ...
+            Validator.ValidateObject(fileInfoAdapter, nameof(fileInfoAdapter));
+            Validator.ValidateFileExistance(fileInfoAdapter);
 
-            return null;
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExploringProvidedFile.Invoke(fileInfoAdapter));
+
+            string runId = _components.RunIdManager.Create(Now);
+            ushort pageNumber = PageItemExtendedScraper.DummyPageNumber;
+            ushort pageItemNumber = PageItemExtendedScraper.DummyPageItemNumber;
+
+            string content = _components.FileManager.ReadAllText(fileInfoAdapter);
+            PageItem pageItem = _components.PageItemExtendedScraper.TryExtractPageItem(runId, pageNumber, pageItemNumber, content);
+            PageItemExtended pageItemExtended = _components.PageItemExtendedScraper.Do(pageItem, content);
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ProvidedFileSuccessfullyExplored);
+
+            return pageItemExtended;
 
         }
         public PageItemExtended TryGetPageItemExtendedFromHtml(string filePath)
