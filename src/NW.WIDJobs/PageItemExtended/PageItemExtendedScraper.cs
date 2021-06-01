@@ -18,6 +18,11 @@ namespace NW.WIDJobs
         #endregion
 
         #region Properties
+
+        public static string DummyPageItemRunId { get; } = "Dummy_RunId";
+        public static ushort DummyPageNumber { get; } = 1;
+        public static ushort DummyPageItemNumber { get; } = 1;
+
         #endregion
 
         #region Constructors
@@ -90,6 +95,22 @@ namespace NW.WIDJobs
             return pageItemExtended;
 
         }
+        public PageItem TryExtractPageItem(string runId, ushort pageNumber, ushort pageItemNumber, string content)
+        {
+
+            Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
+            Validator.ThrowIfLessThanOne(pageNumber, nameof(pageNumber));
+            Validator.ThrowIfLessThanOne(pageItemNumber, nameof(pageItemNumber));
+            Validator.ValidateStringNullOrWhiteSpace(content, nameof(content));
+
+            string url = ExtractUrl(content);
+            string title = ExtractTitle(content);
+
+            return null;
+        
+        }
+        public PageItem TryExtractPageItem(string content)
+            => TryExtractPageItem(DummyPageItemRunId, DummyPageNumber, DummyPageItemNumber, content);
 
         #endregion
 
@@ -434,6 +455,21 @@ namespace NW.WIDJobs
 
         }
 
+        private string ExtractUrl(string content)
+        {
+
+            /*
+                /job/8187944/International-Project-Controller
+                ...
+            */
+
+            string xpath = "//form[@method='post']/@action";
+
+            string title = _xpathManager.GetInnerText(content, xpath);
+
+            return title;
+
+        }
         private string ExtractTitle(string content)
         {
 
@@ -458,5 +494,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 13.05.2021
+    Last Update: 01.06.2021
 */
