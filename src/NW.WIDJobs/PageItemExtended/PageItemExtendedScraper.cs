@@ -111,6 +111,8 @@ namespace NW.WIDJobs
             DateTime createDate = (DateTime)TryExtractAndParseCreateDate(content);
             DateTime? applicationDate = TryExtractAndParseApplicationDate(content);
             string workArea = ExtractAndCleanWorkArea(content);
+            string workingHours = ExtractAndCleanWorkingHours(content);
+            string jobType = ExtractAndCleanJobType(content);
 
             return null;
         
@@ -528,10 +530,40 @@ namespace NW.WIDJobs
 
             string xpath = "//div[@class='col-sm-9 col-sm-push-3 nopadding paddingtop']/div[@class='data-list']/div[@class='row nomargin']/div[@class='col-sm-12']/ul[@class='list-inline']/li[contains(.,'Work area')]";
 
-            string title = _xpathManager.GetInnerText(content, xpath);
-            title = _scraperHelper.CleanWorkArea(title);
+            string workArea = _xpathManager.GetInnerText(content, xpath);
+            workArea = _scraperHelper.CleanWorkArea(workArea);
 
-            return title;
+            return workArea;
+
+        }
+        private string ExtractAndCleanWorkingHours(string content)
+        {
+
+            /*
+                "Working hours: Full time (37 hours)"
+            */
+
+            string xpath = "//div[@class='col-sm-9 col-sm-push-3 nopadding paddingtop']/div[@class='data-list']/div[@class='row nomargin']/div[@class='col-sm-12']/ul[@class='list-inline']/li[contains(.,'Working hours')]";
+
+            string workingHours = _xpathManager.GetInnerText(content, xpath);
+            workingHours = _scraperHelper.CleanWorkingHours(workingHours);
+
+            return workingHours;
+
+        }
+        private string ExtractAndCleanJobType(string content)
+        {
+
+            /*
+                "Job type: Regular position"
+            */
+
+            string xpath = "//div[@class='col-sm-9 col-sm-push-3 nopadding paddingtop']/div[@class='data-list']/div[@class='row nomargin']/div[@class='col-sm-12']/ul[@class='list-inline']/li[contains(.,'Job type')]";
+
+            string jobType = _xpathManager.GetInnerText(content, xpath);
+            jobType = _scraperHelper.CleanJobType(jobType);
+
+            return jobType;
 
         }
 
