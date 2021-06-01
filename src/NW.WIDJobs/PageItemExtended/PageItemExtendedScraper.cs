@@ -111,6 +111,7 @@ namespace NW.WIDJobs
             DateTime createDate = (DateTime)TryExtractAndParseCreateDate(content);
             DateTime? applicationDate = TryExtractAndParseApplicationDate(content);
             string workArea = ExtractAndCleanWorkArea(content);
+            string workAreaWithoutZone = _scraperHelper.CreateWorkAreaWithoutZone(workArea);
             string workingHours = ExtractAndCleanWorkingHours(content);
             string jobType = ExtractAndCleanJobType(content);
 
