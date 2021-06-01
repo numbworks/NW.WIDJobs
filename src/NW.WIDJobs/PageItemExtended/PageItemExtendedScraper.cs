@@ -14,6 +14,7 @@ namespace NW.WIDJobs
         #region Fields
 
         private IXPathManager _xpathManager;
+        private IPageItemScraperHelper _scraperHelper;
 
         #endregion
 
@@ -29,18 +30,20 @@ namespace NW.WIDJobs
 
         /// <summary>Initializes a <see cref="PageItemExtendedScraper"/> instance.</summary>
         /// <exception cref="ArgumentNullException"/>
-        public PageItemExtendedScraper(IXPathManager xpathManager)
+        public PageItemExtendedScraper(IXPathManager xpathManager, IPageItemScraperHelper scraperHelper)
         {
 
             Validator.ValidateObject(xpathManager, nameof(xpathManager));
+            Validator.ValidateObject(scraperHelper, nameof(scraperHelper));
 
             _xpathManager = xpathManager;
+            _scraperHelper = scraperHelper;
 
         }
 
         /// <summary>Initializes a <see cref="PageItemExtendedScraper"/> instance using default parameters.</summary>
         public PageItemExtendedScraper()
-            : this(new XPathManager()) { }
+            : this(new XPathManager(), new PageItemScraperHelper()) { }
 
         #endregion
 
@@ -466,6 +469,7 @@ namespace NW.WIDJobs
             string xpath = "//form[@method='post']/@action";
 
             string title = _xpathManager.GetInnerText(content, xpath);
+            title = _scraperHelper.ConvertToAbsoluteUrl(title);
 
             return title;
 

@@ -13,11 +13,19 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new PageItemExtendedScraper(null)
+                    () => new PageItemExtendedScraper(null, new PageItemScraperHelper())
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("xpathManager").Message
-            ).SetArgDisplayNames($"{nameof(pageItemExtendedScraperExceptionTestCases)}_01")
+            ).SetArgDisplayNames($"{nameof(pageItemExtendedScraperExceptionTestCases)}_01"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new PageItemExtendedScraper(new XPathManager(), null)
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("scraperHelper").Message
+            ).SetArgDisplayNames($"{nameof(pageItemExtendedScraperExceptionTestCases)}_02")
 
         };
         private static TestCaseData[] doTestCases =
