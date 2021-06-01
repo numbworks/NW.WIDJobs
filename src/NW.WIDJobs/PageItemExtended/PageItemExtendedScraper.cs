@@ -108,6 +108,7 @@ namespace NW.WIDJobs
 
             string url = ExtractUrl(content);
             string title = ExtractTitle(content);
+            DateTime createDate = (DateTime)TryExtractCreateDate(content);
 
             return null;
         
@@ -463,7 +464,7 @@ namespace NW.WIDJobs
 
             /*
                 /job/8187944/International-Project-Controller
-                ...
+                    => http://www.workindenmark.dk/job/8187944/International-Project-Controller
             */
 
             string xpath = "//form[@method='post']/@action";
@@ -479,7 +480,6 @@ namespace NW.WIDJobs
 
             /*
                 International Project Controller
-                ...
             */
 
             string xpath = "//div[@class='col-sm-9 col-sm-push-3']/h1[@class='widk-h1-black']";
@@ -487,6 +487,20 @@ namespace NW.WIDJobs
             string title = _xpathManager.GetInnerText(content, xpath);
 
             return title;
+
+        }
+        private DateTime? TryExtractCreateDate(string content)
+        {
+
+            /*
+                "30/05/2021"
+            */
+
+            string xpath = "//div[@class='col-sm-11']/dl[@class='dl-justify nomargin']/dt[contains(.,'Created')]/following-sibling::dd[1]";
+
+            string createDate = _xpathManager.GetInnerText(content, xpath);
+
+            return TryParseDate(createDate);
 
         }
 
