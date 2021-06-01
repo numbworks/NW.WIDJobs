@@ -508,6 +508,96 @@ An example of `Description` field containing within-text bullet points:
 |---|---|
 |`(?<=-\\t)[\w ]{1,}(?=-\\t)`|The latest bullet point gets lost.|
 
+## The PageItemExtended page to extract a PageItem object
+
+In some edge cases, you might find useful the possibility to extract a `PageItem` from the page from which the library usually extracts a `PageItemExtended` object. These pages usually (but not always) contain all the `PageItem` information as well.
+
+```html
+...
+    <form method="post" action="/job/8187944/International-Project-Controller" onsubmit="javascript:return WebForm_OnSubmit();" id="form1">
+...
+<div id="scphpage_0_scphcontent_1_ctl00_pnlJobFound">
+	
+	<div class="row row-white">
+		<div class="col-sm-9 col-sm-push-3">
+
+			<h1 class="widk-h1-black">International Project Controller</h1>
+	
+			<hr class="margin" />
+
+			<div class="row">
+				<div class="col-sm-11">
+					<dl class="dl-justify nomargin">
+						<dt>Created</dt>
+						<dd>30/05/2021</dd>
+						<dt>Application</dt>
+						<dd>16/06/2021</dd>
+					</dl>
+				</div>
+			</div>
+
+			<hr class="margin" />
+
+			<div class="row">
+				<div class="col-sm-11">
+
+					<div class="JobPresentation job-description">
+						Are you the collaborative teammate with financial expertise that the world’s largest independent organization for children is looking for? If you thrive building strong, collaborative working relationships and if you are interested in further developing strong and automated processes, then you just might be our next International Project Controller.<br> <br><br>WHO ARE WE?<br>Our Business Support and Development Department is on a continuous and exciting journey to ensure a renewed focus on effective processes and cross-divisional teamwork. The key mandate of our section is to provide counseling, financial support, and quality assurance regarding all financial aspects throughout the entire project cycle.<br><br>The successful candidate will become an important part of this continued team journey and have a chance to influence how we will shape and conduct financial project controlling in the future, to ensure we live up to Save the Children’s high-quality standards.<br> <br><br>WHAT TO EXPECT<br><br>We are looking for...
+					</div>
+            
+					<a href="https://candidate.hr-manager.net/ApplicationInit.aspx?cid=399&ProjectId=179186&DepartmentId=17741&MediaId=5&SkipAdvertisement=False" target="_blank">See the complete text at Red Barnet</a>
+            
+
+
+				</div>
+			</div>
+
+		</div>
+		
+	</div>
+
+    <div class="row hidden-print">
+		<div class="col-sm-9 col-sm-push-3 nopadding paddingtop">
+			<div class="data-list">
+				<div class="row nomargin">
+					<div class="col-sm-12">
+						<ul class="list-inline">
+							<li>Work area: København V</li>
+							<li>Working hours: Full time (37 hours)</li>
+							<li>Job type: Regular position</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+...
+```
+
+The XPath patterns to scrape all the `PageItem` fields are the following ones:
+
+|Type|Field|Pattern|
+|---|---|---|
+|`Mandatory`|`Url`|`//form[@method='post']/@action`|
+|`Mandatory`|`Title`|`//div[@class='col-sm-9 col-sm-push-3']/h1[@class='widk-h1-black']`|
+|`Mandatory`|`CreateDate`|`//div[@class='col-sm-11']/dl[@class='dl-justify nomargin']/dt[contains(.,'Created')]/following-sibling::dd[1]`|
+|`Optional`|`ApplicationDate`|`//div[@class='col-sm-11']/dl[@class='dl-justify nomargin']/dt[contains(.,'Application')]/following-sibling::dd[1]`|
+|`Mandatory`|`WorkArea`|`//div[@class='col-sm-9 col-sm-push-3 nopadding paddingtop']/div[@class='data-list']/div[@class='row nomargin']/div[@class='col-sm-12']/ul[@class='list-inline']/li[contains(.,'Work area')]`|
+|`Mandatory`|`WorkingHours`|`//div[@class='col-sm-9 col-sm-push-3 nopadding paddingtop']/div[@class='data-list']/div[@class='row nomargin']/div[@class='col-sm-12']/ul[@class='list-inline']/li[contains(.,'Working hours')]`|
+|`Mandatory`|`JobType`|`//div[@class='col-sm-9 col-sm-push-3 nopadding paddingtop']/div[@class='data-list']/div[@class='row nomargin']/div[@class='col-sm-12']/ul[@class='list-inline']/li[contains(.,'Job type')]`|
+
+The following fields require extra processing:
+
+|Field|Action|
+|---|---|
+|`Url`|Convert from relative to absolute.|
+|`CreateDate`|Parse it to `DateTime`. The field may be not present.|
+|`ApplicationDate`|Parse it to `DateTime`. The field may be not present.|
+|`WorkArea`|Remove `Work area: `.|
+|`WorkingHours`|Remove `Working hours: `.|
+|`JobType`|Remove `Job type: `.|
+|`JobId`|Parse it to `ulong`.|
+
 ## The logic behind PageItemScraper.IsThresholdConditionMet()
 
 During an exploration and while evaluating the content of a `Page`, the `PageItemScraper.IsThresholdConditionMet()` method establishes if the `ThresholdDate` condition is met and the exploration should stop (`true` case), or if the exploration should continue (`false` case).
