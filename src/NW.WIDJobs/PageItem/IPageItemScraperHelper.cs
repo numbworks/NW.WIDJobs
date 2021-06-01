@@ -30,6 +30,12 @@ namespace NW.WIDJobs
         /// <exception cref="ArgumentNullException"/> 
         string CleanJobType(string jobType);
 
+        /// <summary>
+        /// Prepares <paramref name="workArea"/> so that it can be assigned to <see cref="PageItem.WorkAreaWithoutZone"/>.
+        /// </summary>
+        /// <exception cref="ArgumentNullException"/> 
+        string CreateWorkAreaWithoutZone(string workArea);
+
     }
 }
 

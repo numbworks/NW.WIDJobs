@@ -212,7 +212,7 @@ namespace NW.WIDJobs
 
         }
         private List<string> CreateWorkAreasWithoutZones(List<string> workAreas)
-            => workAreas.Select(workArea => CreateWorkAreaWithoutZone(workArea)).ToList();
+            => workAreas.Select(workArea => _scraperHelper.CreateWorkAreaWithoutZone(workArea)).ToList();
         private List<string> ExtractAndCleanWorkingHours(string content)
         {
 
@@ -283,34 +283,6 @@ namespace NW.WIDJobs
             }
 
         }
-        private string CreateWorkAreaWithoutZone(string workArea)
-        {
-
-            /*
-
-                København K 	=> København
-                Kgs. Lyngby		=> Kgs. Lyngby
-                København V 	=> København
-                København Ø 	=> København
-                København S		=> København
-                Aarhus C 		=> Aarhus
-                Viby J 			=> Viby
-                Odense S 		=> Odense
-                Kongens Lyngby 	=> Kongens Lyngby
-                Billund 		=> Billund
-                København SV 	=> København
-                Esbjerg V 		=> Esbjerg
-                Odense SØ 		=> Odense
-                Lem St 			=> Lem 
-                ...				
-
-            */
-
-            string pattern = "^[a-zA-ZÀ-ÖØ-öø-ÿ.]{1,}$|^[a-zA-ZÀ-ÖØ-öø-ÿ.]{1,}[ ]{1}[a-zA-ZÀ-ÖØ-öø-ÿ.]{3,}|^[a-zA-ZÀ-ÖØ-öø-ÿ.]{1,}";
-
-            return Regex.Match(workArea, pattern).ToString();
-
-        }
         private string CleanTitle(string title)
         {
 
@@ -325,7 +297,6 @@ namespace NW.WIDJobs
         }
         private string CleanApplicationDate(string applicationDate)
             => applicationDate.Replace("Application date: ", string.Empty);
-
         private string FixNonBreakCharacter(string str)
             => str.Replace("\u00A0", " ");
         private string ExtractJobId(string url)

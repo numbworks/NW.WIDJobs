@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 
 namespace NW.WIDJobs
 {
@@ -56,6 +57,36 @@ namespace NW.WIDJobs
             Validator.ValidateStringNullOrWhiteSpace(jobType, nameof(jobType));
 
             return jobType.Replace("Job type: ", string.Empty);
+
+        }
+        public string CreateWorkAreaWithoutZone(string workArea)
+        {
+
+            /*
+
+                København K 	=> København
+                Kgs. Lyngby		=> Kgs. Lyngby
+                København V 	=> København
+                København Ø 	=> København
+                København S		=> København
+                Aarhus C 		=> Aarhus
+                Viby J 			=> Viby
+                Odense S 		=> Odense
+                Kongens Lyngby 	=> Kongens Lyngby
+                Billund 		=> Billund
+                København SV 	=> København
+                Esbjerg V 		=> Esbjerg
+                Odense SØ 		=> Odense
+                Lem St 			=> Lem 
+                ...				
+
+            */
+
+            Validator.ValidateStringNullOrWhiteSpace(workArea, nameof(workArea));
+
+            string pattern = "^[a-zA-ZÀ-ÖØ-öø-ÿ.]{1,}$|^[a-zA-ZÀ-ÖØ-öø-ÿ.]{1,}[ ]{1}[a-zA-ZÀ-ÖØ-öø-ÿ.]{3,}|^[a-zA-ZÀ-ÖØ-öø-ÿ.]{1,}";
+
+            return Regex.Match(workArea, pattern).ToString();
 
         }
 
