@@ -34,6 +34,30 @@ namespace NW.WIDJobs
             return string.Concat("https://www.workindenmark.dk", relativeUrl);
 
         }
+        public string CleanWorkArea(string workArea)
+        {
+
+            Validator.ValidateStringNullOrWhiteSpace(workArea, nameof(workArea));
+
+            return workArea.Replace("Work area: ", string.Empty);
+
+        }
+        public string CleanWorkingHours(string workingHours)
+        {
+
+            Validator.ValidateStringNullOrWhiteSpace(workingHours, nameof(workingHours));
+
+            return workingHours.Replace("Working hours: ", string.Empty);
+
+        }
+        public string CleanJobType(string jobType)
+        {
+
+            Validator.ValidateStringNullOrWhiteSpace(jobType, nameof(jobType));
+
+            return jobType.Replace("Job type: ", string.Empty);
+
+        }
 
         #endregion
 

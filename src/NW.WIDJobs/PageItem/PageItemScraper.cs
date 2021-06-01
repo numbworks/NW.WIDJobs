@@ -206,7 +206,7 @@ namespace NW.WIDJobs
             string xpath = "//ul[@class='list-inline']/li[contains(.,'Work area')]";
 
             List<string> results = _xpathManager.GetInnerTexts(content, xpath);
-            List<string> workAreas = results.Select(result => CleanWorkArea(result)).ToList();
+            List<string> workAreas = results.Select(result => _scraperHelper.CleanWorkArea(result)).ToList();
 
             return workAreas;
 
@@ -225,7 +225,7 @@ namespace NW.WIDJobs
             string xpath = "//ul[@class='list-inline']/li[contains(.,'Working hours')]";
 
             List<string> results = _xpathManager.GetInnerTexts(content, xpath);
-            List<string> workingHours = results.Select(result => CleanWorkingHours(result)).ToList();
+            List<string> workingHours = results.Select(result => _scraperHelper.CleanWorkingHours(result)).ToList();
 
             return workingHours;
 
@@ -242,7 +242,7 @@ namespace NW.WIDJobs
             string xpath = "//ul[@class='list-inline']/li[contains(.,'Job type')]";
 
             List<string> results = _xpathManager.GetInnerTexts(content, xpath);
-            List<string> jobTypes = results.Select(result => CleanJobType(result)).ToList();
+            List<string> jobTypes = results.Select(result => _scraperHelper.CleanJobType(result)).ToList();
 
             return jobTypes;
 
@@ -314,25 +314,18 @@ namespace NW.WIDJobs
         private string CleanTitle(string title)
         {
 
-            string cleanTitle = ReplaceWithEmptyString(title, " &nbsp;");
-            cleanTitle = ReplaceWithEmptyString(cleanTitle, "\"");
-            cleanTitle = ReplaceWithEmptyString(cleanTitle, "\n");
-            cleanTitle = ReplaceWithEmptyString(cleanTitle, "â€“");
+            string cleanTitle = title.Replace(" &nbsp;", string.Empty);
+            cleanTitle = cleanTitle.Replace("\"", string.Empty);
+            cleanTitle = cleanTitle.Replace("\n", string.Empty);
+            cleanTitle = cleanTitle.Replace("â€“", string.Empty);
             cleanTitle = FixNonBreakCharacter(cleanTitle);
 
             return cleanTitle;
 
         }
         private string CleanApplicationDate(string applicationDate)
-            => ReplaceWithEmptyString(applicationDate, "Application date: ");
-        private string CleanWorkArea(string workArea)
-            => ReplaceWithEmptyString(workArea, "Work area: ");
-        private string CleanWorkingHours(string workingHours)
-            => ReplaceWithEmptyString(workingHours, "Working hours: ");
-        private string CleanJobType(string jobType)
-            => ReplaceWithEmptyString(jobType, "Job type: ");
-        private string ReplaceWithEmptyString(string str, string toReplace)
-            => str.Replace(toReplace, string.Empty);
+            => applicationDate.Replace("Application date: ", string.Empty);
+
         private string FixNonBreakCharacter(string str)
             => str.Replace("\u00A0", " ");
         private string ExtractJobId(string url)

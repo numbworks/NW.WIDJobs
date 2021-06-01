@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Text.RegularExpressions;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 
 namespace NW.WIDJobs
@@ -108,8 +108,8 @@ namespace NW.WIDJobs
 
             string url = ExtractUrl(content);
             string title = ExtractTitle(content);
-            DateTime createDate = (DateTime)TryExtractCreateDate(content);
-            DateTime? applicationDate = TryExtractApplicationDate(content);
+            DateTime createDate = (DateTime)TryExtractAndParseCreateDate(content);
+            DateTime? applicationDate = TryExtractAndParseApplicationDate(content);
 
 
             return null;
@@ -465,7 +465,7 @@ namespace NW.WIDJobs
         {
 
             /*
-                /job/8187944/International-Project-Controller
+                "/job/8187944/International-Project-Controller"
                     => http://www.workindenmark.dk/job/8187944/International-Project-Controller
             */
 
@@ -481,7 +481,7 @@ namespace NW.WIDJobs
         {
 
             /*
-                International Project Controller
+                "International Project Controller"
             */
 
             string xpath = "//div[@class='col-sm-9 col-sm-push-3']/h1[@class='widk-h1-black']";
@@ -491,7 +491,7 @@ namespace NW.WIDJobs
             return title;
 
         }
-        private DateTime? TryExtractCreateDate(string content)
+        private DateTime? TryExtractAndParseCreateDate(string content)
         {
 
             /*
@@ -505,7 +505,7 @@ namespace NW.WIDJobs
             return TryParseDate(createDate);
 
         }
-        private DateTime? TryExtractApplicationDate(string content)
+        private DateTime? TryExtractAndParseApplicationDate(string content)
         {
 
             /*
@@ -517,6 +517,20 @@ namespace NW.WIDJobs
             string applicationDate = _xpathManager.GetInnerText(content, xpath);
 
             return TryParseDate(applicationDate);
+
+        }
+        private string ExtractAndCleanWorkArea(string content)
+        {
+
+            /*
+                "Work area: København V"
+            */
+
+            string xpath = "//div[@class='col-sm-9 col-sm-push-3 nopadding paddingtop']/div[@class='data-list']/div[@class='row nomargin']/div[@class='col-sm-12']/ul[@class='list-inline']/li[contains(.,'Work area')]";
+
+            string title = _xpathManager.GetInnerText(content, xpath);
+
+            return title;
 
         }
 

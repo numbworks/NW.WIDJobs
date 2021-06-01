@@ -11,7 +11,25 @@ namespace NW.WIDJobs
         /// </summary>
         /// <exception cref="ArgumentNullException"/> 
         string ConvertToAbsoluteUrl(string relativeUrl);
-    
+
+        /// <summary>
+        /// Prepares <paramref name="workArea"/> so that it can be assigned to <see cref="PageItem.WorkArea"/>.
+        /// </summary>
+        /// <exception cref="ArgumentNullException"/> 
+        string CleanWorkArea(string workArea);
+
+        /// <summary>
+        /// Prepares <paramref name="workingHours"/> so that it can be assigned to <see cref="PageItem.WorkingHours"/>.
+        /// </summary>
+        /// <exception cref="ArgumentNullException"/>  
+        string CleanWorkingHours(string workingHours);
+
+        /// <summary>
+        /// Prepares <paramref name="jobType"/> so that it can be assigned to <see cref="PageItem.JobType"/>.
+        /// </summary>
+        /// <exception cref="ArgumentNullException"/> 
+        string CleanJobType(string jobType);
+
     }
 }
 
