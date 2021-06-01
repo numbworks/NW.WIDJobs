@@ -83,11 +83,11 @@ The relationship between these objects is summarized in the diagram below:
 
 The exploration starts from the initial page, which returns something like this:
 
-![WID_01_Page1.png](Pictures/WID_01_Page1.png)
+![TheExploration01](Pictures/TheExploration01.png)
 
 Every page has twenty `PageItems`:
 
-![WID_02_Page1PageItem1](Pictures/WID_02_Page1PageItem1.png)
+![TheExploration02](Pictures/TheExploration02.png)
 
 Each `PageItem` provides the preliminary information about the job ad, which are:
 
@@ -101,13 +101,15 @@ Each `PageItem` provides the preliminary information about the job ad, which are
 
 The `Url` brings us to the a `PageItemExtended`, which represents the job ad with the highest amount of information possible. The amount of informational fields provided by the job ad varies considerably, but in the basic case the `PageItemExtended` will contain the same fields found in the original `PageItem` plus the `Description`:
 
-![WID_03_Page1PageItemExtended1](Pictures/WID_03_Page1PageItemExtended1.png)
+![TheExploration03](Pictures/TheExploration03.png)
 
 The following is an example of an `PageItemExtended` containing more fields:
 
-![WID_04_Page2PageItemExtended18](Pictures/WID_04_Page2PageItemExtended18.png)
+![TheExploration04](Pictures/TheExploration04.png)
 
-...
+In some edge cases, you might find useful the possibility to extract a `PageItem` from the page from which the library usually extracts a `PageItemExtended` object. These pages usually (but not always) contain all the `PageItem` information as well:
+
+![TheExploration05](Pictures/TheExploration05.png)
 
 ## The Page object
 
