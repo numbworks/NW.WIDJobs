@@ -92,10 +92,10 @@ namespace NW.WIDJobs
 
         #region Constructors
 
-        ///<summary>Initializes a <see cref="PageItem"/> instance.</summary>
+        ///<summary>Initializes a <see cref="PageItemEntity"/> instance.</summary>
         public PageItemEntity() { }
 
-        ///<summary>Initializes a <see cref="PageItem"/> instance.</summary>
+        ///<summary>Initializes a <see cref="PageItemEntity"/> instance our of <paramref name="pageItem"/>.</summary>
         /// <exception cref="ArgumentNullException"/>
         public PageItemEntity(PageItem pageItem) 
         {
