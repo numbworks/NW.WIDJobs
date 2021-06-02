@@ -14,62 +14,79 @@ namespace NW.WIDJobs
 
         #region Properties
         [Key]
+        [Required]
+        [Column("integer")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public uint? RowId { get; set; }
+        public uint RowId { get; set; }
         
         [Required]
         [MaxLength(250)]
+        [Column("varchar(250)")]
         public string RunId { get; }
 
         [Required]
+        [Column("smallint")]
         public ushort PageNumber { get; }
 
         [Required]
         [MaxLength(250)]
+        [Column("varchar(250)")]
         public string Url { get; }
 
         [Required]
         [MaxLength(250)]
+        [Column("varchar(250)")]
         public string Title { get; }
 
         [Required]
+        [Column("datetime")]
         public DateTime CreateDate { get; }
-        
+
+        [Column("datetime")]
         public DateTime? ApplicationDate { get; }
 
         [Required]
         [MaxLength(250)]
+        [Column("varchar(250)")]
         public string WorkArea { get; }
 
         [Required]
         [MaxLength(250)]
+        [Column("varchar(250)")]
         public string WorkAreaWithoutZone { get; }
 
         [Required]
         [MaxLength(250)]
+        [Column("varchar(250)")]
         public string WorkingHours { get; }
 
         [Required]
         [MaxLength(250)]
+        [Column("varchar(250)")]
         public string JobType { get; }
 
         [Required]
+        [Column("bigint")]
         public ulong JobId { get; }
 
         [Required]
+        [Column("smallint")]
         public ushort PageItemNumber { get; }
 
         [Required]
         [MaxLength(250)]
+        [Column("varchar(250)")]
         public string PageItemId { get; }
 
         [Required]
+        [Column("datetime")]
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public DateTime? RowCreatedOn { get; set; }
+        public DateTime RowCreatedOn { get; set; }
 
         [Required]
+        [Column("datetime")]
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public DateTime? RowModifiedOn { get; set; }
+        public DateTime RowModifiedOn { get; set; }
 
         #endregion
 
