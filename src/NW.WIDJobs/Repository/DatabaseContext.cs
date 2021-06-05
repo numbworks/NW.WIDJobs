@@ -13,9 +13,6 @@ namespace NW.WIDJobs
 
         #region Properties
 
-        public static string DefaultDatabasePath { get; } = Directory.GetCurrentDirectory();
-        public static string DefaultDatabaseName { get; } = "widjobs.db";
-
         public string ConnectionStringValue { get; }
         public DbSet<PageItemEntity> PageItems { get; set; }
         public DbSet<PageItemExtendedEntity> PageItemsExtended { get; set; }
@@ -36,10 +33,6 @@ namespace NW.WIDJobs
             ConnectionStringValue = CreateConnectionStringValue(databasePath, databaseName);
 
         }
-
-        ///<summary>Initializes a <see cref="DatabaseContext"/> instance with default parameters.</summary>
-        public DatabaseContext()
-            : this(DefaultDatabasePath, DefaultDatabaseName) { }
 
         #endregion
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace NW.WIDJobs
 {
@@ -13,9 +14,13 @@ namespace NW.WIDJobs
 
         public static ushort DefaultParallelRequests { get; } = 3;
         public static uint DefaultPauseBetweenRequestsMs { get; } = 25000; // 25 seconds
+        public static string DefaultDatabasePath { get; } = Directory.GetCurrentDirectory();
+        public static string DefaultDatabaseName { get; } = "widjobs.db";
 
         public ushort ParallelRequests { get; }
         public uint PauseBetweenRequestsMs { get; }
+        public string DatabasePath { get; }
+        public string DatabaseName { get; }
 
         #endregion
 
@@ -25,14 +30,20 @@ namespace NW.WIDJobs
         /// <exception cref="ArgumentException"/>
         public WIDExplorerSettings(
             ushort parallelRequests,
-            uint pauseBetweenRequestsMs
+            uint pauseBetweenRequestsMs,
+            string databasePath,
+            string databaseName
             )
         {
 
             Validator.ThrowIfLessThanOne(parallelRequests, nameof(parallelRequests));
+            Validator.ValidateStringNullOrWhiteSpace(databasePath, nameof(databasePath));
+            Validator.ValidateStringNullOrWhiteSpace(databaseName, nameof(databaseName));
 
             ParallelRequests = parallelRequests;
             PauseBetweenRequestsMs = pauseBetweenRequestsMs;
+            DatabasePath = databasePath;
+            DatabaseName = databaseName;
 
         }
 
@@ -40,7 +51,10 @@ namespace NW.WIDJobs
         public WIDExplorerSettings()
             : this(
                   DefaultParallelRequests,
-                  DefaultPauseBetweenRequestsMs) { }
+                  DefaultPauseBetweenRequestsMs,
+                  DefaultDatabasePath,
+                  DefaultDatabaseName
+                  ) { }
 
         #endregion
 
