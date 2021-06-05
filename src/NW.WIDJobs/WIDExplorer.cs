@@ -50,50 +50,6 @@ namespace NW.WIDJobs
 
         #region Methods_public
 
-        public string ToJson(WIDExploration exploration)
-        {
-
-            Validator.ValidateObject(exploration, nameof(exploration));
-
-            JsonSerializerOptions options = new JsonSerializerOptions();
-            options.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
-            options.Converters.Add(new DateTimeToDateConverter());
-
-            dynamic dyn = new ExpandoObject();
-            dyn.RunId = exploration.RunId;
-            dyn.TotalResults = exploration.TotalResults;
-            dyn.TotalEstimatedPages = exploration.TotalEstimatedPages;
-            dyn.Category = exploration.Category;
-            dyn.Stage = exploration.Stage;
-            dyn.IsCompleted = exploration.IsCompleted;
-            dyn.Pages = exploration.Pages?.Select(page => new Page(page.RunId, page.PageNumber, DefaultNotSerialized)).ToList();
-
-            if (exploration.Stage == WIDStages.Stage3_UpToAllPageItemsExtended)
-                dyn.PageItems = DefaultNotSerialized;
-            
-            dyn.PageItemsExtended = exploration.PageItemsExtended;
-
-            return JsonSerializer.Serialize(dyn, options);
-
-        }
-        public string ToJson(WIDMetrics metrics)
-        {
-
-            Validator.ValidateObject(metrics, nameof(metrics));
-
-            JsonSerializerOptions options = new JsonSerializerOptions();
-            options.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
-            options.Converters.Add(new DateTimeToDateConverter());
-
-            return JsonSerializer.Serialize(metrics, options);
-
-        }
-        
-        public WIDMetrics Calculate(WIDExploration exploration)
-            => _components.MetricsManager.Calculate(exploration);
-        public Dictionary<string, string> ConvertToPercentages(Dictionary<string, uint> dict)
-            => _components.MetricsManager.ConvertToPercentages(dict);
-
         public WIDExploration Explore
             (string runId, ushort finalPageNumber, WIDCategories category, WIDStages stage)
         {
@@ -241,6 +197,49 @@ namespace NW.WIDJobs
         public PageItemExtended TryGetPageItemExtendedFromHtml(string filePath)
             => TryGetPageItemExtendedFromHtml(_components.FileManager.Create(filePath));
 
+        public WIDMetrics Calculate(WIDExploration exploration)
+            => _components.MetricsManager.Calculate(exploration);
+        public Dictionary<string, string> ConvertToPercentages(Dictionary<string, uint> dict)
+            => _components.MetricsManager.ConvertToPercentages(dict);
+
+        public string ToJson(WIDExploration exploration)
+        {
+
+            Validator.ValidateObject(exploration, nameof(exploration));
+
+            JsonSerializerOptions options = new JsonSerializerOptions();
+            options.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
+            options.Converters.Add(new DateTimeToDateConverter());
+
+            dynamic dyn = new ExpandoObject();
+            dyn.RunId = exploration.RunId;
+            dyn.TotalResults = exploration.TotalResults;
+            dyn.TotalEstimatedPages = exploration.TotalEstimatedPages;
+            dyn.Category = exploration.Category;
+            dyn.Stage = exploration.Stage;
+            dyn.IsCompleted = exploration.IsCompleted;
+            dyn.Pages = exploration.Pages?.Select(page => new Page(page.RunId, page.PageNumber, DefaultNotSerialized)).ToList();
+
+            if (exploration.Stage == WIDStages.Stage3_UpToAllPageItemsExtended)
+                dyn.PageItems = DefaultNotSerialized;
+
+            dyn.PageItemsExtended = exploration.PageItemsExtended;
+
+            return JsonSerializer.Serialize(dyn, options);
+
+        }
+        public string ToJson(WIDMetrics metrics)
+        {
+
+            Validator.ValidateObject(metrics, nameof(metrics));
+
+            JsonSerializerOptions options = new JsonSerializerOptions();
+            options.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
+            options.Converters.Add(new DateTimeToDateConverter());
+
+            return JsonSerializer.Serialize(metrics, options);
+
+        }
         public string ToSQLite(List<PageItemExtended> pageItemsExtended)
         {
 
@@ -248,14 +247,14 @@ namespace NW.WIDJobs
 
             string databasePath = Path.Combine(_settings.DatabasePath, _settings.DatabaseName);
 
-            _components.LoggingAction.Invoke($"Exporting provided '{pageItemsExtended.Count}' {nameof(PageItemExtended)} objects to a SQLite database...");
-            _components.LoggingAction.Invoke($"DatabasePath: '{databasePath}'.");
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExportingToSQLite.Invoke(pageItemsExtended));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DatabasePathIs.Invoke(_settings.DatabasePath));
 
             IRepository repository = _components.RepositoryFactory.Create(_settings.DatabasePath, _settings.DatabaseName);
             int affectedRows = repository.Insert(pageItemsExtended);
 
-            _components.LoggingAction.Invoke($"AffectedRows: '{affectedRows}'.");
-            _components.LoggingAction.Invoke($"The SQLite database has been successfully exported.");
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_AffectedRowsAre.Invoke(affectedRows));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SQLiteDatabaseSuccessfullyCreated);
 
             return databasePath;
 
