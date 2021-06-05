@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using NW.WIDJobs;
+using NW.WIDJobs.UnitTests;
 
 namespace NW.WIDJobsClient
 {
@@ -9,7 +10,7 @@ namespace NW.WIDJobsClient
         static void Main(string[] args)
         {
 
-            Do();
+            Do2();
 
             WIDExplorerComponents.DefaultLoggingAction.Invoke("Press a button to close the window.");
             Console.ReadLine();
@@ -18,7 +19,15 @@ namespace NW.WIDJobsClient
         static void Do()
         {
 
-            WIDExplorer explorer = new WIDExplorer();
+            WIDExplorerSettings settings
+                = new WIDExplorerSettings(
+                        WIDExplorerSettings.DefaultParallelRequests,
+                        WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
+                        @"C:\Users\Rubèn\Desktop\",
+                        WIDExplorerSettings.DefaultDatabaseName
+                        );
+
+            WIDExplorer explorer = new WIDExplorer(new WIDExplorerComponents(), settings, DateTime.Now);
             WIDExploration exploration
                 = explorer.Explore(1, WIDCategories.AllCategories, WIDStages.Stage3_UpToAllPageItemsExtended);
 
@@ -35,7 +44,25 @@ namespace NW.WIDJobsClient
             filename = string.Concat(@"C:\Users\Rubèn\Desktop\Metrics", dateToken, ".json");
             File.WriteAllText(filename, json);
 
+            explorer.ToSQLite(exploration.PageItemsExtended);
+
             WIDExplorerComponents.DefaultLoggingAction.Invoke(metrics.ToString());
+
+        }
+        static void Do2()
+        {
+
+            WIDExplorerSettings settings
+                = new WIDExplorerSettings(
+                        WIDExplorerSettings.DefaultParallelRequests,
+                        WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
+                        @"C:\Users\Rubèn\Desktop\",
+                        WIDExplorerSettings.DefaultDatabaseName
+                        );
+
+            WIDExplorer explorer = new WIDExplorer(new WIDExplorerComponents(), settings, DateTime.Now);
+        
+            explorer.ToSQLite(ObjectMother.Shared_Page03_PageItemsExtended);
 
         }
 

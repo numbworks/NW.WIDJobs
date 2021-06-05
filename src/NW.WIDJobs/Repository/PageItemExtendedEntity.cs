@@ -15,72 +15,72 @@ namespace NW.WIDJobs
         #region Properties
         [Key]
         [Required]
-        [Column("integer")]
+        [DataType("integer")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public uint RowId { get; set; }
 
         [Required]
         [MaxLength(250)]
-        [Column("varchar(250)")]
+        [DataType("varchar(250)")]
         public string PageItemId { get; }
 
         [Required]
         [MaxLength(4000)]
-        [Column("text")]
+        [DataType("text")]
         public string Description { get; }
 
         [MaxLength(250)]
-        [Column("varchar(250)")]
+        [DataType("varchar(250)")]
         public string SeeCompleteTextAt { get; }
 
         [MaxLength(250)]
-        [Column("varchar(250)")]
+        [DataType("varchar(250)")]
         public string EmployerName { get; }
 
-        [Column("smallint")]
+        [DataType("smallint")]
         public ushort? NumberOfOpenings { get; }
 
-        [Column("datetime")]
+        [DataType("datetime")]
         public DateTime? AdvertisementPublishDate { get; }
 
-        [Column("datetime")]
+        [DataType("datetime")]
         public DateTime? ApplicationDeadline { get; }
 
         [MaxLength(250)]
-        [Column("varchar(250)")]
+        [DataType("varchar(250)")]
         public string StartDateOfEmployment { get; }
 
         [MaxLength(250)]
-        [Column("varchar(250)")]
+        [DataType("varchar(250)")]
         public string Reference { get; }
 
         [MaxLength(250)]
-        [Column("varchar(250)")]
+        [DataType("varchar(250)")]
         public string Position { get; }
 
         [MaxLength(250)]
-        [Column("varchar(250)")]
+        [DataType("varchar(250)")]
         public string TypeOfEmployment { get; }
 
         [MaxLength(250)]
-        [Column("varchar(250)")]
+        [DataType("varchar(250)")]
         public string Contact { get; }
 
         [MaxLength(250)]
-        [Column("varchar(250)")]
+        [DataType("varchar(250)")]
         public string EmployerAddress { get; }
 
         [MaxLength(250)]
-        [Column("varchar(250)")]
+        [DataType("varchar(250)")]
         public string HowToApply { get; }
 
         [Required]
-        [Column("datetime")]
+        [DataType("datetime")]
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime RowCreatedOn { get; set; }
 
         [Required]
-        [Column("datetime")]
+        [DataType("datetime")]
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime RowModifiedOn { get; set; }
 

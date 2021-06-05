@@ -15,76 +15,76 @@ namespace NW.WIDJobs
         #region Properties
         [Key]
         [Required]
-        [Column("integer")]
+        [DataType("integer")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public uint RowId { get; set; }
         
         [Required]
         [MaxLength(250)]
-        [Column("varchar(250)")]
+        [DataType("varchar(250)")]
         public string RunId { get; }
 
         [Required]
-        [Column("smallint")]
+        [DataType("smallint")]
         public ushort PageNumber { get; }
 
         [Required]
         [MaxLength(250)]
-        [Column("varchar(250)")]
+        [DataType("varchar(250)")]
         public string Url { get; }
 
         [Required]
         [MaxLength(250)]
-        [Column("varchar(250)")]
+        [DataType("varchar(250)")]
         public string Title { get; }
 
         [Required]
-        [Column("datetime")]
+        [DataType("datetime")]
         public DateTime CreateDate { get; }
 
-        [Column("datetime")]
+        [DataType("datetime")]
         public DateTime? ApplicationDate { get; }
 
         [Required]
         [MaxLength(250)]
-        [Column("varchar(250)")]
+        [DataType("varchar(250)")]
         public string WorkArea { get; }
 
         [Required]
         [MaxLength(250)]
-        [Column("varchar(250)")]
+        [DataType("varchar(250)")]
         public string WorkAreaWithoutZone { get; }
 
         [Required]
         [MaxLength(250)]
-        [Column("varchar(250)")]
+        [DataType("varchar(250)")]
         public string WorkingHours { get; }
 
         [Required]
         [MaxLength(250)]
-        [Column("varchar(250)")]
+        [DataType("varchar(250)")]
         public string JobType { get; }
 
         [Required]
-        [Column("bigint")]
+        [DataType("bigint")]
         public ulong JobId { get; }
 
         [Required]
-        [Column("smallint")]
+        [DataType("smallint")]
         public ushort PageItemNumber { get; }
 
         [Required]
         [MaxLength(250)]
-        [Column("varchar(250)")]
+        [DataType("varchar(250)")]
         public string PageItemId { get; }
 
         [Required]
-        [Column("datetime")]
+        [DataType("datetime")]
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime RowCreatedOn { get; set; }
 
         [Required]
-        [Column("datetime")]
+        [DataType("datetime")]
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime RowModifiedOn { get; set; }
 

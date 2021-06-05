@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\tests\NW.WIDJobs.UnitTests\NW.WIDJobs.UnitTests.csproj" />
     <ProjectReference Include="..\NW.WIDJobs\NW.WIDJobs.csproj" />
   </ItemGroup>
 

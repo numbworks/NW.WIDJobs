@@ -246,13 +246,16 @@ namespace NW.WIDJobs
 
             Validator.ValidateList(pageItemsExtended, nameof(pageItemsExtended));
 
-            IRepository repository =
-                _components.RepositoryFactory.Create(_settings.DatabasePath, _settings.DatabaseName);
+            string databasePath = Path.Combine(_settings.DatabasePath, _settings.DatabaseName);
+
+            _components.LoggingAction.Invoke($"Exporting provided '{pageItemsExtended.Count}' {nameof(PageItemExtended)} objects to a SQLite database...");
+            _components.LoggingAction.Invoke($"DatabasePath: '{databasePath}'.");
+
+            IRepository repository = _components.RepositoryFactory.Create(_settings.DatabasePath, _settings.DatabaseName);
             int affectedRows = repository.Insert(pageItemsExtended);
 
-            // add logging
-
-            string databasePath = Path.Combine(_settings.DatabasePath, _settings.DatabaseName);
+            _components.LoggingAction.Invoke($"AffectedRows: '{affectedRows}'.");
+            _components.LoggingAction.Invoke($"The SQLite database has been successfully exported.");
 
             return databasePath;
 

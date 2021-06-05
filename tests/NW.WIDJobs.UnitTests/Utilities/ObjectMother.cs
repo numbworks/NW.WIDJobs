@@ -995,7 +995,7 @@ namespace NW.WIDJobs.UnitTests
 
                 );
 
-        internal static List<PageItemExtended> Shared_Page03_PageItemsExtended
+        public static List<PageItemExtended> Shared_Page03_PageItemsExtended
             = new List<PageItemExtended>()
             {
                 Shared_Page03_PageItemExtended01,

@@ -241,7 +241,7 @@ namespace NW.WIDJobs
             modelBuilder.Entity<BulletPointEntity>()
                 .Property(entity => entity.BulletPoint)
                 .HasColumnType("varchar(250)")
-                .IsRequired(false);
+                .IsRequired(true);
 
             modelBuilder.Entity<BulletPointEntity>()
                 .Property(entity => entity.RowCreatedOn)

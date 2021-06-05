@@ -15,26 +15,27 @@ namespace NW.WIDJobs
         #region Properties
         [Key]
         [Required]
-        [Column("integer")]
+        [DataType("integer")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public uint RowId { get; set; }
 
         [Required]
         [MaxLength(250)]
-        [Column("varchar(250)")]
+        [DataType("varchar(250)")]
         public string PageItemId { get; }
 
+        [Required]
         [MaxLength(250)]
-        [Column("varchar(250)")]
+        [DataType("varchar(250)")]
         public string BulletPoint { get; }
 
         [Required]
-        [Column("datetime")]
+        [DataType("datetime")]
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime RowCreatedOn { get; set; }
 
         [Required]
-        [Column("datetime")]
+        [DataType("datetime")]
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime RowModifiedOn { get; set; }
 
