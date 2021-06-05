@@ -5,6 +5,7 @@ using System.Text.Encodings.Web;
 using System.Threading;
 using System.Linq;
 using System.Dynamic;
+using System.IO;
 
 namespace NW.WIDJobs
 {
@@ -239,6 +240,23 @@ namespace NW.WIDJobs
         }
         public PageItemExtended TryGetPageItemExtendedFromHtml(string filePath)
             => TryGetPageItemExtendedFromHtml(_components.FileManager.Create(filePath));
+
+        public string ToSQLite(List<PageItemExtended> pageItemsExtended)
+        {
+
+            Validator.ValidateList(pageItemsExtended, nameof(pageItemsExtended));
+
+            IRepository repository =
+                _components.RepositoryFactory.Create(_settings.DatabasePath, _settings.DatabaseName);
+            int affectedRows = repository.Insert(pageItemsExtended);
+
+            // add logging
+
+            string databasePath = Path.Combine(_settings.DatabasePath, _settings.DatabaseName);
+
+            return databasePath;
+
+        }
 
         #endregion
 
