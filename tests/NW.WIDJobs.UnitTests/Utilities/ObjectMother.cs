@@ -995,6 +995,15 @@ namespace NW.WIDJobs.UnitTests
 
                 );
 
+        internal static List<PageItemExtended> Shared_Page03_PageItemsExtended
+            = new List<PageItemExtended>()
+            {
+                Shared_Page03_PageItemExtended01,
+                Shared_Page03_PageItemExtended02,
+                Shared_Page03_PageItemExtended03,
+                Shared_Page03_PageItemExtended04
+            };
+
         #endregion
 
         #region AdditionalCases
