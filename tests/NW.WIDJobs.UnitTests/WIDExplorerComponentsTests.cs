@@ -25,6 +25,7 @@ namespace NW.WIDJobs.UnitTests
                                 new RunIdManager(),
                                 new WIDMetricsManager(),
                                 new FileManager(),
+                                new RepositoryFactory(),
                                 new BulletPointManager()
                         )
                 ),
@@ -46,6 +47,7 @@ namespace NW.WIDJobs.UnitTests
                                 new RunIdManager(),
                                 new WIDMetricsManager(),
                                 new FileManager(),
+                                new RepositoryFactory(),
                                 new BulletPointManager()
                         )
                 ),
@@ -67,6 +69,7 @@ namespace NW.WIDJobs.UnitTests
                                 new RunIdManager(),
                                 new WIDMetricsManager(),
                                 new FileManager(),
+                                new RepositoryFactory(),
                                 new BulletPointManager()
                         )
                 ),
@@ -88,6 +91,7 @@ namespace NW.WIDJobs.UnitTests
                                 new RunIdManager(),
                                 new WIDMetricsManager(),
                                 new FileManager(),
+                                new RepositoryFactory(),
                                 new BulletPointManager()
                         )
                 ),
@@ -109,6 +113,7 @@ namespace NW.WIDJobs.UnitTests
                                 new RunIdManager(),
                                 new WIDMetricsManager(),
                                 new FileManager(),
+                                new RepositoryFactory(),
                                 new BulletPointManager()
                         )
                 ),
@@ -130,6 +135,7 @@ namespace NW.WIDJobs.UnitTests
                                 new RunIdManager(),
                                 new WIDMetricsManager(),
                                 new FileManager(),
+                                new RepositoryFactory(),
                                 new BulletPointManager()
                         )
                 ),
@@ -151,6 +157,7 @@ namespace NW.WIDJobs.UnitTests
                                 new RunIdManager(),
                                 new WIDMetricsManager(),
                                 new FileManager(),
+                                new RepositoryFactory(),
                                 new BulletPointManager()
                         )
                 ),
@@ -172,6 +179,7 @@ namespace NW.WIDJobs.UnitTests
                                 new RunIdManager(),
                                 new WIDMetricsManager(),
                                 new FileManager(),
+                                new RepositoryFactory(),
                                 new BulletPointManager()
                         )
                 ),
@@ -193,6 +201,7 @@ namespace NW.WIDJobs.UnitTests
                                 null,
                                 new WIDMetricsManager(),
                                 new FileManager(),
+                                new RepositoryFactory(),
                                 new BulletPointManager()
                         )
                 ),
@@ -214,6 +223,7 @@ namespace NW.WIDJobs.UnitTests
                                 new RunIdManager(),
                                 null,
                                 new FileManager(),
+                                new RepositoryFactory(),
                                 new BulletPointManager()
                         )
                 ),
@@ -235,6 +245,7 @@ namespace NW.WIDJobs.UnitTests
                                 new RunIdManager(),
                                 new WIDMetricsManager(),
                                 null,
+                                new RepositoryFactory(),
                                 new BulletPointManager()
                         )
                 ),
@@ -256,12 +267,35 @@ namespace NW.WIDJobs.UnitTests
                                 new RunIdManager(),
                                 new WIDMetricsManager(),
                                 new FileManager(),
+                                null,
+                                new BulletPointManager()
+                        )
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("repositoryFactory").Message
+            ).SetArgDisplayNames($"{nameof(widExplorerComponentsExceptionTestCases)}_12"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new WIDExplorerComponents(
+                                WIDExplorerComponents.DefaultLoggingAction,
+                                new XPathManager(),
+                                new GetRequestManager(),
+                                new PageManager(),
+                                new PageScraper(),
+                                new PageItemScraper(),
+                                new PageItemExtendedManager(),
+                                new PageItemExtendedScraper(),
+                                new RunIdManager(),
+                                new WIDMetricsManager(),
+                                new FileManager(),
+                                new RepositoryFactory(),
                                 null
                         )
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("bulletPointManager").Message
-            ).SetArgDisplayNames($"{nameof(widExplorerComponentsExceptionTestCases)}_12")
+            ).SetArgDisplayNames($"{nameof(widExplorerComponentsExceptionTestCases)}_13")
 
         };
 
@@ -286,6 +320,7 @@ namespace NW.WIDJobs.UnitTests
                             new RunIdManager(),
                             new WIDMetricsManager(),
                             new FileManager(),
+                            new RepositoryFactory(),
                             new BulletPointManager()
                         );
 
