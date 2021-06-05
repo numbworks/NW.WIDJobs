@@ -13,11 +13,42 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                        () => new WIDExplorerSettings(0, WIDExplorerSettings.DefaultPauseBetweenRequestsMs)
+                        () => new WIDExplorerSettings(
+                                        0, 
+                                        WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
+                                        WIDExplorerSettings.DefaultDatabasePath,
+                                        WIDExplorerSettings.DefaultDatabaseName
+                                        )
                 ),
                 typeof(ArgumentException),
                 MessageCollection.Validator_VariableCantBeLessThanOne.Invoke("parallelRequests")
-            ).SetArgDisplayNames($"{nameof(widExplorerSettingsExceptionTestCases)}_01")
+            ).SetArgDisplayNames($"{nameof(widExplorerSettingsExceptionTestCases)}_01"),
+
+            new TestCaseData(
+                new TestDelegate(
+                        () => new WIDExplorerSettings(
+                                        1,
+                                        WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
+                                        null,
+                                        WIDExplorerSettings.DefaultDatabaseName
+                                        )
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("databasePath").Message
+            ).SetArgDisplayNames($"{nameof(widExplorerSettingsExceptionTestCases)}_02"),
+
+            new TestCaseData(
+                new TestDelegate(
+                        () => new WIDExplorerSettings(
+                                        1,
+                                        WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
+                                        WIDExplorerSettings.DefaultDatabasePath,
+                                        null
+                                        )
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("databaseName").Message
+            ).SetArgDisplayNames($"{nameof(widExplorerSettingsExceptionTestCases)}_03")
 
         };
 
@@ -32,7 +63,13 @@ namespace NW.WIDJobs.UnitTests
             uint pauseBetweenRequestsMs = 25000;
 
             // Act
-            WIDExplorerSettings actual = new WIDExplorerSettings(parallelRequests, pauseBetweenRequestsMs);
+            WIDExplorerSettings actual 
+                = new WIDExplorerSettings(
+                            parallelRequests, 
+                            pauseBetweenRequestsMs,
+                            WIDExplorerSettings.DefaultDatabasePath,
+                            WIDExplorerSettings.DefaultDatabaseName
+                        );
 
             // Assert
             Assert.AreEqual(parallelRequests, actual.ParallelRequests);

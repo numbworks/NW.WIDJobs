@@ -154,7 +154,13 @@ namespace NW.WIDJobs.UnitTests
                     new FileManager(),
                     new BulletPointManager()
                   );
-            WIDExplorerSettings settings = new WIDExplorerSettings(3, 0);
+            WIDExplorerSettings settings 
+                = new WIDExplorerSettings(
+                        3, 
+                        0, 
+                        WIDExplorerSettings.DefaultDatabasePath, 
+                        WIDExplorerSettings.DefaultDatabaseName
+                    );
             WIDExplorer explorer
                 = new WIDExplorer(components, settings, ObjectMother.WIDExplorer_FakeNow);
 
@@ -218,7 +224,13 @@ namespace NW.WIDJobs.UnitTests
                     new FileManager(),
                     new BulletPointManager()
                   );
-            WIDExplorerSettings settings = new WIDExplorerSettings(3, 0);
+            WIDExplorerSettings settings
+                = new WIDExplorerSettings(
+                        3,
+                        0,
+                        WIDExplorerSettings.DefaultDatabasePath,
+                        WIDExplorerSettings.DefaultDatabaseName
+                    );
             WIDExplorer explorer
                 = new WIDExplorer(components, settings, ObjectMother.WIDExplorer_FakeNow);
 
@@ -287,7 +299,13 @@ namespace NW.WIDJobs.UnitTests
                     new FileManager(),
                     new BulletPointManager()
                   );
-            WIDExplorerSettings settings = new WIDExplorerSettings(3, 0);
+            WIDExplorerSettings settings
+                = new WIDExplorerSettings(
+                        3,
+                        0,
+                        WIDExplorerSettings.DefaultDatabasePath,
+                        WIDExplorerSettings.DefaultDatabaseName
+                    );
             WIDExplorer explorer
                 = new WIDExplorer(components, settings, ObjectMother.WIDExplorer_FakeNow);
 
@@ -357,7 +375,13 @@ namespace NW.WIDJobs.UnitTests
                     new FileManager(),
                     new BulletPointManager()
                   );
-            WIDExplorerSettings settings = new WIDExplorerSettings(3, 0);
+            WIDExplorerSettings settings
+                = new WIDExplorerSettings(
+                        3,
+                        0,
+                        WIDExplorerSettings.DefaultDatabasePath,
+                        WIDExplorerSettings.DefaultDatabaseName
+                    );
             WIDExplorer explorer
                 = new WIDExplorer(components, settings, ObjectMother.WIDExplorer_FakeNow);
 
@@ -426,7 +450,13 @@ namespace NW.WIDJobs.UnitTests
                     new FileManager(),
                     new BulletPointManager()
                   );
-            WIDExplorerSettings settings = new WIDExplorerSettings(3, 0);
+            WIDExplorerSettings settings
+                = new WIDExplorerSettings(
+                        3,
+                        0,
+                        WIDExplorerSettings.DefaultDatabasePath,
+                        WIDExplorerSettings.DefaultDatabaseName
+                    );
             WIDExplorer explorer
                 = new WIDExplorer(components, settings, ObjectMother.WIDExplorer_FakeNow);
 
@@ -494,7 +524,13 @@ namespace NW.WIDJobs.UnitTests
                     new FileManager(),
                     new BulletPointManager()
                   );
-            WIDExplorerSettings settings = new WIDExplorerSettings(3, 0);
+            WIDExplorerSettings settings
+                = new WIDExplorerSettings(
+                        3,
+                        0,
+                        WIDExplorerSettings.DefaultDatabasePath,
+                        WIDExplorerSettings.DefaultDatabaseName
+                    );
             WIDExplorer explorer
                 = new WIDExplorer(components, settings, ObjectMother.WIDExplorer_FakeNow);
 
