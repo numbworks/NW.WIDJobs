@@ -2109,11 +2109,14 @@ namespace NW.WIDJobs.UnitTests
                         && string.Equals(pageItemExtended.StartDateOfEmployment, pageItemExtendedEntity.StartDateOfEmployment, StringComparison.InvariantCulture);
 
         }
-        internal static bool AreEqual(BulletPointEntity bulletPoint1, BulletPointEntity bulletPointEntity2)
+        internal static bool AreEqual(BulletPointEntity bulletPointEntity1, BulletPointEntity bulletPointEntity2)
         {
 
-            return string.Equals(bulletPoint1.PageItemId, bulletPointEntity2.PageItemId, StringComparison.InvariantCulture)
-                        && string.Equals(bulletPoint1.BulletPoint, bulletPointEntity2.BulletPoint, StringComparison.InvariantCulture);
+            return (bulletPointEntity1.RowId == bulletPointEntity2.RowId)
+                    && string.Equals(bulletPointEntity1.PageItemId, bulletPointEntity2.PageItemId, StringComparison.InvariantCulture)
+                    && string.Equals(bulletPointEntity1.BulletPoint, bulletPointEntity2.BulletPoint, StringComparison.InvariantCulture)
+                    && (bulletPointEntity1.RowCreatedOn == bulletPointEntity2.RowCreatedOn)
+                    && (bulletPointEntity1.RowModifiedOn == bulletPointEntity2.RowModifiedOn);
 
         }
 
