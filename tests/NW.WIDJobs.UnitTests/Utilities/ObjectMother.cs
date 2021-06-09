@@ -2073,7 +2073,6 @@ namespace NW.WIDJobs.UnitTests
                         && (metrics1.TotalBulletPoints == metrics2.TotalBulletPoints);
 
         }
-
         internal static bool AreEqual(PageItem pageItem, PageItemEntity pageItemEntity)
         {
 
@@ -2090,6 +2089,24 @@ namespace NW.WIDJobs.UnitTests
                         && string.Equals(pageItem.WorkArea, pageItemEntity.WorkArea, StringComparison.InvariantCulture)
                         && string.Equals(pageItem.WorkAreaWithoutZone, pageItemEntity.WorkAreaWithoutZone, StringComparison.InvariantCulture)
                         && string.Equals(pageItem.WorkingHours, pageItemEntity.WorkingHours, StringComparison.InvariantCulture);
+
+        }
+        internal static bool AreEqual(PageItemExtended pageItemExtended, PageItemExtendedEntity pageItemExtendedEntity)
+        {
+
+            return (pageItemExtended.AdvertisementPublishDate == pageItemExtendedEntity.AdvertisementPublishDate)
+                        && (pageItemExtended.ApplicationDeadline == pageItemExtendedEntity.ApplicationDeadline)
+                        && string.Equals(pageItemExtended.Contact, pageItemExtendedEntity.Contact, StringComparison.InvariantCulture)
+                        && string.Equals(pageItemExtended.Description, pageItemExtendedEntity.Description, StringComparison.InvariantCulture)
+                        && string.Equals(pageItemExtended.DescriptionSeeCompleteTextAt, pageItemExtendedEntity.SeeCompleteTextAt, StringComparison.InvariantCulture)
+                        && string.Equals(pageItemExtended.EmployerAddress, pageItemExtendedEntity.EmployerAddress, StringComparison.InvariantCulture)
+                        && string.Equals(pageItemExtended.EmployerName, pageItemExtendedEntity.EmployerName, StringComparison.InvariantCulture)
+                        && string.Equals(pageItemExtended.HowToApply, pageItemExtendedEntity.HowToApply, StringComparison.InvariantCulture)
+                        && (pageItemExtended.NumberOfOpenings == pageItemExtendedEntity.NumberOfOpenings)
+                        && string.Equals(pageItemExtended.PageItem.PageItemId, pageItemExtendedEntity.PageItemId, StringComparison.InvariantCulture)
+                        && string.Equals(pageItemExtended.Position, pageItemExtendedEntity.Position, StringComparison.InvariantCulture)
+                        && string.Equals(pageItemExtended.Reference, pageItemExtendedEntity.Reference, StringComparison.InvariantCulture)
+                        && string.Equals(pageItemExtended.StartDateOfEmployment, pageItemExtendedEntity.StartDateOfEmployment, StringComparison.InvariantCulture);
 
         }
 
