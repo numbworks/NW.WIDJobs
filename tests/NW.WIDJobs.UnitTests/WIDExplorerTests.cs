@@ -160,7 +160,8 @@ namespace NW.WIDJobs.UnitTests
                         3, 
                         0, 
                         WIDExplorerSettings.DefaultDatabasePath, 
-                        WIDExplorerSettings.DefaultDatabaseName
+                        WIDExplorerSettings.DefaultDatabaseName,
+                        WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
                     );
             WIDExplorer explorer
                 = new WIDExplorer(components, settings, ObjectMother.WIDExplorer_FakeNow);
@@ -231,7 +232,8 @@ namespace NW.WIDJobs.UnitTests
                         3,
                         0,
                         WIDExplorerSettings.DefaultDatabasePath,
-                        WIDExplorerSettings.DefaultDatabaseName
+                        WIDExplorerSettings.DefaultDatabaseName,
+                        WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
                     );
             WIDExplorer explorer
                 = new WIDExplorer(components, settings, ObjectMother.WIDExplorer_FakeNow);
@@ -307,7 +309,8 @@ namespace NW.WIDJobs.UnitTests
                         3,
                         0,
                         WIDExplorerSettings.DefaultDatabasePath,
-                        WIDExplorerSettings.DefaultDatabaseName
+                        WIDExplorerSettings.DefaultDatabaseName,
+                        WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
                     );
             WIDExplorer explorer
                 = new WIDExplorer(components, settings, ObjectMother.WIDExplorer_FakeNow);
@@ -384,7 +387,8 @@ namespace NW.WIDJobs.UnitTests
                         3,
                         0,
                         WIDExplorerSettings.DefaultDatabasePath,
-                        WIDExplorerSettings.DefaultDatabaseName
+                        WIDExplorerSettings.DefaultDatabaseName,
+                        WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
                     );
             WIDExplorer explorer
                 = new WIDExplorer(components, settings, ObjectMother.WIDExplorer_FakeNow);
@@ -460,7 +464,8 @@ namespace NW.WIDJobs.UnitTests
                         3,
                         0,
                         WIDExplorerSettings.DefaultDatabasePath,
-                        WIDExplorerSettings.DefaultDatabaseName
+                        WIDExplorerSettings.DefaultDatabaseName,
+                        WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
                     );
             WIDExplorer explorer
                 = new WIDExplorer(components, settings, ObjectMother.WIDExplorer_FakeNow);
@@ -535,7 +540,8 @@ namespace NW.WIDJobs.UnitTests
                         3,
                         0,
                         WIDExplorerSettings.DefaultDatabasePath,
-                        WIDExplorerSettings.DefaultDatabaseName
+                        WIDExplorerSettings.DefaultDatabaseName,
+                        WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
                     );
             WIDExplorer explorer
                 = new WIDExplorer(components, settings, ObjectMother.WIDExplorer_FakeNow);

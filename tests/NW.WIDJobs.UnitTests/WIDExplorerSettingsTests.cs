@@ -17,7 +17,8 @@ namespace NW.WIDJobs.UnitTests
                                         0, 
                                         WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
                                         WIDExplorerSettings.DefaultDatabasePath,
-                                        WIDExplorerSettings.DefaultDatabaseName
+                                        WIDExplorerSettings.DefaultDatabaseName,
+                                        WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
                                         )
                 ),
                 typeof(ArgumentException),
@@ -30,7 +31,8 @@ namespace NW.WIDJobs.UnitTests
                                         1,
                                         WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
                                         null,
-                                        WIDExplorerSettings.DefaultDatabaseName
+                                        WIDExplorerSettings.DefaultDatabaseName,
+                                        WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
                                         )
                 ),
                 typeof(ArgumentNullException),
@@ -43,7 +45,8 @@ namespace NW.WIDJobs.UnitTests
                                         1,
                                         WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
                                         WIDExplorerSettings.DefaultDatabasePath,
-                                        null
+                                        null,
+                                        WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
                                         )
                 ),
                 typeof(ArgumentNullException),
@@ -68,7 +71,8 @@ namespace NW.WIDJobs.UnitTests
                             parallelRequests, 
                             pauseBetweenRequestsMs,
                             WIDExplorerSettings.DefaultDatabasePath,
-                            WIDExplorerSettings.DefaultDatabaseName
+                            WIDExplorerSettings.DefaultDatabaseName,
+                            WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
                         );
 
             // Assert

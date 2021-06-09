@@ -22,8 +22,8 @@ namespace NW.WIDJobs
 
         #region Methods_public
 
-        public IRepository Create(string databasePath, string databaseName)
-            => new Repository(databasePath, databaseName);
+        public IRepository Create(string databasePath, string databaseName, bool deleteAndRecreateDatabase)
+            => new Repository(databasePath, databaseName, deleteAndRecreateDatabase);
 
         #endregion
 

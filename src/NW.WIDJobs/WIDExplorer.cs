@@ -250,7 +250,7 @@ namespace NW.WIDJobs
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExportingToSQLite.Invoke(pageItemsExtended));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DatabasePathIs.Invoke(_settings.DatabasePath));
 
-            IRepository repository = _components.RepositoryFactory.Create(_settings.DatabasePath, _settings.DatabaseName);
+            IRepository repository = _components.RepositoryFactory.Create(_settings.DatabasePath, _settings.DatabaseName, _settings.DeleteAndRecreateDatabase);
             int affectedRows = repository.Insert(pageItemsExtended);
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_AffectedRowsAre.Invoke(affectedRows));

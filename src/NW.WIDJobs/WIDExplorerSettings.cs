@@ -16,11 +16,13 @@ namespace NW.WIDJobs
         public static uint DefaultPauseBetweenRequestsMs { get; } = 25000; // 25 seconds
         public static string DefaultDatabasePath { get; } = Directory.GetCurrentDirectory();
         public static string DefaultDatabaseName { get; } = "widjobs.db";
+        public static bool DefaultDeleteAndRecreateDatabase { get; } = true;
 
         public ushort ParallelRequests { get; }
         public uint PauseBetweenRequestsMs { get; }
         public string DatabasePath { get; }
         public string DatabaseName { get; }
+        public bool DeleteAndRecreateDatabase { get; }
 
         #endregion
 
@@ -32,7 +34,8 @@ namespace NW.WIDJobs
             ushort parallelRequests,
             uint pauseBetweenRequestsMs,
             string databasePath,
-            string databaseName
+            string databaseName,
+            bool deleteAndRecreateDatabase
             )
         {
 
@@ -44,6 +47,7 @@ namespace NW.WIDJobs
             PauseBetweenRequestsMs = pauseBetweenRequestsMs;
             DatabasePath = databasePath;
             DatabaseName = databaseName;
+            DeleteAndRecreateDatabase = deleteAndRecreateDatabase;
 
         }
 
@@ -53,7 +57,8 @@ namespace NW.WIDJobs
                   DefaultParallelRequests,
                   DefaultPauseBetweenRequestsMs,
                   DefaultDatabasePath,
-                  DefaultDatabaseName
+                  DefaultDatabaseName,
+                  DefaultDeleteAndRecreateDatabase
                   ) { }
 
         #endregion

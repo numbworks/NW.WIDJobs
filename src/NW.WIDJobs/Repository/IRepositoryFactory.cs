@@ -7,7 +7,7 @@
         /// <summary>
         /// Creates a <see cref="IRepository"/> instance for <paramref name="databasePath"/> and <paramref name="databaseName"/>.
         /// </summary>
-        IRepository Create(string databasePath, string databaseName);
+        IRepository Create(string databasePath, string databaseName, bool deleteAndRecreateDatabase);
     
     }
 }
