@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace NW.WIDJobs
+﻿namespace NW.WIDJobs
 {
     /// <summary><inheritdoc cref="IRepositoryFactory"/></summary>
     public class RepositoryFactory : IRepositoryFactory
@@ -15,7 +13,6 @@ namespace NW.WIDJobs
         #region Constructors
 
         /// <summary>Initializes a <see cref="RepositoryFactory"/> instance.</summary>
-        /// <exception cref="ArgumentNullException"/>
         public RepositoryFactory() { }
 
         #endregion
