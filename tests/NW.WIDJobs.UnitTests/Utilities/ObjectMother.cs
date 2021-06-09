@@ -2109,6 +2109,13 @@ namespace NW.WIDJobs.UnitTests
                         && string.Equals(pageItemExtended.StartDateOfEmployment, pageItemExtendedEntity.StartDateOfEmployment, StringComparison.InvariantCulture);
 
         }
+        internal static bool AreEqual(BulletPointEntity bulletPoint1, BulletPointEntity bulletPointEntity2)
+        {
+
+            return string.Equals(bulletPoint1.PageItemId, bulletPointEntity2.PageItemId, StringComparison.InvariantCulture)
+                        && string.Equals(bulletPoint1.BulletPoint, bulletPointEntity2.BulletPoint, StringComparison.InvariantCulture);
+
+        }
 
         internal static PageItem SwapCreateDate(PageItem pageItem, DateTime createDate)
         {
