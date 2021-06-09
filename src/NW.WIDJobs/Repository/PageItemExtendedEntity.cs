@@ -6,7 +6,7 @@ namespace NW.WIDJobs
 {
     /// <summary>A database entity for <see cref="PageItemExtended"/>.</summary>
     [Table(nameof(TableNames.PageItemsExtended))]
-    public class PageItemExtendedEntity
+    public class PageItemExtendedEntity : ITrackableEntity
     {
 
         #region Fields

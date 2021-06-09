@@ -6,7 +6,7 @@ namespace NW.WIDJobs
 {
     /// <summary>A database entity for <see cref="PageItemExtended.DescriptionBulletPoints"/>.</summary>
     [Table(nameof(TableNames.PageItemsExtendedBulletPoints))]
-    public class BulletPointEntity
+    public class BulletPointEntity : ITrackableEntity
     {
 
         #region Fields
