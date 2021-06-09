@@ -2074,6 +2074,25 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
+        internal static bool AreEqual(PageItem pageItem, PageItemEntity pageItemEntity)
+        {
+
+            return (pageItem.ApplicationDate == pageItemEntity.ApplicationDate)
+                        && (pageItem.CreateDate == pageItemEntity.CreateDate)
+                        && (pageItem.JobId == pageItemEntity.JobId)
+                        && string.Equals(pageItem.JobType, pageItemEntity.JobType, StringComparison.InvariantCulture)
+                        && string.Equals(pageItem.PageItemId, pageItemEntity.PageItemId, StringComparison.InvariantCulture)
+                        && (pageItem.PageItemNumber == pageItemEntity.PageItemNumber)
+                        && (pageItem.PageNumber == pageItemEntity.PageNumber)
+                        && string.Equals(pageItem.RunId, pageItemEntity.RunId, StringComparison.InvariantCulture)
+                        && string.Equals(pageItem.Title, pageItemEntity.Title, StringComparison.InvariantCulture)
+                        && string.Equals(pageItem.Url, pageItemEntity.Url, StringComparison.InvariantCulture)
+                        && string.Equals(pageItem.WorkArea, pageItemEntity.WorkArea, StringComparison.InvariantCulture)
+                        && string.Equals(pageItem.WorkAreaWithoutZone, pageItemEntity.WorkAreaWithoutZone, StringComparison.InvariantCulture)
+                        && string.Equals(pageItem.WorkingHours, pageItemEntity.WorkingHours, StringComparison.InvariantCulture);
+
+        }
+
         internal static PageItem SwapCreateDate(PageItem pageItem, DateTime createDate)
         {
 
