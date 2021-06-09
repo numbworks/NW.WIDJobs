@@ -14,22 +14,39 @@ namespace NW.WIDJobs
         #region Properties
 
         public DatabaseContext DatabaseContext { get; }
-        public bool HasBeenDatabaseCreated { get; }
 
         #endregion
 
         #region Constructors
 
-        ///<summary>Initializes a <see cref="Repository"/> instance.</summary>
+        ///<summary>Initializes a <see cref="Repository"/> instance for <paramref name="databaseContext"/>.</summary>
         /// <exception cref="ArgumentNullException"></exception>
-        public Repository(string databasePath, string databaseName)
+        public Repository(DatabaseContext databaseContext, bool deleteAndRecreateDatabase)
+        {
+
+            Validator.ValidateObject(databaseContext, nameof(databaseContext));
+
+            DatabaseContext = databaseContext;
+
+            if (deleteAndRecreateDatabase)
+            {
+                DatabaseContext.Database.EnsureDeleted();
+                DatabaseContext.Database.EnsureCreated();
+            }
+
+        }
+
+        ///<summary>Initializes a <see cref="Repository"/> instance for <paramref name="databasePath"/> and <paramref name="databaseName"/>.</summary>
+        /// <exception cref="ArgumentNullException"></exception>
+        public Repository(string databasePath, string databaseName, bool deleteAndRecreateDatabase)
+            : this(
+                new DatabaseContext(databasePath, databaseName), 
+                deleteAndRecreateDatabase
+                )
         {
 
             Validator.ValidateStringNullOrWhiteSpace(databasePath, nameof(databasePath));
             Validator.ValidateStringNullOrWhiteSpace(databaseName, nameof(databaseName));
-
-            DatabaseContext = new DatabaseContext(databasePath, databaseName);
-            HasBeenDatabaseCreated = DatabaseContext.Database.EnsureCreated();
 
         }
 
