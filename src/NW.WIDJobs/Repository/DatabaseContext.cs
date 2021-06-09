@@ -12,8 +12,10 @@ namespace NW.WIDJobs
         #endregion
 
         #region Properties
+        public static Func<string, string> ConnectionStringTemplate { get; }
+            = (fileName) => $"Data Source={fileName};";
 
-        public string ConnectionStringValue { get; }
+        public string ConnectionString { get; }
         public DbSet<PageItemEntity> PageItems { get; set; }
         public DbSet<PageItemExtendedEntity> PageItemsExtended { get; set; }
         public DbSet<BulletPointEntity> BulletPoints { get; set; }
@@ -30,7 +32,7 @@ namespace NW.WIDJobs
             Validator.ValidateStringNullOrWhiteSpace(databasePath, nameof(databasePath));
             Validator.ValidateStringNullOrWhiteSpace(databaseName, nameof(databaseName));
 
-            ConnectionStringValue = CreateConnectionStringValue(databasePath, databaseName);
+            ConnectionString = CreateConnectionString(databasePath, databaseName);
 
         }
 
@@ -39,7 +41,7 @@ namespace NW.WIDJobs
         #region Methods_protected
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-            => optionsBuilder.UseSqlite(ConnectionStringValue);
+            => optionsBuilder.UseSqlite(ConnectionString);
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
@@ -53,7 +55,7 @@ namespace NW.WIDJobs
 
         #region Methods_private
 
-        private string CreateConnectionStringValue(string databasePath, string databaseName)
+        private string CreateConnectionString(string databasePath, string databaseName)
         {
 
             // "Data Source=c:\mydb.db;"
@@ -63,10 +65,10 @@ namespace NW.WIDJobs
 
             string fileName = Path.Combine(databasePath, databaseName);
 
-            return $"Data Source={fileName};";
+            return ConnectionStringTemplate.Invoke(fileName);
 
         }
-
+        
         private void CreatePageItemsTable(ModelBuilder modelBuilder)
         {
 
