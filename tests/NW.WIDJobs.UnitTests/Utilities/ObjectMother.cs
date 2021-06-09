@@ -1887,6 +1887,15 @@ namespace NW.WIDJobs.UnitTests
 
         #endregion
 
+        #region DatabaseContextTests
+
+        internal static string DatabaseContext_DatabasePath = @"c:\";
+        internal static string DatabaseContext_DatabaseName = "widjobs.db";
+        internal static string DatabaseContext_ConnectionString 
+            = DatabaseContext.ConnectionStringTemplate.Invoke(@"c:\widjobs.db");
+
+        #endregion
+
         #region Methods
 
         internal static void Method_ShouldThrowACertainException_WhenUnproperArguments
