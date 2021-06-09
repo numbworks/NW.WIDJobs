@@ -2097,7 +2097,10 @@ namespace NW.WIDJobs.UnitTests
                         && string.Equals(pageItem.Url, pageItemEntity.Url, StringComparison.InvariantCulture)
                         && string.Equals(pageItem.WorkArea, pageItemEntity.WorkArea, StringComparison.InvariantCulture)
                         && string.Equals(pageItem.WorkAreaWithoutZone, pageItemEntity.WorkAreaWithoutZone, StringComparison.InvariantCulture)
-                        && string.Equals(pageItem.WorkingHours, pageItemEntity.WorkingHours, StringComparison.InvariantCulture);
+                        && string.Equals(pageItem.WorkingHours, pageItemEntity.WorkingHours, StringComparison.InvariantCulture)
+                        && (pageItemEntity.RowId == default(uint))
+                        && (pageItemEntity.RowCreatedOn == default(DateTime))
+                        && (pageItemEntity.RowModifiedOn == default(DateTime));
 
         }
         internal static bool AreEqual(PageItemExtended pageItemExtended, PageItemExtendedEntity pageItemExtendedEntity)
@@ -2115,7 +2118,10 @@ namespace NW.WIDJobs.UnitTests
                         && string.Equals(pageItemExtended.PageItem.PageItemId, pageItemExtendedEntity.PageItemId, StringComparison.InvariantCulture)
                         && string.Equals(pageItemExtended.Position, pageItemExtendedEntity.Position, StringComparison.InvariantCulture)
                         && string.Equals(pageItemExtended.Reference, pageItemExtendedEntity.Reference, StringComparison.InvariantCulture)
-                        && string.Equals(pageItemExtended.StartDateOfEmployment, pageItemExtendedEntity.StartDateOfEmployment, StringComparison.InvariantCulture);
+                        && string.Equals(pageItemExtended.StartDateOfEmployment, pageItemExtendedEntity.StartDateOfEmployment, StringComparison.InvariantCulture)
+                        && (pageItemExtendedEntity.RowId == default(uint))
+                        && (pageItemExtendedEntity.RowCreatedOn == default(DateTime))
+                        && (pageItemExtendedEntity.RowModifiedOn == default(DateTime));
 
         }
         internal static bool AreEqual(BulletPointEntity bulletPointEntity1, BulletPointEntity bulletPointEntity2)
