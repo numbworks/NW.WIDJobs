@@ -118,7 +118,7 @@ namespace NW.WIDJobs
 
                 8180759, "Technical Officer, GOARN, Copenhagen, DenmarkOrganization: World Health Organization"
                     => "8180759technicalofficergoarncopenhagendenmarkorganizationworldhealthorganization"
-                            => "8180759technicalofficergoarncopenhagendenmark"
+                            => "8180759technicalofficergoarncopenhagendenmarkorganization"
             */
 
             Validator.ValidateStringNullOrWhiteSpace(title, nameof(title));
