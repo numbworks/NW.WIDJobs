@@ -27,6 +27,7 @@ namespace NW.WIDJobs.UnitTests
                                 new WIDMetricsManager(),
                                 new FileManager(),
                                 new RepositoryFactory(),
+                                new AsciiBannerManager(),
                                 new BulletPointManager()
                         )
                 ),
@@ -50,6 +51,7 @@ namespace NW.WIDJobs.UnitTests
                                 new WIDMetricsManager(),
                                 new FileManager(),
                                 new RepositoryFactory(),
+                                new AsciiBannerManager(),
                                 new BulletPointManager()
                         )
                 ),
@@ -73,6 +75,7 @@ namespace NW.WIDJobs.UnitTests
                                 new WIDMetricsManager(),
                                 new FileManager(),
                                 new RepositoryFactory(),
+                                new AsciiBannerManager(),
                                 new BulletPointManager()
                         )
                 ),
@@ -96,6 +99,7 @@ namespace NW.WIDJobs.UnitTests
                                 new WIDMetricsManager(),
                                 new FileManager(),
                                 new RepositoryFactory(),
+                                new AsciiBannerManager(),
                                 new BulletPointManager()
                         )
                 ),
@@ -119,6 +123,7 @@ namespace NW.WIDJobs.UnitTests
                                 new WIDMetricsManager(),
                                 new FileManager(),
                                 new RepositoryFactory(),
+                                new AsciiBannerManager(),
                                 new BulletPointManager()
                         )
                 ),
@@ -142,6 +147,7 @@ namespace NW.WIDJobs.UnitTests
                                 new WIDMetricsManager(),
                                 new FileManager(),
                                 new RepositoryFactory(),
+                                new AsciiBannerManager(),
                                 new BulletPointManager()
                         )
                 ),
@@ -165,6 +171,7 @@ namespace NW.WIDJobs.UnitTests
                                 new WIDMetricsManager(),
                                 new FileManager(),
                                 new RepositoryFactory(),
+                                new AsciiBannerManager(),
                                 new BulletPointManager()
                         )
                 ),
@@ -188,6 +195,7 @@ namespace NW.WIDJobs.UnitTests
                                 new WIDMetricsManager(),
                                 new FileManager(),
                                 new RepositoryFactory(),
+                                new AsciiBannerManager(),
                                 new BulletPointManager()
                         )
                 ),
@@ -211,6 +219,7 @@ namespace NW.WIDJobs.UnitTests
                                 new WIDMetricsManager(),
                                 new FileManager(),
                                 new RepositoryFactory(),
+                                new AsciiBannerManager(),
                                 new BulletPointManager()
                         )
                 ),
@@ -234,6 +243,7 @@ namespace NW.WIDJobs.UnitTests
                                 new WIDMetricsManager(),
                                 new FileManager(),
                                 new RepositoryFactory(),
+                                new AsciiBannerManager(),
                                 new BulletPointManager()
                         )
                 ),
@@ -257,6 +267,7 @@ namespace NW.WIDJobs.UnitTests
                                 null,
                                 new FileManager(),
                                 new RepositoryFactory(),
+                                new AsciiBannerManager(),
                                 new BulletPointManager()
                         )
                 ),
@@ -280,6 +291,7 @@ namespace NW.WIDJobs.UnitTests
                                 new WIDMetricsManager(),
                                 null,
                                 new RepositoryFactory(),
+                                new AsciiBannerManager(),
                                 new BulletPointManager()
                         )
                 ),
@@ -303,6 +315,7 @@ namespace NW.WIDJobs.UnitTests
                                 new WIDMetricsManager(),
                                 new FileManager(),
                                 null,
+                                new AsciiBannerManager(),
                                 new BulletPointManager()
                         )
                 ),
@@ -326,12 +339,37 @@ namespace NW.WIDJobs.UnitTests
                                 new WIDMetricsManager(),
                                 new FileManager(),
                                 new RepositoryFactory(),
+                                null,
+                                new BulletPointManager()
+                        )
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("asciiBannerManager").Message
+            ).SetArgDisplayNames($"{nameof(widExplorerComponentsExceptionTestCases)}_14"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new WIDExplorerComponents(
+                                WIDExplorerComponents.DefaultLoggingAction,
+                                WIDExplorerComponents.DefaultLoggingActionAsciiBanner,
+                                new XPathManager(),
+                                new GetRequestManager(),
+                                new PageManager(),
+                                new PageScraper(),
+                                new PageItemScraper(),
+                                new PageItemExtendedManager(),
+                                new PageItemExtendedScraper(),
+                                new RunIdManager(),
+                                new WIDMetricsManager(),
+                                new FileManager(),
+                                new RepositoryFactory(),
+                                new AsciiBannerManager(),
                                 null
                         )
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("bulletPointManager").Message
-            ).SetArgDisplayNames($"{nameof(widExplorerComponentsExceptionTestCases)}_14")
+            ).SetArgDisplayNames($"{nameof(widExplorerComponentsExceptionTestCases)}_15")
 
         };
 
@@ -358,6 +396,7 @@ namespace NW.WIDJobs.UnitTests
                             new WIDMetricsManager(),
                             new FileManager(),
                             new RepositoryFactory(),
+                            new AsciiBannerManager(),
                             new BulletPointManager()
                         );
 

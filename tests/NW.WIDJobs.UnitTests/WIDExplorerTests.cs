@@ -156,6 +156,7 @@ namespace NW.WIDJobs.UnitTests
                     new WIDMetricsManager(),
                     new FileManager(),
                     new RepositoryFactory(),
+                    new AsciiBannerManager(),
                     new BulletPointManager()
                   );
             WIDExplorerSettings settings 
@@ -231,6 +232,7 @@ namespace NW.WIDJobs.UnitTests
                     new WIDMetricsManager(),
                     new FileManager(),
                     new RepositoryFactory(),
+                    new AsciiBannerManager(),
                     new BulletPointManager()
                   );
             WIDExplorerSettings settings
@@ -311,6 +313,7 @@ namespace NW.WIDJobs.UnitTests
                     new WIDMetricsManager(),
                     new FileManager(),
                     new RepositoryFactory(),
+                    new AsciiBannerManager(),
                     new BulletPointManager()
                   );
             WIDExplorerSettings settings
@@ -392,6 +395,7 @@ namespace NW.WIDJobs.UnitTests
                     new WIDMetricsManager(),
                     new FileManager(),
                     new RepositoryFactory(),
+                    new AsciiBannerManager(),
                     new BulletPointManager()
                   );
             WIDExplorerSettings settings
@@ -472,6 +476,7 @@ namespace NW.WIDJobs.UnitTests
                     new WIDMetricsManager(),
                     new FileManager(),
                     new RepositoryFactory(),
+                    new AsciiBannerManager(),
                     new BulletPointManager()
                   );
             WIDExplorerSettings settings
@@ -551,6 +556,7 @@ namespace NW.WIDJobs.UnitTests
                     new WIDMetricsManager(),
                     new FileManager(),
                     new RepositoryFactory(),
+                    new AsciiBannerManager(),
                     new BulletPointManager()
                   );
             WIDExplorerSettings settings

@@ -29,6 +29,7 @@ namespace NW.WIDJobs
         public IWIDMetricsManager MetricsManager { get; }
         public IFileManager FileManager { get; }
         public IRepositoryFactory RepositoryFactory { get; }
+        public IAsciiBannerManager AsciiBannerManager { get; }
         public IBulletPointManager BulletPointManager { get; }
 
         #endregion
@@ -51,6 +52,7 @@ namespace NW.WIDJobs
             IWIDMetricsManager metricsManager,
             IFileManager fileManager,
             IRepositoryFactory repositoryFactory,
+            IAsciiBannerManager asciiBannerManager,
             IBulletPointManager bulletPointManager
             )
         {
@@ -68,6 +70,7 @@ namespace NW.WIDJobs
             Validator.ValidateObject(metricsManager, nameof(metricsManager));
             Validator.ValidateObject(fileManager, nameof(fileManager));
             Validator.ValidateObject(repositoryFactory, nameof(repositoryFactory));
+            Validator.ValidateObject(asciiBannerManager, nameof(asciiBannerManager));
             Validator.ValidateObject(bulletPointManager, nameof(bulletPointManager));
 
             LoggingAction = loggingAction;
@@ -83,6 +86,7 @@ namespace NW.WIDJobs
             MetricsManager = metricsManager;
             FileManager = fileManager;
             RepositoryFactory = repositoryFactory;
+            AsciiBannerManager = asciiBannerManager;
             BulletPointManager = bulletPointManager;
 
         }
@@ -103,6 +107,7 @@ namespace NW.WIDJobs
                   new WIDMetricsManager(),
                   new FileManager(),
                   new RepositoryFactory(),
+                  new AsciiBannerManager(),
                   new BulletPointManager()
                   )
         { }
