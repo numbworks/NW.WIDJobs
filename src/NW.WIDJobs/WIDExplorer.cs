@@ -6,6 +6,7 @@ using System.Threading;
 using System.Linq;
 using System.Dynamic;
 using System.IO;
+using System.Reflection;
 
 namespace NW.WIDJobs
 {
@@ -24,7 +25,8 @@ namespace NW.WIDJobs
         public static string DefaultNotSerialized { get; } = "This item has been exluded from the serializazion.";
         public static ushort DefaultInitialPageNumber { get; } = 1;
         public DateTime Now { get; }
-        public string RunId { get; }
+        public string Version { get; }
+        public string AsciiBanner { get; }
 
         #endregion
 
@@ -40,6 +42,9 @@ namespace NW.WIDJobs
             _components = components;
             _settings = settings;
             Now = now;
+
+            Version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            AsciiBanner = _components.AsciiBannerManager.Create(Version);
 
         }
         
@@ -57,6 +62,7 @@ namespace NW.WIDJobs
             Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
             Validator.ThrowIfLessThanOne(finalPageNumber, nameof(finalPageNumber));
 
+            LogAsciiBanner();
             LogInitializationMessage(runId, finalPageNumber, category, stage);
 
             WIDExploration exploration = ProcessStage1(runId, DefaultInitialPageNumber, category, stage);
@@ -91,6 +97,7 @@ namespace NW.WIDJobs
 
             Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
 
+            LogAsciiBanner();
             LogInitializationMessage(runId, thresholdDate, category, stage);
 
             WIDExploration exploration = ProcessStage1(runId, DefaultInitialPageNumber, category, stage);
@@ -122,6 +129,7 @@ namespace NW.WIDJobs
 
             Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
 
+            LogAsciiBanner();
             LogInitializationMessage(runId, category, stage);
 
             WIDExploration exploration = ProcessStage1(runId, DefaultInitialPageNumber, category, stage);
@@ -274,6 +282,8 @@ namespace NW.WIDJobs
                 Thread.Sleep((int)pauseBetweenRequestsMs);
 
         }
+        private void LogAsciiBanner()
+            => _components.LoggingActionAsciiBanner.Invoke(AsciiBanner);
         private void LogInitializationMessage
             (string runId, ushort finalPageNumber, WIDCategories category, WIDStages stage)
         {
@@ -547,5 +557,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 28.05.2021
+    Last Update: 10.06.2021
 */
