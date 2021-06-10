@@ -133,8 +133,11 @@ namespace NW.WIDJobs.UnitTests
             // Arrange
             FakeLogger fakeLogger = new FakeLogger();
             Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
+            FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
+            Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
             WIDExplorerComponents components = new WIDExplorerComponents(
                     fakeLoggingAction,
+                    fakeLoggingActionAsciiBanner,
                     new XPathManager(),
                     ObjectMother.WIDExplorer_FakeGetRequestManagerAlternate(),
                     new PageManager(
@@ -205,8 +208,11 @@ namespace NW.WIDJobs.UnitTests
             // Arrange
             FakeLogger fakeLogger = new FakeLogger();
             Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
+            FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
+            Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
             WIDExplorerComponents components = new WIDExplorerComponents(
                     fakeLoggingAction,
+                    fakeLoggingActionAsciiBanner,
                     new XPathManager(),
                     ObjectMother.WIDExplorer_FakeGetRequestManagerAlternate(),
                     new PageManager(
@@ -282,8 +288,11 @@ namespace NW.WIDJobs.UnitTests
             // Arrange
             FakeLogger fakeLogger = new FakeLogger();
             Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
+            FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
+            Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
             WIDExplorerComponents components = new WIDExplorerComponents(
                     fakeLoggingAction,
+                    fakeLoggingActionAsciiBanner,
                     new XPathManager(),
                     ObjectMother.WIDExplorer_FakeGetRequestManagerAlternate(),
                     new PageManager(
@@ -360,8 +369,11 @@ namespace NW.WIDJobs.UnitTests
             // Arrange
             FakeLogger fakeLogger = new FakeLogger();
             Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
+            FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
+            Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
             WIDExplorerComponents components = new WIDExplorerComponents(
                     fakeLoggingAction,
+                    fakeLoggingActionAsciiBanner,
                     new XPathManager(),
                     ObjectMother.WIDExplorer_FakeGetRequestManagerAlternate(),
                     new PageManager(
@@ -437,8 +449,11 @@ namespace NW.WIDJobs.UnitTests
             // Arrange
             FakeLogger fakeLogger = new FakeLogger();
             Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
+            FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
+            Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
             WIDExplorerComponents components = new WIDExplorerComponents(
                     fakeLoggingAction,
+                    fakeLoggingActionAsciiBanner,
                     new XPathManager(),
                     ObjectMother.WIDExplorer_FakeGetRequestManagerAlternate(),
                     new PageManager(
@@ -513,8 +528,11 @@ namespace NW.WIDJobs.UnitTests
             // Arrange
             FakeLogger fakeLogger = new FakeLogger();
             Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
+            FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
+            Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
             WIDExplorerComponents components = new WIDExplorerComponents(
                     fakeLoggingAction,
+                    fakeLoggingActionAsciiBanner,
                     new XPathManager(),
                     ObjectMother.WIDExplorer_FakeGetRequestManagerAlternate(),
                     new PageManager(

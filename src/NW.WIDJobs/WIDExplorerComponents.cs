@@ -13,8 +13,11 @@ namespace NW.WIDJobs
 
         public static Action<string> DefaultLoggingAction { get; }
             = (message) => Console.WriteLine($"[{DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss:fff")}] {message}");
+        public static Action<string> DefaultLoggingActionAsciiBanner { get; }
+            = (message) => Console.WriteLine($"{message}");
 
         public Action<string> LoggingAction { get; }
+        public Action<string> LoggingActionAsciiBanner { get; }
         public IXPathManager XPathManager { get; }
         public IGetRequestManager GetRequestManager { get; }
         public IPageManager PageManager { get; }
@@ -36,6 +39,7 @@ namespace NW.WIDJobs
         /// <exception cref="ArgumentNullException"/>
         public WIDExplorerComponents(
             Action<string> loggingAction,
+            Action<string> loggingActionAsciiBanner,
             IXPathManager xpathManager,
             IGetRequestManager getRequestManager,
             IPageManager pageManager,
@@ -52,6 +56,7 @@ namespace NW.WIDJobs
         {
 
             Validator.ValidateObject(loggingAction, nameof(loggingAction));
+            Validator.ValidateObject(loggingActionAsciiBanner, nameof(loggingActionAsciiBanner));
             Validator.ValidateObject(xpathManager, nameof(xpathManager));
             Validator.ValidateObject(getRequestManager, nameof(getRequestManager));
             Validator.ValidateObject(pageManager, nameof(pageManager));
@@ -66,6 +71,7 @@ namespace NW.WIDJobs
             Validator.ValidateObject(bulletPointManager, nameof(bulletPointManager));
 
             LoggingAction = loggingAction;
+            LoggingActionAsciiBanner = loggingActionAsciiBanner;
             XPathManager = xpathManager;
             GetRequestManager = getRequestManager;
             PageManager = pageManager;
@@ -85,6 +91,7 @@ namespace NW.WIDJobs
         public WIDExplorerComponents()
             : this(
                   DefaultLoggingAction,
+                  DefaultLoggingActionAsciiBanner,
                   new XPathManager(),
                   new GetRequestManager(),
                   new PageManager(),
