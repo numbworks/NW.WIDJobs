@@ -114,6 +114,66 @@ namespace NW.WIDJobs.UnitTests
                 ).SetArgDisplayNames($"{nameof(tryExtractPageItemTestCases)}_04")
 
         };
+        private static TestCaseData[] tryExtractPageItemExceptionTestCases =
+        {
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new PageItemExtendedScraper()
+                                .TryExtractPageItem(
+                                    null, 
+                                    PageItemExtendedScraper.DummyPageNumber,
+                                    PageItemExtendedScraper.DummyPageItemNumber,
+                                    ObjectMother.Shared_Page01_PageItemExtended14_Content
+                                )
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("runId").Message
+            ).SetArgDisplayNames($"{nameof(tryExtractPageItemExceptionTestCases)}_01"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new PageItemExtendedScraper()
+                                .TryExtractPageItem(
+                                    PageItemExtendedScraper.DummyPageItemRunId,
+                                    0,
+                                    PageItemExtendedScraper.DummyPageItemNumber,
+                                    ObjectMother.Shared_Page01_PageItemExtended14_Content
+                                )
+                ),
+                typeof(ArgumentException),
+                MessageCollection.Validator_VariableCantBeLessThanOne.Invoke("pageNumber")
+            ).SetArgDisplayNames($"{nameof(tryExtractPageItemExceptionTestCases)}_02"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new PageItemExtendedScraper()
+                                .TryExtractPageItem(
+                                    PageItemExtendedScraper.DummyPageItemRunId,
+                                    PageItemExtendedScraper.DummyPageNumber,
+                                    0,
+                                    ObjectMother.Shared_Page01_PageItemExtended14_Content
+                                )
+                ),
+                typeof(ArgumentException),
+                MessageCollection.Validator_VariableCantBeLessThanOne.Invoke("pageItemNumber")
+            ).SetArgDisplayNames($"{nameof(tryExtractPageItemExceptionTestCases)}_03"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new PageItemExtendedScraper()
+                                .TryExtractPageItem(
+                                    PageItemExtendedScraper.DummyPageItemRunId,
+                                    PageItemExtendedScraper.DummyPageNumber,
+                                    PageItemExtendedScraper.DummyPageItemNumber,
+                                    null
+                                )
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("content").Message
+            ).SetArgDisplayNames($"{nameof(tryExtractPageItemExceptionTestCases)}_04")
+
+        };
 
         // SetUp
         // Tests
@@ -189,6 +249,11 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
+        [TestCaseSource(nameof(tryExtractPageItemExceptionTestCases))]
+        public void TryExtractPageItem_ShouldThrowACertainException_WhenUnproperArguments
+            (TestDelegate del, Type expectedType, string expectedMessage)
+                => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
+
         // TearDown		
 
     }
@@ -196,5 +261,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 13.05.2021
+    Last Update: 12.06.2021
 */
