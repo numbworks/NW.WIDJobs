@@ -490,10 +490,10 @@ namespace NW.WIDJobs
 
             string xpath = "//form[@method='post']/@action";
 
-            string title = _xpathManager.GetInnerText(content, xpath);
-            title = _scraperHelper.ConvertToAbsoluteUrl(title);
+            string url = _xpathManager.GetAttributeValues(content, xpath, 1)[0];
+            url = _scraperHelper.ConvertToAbsoluteUrl(url);
 
-            return title;
+            return url;
 
         }
         private string ExtractAndCleanTitle(string content)
