@@ -128,21 +128,21 @@ namespace NW.WIDJobs.UnitTests
         {
 
             // Arrange
-            string content = ObjectMother.Shared_Page03_PageItemExtended01_Content;
+            string content = ObjectMother.Shared_Page01_PageItemExtended14_Content;
             PageItem expected = new PageItem(
                          runId: PageItemExtendedScraper.DummyPageItemRunId,
                          pageNumber: PageItemExtendedScraper.DummyPageNumber,
-                         url: "https://www.workindenmark.dk/job/8144162/Assistant-professor-adjunkt-position-in-span-class-max-ultrafast-span-span-class-max-photoelectron-span-span-class-max-spectroscopy-span",
-                         title: "Assistant professor (adjunkt) position in ultrafast photoelectron spectroscopy",
-                         createDate: new DateTime(2021, 05, 08),
-                         applicationDate: new DateTime(2021, 05, 26),
-                         workArea: "Århus C",
-                         workAreaWithoutZone: "Århus",
-                         workingHours: "Full time (37 hours)",
-                         jobType: "Regular position",
-                         jobId: 5339196,
+                         url: ObjectMother.Shared_Page01_PageItem14.Url,
+                         title: ObjectMother.Shared_Page01_PageItem14.Title,
+                         createDate: ObjectMother.Shared_Page01_PageItem14.CreateDate,
+                         applicationDate: ObjectMother.Shared_Page01_PageItem14.ApplicationDate,
+                         workArea: ObjectMother.Shared_Page01_PageItem14.WorkArea,
+                         workAreaWithoutZone: ObjectMother.Shared_Page01_PageItem14.WorkAreaWithoutZone,
+                         workingHours: ObjectMother.Shared_Page01_PageItem14.WorkingHours,
+                         jobType: ObjectMother.Shared_Page01_PageItem14.JobType,
+                         jobId: ObjectMother.Shared_Page01_PageItem14.JobId,
                          pageItemNumber: PageItemExtendedScraper.DummyPageItemNumber,
-                         pageItemId: "5339196assistantprofessoradjunktpositionin"
+                         pageItemId: ObjectMother.Shared_Page01_PageItem14.PageItemId
                       );
 
             // Act
