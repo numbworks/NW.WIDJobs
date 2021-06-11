@@ -124,7 +124,7 @@ namespace NW.WIDJobs.UnitTests
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
         [Test]
-        public void TryExtractPageItem_ShouldReturnExpectedPageItem_WhenInvoked()
+        public void TryExtractPageItem_ShouldReturnExpectedPageItem_WhenWebpageContainsAllFields()
         {
 
             // Arrange

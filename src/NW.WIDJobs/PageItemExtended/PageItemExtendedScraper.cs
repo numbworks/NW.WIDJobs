@@ -106,32 +106,41 @@ namespace NW.WIDJobs
             Validator.ThrowIfLessThanOne(pageItemNumber, nameof(pageItemNumber));
             Validator.ValidateStringNullOrWhiteSpace(content, nameof(content));
 
-            string url = ExtractUrl(content);
-            string title = ExtractAndCleanTitle(content);
-            DateTime createDate = (DateTime)TryExtractAndParseCreateDate(content);
-            DateTime? applicationDate = TryExtractAndParseApplicationDate(content);
-            string workArea = ExtractAndCleanWorkArea(content);
-            string workAreaWithoutZone = _scraperHelper.CreateWorkAreaWithoutZone(workArea);
-            string workingHours = ExtractAndCleanWorkingHours(content);
-            string jobType = ExtractAndCleanJobType(content);
-            ulong jobId = ulong.Parse(_scraperHelper.ExtractJobId(url));
-            string pageItemId = _scraperHelper.CreatePageItemId(jobId, title);
+            try
+            {
 
-            return new PageItem(
-                        runId: runId,
-                        pageNumber: pageNumber,
-                        url: url,
-                        title: title,
-                        createDate: createDate,
-                        applicationDate: applicationDate,
-                        workArea: workArea,
-                        workAreaWithoutZone: workAreaWithoutZone,
-                        workingHours: workingHours,
-                        jobType: jobType,
-                        jobId: jobId,
-                        pageItemNumber: pageItemNumber,
-                        pageItemId: pageItemId
-                    );
+                string url = ExtractUrl(content);
+                string title = ExtractAndCleanTitle(content);
+                DateTime createDate = (DateTime)TryExtractAndParseCreateDate(content);
+                DateTime? applicationDate = TryExtractAndParseApplicationDate(content);
+                string workArea = ExtractAndCleanWorkArea(content);
+                string workAreaWithoutZone = _scraperHelper.CreateWorkAreaWithoutZone(workArea);
+                string workingHours = ExtractAndCleanWorkingHours(content);
+                string jobType = ExtractAndCleanJobType(content);
+                ulong jobId = ulong.Parse(_scraperHelper.ExtractJobId(url));
+                string pageItemId = _scraperHelper.CreatePageItemId(jobId, title);
+
+                return new PageItem(
+                            runId: runId,
+                            pageNumber: pageNumber,
+                            url: url,
+                            title: title,
+                            createDate: createDate,
+                            applicationDate: applicationDate,
+                            workArea: workArea,
+                            workAreaWithoutZone: workAreaWithoutZone,
+                            workingHours: workingHours,
+                            jobType: jobType,
+                            jobId: jobId,
+                            pageItemNumber: pageItemNumber,
+                            pageItemId: pageItemId
+                        );
+
+            }
+            catch
+            {
+                return null;
+            }
 
         }
         public PageItem TryExtractPageItem(string content)
@@ -586,7 +595,6 @@ namespace NW.WIDJobs
 
         }
 
-
         #endregion
 
     }
@@ -594,5 +602,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 01.06.2021
+    Last Update: 12.06.2021
 */
