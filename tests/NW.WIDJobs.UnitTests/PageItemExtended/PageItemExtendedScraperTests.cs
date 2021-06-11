@@ -94,6 +94,26 @@ namespace NW.WIDJobs.UnitTests
             ).SetArgDisplayNames($"{nameof(doExceptionTestCases)}_02"),
 
         };
+        private static TestCaseData[] tryExtractPageItemTestCases =
+        {
+
+            new TestCaseData(
+                    ObjectMother.Shared_Page03_PageItemExtended01_Content
+                ).SetArgDisplayNames($"{nameof(tryExtractPageItemTestCases)}_01"),
+
+            new TestCaseData(
+                    ObjectMother.Shared_Page03_PageItemExtended02_Content
+                ).SetArgDisplayNames($"{nameof(tryExtractPageItemTestCases)}_02"),
+
+            new TestCaseData(
+                    ObjectMother.Shared_Page03_PageItemExtended03_Content
+                ).SetArgDisplayNames($"{nameof(tryExtractPageItemTestCases)}_03"),
+
+            new TestCaseData(
+                    ObjectMother.Shared_Page03_PageItemExtended04_Content
+                ).SetArgDisplayNames($"{nameof(tryExtractPageItemTestCases)}_04")
+
+        };
 
         // SetUp
         // Tests
@@ -152,6 +172,20 @@ namespace NW.WIDJobs.UnitTests
             Assert.IsTrue(
                      ObjectMother.AreEqual(expected, actual)
                  );
+
+        }
+
+        [TestCaseSource(nameof(tryExtractPageItemTestCases))]
+        public void TryExtractPageItem_ShouldReturnNull_WhenWebpageDoesntContainsAllFields
+            (string content)
+        {
+
+            // Arrange
+            // Act
+            PageItem actual = new PageItemExtendedScraper().TryExtractPageItem(content);
+
+            // Assert
+            Assert.IsNull(actual);
 
         }
 
