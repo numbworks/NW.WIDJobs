@@ -579,7 +579,7 @@ The XPath patterns to scrape all the `PageItem` fields are the following ones:
 |Type|Field|Pattern|
 |---|---|---|
 |`Mandatory`|`Url`|`//form[@method='post']/@action`|
-|`Mandatory`|`Title`|`//div[@class='col-sm-9 col-sm-push-3']/h1[@class='widk-h1-black']`|
+|`Mandatory`|`Title`|`//div[@class='col-sm-9 col-sm-push-3' or @class='col-sm-9 col-sm-push-3 nopadding']/h1[@class='widk-h1-black']`|
 |`Mandatory`|`CreateDate`|`//div[@class='col-sm-11']/dl[@class='dl-justify nomargin']/dt[contains(.,'Created')]/following-sibling::dd[1]`|
 |`Optional`|`ApplicationDate`|`//div[@class='col-sm-11']/dl[@class='dl-justify nomargin']/dt[contains(.,'Application')]/following-sibling::dd[1]`|
 |`Mandatory`|`WorkArea`|`//div[@class='col-sm-9 col-sm-push-3 nopadding paddingtop']/div[@class='data-list']/div[@class='row nomargin']/div[@class='col-sm-12']/ul[@class='list-inline']/li[contains(.,'Work area')]`|
@@ -591,6 +591,7 @@ The following fields require extra processing:
 |Field|Action|
 |---|---|
 |`Url`|Convert from relative to absolute.|
+|`Title`|Remove new lines and extra whitespaces.|
 |`CreateDate`|Parse it to `DateTime`. The field may be not present.|
 |`ApplicationDate`|Parse it to `DateTime`. The field may be not present.|
 |`WorkArea`|Remove `Work area: `.|
