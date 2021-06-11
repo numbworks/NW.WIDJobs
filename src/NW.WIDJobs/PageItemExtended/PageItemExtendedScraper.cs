@@ -107,7 +107,7 @@ namespace NW.WIDJobs
             Validator.ValidateStringNullOrWhiteSpace(content, nameof(content));
 
             string url = ExtractUrl(content);
-            string title = ExtractTitle(content);
+            string title = ExtractAndCleanTitle(content);
             DateTime createDate = (DateTime)TryExtractAndParseCreateDate(content);
             DateTime? applicationDate = TryExtractAndParseApplicationDate(content);
             string workArea = ExtractAndCleanWorkArea(content);
@@ -496,16 +496,18 @@ namespace NW.WIDJobs
             return title;
 
         }
-        private string ExtractTitle(string content)
+        private string ExtractAndCleanTitle(string content)
         {
 
             /*
                 "International Project Controller"
             */
 
-            string xpath = "//div[@class='col-sm-9 col-sm-push-3']/h1[@class='widk-h1-black']";
+            string xpath = "//div[@class='col-sm-9 col-sm-push-3' or @class='col-sm-9 col-sm-push-3 nopadding']/h1[@class='widk-h1-black']";
 
             string title = _xpathManager.GetInnerText(content, xpath);
+            title = TryRemoveNewLines(title);
+            title = TryRemoveExtraWhiteSpaces(title);
 
             return title;
 

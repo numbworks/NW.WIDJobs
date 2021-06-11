@@ -123,6 +123,38 @@ namespace NW.WIDJobs.UnitTests
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
+        [Test]
+        public void TryExtractPageItem_ShouldReturnExpectedPageItem_WhenInvoked()
+        {
+
+            // Arrange
+            string content = ObjectMother.Shared_Page03_PageItemExtended01_Content;
+            PageItem expected = new PageItem(
+                         runId: PageItemExtendedScraper.DummyPageItemRunId,
+                         pageNumber: PageItemExtendedScraper.DummyPageNumber,
+                         url: "https://www.workindenmark.dk/job/8144162/Assistant-professor-adjunkt-position-in-span-class-max-ultrafast-span-span-class-max-photoelectron-span-span-class-max-spectroscopy-span",
+                         title: "Assistant professor (adjunkt) position in ultrafast photoelectron spectroscopy",
+                         createDate: new DateTime(2021, 05, 08),
+                         applicationDate: new DateTime(2021, 05, 26),
+                         workArea: "Århus C",
+                         workAreaWithoutZone: "Århus",
+                         workingHours: "Full time (37 hours)",
+                         jobType: "Regular position",
+                         jobId: 5339196,
+                         pageItemNumber: PageItemExtendedScraper.DummyPageItemNumber,
+                         pageItemId: "5339196assistantprofessoradjunktpositionin"
+                      );
+
+            // Act
+            PageItem actual = new PageItemExtendedScraper().TryExtractPageItem(content);
+
+            // Assert
+            Assert.IsTrue(
+                     ObjectMother.AreEqual(expected, actual)
+                 );
+
+        }
+
         // TearDown		
 
     }
