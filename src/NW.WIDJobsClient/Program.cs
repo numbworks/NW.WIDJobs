@@ -10,7 +10,7 @@ namespace NW.WIDJobsClient
         static void Main(string[] args)
         {
 
-            Do2();
+            DoForAll();
 
             WIDExplorerComponents.DefaultLoggingAction.Invoke("Press a button to close the window.");
             Console.ReadLine();
@@ -65,6 +65,36 @@ namespace NW.WIDJobsClient
             WIDExplorer explorer = new WIDExplorer(new WIDExplorerComponents(), settings, DateTime.Now);
         
             explorer.ToSQLite(ObjectMother.Shared_Page03_PageItemsExtended);
+
+        }
+        static void DoForAll()
+        {
+
+            string dateToken = DateTime.Now.ToString(RunIdManager.FormatDateTime);
+
+            WIDExplorerSettings settings
+                = new WIDExplorerSettings(
+                        WIDExplorerSettings.DefaultParallelRequests,
+                        WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
+                        @"C:\Users\Rubèn\Desktop\",
+                        string.Concat(WIDExplorerSettings.DefaultDatabaseName, "_", dateToken, ".db"),
+                        WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
+                        );
+
+            WIDExplorer explorer = new WIDExplorer(new WIDExplorerComponents(), settings, DateTime.Now);
+            WIDExploration exploration
+                = explorer.ExploreAll(WIDCategories.AllCategories, WIDStages.Stage3_UpToAllPageItemsExtended);
+
+            explorer.ToSQLite(exploration.PageItemsExtended);
+
+            string json = explorer.ToJson(exploration);
+            string filename = string.Concat(@"C:\Users\Rubèn\Desktop\Exploration", "_", dateToken, ".json");
+            File.WriteAllText(filename, json);
+
+            WIDMetrics metrics = explorer.Calculate(exploration);
+            json = explorer.ToJson(metrics);
+            filename = string.Concat(@"C:\Users\Rubèn\Desktop\Metrics", "_", dateToken, ".json");
+            File.WriteAllText(filename, json);
 
         }
 
