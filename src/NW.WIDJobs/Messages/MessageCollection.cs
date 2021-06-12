@@ -110,13 +110,18 @@ namespace NW.WIDJobs
             = (pageItems, i) => $"'{20 - pageItems.Count}' has been removed from page nr. '{i}'.";
         public static Func<ushort, string> WIDExplorer_FinalPageNumberThresholdDate
             = (finalPageNumber) => $"The 'FinalPageNumber' for the provided 'ThresholdDate' is '{finalPageNumber}'.";
-        
+
+        public static string WIDExplorer_ExtractPageItemsFromHTML
+            = $"Extracting {nameof(PageItem)} objects from the provided HTML file...";
+        public static string WIDExplorer_SomeDefaultValuesUsedFromHTML
+            = $"Some default values need to be used in order to perform this extraction directly out of a HTML file.";
+        public static Func<List<PageItem>, string> WIDExplorer_PageItemsExtractedFromHTML
+            = (pageItems) => $"'{pageItems.Count}' {nameof(PageItem)} objects have been successfully extracted from the provided HTML file.";
+
         public static string WIDExplorer_ExtractPageItemExtendedFromHTML
             =  $"Extracting a {nameof(PageItemExtended)} object from the provided HTML file...";
         public static Func<IFileInfoAdapter, string> WIDExplorer_HTMLFileIs
             = (htmlFile) => $"HTMLFile: '{htmlFile}'.";
-        public static string WIDExplorer_SomeDefaultValuesUsedFromHTML
-            = $"Some default values need to be used in order to create a '{nameof(PageItemExtended)}' object out of a HTML file.";
         public static Func<ushort, string> WIDExplorer_PageNumberIs
             = (pageNumber) => $"PageNumber:'{pageNumber}'.";
         public static Func<ushort, string> WIDExplorer_PageItemNumberIs

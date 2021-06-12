@@ -166,30 +166,71 @@ namespace NW.WIDJobs
 
         }
 
-        public List<PageItem> GetPageItemsFromHtml(IFileInfoAdapter htmlFile)
+        public WIDMetrics ConvertToMetrics(WIDExploration exploration)
+            => _components.MetricsManager.Calculate(exploration);
+        public string ConvertToJson(WIDExploration exploration)
+        {
+
+            Validator.ValidateObject(exploration, nameof(exploration));
+
+            JsonSerializerOptions options = new JsonSerializerOptions();
+            options.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
+            options.Converters.Add(new DateTimeToDateConverter());
+
+            dynamic dyn = OptimizeForSerialization(exploration);
+
+            return JsonSerializer.Serialize(dyn, options);
+
+        }
+        public string ConvertToJson(WIDMetrics metrics, bool numbersAsPercentages)
+        {
+
+            Validator.ValidateObject(metrics, nameof(metrics));
+
+            JsonSerializerOptions options = new JsonSerializerOptions();
+            options.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
+            options.Converters.Add(new DateTimeToDateConverter());
+
+            if (numbersAsPercentages)
+            {
+
+                dynamic dyn = ConvertNumbersToPercentages(metrics);
+
+                return JsonSerializer.Serialize(dyn, options);
+
+            }
+
+            return JsonSerializer.Serialize(metrics, options);
+
+        }
+
+        public List<PageItem> ExtractFromHtml(IFileInfoAdapter htmlFile)
         {
 
             Validator.ValidateObject(htmlFile, nameof(htmlFile));
             Validator.ValidateFileExistance(htmlFile);
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExtractPageItemExtendedFromHTML.Invoke(htmlFile));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExtractPageItemsFromHTML);
 
             DateTime now = NowFunction.Invoke();
             string runId = _components.RunIdManager.Create(now);
             ushort pageNumber = 1;
 
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SomeDefaultValuesUsedFromHTML);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs.Invoke(runId));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageNumberIs.Invoke(pageNumber));
+
             string content = _components.FileManager.ReadAllText(htmlFile);
             Page page = new Page(runId, pageNumber, content);
             List<PageItem> pageItems = _components.PageItemScraper.Do(page);
             
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemObjectsScrapedTotal.Invoke(pageItems));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemExtendedExtractedFromHTML);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemsExtractedFromHTML.Invoke(pageItems));
 
             return pageItems;
 
         }
-        public List<PageItem> GetPageItemsFromHtml(string filePath)
-            => GetPageItemsFromHtml(_components.FileManager.Create(filePath));
+        public List<PageItem> ExtractFromHtml(string filePath)
+            => ExtractFromHtml(_components.FileManager.Create(filePath));
 
         public PageItemExtended TryExtractFromHtml(IFileInfoAdapter htmlFile)
         {
@@ -228,44 +269,6 @@ namespace NW.WIDJobs
         }
         public PageItemExtended TryExtractFromHtml(string filePath)
             => TryExtractFromHtml(_components.FileManager.Create(filePath));
-
-        public WIDMetrics ConvertToMetrics(WIDExploration exploration)
-            => _components.MetricsManager.Calculate(exploration);
-        public string ConvertToJson(WIDExploration exploration)
-        {
-
-            Validator.ValidateObject(exploration, nameof(exploration));
-
-            JsonSerializerOptions options = new JsonSerializerOptions();
-            options.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
-            options.Converters.Add(new DateTimeToDateConverter());
-
-            dynamic dyn = OptimizeForSerialization(exploration);
-
-            return JsonSerializer.Serialize(dyn, options);
-
-        }
-        public string ConvertToJson(WIDMetrics metrics, bool numbersAsPercentages)
-        {
-
-            Validator.ValidateObject(metrics, nameof(metrics));
-
-            JsonSerializerOptions options = new JsonSerializerOptions();
-            options.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
-            options.Converters.Add(new DateTimeToDateConverter());
-
-            if(numbersAsPercentages)
-            {
-
-                dynamic dyn = ConvertNumbersToPercentages(metrics);
-
-                return JsonSerializer.Serialize(dyn, options);
-            
-            }
-
-            return JsonSerializer.Serialize(metrics, options);
-
-        }
 
         public IFileInfoAdapter SaveAsSQLite
             (List<PageItemExtended> pageItemsExtended, IFileInfoAdapter databaseFile, bool deleteAndRecreateDatabase)
