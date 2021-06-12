@@ -10,13 +10,14 @@ namespace NW.WIDJobsClient
         static void Main(string[] args)
         {
 
-            DoForAll();
+            ExploreFirstPageAllCategories();
+            ExploreAllITTech();
 
             WIDExplorerComponents.DefaultLoggingAction.Invoke("Press a button to close the window.");
             Console.ReadLine();
 
         }
-        static void Do()
+        static void ExploreFirstPageAllCategories()
         {
 
             WIDExplorerSettings settings
@@ -30,46 +31,16 @@ namespace NW.WIDJobsClient
             WIDExplorer explorer = new WIDExplorer(new WIDExplorerComponents(), settings, WIDExplorer.DefaultNowFunction);
             WIDExploration exploration
                 = explorer.Explore(1, WIDCategories.AllCategories, WIDStages.Stage3_UpToAllPageItemsExtended);
+            WIDMetrics metrics = explorer.ConvertToMetrics(exploration);
 
-            WIDExplorerComponents.DefaultLoggingAction.Invoke(exploration.ToString());
-
-            string dateToken = DateTime.Now.ToString(RunIdManager.DefaultFormatDateTime);
-
-            string json = explorer.ConvertToJson(exploration);
-            string filename = string.Concat(@"C:\Users\Rubèn\Desktop\Exploration", dateToken, ".json");
-            File.WriteAllText(filename, json);
-
-            /*
-            WIDMetrics metrics = new WIDMetricsManager().Calculate(exploration);
-            json = explorer.ConvertToJson(metrics);
-            filename = string.Concat(@"C:\Users\Rubèn\Desktop\Metrics", dateToken, ".json");
-            File.WriteAllText(filename, json);
-
+            explorer.SaveAsJson(exploration);
             explorer.SaveAsSQLite(exploration.PageItemsExtended);
-
-            WIDExplorerComponents.DefaultLoggingAction.Invoke(metrics.ToString());
-            */
-        }
-        static void Do2()
-        {
-
-            WIDExplorerSettings settings
-                = new WIDExplorerSettings(
-                        WIDExplorerSettings.DefaultParallelRequests,
-                        WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
-                        @"C:\Users\Rubèn\Desktop\",
-                        WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
-                        );
-
-            WIDExplorer explorer = new WIDExplorer(new WIDExplorerComponents(), settings, WIDExplorer.DefaultNowFunction);
-        
-            explorer.SaveAsSQLite(ObjectMother.Shared_Page03_PageItemsExtended);
+            explorer.SaveAsJson(metrics, false);
+            explorer.SaveAsJson(metrics, true);
 
         }
-        static void DoForAll()
+        static void ExploreAllITTech()
         {
-
-            string dateToken = DateTime.Now.ToString(RunIdManager.DefaultFormatDateTime);
 
             WIDExplorerSettings settings
                 = new WIDExplorerSettings(
@@ -81,21 +52,21 @@ namespace NW.WIDJobsClient
 
             WIDExplorer explorer = new WIDExplorer(new WIDExplorerComponents(), settings, WIDExplorer.DefaultNowFunction);
             WIDExploration exploration
-                = explorer.ExploreAll(WIDCategories.AllCategories, WIDStages.Stage3_UpToAllPageItemsExtended);
-
-            explorer.SaveAsSQLite(exploration.PageItemsExtended);
-
-            string json = explorer.ConvertToJson(exploration);
-            string filename = string.Concat(@"C:\Users\Rubèn\Desktop\Exploration", "_", dateToken, ".json");
-            File.WriteAllText(filename, json);
-            /*
+                = explorer.ExploreAll(WIDCategories.ItTech, WIDStages.Stage3_UpToAllPageItemsExtended);
             WIDMetrics metrics = explorer.ConvertToMetrics(exploration);
-            json = explorer.ConvertToJson(metrics);
-            filename = string.Concat(@"C:\Users\Rubèn\Desktop\Metrics", "_", dateToken, ".json");
-            File.WriteAllText(filename, json);
-            */
+
+            explorer.SaveAsJson(exploration);
+            explorer.SaveAsSQLite(exploration.PageItemsExtended);
+            explorer.SaveAsJson(metrics, false);
+            explorer.SaveAsJson(metrics, true);
+
         }
 
     }
 
 }
+
+/*
+    Author: numbworks@gmail.com
+    Last Update: 12.06.2021
+*/

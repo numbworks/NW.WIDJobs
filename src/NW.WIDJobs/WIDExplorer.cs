@@ -339,7 +339,8 @@ namespace NW.WIDJobs
             //
 
             DateTime now = NowFunction.Invoke();
-            string fullName = _components.FileNameFactory.CreateForMetricsJson(_settings.FolderPath, now);
+            
+            string fullName = _components.FileNameFactory.CreateForMetricsJson(_settings.FolderPath, now, numbersAsPercentages);       
             IFileInfoAdapter jsonFile = new FileInfoAdapter(fullName);
 
             //
