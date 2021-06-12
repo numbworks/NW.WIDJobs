@@ -166,24 +166,24 @@ namespace NW.WIDJobs
 
         }
 
-        public List<PageItem> GetPageItemsFromHtml(IFileInfoAdapter fileInfoAdapter)
+        public List<PageItem> GetPageItemsFromHtml(IFileInfoAdapter htmlFile)
         {
 
-            Validator.ValidateObject(fileInfoAdapter, nameof(fileInfoAdapter));
-            Validator.ValidateFileExistance(fileInfoAdapter);
+            Validator.ValidateObject(htmlFile, nameof(htmlFile));
+            Validator.ValidateFileExistance(htmlFile);
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExploringProvidedFile.Invoke(fileInfoAdapter));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExtractPageItemExtendedFromHTML.Invoke(htmlFile));
 
             DateTime now = NowFunction.Invoke();
             string runId = _components.RunIdManager.Create(now);
             ushort pageNumber = 1;
 
-            string content = _components.FileManager.ReadAllText(fileInfoAdapter);
+            string content = _components.FileManager.ReadAllText(htmlFile);
             Page page = new Page(runId, pageNumber, content);
             List<PageItem> pageItems = _components.PageItemScraper.Do(page);
             
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemObjectsScrapedTotal.Invoke(pageItems));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ProvidedFileSuccessfullyExplored);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemExtendedExtractedFromHTML);
 
             return pageItems;
 
@@ -191,30 +191,43 @@ namespace NW.WIDJobs
         public List<PageItem> GetPageItemsFromHtml(string filePath)
             => GetPageItemsFromHtml(_components.FileManager.Create(filePath));
 
-        public PageItemExtended TryGetPageItemExtendedFromHtml(IFileInfoAdapter fileInfoAdapter)
+        public PageItemExtended TryExtractFromHtml(IFileInfoAdapter htmlFile)
         {
 
-            Validator.ValidateObject(fileInfoAdapter, nameof(fileInfoAdapter));
-            Validator.ValidateFileExistance(fileInfoAdapter);
+            Validator.ValidateObject(htmlFile, nameof(htmlFile));
+            Validator.ValidateFileExistance(htmlFile);
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExploringProvidedFile.Invoke(fileInfoAdapter));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExtractPageItemExtendedFromHTML);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_HTMLFileIs.Invoke(htmlFile));
 
             DateTime now = NowFunction.Invoke();
             string runId = _components.RunIdManager.Create(now);
             ushort pageNumber = PageItemExtendedScraper.DummyPageNumber;
             ushort pageItemNumber = PageItemExtendedScraper.DummyPageItemNumber;
 
-            string content = _components.FileManager.ReadAllText(fileInfoAdapter);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SomeDefaultValuesUsedFromHTML);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs.Invoke(runId));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageNumberIs.Invoke(pageNumber));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemNumberIs.Invoke(pageItemNumber));
+
+            string content = _components.FileManager.ReadAllText(htmlFile);
             PageItem pageItem = _components.PageItemExtendedScraper.TryExtractPageItem(runId, pageNumber, pageItemNumber, content);
+            if (pageItem == null)
+            {
+                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ItHasNotBeenPossibleFromHTML);               
+                return null;      
+            }
+            
             PageItemExtended pageItemExtended = _components.PageItemExtendedScraper.Do(pageItem, content);
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ProvidedFileSuccessfullyExplored);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemExtendedIs.Invoke(pageItemExtended));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemExtendedExtractedFromHTML);
 
             return pageItemExtended;
 
         }
-        public PageItemExtended TryGetPageItemExtendedFromHtml(string filePath)
-            => TryGetPageItemExtendedFromHtml(_components.FileManager.Create(filePath));
+        public PageItemExtended TryExtractFromHtml(string filePath)
+            => TryExtractFromHtml(_components.FileManager.Create(filePath));
 
         public WIDMetrics ConvertToMetrics(WIDExploration exploration)
             => _components.MetricsManager.Calculate(exploration);

@@ -110,10 +110,23 @@ namespace NW.WIDJobs
             = (pageItems, i) => $"'{20 - pageItems.Count}' has been removed from page nr. '{i}'.";
         public static Func<ushort, string> WIDExplorer_FinalPageNumberThresholdDate
             = (finalPageNumber) => $"The 'FinalPageNumber' for the provided 'ThresholdDate' is '{finalPageNumber}'.";
-        public static Func<IFileInfoAdapter, string> WIDExplorer_ExploringProvidedFile
-            = (fileInfoAdapter) => $"Exploring the provided file ('{fileInfoAdapter.FullName}')...";
-        public static string WIDExplorer_ProvidedFileSuccessfullyExplored
-            = "The provided file has been successfully explored.";
+        
+        public static string WIDExplorer_ExtractPageItemExtendedFromHTML
+            =  $"Extracting a {nameof(PageItemExtended)} object from the provided HTML file...";
+        public static Func<IFileInfoAdapter, string> WIDExplorer_HTMLFileIs
+            = (htmlFile) => $"HTMLFile: '{htmlFile}'.";
+        public static string WIDExplorer_SomeDefaultValuesUsedFromHTML
+            = $"Some default values need to be used in order to create a '{nameof(PageItemExtended)}' object out of a HTML file.";
+        public static Func<ushort, string> WIDExplorer_PageNumberIs
+            = (pageNumber) => $"PageNumber:'{pageNumber}'.";
+        public static Func<ushort, string> WIDExplorer_PageItemNumberIs
+            = (pageItemNumber) => $"PageItemNumber:'{pageItemNumber}'.";
+        public static Func<PageItemExtended, string> WIDExplorer_PageItemExtendedIs
+            = (pageItemExtended) => $"PageItemExtended:'{pageItemExtended}'.";
+        public static string WIDExplorer_ItHasNotBeenPossibleFromHTML
+            = $"It has not been possible to extract a {nameof(PageItemExtended)} object from the provided HTML file. The {nameof(PageItem)} object is null.";        
+        public static string WIDExplorer_PageItemExtendedExtractedFromHTML
+            = $"A {nameof(PageItemExtended)} object has been successfully extracted from the provided HTML file.";
         
         public static string WIDExplorer_SavingPageItemsExtendedAsSQLite
             =  $"Saving the provided {nameof(PageItemExtended)} objects as SQLite database...";
