@@ -402,6 +402,21 @@ namespace NW.WIDJobs.UnitTests
 
             // Assert
             Assert.IsInstanceOf<WIDExplorerComponents>(actual);
+            Assert.IsInstanceOf<Action<string>>(actual.LoggingAction);
+            Assert.IsInstanceOf<Action<string>>(actual.LoggingActionAsciiBanner);
+            Assert.IsInstanceOf<XPathManager>(actual.XPathManager);
+            Assert.IsInstanceOf<GetRequestManager>(actual.GetRequestManager);
+            Assert.IsInstanceOf<PageManager>(actual.PageManager);
+            Assert.IsInstanceOf<PageScraper>(actual.PageScraper);
+            Assert.IsInstanceOf<PageItemScraper>(actual.PageItemScraper);
+            Assert.IsInstanceOf<PageItemExtendedManager>(actual.PageItemExtendedManager);
+            Assert.IsInstanceOf<PageItemExtendedScraper>(actual.PageItemExtendedScraper);
+            Assert.IsInstanceOf<RunIdManager>(actual.RunIdManager);
+            Assert.IsInstanceOf<WIDMetricsManager>(actual.MetricsManager);
+            Assert.IsInstanceOf<FileManager>(actual.FileManager);
+            Assert.IsInstanceOf<RepositoryFactory>(actual.RepositoryFactory);
+            Assert.IsInstanceOf<AsciiBannerManager>(actual.AsciiBannerManager);
+            Assert.IsInstanceOf<BulletPointManager>(actual.BulletPointManager);
 
         }
 
@@ -411,11 +426,25 @@ namespace NW.WIDJobs.UnitTests
 
             // Arrange
             // Act
-            WIDExplorerComponents actual =
-                new WIDExplorerComponents();
+            WIDExplorerComponents actual = new WIDExplorerComponents();
 
             // Assert
             Assert.IsInstanceOf<WIDExplorerComponents>(actual);
+            Assert.IsInstanceOf<Action<string>>(actual.LoggingAction);
+            Assert.IsInstanceOf<Action<string>>(actual.LoggingActionAsciiBanner);
+            Assert.IsInstanceOf<XPathManager>(actual.XPathManager);
+            Assert.IsInstanceOf<GetRequestManager>(actual.GetRequestManager);
+            Assert.IsInstanceOf<PageManager>(actual.PageManager);
+            Assert.IsInstanceOf<PageScraper>(actual.PageScraper);
+            Assert.IsInstanceOf<PageItemScraper>(actual.PageItemScraper);
+            Assert.IsInstanceOf<PageItemExtendedManager>(actual.PageItemExtendedManager);
+            Assert.IsInstanceOf<PageItemExtendedScraper>(actual.PageItemExtendedScraper);
+            Assert.IsInstanceOf<RunIdManager>(actual.RunIdManager);
+            Assert.IsInstanceOf<WIDMetricsManager>(actual.MetricsManager);
+            Assert.IsInstanceOf<FileManager>(actual.FileManager);
+            Assert.IsInstanceOf<RepositoryFactory>(actual.RepositoryFactory);
+            Assert.IsInstanceOf<AsciiBannerManager>(actual.AsciiBannerManager);
+            Assert.IsInstanceOf<BulletPointManager>(actual.BulletPointManager);
 
         }
 
@@ -431,5 +460,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 28.05.2021
+    Last Update: 12.06.2021
 */
