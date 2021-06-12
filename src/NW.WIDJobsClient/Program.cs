@@ -40,6 +40,7 @@ namespace NW.WIDJobsClient
             string filename = string.Concat(@"C:\Users\Rubèn\Desktop\Exploration", dateToken, ".json");
             File.WriteAllText(filename, json);
 
+            /*
             WIDMetrics metrics = new WIDMetricsManager().Calculate(exploration);
             json = explorer.ConvertToJson(metrics);
             filename = string.Concat(@"C:\Users\Rubèn\Desktop\Metrics", dateToken, ".json");
@@ -48,7 +49,7 @@ namespace NW.WIDJobsClient
             explorer.SaveAsSQLite(exploration.PageItemsExtended);
 
             WIDExplorerComponents.DefaultLoggingAction.Invoke(metrics.ToString());
-
+            */
         }
         static void Do2()
         {
@@ -90,12 +91,12 @@ namespace NW.WIDJobsClient
             string json = explorer.ConvertToJson(exploration);
             string filename = string.Concat(@"C:\Users\Rubèn\Desktop\Exploration", "_", dateToken, ".json");
             File.WriteAllText(filename, json);
-
+            /*
             WIDMetrics metrics = explorer.ConvertToMetrics(exploration);
             json = explorer.ConvertToJson(metrics);
             filename = string.Concat(@"C:\Users\Rubèn\Desktop\Metrics", "_", dateToken, ".json");
             File.WriteAllText(filename, json);
-
+            */
         }
 
     }
