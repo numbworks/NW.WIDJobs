@@ -234,7 +234,7 @@ namespace NW.WIDJobs
             return JsonSerializer.Serialize(dyn, options);
 
         }
-        public string ConvertToJson(WIDMetrics metrics)
+        public string ConvertToJson(WIDMetrics metrics, bool numbersAsPercentages)
         {
 
             Validator.ValidateObject(metrics, nameof(metrics));
@@ -243,10 +243,19 @@ namespace NW.WIDJobs
             options.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
             options.Converters.Add(new DateTimeToDateConverter());
 
+            if(numbersAsPercentages)
+            {
+
+                dynamic dyn = ConvertNumbersToPercentages(metrics);
+
+                return JsonSerializer.Serialize(dyn, options);
+            
+            }
+
             return JsonSerializer.Serialize(metrics, options);
 
         }
-        
+
         public IFileInfoAdapter SaveAsSQLite
             (List<PageItemExtended> pageItemsExtended, IFileInfoAdapter databaseFile, bool deleteAndRecreateDatabase)
         {
@@ -340,6 +349,53 @@ namespace NW.WIDJobs
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationCompleted);
 
             return exploration;
+
+        }
+        private dynamic ConvertNumbersToPercentages(WIDMetrics metrics)
+        {
+
+            dynamic dyn = new ExpandoObject();
+
+            dyn.RunId = metrics.RunId;
+            dyn.TotalPages = metrics.TotalPages;
+            dyn.TotalItems = metrics.TotalItems;
+
+            dyn.ItemsByWorkAreaWithoutZone =
+                _components.MetricsManager.ConvertToPercentages(metrics.ItemsByWorkAreaWithoutZone);
+            dyn.ItemsByCreateDate =
+                _components.MetricsManager.ConvertToPercentages(metrics.ItemsByCreateDate);
+            dyn.ItemsByApplicationDate =
+                _components.MetricsManager.ConvertToPercentages(metrics.ItemsByApplicationDate);
+            dyn.ItemsByEmployerName =
+                _components.MetricsManager.ConvertToPercentages(metrics.ItemsByEmployerName);
+            dyn.ItemsByNumberOfOpenings =
+                _components.MetricsManager.ConvertToPercentages(metrics.ItemsByNumberOfOpenings);
+            dyn.ItemsByAdvertisementPublishDate =
+                _components.MetricsManager.ConvertToPercentages(metrics.ItemsByAdvertisementPublishDate);
+            dyn.ItemsByApplicationDeadline =
+                _components.MetricsManager.ConvertToPercentages(metrics.ItemsByApplicationDeadline);
+            dyn.ItemsByStartDateOfEmployment =
+                _components.MetricsManager.ConvertToPercentages(metrics.ItemsByStartDateOfEmployment);
+            dyn.ItemsByReference =
+                _components.MetricsManager.ConvertToPercentages(metrics.ItemsByReference);
+            dyn.ItemsByPosition =
+                _components.MetricsManager.ConvertToPercentages(metrics.ItemsByPosition);
+            dyn.ItemsByTypeOfEmployment =
+                _components.MetricsManager.ConvertToPercentages(metrics.ItemsByTypeOfEmployment);
+            dyn.ItemsByContact =
+                _components.MetricsManager.ConvertToPercentages(metrics.ItemsByContact);
+            dyn.ItemsByEmployerAddress =
+                _components.MetricsManager.ConvertToPercentages(metrics.ItemsByEmployerAddress);
+            dyn.ItemsByHowToApply =
+                _components.MetricsManager.ConvertToPercentages(metrics.ItemsByHowToApply);
+            dyn.DescriptionLengthByPageItemId =
+                _components.MetricsManager.ConvertToPercentages(metrics.DescriptionLengthByPageItemId);
+            dyn.BulletPointsByPageItemId =
+                _components.MetricsManager.ConvertToPercentages(metrics.BulletPointsByPageItemId);
+
+            dyn.TotalBulletPoints = metrics.TotalBulletPoints;
+
+            return dyn;
 
         }
 
