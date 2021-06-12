@@ -2135,6 +2135,13 @@ namespace NW.WIDJobs.UnitTests
                     && (bulletPointEntity1.RowModifiedOn == bulletPointEntity2.RowModifiedOn);
 
         }
+        internal static bool AreEqual(BulletPoint bulletPoint1, BulletPoint bulletPoint2)
+        {
+
+            return string.Equals(bulletPoint1.Label, bulletPoint2.Label, StringComparison.InvariantCulture)
+                    && string.Equals(bulletPoint1.Text, bulletPoint2.Text, StringComparison.InvariantCulture);
+
+        }
 
         internal static PageItem SwapCreateDate(PageItem pageItem, DateTime createDate)
         {
