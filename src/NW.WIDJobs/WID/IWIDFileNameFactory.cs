@@ -31,10 +31,10 @@ namespace NW.WIDJobs
         string CreateForDatabase(string filePath, string token, DateTime now);
 
         /// <summary>
-        /// Returns a dated filename based on <paramref name="filePath"/> and <see cref="WIDFileNameFactory.DefaultMetricsJsonToken"/>.
+        /// Returns a dated filename based on <paramref name="filePath"/> and <see cref="WIDFileNameFactory.DefaultMetricsJsonToken"/> (or <see cref="WIDFileNameFactory.DefaultMetricsPctJsonToken"/>).
         /// </summary>
         /// <exception cref="ArgumentNullException"/>
-        string CreateForMetricsJson(string filePath, DateTime now);
+        string CreateForMetricsJson(string filePath, DateTime now, bool numbersAsPercentages);
 
         /// <summary>
         /// Returns a dated filename based on <paramref name="filePath"/> and <paramref name="token"/>.

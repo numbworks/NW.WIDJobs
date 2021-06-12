@@ -17,6 +17,7 @@ namespace NW.WIDJobs
         public static string DefaultFormatNow { get; } = "yyyyMMddHHmmssfff";
         public static string DefaultExplorationJsonToken { get; } = "Exploration";
         public static string DefaultMetricsJsonToken { get; } = "Metrics";
+        public static string DefaultMetricsPctJsonToken { get; } = "MetricsPct";
         public static string DefaultDatabaseToken { get; } = "WIDjobs";
         public static string DefaultJsonExtension { get; } = "json";
         public static string DefaultDatabaseExtension { get; } = "db";
@@ -43,8 +44,15 @@ namespace NW.WIDJobs
         public string CreateForDatabase(string filePath, DateTime now)
             => ValidateAndCreate(filePath, DefaultDatabaseToken, now, DefaultDatabaseExtension);
 
-        public string CreateForMetricsJson(string filePath, DateTime now)
-            => ValidateAndCreate(filePath, DefaultMetricsJsonToken, now, DefaultJsonExtension);
+        public string CreateForMetricsJson(string filePath, DateTime now, bool numbersAsPercentages)
+        {
+
+            if (numbersAsPercentages)
+                return ValidateAndCreate(filePath, DefaultMetricsJsonToken, now, DefaultJsonExtension);
+
+            return ValidateAndCreate(filePath, DefaultMetricsPctJsonToken, now, DefaultJsonExtension);
+
+        }
         public string CreateForMetricsJson(string filePath, string token, DateTime now)
             => ValidateAndCreate(filePath, token, now, DefaultJsonExtension);
 
