@@ -34,6 +34,25 @@ namespace NW.WIDJobs
 
         public string CreateForExplorationJson
             (string filePath, string token, DateTime now)
+                => CreateForJson(filePath, token, now);
+        public string CreateForExplorationJson
+            (string filePath, DateTime now)
+                => CreateForJson(filePath, DefaultExplorationJsonToken, now);
+
+        public string CreateForMetricsJson
+            (string filePath, string token, DateTime now)
+                => CreateForJson(filePath, token, now);
+        public string CreateForMetricsJson
+            (string filePath, DateTime now)
+                => CreateForJson(filePath, DefaultMetricsJsonToken, now);
+
+
+        #endregion
+
+        #region Methods_private
+
+        private string CreateForJson
+            (string filePath, string token, DateTime now)
         {
 
             Validator.ValidateStringNullOrWhiteSpace(filePath, nameof(filePath));
@@ -48,12 +67,9 @@ namespace NW.WIDJobs
             return Path.Combine(filePath, fileName);
 
         }
-        public string CreateForExplorationJson
-            (string filePath, DateTime now)
-            => CreateForExplorationJson(filePath, DefaultExplorationJsonToken, now);
-
 
         #endregion
+
 
     }
 }
