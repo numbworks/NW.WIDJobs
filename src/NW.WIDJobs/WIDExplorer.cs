@@ -365,13 +365,22 @@ namespace NW.WIDJobs
 
             Validator.ValidateObject(exploration, nameof(exploration));
 
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ConvertingExplorationToJsonString);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(MessageCollection.WIDExplorer_SerializationOptionPageContent));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(MessageCollection.WIDExplorer_SerializationOptionPageItems));
+
             JsonSerializerOptions options = new JsonSerializerOptions();
             options.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
             options.Converters.Add(new DateTimeToDateConverter());
 
             dynamic dyn = OptimizeForSerialization(exploration);
+            string json = JsonSerializer.Serialize(dyn, options);
 
-            return JsonSerializer.Serialize(dyn, options);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationConvertedToJsonString);
+
+            return json;
 
         }
         public string ConvertToJson(WIDMetrics metrics, bool numbersAsPercentages)
@@ -379,20 +388,22 @@ namespace NW.WIDJobs
 
             Validator.ValidateObject(metrics, nameof(metrics));
 
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ConvertingMetricsToJsonString);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_NumbersAsPercentagesIs.Invoke(numbersAsPercentages));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)));
+
             JsonSerializerOptions options = new JsonSerializerOptions();
             options.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
             options.Converters.Add(new DateTimeToDateConverter());
 
+            dynamic dyn = metrics;
             if (numbersAsPercentages)
-            {
+                dyn = ConvertNumbersToPercentages(metrics);
 
-                dynamic dyn = ConvertNumbersToPercentages(metrics);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationMetricsToJsonString);
 
-                return JsonSerializer.Serialize(dyn, options);
-
-            }
-
-            return JsonSerializer.Serialize(metrics, options);
+            return JsonSerializer.Serialize(dyn, options);
 
         }
 

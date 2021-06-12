@@ -174,6 +174,22 @@ namespace NW.WIDJobs
         public static string WIDExplorer_ExplorationConvertedToMetrics
             = $"The provided {nameof(WIDExploration)} object has been successfully converted to a {nameof(WIDMetrics)} object.";
 
+        public static string WIDExplorer_ConvertingExplorationToJsonString
+            = $"Converting the provided {nameof(WIDExploration)} object to a JSON string...";
+        public static Func<string, string> WIDExplorer_SerializationOptionIs
+            = (serializationOption) => $"SerializationOption: '{serializationOption}'.";
+        public static string WIDExplorer_SerializationOptionPageContent 
+            = "Page content is not serialized.";
+        public static string WIDExplorer_SerializationOptionPageItems 
+            = $"If {nameof(WIDStages.Stage3_UpToAllPageItemsExtended)}, {nameof(PageItem)} objects are not serialized.";
+        public static string WIDExplorer_ExplorationConvertedToJsonString
+            = $"The provided {nameof(WIDExploration)} object has been successfully converted to a JSON string.";
+
+        public static string WIDExplorer_ConvertingMetricsToJsonString
+            = $"Converting the provided {nameof(WIDMetrics)} object to a JSON string...";
+        public static string WIDExplorer_ExplorationMetricsToJsonString
+            = $"The provided {nameof(WIDMetrics)} object has been successfully converted to a JSON string.";
+
         #endregion
 
         #region FileManager
