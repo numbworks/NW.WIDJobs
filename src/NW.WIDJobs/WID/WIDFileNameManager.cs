@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 
 namespace NW.WIDJobs
@@ -13,7 +11,8 @@ namespace NW.WIDJobs
 
         #region Properties
 
-        public static string DefaultFileNameTemplate { get; } = "{0}_{1}.{2}";
+        public static string DefaultFileNameDatedTemplate { get; } = "{0}_{1}.{2}";
+        public static string DefaultFileNameUndatedTemplate { get; } = "{0}.{1}";
         public static string DefaultFormatNow { get; } = "yyyyMMddHHmmssfff";
         public static string DefaultExplorationJsonToken { get; } = "Exploration";
         public static string DefaultMetricsJsonToken { get; } = "Metrics";
@@ -32,44 +31,59 @@ namespace NW.WIDJobs
 
         #region Methods_public
 
-        public string CreateForExplorationJson
-            (string filePath, string token, DateTime now)
-                => CreateForJson(filePath, token, now);
-        public string CreateForExplorationJson
-            (string filePath, DateTime now)
-                => CreateForJson(filePath, DefaultExplorationJsonToken, now);
+        public string CreateForExplorationJson(string filePath, DateTime now)
+            => ValidateAndCreate(filePath, DefaultExplorationJsonToken, now, DefaultJsonExtension);
+        public string CreateForExplorationJson(string filePath, string token, DateTime now)
+            => ValidateAndCreate(filePath, token, now, DefaultJsonExtension);
 
-        public string CreateForMetricsJson
-            (string filePath, string token, DateTime now)
-                => CreateForJson(filePath, token, now);
-        public string CreateForMetricsJson
-            (string filePath, DateTime now)
-                => CreateForJson(filePath, DefaultMetricsJsonToken, now);
+        public string CreateForMetricsJson(string filePath, DateTime now)
+            => ValidateAndCreate(filePath, DefaultMetricsJsonToken, now, DefaultJsonExtension);
+        public string CreateForMetricsJson(string filePath, string token, DateTime now)
+            => ValidateAndCreate(filePath, token, now, DefaultJsonExtension);
 
+        public string CreateForDatabase(string filePath)
+            => ValidateAndCreate(
+                    filePath,
+                    string.Format(DefaultFileNameUndatedTemplate, DefaultDatabaseToken, DefaultDatabaseExtension));
+        public string CreateForDatabase(string filePath, string fileName)
+            => ValidateAndCreate(filePath, fileName);
+        public string CreateForDatabase(string filePath, string token, DateTime now)
+            => ValidateAndCreate(filePath, token, now, DefaultDatabaseExtension);
+        public string CreateForDatabase(string filePath, DateTime now)
+            => ValidateAndCreate(filePath, DefaultDatabaseToken, now, DefaultDatabaseExtension);
 
         #endregion
 
         #region Methods_private
 
-        private string CreateForJson
-            (string filePath, string token, DateTime now)
+        private string ValidateAndCreate
+            (string filePath, string token, DateTime now, string extension)
         {
 
             Validator.ValidateStringNullOrWhiteSpace(filePath, nameof(filePath));
             Validator.ValidateStringNullOrWhiteSpace(token, nameof(token));
+            // Extension doesn't need to be validated, it's "internally" provided.
 
-            string template = DefaultFileNameTemplate;
+            string template = DefaultFileNameDatedTemplate;
             string nowstring = now.ToString(DefaultFormatNow);
-            string extension = DefaultJsonExtension;
 
             string fileName = string.Format(template, token, nowstring, extension);
 
             return Path.Combine(filePath, fileName);
 
         }
+        private string ValidateAndCreate
+            (string filePath, string fileName)
+        {
+
+            Validator.ValidateStringNullOrWhiteSpace(filePath, nameof(filePath));
+            Validator.ValidateStringNullOrWhiteSpace(fileName, nameof(fileName));
+
+            return Path.Combine(filePath, fileName);
+
+        }
 
         #endregion
-
 
     }
 }
