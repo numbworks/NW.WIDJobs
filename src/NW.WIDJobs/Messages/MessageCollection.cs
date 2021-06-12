@@ -114,23 +114,33 @@ namespace NW.WIDJobs
             = (fileInfoAdapter) => $"Exploring the provided file ('{fileInfoAdapter.FullName}')...";
         public static string WIDExplorer_ProvidedFileSuccessfullyExplored
             = "The provided file has been successfully explored.";
-        public static Func<List<PageItemExtended>, string> WIDExplorer_ExportingToSQLite
-            = (pageItemsExtended) => $"Exporting provided '{pageItemsExtended.Count}' {nameof(PageItemExtended)} objects to a SQLite database...";
+        
+        public static string WIDExplorer_SavingPageItemsExtendedAsSQLite
+            =  $"Saving the provided {nameof(PageItemExtended)} objects as SQLite database...";
+        public static Func<List<PageItemExtended>, string> WIDExplorer_PageItemsExtendedAre
+            = (pageItemsExtended) => $"PageItemsExtended: '{pageItemsExtended.Count}'.";
         public static Func<string, string> WIDExplorer_DatabaseFileIs
             = (databaseFile) => $"DatabaseFile: '{databaseFile}'.";
+        public static Func<bool, string> WIDExplorer_DeleteAndRecreateDatabaseIs
+            = (deleteAndRecreateDatabase) => $"DeleteAndRecreateDatabase: '{deleteAndRecreateDatabase}'.";
         public static Func<int, string> WIDExplorer_AffectedRowsAre
             = (affectedRows) => $"AffectedRows: '{affectedRows}'.";
-        public static string WIDExplorer_SQLiteDatabaseSuccessfullyCreated
-            = "The SQLite database has been successfully exported.";
+        public static string WIDExplorer_ExplorationSavedAsSQLite
+            = $"The provided {nameof(PageItemExtended)} objects have been successfully saved as SQLite database.";
+
+        public static string WIDExplorer_SavingExplorationAsJson
+            = $"Saving the provided {nameof(WIDExploration)} object as JSON file...";
+        public static Func<IFileInfoAdapter, string> WIDExplorer_JSONFileIs
+            = (jsonFile) => $"JSONFile: '{jsonFile}'.";
+        public static string WIDExplorer_ExplorationSavedAsJson
+            = $"The provided {nameof(WIDExploration)} object has been successfully saved as JSON file.";
 
         public static string WIDExplorer_SavingMetricsAsJson
             = $"Saving the provided {nameof(WIDMetrics)} object as JSON file...";
-        public static string WIDExplorer_MetricsSuccessfullySaved
-            = $"The provided {nameof(WIDMetrics)} object has been successfully saved as JSON file.";
         public static Func<bool, string> WIDExplorer_NumbersAsPercentagesIs
             = (numbersAsPercentages) => $"NumbersAsPercentages: '{numbersAsPercentages}'.";
-        public static Func<IFileInfoAdapter, string> WIDExplorer_JSONFileIs
-            = (jsonFile) => $"JSONFile: '{jsonFile}'.";
+        public static string WIDExplorer_MetricsSavedAsJson
+            = $"The provided {nameof(WIDMetrics)} object has been successfully saved as JSON file.";
 
         public static Func<string, string> WIDExplorer_MethodCalledWithoutIFileInfoAdapter
             = (methodName) => $"'{methodName}' has been called without providing a '{nameof(IFileInfoAdapter)}' parameter.";
@@ -140,11 +150,6 @@ namespace NW.WIDJobs
             = (folderPath) => $"FolderPath: '{folderPath}'.";
         public static Func<DateTime, string> WIDExplorer_NowIs
             = (now) => $"Now:'{now.ToString(WIDExplorer.DefaultFormatDate)}'.";
-
-        public static string WIDExplorer_SavingExplorationAsJson
-            = $"Saving the provided {nameof(WIDExploration)} object as JSON file...";
-        public static string WIDExplorer_ExplorationSuccessfullySaved
-            = $"The provided {nameof(WIDExploration)} object has been successfully saved as JSON file.";
 
 
         #endregion

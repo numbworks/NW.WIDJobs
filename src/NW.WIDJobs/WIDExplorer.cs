@@ -259,10 +259,13 @@ namespace NW.WIDJobs
         {
 
             Validator.ValidateList(pageItemsExtended, nameof(pageItemsExtended));
+            Validator.ValidateObject(databaseFile, nameof(databaseFile));
             Validator.ValidateFileExistance(databaseFile);
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExportingToSQLite.Invoke(pageItemsExtended));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SavingPageItemsExtendedAsSQLite);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemsExtendedAre.Invoke(pageItemsExtended));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DatabaseFileIs.Invoke(databaseFile.FullName));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DeleteAndRecreateDatabaseIs.Invoke(deleteAndRecreateDatabase));
 
             IRepository repository = 
                 _components.RepositoryFactory
@@ -271,20 +274,22 @@ namespace NW.WIDJobs
             int affectedRows = repository.Insert(pageItemsExtended);
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_AffectedRowsAre.Invoke(affectedRows));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SQLiteDatabaseSuccessfullyCreated);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationSavedAsSQLite);
 
-            return new FileInfoAdapter(databaseFile.FullName);
+            return databaseFile;
 
         }
         public IFileInfoAdapter SaveAsSQLite(List<PageItemExtended> pageItemsExtended)
         {
 
-            // 
-
-            string fullName = _components.FileNameFactory.CreateForDatabase(_settings.FolderPath);
+            DateTime now = NowFunction.Invoke();
+            string fullName = _components.FileNameFactory.CreateForDatabase(_settings.FolderPath, now);
             IFileInfoAdapter databaseFile = new FileInfoAdapter(fullName);
 
-            // 
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_MethodCalledWithoutIFileInfoAdapter.Invoke(nameof(SaveAsJson)));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DefaultValuesCreateIFileInfoAdapter);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FolderPathIs.Invoke(_settings.FolderPath));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_NowIs.Invoke(now));
 
             return SaveAsSQLite(pageItemsExtended, databaseFile, _settings.DeleteAndRecreateDatabase);
 
@@ -303,7 +308,7 @@ namespace NW.WIDJobs
             string json = ConvertToJson(exploration);
             _components.FileManager.WriteAllText(jsonFile, json);
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationSuccessfullySaved);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationSavedAsJson);
 
             return jsonFile;
 
@@ -339,7 +344,7 @@ namespace NW.WIDJobs
             string json = ConvertToJson(metrics, numbersAsPercentages);
             _components.FileManager.WriteAllText(jsonFile, json);
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_MetricsSuccessfullySaved);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_MetricsSavedAsJson);
 
             return jsonFile;
 
