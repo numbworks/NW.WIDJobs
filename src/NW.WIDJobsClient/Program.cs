@@ -36,16 +36,16 @@ namespace NW.WIDJobsClient
 
             string dateToken = DateTime.Now.ToString(RunIdManager.FormatDateTime);
 
-            string json = explorer.ToJson(exploration);
+            string json = explorer.ConvertToJson(exploration);
             string filename = string.Concat(@"C:\Users\Rubèn\Desktop\Exploration", dateToken, ".json");
             File.WriteAllText(filename, json);
 
             WIDMetrics metrics = new WIDMetricsManager().Calculate(exploration);
-            json = explorer.ToJson(metrics);
+            json = explorer.ConvertToJson(metrics);
             filename = string.Concat(@"C:\Users\Rubèn\Desktop\Metrics", dateToken, ".json");
             File.WriteAllText(filename, json);
 
-            explorer.ToSQLite(exploration.PageItemsExtended);
+            explorer.SaveToSQLite(exploration.PageItemsExtended);
 
             WIDExplorerComponents.DefaultLoggingAction.Invoke(metrics.ToString());
 
@@ -64,7 +64,7 @@ namespace NW.WIDJobsClient
 
             WIDExplorer explorer = new WIDExplorer(new WIDExplorerComponents(), settings, DateTime.Now);
         
-            explorer.ToSQLite(ObjectMother.Shared_Page03_PageItemsExtended);
+            explorer.SaveToSQLite(ObjectMother.Shared_Page03_PageItemsExtended);
 
         }
         static void DoForAll()
@@ -85,14 +85,14 @@ namespace NW.WIDJobsClient
             WIDExploration exploration
                 = explorer.ExploreAll(WIDCategories.AllCategories, WIDStages.Stage3_UpToAllPageItemsExtended);
 
-            explorer.ToSQLite(exploration.PageItemsExtended);
+            explorer.SaveToSQLite(exploration.PageItemsExtended);
 
-            string json = explorer.ToJson(exploration);
+            string json = explorer.ConvertToJson(exploration);
             string filename = string.Concat(@"C:\Users\Rubèn\Desktop\Exploration", "_", dateToken, ".json");
             File.WriteAllText(filename, json);
 
-            WIDMetrics metrics = explorer.Calculate(exploration);
-            json = explorer.ToJson(metrics);
+            WIDMetrics metrics = explorer.CalculateMetrics(exploration);
+            json = explorer.ConvertToJson(metrics);
             filename = string.Concat(@"C:\Users\Rubèn\Desktop\Metrics", "_", dateToken, ".json");
             File.WriteAllText(filename, json);
 

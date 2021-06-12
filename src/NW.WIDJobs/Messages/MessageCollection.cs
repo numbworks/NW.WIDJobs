@@ -118,8 +118,8 @@ namespace NW.WIDJobs
             = "The provided file has been successfully explored.";
         public static Func<List<PageItemExtended>, string> WIDExplorer_ExportingToSQLite
             = (pageItemsExtended) => $"Exporting provided '{pageItemsExtended.Count}' {nameof(PageItemExtended)} objects to a SQLite database...";
-        public static Func<string, string> WIDExplorer_DatabasePathIs
-            = (databasePath) => $"DatabasePath: '{databasePath}'.";
+        public static Func<string, string> WIDExplorer_DatabaseFileIs
+            = (databaseFile) => $"DatabaseFile: '{databaseFile}'.";
         public static Func<int, string> WIDExplorer_AffectedRowsAre
             = (affectedRows) => $"AffectedRows: '{affectedRows}'.";
         public static string WIDExplorer_SQLiteDatabaseSuccessfullyCreated

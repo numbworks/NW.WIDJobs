@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text.Json;
-using System.Text.Encodings.Web;
-using System.Threading;
-using System.Linq;
 using System.Dynamic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
+using System.Text.Encodings.Web;
+using System.Text.Json;
+using System.Threading;
 
 namespace NW.WIDJobs
 {
@@ -205,12 +205,10 @@ namespace NW.WIDJobs
         public PageItemExtended TryGetPageItemExtendedFromHtml(string filePath)
             => TryGetPageItemExtendedFromHtml(_components.FileManager.Create(filePath));
 
-        public WIDMetrics Calculate(WIDExploration exploration)
+        public WIDMetrics CalculateMetrics(WIDExploration exploration)
             => _components.MetricsManager.Calculate(exploration);
-        public Dictionary<string, string> ConvertToPercentages(Dictionary<string, uint> dict)
-            => _components.MetricsManager.ConvertToPercentages(dict);
 
-        public string ToJson(WIDExploration exploration)
+        public string ConvertToJson(WIDExploration exploration)
         {
 
             Validator.ValidateObject(exploration, nameof(exploration));
@@ -236,7 +234,7 @@ namespace NW.WIDJobs
             return JsonSerializer.Serialize(dyn, options);
 
         }
-        public string ToJson(WIDMetrics metrics)
+        public string ConvertToJson(WIDMetrics metrics)
         {
 
             Validator.ValidateObject(metrics, nameof(metrics));
@@ -248,23 +246,36 @@ namespace NW.WIDJobs
             return JsonSerializer.Serialize(metrics, options);
 
         }
-        public string ToSQLite(List<PageItemExtended> pageItemsExtended)
+        
+        public IFileInfoAdapter SaveToSQLite
+            (List<PageItemExtended> pageItemsExtended, IFileInfoAdapter databaseFile, bool deleteAndRecreateDatabase)
         {
 
             Validator.ValidateList(pageItemsExtended, nameof(pageItemsExtended));
-
-            string databasePath = Path.Combine(_settings.DatabasePath, _settings.DatabaseName);
+            Validator.ValidateFileExistance(databaseFile);
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExportingToSQLite.Invoke(pageItemsExtended));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DatabasePathIs.Invoke(_settings.DatabasePath));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DatabaseFileIs.Invoke(databaseFile.FullName));
 
-            IRepository repository = _components.RepositoryFactory.Create(_settings.DatabasePath, _settings.DatabaseName, _settings.DeleteAndRecreateDatabase);
+            IRepository repository = 
+                _components.RepositoryFactory
+                    .Create(databaseFile.DirectoryName, databaseFile.Name, _settings.DeleteAndRecreateDatabase);
+            
             int affectedRows = repository.Insert(pageItemsExtended);
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_AffectedRowsAre.Invoke(affectedRows));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SQLiteDatabaseSuccessfullyCreated);
 
-            return databasePath;
+            return new FileInfoAdapter(databaseFile.FullName);
+
+        }
+        public IFileInfoAdapter SaveToSQLite(List<PageItemExtended> pageItemsExtended)
+        {
+
+            string fullName = Path.Combine(_settings.DatabasePath, _settings.DatabaseName);
+            IFileInfoAdapter databaseFile = new FileInfoAdapter(fullName);
+
+            return SaveToSQLite(pageItemsExtended, databaseFile, _settings.DeleteAndRecreateDatabase);
 
         }
 
