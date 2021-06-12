@@ -45,7 +45,7 @@ namespace NW.WIDJobsClient
             filename = string.Concat(@"C:\Users\Rubèn\Desktop\Metrics", dateToken, ".json");
             File.WriteAllText(filename, json);
 
-            explorer.SaveToSQLite(exploration.PageItemsExtended);
+            explorer.SaveAsSQLite(exploration.PageItemsExtended);
 
             WIDExplorerComponents.DefaultLoggingAction.Invoke(metrics.ToString());
 
@@ -64,7 +64,7 @@ namespace NW.WIDJobsClient
 
             WIDExplorer explorer = new WIDExplorer(new WIDExplorerComponents(), settings, DateTime.Now);
         
-            explorer.SaveToSQLite(ObjectMother.Shared_Page03_PageItemsExtended);
+            explorer.SaveAsSQLite(ObjectMother.Shared_Page03_PageItemsExtended);
 
         }
         static void DoForAll()
@@ -85,7 +85,7 @@ namespace NW.WIDJobsClient
             WIDExploration exploration
                 = explorer.ExploreAll(WIDCategories.AllCategories, WIDStages.Stage3_UpToAllPageItemsExtended);
 
-            explorer.SaveToSQLite(exploration.PageItemsExtended);
+            explorer.SaveAsSQLite(exploration.PageItemsExtended);
 
             string json = explorer.ConvertToJson(exploration);
             string filename = string.Concat(@"C:\Users\Rubèn\Desktop\Exploration", "_", dateToken, ".json");

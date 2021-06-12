@@ -247,7 +247,7 @@ namespace NW.WIDJobs
 
         }
         
-        public IFileInfoAdapter SaveToSQLite
+        public IFileInfoAdapter SaveAsSQLite
             (List<PageItemExtended> pageItemsExtended, IFileInfoAdapter databaseFile, bool deleteAndRecreateDatabase)
         {
 
@@ -269,13 +269,13 @@ namespace NW.WIDJobs
             return new FileInfoAdapter(databaseFile.FullName);
 
         }
-        public IFileInfoAdapter SaveToSQLite(List<PageItemExtended> pageItemsExtended)
+        public IFileInfoAdapter SaveAsSQLite(List<PageItemExtended> pageItemsExtended)
         {
 
             string fullName = Path.Combine(_settings.DatabasePath, _settings.DatabaseName);
             IFileInfoAdapter databaseFile = new FileInfoAdapter(fullName);
 
-            return SaveToSQLite(pageItemsExtended, databaseFile, _settings.DeleteAndRecreateDatabase);
+            return SaveAsSQLite(pageItemsExtended, databaseFile, _settings.DeleteAndRecreateDatabase);
 
         }
 
