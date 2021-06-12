@@ -274,6 +274,33 @@ namespace NW.WIDJobs
             return SaveAsSQLite(pageItemsExtended, databaseFile, _settings.DeleteAndRecreateDatabase);
 
         }
+        public IFileInfoAdapter SaveAsJson(WIDExploration exploration, IFileInfoAdapter jsonFile)
+        {
+
+            // 
+
+            string json = ConvertToJson(exploration);
+            _components.FileManager.WriteAllText(jsonFile, json);
+
+            //
+
+            return jsonFile;
+
+        }
+        public IFileInfoAdapter SaveAsJson
+            (WIDMetrics metrics, bool numbersAsPercentages, IFileInfoAdapter jsonFile)
+        {
+
+            // 
+
+            string json = ConvertToJson(metrics, numbersAsPercentages);
+            _components.FileManager.WriteAllText(jsonFile, json);
+
+            //
+
+            return jsonFile;
+
+        }
 
         #endregion
 
