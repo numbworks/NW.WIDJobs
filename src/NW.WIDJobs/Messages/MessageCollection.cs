@@ -123,6 +123,30 @@ namespace NW.WIDJobs
         public static string WIDExplorer_SQLiteDatabaseSuccessfullyCreated
             = "The SQLite database has been successfully exported.";
 
+        public static string WIDExplorer_SavingMetricsAsJson
+            = $"Saving the provided {nameof(WIDMetrics)} object as JSON file...";
+        public static string WIDExplorer_MetricsSuccessfullySaved
+            = $"The provided {nameof(WIDMetrics)} object has been successfully saved as JSON file.";
+        public static Func<bool, string> WIDExplorer_NumbersAsPercentagesIs
+            = (numbersAsPercentages) => $"NumbersAsPercentages: '{numbersAsPercentages}'.";
+        public static Func<IFileInfoAdapter, string> WIDExplorer_JSONFileIs
+            = (jsonFile) => $"JSONFile: '{jsonFile}'.";
+
+        public static Func<string, string> WIDExplorer_MethodCalledWithoutIFileInfoAdapter
+            = (methodName) => $"'{methodName}' has been called without providing a '{nameof(IFileInfoAdapter)}' parameter.";
+        public static string WIDExplorer_DefaultValuesCreateIFileInfoAdapter
+            = $"Before proceeding, default values will be used to create a '{nameof(IFileInfoAdapter)}' object.";
+        public static Func<string, string> WIDExplorer_FolderPathIs
+            = (folderPath) => $"FolderPath: '{folderPath}'.";
+        public static Func<DateTime, string> WIDExplorer_NowIs
+            = (now) => $"Now:'{now.ToString(WIDExplorer.DefaultFormatDate)}'.";
+
+        public static string WIDExplorer_SavingExplorationAsJson
+            = $"Saving the provided {nameof(WIDExploration)} object as JSON file...";
+        public static string WIDExplorer_ExplorationSuccessfullySaved
+            = $"The provided {nameof(WIDExploration)} object has been successfully saved as JSON file.";
+
+
         #endregion
 
         #region FileManager

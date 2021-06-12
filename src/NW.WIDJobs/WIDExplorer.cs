@@ -293,12 +293,17 @@ namespace NW.WIDJobs
         public IFileInfoAdapter SaveAsJson(WIDExploration exploration, IFileInfoAdapter jsonFile)
         {
 
-            // 
+            Validator.ValidateObject(exploration, nameof(exploration));
+            Validator.ValidateObject(jsonFile, nameof(jsonFile));
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SavingExplorationAsJson);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs.Invoke(exploration.RunId));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JSONFileIs.Invoke(jsonFile));
 
             string json = ConvertToJson(exploration);
             _components.FileManager.WriteAllText(jsonFile, json);
 
-            //
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationSuccessfullySaved);
 
             return jsonFile;
 
@@ -306,13 +311,14 @@ namespace NW.WIDJobs
         public IFileInfoAdapter SaveAsJson(WIDExploration exploration)
         {
 
-            //
-
             DateTime now = NowFunction.Invoke();
             string fullName = _components.FileNameFactory.CreateForExplorationJson(_settings.FolderPath, now);
             IFileInfoAdapter jsonFile = new FileInfoAdapter(fullName);
 
-            //
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_MethodCalledWithoutIFileInfoAdapter.Invoke(nameof(SaveAsJson)));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DefaultValuesCreateIFileInfoAdapter);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FolderPathIs.Invoke(_settings.FolderPath));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_NowIs.Invoke(now));
 
             return SaveAsJson(exploration, jsonFile);
 
@@ -322,12 +328,18 @@ namespace NW.WIDJobs
             (WIDMetrics metrics, bool numbersAsPercentages, IFileInfoAdapter jsonFile)
         {
 
-            // 
+            Validator.ValidateObject(metrics, nameof(metrics));
+            Validator.ValidateObject(jsonFile, nameof(jsonFile));
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SavingMetricsAsJson);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs.Invoke(metrics.RunId));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_NumbersAsPercentagesIs.Invoke(numbersAsPercentages));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JSONFileIs.Invoke(jsonFile));
 
             string json = ConvertToJson(metrics, numbersAsPercentages);
             _components.FileManager.WriteAllText(jsonFile, json);
 
-            //
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_MetricsSuccessfullySaved);
 
             return jsonFile;
 
@@ -336,14 +348,14 @@ namespace NW.WIDJobs
             (WIDMetrics metrics, bool numbersAsPercentages)
         {
 
-            //
-
-            DateTime now = NowFunction.Invoke();
-            
+            DateTime now = NowFunction.Invoke();           
             string fullName = _components.FileNameFactory.CreateForMetricsJson(_settings.FolderPath, now, numbersAsPercentages);       
             IFileInfoAdapter jsonFile = new FileInfoAdapter(fullName);
 
-            //
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_MethodCalledWithoutIFileInfoAdapter.Invoke(nameof(SaveAsJson)));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DefaultValuesCreateIFileInfoAdapter);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FolderPathIs.Invoke(_settings.FolderPath));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_NowIs.Invoke(now));
 
             return SaveAsJson(metrics, numbersAsPercentages, jsonFile);
 
