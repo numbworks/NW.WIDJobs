@@ -59,8 +59,6 @@ namespace NW.WIDJobs
         public static string WIDExplorer_ExplorationStarted = "The exploration has started...";
         public static Func<string, string> WIDExplorer_RunIdIs 
             = (runId) => $"RunId:'{runId}'.";
-        public static Func<DateTime, string> WIDExplorer_NowIs
-            = (now) => $"Now:'{now.ToString(WIDExplorer.DefaultFormatDate)}'.";
         public static Func<ushort, string> WIDExplorer_DefaultInitialPageNumberIs
             = (defaultInitialPageNumber) => $"DefaultInitialPageNumber:'{defaultInitialPageNumber}'.";
         public static Func<ushort, string> WIDExplorer_FinalPageNumberIs

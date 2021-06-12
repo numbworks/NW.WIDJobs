@@ -22,12 +22,13 @@ namespace NW.WIDJobs
 
         #region Properties
 
+        public static Func<DateTime> DefaultNowFunction { get; } = () => DateTime.Now;
         public static string DefaultFormatDateTime { get; } = "yyyyMMddHHmmssfff";
         public static string DefaultFormatDate { get; } = "yyyyMMdd";
         public static string DefaultNotSerialized { get; } = "This item has been exluded from the serializazion.";
         public static ushort DefaultInitialPageNumber { get; } = 1;
 
-        public DateTime Now { get; }
+        public Func<DateTime> NowFunction { get; }
         public string Version { get; }
         public string AsciiBanner { get; }
 
@@ -36,7 +37,7 @@ namespace NW.WIDJobs
         #region Constructors
 
         public WIDExplorer
-            (WIDExplorerComponents components, WIDExplorerSettings settings, DateTime now)
+            (WIDExplorerComponents components, WIDExplorerSettings settings, Func<DateTime> nowFunction)
         {
 
             Validator.ValidateObject(components, nameof(components));
@@ -44,7 +45,7 @@ namespace NW.WIDJobs
 
             _components = components;
             _settings = settings;
-            Now = now;
+            NowFunction = nowFunction;
 
             Version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
             AsciiBanner = _components.AsciiBannerManager.Create(Version);
@@ -52,7 +53,7 @@ namespace NW.WIDJobs
         }
         
         public WIDExplorer()
-            : this(new WIDExplorerComponents(), new WIDExplorerSettings(), DateTime.Now) { }
+            : this(new WIDExplorerComponents(), new WIDExplorerSettings(), DefaultNowFunction) { }
 
         #endregion
 
@@ -87,8 +88,10 @@ namespace NW.WIDJobs
             (ushort finalPageNumber, WIDCategories category, WIDStages stage)
         {
 
+            DateTime now = NowFunction.Invoke();
             ushort initialPageNumber = 1;
-            string runId = _components.RunIdManager.Create(Now, initialPageNumber, finalPageNumber);
+
+            string runId = _components.RunIdManager.Create(now, initialPageNumber, finalPageNumber);
 
             return Explore(runId, finalPageNumber, category, stage);
 
@@ -120,7 +123,9 @@ namespace NW.WIDJobs
             (DateTime thresholdDate, WIDCategories category, WIDStages stage)
         {
 
-            string runId = _components.RunIdManager.Create(Now, thresholdDate);
+            DateTime now = NowFunction.Invoke();
+
+            string runId = _components.RunIdManager.Create(now, thresholdDate);
 
             return Explore(runId, thresholdDate, category, stage);
 
@@ -154,7 +159,8 @@ namespace NW.WIDJobs
             (WIDCategories category, WIDStages stage)
         {
 
-            string runId = _components.RunIdManager.Create(Now);
+            DateTime now = NowFunction.Invoke();
+            string runId = _components.RunIdManager.Create(now);
 
             return ExploreAll(runId, category, stage);
 
@@ -168,7 +174,8 @@ namespace NW.WIDJobs
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExploringProvidedFile.Invoke(fileInfoAdapter));
 
-            string runId = _components.RunIdManager.Create(Now);
+            DateTime now = NowFunction.Invoke();
+            string runId = _components.RunIdManager.Create(now);
             ushort pageNumber = 1;
 
             string content = _components.FileManager.ReadAllText(fileInfoAdapter);
@@ -192,7 +199,8 @@ namespace NW.WIDJobs
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExploringProvidedFile.Invoke(fileInfoAdapter));
 
-            string runId = _components.RunIdManager.Create(Now);
+            DateTime now = NowFunction.Invoke();
+            string runId = _components.RunIdManager.Create(now);
             ushort pageNumber = PageItemExtendedScraper.DummyPageNumber;
             ushort pageItemNumber = PageItemExtendedScraper.DummyPageItemNumber;
 
@@ -327,7 +335,6 @@ namespace NW.WIDJobs
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationStarted);
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs(runId));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_NowIs(Now));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DefaultInitialPageNumberIs(DefaultInitialPageNumber));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FinalPageNumberIs(finalPageNumber));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_CategoryIs(category));
@@ -340,7 +347,6 @@ namespace NW.WIDJobs
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationStarted);
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs(runId));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_NowIs(Now));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DefaultInitialPageNumberIs(DefaultInitialPageNumber));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ThresholdDateIs(thresholdDate));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_CategoryIs(category));
@@ -353,7 +359,6 @@ namespace NW.WIDJobs
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationStarted);
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs(runId));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_NowIs(Now));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DefaultInitialPageNumberIs(DefaultInitialPageNumber));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FinalPageNumberIsLastPage);
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_CategoryIs(category));

@@ -14,7 +14,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new WIDExplorer(null, new WIDExplorerSettings(), ObjectMother.WIDExplorer_FakeNow)
+                    () => new WIDExplorer(null, new WIDExplorerSettings(), ObjectMother.WIDExplorer_FakeNowFunction)
 				),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("components").Message
@@ -22,7 +22,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new WIDExplorer(new WIDExplorerComponents(), null, ObjectMother.WIDExplorer_FakeNow)
+                    () => new WIDExplorer(new WIDExplorerComponents(), null, ObjectMother.WIDExplorer_FakeNowFunction)
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("settings").Message
@@ -168,7 +168,7 @@ namespace NW.WIDJobs.UnitTests
                         WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
                     );
             WIDExplorer explorer
-                = new WIDExplorer(components, settings, ObjectMother.WIDExplorer_FakeNow);
+                = new WIDExplorer(components, settings, ObjectMother.WIDExplorer_FakeNowFunction);
 
             string runIdFakeNow = new RunIdManager().Create(ObjectMother.WIDExplorer_FakeNow, 1, 2);
             List<Page> pages = new List<Page>()
@@ -244,7 +244,7 @@ namespace NW.WIDJobs.UnitTests
                         WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
                     );
             WIDExplorer explorer
-                = new WIDExplorer(components, settings, ObjectMother.WIDExplorer_FakeNow);
+                = new WIDExplorer(components, settings, ObjectMother.WIDExplorer_FakeNowFunction);
 
             List<Page> pages = new List<Page>()
             {
@@ -325,7 +325,7 @@ namespace NW.WIDJobs.UnitTests
                         WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
                     );
             WIDExplorer explorer
-                = new WIDExplorer(components, settings, ObjectMother.WIDExplorer_FakeNow);
+                = new WIDExplorer(components, settings, ObjectMother.WIDExplorer_FakeNowFunction);
 
             List<Page> pages = new List<Page>()
             {
@@ -407,7 +407,7 @@ namespace NW.WIDJobs.UnitTests
                         WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
                     );
             WIDExplorer explorer
-                = new WIDExplorer(components, settings, ObjectMother.WIDExplorer_FakeNow);
+                = new WIDExplorer(components, settings, ObjectMother.WIDExplorer_FakeNowFunction);
 
             string runIdFakeNow = new RunIdManager().Create(ObjectMother.WIDExplorer_FakeNow, ObjectMother.Shared_Page02Alternate_ThresholdDate01);
             List<Page> pages = new List<Page>()
@@ -488,7 +488,7 @@ namespace NW.WIDJobs.UnitTests
                         WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
                     );
             WIDExplorer explorer
-                = new WIDExplorer(components, settings, ObjectMother.WIDExplorer_FakeNow);
+                = new WIDExplorer(components, settings, ObjectMother.WIDExplorer_FakeNowFunction);
 
             List<Page> pages = new List<Page>()
             {
@@ -568,7 +568,7 @@ namespace NW.WIDJobs.UnitTests
                         WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
                     );
             WIDExplorer explorer
-                = new WIDExplorer(components, settings, ObjectMother.WIDExplorer_FakeNow);
+                = new WIDExplorer(components, settings, ObjectMother.WIDExplorer_FakeNowFunction);
 
             List<Page> pages = new List<Page>()
             {

@@ -27,7 +27,7 @@ namespace NW.WIDJobsClient
                         WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
                         );
 
-            WIDExplorer explorer = new WIDExplorer(new WIDExplorerComponents(), settings, DateTime.Now);
+            WIDExplorer explorer = new WIDExplorer(new WIDExplorerComponents(), settings, WIDExplorer.DefaultNowFunction);
             WIDExploration exploration
                 = explorer.Explore(1, WIDCategories.AllCategories, WIDStages.Stage3_UpToAllPageItemsExtended);
 
@@ -61,7 +61,7 @@ namespace NW.WIDJobsClient
                         WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
                         );
 
-            WIDExplorer explorer = new WIDExplorer(new WIDExplorerComponents(), settings, DateTime.Now);
+            WIDExplorer explorer = new WIDExplorer(new WIDExplorerComponents(), settings, WIDExplorer.DefaultNowFunction);
         
             explorer.SaveAsSQLite(ObjectMother.Shared_Page03_PageItemsExtended);
 
@@ -79,7 +79,7 @@ namespace NW.WIDJobsClient
                         WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
                         );
 
-            WIDExplorer explorer = new WIDExplorer(new WIDExplorerComponents(), settings, DateTime.Now);
+            WIDExplorer explorer = new WIDExplorer(new WIDExplorerComponents(), settings, WIDExplorer.DefaultNowFunction);
             WIDExploration exploration
                 = explorer.ExploreAll(WIDCategories.AllCategories, WIDStages.Stage3_UpToAllPageItemsExtended);
 

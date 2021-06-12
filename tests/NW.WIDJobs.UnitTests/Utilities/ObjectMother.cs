@@ -1491,7 +1491,8 @@ namespace NW.WIDJobs.UnitTests
 
         #region WIDExplorerTests
 
-        internal static DateTime WIDExplorer_FakeNow = new DateTime(2021, 05, 01);           
+        internal static DateTime WIDExplorer_FakeNow = new DateTime(2021, 05, 01);
+        internal static Func<DateTime> WIDExplorer_FakeNowFunction = () => WIDExplorer_FakeNow;
         internal static Func<IGetRequestManager> WIDExplorer_FakeGetRequestManagerAlternate
             = () =>
             {
