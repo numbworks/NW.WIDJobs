@@ -217,19 +217,7 @@ namespace NW.WIDJobs
             options.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
             options.Converters.Add(new DateTimeToDateConverter());
 
-            dynamic dyn = new ExpandoObject();
-            dyn.RunId = exploration.RunId;
-            dyn.TotalResults = exploration.TotalResults;
-            dyn.TotalEstimatedPages = exploration.TotalEstimatedPages;
-            dyn.Category = exploration.Category;
-            dyn.Stage = exploration.Stage;
-            dyn.IsCompleted = exploration.IsCompleted;
-            dyn.Pages = exploration.Pages?.Select(page => new Page(page.RunId, page.PageNumber, DefaultNotSerialized)).ToList();
-
-            if (exploration.Stage == WIDStages.Stage3_UpToAllPageItemsExtended)
-                dyn.PageItems = DefaultNotSerialized;
-
-            dyn.PageItemsExtended = exploration.PageItemsExtended;
+            dynamic dyn = OptimizeForSerialization(exploration);
 
             return JsonSerializer.Serialize(dyn, options);
 
@@ -349,6 +337,30 @@ namespace NW.WIDJobs
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationCompleted);
 
             return exploration;
+
+        }
+        private dynamic OptimizeForSerialization(WIDExploration exploration)
+        {
+
+            dynamic dyn = new ExpandoObject();
+
+            dyn.RunId = exploration.RunId;
+            dyn.TotalResults = exploration.TotalResults;
+            dyn.TotalEstimatedPages = exploration.TotalEstimatedPages;
+            dyn.Category = exploration.Category;
+            dyn.Stage = exploration.Stage;
+            dyn.IsCompleted = exploration.IsCompleted;
+
+            dyn.Pages =
+                exploration
+                    .Pages?.Select(page => new Page(page.RunId, page.PageNumber, DefaultNotSerialized)).ToList();
+
+            if (exploration.Stage == WIDStages.Stage3_UpToAllPageItemsExtended)
+                dyn.PageItems = DefaultNotSerialized;
+
+            dyn.PageItemsExtended = exploration.PageItemsExtended;
+
+            return dyn;
 
         }
         private dynamic ConvertNumbersToPercentages(WIDMetrics metrics)
