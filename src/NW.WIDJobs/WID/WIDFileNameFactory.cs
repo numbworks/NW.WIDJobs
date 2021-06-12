@@ -15,10 +15,10 @@ namespace NW.WIDJobs
         public static string DefaultFileNameDatedTemplate { get; } = "{0}_{1}.{2}";
         public static string DefaultFileNameUndatedTemplate { get; } = "{0}.{1}";
         public static string DefaultFormatNow { get; } = "yyyyMMddHHmmssfff";
-        public static string DefaultExplorationJsonToken { get; } = "Exploration";
-        public static string DefaultMetricsJsonToken { get; } = "Metrics";
-        public static string DefaultMetricsPctJsonToken { get; } = "MetricsPct";
-        public static string DefaultDatabaseToken { get; } = "WIDjobs";
+        public static string DefaultExplorationJsonToken { get; } = "widjobs_exploration";
+        public static string DefaultMetricsJsonToken { get; } = "widjobs_metrics";
+        public static string DefaultMetricsPctJsonToken { get; } = "widjobs_metricspct";
+        public static string DefaultDatabaseToken { get; } = "widjobs";
         public static string DefaultJsonExtension { get; } = "json";
         public static string DefaultDatabaseExtension { get; } = "db";
 
