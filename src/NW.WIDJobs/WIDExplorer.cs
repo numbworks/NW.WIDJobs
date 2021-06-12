@@ -271,7 +271,7 @@ namespace NW.WIDJobs
         public IFileInfoAdapter SaveAsSQLite(List<PageItemExtended> pageItemsExtended)
         {
 
-            string fullName = Path.Combine(_settings.DatabasePath, _settings.DatabaseName);
+            string fullName = Path.Combine(_settings.FolderPath, "replace this");
             IFileInfoAdapter databaseFile = new FileInfoAdapter(fullName);
 
             return SaveAsSQLite(pageItemsExtended, databaseFile, _settings.DeleteAndRecreateDatabase);

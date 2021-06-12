@@ -16,8 +16,7 @@ namespace NW.WIDJobs.UnitTests
                         () => new WIDExplorerSettings(
                                         0, 
                                         WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
-                                        WIDExplorerSettings.DefaultDatabasePath,
-                                        WIDExplorerSettings.DefaultDatabaseName,
+                                        WIDExplorerSettings.DefaultFolderPath,
                                         WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
                                         )
                 ),
@@ -31,27 +30,12 @@ namespace NW.WIDJobs.UnitTests
                                         1,
                                         WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
                                         null,
-                                        WIDExplorerSettings.DefaultDatabaseName,
                                         WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
                                         )
                 ),
                 typeof(ArgumentNullException),
-                new ArgumentNullException("databasePath").Message
-            ).SetArgDisplayNames($"{nameof(widExplorerSettingsExceptionTestCases)}_02"),
-
-            new TestCaseData(
-                new TestDelegate(
-                        () => new WIDExplorerSettings(
-                                        1,
-                                        WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
-                                        WIDExplorerSettings.DefaultDatabasePath,
-                                        null,
-                                        WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
-                                        )
-                ),
-                typeof(ArgumentNullException),
-                new ArgumentNullException("databaseName").Message
-            ).SetArgDisplayNames($"{nameof(widExplorerSettingsExceptionTestCases)}_03")
+                new ArgumentNullException("folderPath").Message
+            ).SetArgDisplayNames($"{nameof(widExplorerSettingsExceptionTestCases)}_02")
 
         };
 
@@ -70,16 +54,14 @@ namespace NW.WIDJobs.UnitTests
                 = new WIDExplorerSettings(
                             parallelRequests, 
                             pauseBetweenRequestsMs,
-                            WIDExplorerSettings.DefaultDatabasePath,
-                            WIDExplorerSettings.DefaultDatabaseName,
+                            WIDExplorerSettings.DefaultFolderPath,
                             WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
                         );
 
             // Assert
             Assert.AreEqual(parallelRequests, actual.ParallelRequests);
             Assert.AreEqual(pauseBetweenRequestsMs, actual.PauseBetweenRequestsMs);
-            Assert.AreEqual(WIDExplorerSettings.DefaultDatabasePath, actual.DatabasePath);
-            Assert.AreEqual(WIDExplorerSettings.DefaultDatabaseName, actual.DatabaseName);
+            Assert.AreEqual(WIDExplorerSettings.DefaultFolderPath, actual.FolderPath);
             Assert.AreEqual(WIDExplorerSettings.DefaultDeleteAndRecreateDatabase, actual.DeleteAndRecreateDatabase);
 
         }
@@ -95,8 +77,7 @@ namespace NW.WIDJobs.UnitTests
             // Assert
             Assert.AreEqual(WIDExplorerSettings.DefaultParallelRequests, actual.ParallelRequests);
             Assert.AreEqual(WIDExplorerSettings.DefaultPauseBetweenRequestsMs, actual.PauseBetweenRequestsMs);
-            Assert.AreEqual(WIDExplorerSettings.DefaultDatabasePath, actual.DatabasePath);
-            Assert.AreEqual(WIDExplorerSettings.DefaultDatabaseName, actual.DatabaseName);
+            Assert.AreEqual(WIDExplorerSettings.DefaultFolderPath, actual.FolderPath);
             Assert.AreEqual(WIDExplorerSettings.DefaultDeleteAndRecreateDatabase, actual.DeleteAndRecreateDatabase);
 
         }

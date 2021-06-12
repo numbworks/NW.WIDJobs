@@ -24,7 +24,6 @@ namespace NW.WIDJobsClient
                         WIDExplorerSettings.DefaultParallelRequests,
                         WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
                         @"C:\Users\Rubèn\Desktop\",
-                        WIDExplorerSettings.DefaultDatabaseName,
                         WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
                         );
 
@@ -59,7 +58,6 @@ namespace NW.WIDJobsClient
                         WIDExplorerSettings.DefaultParallelRequests,
                         WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
                         @"C:\Users\Rubèn\Desktop\",
-                        WIDExplorerSettings.DefaultDatabaseName,
                         WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
                         );
 
@@ -78,7 +76,6 @@ namespace NW.WIDJobsClient
                         WIDExplorerSettings.DefaultParallelRequests,
                         WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
                         @"C:\Users\Rubèn\Desktop\",
-                        string.Concat(WIDExplorerSettings.DefaultDatabaseName, "_", dateToken, ".db"),
                         WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
                         );
 

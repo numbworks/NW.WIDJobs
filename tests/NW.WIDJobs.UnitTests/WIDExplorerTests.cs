@@ -163,8 +163,7 @@ namespace NW.WIDJobs.UnitTests
                 = new WIDExplorerSettings(
                         3, 
                         0, 
-                        WIDExplorerSettings.DefaultDatabasePath, 
-                        WIDExplorerSettings.DefaultDatabaseName,
+                        WIDExplorerSettings.DefaultFolderPath, 
                         WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
                     );
             WIDExplorer explorer
@@ -239,8 +238,7 @@ namespace NW.WIDJobs.UnitTests
                 = new WIDExplorerSettings(
                         3,
                         0,
-                        WIDExplorerSettings.DefaultDatabasePath,
-                        WIDExplorerSettings.DefaultDatabaseName,
+                        WIDExplorerSettings.DefaultFolderPath,
                         WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
                     );
             WIDExplorer explorer
@@ -320,8 +318,7 @@ namespace NW.WIDJobs.UnitTests
                 = new WIDExplorerSettings(
                         3,
                         0,
-                        WIDExplorerSettings.DefaultDatabasePath,
-                        WIDExplorerSettings.DefaultDatabaseName,
+                        WIDExplorerSettings.DefaultFolderPath,
                         WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
                     );
             WIDExplorer explorer
@@ -402,8 +399,7 @@ namespace NW.WIDJobs.UnitTests
                 = new WIDExplorerSettings(
                         3,
                         0,
-                        WIDExplorerSettings.DefaultDatabasePath,
-                        WIDExplorerSettings.DefaultDatabaseName,
+                        WIDExplorerSettings.DefaultFolderPath,
                         WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
                     );
             WIDExplorer explorer
@@ -483,8 +479,7 @@ namespace NW.WIDJobs.UnitTests
                 = new WIDExplorerSettings(
                         3,
                         0,
-                        WIDExplorerSettings.DefaultDatabasePath,
-                        WIDExplorerSettings.DefaultDatabaseName,
+                        WIDExplorerSettings.DefaultFolderPath,
                         WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
                     );
             WIDExplorer explorer
@@ -563,8 +558,7 @@ namespace NW.WIDJobs.UnitTests
                 = new WIDExplorerSettings(
                         3,
                         0,
-                        WIDExplorerSettings.DefaultDatabasePath,
-                        WIDExplorerSettings.DefaultDatabaseName,
+                        WIDExplorerSettings.DefaultFolderPath,
                         WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
                     );
             WIDExplorer explorer

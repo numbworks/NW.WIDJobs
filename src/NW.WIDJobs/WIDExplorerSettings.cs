@@ -14,14 +14,12 @@ namespace NW.WIDJobs
 
         public static ushort DefaultParallelRequests { get; } = 3;
         public static uint DefaultPauseBetweenRequestsMs { get; } = 25000; // 25 seconds
-        public static string DefaultDatabasePath { get; } = Directory.GetCurrentDirectory();
-        public static string DefaultDatabaseName { get; } = "widjobs.db";
+        public static string DefaultFolderPath { get; } = Directory.GetCurrentDirectory();
         public static bool DefaultDeleteAndRecreateDatabase { get; } = true;
 
         public ushort ParallelRequests { get; }
         public uint PauseBetweenRequestsMs { get; }
-        public string DatabasePath { get; }
-        public string DatabaseName { get; }
+        public string FolderPath { get; }
         public bool DeleteAndRecreateDatabase { get; }
 
         #endregion
@@ -33,20 +31,17 @@ namespace NW.WIDJobs
         public WIDExplorerSettings(
             ushort parallelRequests,
             uint pauseBetweenRequestsMs,
-            string databasePath,
-            string databaseName,
+            string folderPath,
             bool deleteAndRecreateDatabase
             )
         {
 
             Validator.ThrowIfLessThanOne(parallelRequests, nameof(parallelRequests));
-            Validator.ValidateStringNullOrWhiteSpace(databasePath, nameof(databasePath));
-            Validator.ValidateStringNullOrWhiteSpace(databaseName, nameof(databaseName));
+            Validator.ValidateStringNullOrWhiteSpace(folderPath, nameof(folderPath));
 
             ParallelRequests = parallelRequests;
             PauseBetweenRequestsMs = pauseBetweenRequestsMs;
-            DatabasePath = databasePath;
-            DatabaseName = databaseName;
+            FolderPath = folderPath;
             DeleteAndRecreateDatabase = deleteAndRecreateDatabase;
 
         }
@@ -56,8 +51,7 @@ namespace NW.WIDJobs
             : this(
                   DefaultParallelRequests,
                   DefaultPauseBetweenRequestsMs,
-                  DefaultDatabasePath,
-                  DefaultDatabaseName,
+                  DefaultFolderPath,
                   DefaultDeleteAndRecreateDatabase
                   ) { }
 
@@ -71,5 +65,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 09.05.2021
+    Last Update: 12.06.2021
 */
