@@ -1367,25 +1367,25 @@ namespace NW.WIDJobs.UnitTests
         internal static ushort RunIdManager_FinalPageNumber = 3;
         internal static string RunIdManager_RunId_Now 
             = string.Format(
-                RunIdManager.TemplateId,
-                RunIdManager_Now.ToString(RunIdManager.FormatDateTime)
+                RunIdManager.DefaultTemplateId,
+                RunIdManager_Now.ToString(RunIdManager.DefaultFormatDateTime)
             );
         internal static string RunIdManager_RunId_StartDateEndDate
             = string.Format(
-                RunIdManager.TemplateFromTo,
+                RunIdManager.DefaultTemplateFromTo,
                 RunIdManager_RunId_Now,
-                RunIdManager_StartDate.ToString(RunIdManager.FormatDate),
-                RunIdManager_EndDate.ToString(RunIdManager.FormatDate)
+                RunIdManager_StartDate.ToString(RunIdManager.DefaultFormatDate),
+                RunIdManager_EndDate.ToString(RunIdManager.DefaultFormatDate)
             );
         internal static string RunIdManager_RunId_Threshold
             = string.Format(
-                RunIdManager.TemplateThreshold,
+                RunIdManager.DefaultTemplateThreshold,
                 RunIdManager_RunId_Now,
-                RunIdManager_Threshold.ToString(RunIdManager.FormatDate)
+                RunIdManager_Threshold.ToString(RunIdManager.DefaultFormatDate)
             );
         internal static string RunIdManager_RunId_FromTo
             = string.Format(
-                RunIdManager.TemplateFromTo,
+                RunIdManager.DefaultTemplateFromTo,
                 RunIdManager_RunId_Now,
                 RunIdManager_InitialPageNumber,
                 RunIdManager_FinalPageNumber

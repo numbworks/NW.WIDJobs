@@ -60,7 +60,7 @@ namespace NW.WIDJobs
         public static Func<string, string> WIDExplorer_RunIdIs 
             = (runId) => $"RunId:'{runId}'.";
         public static Func<DateTime, string> WIDExplorer_NowIs
-            = (now) => $"Now:'{now.ToString(RunIdManager.FormatDate)}'.";
+            = (now) => $"Now:'{now.ToString(WIDExplorer.DefaultFormatDate)}'.";
         public static Func<ushort, string> WIDExplorer_DefaultInitialPageNumberIs
             = (defaultInitialPageNumber) => $"DefaultInitialPageNumber:'{defaultInitialPageNumber}'.";
         public static Func<ushort, string> WIDExplorer_FinalPageNumberIs
@@ -68,7 +68,7 @@ namespace NW.WIDJobs
         public static string WIDExplorer_FinalPageNumberIsLastPage
             = "FinalPageNumber: The last available page on the website.";
         public static Func<DateTime, string> WIDExplorer_ThresholdDateIs
-            = (thresholdDate) => $"ThresholdDate:'{thresholdDate.ToString(RunIdManager.FormatDate)}'.";
+            = (thresholdDate) => $"ThresholdDate:'{thresholdDate.ToString(WIDExplorer.DefaultFormatDate)}'.";
         public static Func<WIDCategories, string> WIDExplorer_CategoryIs
             = (category) => $"Category:'{category}'.";
         public static Func<WIDStages, string> WIDExplorer_StageIs

@@ -11,11 +11,11 @@ namespace NW.WIDJobs
 
         #region Properties
 
-        public static string TemplateId { get; } = "ID:{0}";
-        public static string TemplateThreshold { get; } = "{0}|THRESHOLD:{1}";
-        public static string TemplateFromTo { get; } = "{0}|FROM:{1}|TO:{2}";
-        public static string FormatDateTime { get; } = "yyyyMMddHHmmssfff";
-        public static string FormatDate { get; } = "yyyyMMdd";
+        public static string DefaultTemplateId { get; } = "ID:{0}";
+        public static string DefaultTemplateThreshold { get; } = "{0}|THRESHOLD:{1}";
+        public static string DefaultTemplateFromTo { get; } = "{0}|FROM:{1}|TO:{2}";
+        public static string DefaultFormatDateTime { get; } = "yyyyMMddHHmmssfff";
+        public static string DefaultFormatDate { get; } = "yyyyMMdd";
 
         #endregion
 
@@ -32,8 +32,8 @@ namespace NW.WIDJobs
         {
 
             return string.Format(
-                TemplateId,
-                now.ToString(FormatDateTime)
+                DefaultTemplateId,
+                now.ToString(DefaultFormatDateTime)
             );
 
         }
@@ -41,10 +41,10 @@ namespace NW.WIDJobs
         {
 
             return string.Format(
-                TemplateFromTo,
+                DefaultTemplateFromTo,
                 Create(now),
-                startDate.ToString(FormatDate),
-                endDate.ToString(FormatDate)
+                startDate.ToString(DefaultFormatDate),
+                endDate.ToString(DefaultFormatDate)
             );
 
         }
@@ -52,9 +52,9 @@ namespace NW.WIDJobs
         {
 
             return string.Format(
-                TemplateThreshold,
+                DefaultTemplateThreshold,
                 Create(now),
-                thresholdDate.ToString(FormatDate)
+                thresholdDate.ToString(DefaultFormatDate)
             );
 
         }
@@ -62,7 +62,7 @@ namespace NW.WIDJobs
         {
 
             return string.Format(
-                TemplateFromTo,
+                DefaultTemplateFromTo,
                 Create(now),
                 initialPageNumber,
                 finalPageNumber

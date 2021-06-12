@@ -22,8 +22,11 @@ namespace NW.WIDJobs
 
         #region Properties
 
+        public static string DefaultFormatDateTime { get; } = "yyyyMMddHHmmssfff";
+        public static string DefaultFormatDate { get; } = "yyyyMMdd";
         public static string DefaultNotSerialized { get; } = "This item has been exluded from the serializazion.";
         public static ushort DefaultInitialPageNumber { get; } = 1;
+
         public DateTime Now { get; }
         public string Version { get; }
         public string AsciiBanner { get; }

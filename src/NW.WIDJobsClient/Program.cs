@@ -34,7 +34,7 @@ namespace NW.WIDJobsClient
 
             WIDExplorerComponents.DefaultLoggingAction.Invoke(exploration.ToString());
 
-            string dateToken = DateTime.Now.ToString(RunIdManager.FormatDateTime);
+            string dateToken = DateTime.Now.ToString(RunIdManager.DefaultFormatDateTime);
 
             string json = explorer.ConvertToJson(exploration);
             string filename = string.Concat(@"C:\Users\Rubèn\Desktop\Exploration", dateToken, ".json");
@@ -70,7 +70,7 @@ namespace NW.WIDJobsClient
         static void DoForAll()
         {
 
-            string dateToken = DateTime.Now.ToString(RunIdManager.FormatDateTime);
+            string dateToken = DateTime.Now.ToString(RunIdManager.DefaultFormatDateTime);
 
             WIDExplorerSettings settings
                 = new WIDExplorerSettings(
