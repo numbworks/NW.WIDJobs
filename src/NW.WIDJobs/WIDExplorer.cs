@@ -205,9 +205,8 @@ namespace NW.WIDJobs
         public PageItemExtended TryGetPageItemExtendedFromHtml(string filePath)
             => TryGetPageItemExtendedFromHtml(_components.FileManager.Create(filePath));
 
-        public WIDMetrics CalculateMetrics(WIDExploration exploration)
+        public WIDMetrics ConvertToMetrics(WIDExploration exploration)
             => _components.MetricsManager.Calculate(exploration);
-
         public string ConvertToJson(WIDExploration exploration)
         {
 

@@ -91,7 +91,7 @@ namespace NW.WIDJobsClient
             string filename = string.Concat(@"C:\Users\Rubèn\Desktop\Exploration", "_", dateToken, ".json");
             File.WriteAllText(filename, json);
 
-            WIDMetrics metrics = explorer.CalculateMetrics(exploration);
+            WIDMetrics metrics = explorer.ConvertToMetrics(exploration);
             json = explorer.ConvertToJson(metrics);
             filename = string.Concat(@"C:\Users\Rubèn\Desktop\Metrics", "_", dateToken, ".json");
             File.WriteAllText(filename, json);
