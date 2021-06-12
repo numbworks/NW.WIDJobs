@@ -3,7 +3,8 @@ using System.IO;
 
 namespace NW.WIDJobs
 {
-    public class WIDFileNameManager
+    /// <inheritdoc cref="IWIDFileNameFactory"/>
+    public class WIDFileNameFactory : IWIDFileNameFactory
     {
 
         #region Fields
@@ -24,22 +25,12 @@ namespace NW.WIDJobs
 
         #region Constructors
 
-        ///<summary>Initializes a <see cref="WIDFileNameManager"/> instance.</summary>
-        public WIDFileNameManager() { }
+        ///<summary>Initializes a <see cref="WIDFileNameFactory"/> instance.</summary>
+        public WIDFileNameFactory() { }
 
         #endregion
 
         #region Methods_public
-
-        public string CreateForExplorationJson(string filePath, DateTime now)
-            => ValidateAndCreate(filePath, DefaultExplorationJsonToken, now, DefaultJsonExtension);
-        public string CreateForExplorationJson(string filePath, string token, DateTime now)
-            => ValidateAndCreate(filePath, token, now, DefaultJsonExtension);
-
-        public string CreateForMetricsJson(string filePath, DateTime now)
-            => ValidateAndCreate(filePath, DefaultMetricsJsonToken, now, DefaultJsonExtension);
-        public string CreateForMetricsJson(string filePath, string token, DateTime now)
-            => ValidateAndCreate(filePath, token, now, DefaultJsonExtension);
 
         public string CreateForDatabase(string filePath)
             => ValidateAndCreate(
@@ -52,10 +43,30 @@ namespace NW.WIDJobs
         public string CreateForDatabase(string filePath, DateTime now)
             => ValidateAndCreate(filePath, DefaultDatabaseToken, now, DefaultDatabaseExtension);
 
+        public string CreateForMetricsJson(string filePath, DateTime now)
+            => ValidateAndCreate(filePath, DefaultMetricsJsonToken, now, DefaultJsonExtension);
+        public string CreateForMetricsJson(string filePath, string token, DateTime now)
+            => ValidateAndCreate(filePath, token, now, DefaultJsonExtension);
+
+        public string CreateForExplorationJson(string filePath, DateTime now)
+            => ValidateAndCreate(filePath, DefaultExplorationJsonToken, now, DefaultJsonExtension);
+        public string CreateForExplorationJson(string filePath, string token, DateTime now)
+            => ValidateAndCreate(filePath, token, now, DefaultJsonExtension);
+
         #endregion
 
         #region Methods_private
 
+        private string ValidateAndCreate
+            (string filePath, string fileName)
+        {
+
+            Validator.ValidateStringNullOrWhiteSpace(filePath, nameof(filePath));
+            Validator.ValidateStringNullOrWhiteSpace(fileName, nameof(fileName));
+
+            return Path.Combine(filePath, fileName);
+
+        }
         private string ValidateAndCreate
             (string filePath, string token, DateTime now, string extension)
         {
@@ -68,16 +79,6 @@ namespace NW.WIDJobs
             string nowstring = now.ToString(DefaultFormatNow);
 
             string fileName = string.Format(template, token, nowstring, extension);
-
-            return Path.Combine(filePath, fileName);
-
-        }
-        private string ValidateAndCreate
-            (string filePath, string fileName)
-        {
-
-            Validator.ValidateStringNullOrWhiteSpace(filePath, nameof(filePath));
-            Validator.ValidateStringNullOrWhiteSpace(fileName, nameof(fileName));
 
             return Path.Combine(filePath, fileName);
 
