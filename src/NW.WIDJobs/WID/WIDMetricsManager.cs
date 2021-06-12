@@ -13,9 +13,10 @@ namespace NW.WIDJobs
         #endregion
 
         #region Properties
+
         public static string FormatDate { get; } = "yyyy-MM-dd";
         public static string FormatNull { get; } = "null";
-        public static Func<uint, uint, double?> CalculatePercentage =
+        public static Func<uint, uint, double?> CalculatePercentage { get; } =
             (value, totalValue) => {
 
                 if (value == 0)
@@ -26,7 +27,7 @@ namespace NW.WIDJobs
                 return Math.Round(value / (double)totalValue * 100, 2);
 
             };
-        public static Func<double, string> FormatPercentage =
+        public static Func<double, string> FormatPercentage { get; } =
             (value) =>
             {
 

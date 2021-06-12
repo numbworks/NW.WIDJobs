@@ -64,7 +64,19 @@ namespace NW.WIDJobs.UnitTests
                     (uint)45,
                     (uint)0,
                     null
-            ).SetArgDisplayNames($"{nameof(calculatePercentageTestCases)}_02")
+            ).SetArgDisplayNames($"{nameof(calculatePercentageTestCases)}_02"),
+
+            new TestCaseData(
+                    (uint)1,
+                    (uint)1,
+                    (double?)100
+            ).SetArgDisplayNames($"{nameof(calculatePercentageTestCases)}_03"),
+
+            new TestCaseData(
+                    (uint)5,
+                    (uint)10,
+                    (double?)50
+            ).SetArgDisplayNames($"{nameof(calculatePercentageTestCases)}_04")
 
         };
 
@@ -147,5 +159,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 30.05.2021
+    Last Update: 12.06.2021
 */
