@@ -66,7 +66,6 @@ namespace NW.WIDJobs
             Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
             Validator.ThrowIfLessThanOne(finalPageNumber, nameof(finalPageNumber));
 
-            LogAsciiBanner();
             LogInitializationMessage(runId, finalPageNumber, category, stage);
 
             WIDExploration exploration = ProcessStage1(runId, DefaultInitialPageNumber, category, stage);
@@ -103,7 +102,6 @@ namespace NW.WIDJobs
 
             Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
 
-            LogAsciiBanner();
             LogInitializationMessage(runId, thresholdDate, category, stage);
 
             WIDExploration exploration = ProcessStage1(runId, DefaultInitialPageNumber, category, stage);
@@ -137,7 +135,6 @@ namespace NW.WIDJobs
 
             Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
 
-            LogAsciiBanner();
             LogInitializationMessage(runId, category, stage);
 
             WIDExploration exploration = ProcessStage1(runId, DefaultInitialPageNumber, category, stage);
@@ -163,44 +160,6 @@ namespace NW.WIDJobs
             string runId = _components.RunIdManager.Create(now);
 
             return ExploreAll(runId, category, stage);
-
-        }
-
-        public WIDMetrics ConvertToMetrics(WIDExploration exploration)
-            => _components.MetricsManager.Calculate(exploration);
-        public string ConvertToJson(WIDExploration exploration)
-        {
-
-            Validator.ValidateObject(exploration, nameof(exploration));
-
-            JsonSerializerOptions options = new JsonSerializerOptions();
-            options.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
-            options.Converters.Add(new DateTimeToDateConverter());
-
-            dynamic dyn = OptimizeForSerialization(exploration);
-
-            return JsonSerializer.Serialize(dyn, options);
-
-        }
-        public string ConvertToJson(WIDMetrics metrics, bool numbersAsPercentages)
-        {
-
-            Validator.ValidateObject(metrics, nameof(metrics));
-
-            JsonSerializerOptions options = new JsonSerializerOptions();
-            options.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
-            options.Converters.Add(new DateTimeToDateConverter());
-
-            if (numbersAsPercentages)
-            {
-
-                dynamic dyn = ConvertNumbersToPercentages(metrics);
-
-                return JsonSerializer.Serialize(dyn, options);
-
-            }
-
-            return JsonSerializer.Serialize(metrics, options);
 
         }
 
@@ -382,6 +341,61 @@ namespace NW.WIDJobs
 
         }
 
+        public void LogAsciiBanner()
+            => _components.LoggingActionAsciiBanner.Invoke(AsciiBanner);
+        public WIDMetrics ConvertToMetrics(WIDExploration exploration)
+        {
+
+            Validator.ValidateObject(exploration, nameof(exploration));
+            Validator.ValidateList(exploration.PageItems, nameof(exploration.PageItems));
+            Validator.ValidateList(exploration.PageItemsExtended, nameof(exploration.PageItemsExtended));
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ConvertingExplorationToMetrics);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs.Invoke(exploration.RunId));
+
+            WIDMetrics metrics = _components.MetricsManager.Calculate(exploration);
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationConvertedToMetrics);
+
+            return metrics;
+
+        }
+        public string ConvertToJson(WIDExploration exploration)
+        {
+
+            Validator.ValidateObject(exploration, nameof(exploration));
+
+            JsonSerializerOptions options = new JsonSerializerOptions();
+            options.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
+            options.Converters.Add(new DateTimeToDateConverter());
+
+            dynamic dyn = OptimizeForSerialization(exploration);
+
+            return JsonSerializer.Serialize(dyn, options);
+
+        }
+        public string ConvertToJson(WIDMetrics metrics, bool numbersAsPercentages)
+        {
+
+            Validator.ValidateObject(metrics, nameof(metrics));
+
+            JsonSerializerOptions options = new JsonSerializerOptions();
+            options.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
+            options.Converters.Add(new DateTimeToDateConverter());
+
+            if (numbersAsPercentages)
+            {
+
+                dynamic dyn = ConvertNumbersToPercentages(metrics);
+
+                return JsonSerializer.Serialize(dyn, options);
+
+            }
+
+            return JsonSerializer.Serialize(metrics, options);
+
+        }
+
         #endregion
 
         #region Methods_private
@@ -396,8 +410,6 @@ namespace NW.WIDJobs
                 Thread.Sleep((int)pauseBetweenRequestsMs);
 
         }
-        private void LogAsciiBanner()
-            => _components.LoggingActionAsciiBanner.Invoke(AsciiBanner);
         private void LogInitializationMessage
             (string runId, ushort finalPageNumber, WIDCategories category, WIDStages stage)
         {

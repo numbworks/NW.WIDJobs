@@ -169,6 +169,10 @@ namespace NW.WIDJobs
         public static Func<DateTime, string> WIDExplorer_NowIs
             = (now) => $"Now:'{now.ToString(WIDExplorer.DefaultFormatDate)}'.";
 
+        public static string WIDExplorer_ConvertingExplorationToMetrics
+            = $"Converting the provided {nameof(WIDExploration)} object to a {nameof(WIDMetrics)} object...";  
+        public static string WIDExplorer_ExplorationConvertedToMetrics
+            = $"The provided {nameof(WIDExploration)} object has been successfully converted to a {nameof(WIDMetrics)} object.";
 
         #endregion
 
