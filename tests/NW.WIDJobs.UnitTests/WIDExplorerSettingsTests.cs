@@ -78,6 +78,9 @@ namespace NW.WIDJobs.UnitTests
             // Assert
             Assert.AreEqual(parallelRequests, actual.ParallelRequests);
             Assert.AreEqual(pauseBetweenRequestsMs, actual.PauseBetweenRequestsMs);
+            Assert.AreEqual(WIDExplorerSettings.DefaultDatabasePath, actual.DatabasePath);
+            Assert.AreEqual(WIDExplorerSettings.DefaultDatabaseName, actual.DatabaseName);
+            Assert.AreEqual(WIDExplorerSettings.DefaultDeleteAndRecreateDatabase, actual.DeleteAndRecreateDatabase);
 
         }
 
@@ -92,6 +95,9 @@ namespace NW.WIDJobs.UnitTests
             // Assert
             Assert.AreEqual(WIDExplorerSettings.DefaultParallelRequests, actual.ParallelRequests);
             Assert.AreEqual(WIDExplorerSettings.DefaultPauseBetweenRequestsMs, actual.PauseBetweenRequestsMs);
+            Assert.AreEqual(WIDExplorerSettings.DefaultDatabasePath, actual.DatabasePath);
+            Assert.AreEqual(WIDExplorerSettings.DefaultDatabaseName, actual.DatabaseName);
+            Assert.AreEqual(WIDExplorerSettings.DefaultDeleteAndRecreateDatabase, actual.DeleteAndRecreateDatabase);
 
         }
 
@@ -105,5 +111,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 15.05.2021
+    Last Update: 12.06.2021
 */
