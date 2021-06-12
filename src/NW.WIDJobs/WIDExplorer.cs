@@ -279,12 +279,17 @@ namespace NW.WIDJobs
         public IFileInfoAdapter SaveAsSQLite(List<PageItemExtended> pageItemsExtended)
         {
 
-            string fullName = Path.Combine(_settings.FolderPath, "replace this");
+            // 
+
+            string fullName = _components.FileNameFactory.CreateForDatabase(_settings.FolderPath);
             IFileInfoAdapter databaseFile = new FileInfoAdapter(fullName);
+
+            // 
 
             return SaveAsSQLite(pageItemsExtended, databaseFile, _settings.DeleteAndRecreateDatabase);
 
         }
+
         public IFileInfoAdapter SaveAsJson(WIDExploration exploration, IFileInfoAdapter jsonFile)
         {
 
@@ -298,6 +303,21 @@ namespace NW.WIDJobs
             return jsonFile;
 
         }
+        public IFileInfoAdapter SaveAsJson(WIDExploration exploration)
+        {
+
+            //
+
+            DateTime now = NowFunction.Invoke();
+            string fullName = _components.FileNameFactory.CreateForExplorationJson(_settings.FolderPath, now);
+            IFileInfoAdapter jsonFile = new FileInfoAdapter(fullName);
+
+            //
+
+            return SaveAsJson(exploration, jsonFile);
+
+        }
+
         public IFileInfoAdapter SaveAsJson
             (WIDMetrics metrics, bool numbersAsPercentages, IFileInfoAdapter jsonFile)
         {
@@ -310,6 +330,21 @@ namespace NW.WIDJobs
             //
 
             return jsonFile;
+
+        }
+        public IFileInfoAdapter SaveAsJson
+            (WIDMetrics metrics, bool numbersAsPercentages)
+        {
+
+            //
+
+            DateTime now = NowFunction.Invoke();
+            string fullName = _components.FileNameFactory.CreateForMetricsJson(_settings.FolderPath, now);
+            IFileInfoAdapter jsonFile = new FileInfoAdapter(fullName);
+
+            //
+
+            return SaveAsJson(metrics, numbersAsPercentages, jsonFile);
 
         }
 
