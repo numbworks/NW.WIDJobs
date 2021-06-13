@@ -1957,6 +1957,25 @@ namespace NW.WIDJobs.UnitTests
                         WIDFileNameFactory.DefaultJsonExtension
                         );
 
+        internal static string WIDFileNameFactory_ExplorationJsonIfFilePathNow
+            = string.Concat(
+                        WIDFileNameFactory_FakeFilePath,
+                        WIDFileNameFactory.DefaultExplorationJsonToken,
+                        "_",
+                        WIDFileNameFactory_FakeNowString,
+                        ".",
+                        WIDFileNameFactory.DefaultJsonExtension
+                        );
+        internal static string WIDFileNameFactory_ExplorationJsonIfFilePathTokenNow
+            = string.Concat(
+                        WIDFileNameFactory_FakeFilePath,
+                        WIDFileNameFactory_FakeToken,
+                        "_",
+                        WIDFileNameFactory_FakeNowString,
+                        ".",
+                        WIDFileNameFactory.DefaultJsonExtension
+                        );
+
         #endregion
 
         #region Methods

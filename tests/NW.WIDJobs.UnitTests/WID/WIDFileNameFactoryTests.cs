@@ -144,6 +144,60 @@ namespace NW.WIDJobs.UnitTests
 
 
         };
+        private static TestCaseData[] createForExplorationJsonTestCases =
+        {
+
+            new TestCaseData(
+                    new Func<string>(
+                            () => new WIDFileNameFactory()
+                                        .CreateForExplorationJson(
+                                            ObjectMother.WIDFileNameFactory_FakeFilePath,
+                                            ObjectMother.WIDFileNameFactory_FakeNow)
+                        ),
+                    ObjectMother.WIDFileNameFactory_ExplorationJsonIfFilePathNow
+                ).SetArgDisplayNames($"{nameof(createForMetricsJsonTestCases)}_01"),
+
+            new TestCaseData(
+                    new Func<string>(
+                            () => new WIDFileNameFactory()
+                                        .CreateForExplorationJson(
+                                            ObjectMother.WIDFileNameFactory_FakeFilePath,
+                                            ObjectMother.WIDFileNameFactory_FakeToken,
+                                            ObjectMother.WIDFileNameFactory_FakeNow)
+                        ),
+                    ObjectMother.WIDFileNameFactory_ExplorationJsonIfFilePathTokenNow
+                ).SetArgDisplayNames($"{nameof(createForMetricsJsonTestCases)}_02")
+
+        };
+        private static TestCaseData[] createForExplorationJsonExceptionTestCases =
+        {
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new WIDFileNameFactory()
+                                .CreateForExplorationJson(
+                                    null,
+                                    ObjectMother.WIDFileNameFactory_FakeNow)
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("filePath").Message
+            ).SetArgDisplayNames($"{nameof(createForExplorationJsonExceptionTestCases)}_01"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new WIDFileNameFactory()
+                                .CreateForExplorationJson(
+                                    ObjectMother.WIDFileNameFactory_FakeFilePath,
+                                    null,
+                                    ObjectMother.WIDFileNameFactory_FakeNow
+                                    )
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("token").Message
+            ).SetArgDisplayNames($"{nameof(createForExplorationJsonExceptionTestCases)}_02")
+
+
+        };
 
         // SetUp
         // Tests
@@ -180,6 +234,24 @@ namespace NW.WIDJobs.UnitTests
         }
         [TestCaseSource(nameof(createForMetricsJsonExceptionTestCases))]
         public void CreateForMetricsJson_ShouldThrowACertainException_WhenUnproperArguments
+            (TestDelegate del, Type expectedType, string expectedMessage)
+                => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
+
+        [TestCaseSource(nameof(createForExplorationJsonTestCases))]
+        public void CreateForExplorationJson_ShouldReturnExpectedString_WhenInvoked
+            (Func<string> func, string expected)
+        {
+
+            // Arrange
+            // Act
+            string actual = func.Invoke();
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+
+        }
+        [TestCaseSource(nameof(createForExplorationJsonExceptionTestCases))]
+        public void CreateForExplorationJson_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
