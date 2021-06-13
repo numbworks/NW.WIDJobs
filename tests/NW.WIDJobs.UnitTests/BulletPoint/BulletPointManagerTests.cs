@@ -16,10 +16,15 @@ namespace NW.WIDJobs.UnitTests
 
             // Arrange
             List<BulletPoint> expected = new List<BulletPoint>();
+
+            expected.AddRange(
+                        ObjectMother.CallPrivateMethod<BulletPointManager, List<BulletPoint>>(new BulletPointManager(), "GetJobDutyBulletPoints", null));
             expected.AddRange(
                         ObjectMother.CallPrivateMethod<BulletPointManager, List<BulletPoint>>(new BulletPointManager(), "GetJobRequirementBulletPoints", null));
             expected.AddRange(
-                        ObjectMother.CallPrivateMethod<BulletPointManager, List<BulletPoint>>(new BulletPointManager(), "GetJobDutyBulletPoints", null));
+                        ObjectMother.CallPrivateMethod<BulletPointManager, List<BulletPoint>>(new BulletPointManager(), "GetJobTechnologyBulletPoints", null));
+            expected.AddRange(
+                        ObjectMother.CallPrivateMethod<BulletPointManager, List<BulletPoint>>(new BulletPointManager(), "GetJobBenefitBulletPoints", null));
 
             // Act
             List <BulletPoint> actual = new BulletPointManager().GetPreLabeledExamples();
