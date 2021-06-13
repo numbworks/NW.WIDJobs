@@ -4,8 +4,10 @@
     public enum BulletPointLabels
     {
 
+        JobDuty,
         JobRequirement,
-        JobDuty
+        JobTechnology,
+        JobBenefit
 
     }
 }
