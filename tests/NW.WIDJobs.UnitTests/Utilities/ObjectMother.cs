@@ -1897,6 +1897,49 @@ namespace NW.WIDJobs.UnitTests
 
         #endregion
 
+        #region FileManagerTests
+
+        internal static string WIDFileNameFactory_FakeFilePath = @"C:\";
+        internal static string WIDFileNameFactory_FakeToken = "fake";
+        internal static DateTime WIDFileNameFactory_FakeNow = new DateTime(2021, 05, 01);
+        internal static string WIDFileNameFactory_FakeNowString
+            = WIDFileNameFactory_FakeNow.ToString(WIDFileNameFactory.DefaultFormatNow);
+
+        internal static string WIDFileNameFactory_FakeDatabaseFileName = "fakedb.db";
+
+        internal static string WIDFileNameFactory_DatabaseNameIfFilePath
+            = string.Concat(
+                        WIDFileNameFactory_FakeFilePath,
+                        WIDFileNameFactory.DefaultDatabaseToken,
+                        ".",
+                        WIDFileNameFactory.DefaultDatabaseExtension
+                        );
+        internal static string WIDFileNameFactory_DatabaseNameIfFilePathFileName
+            = string.Concat(
+                        WIDFileNameFactory_FakeFilePath,
+                        WIDFileNameFactory_FakeDatabaseFileName
+                        );
+        internal static string WIDFileNameFactory_DatabaseNameIfFilePathTokenNow
+            = string.Concat(
+                        WIDFileNameFactory_FakeFilePath,
+                        WIDFileNameFactory_FakeToken,
+                        "_",
+                        WIDFileNameFactory_FakeNowString,
+                        ".",
+                        WIDFileNameFactory.DefaultDatabaseExtension
+                        );
+        internal static string WIDFileNameFactory_DatabaseNameIfFilePathNow
+            = string.Concat(
+                        WIDFileNameFactory_FakeFilePath,
+                        WIDFileNameFactory.DefaultDatabaseToken,
+                        "_",
+                        WIDFileNameFactory_FakeNowString,
+                        ".",
+                        WIDFileNameFactory.DefaultDatabaseExtension
+                        );
+
+        #endregion
+
         #region Methods
 
         internal static void Method_ShouldThrowACertainException_WhenUnproperArguments
