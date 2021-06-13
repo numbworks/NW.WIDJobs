@@ -17,7 +17,7 @@ namespace NW.WIDJobsClient
             Console.ReadLine();
 
         }
-        static void ExploreFirstPageAllCategories()
+        static WIDExplorer CreateExplorer()
         {
 
             WIDExplorerSettings settings
@@ -27,8 +27,18 @@ namespace NW.WIDJobsClient
                         @"C:\Users\Rubèn\Desktop\",
                         WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
                         );
+            WIDExplorer explorer
+                = new WIDExplorer(new WIDExplorerComponents(), settings, WIDExplorer.DefaultNowFunction);
 
-            WIDExplorer explorer = new WIDExplorer(new WIDExplorerComponents(), settings, WIDExplorer.DefaultNowFunction);
+            return explorer;
+
+        }
+        static void ExploreFirstPageAllCategories()
+        {
+
+            WIDExplorer explorer = CreateExplorer();
+            explorer.LogAsciiBanner();
+
             WIDExploration exploration
                 = explorer.Explore(1, WIDCategories.AllCategories, WIDStages.Stage3_UpToAllPageItemsExtended);
             WIDMetrics metrics = explorer.ConvertToMetrics(exploration);
@@ -42,15 +52,9 @@ namespace NW.WIDJobsClient
         static void ExploreAllITTech()
         {
 
-            WIDExplorerSettings settings
-                = new WIDExplorerSettings(
-                        WIDExplorerSettings.DefaultParallelRequests,
-                        WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
-                        @"C:\Users\Rubèn\Desktop\",
-                        WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
-                        );
+            WIDExplorer explorer = CreateExplorer();
+            explorer.LogAsciiBanner();
 
-            WIDExplorer explorer = new WIDExplorer(new WIDExplorerComponents(), settings, WIDExplorer.DefaultNowFunction);
             WIDExploration exploration
                 = explorer.ExploreAll(WIDCategories.ItTech, WIDStages.Stage3_UpToAllPageItemsExtended);
             WIDMetrics metrics = explorer.ConvertToMetrics(exploration);
