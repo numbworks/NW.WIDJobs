@@ -10,7 +10,7 @@ namespace NW.WIDJobsClient
         static void Main(string[] args)
         {
 
-            ExploreFirstPageAllCategories();
+            //ExploreFirstPageAllCategories();
             ExploreAllITTech();
 
             WIDExplorerComponents.DefaultLoggingAction.Invoke("Press a button to close the window.");

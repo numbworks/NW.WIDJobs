@@ -235,7 +235,6 @@ namespace NW.WIDJobs
 
             Validator.ValidateList(pageItemsExtended, nameof(pageItemsExtended));
             Validator.ValidateObject(databaseFile, nameof(databaseFile));
-            Validator.ValidateFileExistance(databaseFile);
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SavingPageItemsExtendedAsSQLite);
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemsExtendedAre.Invoke(pageItemsExtended));
