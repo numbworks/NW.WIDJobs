@@ -2224,6 +2224,25 @@ namespace NW.WIDJobs.UnitTests
                     && string.Equals(bulletPoint1.Text, bulletPoint2.Text, StringComparison.InvariantCulture);
 
         }
+        internal static bool AreEqual(List<BulletPoint> list1, List<BulletPoint> list2)
+        {
+
+            if (list1 == null && list2 == null)
+                return true;
+
+            if (list1 == null || list2 == null)
+                return false;
+
+            if (list1.Count != list2.Count)
+                return false;
+
+            for (int i = 0; i < list1.Count; i++)
+                if (AreEqual(list1[i], list2[i]) == false)
+                    return false;
+
+            return true;
+
+        }
 
         internal static PageItem SwapCreateDate(PageItem pageItem, DateTime createDate)
         {
@@ -2298,13 +2317,13 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
-        internal static T CallPrivateMethod<T, U>(string methodName, object[] args)
+        internal static TReturn CallPrivateMethod<TClass, TReturn>
+            (TClass obj, string methodName, object[] args)
         {
 
-            Type type = typeof(U);
-            WIDMetricsManager obj = new WIDMetricsManager();
+            Type type = typeof(TClass);
 
-            return (T)type.GetTypeInfo().GetDeclaredMethod(methodName).Invoke(obj, args);
+            return (TReturn)type.GetTypeInfo().GetDeclaredMethod(methodName).Invoke(obj, args);
 
         }
 
