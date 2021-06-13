@@ -1938,6 +1938,25 @@ namespace NW.WIDJobs.UnitTests
                         WIDFileNameFactory.DefaultDatabaseExtension
                         );
 
+        internal static string WIDFileNameFactory_MetricsJsonIfTrue
+            = string.Concat(
+                        WIDFileNameFactory_FakeFilePath,
+                        WIDFileNameFactory.DefaultMetricsPctJsonToken,
+                        "_",
+                        WIDFileNameFactory_FakeNowString,
+                        ".",
+                        WIDFileNameFactory.DefaultJsonExtension
+                        );
+        internal static string WIDFileNameFactory_MetricsJsonIfFalse
+            = string.Concat(
+                        WIDFileNameFactory_FakeFilePath,
+                        WIDFileNameFactory.DefaultMetricsJsonToken,
+                        "_",
+                        WIDFileNameFactory_FakeNowString,
+                        ".",
+                        WIDFileNameFactory.DefaultJsonExtension
+                        );
+
         #endregion
 
         #region Methods

@@ -48,9 +48,9 @@ namespace NW.WIDJobs
         {
 
             if (numbersAsPercentages)
-                return ValidateAndCreate(filePath, DefaultMetricsJsonToken, now, DefaultJsonExtension);
+                return ValidateAndCreate(filePath, DefaultMetricsPctJsonToken, now, DefaultJsonExtension);
 
-            return ValidateAndCreate(filePath, DefaultMetricsPctJsonToken, now, DefaultJsonExtension);
+            return ValidateAndCreate(filePath, DefaultMetricsJsonToken, now, DefaultJsonExtension);
 
         }
         public string CreateForMetricsJson(string filePath, string token, DateTime now)
