@@ -190,6 +190,11 @@ namespace NW.WIDJobs
         public static string WIDExplorer_ExplorationMetricsToJsonString
             = $"The provided {nameof(WIDMetrics)} object has been successfully converted to a JSON string.";
 
+        public static string WIDExplorer_RetrievingPreLabeledBulletPoints
+            = $"Retrieving pre-labeled {nameof(BulletPoint)} objects...";
+        public static Func<List<BulletPoint>, string> WIDExplorer_PreLabeledBulletPointsRetrieved
+            = (bulletPoints) => $"'{bulletPoints.Count}' {nameof(BulletPoint)} objects has been successfully retrieved.";
+
         #endregion
 
         #region FileManager

@@ -406,6 +406,18 @@ namespace NW.WIDJobs
             return JsonSerializer.Serialize(dyn, options);
 
         }
+        public List<BulletPoint> GetPreLabeledBulletPoints()
+        {
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RetrievingPreLabeledBulletPoints);
+
+            List<BulletPoint> bulletPoints = _components.BulletPointManager.GetPreLabeledExamples();
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PreLabeledBulletPointsRetrieved.Invoke(bulletPoints));
+
+            return bulletPoints;
+
+        }
 
         #endregion
 
