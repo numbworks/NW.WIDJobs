@@ -61,6 +61,22 @@ namespace NW.WIDJobs.UnitTests
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
+        [Test]
+        public void BulletPoint_ShouldInitializeANewBulletPointObject_WhenBulletPointLabels()
+        {
+
+            // Arrange
+            BulletPoint expected = new BulletPoint(BulletPointLabels.JobDuty.ToString(), "some text");
+
+            // Act
+            BulletPoint actual = new BulletPoint(BulletPointLabels.JobDuty, "some text");
+
+            // Assert
+            Assert.IsTrue(
+                    ObjectMother.AreEqual(expected, actual)
+                );
+
+        }
 
         // TearDown		
 

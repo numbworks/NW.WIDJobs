@@ -31,6 +31,11 @@ namespace NW.WIDJobs
 
         }
 
+        /// <summary>Initializes a <see cref="BulletPoint"/> instance.</summary>
+        /// <exception cref="ArgumentNullException"/>
+        public BulletPoint(BulletPointLabels label, string text)
+            : this(label.ToString(), text) { }
+
         #endregion
 
         #region Methods_public

@@ -2,9 +2,15 @@
 
 namespace NW.WIDJobs
 {
+    /// <summary>Collects all the helper methods related to <see cref="BulletPoint"/>.</summary>
     public interface IBulletPointManager
     {
-        List<BulletPoint> GetLabeledBulletPoints();
+
+        /// <summary>
+        /// Returns pre-labeled examples of <see cref="BulletPoint"/> that can be helpful to categorize new bullet point texts.
+        /// </summary>
+        List<BulletPoint> GetPreLabeledExamples();
+
     }
 }
 
