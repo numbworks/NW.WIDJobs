@@ -1,4 +1,5 @@
-﻿using NSubstitute;
+﻿using Microsoft.EntityFrameworkCore;
+using NSubstitute;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -1978,6 +1979,14 @@ namespace NW.WIDJobs.UnitTests
 
         #endregion
 
+        #region DbSetExtensionMethodsTests
+
+        internal static DatabaseContext DbSetExtensionMethods_InMemoryDatabaseContext
+            = CreateEmptyInMemoryContext();
+        internal static List<PageItemEntity> DbSetExtensionMethods_NotExistingPageItemEntities;
+
+        #endregion
+
         #region Methods
 
         internal static void Method_ShouldThrowACertainException_WhenUnproperArguments
@@ -2317,6 +2326,17 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
+        internal static DatabaseContext CreateEmptyInMemoryContext()
+        {
+
+            return new DatabaseContext(
+                        new DbContextOptionsBuilder<DatabaseContext>()
+                            .UseInMemoryDatabase(
+                                databaseName: Guid.NewGuid().ToString()
+                                )
+                            .Options);
+
+        }
         internal static TReturn CallPrivateMethod<TClass, TReturn>
             (TClass obj, string methodName, object[] args)
         {
@@ -2334,5 +2354,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 30.05.2021
+    Last Update: 19.06.2021
 */

@@ -25,7 +25,7 @@ namespace NW.WIDJobs
         public static void AddOrUpdate<T>(this DbSet<T> dbSet, IEnumerable<T> entities) where T : class, ITrackableEntity
         {
 
-            Validator.ValidateList(entities.ToList(), nameof(entities));
+            Validator.ValidateList((List<T>)entities, nameof(entities));
 
             foreach (T entity in entities)
                 dbSet.AddOrUpdate(entity);
@@ -56,7 +56,7 @@ namespace NW.WIDJobs
         public static void AddOrUpdate<T>(this DbSet<T> dbSet, IEnumerable<T> entities, ref List<T> notExisting) where T : class, ITrackableEntity
         {
 
-            Validator.ValidateList(entities.ToList(), nameof(entities));
+            Validator.ValidateList(entities?.ToList(), nameof(entities));
 
             foreach (T entity in entities)
                 dbSet.AddOrUpdate(entity, ref notExisting);
