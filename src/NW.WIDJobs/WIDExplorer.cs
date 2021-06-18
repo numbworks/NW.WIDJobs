@@ -245,7 +245,7 @@ namespace NW.WIDJobs
                 _components.RepositoryFactory
                     .Create(databaseFile.DirectoryName, databaseFile.Name, _settings.DeleteAndRecreateDatabase);
             
-            int affectedRows = repository.Insert(pageItemsExtended);
+            int affectedRows = repository.ConditionallyInsert(pageItemsExtended);
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_AffectedRowsAre.Invoke(affectedRows));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationSavedAsSQLite);

@@ -54,7 +54,7 @@ namespace NW.WIDJobs
 
         #region Methods_public
 
-        public int Insert(PageItemExtended pageItemExtended)
+        public int ConditionallyInsert(PageItemExtended pageItemExtended)
         {
 
             Validator.ValidateObject(pageItemExtended, nameof(pageItemExtended));
@@ -63,14 +63,14 @@ namespace NW.WIDJobs
             PageItemExtendedEntity pageItemExtendedEntity = ExtractPageItemExtendedEntity(pageItemExtended);
             List<BulletPointEntity> bulletPointEntities = ExtractBulletPointEntities(pageItemExtended);
 
-            DatabaseContext.PageItems.Add(pageItemEntity);
-            DatabaseContext.PageItemsExtended.Add(pageItemExtendedEntity);
-            DatabaseContext.BulletPoints.AddRange(bulletPointEntities);
+            DatabaseContext.PageItems.AddOrUpdate(pageItemEntity);
+            DatabaseContext.PageItemsExtended.AddOrUpdate(pageItemExtendedEntity);
+            DatabaseContext.BulletPoints.AddOrUpdate(bulletPointEntities);
 
             return DatabaseContext.SaveChanges();
 
         }
-        public int Insert(List<PageItemExtended> pageItemsExtended)
+        public int ConditionallyInsert(List<PageItemExtended> pageItemsExtended)
         {
 
             Validator.ValidateList(pageItemsExtended, nameof(pageItemsExtended));
@@ -79,9 +79,9 @@ namespace NW.WIDJobs
             List<PageItemExtendedEntity> pageItemExtendedEntities = ExtractPageItemExtendedEntities(pageItemsExtended);
             List<BulletPointEntity> bulletPointEntities = ExtractBulletPointEntities(pageItemsExtended);
 
-            DatabaseContext.PageItems.AddRange(pageItemEntities);
-            DatabaseContext.PageItemsExtended.AddRange(pageItemExtendedEntities);
-            DatabaseContext.BulletPoints.AddRange(bulletPointEntities);
+            DatabaseContext.PageItems.AddOrUpdate(pageItemEntities);
+            DatabaseContext.PageItemsExtended.AddOrUpdate(pageItemExtendedEntities);
+            DatabaseContext.BulletPoints.AddOrUpdate(bulletPointEntities);
 
             return DatabaseContext.SaveChanges();
 
@@ -162,5 +162,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 04.06.2021
+    Last Update:19.06.2021
 */

@@ -25,19 +25,27 @@ namespace NW.WIDJobs
         public static void AddOrUpdate<T>(this DbSet<T> dbSet, IEnumerable<T> entities) where T : class, ITrackableEntity
         {
 
+            Validator.ValidateList(entities.ToList(), nameof(entities));
+
             foreach (T entity in entities)
-            {
+                dbSet.AddOrUpdate(entity);
 
-                bool doesExist = dbSet.AsNoTracking().Any(x => x.PageItemId == entity.PageItemId);
-                if (doesExist)
-                {
-                    dbSet.Update(entity);
-                    continue;
-                }
+        }
 
+        /// <summary>
+        /// Add <paramref name="entity"/> if they don't already exist.
+        /// <para>Based on a thread on <see href="https://stackoverflow.com/questions/36208580/what-happened-to-addorupdate-in-ef-7-core">StackOverflow</see>.</para>
+        /// </summary>
+        public static void AddOrUpdate<T>(this DbSet<T> dbSet, T entity) where T : class, ITrackableEntity
+        {
+
+            Validator.ValidateObject(entity, nameof(entity));
+
+            bool doesExist = dbSet.AsNoTracking().Any(x => x.PageItemId == entity.PageItemId);
+            if (doesExist)
+                dbSet.Update(entity);
+            else
                 dbSet.Add(entity);
-
-            }
 
         }
 
@@ -48,15 +56,27 @@ namespace NW.WIDJobs
         public static void AddOrUpdate<T>(this DbSet<T> dbSet, IEnumerable<T> entities, ref List<T> notExisting) where T : class, ITrackableEntity
         {
 
-            foreach (T entity in entities)
-            {
+            Validator.ValidateList(entities.ToList(), nameof(entities));
 
-                bool doesExist = dbSet.AsNoTracking().Any(x => x.PageItemId == entity.PageItemId);
-                if (doesExist)
-                {
-                    dbSet.Update(entity);
-                    continue;
-                }
+            foreach (T entity in entities)
+                dbSet.AddOrUpdate(entity, ref notExisting);
+
+        }
+
+        /// <summary>
+        /// Add <paramref name="entity"/> if they don't already exist.
+        /// <para>Based on a thread on <see href="https://stackoverflow.com/questions/36208580/what-happened-to-addorupdate-in-ef-7-core">StackOverflow</see>.</para>
+        /// </summary>
+        public static void AddOrUpdate<T>(this DbSet<T> dbSet, T entity, ref List<T> notExisting) where T : class, ITrackableEntity
+        {
+
+            Validator.ValidateObject(entity, nameof(entity));
+
+            bool doesExist = dbSet.AsNoTracking().Any(x => x.PageItemId == entity.PageItemId);
+            if (doesExist)
+                dbSet.Update(entity);
+            else
+            {
 
                 dbSet.Add(entity);
                 notExisting.Add(entity);
@@ -72,5 +92,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 09.06.2021
+    Last Update: 19.06.2021
 */

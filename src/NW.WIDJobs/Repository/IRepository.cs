@@ -8,21 +8,21 @@ namespace NW.WIDJobs
     {
 
         /// <summary>
-        /// Insert <paramref name="pageItemExtended"/> into the database and returns affected rows.
+        /// Conditionally insert <paramref name="pageItemExtended"/> into the database and returns affected rows.
         /// </summary>
         /// <exception cref="ArgumentNullException"></exception>
-        int Insert(PageItemExtended pageItemExtended);
+        int ConditionallyInsert(PageItemExtended pageItemExtended);
 
         /// <summary>
-        /// Insert <paramref name="pageItemsExtended"/> into the database and returns affected rows.
+        /// Conditionally insert <paramref name="pageItemsExtended"/> into the database and returns affected rows.
         /// </summary>
         /// <exception cref="ArgumentNullException"></exception>
-        int Insert(List<PageItemExtended> pageItemsExtended);
+        int ConditionallyInsert(List<PageItemExtended> pageItemsExtended);
 
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 04.06.2021
+    Last Update: 19.06.2021
 */
