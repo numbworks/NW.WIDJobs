@@ -24,7 +24,7 @@ namespace NW.WIDJobs
 
         #region Constructors
 
-        ///<summary>Initializes a <see cref="DatabaseContext"/> instance.</summary>
+        ///<summary>Initializes a <see cref="DatabaseContext"/> instance for <paramref name="databasePath"/> and <paramref name="databaseName"/>.</summary>
         /// <exception cref="ArgumentNullException"></exception>
         public DatabaseContext(string databasePath, string databaseName)
         {
@@ -35,6 +35,10 @@ namespace NW.WIDJobs
             ConnectionString = CreateConnectionString(databasePath, databaseName);
 
         }
+
+        ///<summary>Initializes a <see cref="DatabaseContext"/> instance for <paramref name="options"/>.</summary>
+        public DatabaseContext(DbContextOptions<DatabaseContext> options)
+            : base(options) { }
 
         #endregion
 
