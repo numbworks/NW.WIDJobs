@@ -8,6 +8,18 @@ namespace NW.WIDJobs
     {
 
         /// <summary>
+        /// Conditionally insert <paramref name="pageItem"/> into the database and returns affected rows.
+        /// </summary>
+        /// <exception cref="ArgumentNullException"></exception>
+        int ConditionallyInsert(PageItem pageItem);
+
+        /// <summary>
+        /// Conditionally insert <paramref name="pageItems"/> into the database and returns affected rows.
+        /// </summary>
+        /// <exception cref="ArgumentNullException"></exception>
+        int ConditionallyInsert(List<PageItem> pageItems);
+
+        /// <summary>
         /// Conditionally insert <paramref name="pageItemExtended"/> into the database and returns affected rows.
         /// </summary>
         /// <exception cref="ArgumentNullException"></exception>

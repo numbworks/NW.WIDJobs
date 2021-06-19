@@ -54,6 +54,29 @@ namespace NW.WIDJobs
 
         #region Methods_public
 
+        public int ConditionallyInsert(PageItem pageItem)
+        {
+
+            Validator.ValidateObject(pageItem, nameof(pageItem));
+
+            PageItemEntity pageItemEntity = new PageItemEntity(pageItem);
+            DatabaseContext.PageItems.AddOrUpdate(pageItemEntity);
+
+            return DatabaseContext.SaveChanges();
+
+        }
+        public int ConditionallyInsert(List<PageItem> pageItems)
+        {
+
+            Validator.ValidateList(pageItems, nameof(pageItems));
+
+            List<PageItemEntity> pageItemEntities = ExtractPageItemEntities(pageItems);
+            DatabaseContext.PageItems.AddOrUpdate(pageItemEntities);
+
+            return DatabaseContext.SaveChanges();
+
+        }
+
         public int ConditionallyInsert(PageItemExtended pageItemExtended)
         {
 
@@ -91,6 +114,21 @@ namespace NW.WIDJobs
 
         #region Methods_private
 
+        private List<PageItemEntity> ExtractPageItemEntities(List<PageItem> pageItems)
+        {
+
+            List<PageItemEntity> pageItemEntities = new List<PageItemEntity>();
+            foreach (PageItem pageItem in pageItems)
+            {
+
+                PageItemEntity current = new PageItemEntity(pageItem);
+                pageItemEntities.Add(current);
+
+            }
+
+            return pageItemEntities;
+
+        }
         private List<PageItemEntity> ExtractPageItemEntities(List<PageItemExtended> pageItemsExtended)
         {
 
