@@ -481,11 +481,11 @@ namespace NW.WIDJobs.UnitTests
                 new PageItemExtendedEntity(Shared_Page01_PageItemExtended14)
             };
 
-        internal static BulletPointEntity Shared_Page01_PageItemExtended01BulletEntity01
+        internal static BulletPointEntity Shared_Page01_PageItemExtended01BulletPointEntity01
             = new BulletPointEntity(
                     Shared_Page01_PageItemExtended01.PageItem.PageItemId,
                     Shared_Page01_PageItemExtended01.DescriptionBulletPoints.ToList()[0]);
-        internal static List<BulletPointEntity> Shared_Page01_PageItemExtended01BulletEntities
+        internal static List<BulletPointEntity> Shared_Page01_PageItemExtended01BulletPointEntities
             = Shared_Page01_PageItemExtended01
                 .DescriptionBulletPoints
                 .Select(bulletPoint => new BulletPointEntity(Shared_Page01_PageItemExtended01.PageItem.PageItemId, bulletPoint))

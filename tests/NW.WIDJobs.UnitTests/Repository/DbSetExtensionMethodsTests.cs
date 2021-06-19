@@ -90,7 +90,6 @@ namespace NW.WIDJobs.UnitTests
 
 
         }
-
         [Test]
         public void AddOrUpdate_ShouldAddPageItemEntities_WhenInvoked()
         {
@@ -131,7 +130,6 @@ namespace NW.WIDJobs.UnitTests
             Assert.AreEqual(1, rowsAfter);
 
         }
-
         [Test]
         public void AddOrUpdate_ShouldAddPageItemExtendedEntities_WhenInvoked()
         {
@@ -149,6 +147,45 @@ namespace NW.WIDJobs.UnitTests
             // Assert
             Assert.AreEqual(0, rowsBefore);
             Assert.AreEqual(ObjectMother.Shared_Page01_PageItemExtendedEntities.Count, rowsAfter);
+
+        }
+
+        [Test]
+        public void AddOrUpdate_ShouldAddOneBulletPointEntity_WhenInvoked()
+        {
+
+            // Arrange
+            DatabaseContext databaseContext = ObjectMother.CreateInMemoryContext();
+            int rowsBefore = databaseContext.BulletPoints.Count();
+
+            // Act
+            databaseContext.BulletPoints.AddOrUpdate(ObjectMother.Shared_Page01_PageItemExtended01BulletPointEntity01);
+            databaseContext.SaveChanges();
+            int rowsAfter = databaseContext.BulletPoints.Count();
+            databaseContext.Dispose();
+
+            // Assert
+            Assert.AreEqual(0, rowsBefore);
+            Assert.AreEqual(1, rowsAfter);
+
+        }
+        [Test]
+        public void AddOrUpdate_ShouldAddBulletPointEntities_WhenInvoked()
+        {
+
+            // Arrange
+            DatabaseContext databaseContext = ObjectMother.CreateInMemoryContext();
+            int rowsBefore = databaseContext.BulletPoints.Count();
+
+            // Act
+            databaseContext.BulletPoints.AddOrUpdate(ObjectMother.Shared_Page01_PageItemExtended01BulletPointEntities);
+            databaseContext.SaveChanges();
+            int rowsAfter = databaseContext.BulletPoints.Count();
+            databaseContext.Dispose();
+
+            // Assert
+            Assert.AreEqual(0, rowsBefore);
+            Assert.AreEqual(ObjectMother.Shared_Page01_PageItemExtended01BulletPointEntities.Count, rowsAfter);
 
         }
 
