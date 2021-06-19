@@ -24,24 +24,9 @@ namespace NW.WIDJobs.UnitTests
             new TestCaseData(
                     new Func<Repository>(
                             () => new Repository(
-                                        ObjectMother.DatabaseContext_DatabasePath,
-                                        ObjectMother.DatabaseContext_DatabaseName01,
-                                        true))
-                ).SetArgDisplayNames($"{nameof(repositoryTestCases)}_02"),
-
-            new TestCaseData(
-                    new Func<Repository>(
-                            () => new Repository(
                                         ObjectMother.CreateInMemoryContext(),
                                         false))
-                ).SetArgDisplayNames($"{nameof(repositoryTestCases)}_03"),
-
-            new TestCaseData(
-                    new Func<Repository>(
-                            () => new Repository(
-                                        ObjectMother.CreateInMemoryContext(),
-                                        true))
-                ).SetArgDisplayNames($"{nameof(repositoryTestCases)}_04")
+                ).SetArgDisplayNames($"{nameof(repositoryTestCases)}_02")
 
         };
         private static TestCaseData[] repositoryExceptionTestCases =
