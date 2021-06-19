@@ -118,19 +118,28 @@ namespace NW.WIDJobs.UnitTests
             DatabaseContext databaseContext = ObjectMother.CreateInMemoryContext();
 
             // Act
-            List<PageItemEntity> added = new List<PageItemEntity>();
-            databaseContext.PageItems.AddOrUpdate(ObjectMother.Shared_Page01_PageItemEntity01, ref added);
-            databaseContext.SaveChanges();
-            databaseContext.PageItems.AddOrUpdate(ObjectMother.Shared_Page01_PageItemEntity01, ref added);
-            databaseContext.SaveChanges();
-            databaseContext.PageItems.AddOrUpdate(ObjectMother.Shared_Page01Alternate_PageItemEntity01, ref added);
-            databaseContext.SaveChanges();
-            databaseContext.PageItems.AddOrUpdate(ObjectMother.Shared_Page01Alternate_PageItemEntity02, ref added);
-            databaseContext.SaveChanges();
+            List<PageItemEntity> addedStep1 = new List<PageItemEntity>();
+            databaseContext.PageItems.AddOrUpdate(ObjectMother.Shared_Page01_PageItemEntity01, ref addedStep1);
+            databaseContext.SaveChanges(); // Add the first one, database is empty, added = 1
+
+            List<PageItemEntity> addedStep2 = new List<PageItemEntity>();
+            databaseContext.PageItems.AddOrUpdate(ObjectMother.Shared_Page01_PageItemEntity01, ref addedStep2);
+            databaseContext.SaveChanges(); // Add the second one, same as the pre-exiting one, added = 0
+
+            List<PageItemEntity> addedStep3 = new List<PageItemEntity>();
+            databaseContext.PageItems.AddOrUpdate(ObjectMother.Shared_Page01Alternate_PageItemEntity01, ref addedStep3);
+            databaseContext.SaveChanges(); // Add the third one, update the CreatedDate for the pre-exiting one, added = 0
+
+            List<PageItemEntity> addedStep4 = new List<PageItemEntity>();
+            databaseContext.PageItems.AddOrUpdate(ObjectMother.Shared_Page01Alternate_PageItemEntity02, ref addedStep4);
+            databaseContext.SaveChanges(); // Add the fourth one, differs from the pre-existing one, added = 1
             databaseContext.Dispose();
 
             // Assert
-            Assert.AreEqual(2, added.Count);
+            Assert.AreEqual(1, addedStep1.Count);
+            Assert.AreEqual(0, addedStep2.Count);
+            Assert.AreEqual(0, addedStep3.Count);
+            Assert.AreEqual(1, addedStep4.Count);
 
         }
 
