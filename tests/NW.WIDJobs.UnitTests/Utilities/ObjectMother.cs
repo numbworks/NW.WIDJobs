@@ -1261,6 +1261,11 @@ namespace NW.WIDJobs.UnitTests
 
         internal static DateTime Shared_Page01Alternate_ThresholdDate = new DateTime(2021, 04, 30);
 
+        internal static PageItemEntity Shared_Page01Alternate_PageItemEntity01
+            = new PageItemEntity(Shared_Page01Alternate_PageItem01);
+        internal static PageItemEntity Shared_Page01Alternate_PageItemEntity02
+            = new PageItemEntity(Shared_Page01Alternate_PageItem02);
+
         #endregion
 
         #region Shared_Page02Alternate

@@ -53,13 +53,13 @@ namespace NW.WIDJobs
         /// Add <paramref name="entities"/> if they don't already exist, and returns the entities that have been added.
         /// <para>Based on a thread on <see href="https://stackoverflow.com/questions/36208580/what-happened-to-addorupdate-in-ef-7-core">StackOverflow</see>.</para>
         /// </summary>
-        public static void AddOrUpdate<T>(this DbSet<T> dbSet, IEnumerable<T> entities, ref List<T> notExisting) where T : class, ITrackableEntity
+        public static void AddOrUpdate<T>(this DbSet<T> dbSet, IEnumerable<T> entities, ref List<T> added) where T : class, ITrackableEntity
         {
 
             Validator.ValidateList(entities?.ToList(), nameof(entities));
 
             foreach (T entity in entities)
-                dbSet.AddOrUpdate(entity, ref notExisting);
+                dbSet.AddOrUpdate(entity, ref added);
 
         }
 
@@ -67,7 +67,7 @@ namespace NW.WIDJobs
         /// Add <paramref name="entity"/> if they don't already exist.
         /// <para>Based on a thread on <see href="https://stackoverflow.com/questions/36208580/what-happened-to-addorupdate-in-ef-7-core">StackOverflow</see>.</para>
         /// </summary>
-        public static void AddOrUpdate<T>(this DbSet<T> dbSet, T entity, ref List<T> notExisting) where T : class, ITrackableEntity
+        public static void AddOrUpdate<T>(this DbSet<T> dbSet, T entity, ref List<T> added) where T : class, ITrackableEntity
         {
 
             Validator.ValidateObject(entity, nameof(entity));
@@ -79,7 +79,7 @@ namespace NW.WIDJobs
             {
 
                 dbSet.Add(entity);
-                notExisting.Add(entity);
+                added.Add(entity);
 
             }
 

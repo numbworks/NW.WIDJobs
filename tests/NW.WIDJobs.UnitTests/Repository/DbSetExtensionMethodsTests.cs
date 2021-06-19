@@ -110,6 +110,29 @@ namespace NW.WIDJobs.UnitTests
 
 
         }
+        [Test]
+        public void AddOrUpdate_ShouldUpdateTwoAndAddTwo_WhenFourPageItemEntities()
+        {
+
+            // Arrange
+            DatabaseContext databaseContext = ObjectMother.CreateInMemoryContext();
+
+            // Act
+            List<PageItemEntity> added = new List<PageItemEntity>();
+            databaseContext.PageItems.AddOrUpdate(ObjectMother.Shared_Page01_PageItemEntity01, ref added);
+            databaseContext.SaveChanges();
+            databaseContext.PageItems.AddOrUpdate(ObjectMother.Shared_Page01_PageItemEntity01, ref added);
+            databaseContext.SaveChanges();
+            databaseContext.PageItems.AddOrUpdate(ObjectMother.Shared_Page01Alternate_PageItemEntity01, ref added);
+            databaseContext.SaveChanges();
+            databaseContext.PageItems.AddOrUpdate(ObjectMother.Shared_Page01Alternate_PageItemEntity02, ref added);
+            databaseContext.SaveChanges();
+            databaseContext.Dispose();
+
+            // Assert
+            Assert.AreEqual(2, added.Count);
+
+        }
 
         [Test]
         public void AddOrUpdate_ShouldAddOnePageItemExtendedEntity_WhenInvoked()
