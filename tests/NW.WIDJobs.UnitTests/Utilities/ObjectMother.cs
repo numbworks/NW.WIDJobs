@@ -1944,7 +1944,8 @@ namespace NW.WIDJobs.UnitTests
         #region DatabaseContextTests
 
         internal static string DatabaseContext_DatabasePath = @"c:\";
-        internal static string DatabaseContext_DatabaseName = "widjobs.db";
+        internal static string DatabaseContext_DatabaseName01 = "widjobs.db";
+        internal static string DatabaseContext_DatabaseName02 = "widjobs";
         internal static string DatabaseContext_ConnectionString 
             = DatabaseContext.ConnectionStringTemplate.Invoke(@"c:\widjobs.db");
 

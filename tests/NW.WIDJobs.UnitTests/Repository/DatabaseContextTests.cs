@@ -13,9 +13,15 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                     ObjectMother.DatabaseContext_DatabasePath,
-                    ObjectMother.DatabaseContext_DatabaseName,
+                    ObjectMother.DatabaseContext_DatabaseName01,
                     ObjectMother.DatabaseContext_ConnectionString
-                ).SetArgDisplayNames($"{nameof(databaseContextTestCases)}_01")
+                ).SetArgDisplayNames($"{nameof(databaseContextTestCases)}_01"),
+
+            new TestCaseData(
+                    ObjectMother.DatabaseContext_DatabasePath,
+                    ObjectMother.DatabaseContext_DatabaseName02,
+                    ObjectMother.DatabaseContext_ConnectionString
+                ).SetArgDisplayNames($"{nameof(databaseContextTestCases)}_02")
 
         };
         private static TestCaseData[] databaseContextExceptionTestCases =
@@ -25,7 +31,7 @@ namespace NW.WIDJobs.UnitTests
                 new TestDelegate(
                     () => new DatabaseContext(
                                 (string)null, 
-                                ObjectMother.DatabaseContext_DatabaseName
+                                ObjectMother.DatabaseContext_DatabaseName01
                             )
 				),
                 typeof(ArgumentNullException),

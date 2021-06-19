@@ -32,7 +32,7 @@ namespace NW.WIDJobs.UnitTests
                 = new RepositoryFactory()
                     .Create(
                         ObjectMother.DatabaseContext_DatabasePath,
-                        ObjectMother.DatabaseContext_DatabaseName,
+                        ObjectMother.DatabaseContext_DatabaseName01,
                         false); // "false" because using "true" would attempt to create the database file.
 
             // Assert
