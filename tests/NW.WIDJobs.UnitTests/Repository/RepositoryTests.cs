@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 using System;
-using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace NW.WIDJobs.UnitTests
@@ -57,6 +57,39 @@ namespace NW.WIDJobs.UnitTests
             ).SetArgDisplayNames($"{nameof(repositoryExceptionTestCases)}_03")
 
         };
+        private static TestCaseData[] conditionallyInsertTestCases =
+        {
+
+            new TestCaseData(
+                    new Func<int>(
+                            () => ObjectMother.CreateInMemoryRepository()
+                                    .ConditionallyInsert(ObjectMother.Shared_Page01_PageItemsExtended)),
+                    (ObjectMother.Shared_Page01_PageItemsExtended.Count * 2)
+                        + ObjectMother.Shared_Page01_PageItemsExtended
+                            .Select(pageItemExtended => pageItemExtended.DescriptionBulletPoints)
+                            .ToList().Count
+                ).SetArgDisplayNames($"{nameof(conditionallyInsertTestCases)}_01"),
+
+            new TestCaseData(
+                    new Func<int>(
+                            () => ObjectMother.CreateInMemoryRepository()
+                                    .ConditionallyInsert(ObjectMother.Shared_Page01_PageItemExtended01)),
+                    (2) + ObjectMother.Shared_Page01_PageItemExtended01.DescriptionBulletPoints.Count
+                ).SetArgDisplayNames($"{nameof(conditionallyInsertTestCases)}_02"),
+
+        };
+        private static TestCaseData[] conditionallyInsertExceptionTestCases =
+        {
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new Repository(null, true)
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("databaseContext").Message
+            ).SetArgDisplayNames($"{nameof(conditionallyInsertExceptionTestCases)}_01")
+
+        };
 
         // SetUp
         // Tests
@@ -78,15 +111,23 @@ namespace NW.WIDJobs.UnitTests
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
-        [Test]
-        public void SomeMethod_Should_When()
+        [TestCaseSource(nameof(conditionallyInsertTestCases))]
+        public void ConditionallyInsert_ShouldInsertTheExpectedNumberOfRows_WhenPageItemsExtended
+            (Func<int> func, int expected)
         {
 
             // Arrange
             // Act
+            int actual = func.Invoke();
+
             // Assert
+            Assert.AreEqual(expected, actual);
 
         }
+        [TestCaseSource(nameof(conditionallyInsertExceptionTestCases))]
+        public void ConditionallyInsert_ShouldThrowACertainException_WhenUnproperArguments
+            (TestDelegate del, Type expectedType, string expectedMessage)
+                => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
         // TearDown		
 

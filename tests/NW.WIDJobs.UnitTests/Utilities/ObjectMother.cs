@@ -2389,6 +2389,8 @@ namespace NW.WIDJobs.UnitTests
             return new DatabaseContext(options);
 
         }
+        internal static Repository CreateInMemoryRepository()
+            => new Repository(CreateInMemoryContext(), false);
         internal static TReturn CallPrivateMethod<TClass, TReturn>
             (TClass obj, string methodName, object[] args)
         {
