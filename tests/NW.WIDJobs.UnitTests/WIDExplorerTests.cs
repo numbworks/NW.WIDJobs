@@ -113,6 +113,22 @@ namespace NW.WIDJobs.UnitTests
             ).SetArgDisplayNames($"{nameof(exploreThresholdDateAndStage3TestCases)}_03")
 
         };
+        private static TestCaseData[] exploreAllExceptionTestCases =
+        {
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new WIDExplorer()
+                            .ExploreAll(
+                                null,
+                                WIDCategories.AllCategories,
+                                WIDStages.Stage1_OnlyMetrics
+                        )),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("runId").Message
+            ).SetArgDisplayNames($"{nameof(exploreAllExceptionTestCases)}_01")
+
+        };
 
         // SetUp
         // Tests
@@ -125,7 +141,165 @@ namespace NW.WIDJobs.UnitTests
         public void Explore_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
+        [TestCaseSource(nameof(exploreThresholdDateAndStage2TestCases))]
+        public void Explore_ShouldReturnExpectedWIDExploration_WhenThresholdDateAndStage2
+            (DateTime thresholdDate, ushort expectedPageItemsIndex)
+        {
 
+            // Arrange
+            FakeLogger fakeLogger = new FakeLogger();
+            Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
+            FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
+            Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
+            WIDExplorerComponents components = new WIDExplorerComponents(
+                    fakeLoggingAction,
+                    fakeLoggingActionAsciiBanner,
+                    new XPathManager(),
+                    ObjectMother.WIDExplorer_FakeGetRequestManagerAlternate(),
+                    new PageManager(
+                            ObjectMother.WIDExplorer_FakeGetRequestManagerAlternate(),
+                            new PageScraper(),
+                            new WIDCategoryManager()
+                            ),
+                    new PageScraper(),
+                    new PageItemScraper(),
+                    new PageItemExtendedManager(
+                            ObjectMother.WIDExplorer_FakeGetRequestManagerAlternate(),
+                            new PageItemExtendedScraper()
+                            ),
+                    new PageItemExtendedScraper(),
+                    new RunIdManager(),
+                    new WIDMetricsManager(),
+                    new FileManager(),
+                    new RepositoryFactory(),
+                    new AsciiBannerManager(),
+                    new WIDFileNameFactory(),
+                    new BulletPointManager()
+                  );
+            WIDExplorerSettings settings
+                = new WIDExplorerSettings(
+                        3,
+                        0,
+                        WIDExplorerSettings.DefaultFolderPath,
+                        WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
+                    );
+            WIDExplorer explorer
+                = new WIDExplorer(components, settings, ObjectMother.WIDExplorer_FakeNowFunction);
+
+            List<Page> pages = new List<Page>()
+            {
+
+                ObjectMother.Shared_Page01Alternate,
+                ObjectMother.Shared_Page02Alternate
+
+            };
+
+            WIDExploration expected
+                = new WIDExploration(
+                        ObjectMother.Shared_FakeRunId,
+                        ObjectMother.Shared_Page01_TotalResults,
+                        ObjectMother.Shared_Page01_TotalEstimatedPages,
+                        WIDCategories.AllCategories,
+                        WIDStages.Stage2_UpToAllPageItems,
+                        true,
+                        pages,
+                        ObjectMother.Shared_Page02Alternate_GetPageItemsSubset.Invoke(expectedPageItemsIndex)
+                        );
+
+            // Act
+            WIDExploration actual
+                = explorer.Explore(
+                            ObjectMother.Shared_FakeRunId,
+                            thresholdDate,
+                            WIDCategories.AllCategories,
+                            WIDStages.Stage2_UpToAllPageItems);
+
+            // Assert
+            Assert.IsTrue(
+                    ObjectMother.AreEqual(expected, actual)
+                );
+
+        }
+        [TestCaseSource(nameof(exploreThresholdDateAndStage3TestCases))]
+        public void Explore_ShouldReturnExpectedWIDExploration_WhenThresholdDateAndStage3
+            (DateTime thresholdDate, ushort expectedPageItemsIndex, ushort expectedPageItemsExtendedIndex)
+        {
+
+            // Arrange
+            FakeLogger fakeLogger = new FakeLogger();
+            Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
+            FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
+            Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
+            WIDExplorerComponents components = new WIDExplorerComponents(
+                    fakeLoggingAction,
+                    fakeLoggingActionAsciiBanner,
+                    new XPathManager(),
+                    ObjectMother.WIDExplorer_FakeGetRequestManagerAlternate(),
+                    new PageManager(
+                            ObjectMother.WIDExplorer_FakeGetRequestManagerAlternate(),
+                            new PageScraper(),
+                            new WIDCategoryManager()
+                            ),
+                    new PageScraper(),
+                    new PageItemScraper(),
+                    new PageItemExtendedManager(
+                            ObjectMother.WIDExplorer_FakeGetRequestManagerAlternate(),
+                            new PageItemExtendedScraper()
+                            ),
+                    new PageItemExtendedScraper(),
+                    new RunIdManager(),
+                    new WIDMetricsManager(),
+                    new FileManager(),
+                    new RepositoryFactory(),
+                    new AsciiBannerManager(),
+                    new WIDFileNameFactory(),
+                    new BulletPointManager()
+                  );
+            WIDExplorerSettings settings
+                = new WIDExplorerSettings(
+                        3,
+                        0,
+                        WIDExplorerSettings.DefaultFolderPath,
+                        WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
+                    );
+            WIDExplorer explorer
+                = new WIDExplorer(components, settings, ObjectMother.WIDExplorer_FakeNowFunction);
+
+            List<Page> pages = new List<Page>()
+            {
+
+                ObjectMother.Shared_Page01Alternate,
+                ObjectMother.Shared_Page02Alternate
+
+            };
+
+            WIDExploration expected
+                = new WIDExploration(
+                        ObjectMother.Shared_FakeRunId,
+                        ObjectMother.Shared_Page01_TotalResults,
+                        ObjectMother.Shared_Page01_TotalEstimatedPages,
+                        WIDCategories.AllCategories,
+                        WIDStages.Stage3_UpToAllPageItemsExtended,
+                        true,
+                        pages,
+                        ObjectMother.Shared_Page02Alternate_GetPageItemsSubset.Invoke(expectedPageItemsIndex),
+                        ObjectMother.Shared_Page02Alternate_GetPageItemsExtendedSubset.Invoke(expectedPageItemsExtendedIndex)
+                        );
+
+            // Act
+            WIDExploration actual
+                = explorer.Explore(
+                            ObjectMother.Shared_FakeRunId,
+                            thresholdDate,
+                            WIDCategories.AllCategories,
+                            WIDStages.Stage3_UpToAllPageItemsExtended);
+
+            // Assert
+            Assert.IsTrue(
+                    ObjectMother.AreEqual(expected, actual)
+                );
+
+        }
         [Test]
         public void Explore_ShouldReturnExpectedWIDExploration_WhenFinalPageNumberAndStage1()
         {
@@ -160,11 +334,11 @@ namespace NW.WIDJobs.UnitTests
                     new WIDFileNameFactory(),
                     new BulletPointManager()
                   );
-            WIDExplorerSettings settings 
+            WIDExplorerSettings settings
                 = new WIDExplorerSettings(
-                        3, 
-                        0, 
-                        WIDExplorerSettings.DefaultFolderPath, 
+                        3,
+                        0,
+                        WIDExplorerSettings.DefaultFolderPath,
                         WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
                     );
             WIDExplorer explorer
@@ -179,7 +353,7 @@ namespace NW.WIDJobs.UnitTests
                     ObjectMother.Shared_Page01Alternate.PageNumber,
                     ObjectMother.Shared_Page01Alternate.Content
                     )
-            
+
             };
             WIDExploration expected
                 = new WIDExploration(
@@ -189,8 +363,8 @@ namespace NW.WIDJobs.UnitTests
                         WIDCategories.AllCategories,
                         WIDStages.Stage1_OnlyMetrics,
                         true,
-                        pages                          
-                        );                          
+                        pages
+                        );
 
             // Act
             WIDExploration actual = explorer.Explore(2, WIDCategories.AllCategories, WIDStages.Stage1_OnlyMetrics);
@@ -201,7 +375,6 @@ namespace NW.WIDJobs.UnitTests
                 );
 
         }
-
         [Test]
         public void Explore_ShouldReturnExpectedWIDExploration_WhenFinalPageNumberAndStage2()
         {
@@ -269,11 +442,11 @@ namespace NW.WIDJobs.UnitTests
                         );
 
             // Act
-            WIDExploration actual 
+            WIDExploration actual
                 = explorer.Explore(
                             ObjectMother.Shared_FakeRunId,
-                            2, 
-                            WIDCategories.AllCategories, 
+                            2,
+                            WIDCategories.AllCategories,
                             WIDStages.Stage2_UpToAllPageItems);
 
             // Assert
@@ -282,7 +455,6 @@ namespace NW.WIDJobs.UnitTests
                 );
 
         }
-
         [Test]
         public void Explore_ShouldReturnExpectedWIDExploration_WhenFinalPageNumberAndStage3()
         {
@@ -364,7 +536,6 @@ namespace NW.WIDJobs.UnitTests
                 );
 
         }
-
         [Test]
         public void Explore_ShouldReturnExpectedWIDExploration_WhenThresholdDateAndStage1()
         {
@@ -445,171 +616,15 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
-        [TestCaseSource(nameof(exploreThresholdDateAndStage2TestCases))]
-        public void Explore_ShouldReturnExpectedWIDExploration_WhenThresholdDateAndStage2
-            (DateTime thresholdDate, ushort expectedPageItemsIndex)
-        {
-
-            // Arrange
-            FakeLogger fakeLogger = new FakeLogger();
-            Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
-            FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
-            Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
-            WIDExplorerComponents components = new WIDExplorerComponents(
-                    fakeLoggingAction,
-                    fakeLoggingActionAsciiBanner,
-                    new XPathManager(),
-                    ObjectMother.WIDExplorer_FakeGetRequestManagerAlternate(),
-                    new PageManager(
-                            ObjectMother.WIDExplorer_FakeGetRequestManagerAlternate(),
-                            new PageScraper(),
-                            new WIDCategoryManager()
-                            ),
-                    new PageScraper(),
-                    new PageItemScraper(),
-                    new PageItemExtendedManager(
-                            ObjectMother.WIDExplorer_FakeGetRequestManagerAlternate(),
-                            new PageItemExtendedScraper()
-                            ),
-                    new PageItemExtendedScraper(),
-                    new RunIdManager(),
-                    new WIDMetricsManager(),
-                    new FileManager(),
-                    new RepositoryFactory(),
-                    new AsciiBannerManager(),
-                    new WIDFileNameFactory(),
-                    new BulletPointManager()
-                  );
-            WIDExplorerSettings settings
-                = new WIDExplorerSettings(
-                        3,
-                        0,
-                        WIDExplorerSettings.DefaultFolderPath,
-                        WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
-                    );
-            WIDExplorer explorer
-                = new WIDExplorer(components, settings, ObjectMother.WIDExplorer_FakeNowFunction);
-
-            List<Page> pages = new List<Page>()
-            {
-
-                ObjectMother.Shared_Page01Alternate,
-                ObjectMother.Shared_Page02Alternate
-
-            };
-
-            WIDExploration expected
-                = new WIDExploration(
-                        ObjectMother.Shared_FakeRunId,
-                        ObjectMother.Shared_Page01_TotalResults,
-                        ObjectMother.Shared_Page01_TotalEstimatedPages,
-                        WIDCategories.AllCategories,
-                        WIDStages.Stage2_UpToAllPageItems,
-                        true,
-                        pages,
-                        ObjectMother.Shared_Page02Alternate_GetPageItemsSubset.Invoke(expectedPageItemsIndex)
-                        );
-
-            // Act
-            WIDExploration actual
-                = explorer.Explore(
-                            ObjectMother.Shared_FakeRunId,
-                            thresholdDate,
-                            WIDCategories.AllCategories,
-                            WIDStages.Stage2_UpToAllPageItems);
-
-            // Assert
-            Assert.IsTrue(
-                    ObjectMother.AreEqual(expected, actual)
-                );
-
-        }
-
-        [TestCaseSource(nameof(exploreThresholdDateAndStage3TestCases))]
-        public void Explore_ShouldReturnExpectedWIDExploration_WhenThresholdDateAndStage3
-            (DateTime thresholdDate, ushort expectedPageItemsIndex, ushort expectedPageItemsExtendedIndex)
-        {
-
-            // Arrange
-            FakeLogger fakeLogger = new FakeLogger();
-            Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
-            FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
-            Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
-            WIDExplorerComponents components = new WIDExplorerComponents(
-                    fakeLoggingAction,
-                    fakeLoggingActionAsciiBanner,
-                    new XPathManager(),
-                    ObjectMother.WIDExplorer_FakeGetRequestManagerAlternate(),
-                    new PageManager(
-                            ObjectMother.WIDExplorer_FakeGetRequestManagerAlternate(),
-                            new PageScraper(),
-                            new WIDCategoryManager()
-                            ),
-                    new PageScraper(),
-                    new PageItemScraper(),
-                    new PageItemExtendedManager(
-                            ObjectMother.WIDExplorer_FakeGetRequestManagerAlternate(),
-                            new PageItemExtendedScraper()
-                            ),
-                    new PageItemExtendedScraper(),
-                    new RunIdManager(),
-                    new WIDMetricsManager(),
-                    new FileManager(),
-                    new RepositoryFactory(),
-                    new AsciiBannerManager(),
-                    new WIDFileNameFactory(),
-                    new BulletPointManager()
-                  );
-            WIDExplorerSettings settings
-                = new WIDExplorerSettings(
-                        3,
-                        0,
-                        WIDExplorerSettings.DefaultFolderPath,
-                        WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
-                    );
-            WIDExplorer explorer
-                = new WIDExplorer(components, settings, ObjectMother.WIDExplorer_FakeNowFunction);
-
-            List<Page> pages = new List<Page>()
-            {
-
-                ObjectMother.Shared_Page01Alternate,
-                ObjectMother.Shared_Page02Alternate
-
-            };
-
-            WIDExploration expected
-                = new WIDExploration(
-                        ObjectMother.Shared_FakeRunId,
-                        ObjectMother.Shared_Page01_TotalResults,
-                        ObjectMother.Shared_Page01_TotalEstimatedPages,
-                        WIDCategories.AllCategories,
-                        WIDStages.Stage3_UpToAllPageItemsExtended,
-                        true,
-                        pages,
-                        ObjectMother.Shared_Page02Alternate_GetPageItemsSubset.Invoke(expectedPageItemsIndex),
-                        ObjectMother.Shared_Page02Alternate_GetPageItemsExtendedSubset.Invoke(expectedPageItemsExtendedIndex)
-                        );
-
-            // Act
-            WIDExploration actual
-                = explorer.Explore(
-                            ObjectMother.Shared_FakeRunId,
-                            thresholdDate,
-                            WIDCategories.AllCategories,
-                            WIDStages.Stage3_UpToAllPageItemsExtended);
-
-            // Assert
-            Assert.IsTrue(
-                    ObjectMother.AreEqual(expected, actual)
-                );
-
-        }
+        [TestCaseSource(nameof(exploreAllExceptionTestCases))]
+        public void ExploreAll_ShouldThrowACertainException_WhenUnproperArguments
+            (TestDelegate del, Type expectedType, string expectedMessage)
+                => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 26.05.2021
+    Last Update: 19.06.2021
 */
