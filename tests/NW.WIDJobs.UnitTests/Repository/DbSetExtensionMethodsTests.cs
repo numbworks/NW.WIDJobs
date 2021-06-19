@@ -1,8 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using NUnit.Framework;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using NUnit.Framework;
 
 namespace NW.WIDJobs.UnitTests
 {
@@ -93,6 +92,27 @@ namespace NW.WIDJobs.UnitTests
         }
 
         [Test]
+        public void AddOrUpdate_ShouldAddPageItemEntities_WhenInvoked()
+        {
+
+            // Arrange
+            DatabaseContext databaseContext = ObjectMother.CreateInMemoryContext();
+            int rowsBefore = databaseContext.PageItems.Count();
+
+            // Act
+            databaseContext.PageItems.AddOrUpdate(ObjectMother.Shared_Page01_PageItemEntities);
+            databaseContext.SaveChanges();
+            int rowsAfter = databaseContext.PageItems.Count();
+            databaseContext.Dispose();
+
+            // Assert
+            Assert.AreEqual(0, rowsBefore);
+            Assert.AreEqual(ObjectMother.Shared_Page01_PageItemEntities.Count, rowsAfter);
+
+
+        }
+
+        [Test]
         public void AddOrUpdate_ShouldAddOnePageItemExtendedEntity_WhenInvoked()
         {
 
@@ -109,6 +129,26 @@ namespace NW.WIDJobs.UnitTests
             // Assert
             Assert.AreEqual(0, rowsBefore);
             Assert.AreEqual(1, rowsAfter);
+
+        }
+
+        [Test]
+        public void AddOrUpdate_ShouldAddPageItemExtendedEntities_WhenInvoked()
+        {
+
+            // Arrange
+            DatabaseContext databaseContext = ObjectMother.CreateInMemoryContext();
+            int rowsBefore = databaseContext.PageItemsExtended.Count();
+
+            // Act
+            databaseContext.PageItemsExtended.AddOrUpdate(ObjectMother.Shared_Page01_PageItemExtendedEntities);
+            databaseContext.SaveChanges();
+            int rowsAfter = databaseContext.PageItemsExtended.Count();
+            databaseContext.Dispose();
+
+            // Assert
+            Assert.AreEqual(0, rowsBefore);
+            Assert.AreEqual(ObjectMother.Shared_Page01_PageItemExtendedEntities.Count, rowsAfter);
 
         }
 

@@ -446,8 +446,50 @@ namespace NW.WIDJobs.UnitTests
 
         internal static PageItemEntity Shared_Page01_PageItemEntity01
             = new PageItemEntity(Shared_Page01_PageItem01);
+        internal static List<PageItemEntity> Shared_Page01_PageItemEntities = new List<PageItemEntity>()
+        {
+
+            new PageItemEntity(Shared_Page01_PageItem01),
+            new PageItemEntity(Shared_Page01_PageItem02),
+            new PageItemEntity(Shared_Page01_PageItem03),
+            new PageItemEntity(Shared_Page01_PageItem04),
+            new PageItemEntity(Shared_Page01_PageItem05),
+            new PageItemEntity(Shared_Page01_PageItem06),
+            new PageItemEntity(Shared_Page01_PageItem07),
+            new PageItemEntity(Shared_Page01_PageItem08),
+            new PageItemEntity(Shared_Page01_PageItem09),
+            new PageItemEntity(Shared_Page01_PageItem10),
+            new PageItemEntity(Shared_Page01_PageItem11),
+            new PageItemEntity(Shared_Page01_PageItem12),
+            new PageItemEntity(Shared_Page01_PageItem13),
+            new PageItemEntity(Shared_Page01_PageItem14),
+            new PageItemEntity(Shared_Page01_PageItem15),
+            new PageItemEntity(Shared_Page01_PageItem16),
+            new PageItemEntity(Shared_Page01_PageItem17),
+            new PageItemEntity(Shared_Page01_PageItem18),
+            new PageItemEntity(Shared_Page01_PageItem19),
+            new PageItemEntity(Shared_Page01_PageItem20)
+
+        };
+
         internal static PageItemExtendedEntity Shared_Page01_PageItemExtendedEntity01
             = new PageItemExtendedEntity(Shared_Page01_PageItemExtended01);
+        internal static List<PageItemExtendedEntity> Shared_Page01_PageItemExtendedEntities
+            = new List<PageItemExtendedEntity>()
+            {
+                new PageItemExtendedEntity(Shared_Page01_PageItemExtended01),
+                new PageItemExtendedEntity(Shared_Page01_PageItemExtended14)
+            };
+
+        internal static BulletPointEntity Shared_Page01_PageItemExtended01BulletEntity01
+            = new BulletPointEntity(
+                    Shared_Page01_PageItemExtended01.PageItem.PageItemId,
+                    Shared_Page01_PageItemExtended01.DescriptionBulletPoints.ToList()[0]);
+        internal static List<BulletPointEntity> Shared_Page01_PageItemExtended01BulletEntities
+            = Shared_Page01_PageItemExtended01
+                .DescriptionBulletPoints
+                .Select(bulletPoint => new BulletPointEntity(Shared_Page01_PageItemExtended01.PageItem.PageItemId, bulletPoint))
+                .ToList();
 
         #endregion
 
