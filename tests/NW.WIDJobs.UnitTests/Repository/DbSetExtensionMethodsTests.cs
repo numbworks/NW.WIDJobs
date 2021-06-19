@@ -1,6 +1,8 @@
-﻿using NUnit.Framework;
+﻿using Microsoft.EntityFrameworkCore;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace NW.WIDJobs.UnitTests
 {
@@ -68,6 +70,25 @@ namespace NW.WIDJobs.UnitTests
         public void AddOrUpdate_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
+
+
+        [Test]
+        public void AddOrUpdate_Should_When()
+        {
+
+            // Arrange
+            DatabaseContext databaseContext = ObjectMother.CreateInMemoryContext();
+
+            // Act
+            databaseContext.PageItems.AddOrUpdate(ObjectMother.Shared_Page01_PageItemEntity01);
+            databaseContext.SaveChanges();
+            int rows = databaseContext.PageItems.Count();
+
+            // Assert
+            Assert.AreEqual(1, rows);
+
+
+        }
 
         // TearDown		
 

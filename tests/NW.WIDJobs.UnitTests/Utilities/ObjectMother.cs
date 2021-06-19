@@ -444,6 +444,11 @@ namespace NW.WIDJobs.UnitTests
                 Shared_Page01_PageItemExtended14
             };
 
+        internal static PageItemEntity Shared_Page01_PageItemEntity01
+            = new PageItemEntity(Shared_Page01_PageItem01);
+        internal static PageItemExtendedEntity Shared_Page01_PageItemExtendedEntity01
+            = new PageItemExtendedEntity(Shared_Page01_PageItemExtended01);
+
         #endregion
 
         #region Shared_Page02
@@ -1982,7 +1987,7 @@ namespace NW.WIDJobs.UnitTests
         #region DbSetExtensionMethodsTests
 
         internal static DatabaseContext DbSetExtensionMethods_InMemoryDatabaseContext
-            = CreateEmptyInMemoryContext();
+            = CreateInMemoryContext();
         internal static List<PageItemEntity> DbSetExtensionMethods_NotExistingPageItemEntities;
 
         #endregion
@@ -2326,15 +2331,14 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
-        internal static DatabaseContext CreateEmptyInMemoryContext()
+        internal static DatabaseContext CreateInMemoryContext()
         {
 
-            return new DatabaseContext(
-                        new DbContextOptionsBuilder<DatabaseContext>()
-                            .UseInMemoryDatabase(
-                                databaseName: Guid.NewGuid().ToString()
-                                )
-                            .Options);
+            string databaseName = Guid.NewGuid().ToString();
+            DbContextOptions<DatabaseContext> options
+                = new DbContextOptionsBuilder<DatabaseContext>().UseInMemoryDatabase(databaseName).Options;
+
+            return new DatabaseContext(options);
 
         }
         internal static TReturn CallPrivateMethod<TClass, TReturn>

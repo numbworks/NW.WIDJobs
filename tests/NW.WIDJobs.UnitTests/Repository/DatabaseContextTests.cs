@@ -24,7 +24,7 @@ namespace NW.WIDJobs.UnitTests
             new TestCaseData(
                 new TestDelegate(
                     () => new DatabaseContext(
-                                null, 
+                                (string)null, 
                                 ObjectMother.DatabaseContext_DatabaseName
                             )
 				),

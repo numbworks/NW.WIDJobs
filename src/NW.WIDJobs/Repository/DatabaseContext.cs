@@ -9,13 +9,17 @@ namespace NW.WIDJobs
     {
 
         #region Fields
+
+        private static string _connectionString;
+
         #endregion
 
         #region Properties
+        
         public static Func<string, string> ConnectionStringTemplate { get; }
             = (fileName) => $"Data Source={fileName};";
 
-        public string ConnectionString { get; }
+        public string ConnectionString { get; private set; }
         public DbSet<PageItemEntity> PageItems { get; set; }
         public DbSet<PageItemExtendedEntity> PageItemsExtended { get; set; }
         public DbSet<BulletPointEntity> BulletPoints { get; set; }
@@ -27,12 +31,10 @@ namespace NW.WIDJobs
         ///<summary>Initializes a <see cref="DatabaseContext"/> instance for <paramref name="databasePath"/> and <paramref name="databaseName"/>.</summary>
         /// <exception cref="ArgumentNullException"></exception>
         public DatabaseContext(string databasePath, string databaseName)
+            : base(CreateOptions(databasePath, databaseName))
         {
 
-            Validator.ValidateStringNullOrWhiteSpace(databasePath, nameof(databasePath));
-            Validator.ValidateStringNullOrWhiteSpace(databaseName, nameof(databaseName));
-
-            ConnectionString = CreateConnectionString(databasePath, databaseName);
+            ConnectionString = _connectionString;
 
         }
 
@@ -44,8 +46,6 @@ namespace NW.WIDJobs
 
         #region Methods_protected
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-            => optionsBuilder.UseSqlite(ConnectionString);
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
@@ -59,7 +59,18 @@ namespace NW.WIDJobs
 
         #region Methods_private
 
-        private string CreateConnectionString(string databasePath, string databaseName)
+        private static DbContextOptions CreateOptions(string databasePath, string databaseName)
+        {
+
+            Validator.ValidateStringNullOrWhiteSpace(databasePath, nameof(databasePath));
+            Validator.ValidateStringNullOrWhiteSpace(databaseName, nameof(databaseName));
+
+            _connectionString = CreateConnectionString(databasePath, databaseName);
+
+            return new DbContextOptionsBuilder().UseSqlite(_connectionString).Options;
+
+        }
+        private static string CreateConnectionString(string databasePath, string databaseName)
         {
 
             // "Data Source=c:\mydb.db;"
@@ -72,7 +83,7 @@ namespace NW.WIDJobs
             return ConnectionStringTemplate.Invoke(fileName);
 
         }
-        
+
         private void CreatePageItemsTable(ModelBuilder modelBuilder)
         {
 
@@ -269,5 +280,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 04.06.2021
+    Last Update: 19.06.2021
 */
