@@ -142,6 +142,28 @@ namespace NW.WIDJobs.UnitTests
             Assert.AreEqual(1, addedStep4.Count);
 
         }
+        [Test]
+        public void AddOrUpdate_ShouldUpdateTwentyPageItemEntities_WhenTwentyPageItemEntities()
+        {
+
+            // Arrange
+            DatabaseContext databaseContext = ObjectMother.CreateInMemoryContext();
+
+            // Act
+            List<PageItemEntity> addedStep1 = new List<PageItemEntity>();
+            databaseContext.PageItems.AddOrUpdate(ObjectMother.Shared_Page01_PageItemEntities, ref addedStep1);
+            databaseContext.SaveChanges();
+
+            List<PageItemEntity> addedStep2 = new List<PageItemEntity>();
+            databaseContext.PageItems.AddOrUpdate(ObjectMother.Shared_Page01_PageItemEntities, ref addedStep2);
+            databaseContext.SaveChanges();
+            databaseContext.Dispose();
+
+            // Assert
+            Assert.AreEqual(20, addedStep1.Count);
+            Assert.AreEqual(0, addedStep2.Count);
+
+        }
 
         [Test]
         public void AddOrUpdate_ShouldAddOnePageItemExtendedEntity_WhenInvoked()
