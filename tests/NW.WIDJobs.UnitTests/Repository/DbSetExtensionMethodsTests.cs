@@ -71,22 +71,44 @@ namespace NW.WIDJobs.UnitTests
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
-
         [Test]
-        public void AddOrUpdate_Should_When()
+        public void AddOrUpdate_ShouldAddOnePageItemEntity_WhenInvoked()
         {
 
             // Arrange
             DatabaseContext databaseContext = ObjectMother.CreateInMemoryContext();
+            int rowsBefore = databaseContext.PageItems.Count();
 
             // Act
             databaseContext.PageItems.AddOrUpdate(ObjectMother.Shared_Page01_PageItemEntity01);
             databaseContext.SaveChanges();
-            int rows = databaseContext.PageItems.Count();
+            int rowsAfter = databaseContext.PageItems.Count();
+            databaseContext.Dispose();
 
             // Assert
-            Assert.AreEqual(1, rows);
+            Assert.AreEqual(0, rowsBefore);
+            Assert.AreEqual(1, rowsAfter);
 
+
+        }
+
+        [Test]
+        public void AddOrUpdate_ShouldAddOnePageItemExtendedEntity_WhenInvoked()
+        {
+
+            // Arrange
+            DatabaseContext databaseContext = ObjectMother.CreateInMemoryContext();
+            int rowsBefore = databaseContext.PageItemsExtended.Count();
+
+            // Act
+            databaseContext.PageItemsExtended.AddOrUpdate(ObjectMother.Shared_Page01_PageItemExtendedEntity01);
+            databaseContext.SaveChanges();
+            int rowsAfter = databaseContext.PageItemsExtended.Count();
+            databaseContext.Dispose();
+
+            // Assert
+            Assert.AreEqual(0, rowsBefore);
+            Assert.AreEqual(1, rowsAfter);
 
         }
 
