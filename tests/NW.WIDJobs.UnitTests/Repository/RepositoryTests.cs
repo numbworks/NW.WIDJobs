@@ -83,11 +83,33 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new Repository(null, true)
+                    () => ObjectMother
+                            .CreateInMemoryRepository()
+                                .ConditionallyInsert((PageItemExtended)null)
                 ),
                 typeof(ArgumentNullException),
-                new ArgumentNullException("databaseContext").Message
-            ).SetArgDisplayNames($"{nameof(conditionallyInsertExceptionTestCases)}_01")
+                new ArgumentNullException("pageItemExtended").Message
+            ).SetArgDisplayNames($"{nameof(conditionallyInsertExceptionTestCases)}_01"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => ObjectMother
+                            .CreateInMemoryRepository()
+                                .ConditionallyInsert((List<PageItemExtended>)null)
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("pageItemsExtended").Message
+            ).SetArgDisplayNames($"{nameof(conditionallyInsertExceptionTestCases)}_02"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => ObjectMother
+                            .CreateInMemoryRepository()
+                                .ConditionallyInsert(new List<PageItemExtended>())
+                ),
+                typeof(ArgumentException),
+                MessageCollection.Validator_VariableContainsZeroItems.Invoke("pageItemsExtended")
+            ).SetArgDisplayNames($"{nameof(conditionallyInsertExceptionTestCases)}_03")
 
         };
 
