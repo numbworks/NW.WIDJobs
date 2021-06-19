@@ -57,28 +57,30 @@ namespace NW.WIDJobs.UnitTests
             ).SetArgDisplayNames($"{nameof(repositoryExceptionTestCases)}_03")
 
         };
-        private static TestCaseData[] conditionallyInsertTestCases =
+        private static TestCaseData[] conditionallyInsertPageItemsExtendedTestCases =
         {
 
             new TestCaseData(
                     new Func<int>(
-                            () => ObjectMother.CreateInMemoryRepository()
-                                    .ConditionallyInsert(ObjectMother.Shared_Page01_PageItemsExtended)),
+                            () => ObjectMother
+                                    .CreateInMemoryRepository()
+                                        .ConditionallyInsert(ObjectMother.Shared_Page01_PageItemsExtended)),
                     (ObjectMother.Shared_Page01_PageItemsExtended.Count * 2)
                         + ObjectMother.Shared_Page01_PageItemsExtended
                             .Select(pageItemExtended => pageItemExtended.DescriptionBulletPoints)
                             .ToList().Count
-                ).SetArgDisplayNames($"{nameof(conditionallyInsertTestCases)}_01"),
+                ).SetArgDisplayNames($"{nameof(conditionallyInsertPageItemsExtendedTestCases)}_01"),
 
             new TestCaseData(
                     new Func<int>(
-                            () => ObjectMother.CreateInMemoryRepository()
-                                    .ConditionallyInsert(ObjectMother.Shared_Page01_PageItemExtended01)),
+                            () => ObjectMother
+                                    .CreateInMemoryRepository()
+                                        .ConditionallyInsert(ObjectMother.Shared_Page01_PageItemExtended01)),
                     (2) + ObjectMother.Shared_Page01_PageItemExtended01.DescriptionBulletPoints.Count
-                ).SetArgDisplayNames($"{nameof(conditionallyInsertTestCases)}_02"),
+                ).SetArgDisplayNames($"{nameof(conditionallyInsertPageItemsExtendedTestCases)}_02")
 
         };
-        private static TestCaseData[] conditionallyInsertExceptionTestCases =
+        private static TestCaseData[] conditionallyInsertPageItemsExtendedExceptionTestCases =
         {
 
             new TestCaseData(
@@ -89,7 +91,7 @@ namespace NW.WIDJobs.UnitTests
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("pageItemExtended").Message
-            ).SetArgDisplayNames($"{nameof(conditionallyInsertExceptionTestCases)}_01"),
+            ).SetArgDisplayNames($"{nameof(conditionallyInsertPageItemsExtendedExceptionTestCases)}_01"),
 
             new TestCaseData(
                 new TestDelegate(
@@ -99,7 +101,7 @@ namespace NW.WIDJobs.UnitTests
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("pageItemsExtended").Message
-            ).SetArgDisplayNames($"{nameof(conditionallyInsertExceptionTestCases)}_02"),
+            ).SetArgDisplayNames($"{nameof(conditionallyInsertPageItemsExtendedExceptionTestCases)}_02"),
 
             new TestCaseData(
                 new TestDelegate(
@@ -109,7 +111,61 @@ namespace NW.WIDJobs.UnitTests
                 ),
                 typeof(ArgumentException),
                 MessageCollection.Validator_VariableContainsZeroItems.Invoke("pageItemsExtended")
-            ).SetArgDisplayNames($"{nameof(conditionallyInsertExceptionTestCases)}_03")
+            ).SetArgDisplayNames($"{nameof(conditionallyInsertPageItemsExtendedExceptionTestCases)}_03")
+
+        };
+        private static TestCaseData[] conditionallyInsertPageItemsTestCases =
+        {
+
+            new TestCaseData(
+                    new Func<int>(
+                            () => ObjectMother
+                                    .CreateInMemoryRepository()
+                                        .ConditionallyInsert(ObjectMother.Shared_Page01_PageItems)),
+                    ObjectMother.Shared_Page01_PageItems.Count
+                ).SetArgDisplayNames($"{nameof(conditionallyInsertPageItemsTestCases)}_01"),
+
+            new TestCaseData(
+                    new Func<int>(
+                            () => ObjectMother
+                                    .CreateInMemoryRepository()
+                                        .ConditionallyInsert(ObjectMother.Shared_Page01_PageItem01)),
+                    1
+                ).SetArgDisplayNames($"{nameof(conditionallyInsertPageItemsTestCases)}_02"),
+
+        };
+        private static TestCaseData[] conditionallyInsertPageItemsExceptionTestCases =
+        {
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => ObjectMother
+                            .CreateInMemoryRepository()
+                                .ConditionallyInsert((PageItem)null)
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("pageItem").Message
+            ).SetArgDisplayNames($"{nameof(conditionallyInsertPageItemsExceptionTestCases)}_01"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => ObjectMother
+                            .CreateInMemoryRepository()
+                                .ConditionallyInsert((List<PageItem>)null)
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("pageItems").Message
+            ).SetArgDisplayNames($"{nameof(conditionallyInsertPageItemsExceptionTestCases)}_02"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => ObjectMother
+                            .CreateInMemoryRepository()
+                                .ConditionallyInsert(new List<PageItem>())
+                ),
+                typeof(ArgumentException),
+                MessageCollection.Validator_VariableContainsZeroItems.Invoke("pageItems")
+            ).SetArgDisplayNames($"{nameof(conditionallyInsertPageItemsExceptionTestCases)}_03")
 
         };
 
@@ -133,8 +189,8 @@ namespace NW.WIDJobs.UnitTests
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
-        [TestCaseSource(nameof(conditionallyInsertTestCases))]
-        public void ConditionallyInsert_ShouldInsertTheExpectedNumberOfRows_WhenPageItemsExtended
+        [TestCaseSource(nameof(conditionallyInsertPageItemsExtendedTestCases))]
+        public void ConditionallyInsert_ShouldInsertTheExpectedNumberOfRows_WhenPageItemExtended
             (Func<int> func, int expected)
         {
 
@@ -146,8 +202,26 @@ namespace NW.WIDJobs.UnitTests
             Assert.AreEqual(expected, actual);
 
         }
-        [TestCaseSource(nameof(conditionallyInsertExceptionTestCases))]
-        public void ConditionallyInsert_ShouldThrowACertainException_WhenUnproperArguments
+        [TestCaseSource(nameof(conditionallyInsertPageItemsExtendedExceptionTestCases))]
+        public void ConditionallyInsert_ShouldThrowACertainExceptionForPageItemExtended_WhenUnproperArguments
+            (TestDelegate del, Type expectedType, string expectedMessage)
+                => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
+
+        [TestCaseSource(nameof(conditionallyInsertPageItemsTestCases))]
+        public void ConditionallyInsert_ShouldInsertTheExpectedNumberOfRows_WhenPageItem
+            (Func<int> func, int expected)
+        {
+
+            // Arrange
+            // Act
+            int actual = func.Invoke();
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+
+        }
+        [TestCaseSource(nameof(conditionallyInsertPageItemsExceptionTestCases))]
+        public void ConditionallyInsert_ShouldThrowACertainExceptionForPageItem_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
