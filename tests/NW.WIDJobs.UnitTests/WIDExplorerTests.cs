@@ -281,6 +281,37 @@ namespace NW.WIDJobs.UnitTests
             ).SetArgDisplayNames($"{nameof(convertToJsonExceptionTestCases)}_02")
 
         };
+        private static TestCaseData[] convertToMetricsExceptionTestCases =
+        {
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new WIDExplorer().ConvertToMetrics(null)),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("exploration").Message
+            ).SetArgDisplayNames($"{nameof(convertToMetricsExceptionTestCases)}_01"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new WIDExplorer()
+                            .ConvertToMetrics
+                                (ObjectMother.WIDMetricsManager_ExplorationWithNullPageItems)
+                    ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("PageItems").Message
+            ).SetArgDisplayNames($"{nameof(convertToMetricsExceptionTestCases)}_02"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new WIDExplorer()
+                            .ConvertToMetrics
+                                (ObjectMother.WIDMetricsManager_ExplorationWithNullPageItemsExtended)
+                    ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("PageItemsExtended").Message
+            ).SetArgDisplayNames($"{nameof(convertToMetricsExceptionTestCases)}_03")
+
+        };
 
         // SetUp
         // Tests
@@ -795,6 +826,11 @@ namespace NW.WIDJobs.UnitTests
 
         [TestCaseSource(nameof(convertToJsonExceptionTestCases))]
         public void ConvertToJson_ShouldThrowACertainException_WhenUnproperArguments
+            (TestDelegate del, Type expectedType, string expectedMessage)
+                => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
+
+        [TestCaseSource(nameof(convertToMetricsExceptionTestCases))]
+        public void ConvertToMetrics_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
