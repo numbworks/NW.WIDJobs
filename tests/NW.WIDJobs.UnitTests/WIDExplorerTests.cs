@@ -128,6 +128,34 @@ namespace NW.WIDJobs.UnitTests
                 new ArgumentNullException("runId").Message
             ).SetArgDisplayNames($"{nameof(exploreAllExceptionTestCases)}_01")
 
+        };        
+        private static TestCaseData[] extractFromHtmlExceptionTestCases =
+        {
+
+            new TestCaseData(
+                new TestDelegate(
+                        () => new WIDExplorer().ExtractFromHtml((IFileInfoAdapter)null)
+                    ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("htmlFile").Message
+            ).SetArgDisplayNames($"{nameof(extractFromHtmlExceptionTestCases)}_01"),
+
+            new TestCaseData(
+                new TestDelegate(
+                        () => new WIDExplorer().ExtractFromHtml(ObjectMother.FileManager_FileInfoAdapterDoesntExist)
+                    ),
+                typeof(ArgumentException),
+                MessageCollection.Validator_ProvidedPathDoesntExist.Invoke(ObjectMother.FileManager_FileInfoAdapterDoesntExist)
+            ).SetArgDisplayNames($"{nameof(extractFromHtmlExceptionTestCases)}_02"),           
+
+            new TestCaseData(
+                new TestDelegate(
+                        () => new WIDExplorer().ExtractFromHtml((string)null)
+                    ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("filePath").Message
+            ).SetArgDisplayNames($"{nameof(extractFromHtmlExceptionTestCases)}_03")
+
         };
 
         // SetUp
@@ -618,6 +646,11 @@ namespace NW.WIDJobs.UnitTests
 
         [TestCaseSource(nameof(exploreAllExceptionTestCases))]
         public void ExploreAll_ShouldThrowACertainException_WhenUnproperArguments
+            (TestDelegate del, Type expectedType, string expectedMessage)
+                => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
+
+        [TestCaseSource(nameof(extractFromHtmlExceptionTestCases))]
+        public void ExploreFromHtml_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 

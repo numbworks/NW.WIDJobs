@@ -1398,6 +1398,28 @@ namespace NW.WIDJobs.UnitTests
         internal static ushort Shared_Page02Alternate_PageItemsIndex03 = 8;
         internal static ushort Shared_Page02Alternate_PageItemsExtendedIndex03 = 28;
 
+        internal static Func<ushort, List<PageItem>> Shared_Page02Alternate_GetPageItemsSubset =
+            (index) =>
+            {
+
+                List<PageItem> pageItems = new List<PageItem>() { };
+
+                pageItems.AddRange(Shared_Page01Alternate_PageItems);
+                pageItems.AddRange(Shared_Page02Alternate_PageItems.GetRange(0, index));
+
+                return pageItems;
+
+            };
+        internal static Func<ushort, List<PageItemExtended>> Shared_Page02Alternate_GetPageItemsExtendedSubset =
+            (index) =>
+            {
+
+                List<PageItemExtended> pageItemsExtended = WIDExplorer_FakePageItemsExtended.Invoke();
+
+                return pageItemsExtended.GetRange(0, index);
+
+            };
+
         #endregion
 
         #region PageManagerTests       
@@ -1659,28 +1681,6 @@ namespace NW.WIDJobs.UnitTests
                 pageItemsExtended.Add(CreateDummyPageItemExtended(Shared_Page02Alternate_PageItem20));
 
                 return pageItemsExtended;
-
-            };
-
-        internal static Func<ushort, List<PageItem>> Shared_Page02Alternate_GetPageItemsSubset =
-            (index) =>
-            {
-
-                List<PageItem> pageItems = new List<PageItem>() { };
-
-                pageItems.AddRange(Shared_Page01Alternate_PageItems);
-                pageItems.AddRange(Shared_Page02Alternate_PageItems.GetRange(0, index));
-
-                return pageItems;
-
-            };
-        internal static Func<ushort, List<PageItemExtended>> Shared_Page02Alternate_GetPageItemsExtendedSubset =
-            (index) =>
-            {
-
-                List<PageItemExtended> pageItemsExtended = WIDExplorer_FakePageItemsExtended.Invoke();
-
-                return pageItemsExtended.GetRange(0, index);
 
             };
 
@@ -1951,7 +1951,7 @@ namespace NW.WIDJobs.UnitTests
 
         #endregion
 
-        #region FileManagerTests
+        #region WIDFileNameFactory
 
         internal static string WIDFileNameFactory_FakeFilePath = @"C:\";
         internal static string WIDFileNameFactory_FakeToken = "fake";

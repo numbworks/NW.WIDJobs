@@ -120,9 +120,21 @@ namespace NW.WIDJobs
 
         }
         public FileInfoAdapter Create(string filePath)
-            => Create(new FileInfo(filePath));
+        {
+
+            Validator.ValidateStringNullOrWhiteSpace(filePath, nameof(filePath));
+
+            return Create(new FileInfo(filePath));
+        
+        }
         public FileInfoAdapter Create(FileInfo fileInfo)
-            => new FileInfoAdapter(fileInfo);
+        {
+
+            Validator.ValidateObject(fileInfo, nameof(fileInfo));
+
+            return new FileInfoAdapter(fileInfo);
+
+        }
 
         #endregion
 
@@ -131,5 +143,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 30.05.2021
+    Last Update: 19.06.2021
 */
