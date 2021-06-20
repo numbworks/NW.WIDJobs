@@ -213,6 +213,32 @@ namespace NW.WIDJobs.UnitTests
             ).SetArgDisplayNames($"{nameof(saveAsSQLiteExceptionTestCases)}_02")
 
         };
+        private static TestCaseData[] saveAsJsonExceptionTestCases =
+        {
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new WIDExplorer()
+                                .SaveAsJson(
+                                    null,
+                                    ObjectMother.FileManager_FileInfoAdapterDoesntExist
+                        )),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("exploration").Message
+            ).SetArgDisplayNames($"{nameof(saveAsJsonExceptionTestCases)}_01"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new WIDExplorer()
+                                .SaveAsJson(
+                                    ObjectMother.WIDExplorer_ExplorationPage01,
+                                    null
+                        )),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("jsonFile").Message
+            ).SetArgDisplayNames($"{nameof(saveAsJsonExceptionTestCases)}_02")
+
+        };
 
         // SetUp
         // Tests
@@ -719,6 +745,12 @@ namespace NW.WIDJobs.UnitTests
         public void SaveAsSQLite_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
+
+        [TestCaseSource(nameof(saveAsJsonExceptionTestCases))]
+        public void SaveAsJson_ShouldThrowACertainException_WhenUnproperArguments
+            (TestDelegate del, Type expectedType, string expectedMessage)
+                => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
+
 
     }
 }

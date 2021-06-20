@@ -1684,6 +1684,19 @@ namespace NW.WIDJobs.UnitTests
 
             };
 
+        internal static WIDExploration WIDExplorer_ExplorationPage01
+            = new WIDExploration(
+                        Shared_FakeRunId,
+                        Shared_Page01_TotalResults,
+                        Shared_Page01_TotalEstimatedPages,
+                        WIDCategories.AllCategories,
+                        WIDStages.Stage3_UpToAllPageItemsExtended,
+                        true,
+                        Shared_Pages_Page01,
+                        Shared_Page01_PageItems,
+                        Shared_Page01_PageItemsExtended                
+                );
+
         #endregion
 
         #region WIDMetrics
