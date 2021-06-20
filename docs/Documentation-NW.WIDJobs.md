@@ -709,7 +709,7 @@ The case numbers above correspond to the following conditions and actions:
 
 The new list will basically contain only `Case 1` items.
 
-## WIDExplorer.Explore(), processing stages by FinalPageNumber
+## WIDExplorer.Explore() by FinalPageNumber
 
 In order to avoid to call the server even one time more than needed, the exploration is performed in subsequent phases called "stages". The standard scenario is the exploration "by FinalPageNumber", which works like below:
 
@@ -777,7 +777,7 @@ In order to avoid to call the server even one time more than needed, the explora
 |Output|PageItems|=|
 |Output|PageItemsExtended|(x * 20) PageItemsExtended|
 
-## WIDExplorer.Explore(), processing stages by  by ThresholdDate
+## WIDExplorer.Explore() by ThresholdDate
 
 The "commodity" scenario is the exploration "by ThresholdDate". The only difference with there is no `FinalPageNumber`, therefore the library has to evaluate each  `Page` from `PageNumber` 1 to  `TotalEstimatedPages` until the threshold condition is met. 
 
@@ -811,6 +811,35 @@ Please give a look to the "flow" below:
 |Type|Field|Result|
 |---|---|---|
 |...|...|...|
+
+## WIDExplorer.GetPreLabeledExamples()
+
+Given the the following `BulletPointLabels`:
+
+|BulletPointLabels|
+|---|
+|JobDuty|
+|JobRequirement|
+|JobTechnology|
+|JobBenefit|
+|...|
+
+the `WIDExplorer.GetPreLabeledExamples()` method will return a pre-defined list of already-labeled `BulletPoint` objects which looks like:
+
+|Label|Text|
+|---|---|
+|JobDuty|Flexible working hours are occasionally required|
+|JobDuty|Create Interfaces to FPGA|
+|JobRequirement|Engineering degree within acoustics & vibration|
+|JobRequirement|Mechatronic experience is an advantage|
+|JobTechnology|Good level with MS Office package|
+|JobTechnology|Have a min 8/10experience with Photoshop|
+|JobBenefit|Competitive salary, plus share/stock options.|
+|JobBenefit|Excellent growth opportunities.|
+|...|...|
+
+This list can be fed into a categorization library (such as [NW.NGramTextClassification](https://github.com/numbworks/NW.NGramTextClassification)) and train it to correctly label new bullet point texts automatically.
+
 
 ## The data model
 
