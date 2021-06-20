@@ -146,6 +146,7 @@ namespace NW.WIDJobs
         public List<PageItem> RemoveUnsuitable(string pageItemId, List<PageItem> pageItems)
         {
 
+            Validator.ValidateStringNullOrWhiteSpace(pageItemId, nameof(pageItemId));
             Validator.ValidateList(pageItems, nameof(pageItems));
 
             List<PageItem> subset = new List<PageItem>();

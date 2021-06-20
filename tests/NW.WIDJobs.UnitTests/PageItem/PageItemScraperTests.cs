@@ -143,7 +143,31 @@ namespace NW.WIDJobs.UnitTests
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("pageItems").Message
-            ).SetArgDisplayNames($"{nameof(removeUnsuitableExceptionTestCases)}_01")
+            ).SetArgDisplayNames($"{nameof(removeUnsuitableExceptionTestCases)}_01"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new PageItemScraper()
+                            .RemoveUnsuitable(
+                                null,
+                                ObjectMother.Shared_Page01_PageItems
+                                )
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("pageItemId").Message
+            ).SetArgDisplayNames($"{nameof(removeUnsuitableExceptionTestCases)}_02"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new PageItemScraper()
+                            .RemoveUnsuitable(
+                                ObjectMother.Shared_FakeRunId,
+                                null
+                                )
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("pageItems").Message
+            ).SetArgDisplayNames($"{nameof(removeUnsuitableExceptionTestCases)}_03")
 
         };
         private static TestCaseData[] isThresholdConditionMetTestCases =
