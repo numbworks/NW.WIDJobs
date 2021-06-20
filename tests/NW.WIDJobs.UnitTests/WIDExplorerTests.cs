@@ -236,7 +236,31 @@ namespace NW.WIDJobs.UnitTests
                         )),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("jsonFile").Message
-            ).SetArgDisplayNames($"{nameof(saveAsJsonExceptionTestCases)}_02")
+            ).SetArgDisplayNames($"{nameof(saveAsJsonExceptionTestCases)}_02"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new WIDExplorer()
+                                .SaveAsJson(
+                                    null,
+                                    true,
+                                    ObjectMother.FileManager_FileInfoAdapterDoesntExist
+                        )),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("metrics").Message
+            ).SetArgDisplayNames($"{nameof(saveAsJsonExceptionTestCases)}_03"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new WIDExplorer()
+                                .SaveAsJson(
+                                    ObjectMother.WIDMetrics_Exploration02_Metrics,
+                                    true,
+                                    null
+                        )),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("jsonFile").Message
+            ).SetArgDisplayNames($"{nameof(saveAsJsonExceptionTestCases)}_04")
 
         };
 
@@ -750,7 +774,6 @@ namespace NW.WIDJobs.UnitTests
         public void SaveAsJson_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
-
 
     }
 }

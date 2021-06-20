@@ -340,8 +340,6 @@ namespace NW.WIDJobs
 
         }
 
-        public void LogAsciiBanner()
-            => _components.LoggingActionAsciiBanner.Invoke(AsciiBanner);
         public WIDMetrics ConvertToMetrics(WIDExploration exploration)
         {
 
@@ -405,6 +403,7 @@ namespace NW.WIDJobs
             return JsonSerializer.Serialize(dyn, options);
 
         }
+        
         public List<BulletPoint> GetPreLabeledBulletPoints()
         {
 
@@ -417,6 +416,8 @@ namespace NW.WIDJobs
             return bulletPoints;
 
         }
+        public void LogAsciiBanner()
+            => _components.LoggingActionAsciiBanner.Invoke(AsciiBanner);
 
         #endregion
 
