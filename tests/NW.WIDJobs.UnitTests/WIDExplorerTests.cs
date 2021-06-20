@@ -184,6 +184,34 @@ namespace NW.WIDJobs.UnitTests
                 new ArgumentNullException("filePath").Message
             ).SetArgDisplayNames($"{nameof(tryExtractFromHtmlExceptionTestCases)}_03")
 
+        };        
+        private static TestCaseData[] saveAsSQLiteExceptionTestCases =
+        {
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new WIDExplorer()
+                                .SaveAsSQLite(
+                                    null,
+                                    ObjectMother.FileManager_FileInfoAdapterDoesntExist,
+                                    true
+                        )),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("pageItemsExtended").Message
+            ).SetArgDisplayNames($"{nameof(saveAsSQLiteExceptionTestCases)}_01"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new WIDExplorer()
+                                .SaveAsSQLite(
+                                    ObjectMother.Shared_Page01_PageItemsExtended,
+                                    null,
+                                    true
+                        )),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("databaseFile").Message
+            ).SetArgDisplayNames($"{nameof(saveAsSQLiteExceptionTestCases)}_02")
+
         };
 
         // SetUp
@@ -684,6 +712,11 @@ namespace NW.WIDJobs.UnitTests
 
         [TestCaseSource(nameof(tryExtractFromHtmlExceptionTestCases))]
         public void TryExploreFromHtml_ShouldThrowACertainException_WhenUnproperArguments
+            (TestDelegate del, Type expectedType, string expectedMessage)
+                => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
+
+        [TestCaseSource(nameof(saveAsSQLiteExceptionTestCases))]
+        public void SaveAsSQLite_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
