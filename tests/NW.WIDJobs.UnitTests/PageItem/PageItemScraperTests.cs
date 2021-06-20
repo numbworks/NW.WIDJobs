@@ -90,7 +90,7 @@ namespace NW.WIDJobs.UnitTests
             ).SetArgDisplayNames($"{nameof(extractAndParseCreateDatesExceptionTestCases)}_01")
 
         };
-        private static TestCaseData[] hasBeenFoundExceptionTestCases =
+        private static TestCaseData[] isThresholdConditionMetExceptionTestCases =
         {
 
             new TestCaseData(
@@ -103,7 +103,31 @@ namespace NW.WIDJobs.UnitTests
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("createDates").Message
-            ).SetArgDisplayNames($"{nameof(hasBeenFoundExceptionTestCases)}_01")
+            ).SetArgDisplayNames($"{nameof(isThresholdConditionMetExceptionTestCases)}_01"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new PageItemScraper()
+                            .IsThresholdConditionMet(
+                                null,
+                                ObjectMother.Shared_Page01_PageItems
+                                )
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("pageItemId").Message
+            ).SetArgDisplayNames($"{nameof(isThresholdConditionMetExceptionTestCases)}_02"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new PageItemScraper()
+                            .IsThresholdConditionMet(
+                                ObjectMother.Shared_FakeRunId,
+                                null
+                                )
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("pageItems").Message
+            ).SetArgDisplayNames($"{nameof(isThresholdConditionMetExceptionTestCases)}_03")
 
         };
         private static TestCaseData[] removeUnsuitableExceptionTestCases =
@@ -186,8 +210,7 @@ namespace NW.WIDJobs.UnitTests
                     ObjectMother.AreEqual(expected, actual)
                 );
 
-        }
-        
+        }        
         [TestCaseSource(nameof(doExceptionTestCases))]
         public void Do_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
@@ -198,16 +221,10 @@ namespace NW.WIDJobs.UnitTests
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
-        [TestCaseSource(nameof(hasBeenFoundExceptionTestCases))]
-        public void HasBeenFound_ShouldThrowACertainException_WhenUnproperArguments
+        [TestCaseSource(nameof(isThresholdConditionMetExceptionTestCases))]
+        public void IsThresholdConditionMet_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
-
-        [TestCaseSource(nameof(removeUnsuitableExceptionTestCases))]
-        public void RemoveUnsuitable_ShouldThrowACertainException_WhenUnproperArguments
-            (TestDelegate del, Type expectedType, string expectedMessage)
-                => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
-
         [TestCaseSource(nameof(isThresholdConditionMetTestCases))]
         public void IsThresholdConditionMet_ShouldReturnExpectedBoolean_WhenProperArguments
             (DateTime thresholdDate, List<DateTime> createDates, bool expected)
@@ -222,6 +239,10 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
+        [TestCaseSource(nameof(removeUnsuitableExceptionTestCases))]
+        public void RemoveUnsuitable_ShouldThrowACertainException_WhenUnproperArguments
+            (TestDelegate del, Type expectedType, string expectedMessage)
+                => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
         [TestCaseSource(nameof(removeUnsuitableTestCases))]
         public void RemoveUnsuitable_ShouldReturnExpectedBoolean_WhenProperArguments
             (DateTime thresholdDate, List<PageItem> pageItems, List<PageItem> expected)
@@ -245,5 +266,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 22.05.2021
+    Last Update: 20.06.2021
 */
