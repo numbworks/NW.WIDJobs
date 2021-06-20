@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Linq;
 
 namespace NW.WIDJobs
@@ -110,6 +108,7 @@ namespace NW.WIDJobs
             return createDates;
 
         }
+        
         public bool IsThresholdConditionMet(DateTime thresholdDate, List<DateTime> createDates)
         {
 
@@ -130,6 +129,31 @@ namespace NW.WIDJobs
             Validator.ValidateList(pageItems, nameof(pageItems));
 
             List<PageItem> subset = pageItems.Where(pageItem => pageItem.CreateDate >= thresholdDate).ToList();
+
+            return subset;
+
+        }
+
+        public bool IsThresholdConditionMet(string pageItemId, List<PageItem> pageItems)
+        {
+
+            Validator.ValidateStringNullOrWhiteSpace(pageItemId, nameof(pageItemId));
+            Validator.ValidateList(pageItems, nameof(pageItems));
+
+            return pageItems.Any(pageItem => pageItem.PageItemId == pageItemId);
+
+        }
+        public List<PageItem> RemoveUnsuitable(string pageItemId, List<PageItem> pageItems)
+        {
+
+            Validator.ValidateList(pageItems, nameof(pageItems));
+
+            List<PageItem> subset = new List<PageItem>();
+            foreach (PageItem pageItem in pageItems)
+                if (pageItem.PageItemId == pageItemId)
+                    break;
+                else
+                    subset.Add(pageItem);
 
             return subset;
 
@@ -353,5 +377,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 19.05.2021
+    Last Update: 20.06.2021
 */

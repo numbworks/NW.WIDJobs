@@ -14,7 +14,6 @@ namespace NW.WIDJobs
         /// <exception cref="Exception"/> 
         List<PageItem> Do(Page page);
 
-
         /// <summary>
         /// Extracts all the create dates from <paramref name="content"/> as <see cref="DateTime"/> objects.
         /// </summary>
@@ -25,8 +24,8 @@ namespace NW.WIDJobs
         /// <summary>
         /// During an exploration and while evaluating the content of a <see cref="Page"/>, 
         /// this method establishes if the <paramref name="thresholdDate"/> condition is met 
-        /// and the exploration should stop ("true" case), or if the exploration 
-        /// should continue ("false" case).
+        /// and the exploration must stop ("True" case), or if the exploration 
+        /// must continue ("False" case).
         /// </summary>
         /// <exception cref="ArgumentNullException"/>      
         bool IsThresholdConditionMet(DateTime thresholdDate, List<DateTime> createDates);
@@ -38,10 +37,26 @@ namespace NW.WIDJobs
         /// <exception cref="ArgumentNullException"/>        
         List<PageItem> RemoveUnsuitable(DateTime thresholdDate, List<PageItem> pageItems);
 
+        /// <summary>
+        /// During an exploration and while evaluating the content of a <see cref="Page"/>, 
+        /// this method establishes if <paramref name="pageItems"/> contains a <see cref="PageItem"/> 
+        /// object with <see cref="PageItem.PageItemId"/> equal to <paramref name="pageItemId"/>. 
+        /// If "True", the exploration must stop.
+        /// </summary>
+        /// <exception cref="ArgumentNullException"/>      
+        bool IsThresholdConditionMet(string pageItemId, List<PageItem> pageItems);
+
+        /// <summary>
+        /// If <see cref="IsThresholdConditionMet"/> returns "True" for a given <see cref="PageItem.PageItemId"/>, 
+        /// the exploration must stop and the unsuitable <see cref="PageItem"/> objects must be removed.
+        /// </summary>
+        /// <exception cref="ArgumentNullException"/>        
+        List<PageItem> RemoveUnsuitable(string pageItemId, List<PageItem> pageItems);
+
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 19.05.2021
+    Last Update: 20.06.2021
 */
