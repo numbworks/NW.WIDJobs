@@ -259,6 +259,18 @@ namespace NW.WIDJobs.UnitTests
         public void Create_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
+        [Test]
+        public void Create_ShouldRetunAFileInfoAdapterObject_WhenInvoked()
+        {
+
+            // Arrange
+            // Act
+            FileInfoAdapter actual = new FileManager().Create(@"J:\");
+
+            // Assert
+            Assert.IsInstanceOf<FileInfoAdapter>(actual);
+
+        }
 
         // TearDown
         // Support methods
