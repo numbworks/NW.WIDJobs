@@ -263,6 +263,24 @@ namespace NW.WIDJobs.UnitTests
             ).SetArgDisplayNames($"{nameof(saveAsJsonExceptionTestCases)}_04")
 
         };
+        private static TestCaseData[] convertToJsonExceptionTestCases =
+        {
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new WIDExplorer().ConvertToJson(null)),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("exploration").Message
+            ).SetArgDisplayNames($"{nameof(convertToJsonExceptionTestCases)}_01"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new WIDExplorer().ConvertToJson(null, true)),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("metrics").Message
+            ).SetArgDisplayNames($"{nameof(convertToJsonExceptionTestCases)}_02")
+
+        };
 
         // SetUp
         // Tests
@@ -772,6 +790,11 @@ namespace NW.WIDJobs.UnitTests
 
         [TestCaseSource(nameof(saveAsJsonExceptionTestCases))]
         public void SaveAsJson_ShouldThrowACertainException_WhenUnproperArguments
+            (TestDelegate del, Type expectedType, string expectedMessage)
+                => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
+
+        [TestCaseSource(nameof(convertToJsonExceptionTestCases))]
+        public void ConvertToJson_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 

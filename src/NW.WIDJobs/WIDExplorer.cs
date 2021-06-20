@@ -340,23 +340,6 @@ namespace NW.WIDJobs
 
         }
 
-        public WIDMetrics ConvertToMetrics(WIDExploration exploration)
-        {
-
-            Validator.ValidateObject(exploration, nameof(exploration));
-            Validator.ValidateList(exploration.PageItems, nameof(exploration.PageItems));
-            Validator.ValidateList(exploration.PageItemsExtended, nameof(exploration.PageItemsExtended));
-
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ConvertingExplorationToMetrics);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs.Invoke(exploration.RunId));
-
-            WIDMetrics metrics = _components.MetricsManager.Calculate(exploration);
-
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationConvertedToMetrics);
-
-            return metrics;
-
-        }
         public string ConvertToJson(WIDExploration exploration)
         {
 
@@ -403,7 +386,24 @@ namespace NW.WIDJobs
             return JsonSerializer.Serialize(dyn, options);
 
         }
-        
+        public WIDMetrics ConvertToMetrics(WIDExploration exploration)
+        {
+
+            Validator.ValidateObject(exploration, nameof(exploration));
+            Validator.ValidateList(exploration.PageItems, nameof(exploration.PageItems));
+            Validator.ValidateList(exploration.PageItemsExtended, nameof(exploration.PageItemsExtended));
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ConvertingExplorationToMetrics);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs.Invoke(exploration.RunId));
+
+            WIDMetrics metrics = _components.MetricsManager.Calculate(exploration);
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationConvertedToMetrics);
+
+            return metrics;
+
+        }
+
         public List<BulletPoint> GetPreLabeledBulletPoints()
         {
 
