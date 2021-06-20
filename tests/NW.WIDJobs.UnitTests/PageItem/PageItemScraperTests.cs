@@ -170,7 +170,7 @@ namespace NW.WIDJobs.UnitTests
             ).SetArgDisplayNames($"{nameof(removeUnsuitableExceptionTestCases)}_03")
 
         };
-        private static TestCaseData[] isThresholdConditionMetTestCases =
+        private static TestCaseData[] isThresholdConditionMetThresholdDateTestCases =
         {
 
             // ThresholdDate > MostRecent
@@ -178,28 +178,28 @@ namespace NW.WIDJobs.UnitTests
                    ObjectMother.Shared_Page01Alternate_CreateDates.OrderByDescending(createDate => createDate.Date).First().AddDays(1),
                    ObjectMother.Shared_Page01Alternate_CreateDates,
                    false
-            ).SetArgDisplayNames($"{nameof(isThresholdConditionMetTestCases)}_01"),
+            ).SetArgDisplayNames($"{nameof(isThresholdConditionMetThresholdDateTestCases)}_01"),
 
             // ThresholdDate > LeastRecent && ThresholdDate <= MostRecent
             new TestCaseData(
                    ObjectMother.Shared_Page01Alternate_ThresholdDate,
                    ObjectMother.Shared_Page01Alternate_CreateDates,
                    true
-            ).SetArgDisplayNames($"{nameof(isThresholdConditionMetTestCases)}_02"),
+            ).SetArgDisplayNames($"{nameof(isThresholdConditionMetThresholdDateTestCases)}_02"),
 
             // ThresholdDate == LeastRecent
             new TestCaseData(
                    ObjectMother.Shared_Page01Alternate_CreateDates.OrderByDescending(createDate => createDate.Date).Reverse().First(),
                    ObjectMother.Shared_Page01Alternate_CreateDates,
                    false
-            ).SetArgDisplayNames($"{nameof(isThresholdConditionMetTestCases)}_03"),
+            ).SetArgDisplayNames($"{nameof(isThresholdConditionMetThresholdDateTestCases)}_03"),
 
             // ThresholdDate < LeastRecent
             new TestCaseData(
                    ObjectMother.Shared_Page01Alternate_CreateDates.OrderByDescending(createDate => createDate.Date).Reverse().First().AddDays(-1),
                    ObjectMother.Shared_Page01Alternate_CreateDates,
                    false
-            ).SetArgDisplayNames($"{nameof(isThresholdConditionMetTestCases)}_04"),
+            ).SetArgDisplayNames($"{nameof(isThresholdConditionMetThresholdDateTestCases)}_04")
 
         };
         private static TestCaseData[] removeUnsuitableTestCases =
@@ -210,6 +210,22 @@ namespace NW.WIDJobs.UnitTests
                    ObjectMother.Shared_Page01Alternate_PageItems,
                    ObjectMother.Shared_Page01Alternate_PageItems.GetRange(0, 16)
             ).SetArgDisplayNames($"{nameof(removeUnsuitableTestCases)}_01"),
+
+        };
+        private static TestCaseData[] isThresholdConditionMetPageItemIdTestCases =
+        {
+
+            new TestCaseData(
+                "0000000fakeid",
+                ObjectMother.Shared_Page01_PageItems,
+                false
+            ).SetArgDisplayNames($"{nameof(isThresholdConditionMetPageItemIdTestCases)}_01"),
+
+            new TestCaseData(
+                ObjectMother.Shared_Page01_PageItems[0].PageItemId,
+                ObjectMother.Shared_Page01_PageItems,
+                true
+            ).SetArgDisplayNames($"{nameof(isThresholdConditionMetPageItemIdTestCases)}_02"),
 
         };
 
@@ -249,14 +265,27 @@ namespace NW.WIDJobs.UnitTests
         public void IsThresholdConditionMet_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
-        [TestCaseSource(nameof(isThresholdConditionMetTestCases))]
-        public void IsThresholdConditionMet_ShouldReturnExpectedBoolean_WhenProperArguments
+        [TestCaseSource(nameof(isThresholdConditionMetThresholdDateTestCases))]
+        public void IsThresholdConditionMet_ShouldReturnExpectedBoolean_WhenThresholdDate
             (DateTime thresholdDate, List<DateTime> createDates, bool expected)
         {
 
             // Arrange
             // Act
             bool actual = new PageItemScraper().IsThresholdConditionMet(thresholdDate, createDates);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+
+        }
+        [TestCaseSource(nameof(isThresholdConditionMetPageItemIdTestCases))]
+        public void IsThresholdConditionMet_ShouldReturnExpectedBoolean_WhenPageItemId
+            (string pageItemId, List<PageItem> pageItems, bool expected)
+        {
+
+            // Arrange
+            // Act
+            bool actual = new PageItemScraper().IsThresholdConditionMet(pageItemId, pageItems);
 
             // Assert
             Assert.AreEqual(expected, actual);
