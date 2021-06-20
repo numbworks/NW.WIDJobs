@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using NUnit.Framework;
 
 namespace NW.WIDJobs.UnitTests
@@ -132,6 +133,26 @@ namespace NW.WIDJobs.UnitTests
                 ).SetArgDisplayNames($"{nameof(writeAllTextExceptionTestCases)}_02")
 
         };
+        private static TestCaseData[] createExceptionTestCases =
+        {
+
+            new TestCaseData(
+                new TestDelegate(
+                        () => new FileManager().Create((string)null)
+                    ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("filePath").Message
+                ).SetArgDisplayNames($"{nameof(createExceptionTestCases)}_01"),
+
+            new TestCaseData(
+                new TestDelegate(
+                        () => new FileManager().Create((FileInfo)null)
+                    ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("fileInfo").Message
+                ).SetArgDisplayNames($"{nameof(createExceptionTestCases)}_02")
+
+        };
 
         // SetUp
         // Tests
@@ -144,22 +165,6 @@ namespace NW.WIDJobs.UnitTests
         public void ReadAllLines_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
-
-        [TestCaseSource(nameof(readAllTextExceptionTestCases))]
-        public void ReadAllText_ShouldThrowACertainException_WhenUnproperArguments
-            (TestDelegate del, Type expectedType, string expectedMessage)
-                => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
-
-        [TestCaseSource(nameof(writeAllLinesExceptionTestCases))]
-        public void WriteAllLines_ShouldThrowACertainException_WhenUnproperArguments
-            (TestDelegate del, Type expectedType, string expectedMessage)
-                => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
-
-        [TestCaseSource(nameof(writeAllTextExceptionTestCases))]
-        public void WriteAllText_ShouldThrowACertainException_WhenUnproperArguments
-            (TestDelegate del, Type expectedType, string expectedMessage)
-                => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
-
         [Test]
         public void ReadAllLines_ShouldReturnStrings_WhenFileExists()
         {
@@ -175,6 +180,10 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
+        [TestCaseSource(nameof(readAllTextExceptionTestCases))]
+        public void ReadAllText_ShouldThrowACertainException_WhenUnproperArguments
+            (TestDelegate del, Type expectedType, string expectedMessage)
+                => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
         [Test]
         public void ReadAllText_ShouldReturnString_WhenFileExists()
         {
@@ -190,6 +199,10 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
+        [TestCaseSource(nameof(writeAllLinesExceptionTestCases))]
+        public void WriteAllLines_ShouldThrowACertainException_WhenUnproperArguments
+            (TestDelegate del, Type expectedType, string expectedMessage)
+                => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
         [Test]
         public void WriteAllLines_ShouldSuccessfullyWriteToFile_WhenNoIOIssuesArise()
         {
@@ -214,6 +227,10 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
+        [TestCaseSource(nameof(writeAllTextExceptionTestCases))]
+        public void WriteAllText_ShouldThrowACertainException_WhenUnproperArguments
+            (TestDelegate del, Type expectedType, string expectedMessage)
+                => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
         [Test]
         public void WriteAllText_ShouldSuccessfullyWriteToFile_WhenNoIOIssuesArise()
         {
@@ -238,6 +255,11 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
+        [TestCaseSource(nameof(createExceptionTestCases))]
+        public void Create_ShouldThrowACertainException_WhenUnproperArguments
+            (TestDelegate del, Type expectedType, string expectedMessage)
+                => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
+
         // TearDown
         // Support methods
 
@@ -246,5 +268,5 @@ namespace NW.WIDJobs.UnitTests
 }
 /*
     Author: numbworks@gmail.com
-    Last Update: 30.05.2021
+    Last Update: 20.06.2021
 */
