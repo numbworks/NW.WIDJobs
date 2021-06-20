@@ -599,7 +599,7 @@ The following fields require extra processing:
 |`JobType`|Remove `Job type: `.|
 |`JobId`|Parse it to `ulong`.|
 
-## The logic behind PageItemScraper.IsThresholdConditionMet()
+## ThresholdDate: the logic behind IsThresholdConditionMet()
 
 During an exploration and while evaluating the content of a `Page`, the `PageItemScraper.IsThresholdConditionMet()` method establishes if the `ThresholdDate` condition is met and the exploration should stop (`true` case), or if the exploration should continue (`false` case).
 
@@ -647,7 +647,7 @@ The case numbers above correspond to the following conditions and to the followi
 
 `Case 3` and `Case 3` are `False` because the next `Page` could contain other `PageItem` objects with the same date, therefore the exploration should continue.
 
-## The logic behind PageItemScraper.RemoveUnsuitable()
+## ThresholdDate: the logic behind RemoveUnsuitable()
 
 If the `PageItemScraper.IsThresholdConditionMet()` method returns `True` for a given `Page`, the exploration must stop and the unsuitable `PageItem` objects must be removed.
 
@@ -679,6 +679,35 @@ The `RemoveUnsuitable()` method is intended for the purpose above, and it works 
 |2021-04-28|Remove|
 |2021-04-28|Remove|
 |2021-04-28|Remove|
+
+## PageItemId: the logic behind RemoveUnsuitable()
+
+Same as above.
+
+Given the the following `PageItemId` and `PageItems`, we can see which kind of case we are in on the rightmost column and act accordingly.
+
+|TargetPageItemId|
+|---|
+|8144090studentworker|
+
+|CreateDate|PageItemId|Case|
+|---|---|---|---|
+|2021-05-07|8144115learningsalesfulltimestudentposition|Case 1|
+|2021-05-07|8144114unpaidinternshipsales|Case 1|
+|2021-05-07|8144099sitereliabilityengineer|Case 1|
+|2021-05-05|8144098itarchitectconsultant|Case 1|
+|2021-05-05|8144090studentworker|Case 2|
+|2021-05-05|8144089businesssupportpricingmanager|||
+|...|...|...|...|
+
+The case numbers above correspond to the following conditions and actions:
+
+|Case|Condition|Action|
+|---|---|---|
+|Case 1|(PageItemId == TargetPageItemId) == False|Add to a new List and Continue|
+|Case 2|(PageItemId == TargetPageItemId) == True|Break Loop|
+
+The new list will basically contain only `Case 1` items.
 
 ## WIDExplorer.Explore(), processing stages by FinalPageNumber
 
