@@ -9,7 +9,7 @@ namespace NW.WIDJobs
 
         #region Fields
 
-        private IPostRequestManager _postRequestManager;
+        private IPostRequestManagerFactory _postRequestManagerFactory;
         private IPageScraper _pageScraper;
 
         #endregion
@@ -27,20 +27,20 @@ namespace NW.WIDJobs
         /// <summary>Initializes a <see cref="JobPageManager"/> instance.</summary>
         /// <exception cref="ArgumentNullException"/>
         public JobPageManager(
-           IPostRequestManager postRequestManager, IPageScraper pageScraper)
+           IPostRequestManagerFactory postRequestManagerFactory, IPageScraper pageScraper)
         {
 
-            Validator.ValidateObject(postRequestManager, nameof(postRequestManager));
+            Validator.ValidateObject(postRequestManagerFactory, nameof(postRequestManagerFactory));
             Validator.ValidateObject(pageScraper, nameof(pageScraper));
 
-            _postRequestManager = postRequestManager;
+            _postRequestManagerFactory = postRequestManagerFactory;
             _pageScraper = pageScraper;
 
         }
 
         /// <summary>Initializes a <see cref="JobPageManager"/> instance using default parameters.</summary>
         public JobPageManager()
-            : this(new PostRequestManager(), new PageScraper()) { }
+            : this(new PostRequestManagerFactory(), new PageScraper()) { }
 
         #endregion
 
@@ -100,7 +100,10 @@ namespace NW.WIDJobs
             string offset = ExtractOffset(url);
             string body = CreateBody(offset);
 
-            return _postRequestManager.Send(url); // replace with POST
+            IPostRequestManager postRequestManager
+                = _postRequestManagerFactory.Create(null, null, null, null, null, body, null);
+
+            return postRequestManager.Send(url);
 
         }
 
