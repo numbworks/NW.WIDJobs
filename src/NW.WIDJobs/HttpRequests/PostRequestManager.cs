@@ -24,7 +24,6 @@ namespace NW.WIDJobs
         public string PostData { get; }
         public Encoding PostDataEncoding { get; }
 
-
         #endregion
 
         #region Constructors
