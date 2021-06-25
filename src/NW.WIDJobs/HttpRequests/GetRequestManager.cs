@@ -40,7 +40,7 @@ namespace NW.WIDJobs
 
             Validator.ValidateObject(httpWebRequestFactory, nameof(httpWebRequestFactory));
 
-            HttpWebRequestFactory = new HttpWebRequestFactory();
+            HttpWebRequestFactory = httpWebRequestFactory;
             Headers = headers;
             ContentType = contentType;
             CookieContainer = cookieContainer;
