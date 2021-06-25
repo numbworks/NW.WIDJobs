@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text;
 using System.Text.RegularExpressions;
 
 namespace NW.WIDJobs
@@ -10,7 +9,7 @@ namespace NW.WIDJobs
 
         #region Fields
 
-        private IGetRequestManager _getRequestManager;
+        private IPostRequestManager _postRequestManager;
         private IPageScraper _pageScraper;
 
         #endregion
@@ -28,20 +27,20 @@ namespace NW.WIDJobs
         /// <summary>Initializes a <see cref="JobPageManager"/> instance.</summary>
         /// <exception cref="ArgumentNullException"/>
         public JobPageManager(
-           IGetRequestManager getRequestManager, IPageScraper pageScraper)
+           IPostRequestManager postRequestManager, IPageScraper pageScraper)
         {
 
-            Validator.ValidateObject(getRequestManager, nameof(getRequestManager));
+            Validator.ValidateObject(postRequestManager, nameof(postRequestManager));
             Validator.ValidateObject(pageScraper, nameof(pageScraper));
 
-            _getRequestManager = getRequestManager;
+            _postRequestManager = postRequestManager;
             _pageScraper = pageScraper;
 
         }
 
         /// <summary>Initializes a <see cref="JobPageManager"/> instance using default parameters.</summary>
         public JobPageManager()
-            : this(new GetRequestManager(), new PageScraper()) { }
+            : this(new PostRequestManager(), new PageScraper()) { }
 
         #endregion
 
@@ -101,7 +100,7 @@ namespace NW.WIDJobs
             string offset = ExtractOffset(url);
             string body = CreateBody(offset);
 
-            return _getRequestManager.Send(url, Encoding.UTF8); // replace with POST
+            return _postRequestManager.Send(url); // replace with POST
 
         }
 
