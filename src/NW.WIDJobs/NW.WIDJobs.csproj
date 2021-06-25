@@ -15,6 +15,7 @@
   <ItemGroup>
     <Folder Include="JobPosting\" />
     <Folder Include="JobPostingExtended\" />
+    <Folder Include="PostRequest\" />
   </ItemGroup>
 
 </Project>
