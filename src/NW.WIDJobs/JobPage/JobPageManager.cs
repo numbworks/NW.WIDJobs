@@ -10,7 +10,6 @@ namespace NW.WIDJobs
         #region Fields
 
         private IPostRequestManagerFactory _postRequestManagerFactory;
-        private IPageScraper _pageScraper;
 
         #endregion
 
@@ -26,21 +25,18 @@ namespace NW.WIDJobs
 
         /// <summary>Initializes a <see cref="JobPageManager"/> instance.</summary>
         /// <exception cref="ArgumentNullException"/>
-        public JobPageManager(
-           IPostRequestManagerFactory postRequestManagerFactory, IPageScraper pageScraper)
+        public JobPageManager(IPostRequestManagerFactory postRequestManagerFactory)
         {
 
             Validator.ValidateObject(postRequestManagerFactory, nameof(postRequestManagerFactory));
-            Validator.ValidateObject(pageScraper, nameof(pageScraper));
 
             _postRequestManagerFactory = postRequestManagerFactory;
-            _pageScraper = pageScraper;
 
         }
 
         /// <summary>Initializes a <see cref="JobPageManager"/> instance using default parameters.</summary>
         public JobPageManager()
-            : this(new PostRequestManagerFactory(), new PageScraper()) { }
+            : this(new PostRequestManagerFactory()) { }
 
         #endregion
 
