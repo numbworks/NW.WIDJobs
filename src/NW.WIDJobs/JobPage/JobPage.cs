@@ -2,7 +2,7 @@
 
 namespace NW.WIDJobs
 {
-    /// <summary>A <see href="http://www.workindenmark.dk">WorkInDenmark</see>'s page.</summary>
+    /// <summary>A <see href="http://www.workindenmark.dk">WorkInDenmark</see>'s job page.</summary>
     public class JobPage
     {
 
