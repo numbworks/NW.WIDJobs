@@ -49,7 +49,7 @@ namespace NW.WIDJobs
             Validator.ThrowIfLessThanOne(pageNumber, nameof(pageNumber));
 
             string url = CreateUrl(pageNumber);
-            string response = PostRequest(url);
+            string response = SendPostRequest(url);
 
             JobPage jobPage = new JobPage(runId, pageNumber, response);
 
@@ -88,7 +88,7 @@ namespace NW.WIDJobs
             return url;
 
         }
-        public string PostRequest(string url)
+        public string SendPostRequest(string url)
         {
 
             Validator.ValidateStringNullOrWhiteSpace(url, nameof(url));

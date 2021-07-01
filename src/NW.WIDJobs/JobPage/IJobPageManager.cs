@@ -28,7 +28,7 @@ namespace NW.WIDJobs
         /// Sends a HTTP POST Request for a <see href="http://www.workindenmark.dk">WorkInDenmark</see>'s page and returns a JSON string.
         /// </summary>
         /// <exception cref="ArgumentNullException"/>
-        string PostRequest(string url);
+        string SendPostRequest(string url);
 
     }
 }

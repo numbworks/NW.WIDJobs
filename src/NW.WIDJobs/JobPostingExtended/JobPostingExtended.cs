@@ -30,6 +30,8 @@ namespace NW.WIDJobs
 
         #region Constructors
 
+        ///<summary>Initializes a <see cref="JobPostingExtended"/> instance.</summary>
+        /// <exception cref="ArgumentNullException"/>
         public JobPostingExtended(
             JobPosting jobPosting,
             string response,
