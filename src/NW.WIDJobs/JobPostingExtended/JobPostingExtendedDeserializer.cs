@@ -17,6 +17,17 @@ namespace NW.WIDJobs
         #endregion
 
         #region Properties
+
+        public static List<(string domain, string pattern)> XPathPatterns
+            = new List<(string domain, string pattern)>()
+            {
+                ("novonordisk.dk", "//ul/li/span/span/span/span"),
+                ("jobportal.ku.dk", "//div[@class='vacancy_details_area']/ul/li"),
+                ("easycruit.com", "//div[@class='jd-description']/ul/li"),
+                ("coloplast.com", "//span[@class='jobdescription']/ul/li"),
+                ("all", "//ul/li")
+            };
+
         #endregion
 
         #region Constructors
@@ -233,12 +244,23 @@ namespace NW.WIDJobs
                 Engineering degree within acoustics & vibration
                 Detailed knowledge of material testing and dynamic vibration testing
                 Detailed knowledge within NVH data acquisition systems and electrodynamic test equipment
-            ...
+                ...
              */
 
-            string xpath = "//div[@class='row']/div[@class='col-sm-11']/div[@class='JobPresentation job-description' or @class='job-description']/ul/li";
+            List<string> results = new List<string>();
+            List<string> patterns = XPathPatterns.Select(item => item.pattern).ToList();
+            foreach (string pattern in patterns)
+            {
 
-            List<string> results = _xpathManager.GetInnerTexts(content, xpath);
+                List<string> current = _xpathManager.GetInnerTexts(content, pattern);
+                results.AddRange(current);
+
+                // Once found the right pattern, we break to avoid similar results obtained using the other ones.
+                if (current.Count != 0)
+                    break; 
+
+            }               
+
             HashSet<string> bulletPoints = new HashSet<string>(results);
 
             return bulletPoints;
