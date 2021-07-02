@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Text.Json;
-using System.Text.Encodings.Web;
 using System.Text.RegularExpressions;
 using System.Linq;
+using System.Text.Json;
 
 namespace NW.WIDJobs
 {
@@ -57,66 +56,54 @@ namespace NW.WIDJobs
 
         #region Methods_private
 
-        private JsonSerializerOptions CreateJsonSerializerOptions()
-        {
-
-            JsonSerializerOptions jso = new JsonSerializerOptions();
-            jso.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
-
-            return jso;
-
-        }
         private List<JobPosting> Extract(JobPage jobPage)
         {
 
-            JsonSerializerOptions jso = CreateJsonSerializerOptions();
-            dynamic dyn = JsonSerializer.Deserialize<dynamic>(jobPage.Response, jso);
+            using JsonDocument jsonRoot = JsonDocument.Parse(jobPage.Response);
+                JsonElement jobPositionPostings = jsonRoot.RootElement.GetProperty("JobPositionPostings");
 
             List<JobPosting> jobPostings = new List<JobPosting>();
-            List<string> jobPositionPostings = dyn.fields["JobPositionPostings"];
-            for (ushort i = 0; i < (ushort)jobPositionPostings.Count; i++)
+            for (int i = 0; i < jobPositionPostings.GetArrayLength(); i++)
             {
 
-                string jsonObject = jobPositionPostings[i];
+                JsonElement jsonElement = jobPositionPostings[i];
                 ushort jobPostingNumber = (ushort)(i + 1);
 
                 JobPosting jobPosting
-                    = ExtractJobPosting(jobPage.RunId, jobPage.PageNumber, jsonObject, jobPostingNumber);
+                    = ExtractJobPosting(jobPage.RunId, jobPage.PageNumber, jsonElement, jobPostingNumber);
 
                 jobPostings.Add(jobPosting);
 
-            }
+            };
 
             return jobPostings;
 
         }
-        
+
         private JobPosting ExtractJobPosting
-            (string runId, ushort pageNumber, string jsonObject, ushort jobPostingNumber)
+            (string runId, ushort pageNumber, JsonElement jsonElement, ushort jobPostingNumber)
         {
 
-            JsonSerializerOptions jso = CreateJsonSerializerOptions();
-            dynamic dyn = JsonSerializer.Deserialize<dynamic>(jsonObject, jso);
+            string title = ExtractTitle(jsonElement);
+            string presentation = ExtractPresentation(jsonElement);
+            string hiringOrgName = ExtractHiringOrgName(jsonElement);
+            string workPlaceAddress = ExtractWorkPlaceAddress(jsonElement);
+            ushort workPlacePostalCode = ExtractWorkPlacePostalCode(jsonElement);
+            string workPlaceCity = ExtractWorkPlaceCity(jsonElement);
+            DateTime postingCreated = ExtractPostingCreated(jsonElement);
+            DateTime lastDateApplication = ExtractLastDateApplication(jsonElement);
+            string url = ExtractUrl(jsonElement);
+            string region = ExtractRegion(jsonElement);
+            string municipality = ExtractMunicipality(jsonElement);
+            string country = ExtractCountry(jsonElement);
+            string employmentType = ExtractEmploymentType(jsonElement);
+            string workHours = ExtractWorkHours(jsonElement);
+            string occupation = ExtractOccupation(jsonElement);
+            ulong workplaceId = ExtractWorkplaceID(jsonElement);
+            ulong organisationId = ExtractOrganisationId(jsonElement);
+            ulong hiringOrgCVR = ExtractHiringOrgCVR(jsonElement);
+            ulong id = ExtractID(jsonElement);
 
-            string title = dyn.fields["Title"];
-            string presentation = dyn.fields["Presentation"];
-            string hiringOrgName = dyn.fields["HiringOrgName"];
-            string workPlaceAddress = dyn.fields["WorkPlaceAddress"];
-            ushort workPlacePostalCode = ushort.Parse(dyn.fields["WorkPlacePostalCode"]);
-            string workPlaceCity = dyn.fields["WorkPlaceCity"];
-            DateTime postingCreated = _jobPostingHelper.ParseDate(dyn.fields["PostingCreated"]);
-            DateTime lastDateApplication = _jobPostingHelper.ParseDate(dyn.fields["LastDateApplication"]);
-            string url = dyn.fields["Url"];
-            string region = dyn.fields["Region"];
-            string municipality = dyn.fields["Municipality"];
-            string country = dyn.fields["Country"];
-            string employmentType = CleanEmploymentType(dyn.fields["EmploymentType"]);
-            string workHours = dyn.fields["WorkHours"];
-            string occupation = dyn.fields["Occupation"];
-            ulong workplaceId = ulong.Parse(dyn.fields["WorkplaceId"]);
-            ulong organisationId = ulong.Parse(dyn.fields["OrganisationId"]);
-            ulong hiringOrgCVR = ulong.Parse(dyn.fields["HiringOrgCVR"]);
-            ulong id = CleanAndParseId(dyn.fields["Id"]);
             string workPlaceCityWithoutZone = CreateWorkPlaceCityWithoutZone(workPlaceCity);
             string jobPostingId = CreateJobPostingId(id, title);
 
@@ -124,7 +111,7 @@ namespace NW.WIDJobs
                 = new JobPosting(
                         runId: runId,
                         pageNumber: pageNumber,
-                        response: jsonObject,
+                        response: jsonElement.GetRawText(),
                         title: title,
                         presentation: presentation,
                         hiringOrgName: hiringOrgName,
@@ -152,15 +139,127 @@ namespace NW.WIDJobs
             return jobPosting;
 
         }
-        private string CleanEmploymentType(string employmentType)
+        private string ExtractTitle(JsonElement jsonElement)
         {
 
-            if (employmentType == string.Empty)
-                return null;
-
-            return employmentType;
+            return jsonElement.GetProperty("Title").GetString();
 
         }
+        private string ExtractPresentation(JsonElement jsonElement)
+        {
+
+            return jsonElement.GetProperty("Presentation").GetString();
+
+        }
+        private string ExtractHiringOrgName(JsonElement jsonElement)
+        {
+
+            return jsonElement.GetProperty("HiringOrgName").GetString();
+
+        }
+        private string ExtractWorkPlaceAddress(JsonElement jsonElement)
+        {
+
+            return jsonElement.GetProperty("WorkPlaceAddress").GetString();
+
+        }
+        private ushort ExtractWorkPlacePostalCode(JsonElement jsonElement)
+        {
+
+            string workPlacePostalCode = jsonElement.GetProperty("WorkPlacePostalCode").GetString();
+
+            return ushort.Parse(workPlacePostalCode);
+
+        }
+        private string ExtractWorkPlaceCity(JsonElement jsonElement)
+        {
+
+            return jsonElement.GetProperty("WorkPlaceCity").GetString();
+
+        }
+        private DateTime ExtractPostingCreated(JsonElement jsonElement)
+        {
+
+            return jsonElement.GetProperty("PostingCreated").GetDateTime();
+
+        }
+        private DateTime ExtractLastDateApplication(JsonElement jsonElement)
+        {
+
+            return jsonElement.GetProperty("LastDateApplication").GetDateTime();
+
+        }
+        private string ExtractUrl(JsonElement jsonElement)
+        {
+
+            return jsonElement.GetProperty("Url").GetString();
+
+        }
+        private string ExtractRegion(JsonElement jsonElement)
+        {
+
+            return jsonElement.GetProperty("Region").GetString();
+
+        }
+        private string ExtractMunicipality(JsonElement jsonElement)
+        {
+
+            return jsonElement.GetProperty("Municipality").GetString();
+
+        }
+        private string ExtractCountry(JsonElement jsonElement)
+        {
+
+            return jsonElement.GetProperty("Country").GetString();
+
+        }
+        private string ExtractEmploymentType(JsonElement jsonElement)
+        {
+
+            return jsonElement.GetProperty("EmploymentType").GetString();
+
+        }
+        private string ExtractWorkHours(JsonElement jsonElement)
+        {
+
+            return jsonElement.GetProperty("WorkHours").GetString();
+
+        }
+        private string ExtractOccupation(JsonElement jsonElement)
+        {
+
+            return jsonElement.GetProperty("Occupation").GetString();
+
+        }
+        private ulong ExtractWorkplaceID(JsonElement jsonElement)
+        {
+
+            return jsonElement.GetProperty("WorkplaceID").GetUInt64();
+
+        }
+        private ulong ExtractOrganisationId(JsonElement jsonElement)
+        {
+
+            string organizationId = jsonElement.GetProperty("OrganisationId").GetString();
+
+            return ulong.Parse(organizationId);
+
+        }
+        private ulong ExtractHiringOrgCVR(JsonElement jsonElement)
+        {
+
+            return jsonElement.GetProperty("HiringOrgCVR").GetUInt64();
+
+        }
+        private ulong ExtractID(JsonElement jsonElement)
+        {
+
+            string id = jsonElement.GetProperty("ID").GetString();
+
+            return CleanAndParseId(id);
+
+        }
+
         private ulong CleanAndParseId(string id)
         {
 

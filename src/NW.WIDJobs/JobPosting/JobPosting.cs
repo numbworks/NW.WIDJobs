@@ -79,13 +79,11 @@ namespace NW.WIDJobs
             Validator.ValidateStringNullOrWhiteSpace(title, nameof(title));
             Validator.ValidateStringNullOrWhiteSpace(presentation, nameof(presentation));
             Validator.ValidateStringNullOrWhiteSpace(hiringOrgName, nameof(hiringOrgName));
-            Validator.ValidateStringNullOrWhiteSpace(workPlaceAddress, nameof(workPlaceAddress));
             Validator.ValidateStringNullOrWhiteSpace(workPlaceCity, nameof(workPlaceCity));
             Validator.ValidateStringNullOrWhiteSpace(url, nameof(url));
             Validator.ValidateStringNullOrWhiteSpace(region, nameof(region));
             Validator.ValidateStringNullOrWhiteSpace(municipality, nameof(municipality));
             Validator.ValidateStringNullOrWhiteSpace(country, nameof(country));
-            Validator.ValidateStringNullOrWhiteSpace(employmentType, nameof(employmentType));
             Validator.ValidateStringNullOrWhiteSpace(workHours, nameof(workHours));
             Validator.ValidateStringNullOrWhiteSpace(occupation, nameof(occupation));
             Validator.ValidateStringNullOrWhiteSpace(workPlaceCityWithoutZone, nameof(workPlaceCityWithoutZone));
