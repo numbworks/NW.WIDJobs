@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using NW.WIDJobs;
 using NW.WIDJobs.UnitTests;
@@ -10,8 +11,16 @@ namespace NW.WIDJobsClient
         static void Main(string[] args)
         {
 
-            //ExploreFirstPageAllCategories();
-            ExploreAllITTech();
+
+            IFileInfoAdapter fileInfoAdapter = new FileInfoAdapter(@"C:\Users\Rubèn\Desktop\New WID\JSONs\JobPage01.json");
+            IFileManager fileManager = new FileManager();
+            string response = fileManager.ReadAllText(fileInfoAdapter);
+
+            JobPage jobPage = new JobPage("temp", 1, response);
+
+            IJobPostingDeserializer jobPostingDeserializer = new JobPostingDeserializer();
+            List<JobPosting> jobPostings = jobPostingDeserializer.Do(jobPage);
+
 
             WIDExplorerComponents.DefaultLoggingAction.Invoke("Press a button to close the window.");
             Console.ReadLine();
