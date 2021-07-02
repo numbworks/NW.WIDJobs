@@ -24,6 +24,15 @@ namespace NW.WIDJobs
 
         public DateTime ParseDate(string date)
             => DateTime.ParseExact(date, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+        public DateTime? TryParseDate(string date)
+        {
+
+            if (date == null)
+                return null;
+
+            return ParseDate(date);
+
+        }
 
         #endregion
 

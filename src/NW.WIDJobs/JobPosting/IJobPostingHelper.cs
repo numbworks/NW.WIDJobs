@@ -9,7 +9,14 @@ namespace NW.WIDJobs
         /// <summary>
         /// Expect date strings in the following format: <code>"2021-06-22T00:00:00"</code>
         /// </summary>
+        /// <exception cref="ArgumentNullException"></exception>
         DateTime ParseDate(string date);
+
+        /// <summary>
+        /// Expect date strings in the following format: <code>"2021-06-22T00:00:00"</code>
+        /// <para>Returns null when null.</para>
+        /// </summary>
+        DateTime? TryParseDate(string date);
 
     }
 }
