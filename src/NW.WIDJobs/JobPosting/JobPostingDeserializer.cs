@@ -8,7 +8,8 @@ using System.Linq;
 
 namespace NW.WIDJobs
 {
-    public class JobPostingDeserializer
+    /// <inheritdoc cref="IJobPostingDeserializer"/>
+    public class JobPostingDeserializer : IJobPostingDeserializer
     {
 
         #region Fields
@@ -23,7 +24,7 @@ namespace NW.WIDJobs
         #region Constructors
 
         /// <summary>Initializes a <see cref="JobPostingDeserializer"/> instance.</summary>
-        public JobPostingDeserializer(IJobPostingHelper jobPostingHelper) 
+        public JobPostingDeserializer(IJobPostingHelper jobPostingHelper)
         {
 
             Validator.ValidateObject(jobPostingHelper, nameof(jobPostingHelper));
@@ -41,7 +42,9 @@ namespace NW.WIDJobs
 
             Validator.ValidateObject(jobPage, nameof(jobPage));
 
-            throw new NotImplementedException();
+            List<JobPosting> jobPostings = ExtractJobPostings(jobPage);
+
+            return jobPostings;
 
         }
 
@@ -49,23 +52,54 @@ namespace NW.WIDJobs
 
         #region Methods_private
 
-        private JobPosting ExtractJobPosting
-            (string runId, ushort pageNumber, string jsonObject, ushort jobPostingNumber)
+        private JsonSerializerOptions CreateJsonSerializerOptions()
         {
 
             JsonSerializerOptions jso = new JsonSerializerOptions();
             jso.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
 
+            return jso;
+
+        }
+        private List<JobPosting> ExtractJobPostings(JobPage jobPage)
+        {
+
+            JsonSerializerOptions jso = CreateJsonSerializerOptions();
+            dynamic dyn = JsonSerializer.Deserialize<dynamic>(jobPage.Response, jso);
+
+            List<JobPosting> jobPostings = new List<JobPosting>();
+            List<string> jobPositionPostings = dyn.fields["JobPositionPostings"];
+            for (ushort i = 0; i < (ushort)jobPositionPostings.Count; i++)
+            {
+
+                string jsonObject = jobPositionPostings[i];
+                ushort jobPostingNumber = (ushort)(i + 1);
+
+                JobPosting jobPosting
+                    = ExtractJobPosting(jobPage.RunId, jobPage.PageNumber, jsonObject, jobPostingNumber);
+
+                jobPostings.Add(jobPosting);
+
+            }
+
+            return jobPostings;
+
+        }
+        private JobPosting ExtractJobPosting
+            (string runId, ushort pageNumber, string jsonObject, ushort jobPostingNumber)
+        {
+
+            JsonSerializerOptions jso = CreateJsonSerializerOptions();
             dynamic dyn = JsonSerializer.Deserialize<dynamic>(jsonObject, jso);
 
             string title = dyn.fields["Title"];
             string presentation = dyn.fields["Presentation"];
             string hiringOrgName = dyn.fields["HiringOrgName"];
             string workPlaceAddress = dyn.fields["WorkPlaceAddress"];
-            ushort workPlacePostalCode = ushort.Parse(dyn.fields["WorkPlacePostalCode"]);                        
+            ushort workPlacePostalCode = ushort.Parse(dyn.fields["WorkPlacePostalCode"]);
             string workPlaceCity = dyn.fields["WorkPlaceCity"];
             DateTime postingCreated = _jobPostingHelper.ParseDate(dyn.fields["PostingCreated"]);
-            DateTime lastDateApplication = _jobPostingHelper.ParseDate(dyn.fields["LastDateApplication"]);      
+            DateTime lastDateApplication = _jobPostingHelper.ParseDate(dyn.fields["LastDateApplication"]);
             string url = dyn.fields["Url"];
             string region = dyn.fields["Region"];
             string municipality = dyn.fields["Municipality"];
@@ -80,7 +114,7 @@ namespace NW.WIDJobs
             string workPlaceCityWithoutZone = CreateWorkPlaceCityWithoutZone(workPlaceCity);
             string jobPostingId = CreateJobPostingId(id, title);
 
-            JobPosting jobPosting 
+            JobPosting jobPosting
                 = new JobPosting(
                         runId: runId,
                         pageNumber: pageNumber,
