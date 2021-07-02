@@ -24,6 +24,7 @@ namespace NW.WIDJobs
         #region Constructors
 
         /// <summary>Initializes a <see cref="JobPostingDeserializer"/> instance.</summary>
+        /// <exception cref="ArgumentNullException"></exception>
         public JobPostingDeserializer(IJobPostingHelper jobPostingHelper)
         {
 
@@ -32,6 +33,10 @@ namespace NW.WIDJobs
             _jobPostingHelper = jobPostingHelper;
 
         }
+
+        /// <summary>Initializes a <see cref="JobPostingDeserializer"/> instance using default parameters.</summary>
+        public JobPostingDeserializer()
+            : this(new JobPostingHelper()) { }
 
         #endregion
 
@@ -42,7 +47,7 @@ namespace NW.WIDJobs
 
             Validator.ValidateObject(jobPage, nameof(jobPage));
 
-            List<JobPosting> jobPostings = ExtractJobPostings(jobPage);
+            List<JobPosting> jobPostings = Extract(jobPage);
 
             return jobPostings;
 
@@ -61,7 +66,7 @@ namespace NW.WIDJobs
             return jso;
 
         }
-        private List<JobPosting> ExtractJobPostings(JobPage jobPage)
+        private List<JobPosting> Extract(JobPage jobPage)
         {
 
             JsonSerializerOptions jso = CreateJsonSerializerOptions();
@@ -85,6 +90,7 @@ namespace NW.WIDJobs
             return jobPostings;
 
         }
+        
         private JobPosting ExtractJobPosting
             (string runId, ushort pageNumber, string jsonObject, ushort jobPostingNumber)
         {

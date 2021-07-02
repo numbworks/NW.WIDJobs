@@ -24,7 +24,7 @@ namespace NW.WIDJobs
         public string ContactPersonName { get; }
         public DateTime? EmploymentDate { get; }
         public DateTime? ApplicationDeadlineDate { get; }
-        public HashSet<string> PurposeBulletPoints { get; }
+        public HashSet<string> BulletPoints { get; }
 
         #endregion
 
@@ -44,7 +44,7 @@ namespace NW.WIDJobs
             string contactPersonName,
             DateTime? employmentDate,
             DateTime? applicationDeadlineDate,
-            HashSet<string> purposeBulletPoints
+            HashSet<string> bulletPoints
             ) 
         {
 
@@ -62,7 +62,7 @@ namespace NW.WIDJobs
             ContactPersonName = contactPersonName;
             EmploymentDate = employmentDate;
             ApplicationDeadlineDate = applicationDeadlineDate;
-            PurposeBulletPoints = purposeBulletPoints;
+            BulletPoints = bulletPoints;
 
         }
 
