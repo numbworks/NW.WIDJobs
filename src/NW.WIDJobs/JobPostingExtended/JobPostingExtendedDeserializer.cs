@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 
@@ -44,7 +43,7 @@ namespace NW.WIDJobs
         public JobPostingExtended Do(JobPosting jobPosting, string response)
         {
 
-            //Validator.ValidateObject(jobPosting, nameof(jobPosting));
+            Validator.ValidateObject(jobPosting, nameof(jobPosting));
             Validator.ValidateStringNullOrWhiteSpace(response, nameof(response));
 
             JobPostingExtended jobPostingExtended;
