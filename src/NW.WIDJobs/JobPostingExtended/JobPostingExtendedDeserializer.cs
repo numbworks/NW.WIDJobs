@@ -13,7 +13,6 @@ namespace NW.WIDJobs
 
         #region Fields
 
-        private IJobPostingHelper _jobPostingHelper;
         private IXPathManager _xpathManager;
 
         #endregion
@@ -25,21 +24,18 @@ namespace NW.WIDJobs
 
         /// <summary>Initializes a <see cref="JobPostingExtendedDeserializer"/> instance.</summary>
         /// <exception cref="ArgumentNullException"></exception>
-        public JobPostingExtendedDeserializer
-            (IJobPostingHelper jobPostingHelper, IXPathManager xpathManager)
+        public JobPostingExtendedDeserializer(IXPathManager xpathManager)
         {
 
-            Validator.ValidateObject(jobPostingHelper, nameof(jobPostingHelper));
             Validator.ValidateObject(xpathManager, nameof(xpathManager));
 
-            _jobPostingHelper = jobPostingHelper;
             _xpathManager = xpathManager;
 
         }
 
         /// <summary>Initializes a <see cref="JobPostingExtendedDeserializer"/> instance using default parameters.</summary>
         public JobPostingExtendedDeserializer()
-            : this(new JobPostingHelper(), new XPathManager()) { }
+            : this(new XPathManager()) { }
 
         #endregion
 
@@ -48,10 +44,13 @@ namespace NW.WIDJobs
         public JobPostingExtended Do(JobPosting jobPosting, string response)
         {
 
-            Validator.ValidateObject(jobPosting, nameof(jobPosting));
+            //Validator.ValidateObject(jobPosting, nameof(jobPosting));
             Validator.ValidateStringNullOrWhiteSpace(response, nameof(response));
 
-            JobPostingExtended jobPostingExtended = Extract(jobPosting, response);
+            JobPostingExtended jobPostingExtended;
+            bool status = TryExtractAsJson(jobPosting, response, out jobPostingExtended);
+            if (status == false)
+                jobPostingExtended = ExtractAsHtml(jobPosting, response);
 
             return jobPostingExtended;
 
@@ -61,138 +60,160 @@ namespace NW.WIDJobs
 
         #region Methods_private
 
-        private JsonSerializerOptions CreateJsonSerializerOptions()
+        private bool TryExtractAsJson
+            (JobPosting jobPosting, string response, out JobPostingExtended jobPostingExtended)
         {
 
-            JsonSerializerOptions jso = new JsonSerializerOptions();
-            jso.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
+            try
+            {
 
-            return jso;
+                using JsonDocument jsonRoot = JsonDocument.Parse(response);
+                JsonElement jobPositionPosting = jsonRoot.RootElement.GetProperty("JobPositionPosting");
+
+                string hiringOrgDescription = ExtractHiringOrgDescription(jobPositionPosting);
+                DateTime publicationStartDate = ExtractPublicationStartDate(jobPositionPosting);
+                DateTime publicationEndDate = ExtractPublicationEndDate(jobPositionPosting);
+                string purpose = ExtractPurpose(jobPositionPosting);
+                ushort numberToFill = ExtractNumberToFill(jobPositionPosting);
+                string contactEmail = ExtractContactEmail(jobPositionPosting);
+                string contactPersonName = ExtractContactPersonName(jobPositionPosting);
+                DateTime employmentDate = ExtractEmploymentDate(jobPositionPosting);
+                DateTime applicationDeadlineDate = ExtractApplicationDeadlineDate(jobPositionPosting);
+                HashSet<string> bulletPoints = TryExtractBulletPoints(purpose);
+
+                jobPostingExtended
+                    = new JobPostingExtended(
+                            jobPosting: jobPosting,
+                            response: response,
+                            hiringOrgDescription: hiringOrgDescription,
+                            publicationStartDate: publicationStartDate,
+                            publicationEndDate: publicationEndDate,
+                            purpose: purpose,
+                            numberToFill: numberToFill,
+                            contactEmail: contactEmail,
+                            contactPersonName: contactPersonName,
+                            employmentDate: employmentDate,
+                            applicationDeadlineDate: applicationDeadlineDate,
+                            bulletPoints: bulletPoints
+                        );
+
+                return true;
+
+            }
+            catch
+            {
+
+                jobPostingExtended = null;
+                return false;
+
+            };
 
         }
-        private JobPostingExtended Extract(JobPosting jobPosting, string response)
+        private JobPostingExtended ExtractAsHtml
+            (JobPosting jobPosting, string response)
         {
 
-            JsonSerializerOptions jso = CreateJsonSerializerOptions();
-            dynamic dyn = JsonSerializer.Deserialize<dynamic>(response, jso);
-
-            string hiringOrgDescription = TryExtractHiringOrgDescription(dyn);
-            DateTime? publicationStartDate = TryExtractPublicationStartDate(dyn);
-            DateTime? publicationEndDate = TryExtractPublicationEndDate(dyn);
-            string purpose = TryExtractPurpose(dyn);
-            ushort numberToFill = TryExtractNumberToFill(dyn);
-            string contactEmail = TryExtractContactEmail(dyn);
-            string contactPersonName = TryExtractContactPersonName(dyn);
-            DateTime? employmentDate = TryExtractEmploymentDate(dyn);
-            DateTime? applicationDeadlineDate = TryExtractApplicationDeadlineDate(dyn);
-            HashSet<string> bulletPoints = TryExtractBulletPoints(purpose ?? response);
+            HashSet<string> bulletPoints = TryExtractBulletPoints(response);
 
             JobPostingExtended jobPostingExtended
-                = new JobPostingExtended(
-                        jobPosting: jobPosting,
-                        response: response,
-                        hiringOrgDescription: hiringOrgDescription,
-                        publicationStartDate: publicationStartDate,
-                        publicationEndDate: publicationEndDate,
-                        purpose: purpose,
-                        numberToFill: numberToFill,
-                        contactEmail: contactEmail,
-                        contactPersonName: contactPersonName,
-                        employmentDate: employmentDate,
-                        applicationDeadlineDate: applicationDeadlineDate,
-                        bulletPoints: bulletPoints
-                    );
+                    = new JobPostingExtended(
+                            jobPosting: jobPosting,
+                            response: response,
+                            hiringOrgDescription: null,
+                            publicationStartDate: null,
+                            publicationEndDate: null,
+                            purpose: null,
+                            numberToFill: null,
+                            contactEmail: null,
+                            contactPersonName: null,
+                            employmentDate: null,
+                            applicationDeadlineDate: null,
+                            bulletPoints: bulletPoints
+                        );
 
             return jobPostingExtended;
 
         }
 
-        private string TryExtractHiringOrgDescription(dynamic dyn)
+        private string ExtractHiringOrgDescription(JsonElement jsonElement)
         {
 
-            string value = dyn.fields["JobPositionPosting"].fields["HiringOrg"].fields["Description"];
-
-            return value;
+            return jsonElement
+                        .GetProperty("HiringOrg")
+                        .GetProperty("Description")
+                        .GetString();
 
         }
-        private DateTime? TryExtractPublicationStartDate(dynamic dyn)
+        private DateTime ExtractPublicationStartDate(JsonElement jsonElement)
         {
 
-            string value = dyn.fields["JobPositionPosting"].fields["PublicationStartDate"];
-
-            return _jobPostingHelper.TryParseDate(value);
+            return jsonElement
+                        .GetProperty("PublicationStartDate")
+                        .GetDateTime();
 
         }
-        private DateTime? TryExtractPublicationEndDate(dynamic dyn)
+        private DateTime ExtractPublicationEndDate(JsonElement jsonElement)
         {
 
-            string value = dyn.fields["JobPositionPosting"].fields["PublicationEndDate"];
-
-            return _jobPostingHelper.TryParseDate(value);
+            return jsonElement
+                        .GetProperty("PublicationEndDate")
+                        .GetDateTime();
 
         }
-        private string TryExtractPurpose(dynamic dyn)
+        private string ExtractPurpose(JsonElement jsonElement)
         {
 
-            string value = dyn.fields["JobPositionPosting"].fields["JobPositionInformation"].fields["Purpose"];
-
-            return value;
+            return jsonElement
+                      .GetProperty("JobPositionInformation")
+                      .GetProperty("Purpose")
+                      .GetString();
 
         }
-        private ushort? TryExtractNumberToFill(dynamic dyn)
+        private ushort ExtractNumberToFill(JsonElement jsonElement)
         {
 
-            string value = dyn.fields["JobPositionPosting"].fields["JobPositionInformation"].fields["NumberToFill"];
-            if (value == null)
-                return null;
-
-            return ushort.Parse(value);
+            return jsonElement
+                        .GetProperty("JobPositionInformation")
+                        .GetProperty("NumberToFill")
+                        .GetUInt16();
 
         }
-        private string TryExtractContactEmail(dynamic dyn)
+        private string ExtractContactEmail(JsonElement jsonElement)
         {
 
-            string value
-                = dyn.fields["JobPositionPosting"]
-                     .fields["JobPositionInformation"]
-                     .fields["JppContacts"]
-                     .fields["Email"];
-
-            return value;
+            return jsonElement
+                      .GetProperty("JobPositionInformation")
+                      .GetProperty("JppContacts")
+                      .GetProperty("Email")
+                      .GetString();
 
         }
-        private string TryExtractContactPersonName(dynamic dyn)
+        private string ExtractContactPersonName(JsonElement jsonElement)
         {
 
-            string value
-                = dyn.fields["JobPositionPosting"]
-                     .fields["JobPositionInformation"]
-                     .fields["JppContacts"]
-                     .fields["PersonName"];
-
-            return value;
+            return jsonElement
+                      .GetProperty("JobPositionInformation")
+                      .GetProperty("JppContacts")
+                      .GetProperty("PersonName")
+                      .GetString();
 
         }
-        private DateTime? TryExtractEmploymentDate(dynamic dyn)
+        private DateTime ExtractEmploymentDate(JsonElement jsonElement)
         {
 
-            string value
-                = dyn.fields["JobPositionPosting"]
-                     .fields["JobPositionInformation"]
-                     .fields["EmploymentDate"];
-
-            return _jobPostingHelper.TryParseDate(value);
+            return jsonElement
+                      .GetProperty("JobPositionInformation")
+                      .GetProperty("EmploymentDate")
+                      .GetDateTime();
 
         }
-        private DateTime? TryExtractApplicationDeadlineDate(dynamic dyn)
+        private DateTime ExtractApplicationDeadlineDate(JsonElement jsonElement)
         {
 
-            string value
-                = dyn.fields["JobPositionPosting"]
-                     .fields["ApplicationDetails"]
-                     .fields["ApplicationDeadlineDate"];
-
-            return _jobPostingHelper.TryParseDate(value);
+            return jsonElement
+                      .GetProperty("ApplicationDetails")
+                      .GetProperty("ApplicationDeadlineDate")
+                      .GetDateTime();
 
         }
 
