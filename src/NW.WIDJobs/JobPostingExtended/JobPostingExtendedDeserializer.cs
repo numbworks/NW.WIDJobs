@@ -91,7 +91,9 @@ namespace NW.WIDJobs
                 string contactPersonName = ExtractContactPersonName(jobPositionPosting);
                 DateTime? employmentDate = TryExtractEmploymentDate(jobPositionPosting);
                 DateTime applicationDeadlineDate = ExtractApplicationDeadlineDate(jobPositionPosting);
-                HashSet<string> bulletPoints = TryExtractBulletPoints(purpose);
+
+                string bulletPointScenario = null;
+                HashSet<string> bulletPoints = TryExtractBulletPoints(purpose, out bulletPointScenario);
 
                 jobPostingExtended
                     = new JobPostingExtended(
@@ -106,7 +108,8 @@ namespace NW.WIDJobs
                             contactPersonName: contactPersonName,
                             employmentDate: employmentDate,
                             applicationDeadlineDate: applicationDeadlineDate,
-                            bulletPoints: bulletPoints
+                            bulletPoints: bulletPoints,
+                            bulletPointScenario: bulletPointScenario
                         );
 
                 return true;
@@ -125,7 +128,8 @@ namespace NW.WIDJobs
             (JobPosting jobPosting, string response)
         {
 
-            HashSet<string> bulletPoints = TryExtractBulletPoints(response);
+            string bulletPointScenario = null;
+            HashSet<string> bulletPoints = TryExtractBulletPoints(response, out bulletPointScenario);
 
             JobPostingExtended jobPostingExtended
                     = new JobPostingExtended(
@@ -140,7 +144,8 @@ namespace NW.WIDJobs
                             contactPersonName: null,
                             employmentDate: null,
                             applicationDeadlineDate: null,
-                            bulletPoints: bulletPoints
+                            bulletPoints: bulletPoints,
+                            bulletPointScenario: bulletPointScenario
                         );
 
             return jobPostingExtended;
@@ -247,17 +252,17 @@ namespace NW.WIDJobs
 
         }
 
-        private HashSet<string> TryExtractBulletPoints(string content)
+        private HashSet<string> TryExtractBulletPoints(string content, out string bulletPointScenario)
         {
 
-            HashSet<string> bulletPoints = TryExtractBulletPointsWithXPath(content);
+            HashSet<string> bulletPoints = TryExtractBulletPointsWithXPath(content, out bulletPointScenario);
             if (bulletPoints.Count == 0)
-                bulletPoints = TryExtractBulletPointsWithRegex(content);
+                bulletPoints = TryExtractBulletPointsWithRegex(content, out bulletPointScenario);
 
             return bulletPoints;
 
         }
-        private HashSet<string> TryExtractBulletPointsWithXPath(string content)
+        private HashSet<string> TryExtractBulletPointsWithXPath(string content, out string bulletPointScenario)
         {
 
             /*
@@ -268,6 +273,8 @@ namespace NW.WIDJobs
              */
 
             List<string> results = new List<string>();
+            string scenario = null;
+
             List<string> patterns = XPathPatterns.Select(item => item.pattern).ToList();
             foreach (string pattern in patterns)
             {
@@ -277,17 +284,21 @@ namespace NW.WIDJobs
 
                 // Once found the right pattern, we break to avoid similar results obtained using the other ones.
                 if (current.Count != 0)
-                    break; 
+                {
+                    scenario = XPathPatterns.Where(item => item.pattern == pattern).First().scenario;
+                    break;
+                }             
 
             }
 
             results = CleanBulletPoints(results);
             HashSet<string> bulletPoints = new HashSet<string>(results);
 
+            bulletPointScenario = scenario;
             return bulletPoints;
 
         }
-        private HashSet<string> TryExtractBulletPointsWithRegex(string content)
+        private HashSet<string> TryExtractBulletPointsWithRegex(string content, out string bulletPointScenario)
         {
 
             string pattern = "(?<=-\\t)[\\w ]{1,}(?=-\\t)";
@@ -298,6 +309,7 @@ namespace NW.WIDJobs
             if (matchCollection != null)
                 matchCollection.Cast<Match>().ToList().ForEach(match => bulletPoints.Add(match.ToString()));
 
+            bulletPointScenario = "regex";
             return bulletPoints;
 
         }
