@@ -78,7 +78,7 @@ namespace NW.WIDJobs
             {
 
                 using JsonDocument jsonRoot = JsonDocument.Parse(response);
-                JsonElement jobPositionPosting = jsonRoot.RootElement.GetProperty("JobPositionPosting");
+                    JsonElement jobPositionPosting = jsonRoot.RootElement.GetProperty("JobPositionPosting");
 
                 string hiringOrgDescription = ExtractHiringOrgDescription(jobPositionPosting);
                 DateTime publicationStartDate = ExtractPublicationStartDate(jobPositionPosting);
@@ -87,7 +87,7 @@ namespace NW.WIDJobs
                 ushort numberToFill = ExtractNumberToFill(jobPositionPosting);
                 string contactEmail = ExtractContactEmail(jobPositionPosting);
                 string contactPersonName = ExtractContactPersonName(jobPositionPosting);
-                DateTime employmentDate = ExtractEmploymentDate(jobPositionPosting);
+                DateTime? employmentDate = TryExtractEmploymentDate(jobPositionPosting);
                 DateTime applicationDeadlineDate = ExtractApplicationDeadlineDate(jobPositionPosting);
                 HashSet<string> bulletPoints = TryExtractBulletPoints(purpose);
 
@@ -193,7 +193,7 @@ namespace NW.WIDJobs
 
             return jsonElement
                       .GetProperty("JobPositionInformation")
-                      .GetProperty("JppContacts")
+                      .GetProperty("JppContacts")[0]
                       .GetProperty("Email")
                       .GetString();
 
@@ -203,18 +203,22 @@ namespace NW.WIDJobs
 
             return jsonElement
                       .GetProperty("JobPositionInformation")
-                      .GetProperty("JppContacts")
+                      .GetProperty("JppContacts")[0]
                       .GetProperty("PersonName")
                       .GetString();
 
         }
-        private DateTime ExtractEmploymentDate(JsonElement jsonElement)
+        private DateTime? TryExtractEmploymentDate(JsonElement jsonElement)
         {
 
-            return jsonElement
+            JsonElement temp
+                = jsonElement
                       .GetProperty("JobPositionInformation")
-                      .GetProperty("EmploymentDate")
-                      .GetDateTime();
+                      .GetProperty("EmploymentDate");
+            if (string.IsNullOrWhiteSpace(temp.ToString()))
+                return null;
+
+            return jsonElement.GetDateTime();
 
         }
         private DateTime ExtractApplicationDeadlineDate(JsonElement jsonElement)

@@ -13,7 +13,7 @@ namespace NW.WIDJobsClient
         static void Main(string[] args)
         {
 
-            DeserializeJobPage01JobPostingExtended10();
+            DeserializeJobPage01JobPostingExtended01();
 
             WIDExplorerComponents.DefaultLoggingAction.Invoke("Press a button to close the window.");
             Console.ReadLine();
@@ -47,7 +47,20 @@ namespace NW.WIDJobsClient
             */
 
         }
-        static void DeserializeJobPage01JobPostingExtended10()
+        static void DeserializeJobPage01JobPostingExtended01()
+        {
+
+            IFileInfoAdapter fileInfoAdapter = new FileInfoAdapter(@"C:\Users\Rubèn\Desktop\New WID\JSONs\JobPage01_JobPostingExtended01.json");
+            IFileManager fileManager = new FileManager();
+            string response = fileManager.ReadAllText(fileInfoAdapter);
+
+            JobPosting jobPosting = CreateJobPage01JobPosting01();
+
+            IJobPostingExtendedDeserializer jobPostingExtendedDeserializer = new JobPostingExtendedDeserializer();
+            JobPostingExtended jobPostingExtended = jobPostingExtendedDeserializer.Do(jobPosting, response);
+
+        }
+        static void DeserializeJobPage02JobPostingExtended10()
         {
 
             IFileInfoAdapter fileInfoAdapter = new FileInfoAdapter(@"C:\Users\Rubèn\Desktop\New WID\JSONs\JobPage02_JobPostingExtended10.html");
