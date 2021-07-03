@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 using System.Text.RegularExpressions;
+using System.Web;
 
 namespace NW.WIDJobs
 {
@@ -18,13 +19,14 @@ namespace NW.WIDJobs
 
         #region Properties
 
-        public static List<(string domain, string pattern)> XPathPatterns
-            = new List<(string domain, string pattern)>()
+        public static List<(string scenario, string pattern)> XPathPatterns
+            = new List<(string scenario, string pattern)>()
             {
                 ("novonordisk.dk", "//ul/li/span/span/span/span"),
                 ("jobportal.ku.dk", "//div[@class='vacancy_details_area']/ul/li"),
                 ("easycruit.com", "//div[@class='jd-description']/ul/li"),
                 ("coloplast.com", "//span[@class='jobdescription']/ul/li"),
+                ("keepit.com", "//p[starts-with(., '-')]"),
                 ("all", "//ul/li")
             };
 
@@ -173,10 +175,14 @@ namespace NW.WIDJobs
         private string ExtractPurpose(JsonElement jsonElement)
         {
 
-            return jsonElement
-                      .GetProperty("JobPositionInformation")
-                      .GetProperty("Purpose")
-                      .GetString();
+            string purpose =  jsonElement
+                            .GetProperty("JobPositionInformation")
+                            .GetProperty("Purpose")
+                            .GetString();
+
+            purpose = TryHtmlDecode(purpose);
+
+            return purpose;
 
         }
         private ushort ExtractNumberToFill(JsonElement jsonElement)
@@ -231,12 +237,22 @@ namespace NW.WIDJobs
 
         }
 
+        private string TryHtmlDecode(string str)
+        {
+
+            if (str != null)
+                return HttpUtility.HtmlDecode(str);
+
+            return str;
+
+        }
+
         private HashSet<string> TryExtractBulletPoints(string content)
         {
 
-            HashSet<string> bulletPoints = TryExtractBulletPointsWithRegex(content);
+            HashSet<string> bulletPoints = TryExtractBulletPointsWithXPath(content);
             if (bulletPoints.Count == 0)
-                bulletPoints = TryExtractBulletPointsWithXPath(content);
+                bulletPoints = TryExtractBulletPointsWithRegex(content);
 
             return bulletPoints;
 
