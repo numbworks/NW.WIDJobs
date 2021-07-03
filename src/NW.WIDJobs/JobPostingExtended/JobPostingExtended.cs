@@ -25,6 +25,7 @@ namespace NW.WIDJobs
         public DateTime? EmploymentDate { get; }
         public DateTime? ApplicationDeadlineDate { get; }
         public HashSet<string> BulletPoints { get; }
+        public string BulletPointScenario { get; }
 
         #endregion
 
@@ -44,7 +45,8 @@ namespace NW.WIDJobs
             string contactPersonName,
             DateTime? employmentDate,
             DateTime? applicationDeadlineDate,
-            HashSet<string> bulletPoints
+            HashSet<string> bulletPoints,
+            string bulletPointScenario
             ) 
         {
 
@@ -63,6 +65,7 @@ namespace NW.WIDJobs
             EmploymentDate = employmentDate;
             ApplicationDeadlineDate = applicationDeadlineDate;
             BulletPoints = bulletPoints;
+            BulletPointScenario = bulletPointScenario;
 
         }
 
