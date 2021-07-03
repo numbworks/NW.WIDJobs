@@ -259,8 +259,9 @@ namespace NW.WIDJobs
                 if (current.Count != 0)
                     break; 
 
-            }               
+            }
 
+            results = CleanBulletPoints(results);
             HashSet<string> bulletPoints = new HashSet<string>(results);
 
             return bulletPoints;
@@ -279,6 +280,38 @@ namespace NW.WIDJobs
 
             return bulletPoints;
 
+        }
+
+        private List<string> CleanBulletPoints(List<string> bulletPoints)
+        {
+
+            /*
+                ...
+                "Have the\n            ability to work very thorough with your tasks."
+                ...
+            */
+
+            if (bulletPoints.Count == 0)
+                return bulletPoints;
+
+            List<string> results
+                = bulletPoints
+                    .Select(bulletPoint => RemoveNewLines(bulletPoint))
+                    .Select(bulletPoint => RemoveExtraWhiteSpaces(bulletPoint))
+                    .ToList();
+
+            return results;
+
+        }
+        private string RemoveNewLines(string str)
+            => str?.Replace(Environment.NewLine, string.Empty);
+        private string RemoveExtraWhiteSpaces(string str)
+        {
+
+            if (str != null)
+                return string.Join(" ", str.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries));
+
+            return str;
         }
 
         #endregion
