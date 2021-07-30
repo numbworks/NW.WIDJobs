@@ -1708,9 +1708,25 @@ namespace NW.WIDJobsClient
                         applicationDeadlineDate: new DateTime(2021, 08, 27),
                         bulletPoints: new HashSet<string>()
                         {
-                            "- Picking/packing tasks- Loading/unloading tasks- Receipt of goods- Truck driving, most often reach truck- Scanner operation- Various warehouse tasksYou will of course receive a thorough training in the work tasks, so you will have the best conditions for success.The company generally has an informal work environment with the opportunity to take responsibility for work tasks and planning.We expect that you",
-                            "- Are ready to take on evening work- Have experience from working at a warehouse- Have a truck certificate- Are ready to taking up the challenge when it comes to new tasks and flexible working days- Are able to perform a good job- Can represent Randstad as an external employee in a positive way at the customer’s premises- Danish- and English-speaking at a reasonable levelWorking hours",
-                            "- Basic salary according to qualifications and in addition to this, cf. collective agreement, pension scheme and holiday- A generally informal work environment with the opportunity to take responsibility for work tasks and planningStart-up: As soon as possible, please send your CVAll inquiries are treated confidentially. Interviews will take place on an ongoing basis.About Randstad"
+                            "- Picking/packing tasks",
+                            "- Loading/unloading tasks",
+                            "- Receipt of goods",
+                            "- Truck driving, most often reach truck",
+                            "- Scanner operation",
+                            "- Various warehouse tasks",
+                            "You will of course receive a thorough training in the work tasks, so you will have the best conditions for success.",
+                            "The company generally has an informal work environment with the opportunity to take responsibility for work tasks and planning.",
+                            "- Are ready to take on evening work",
+                            "- Have experience from working at a warehouse",
+                            "- Have a truck certificate",
+                            "- Are ready to taking up the challenge when it comes to new tasks and flexible working days",
+                            "- Are able to perform a good job",
+                            "- Can represent Randstad as an external employee in a positive way at the customer’s premises",
+                            "- Danish- and English-speaking at a reasonable level",
+                            "- Basic salary according to qualifications and in addition to this, cf. collective agreement, pension scheme and holiday",
+                            "- A generally informal work environment with the opportunity to take responsibility for work tasks and planning",
+                            "Start-up: As soon as possible, please send your CV",
+                            "All inquiries are treated confidentially. Interviews will take place on an ongoing basis."
                         },
                         bulletPointScenario: "keepit.com"
                     );

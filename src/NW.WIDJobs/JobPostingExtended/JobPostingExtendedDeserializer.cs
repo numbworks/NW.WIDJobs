@@ -26,6 +26,7 @@ namespace NW.WIDJobs
                 ("jobportal.ku.dk", "//div[@class='vacancy_details_area']/ul/li"),
                 ("easycruit.com", "//div[@class='jd-description']/ul/li"),
                 ("coloplast.com", "//span[@class='jobdescription']/ul/li"),
+                ("randstad", "//p[starts-with(., '-') and .//br]/text()"),
                 ("keepit.com", "//p[starts-with(., '-')]"),
                 ("generic", "//ul/li|//ol/li")
             };
