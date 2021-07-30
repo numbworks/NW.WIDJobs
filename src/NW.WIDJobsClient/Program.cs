@@ -14,7 +14,7 @@ namespace NW.WIDJobsClient
         static void Main(string[] args)
         {
 
-            DeserializeJobPage01JobPostingExtended08();
+            DeserializeJobPage01JobPostingExtended09();
 
             WIDExplorerComponents.DefaultLoggingAction.Invoke("Press a button to close the window.");
             Console.ReadLine();
@@ -753,7 +753,103 @@ namespace NW.WIDJobsClient
         }
 
         // JobPage01JobPosting09
+        static JobPosting CreateJobPage01JobPosting09()
+        {
 
+            JobPosting jobPosting
+                = new JobPosting(
+                        runId: "temp",
+                        pageNumber: 1,
+                        response: "{\r\n            \"AutomatchType\": 0,\r\n            \"Abroad\": false,\r\n            \"Weight\": 1.0,\r\n            \"Title\": \"Friske og oplagte medarbejdere til sortering af pakker på stort lager i Horsens/Motivated employees for sorting packages in a large warehouse in Horsens\",\r\n            \"JobHeadline\": \"Friske og oplagte medarbejdere til sortering af pakker på stort lager i Horsens/Motivated employees for sorting packages in a large warehouse in Horsens\",\r\n            \"Presentation\": \"<p><strong>English version below the Danish</strong></p>\\n\",\r\n            \"HiringOrgName\": \"TeamVikaren.dk, Århus ApS, Horsens Afdeling\",\r\n            \"WorkPlaceAddress\": \"Strandpromenaden 6\",\r\n            \"WorkPlacePostalCode\": \"8700\",\r\n            \"WorkPlaceCity\": \"Horsens\",\r\n            \"WorkPlaceOtherAddress\": false,\r\n            \"WorkPlaceAbroad\": false,\r\n            \"WorkPlaceNotStatic\": false,\r\n            \"UseWorkPlaceAddressForJoblog\": true,\r\n            \"PostingCreated\": \"2021-07-02T00:00:00\",\r\n            \"LastDateApplication\": \"2021-07-15T00:00:00\",\r\n            \"FormattedLastDateApplication\": \"15. juli 2021\",\r\n            \"AssignmentStartDate\": \"0001-01-01T00:00:00\",\r\n            \"IsHotjob\": false,\r\n            \"IsExternal\": false,\r\n            \"Url\": \"https://job.jobnet.dk/CV/FindWork/Details/5331002\",\r\n            \"Region\": \"Midtjylland\",\r\n            \"Municipality\": \"Horsens\",\r\n            \"Country\": \"Danmark\",\r\n            \"PostalCode\": \"8700\",\r\n            \"PostalCodeName\": null,\r\n            \"JobAnnouncementType\": \"\",\r\n            \"EmploymentType\": \"\",\r\n            \"WorkHours\": \"Deltid\",\r\n            \"OccupationArea\": \"\",\r\n            \"OccupationGroup\": \"\",\r\n            \"Occupation\": \"Lager- og logistikmedarbejder\",\r\n            \"Location\": {\r\n                \"Latitude\": 55.861,\r\n                \"Longitude\": 9.8732\r\n            },\r\n            \"JoblogWorkTime\": {\r\n                \"WorkHour\": \"(8 - 20 timer ugentligt)\",\r\n                \"DailyWorkTime\": \"Aften\"\r\n            },\r\n            \"WorkplaceID\": 126565,\r\n            \"OrganisationId\": \"71174\",\r\n            \"HiringOrgCVR\": 30899695,\r\n            \"UserLoggedIn\": false,\r\n            \"AnonymousEmployer\": false,\r\n            \"ShareUrl\": \"https://job.jobnet.dk/CV/FindWork/DetailsSocialmedia/5331002\",\r\n            \"DetailsUrl\": \"https://job.jobnet.dk/CV/FindWork/DetailsWidk/5331002\",\r\n            \"JobLogUrl\": \"https://job.jobnet.dk/CV/FindWork/Details/5331002\",\r\n            \"HasLocationValues\": true,\r\n            \"ID\": \"5331002\",\r\n            \"Latitude\": 55.861,\r\n            \"Longitude\": 9.8732\r\n        }",
+                        title: "Friske og oplagte medarbejdere til sortering af pakker på stort lager i Horsens/Motivated employees for sorting packages in a large warehouse in Horsens",
+                        presentation: "<p><strong>English version below the Danish</strong></p>\n",
+                        hiringOrgName: "TeamVikaren.dk, Århus ApS, Horsens Afdeling",
+                        workPlaceAddress: "Strandpromenaden 6",
+                        workPlacePostalCode: 8700,
+                        workPlaceCity: "Horsens",
+                        postingCreated: new DateTime(2021, 07, 02),
+                        lastDateApplication: new DateTime(2021, 07, 15),
+                        url: "https://job.jobnet.dk/CV/FindWork/Details/5331002",
+                        region: "Midtjylland",
+                        municipality: "Horsens",
+                        country: "Danmark",
+                        employmentType: "",
+                        workHours: "Deltid",
+                        occupation: "Lager- og logistikmedarbejder",
+                        workplaceId: 126565,
+                        organisationId: 71174,
+                        hiringOrgCVR: 30899695,
+                        id: 5331002,
+                        workPlaceCityWithoutZone: "Horsens",
+                        jobPostingNumber: 9,
+                        jobPostingId: "5331002friskeogoplagtemedarbejderetil"
+                    );
+
+            return jobPosting;
+
+        }
+        static JobPostingExtended CreateJobPage01JobPostingExtended09()
+        {
+
+            JobPostingExtended jobPostingExtended
+                = new JobPostingExtended(
+                        jobPosting: CreateJobPage01JobPosting09(),
+                        response: null, // Ignored
+                        hiringOrgDescription: null,
+                        publicationStartDate: new DateTime(2021, 07, 02),
+                        publicationEndDate: new DateTime(2021, 07, 15),
+                        purpose: null, // Ignored
+                        numberToFill: 5,
+                        contactEmail: null,
+                        contactPersonName: "Majken Lorentzen",
+                        employmentDate: null,
+                        applicationDeadlineDate: new DateTime(2021, 07, 15),
+                        bulletPoints: new HashSet<string>()
+                            {
+                                "Ordnede forhold",
+                                "En social arbejdsplads med gode kollegaer",
+                                "Fleksibilitet vedr. vagter",
+                                "Mulighed for vagter både på hverdage og i weekender",
+                                "Du har lyst til at arbejde inden for lager og logistik",
+                                "Du er fleksibel",
+                                "Du kan arbejde minimum 2 dage om ugen",
+                                "Du kan arbejde om eftermiddagen og aftenen",
+                                "Du har en god fysik",
+                                "Du kan lide at arbejde i teams",
+                                "Orderly conditions",
+                                "A social workplace with good colleagues",
+                                "Flexibility regarding shifts",
+                                "Possibility of shifts both on weekdays and on weekends",
+                                "You want to work in warehousing and logistics",
+                                "You are flexible",
+                                "You can work a minimum of 2 days a week",
+                                "You can work in the afternoon and evening time",
+                                "You have a good physique",
+                                "You like working in teams"
+                            },
+                        bulletPointScenario: "generic"
+                    );
+
+            return jobPostingExtended;
+
+        }
+        static void DeserializeJobPage01JobPostingExtended09()
+        {
+
+            IFileInfoAdapter fileInfoAdapter = new FileInfoAdapter(@"C:\Dropbox\Tasks\20210502 - NW.WIDJobs\New WID\JSONs\JobPage01_JobPostingExtended09.json");
+            IFileManager fileManager = new FileManager();
+            string response = fileManager.ReadAllText(fileInfoAdapter);
+
+            JobPosting jobPosting = CreateJobPage01JobPosting09();
+
+            IJobPostingExtendedDeserializer jobPostingExtendedDeserializer = new JobPostingExtendedDeserializer();
+            JobPostingExtended jobPostingExtended = jobPostingExtendedDeserializer.Do(jobPosting, response);
+
+            string json = Serialize(jobPostingExtended);
+
+        }
+
+        // JobPage01JobPosting10
 
         // ...
         static string Serialize(JobPostingExtended jobPostingExtended)
