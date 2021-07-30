@@ -5,6 +5,7 @@ using NW.WIDJobs;
 using NW.WIDJobs.UnitTests;
 using System.Text.Json;
 using System.Text.Encodings.Web;
+using System.Dynamic;
 
 namespace NW.WIDJobsClient
 {
@@ -47,32 +48,8 @@ namespace NW.WIDJobsClient
             */
 
         }
-        static void DeserializeJobPage01JobPostingExtended01()
-        {
 
-            IFileInfoAdapter fileInfoAdapter = new FileInfoAdapter(@"C:\Dropbox\Tasks\20210502 - NW.WIDJobs\New WID\JSONs\JobPage01_JobPostingExtended03.json");
-            IFileManager fileManager = new FileManager();
-            string response = fileManager.ReadAllText(fileInfoAdapter);
-
-            JobPosting jobPosting = CreateJobPage01JobPosting01();
-
-            IJobPostingExtendedDeserializer jobPostingExtendedDeserializer = new JobPostingExtendedDeserializer();
-            JobPostingExtended jobPostingExtended = jobPostingExtendedDeserializer.Do(jobPosting, response);
-
-        }
-        static void DeserializeJobPage02JobPostingExtended10()
-        {
-
-            IFileInfoAdapter fileInfoAdapter = new FileInfoAdapter(@"C:\Dropbox\Tasks\20210502 - NW.WIDJobs\New WID\JSONs\JobPage02_JobPostingExtended10.html");
-            IFileManager fileManager = new FileManager();
-            string response = fileManager.ReadAllText(fileInfoAdapter);
-
-            JobPosting jobPosting = CreateJobPage01JobPosting01();
-
-            IJobPostingExtendedDeserializer jobPostingExtendedDeserializer = new JobPostingExtendedDeserializer();
-            JobPostingExtended jobPostingExtended = jobPostingExtendedDeserializer.Do(jobPosting, response);
-
-        }
+        // JobPage01JobPosting01
         static JobPosting CreateJobPage01JobPosting01()
         {
 
@@ -106,6 +83,97 @@ namespace NW.WIDJobsClient
                     );
 
             return jobPosting;
+
+        }
+        static JobPostingExtended CreateJobPage01JobPostingExtended01()
+        {
+
+            JobPostingExtended jobPostingExtended
+                = new JobPostingExtended(
+                        jobPosting: CreateJobPage01JobPosting01(),
+                        response: null, // Ignored
+                        hiringOrgDescription: null,
+                        publicationStartDate: new DateTime(2021, 07, 02),
+                        publicationEndDate: new DateTime(2021, 08, 27),
+                        purpose: null, // Ignored
+                        numberToFill: 1,
+                        contactEmail: "edc@keepit.com",
+                        contactPersonName: "Emil Daniel Christensen",
+                        employmentDate: null,
+                        applicationDeadlineDate: new DateTime(2021, 08, 27),
+                        bulletPoints: new HashSet<string>()
+                            {
+                                "-\\u00A0\\u00A0\\u00A0\\u00A0\\u00A0\\u00A0\\u00A0Performance troubleshooting - if a service is not performing as expected, troubleshooting the process interactions on a live server in order to identify the root cause and propose a remedy, possibly in collaboration with the development team.",
+                                "-\\u00A0\\u00A0\\u00A0\\u00A0\\u00A0\\u00A0\\u00A0Planning, testing, and executing Postgres database cluster migration from an older version to a newer version with little or no user-visible interruptions.",
+                                "-\\u00A0\\u00A0\\u00A0\\u00A0\\u00A0\\u00A0\\u00A0Designing the next iteration of our network infrastructure for high-performance multi-site communication, and planning and executing the transition from the previous iteration with no customer visible downtime.\\u00A0"
+                            },
+                        bulletPointScenario: "keepit.com"
+                    );
+
+            return jobPostingExtended;
+
+        }
+        static void DeserializeJobPage01JobPostingExtended01()
+        {
+
+            IFileInfoAdapter fileInfoAdapter = new FileInfoAdapter(@"C:\Dropbox\Tasks\20210502 - NW.WIDJobs\New WID\JSONs\JobPage01_JobPostingExtended01.json");
+            IFileManager fileManager = new FileManager();
+            string response = fileManager.ReadAllText(fileInfoAdapter);
+
+            JobPosting jobPosting = CreateJobPage01JobPosting01();
+
+            IJobPostingExtendedDeserializer jobPostingExtendedDeserializer = new JobPostingExtendedDeserializer();
+            JobPostingExtended jobPostingExtended = jobPostingExtendedDeserializer.Do(jobPosting, response);
+
+            string json = Serialize(jobPostingExtended);
+
+        }
+
+        // JobPage01JobPosting02
+
+
+        private static string Serialize(JobPostingExtended jobPostingExtended)
+        {
+
+            dynamic dyn = new ExpandoObject();
+            dyn.HiringOrgDescription = jobPostingExtended.HiringOrgDescription;
+            dyn.PublicationStartDate = jobPostingExtended.PublicationStartDate;
+            dyn.PublicationEndDate = jobPostingExtended.PublicationEndDate;
+            dyn.NumberToFill = jobPostingExtended.NumberToFill;
+            dyn.ContactEmail = jobPostingExtended.ContactEmail;
+            dyn.ContactPersonName = jobPostingExtended.ContactPersonName;
+            dyn.EmploymentDate = jobPostingExtended.EmploymentDate;
+            dyn.ApplicationDeadlineDate = jobPostingExtended.ApplicationDeadlineDate;
+            dyn.BulletPoints = jobPostingExtended.BulletPoints;
+            dyn.BulletPointScenario = jobPostingExtended.BulletPointScenario;
+            // dyn.JobPosting = jobPostingExtended.JobPosting;
+            // dyn.Response = jobPostingExtended.Response;
+            // dyn.Purpose = jobPostingExtended.Purpose;
+
+            JsonSerializerOptions jso = new JsonSerializerOptions
+            {
+                Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
+                WriteIndented = true
+            };
+
+            string json = JsonSerializer.Serialize(dyn, jso);
+            json = json.Replace("\r\n", string.Empty);
+
+            return json;
+
+        }
+
+        static void DeserializeJobPage02JobPostingExtended10()
+        {
+
+            IFileInfoAdapter fileInfoAdapter = new FileInfoAdapter(@"C:\Dropbox\Tasks\20210502 - NW.WIDJobs\New WID\JSONs\JobPage02_JobPostingExtended10.html");
+            IFileManager fileManager = new FileManager();
+            string response = fileManager.ReadAllText(fileInfoAdapter);
+
+            JobPosting jobPosting = CreateJobPage01JobPosting01();
+
+            IJobPostingExtendedDeserializer jobPostingExtendedDeserializer = new JobPostingExtendedDeserializer();
+            JobPostingExtended jobPostingExtended = jobPostingExtendedDeserializer.Do(jobPosting, response);
 
         }
 
