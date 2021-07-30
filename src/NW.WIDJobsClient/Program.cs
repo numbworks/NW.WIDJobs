@@ -22,7 +22,7 @@ namespace NW.WIDJobsClient
         static void DeserializeJobPage01()
         {
 
-            IFileInfoAdapter fileInfoAdapter = new FileInfoAdapter(@"C:\Users\Rubèn\Desktop\New WID\JSONs\JobPage01.json");
+            IFileInfoAdapter fileInfoAdapter = new FileInfoAdapter(@"C:\Dropbox\Tasks\20210502 - NW.WIDJobs\New WID\JSONs\JobPage01.json");
             IFileManager fileManager = new FileManager();
             string response = fileManager.ReadAllText(fileInfoAdapter);
 
@@ -50,7 +50,7 @@ namespace NW.WIDJobsClient
         static void DeserializeJobPage01JobPostingExtended01()
         {
 
-            IFileInfoAdapter fileInfoAdapter = new FileInfoAdapter(@"C:\Users\Rubèn\Desktop\New WID\JSONs\JobPage01_JobPostingExtended01.json");
+            IFileInfoAdapter fileInfoAdapter = new FileInfoAdapter(@"C:\Dropbox\Tasks\20210502 - NW.WIDJobs\New WID\JSONs\JobPage01_JobPostingExtended03.json");
             IFileManager fileManager = new FileManager();
             string response = fileManager.ReadAllText(fileInfoAdapter);
 
@@ -63,7 +63,7 @@ namespace NW.WIDJobsClient
         static void DeserializeJobPage02JobPostingExtended10()
         {
 
-            IFileInfoAdapter fileInfoAdapter = new FileInfoAdapter(@"C:\Users\Rubèn\Desktop\New WID\JSONs\JobPage02_JobPostingExtended10.html");
+            IFileInfoAdapter fileInfoAdapter = new FileInfoAdapter(@"C:\Dropbox\Tasks\20210502 - NW.WIDJobs\New WID\JSONs\JobPage02_JobPostingExtended10.html");
             IFileManager fileManager = new FileManager();
             string response = fileManager.ReadAllText(fileInfoAdapter);
 
