@@ -27,7 +27,7 @@ namespace NW.WIDJobs
                 ("easycruit.com", "//div[@class='jd-description']/ul/li"),
                 ("coloplast.com", "//span[@class='jobdescription']/ul/li"),
                 ("keepit.com", "//p[starts-with(., '-')]"),
-                ("generic", "//ul/li")
+                ("generic", "//ul/li|//ol/li")
             };
 
         #endregion

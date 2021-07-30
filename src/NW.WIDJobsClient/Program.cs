@@ -723,7 +723,12 @@ namespace NW.WIDJobsClient
                                 "As a Vice President, we expect a truly transparent and inclusive leadership style, empowering your team to perform at their maximum abilities.\\u00A0\\u00A0",
                                 "Facilitate outstanding collaborations between the product marketing team and the full brand & marketing team as well as\\u00A0internal core stakeholders such as product\\u00A0management\\u00A0and sales\\u00A0",
                                 "Help us\\u00A0articulate\\u00A0and implement\\u00A0a\\u00A0global product marketing\\u00A0strategy\\u00A0·Serve as an evangelist for our products through thought leadership\\u00A0\\u00A0",
-                                "Keep the company up-to-date with market trends and competition\\u00A0\\u00A0"
+                                "Keep the company up-to-date with market trends and competition\\u00A0\\u00A0",
+                                "Product Marketing Strategy:\\u00A0We are looking for a profile that can help us define the right strategies that will\\u00A0fuel our continued growth.\\u00A0Having experience with making product marketing strategies for SaaS products\\u00A0is a requirement.\\u00A0",
+                                "Product Marketing:\\u00A0The right candidate has\\u00A0a\\u00A0solid\\u00A0product marketing skill-set\\u00A0with an entrepreneurial spirit.\\u00A0You\\u00A0know how to\\u00A0deliver\\u00A0sales\\u00A0enablement content\\u00A0and can execute marketing initiatives, including aligning and getting buy-in from stakeholders across the organization (including marketing, product, and sales).\\u00A0",
+                                "Leadership Style:\\u00A0We believe that the right candidate\\u00A0has the ability to\\u00A0inspire\\u00A0the\\u00A0team\\u00A0with an including and transparent leadership style.\\u00A0",
+                                "Language:\\u00A0We use English as our preferred language, and being fluent in English, both written and spoken, is essential for this role.\\u00A0",
+                                "Entrepreneurial spirit:\\u00A0We are passionate about winning in the market. However, we are also passionate about our workplace, and we know that a good work environment and great collaboration across our organization are crucial to achieving our ambitious goals. Therefore, we are searching for team leaders who, like us, are being motivated by building a fair and fun work environment at Keepit."
                             },
                         bulletPointScenario: "generic"
                     );
