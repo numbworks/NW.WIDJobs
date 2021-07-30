@@ -14,7 +14,7 @@ namespace NW.WIDJobsClient
         static void Main(string[] args)
         {
 
-            DeserializeJobPage01JobPostingExtended02();
+            DeserializeJobPage01JobPostingExtended03();
 
             WIDExplorerComponents.DefaultLoggingAction.Invoke("Press a button to close the window.");
             Console.ReadLine();
@@ -216,8 +216,106 @@ namespace NW.WIDJobsClient
         }
 
         // JobPage01JobPosting03
+        static JobPosting CreateJobPage01JobPosting03()
+        {
 
-        private static string Serialize(JobPostingExtended jobPostingExtended)
+            JobPosting jobPosting
+                = new JobPosting(
+                        runId: "temp",
+                        pageNumber: 1,
+                        response: "{\r\n            \"AutomatchType\": 0,\r\n            \"Abroad\": false,\r\n            \"Weight\": 1.0,\r\n            \"Title\": \"Selvstændige truckførere til status og tælleopgave i Kolding/Forklift drivers for inventory assignment in Kolding\",\r\n            \"JobHeadline\": \"Selvstændige truckførere til status og tælleopgave i Kolding/Forklift drivers for inventory assignment in Kolding\",\r\n            \"Presentation\": \"<p><strong>English version below the Danish</strong></p>\\n\",\r\n            \"HiringOrgName\": \"TeamVikaren.dk, Århus ApS, Horsens Afdeling\",\r\n            \"WorkPlaceAddress\": \"\",\r\n            \"WorkPlacePostalCode\": \"6000\",\r\n            \"WorkPlaceCity\": \"Kolding\",\r\n            \"WorkPlaceOtherAddress\": true,\r\n            \"WorkPlaceAbroad\": false,\r\n            \"WorkPlaceNotStatic\": false,\r\n            \"UseWorkPlaceAddressForJoblog\": false,\r\n            \"PostingCreated\": \"2021-07-02T00:00:00\",\r\n            \"LastDateApplication\": \"2021-08-13T00:00:00\",\r\n            \"FormattedLastDateApplication\": \"13. august 2021\",\r\n            \"AssignmentStartDate\": \"0001-01-01T00:00:00\",\r\n            \"IsHotjob\": false,\r\n            \"IsExternal\": false,\r\n            \"Url\": \"https://job.jobnet.dk/CV/FindWork/Details/5372675\",\r\n            \"Region\": \"Syddanmark\",\r\n            \"Municipality\": \"Kolding\",\r\n            \"Country\": \"Danmark\",\r\n            \"PostalCode\": \"6000\",\r\n            \"PostalCodeName\": null,\r\n            \"JobAnnouncementType\": \"\",\r\n            \"EmploymentType\": \"\",\r\n            \"WorkHours\": \"Fuldtid\",\r\n            \"OccupationArea\": \"\",\r\n            \"OccupationGroup\": \"\",\r\n            \"Occupation\": \"Truckfører\",\r\n            \"Location\": {\r\n                \"Latitude\": 55.5022,\r\n                \"Longitude\": 9.4685\r\n            },\r\n            \"JoblogWorkTime\": {\r\n                \"WorkHour\": null,\r\n                \"DailyWorkTime\": \"Dag\"\r\n            },\r\n            \"WorkplaceID\": 126565,\r\n            \"OrganisationId\": \"71174\",\r\n            \"HiringOrgCVR\": 30899695,\r\n            \"UserLoggedIn\": false,\r\n            \"AnonymousEmployer\": false,\r\n            \"ShareUrl\": \"https://job.jobnet.dk/CV/FindWork/DetailsSocialmedia/5372675\",\r\n            \"DetailsUrl\": \"https://job.jobnet.dk/CV/FindWork/DetailsWidk/5372675\",\r\n            \"JobLogUrl\": \"https://job.jobnet.dk/CV/FindWork/Details/5372675\",\r\n            \"HasLocationValues\": true,\r\n            \"ID\": \"5372675\",\r\n            \"Latitude\": 55.5022,\r\n            \"Longitude\": 9.4685\r\n        }",
+                        title: "Selvstændige truckførere til status og tælleopgave i Kolding/Forklift drivers for inventory assignment in Kolding",
+                        presentation: "<p><strong>English version below the Danish</strong></p>\n",
+                        hiringOrgName: "TeamVikaren.dk, Århus ApS, Horsens Afdeling",
+                        workPlaceAddress: "",
+                        workPlacePostalCode: 6000,
+                        workPlaceCity: "Kolding",
+                        postingCreated: new DateTime(2021, 07, 02),
+                        lastDateApplication: new DateTime(2021, 08, 13),
+                        url: "https://job.jobnet.dk/CV/FindWork/Details/5372675",
+                        region: "Syddanmark",
+                        municipality: "Kolding",
+                        country: "Danmark",
+                        employmentType: "",
+                        workHours: "Fuldtid",
+                        occupation: "Truckfører",
+                        workplaceId: 126565,
+                        organisationId: 71174,
+                        hiringOrgCVR: 30899695,
+                        id: 5372675,
+                        workPlaceCityWithoutZone: "Kolding",
+                        jobPostingNumber: 3,
+                        jobPostingId: "5372675selvstndigetruckfreretil"
+                    );
+
+            return jobPosting;
+
+        }
+        static JobPostingExtended CreateJobPage01JobPostingExtended03()
+        {
+
+            JobPostingExtended jobPostingExtended
+                = new JobPostingExtended(
+                        jobPosting: CreateJobPage01JobPosting03(),
+                        response: null, // Ignored
+                        hiringOrgDescription: null,
+                        publicationStartDate: new DateTime(2021, 07, 02),
+                        publicationEndDate: new DateTime(2021, 08, 13),
+                        purpose: null, // Ignored
+                        numberToFill: 2,
+                        contactEmail: null,
+                        contactPersonName: "Majken Lorentzen",
+                        employmentDate: null,
+                        applicationDeadlineDate: new DateTime(2021, 08, 13),
+                        bulletPoints: new HashSet<string>()
+                            {
+                                "Ordnede forhold",
+                                "Attraktiv løn",
+                                "En social arbejdsplads med gode kollegaer",
+                                "Mulighed for vagter på daghold",
+                                "Du har lyst til at arbejde inden for lager og logistik",
+                                "Du kan arbejde om dagen",
+                                "Du har gerne erfaring med truckkørsel – dog ikke et krav",
+                                "Du kan lide at arbejde i teams",
+                                "Du må ikke være talblind",
+                                "Du kan arbejde i ugerne 29 og 30, eller en af ugerne",
+                                "Orderly conditions",
+                                "Attractive salary",
+                                "A social workplace with good colleagues",
+                                "Day shifts",
+                                "You want to work in warehousing and logistics",
+                                "You can work during the day",
+                                "You would like to have experience with truck driving - but not a requirement",
+                                "You must be able to count",
+                                "You can work in weeks 29 and 30, or one of the weeks"
+                            },
+                        bulletPointScenario: "generic"
+                    );
+
+            return jobPostingExtended;
+
+        }
+        static void DeserializeJobPage01JobPostingExtended03()
+        {
+
+            IFileInfoAdapter fileInfoAdapter = new FileInfoAdapter(@"C:\Dropbox\Tasks\20210502 - NW.WIDJobs\New WID\JSONs\JobPage01_JobPostingExtended03.json");
+            IFileManager fileManager = new FileManager();
+            string response = fileManager.ReadAllText(fileInfoAdapter);
+
+            JobPosting jobPosting = CreateJobPage01JobPosting03();
+
+            IJobPostingExtendedDeserializer jobPostingExtendedDeserializer = new JobPostingExtendedDeserializer();
+            JobPostingExtended jobPostingExtended = jobPostingExtendedDeserializer.Do(jobPosting, response);
+
+            string json = Serialize(jobPostingExtended);
+
+        }
+
+        // JobPage01JobPosting04
+
+
+        // ...
+        static string Serialize(JobPostingExtended jobPostingExtended)
         {
 
             dynamic dyn = new ExpandoObject();
@@ -247,7 +345,6 @@ namespace NW.WIDJobsClient
             return json;
 
         }
-
         static void DeserializeJobPage02JobPostingExtended10()
         {
 
@@ -261,7 +358,6 @@ namespace NW.WIDJobsClient
             JobPostingExtended jobPostingExtended = jobPostingExtendedDeserializer.Do(jobPosting, response);
 
         }
-
         static WIDExplorer CreateExplorer()
         {
 
