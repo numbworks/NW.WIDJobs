@@ -331,6 +331,7 @@ namespace NW.WIDJobs
                 = bulletPoints
                     .Select(bulletPoint => RemoveNewLines(bulletPoint))
                     .Select(bulletPoint => RemoveExtraWhiteSpaces(bulletPoint))
+                    .Select(bulletPoint => RemoveInitialHyphen(bulletPoint))
                     .ToList();
 
             return results;
@@ -345,6 +346,21 @@ namespace NW.WIDJobs
                 return string.Join(" ", str.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries));
 
             return str;
+        }
+        private string RemoveInitialHyphen(string str)
+        {
+
+            if (str != null)
+                if (str.StartsWith("-"))
+                {
+
+                    str = str.Substring(1, str.Length - 1);
+                    str = str.TrimStart();
+
+                }
+                
+            return str;
+
         }
 
         #endregion
