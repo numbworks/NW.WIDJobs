@@ -29,9 +29,9 @@ namespace NW.WIDJobs
         public string EmploymentType { get; }
         public string WorkHours { get; }
         public string Occupation { get; }
-        public ulong WorkplaceId { get; }
-        public ulong OrganisationId { get; }
-        public ulong HiringOrgCVR { get; }
+        public ulong? WorkplaceId { get; }
+        public ulong? OrganisationId { get; }
+        public ulong? HiringOrgCVR { get; }
         public ulong Id { get; }
         public string WorkPlaceCityWithoutZone { get; }
         public ushort JobPostingNumber { get; }
@@ -63,9 +63,9 @@ namespace NW.WIDJobs
             string employmentType,
             string workHours,
             string occupation,
-            ulong workplaceId,
-            ulong organisationId,
-            ulong hiringOrgCVR,
+            ulong? workplaceId,
+            ulong? organisationId,
+            ulong? hiringOrgCVR,
             ulong id,
             string workPlaceCityWithoutZone,
             ushort jobPostingNumber,

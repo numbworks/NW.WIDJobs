@@ -99,9 +99,9 @@ namespace NW.WIDJobs
             string employmentType = ExtractEmploymentType(jsonElement);
             string workHours = ExtractWorkHours(jsonElement);
             string occupation = ExtractOccupation(jsonElement);
-            ulong workplaceId = ExtractWorkplaceID(jsonElement);
-            ulong organisationId = ExtractOrganisationId(jsonElement);
-            ulong hiringOrgCVR = ExtractHiringOrgCVR(jsonElement);
+            ulong? workplaceId = ExtractWorkplaceID(jsonElement);
+            ulong? organisationId = ExtractOrganisationId(jsonElement);
+            ulong? hiringOrgCVR = ExtractHiringOrgCVR(jsonElement);
             ulong id = ExtractID(jsonElement);
 
             string workPlaceCityWithoutZone = CreateWorkPlaceCityWithoutZone(workPlaceCity);
@@ -234,24 +234,37 @@ namespace NW.WIDJobs
             return jsonElement.GetProperty("Occupation").GetString();
 
         }
-        private ulong ExtractWorkplaceID(JsonElement jsonElement)
+        private ulong? ExtractWorkplaceID(JsonElement jsonElement)
         {
 
-            return jsonElement.GetProperty("WorkplaceID").GetUInt64();
+            string workplaceID = jsonElement.GetProperty("WorkplaceID").GetString();
+
+            if (string.IsNullOrWhiteSpace(workplaceID))
+                return null;
+
+            return ulong.Parse(workplaceID);
 
         }
-        private ulong ExtractOrganisationId(JsonElement jsonElement)
+        private ulong? ExtractOrganisationId(JsonElement jsonElement)
         {
 
             string organizationId = jsonElement.GetProperty("OrganisationId").GetString();
 
+            if (string.IsNullOrWhiteSpace(organizationId))
+                return null;
+
             return ulong.Parse(organizationId);
 
         }
-        private ulong ExtractHiringOrgCVR(JsonElement jsonElement)
+        private ulong? ExtractHiringOrgCVR(JsonElement jsonElement)
         {
 
-            return jsonElement.GetProperty("HiringOrgCVR").GetUInt64();
+            string hiringOrgCVR = jsonElement.GetProperty("HiringOrgCVR").GetString();
+
+            if (string.IsNullOrWhiteSpace(hiringOrgCVR))
+                return null;
+
+            return ulong.Parse(hiringOrgCVR);
 
         }
         private ulong ExtractID(JsonElement jsonElement)
