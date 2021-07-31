@@ -18,7 +18,7 @@ namespace NW.WIDJobs
         public string Presentation { get; }
         public string HiringOrgName { get; }
         public string WorkPlaceAddress { get; }
-        public ushort WorkPlacePostalCode { get; }
+        public ushort? WorkPlacePostalCode { get; }
         public string WorkPlaceCity { get; }
         public DateTime PostingCreated { get; }
         public DateTime LastDateApplication { get; }
@@ -52,7 +52,7 @@ namespace NW.WIDJobs
             string presentation,
             string hiringOrgName,
             string workPlaceAddress,
-            ushort workPlacePostalCode,
+            ushort? workPlacePostalCode,
             string workPlaceCity,
             DateTime postingCreated,
             DateTime lastDateApplication,

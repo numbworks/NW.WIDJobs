@@ -88,7 +88,7 @@ namespace NW.WIDJobs
             string presentation = ExtractPresentation(jsonElement);
             string hiringOrgName = ExtractHiringOrgName(jsonElement);
             string workPlaceAddress = ExtractWorkPlaceAddress(jsonElement);
-            ushort workPlacePostalCode = ExtractWorkPlacePostalCode(jsonElement);
+            ushort? workPlacePostalCode = ExtractWorkPlacePostalCode(jsonElement);
             string workPlaceCity = ExtractWorkPlaceCity(jsonElement);
             DateTime postingCreated = ExtractPostingCreated(jsonElement);
             DateTime lastDateApplication = ExtractLastDateApplication(jsonElement);
@@ -163,10 +163,13 @@ namespace NW.WIDJobs
             return jsonElement.GetProperty("WorkPlaceAddress").GetString();
 
         }
-        private ushort ExtractWorkPlacePostalCode(JsonElement jsonElement)
+        private ushort? ExtractWorkPlacePostalCode(JsonElement jsonElement)
         {
 
             string workPlacePostalCode = jsonElement.GetProperty("WorkPlacePostalCode").GetString();
+            
+            if (string.IsNullOrWhiteSpace(workPlacePostalCode))
+                return null;
 
             return ushort.Parse(workPlacePostalCode);
 
