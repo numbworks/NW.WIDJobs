@@ -327,6 +327,7 @@ namespace NW.WIDJobs
                     .Select(bulletPoint => RemoveNewLines(bulletPoint))
                     .Select(bulletPoint => RemoveExtraWhiteSpaces(bulletPoint))
                     .Select(bulletPoint => RemoveInitialHyphen(bulletPoint))
+                    .Select(bulletPoint => FixNonBreakingSpaceCharacters(bulletPoint))
                     .ToHashSet();
 
             return results;
@@ -371,6 +372,26 @@ namespace NW.WIDJobs
             return str;
 
         }
+        private string FixNonBreakingSpaceCharacters(string str)
+        {
+
+            /*
+                "\\u00A0Keep the company\\u00A0up-to-date with market trends and competition\\u00A0\\u00A0"
+                    => "Keep the company up-to-date with market trends and competition"
+            */
+
+            if (str != null)
+            {
+
+                str = str.Replace("\u00A0", " ");
+                str = str.TrimStart();
+                str = str.TrimEnd();
+
+            }
+
+            return str;
+
+        } 
 
         #endregion
 
