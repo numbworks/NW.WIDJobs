@@ -79,7 +79,6 @@ namespace NW.WIDJobs
             Validator.ValidateStringNullOrWhiteSpace(title, nameof(title));
             Validator.ValidateStringNullOrWhiteSpace(hiringOrgName, nameof(hiringOrgName));
             Validator.ValidateStringNullOrWhiteSpace(url, nameof(url));
-            Validator.ValidateStringNullOrWhiteSpace(country, nameof(country));
             Validator.ValidateStringNullOrWhiteSpace(workHours, nameof(workHours));
             Validator.ValidateStringNullOrWhiteSpace(occupation, nameof(occupation));
             Validator.ValidateStringNullOrWhiteSpace(jobPostingId, nameof(jobPostingId));
