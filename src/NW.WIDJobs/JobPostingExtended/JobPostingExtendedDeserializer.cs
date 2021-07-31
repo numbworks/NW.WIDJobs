@@ -260,6 +260,8 @@ namespace NW.WIDJobs
             if (bulletPoints.Count == 0)
                 bulletPoints = TryExtractBulletPointsWithRegex(content, out bulletPointScenario);
 
+            bulletPoints = CleanBulletPoints(bulletPoints);
+
             return bulletPoints;
 
         }
@@ -292,10 +294,9 @@ namespace NW.WIDJobs
 
             }
 
-            results = CleanBulletPoints(results);
             HashSet<string> bulletPoints = new HashSet<string>(results);
-
             bulletPointScenario = scenario;
+
             return bulletPoints;
 
         }
@@ -315,7 +316,23 @@ namespace NW.WIDJobs
 
         }
 
-        private List<string> CleanBulletPoints(List<string> bulletPoints)
+        private HashSet<string> CleanBulletPoints(HashSet<string> bulletPoints)
+        {
+
+            if (bulletPoints.Count == 0)
+                return bulletPoints;
+
+            HashSet<string> results
+                = bulletPoints
+                    .Select(bulletPoint => RemoveNewLines(bulletPoint))
+                    .Select(bulletPoint => RemoveExtraWhiteSpaces(bulletPoint))
+                    .Select(bulletPoint => RemoveInitialHyphen(bulletPoint))
+                    .ToHashSet();
+
+            return results;
+
+        }
+        private string RemoveNewLines(string str)
         {
 
             /*
@@ -324,21 +341,9 @@ namespace NW.WIDJobs
                 ...
             */
 
-            if (bulletPoints.Count == 0)
-                return bulletPoints;
-
-            List<string> results
-                = bulletPoints
-                    .Select(bulletPoint => RemoveNewLines(bulletPoint))
-                    .Select(bulletPoint => RemoveExtraWhiteSpaces(bulletPoint))
-                    .Select(bulletPoint => RemoveInitialHyphen(bulletPoint))
-                    .ToList();
-
-            return results;
+            return str?.Replace(Environment.NewLine, string.Empty);
 
         }
-        private string RemoveNewLines(string str)
-            => str?.Replace(Environment.NewLine, string.Empty);
         private string RemoveExtraWhiteSpaces(string str)
         {
 
@@ -349,6 +354,10 @@ namespace NW.WIDJobs
         }
         private string RemoveInitialHyphen(string str)
         {
+
+            /*            
+                "- Picking/packing tasks" => "Picking/packing tasks"
+             */
 
             if (str != null)
                 if (str.StartsWith("-"))
