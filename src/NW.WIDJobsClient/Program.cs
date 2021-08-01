@@ -14,7 +14,7 @@ namespace NW.WIDJobsClient
         static void Main(string[] args)
         {
 
-            DeserializeJobPage02JobPostingExtended03();
+            DeserializeJobPage02JobPostingExtended04();
 
             WIDExplorerComponents.DefaultLoggingAction.Invoke("Press a button to close the window.");
             Console.ReadLine();
@@ -2157,6 +2157,104 @@ namespace NW.WIDJobsClient
         }
 
         // JobPage02JobPosting04
+        static JobPosting CreateJobPage02JobPosting04()
+        {
+
+            JobPosting jobPosting
+                = new JobPosting(
+                        runId: "temp",
+                        pageNumber: 2,
+                        response: "{\r\n            \"AutomatchType\": 0,\r\n            \"Abroad\": false,\r\n            \"Weight\": 1.0,\r\n            \"Title\": \"Project Officer - Impact Assessment and Adaptation Analysis\",\r\n            \"JobHeadline\": \"Project Officer - Impact Assessment and Adaptation Analysis\",\r\n            \"Presentation\": \"<br>\\n UNEP DTU Partnership (UDP) is a leading international research and advisory institution on energy, climate and sustainable development. UDP is part of the Department for Technology, Management \",\r\n            \"HiringOrgName\": \"Danmarks Tekniske Universitet\",\r\n            \"WorkPlaceAddress\": \"Anker Engelunds Vej 101\",\r\n            \"WorkPlacePostalCode\": \"2800\",\r\n            \"WorkPlaceCity\": \"Kongens Lyngby\",\r\n            \"WorkPlaceOtherAddress\": false,\r\n            \"WorkPlaceAbroad\": false,\r\n            \"WorkPlaceNotStatic\": false,\r\n            \"UseWorkPlaceAddressForJoblog\": true,\r\n            \"PostingCreated\": \"2021-07-02T00:00:00\",\r\n            \"LastDateApplication\": \"2021-07-16T00:00:00\",\r\n            \"FormattedLastDateApplication\": \"16. juli 2021\",\r\n            \"AssignmentStartDate\": \"0001-01-01T00:00:00\",\r\n            \"IsHotjob\": false,\r\n            \"IsExternal\": false,\r\n            \"Url\": \"https://job.jobnet.dk/CV/FindWork/Details/5382358\",\r\n            \"Region\": \"Hovedstaden og Bornholm\",\r\n            \"Municipality\": \"Gladsaxe\",\r\n            \"Country\": \"Danmark\",\r\n            \"PostalCode\": \"2800\",\r\n            \"PostalCodeName\": null,\r\n            \"JobAnnouncementType\": \"\",\r\n            \"EmploymentType\": \"\",\r\n            \"WorkHours\": \"Fuldtid\",\r\n            \"OccupationArea\": \"\",\r\n            \"OccupationGroup\": \"\",\r\n            \"Occupation\": \"Miljøingeniør\",\r\n            \"Location\": {\r\n                \"Latitude\": 55.7859,\r\n                \"Longitude\": 12.5241\r\n            },\r\n            \"JoblogWorkTime\": {\r\n                \"WorkHour\": null,\r\n                \"DailyWorkTime\": null\r\n            },\r\n            \"WorkplaceID\": 83955,\r\n            \"OrganisationId\": \"66175\",\r\n            \"HiringOrgCVR\": 30060946,\r\n            \"UserLoggedIn\": false,\r\n            \"AnonymousEmployer\": false,\r\n            \"ShareUrl\": \"https://job.jobnet.dk/CV/FindWork/DetailsSocialmedia/5382358\",\r\n            \"DetailsUrl\": \"https://job.jobnet.dk/CV/FindWork/DetailsWidk/5382358\",\r\n            \"JobLogUrl\": \"https://job.jobnet.dk/CV/FindWork/Details/5382358\",\r\n            \"HasLocationValues\": true,\r\n            \"ID\": \"5382358\",\r\n            \"Latitude\": 55.7859,\r\n            \"Longitude\": 12.5241\r\n        }",
+                        title: "Project Officer - Impact Assessment and Adaptation Analysis",
+                        presentation: "<br>\n UNEP DTU Partnership (UDP) is a leading international research and advisory institution on energy, climate and sustainable development. UDP is part of the Department for Technology, Management ",
+                        hiringOrgName: "Danmarks Tekniske Universitet",
+                        workPlaceAddress: "Anker Engelunds Vej 101",
+                        workPlacePostalCode: 2800,
+                        workPlaceCity: "Kongens Lyngby",
+                        postingCreated: new DateTime(2021, 07, 02),
+                        lastDateApplication: new DateTime(2021, 07, 16),
+                        url: "https://job.jobnet.dk/CV/FindWork/Details/5382358",
+                        region: "Hovedstaden og Bornholm",
+                        municipality: "Gladsaxe",
+                        country: "Danmark",
+                        employmentType: "",
+                        workHours: "Fuldtid",
+                        occupation: "Miljøingeniør",
+                        workplaceId: 83955,
+                        organisationId: 66175,
+                        hiringOrgCVR: 30060946,
+                        id: 5382358,
+                        workPlaceCityWithoutZone: "Kongens Lyngby",
+                        jobPostingNumber: 4,
+                        jobPostingId: "5382358projectofficerimpactassessmentand"
+                    );
+
+            return jobPosting;
+
+        }
+        static JobPostingExtended CreateJobPage02JobPostingExtended04()
+        {
+
+            JobPostingExtended jobPostingExtended
+                = new JobPostingExtended(
+                        jobPosting: CreateJobPage02JobPosting04(),
+                        response: null, // Ignored
+                        hiringOrgDescription: null,
+                        publicationStartDate: new DateTime(2021, 07, 02),
+                        publicationEndDate: new DateTime(2021, 07, 16),
+                        purpose: null, // Ignored
+                        numberToFill: 1,
+                        contactEmail: null,
+                        contactPersonName: "Henry Neufeldt",
+                        employmentDate: null,
+                        applicationDeadlineDate: new DateTime(2021, 07, 16),
+                        bulletPoints: new HashSet<string>()
+                        {
+                            "Lead the development of tools and guidance materials within adaptation assessment, tracking and transparency.",
+                            "Support the production of UNEP's Adaptation Gap Report;",
+                            "Contribute to the section's work on private sector adaptation, and adaptation business models.",
+                            "Contribute to the section's work on impact assessments of mitigation and adaptation actions and their contribution to sustainable development;",
+                            "Contribute to the section's work on adaptation finance tracking;",
+                            "Contribute to the development of scientific papers, briefs, and reports;",
+                            "Other tasks as assigned by the head of section.",
+                            "M.Sc. degree in environmental science, environmental engineering, sustainability studies, environmental economics, or other relevant field;",
+                            "Understanding of the Paris Agreement, in particular of the Enhanced Transparency Framework;",
+                            "Good knowledge of methods and approaches for adaptation assessment and tracking at aggregated levels (i.e. national and global-levels)",
+                            "Good knowledge of the adaptation finance landscape, and methods and approaches for tracking adaptation finance",
+                            "Good knowledge of the Sustainable Development Goal framework, including of the SDG targets and indicators, particularly in the context of impact assessment;",
+                            "Good knowledge of private sector adaptation is an asset;",
+                            "Strong analytical skills, an innovative mindset, and the ability to adapt to different tasks and workloads quickly and effectively;",
+                            "Demonstrated excellent writing, communication, and presentation skills in English; proficiency in other languages, in particular Spanish and/or French is an asset",
+                            "Ability to work effectively both individually as well as in teams, with people from different academic and cultural backgrounds;",
+                            "Experience in preparing technical and/or policy-relevant reports and papers is considered a strong asset;",
+                            "Experience in working with developing countries is an asset;",
+                            "Application letter;",
+                            "CV with full personal data and contact details;",
+                            "Indication of three references; and,",
+                            "A copy of your diploma(s)"
+                        },
+                        bulletPointScenario: "generic"
+                    );
+
+            return jobPostingExtended;
+
+        }
+        static void DeserializeJobPage02JobPostingExtended04()
+        {
+
+            IFileInfoAdapter fileInfoAdapter = new FileInfoAdapter(@"C:\Dropbox\Tasks\20210502 - NW.WIDJobs\New WID\JSONs\JobPage02_JobPostingExtended04.json");
+            IFileManager fileManager = new FileManager();
+            string response = fileManager.ReadAllText(fileInfoAdapter);
+
+            JobPosting jobPosting = CreateJobPage02JobPosting04();
+
+            IJobPostingExtendedDeserializer jobPostingExtendedDeserializer = new JobPostingExtendedDeserializer();
+            JobPostingExtended jobPostingExtended = jobPostingExtendedDeserializer.Do(jobPosting, response);
+
+            string json = Serialize(jobPostingExtended);
+
+        }
+
         // JobPage02JobPosting05
         // JobPage02JobPosting06
         // JobPage02JobPosting07
