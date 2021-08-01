@@ -14,7 +14,7 @@ namespace NW.WIDJobsClient
         static void Main(string[] args)
         {
 
-            DeserializeJobPage02JobPostingExtended09();
+            DeserializeJobPage02JobPostingExtended10();
 
             WIDExplorerComponents.DefaultLoggingAction.Invoke("Press a button to close the window.");
             Console.ReadLine();
@@ -2678,6 +2678,88 @@ namespace NW.WIDJobsClient
         }
 
         // JobPage02JobPosting10
+        static JobPosting CreateJobPage02JobPosting10()
+        {
+
+            JobPosting jobPosting
+                = new JobPosting(
+                        runId: "temp",
+                        pageNumber: 2,
+                        response: "{\r\n            \"AutomatchType\": 0,\r\n            \"Abroad\": true,\r\n            \"Weight\": 1.0,\r\n            \"Title\": \"Receptionist\",\r\n            \"JobHeadline\": \"Security Receptionist\",\r\n            \"Presentation\": \"Stilling\\n\\nSecurity Receptionist\\nJobbeskrivelse\\nJobbeskrivelse\\n\\nPlacering\\n\\nBagsværd, Denmark\\n\\nJobkategori\\n\\nGeneral Management and Administration\\n\\nAnsøg nu\\n\\n\u00A0 \u00A0\\n\\nSecurity receptionist in Novo Nordisk – \",\r\n            \"HiringOrgName\": \"Novo Nordisk A/S\",\r\n            \"WorkPlaceAddress\": \"Novo alle 1\",\r\n            \"WorkPlacePostalCode\": \"2880\",\r\n            \"WorkPlaceCity\": \"Bagsværd\",\r\n            \"WorkPlaceOtherAddress\": false,\r\n            \"WorkPlaceAbroad\": false,\r\n            \"WorkPlaceNotStatic\": false,\r\n            \"UseWorkPlaceAddressForJoblog\": true,\r\n            \"PostingCreated\": \"2021-07-02T00:00:00\",\r\n            \"LastDateApplication\": \"2021-07-06T00:00:00\",\r\n            \"FormattedLastDateApplication\": \"6. juli 2021\",\r\n            \"AssignmentStartDate\": \"2021-07-07T00:00:00\",\r\n            \"IsHotjob\": false,\r\n            \"IsExternal\": true,\r\n            \"Url\": \"https://www.novonordisk.dk/content/nncorp/dk/da/careers/find-a-job/job-ad.199941.en_GB.html\",\r\n            \"Region\": \"Hovedstaden og Bornholm\",\r\n            \"Municipality\": \"Lyngby-Taarbæk\",\r\n            \"Country\": \"\",\r\n            \"PostalCode\": \"2880\",\r\n            \"PostalCodeName\": null,\r\n            \"JobAnnouncementType\": \"Almindelige vilkår\",\r\n            \"EmploymentType\": \"Tidsbegrænset ansættelse\",\r\n            \"WorkHours\": \"Fuldtid\",\r\n            \"OccupationArea\": \"\",\r\n            \"OccupationGroup\": \"\",\r\n            \"Occupation\": \"\",\r\n            \"Location\": {\r\n                \"Latitude\": 55.7546,\r\n                \"Longitude\": 12.4552\r\n            },\r\n            \"JoblogWorkTime\": {\r\n                \"WorkHour\": null,\r\n                \"DailyWorkTime\": null\r\n            },\r\n            \"WorkplaceID\": 0,\r\n            \"OrganisationId\": \"\",\r\n            \"HiringOrgCVR\": 0,\r\n            \"UserLoggedIn\": false,\r\n            \"AnonymousEmployer\": false,\r\n            \"ShareUrl\": \"https://www.novonordisk.dk/content/nncorp/dk/da/careers/find-a-job/job-ad.199941.en_GB.html\",\r\n            \"DetailsUrl\": null,\r\n            \"JobLogUrl\": \"https://www.novonordisk.dk/content/nncorp/dk/da/careers/find-a-job/job-ad.199941.en_GB.html\",\r\n            \"HasLocationValues\": true,\r\n            \"ID\": \"E8251052\",\r\n            \"Latitude\": 55.7546,\r\n            \"Longitude\": 12.4552\r\n        }",
+                        title: "Receptionist",
+                        presentation: "Stilling\n\nSecurity Receptionist\nJobbeskrivelse\nJobbeskrivelse\n\nPlacering\n\nBagsværd, Denmark\n\nJobkategori\n\nGeneral Management and Administration\n\nAnsøg nu\n\n\u00A0 \u00A0\n\nSecurity receptionist in Novo Nordisk – ",
+                        hiringOrgName: "Novo Nordisk A/S",
+                        workPlaceAddress: "Novo alle 1",
+                        workPlacePostalCode: 2880,
+                        workPlaceCity: "Bagsværd",
+                        postingCreated: new DateTime(2021, 07, 02),
+                        lastDateApplication: new DateTime(2021, 07, 06),
+                        url: "https://www.novonordisk.dk/content/nncorp/dk/da/careers/find-a-job/job-ad.199941.en_GB.html",
+                        region: "Hovedstaden og Bornholm",
+                        municipality: "Lyngby-Taarbæk",
+                        country: "Danmark",
+                        employmentType: "Tidsbegrænset ansættelse",
+                        workHours: "Fuldtid",
+                        occupation: "",
+                        workplaceId: 0,
+                        organisationId: null,
+                        hiringOrgCVR: 0,
+                        id: 8251052,
+                        workPlaceCityWithoutZone: "Bagsværd",
+                        jobPostingNumber: 10,
+                        jobPostingId: "8251052receptionist"
+                    );
+
+            return jobPosting;
+
+        }
+        static JobPostingExtended CreateJobPage02JobPostingExtended10()
+        {
+
+            JobPostingExtended jobPostingExtended
+                = new JobPostingExtended(
+                        jobPosting: CreateJobPage02JobPosting10(),
+                        response: null, // Ignored
+                        hiringOrgDescription: null,
+                        publicationStartDate: null,
+                        publicationEndDate: null,
+                        purpose: null, // Ignored
+                        numberToFill: null,
+                        contactEmail: null,
+                        contactPersonName: null,
+                        employmentDate: null,
+                        applicationDeadlineDate: null,
+                        bulletPoints: new HashSet<string>()
+                        {
+                            "The most important in this job is your personality. We\\n weigh discretion highly and the importance of our customers\\n getting a professional service when they are welcomed by you\\n at our receptions.",
+                            "We are an active part of the security setup and it will\\n be an advantage if you have worked as an Security\\n Receptionist before.",
+                            "As you will have colleagues from very different\\n backgrounds, it will require tolerance and understanding to\\n positively gain from the differences.",
+                            "You will need a good deal of curiosity and have the\\n ability to work very thorough with your tasks.",
+                            "You have a solid language background, speak and write\\n Danish and English at a high level. It will be an advantage\\n if you master another foreign language. You have the ability\\n to absorb and handle large amounts of information and in\\n depth organisational knowledge.",
+                            "You are used to working in a large company and handling\\n many different stakeholders. You are a super user in regards\\n to the Office-package, are used to working with data and Key\\n Performance Indicators (KPIs) and you have technical insight\\n into SAP and IT systems including maintenance hereof."
+                        },
+                        bulletPointScenario: "novonordisk.dk"
+                    );
+
+            return jobPostingExtended;
+
+        }
+        static void DeserializeJobPage02JobPostingExtended10()
+        {
+
+            IFileInfoAdapter fileInfoAdapter = new FileInfoAdapter(@"C:\Dropbox\Tasks\20210502 - NW.WIDJobs\New WID\JSONs\JobPage02_JobPostingExtended10.html");
+            IFileManager fileManager = new FileManager();
+            string response = fileManager.ReadAllText(fileInfoAdapter);
+
+            JobPosting jobPosting = CreateJobPage02JobPosting10();
+
+            IJobPostingExtendedDeserializer jobPostingExtendedDeserializer = new JobPostingExtendedDeserializer();
+            JobPostingExtended jobPostingExtended = jobPostingExtendedDeserializer.Do(jobPosting, response);
+
+            string json = Serialize(jobPostingExtended);
+
+        }
+
         // JobPage02JobPosting11
         // JobPage02JobPosting12
         // JobPage02JobPosting13
@@ -2718,19 +2800,6 @@ namespace NW.WIDJobsClient
             json = json.Replace("\r\n", string.Empty);
 
             return json;
-
-        }
-        static void DeserializeJobPage02JobPostingExtended10()
-        {
-
-            IFileInfoAdapter fileInfoAdapter = new FileInfoAdapter(@"C:\Dropbox\Tasks\20210502 - NW.WIDJobs\New WID\JSONs\JobPage02_JobPostingExtended10.html");
-            IFileManager fileManager = new FileManager();
-            string response = fileManager.ReadAllText(fileInfoAdapter);
-
-            JobPosting jobPosting = CreateJobPage01JobPosting01();
-
-            IJobPostingExtendedDeserializer jobPostingExtendedDeserializer = new JobPostingExtendedDeserializer();
-            JobPostingExtended jobPostingExtended = jobPostingExtendedDeserializer.Do(jobPosting, response);
 
         }
         static WIDExplorer CreateExplorer()
