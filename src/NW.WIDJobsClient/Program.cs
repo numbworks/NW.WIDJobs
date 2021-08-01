@@ -14,7 +14,7 @@ namespace NW.WIDJobsClient
         static void Main(string[] args)
         {
 
-            DeserializeJobPage02JobPostingExtended02();
+            DeserializeJobPage02JobPostingExtended03();
 
             WIDExplorerComponents.DefaultLoggingAction.Invoke("Press a button to close the window.");
             Console.ReadLine();
@@ -2063,6 +2063,99 @@ namespace NW.WIDJobsClient
         }
 
         // JobPage02JobPosting03
+        static JobPosting CreateJobPage02JobPosting03()
+        {
+
+            JobPosting jobPosting
+                = new JobPosting(
+                        runId: "temp",
+                        pageNumber: 2,
+                        response: "{\r\n            \"AutomatchType\": 0,\r\n            \"Abroad\": false,\r\n            \"Weight\": 1.0,\r\n            \"Title\": \"Solution Architect\",\r\n            \"JobHeadline\": \"Solution Architect\",\r\n            \"Presentation\": \" \",\r\n            \"HiringOrgName\": \"Plecto ApS\",\r\n            \"WorkPlaceAddress\": \"Viby Ringvej 11\",\r\n            \"WorkPlacePostalCode\": \"8260\",\r\n            \"WorkPlaceCity\": \"Viby J\",\r\n            \"WorkPlaceOtherAddress\": false,\r\n            \"WorkPlaceAbroad\": false,\r\n            \"WorkPlaceNotStatic\": false,\r\n            \"UseWorkPlaceAddressForJoblog\": true,\r\n            \"PostingCreated\": \"2021-07-02T00:00:00\",\r\n            \"LastDateApplication\": \"2021-08-27T00:00:00\",\r\n            \"FormattedLastDateApplication\": \"27. august 2021\",\r\n            \"AssignmentStartDate\": \"0001-01-01T00:00:00\",\r\n            \"IsHotjob\": false,\r\n            \"IsExternal\": false,\r\n            \"Url\": \"https://job.jobnet.dk/CV/FindWork/Details/5382367\",\r\n            \"Region\": \"Midtjylland\",\r\n            \"Municipality\": \"Aarhus\",\r\n            \"Country\": \"Danmark\",\r\n            \"PostalCode\": \"8260\",\r\n            \"PostalCodeName\": null,\r\n            \"JobAnnouncementType\": \"\",\r\n            \"EmploymentType\": \"\",\r\n            \"WorkHours\": \"Fuldtid\",\r\n            \"OccupationArea\": \"\",\r\n            \"OccupationGroup\": \"\",\r\n            \"Occupation\": \"Kundeservicemedarbejder\",\r\n            \"Location\": {\r\n                \"Latitude\": 56.1288,\r\n                \"Longitude\": 10.161\r\n            },\r\n            \"JoblogWorkTime\": {\r\n                \"WorkHour\": null,\r\n                \"DailyWorkTime\": null\r\n            },\r\n            \"WorkplaceID\": 107348,\r\n            \"OrganisationId\": \"96927\",\r\n            \"HiringOrgCVR\": 34737460,\r\n            \"UserLoggedIn\": false,\r\n            \"AnonymousEmployer\": false,\r\n            \"ShareUrl\": \"https://job.jobnet.dk/CV/FindWork/DetailsSocialmedia/5382367\",\r\n            \"DetailsUrl\": \"https://job.jobnet.dk/CV/FindWork/DetailsWidk/5382367\",\r\n            \"JobLogUrl\": \"https://job.jobnet.dk/CV/FindWork/Details/5382367\",\r\n            \"HasLocationValues\": true,\r\n            \"ID\": \"5382367\",\r\n            \"Latitude\": 56.1288,\r\n            \"Longitude\": 10.161\r\n        }",
+                        title: "Solution Architect",
+                        presentation: " ",
+                        hiringOrgName: "Plecto ApS",
+                        workPlaceAddress: "Viby Ringvej 11",
+                        workPlacePostalCode: 8260,
+                        workPlaceCity: "Viby J",
+                        postingCreated: new DateTime(2021, 07, 02),
+                        lastDateApplication: new DateTime(2021, 08, 27),
+                        url: "https://job.jobnet.dk/CV/FindWork/Details/5382367",
+                        region: "Midtjylland",
+                        municipality: "Aarhus",
+                        country: "Danmark",
+                        employmentType: "",
+                        workHours: "Fuldtid",
+                        occupation: "Kundeservicemedarbejder",
+                        workplaceId: 107348,
+                        organisationId: 96927,
+                        hiringOrgCVR: 34737460,
+                        id: 5382367,
+                        workPlaceCityWithoutZone: "Viby",
+                        jobPostingNumber: 3,
+                        jobPostingId: "5382367solutionarchitect"
+                    );
+
+            return jobPosting;
+
+        }
+        static JobPostingExtended CreateJobPage02JobPostingExtended03()
+        {
+
+            JobPostingExtended jobPostingExtended
+                = new JobPostingExtended(
+                        jobPosting: CreateJobPage02JobPosting03(),
+                        response: null, // Ignored
+                        hiringOrgDescription: null,
+                        publicationStartDate: new DateTime(2021, 07, 02),
+                        publicationEndDate: new DateTime(2021, 08, 27),
+                        purpose: null, // Ignored
+                        numberToFill: 1,
+                        contactEmail: "justyna@plecto.com",
+                        contactPersonName: "Justyna Płaczkiewicz",
+                        employmentDate: null,
+                        applicationDeadlineDate: new DateTime(2021, 08, 27),
+                        bulletPoints: new HashSet<string>() 
+                        {
+                            "Join and hold meetings with prospects and customers to assist with any questions related to SQL, API or Plecto in general",
+                            "Handle complex support cases and customer queries  in a timely and efficient manner",
+                            "Guide customers and prospects on best practices in using Plecto",
+                            "Assist customers in setting up their Plecto account",
+                            "Assist in initial integration research",
+                            "Reading technical API documentation - JSON, REST and OAuth",
+                            "Solve customer problems under complex constraints and come up with solutions without any additional development of Plecto",
+                            "Maintaining and creating internal knowledge base articles",
+                            "Experience in delivering outstanding technical support",
+                            "Experience in database operations including reading and writing basic to intermediate database SQL queries and troubleshooting connection issues",
+                            "Experience and knowledge in API and SQL Server Databases",
+                            "Interest and knowledge in other programming languages is a plus, but not a requirement",
+                            "Ability to effectively communicate technical concepts to a variety of audiences with different levels of technical expertise",
+                            "Multi-tasking and time-management to prioritize and switch between varied tasks",
+                            "Technical writing skills to create and maintain Knowledge Base articles",
+                            "Technical skills and an eye for detail used in troubleshooting and implementing fixes",
+                            "You are fluent in English, both spoken and written + another additional language. Danish is a plus, but not a requirement"
+                        },
+                        bulletPointScenario: "generic"
+                    );
+
+            return jobPostingExtended;
+
+        }
+        static void DeserializeJobPage02JobPostingExtended03()
+        {
+
+            IFileInfoAdapter fileInfoAdapter = new FileInfoAdapter(@"C:\Dropbox\Tasks\20210502 - NW.WIDJobs\New WID\JSONs\JobPage02_JobPostingExtended03.json");
+            IFileManager fileManager = new FileManager();
+            string response = fileManager.ReadAllText(fileInfoAdapter);
+
+            JobPosting jobPosting = CreateJobPage02JobPosting03();
+
+            IJobPostingExtendedDeserializer jobPostingExtendedDeserializer = new JobPostingExtendedDeserializer();
+            JobPostingExtended jobPostingExtended = jobPostingExtendedDeserializer.Do(jobPosting, response);
+
+            string json = Serialize(jobPostingExtended);
+
+        }
+
         // JobPage02JobPosting04
         // JobPage02JobPosting05
         // JobPage02JobPosting06
