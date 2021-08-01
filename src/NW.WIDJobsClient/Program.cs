@@ -14,8 +14,7 @@ namespace NW.WIDJobsClient
         static void Main(string[] args)
         {
 
-            DeserializeJobPage02();
-            // DeserializeJobPage02JobPostingExtended01();
+            DeserializeJobPage02JobPostingExtended01();
 
             WIDExplorerComponents.DefaultLoggingAction.Invoke("Press a button to close the window.");
             Console.ReadLine();
@@ -28,7 +27,7 @@ namespace NW.WIDJobsClient
             IFileManager fileManager = new FileManager();
             string response = fileManager.ReadAllText(fileInfoAdapter);
 
-            JobPage jobPage = new JobPage("temp", 1, response);
+            JobPage jobPage = new JobPage("temp", 2, response);
 
             IJobPostingDeserializer jobPostingDeserializer = new JobPostingDeserializer();
             List<JobPosting> jobPostings = jobPostingDeserializer.Do(jobPage);
@@ -1883,30 +1882,30 @@ namespace NW.WIDJobsClient
             JobPosting jobPosting
                 = new JobPosting(
                         runId: "temp",
-                        pageNumber: 1,
-                        response: "{\r\n            \"AutomatchType\": 0,\r\n            \"Abroad\": false,\r\n            \"Weight\": 1.0,\r\n            \"Title\": \"Postdoc on Digital Platforms and Ecosystems Innovation Dynamics\",\r\n            \"JobHeadline\": \"Postdoc on Digital Platforms and Ecosystems Innovation Dynamics\",\r\n            \"Presentation\": \"Copenhagen Business School, as part of a new initiative to launch a European research network to foster multidisciplinary research on the digital economy, invites applications for a postdoc position a\",\r\n            \"HiringOrgName\": \"Copenhagen Business School\",\r\n            \"WorkPlaceAddress\": \"Solbjerg Plads 3\",\r\n            \"WorkPlacePostalCode\": \"2000\",\r\n            \"WorkPlaceCity\": \"Frederiksberg\",\r\n            \"WorkPlaceOtherAddress\": false,\r\n            \"WorkPlaceAbroad\": false,\r\n            \"WorkPlaceNotStatic\": false,\r\n            \"UseWorkPlaceAddressForJoblog\": true,\r\n            \"PostingCreated\": \"2021-07-02T00:00:00\",\r\n            \"LastDateApplication\": \"2021-08-26T00:00:00\",\r\n            \"FormattedLastDateApplication\": \"26. august 2021\",\r\n            \"AssignmentStartDate\": \"0001-01-01T00:00:00\",\r\n            \"IsHotjob\": false,\r\n            \"IsExternal\": false,\r\n            \"Url\": \"https://job.jobnet.dk/CV/FindWork/Details/5382486\",\r\n            \"Region\": \"Hovedstaden og Bornholm\",\r\n            \"Municipality\": \"Frederiksberg\",\r\n            \"Country\": \"Danmark\",\r\n            \"PostalCode\": \"2000\",\r\n            \"PostalCodeName\": null,\r\n            \"JobAnnouncementType\": \"\",\r\n            \"EmploymentType\": \"\",\r\n            \"WorkHours\": \"Fuldtid\",\r\n            \"OccupationArea\": \"\",\r\n            \"OccupationGroup\": \"\",\r\n            \"Occupation\": \"Forsker, samfundsvidenskab\",\r\n            \"Location\": {\r\n                \"Latitude\": 55.6815,\r\n                \"Longitude\": 12.5304\r\n            },\r\n            \"JoblogWorkTime\": {\r\n                \"WorkHour\": null,\r\n                \"DailyWorkTime\": null\r\n            },\r\n            \"WorkplaceID\": 79401,\r\n            \"OrganisationId\": \"26360\",\r\n            \"HiringOrgCVR\": 19596915,\r\n            \"UserLoggedIn\": false,\r\n            \"AnonymousEmployer\": false,\r\n            \"ShareUrl\": \"https://job.jobnet.dk/CV/FindWork/DetailsSocialmedia/5382486\",\r\n            \"DetailsUrl\": \"https://job.jobnet.dk/CV/FindWork/DetailsWidk/5382486\",\r\n            \"JobLogUrl\": \"https://job.jobnet.dk/CV/FindWork/Details/5382486\",\r\n            \"HasLocationValues\": true,\r\n            \"ID\": \"5382486\",\r\n            \"Latitude\": 55.6815,\r\n            \"Longitude\": 12.5304\r\n        }",
-                        title: "Postdoc on Digital Platforms and Ecosystems Innovation Dynamics",
-                        presentation: "Copenhagen Business School, as part of a new initiative to launch a European research network to foster multidisciplinary research on the digital economy, invites applications for a postdoc position a",
-                        hiringOrgName: "Copenhagen Business School",
-                        workPlaceAddress: "Solbjerg Plads 3",
-                        workPlacePostalCode: 2000,
-                        workPlaceCity: "Frederiksberg",
+                        pageNumber: 2,
+                        response: "{\r\n            \"AutomatchType\": 0,\r\n            \"Abroad\": false,\r\n            \"Weight\": 1.0,\r\n            \"Title\": \"Assistant or associate professorship in general didactics and empirical school research\",\r\n            \"JobHeadline\": \"Assistant or associate professorship in general didactics and empirical school research\",\r\n            \"Presentation\": \"The Department of Educational Theory and Curriculum Studies at the Danish School of Education, Aarhus University invites applications for an assistant/associate professorship in the field of general d\",\r\n            \"HiringOrgName\": \"Aarhus Universitet\",\r\n            \"WorkPlaceAddress\": \"Tuborgvej 164\",\r\n            \"WorkPlacePostalCode\": \"2400\",\r\n            \"WorkPlaceCity\": \"København NV\",\r\n            \"WorkPlaceOtherAddress\": false,\r\n            \"WorkPlaceAbroad\": false,\r\n            \"WorkPlaceNotStatic\": false,\r\n            \"UseWorkPlaceAddressForJoblog\": true,\r\n            \"PostingCreated\": \"2021-07-02T00:00:00\",\r\n            \"LastDateApplication\": \"2021-08-09T00:00:00\",\r\n            \"FormattedLastDateApplication\": \"9. august 2021\",\r\n            \"AssignmentStartDate\": \"0001-01-01T00:00:00\",\r\n            \"IsHotjob\": false,\r\n            \"IsExternal\": false,\r\n            \"Url\": \"https://job.jobnet.dk/CV/FindWork/Details/5382440\",\r\n            \"Region\": \"Hovedstaden og Bornholm\",\r\n            \"Municipality\": \"København\",\r\n            \"Country\": \"Danmark\",\r\n            \"PostalCode\": \"2400\",\r\n            \"PostalCodeName\": null,\r\n            \"JobAnnouncementType\": \"\",\r\n            \"EmploymentType\": \"\",\r\n            \"WorkHours\": \"Fuldtid\",\r\n            \"OccupationArea\": \"\",\r\n            \"OccupationGroup\": \"\",\r\n            \"Occupation\": \"Adjunkt, samfundsvidenskab\",\r\n            \"Location\": {\r\n                \"Latitude\": 55.7217,\r\n                \"Longitude\": 12.5432\r\n            },\r\n            \"JoblogWorkTime\": {\r\n                \"WorkHour\": null,\r\n                \"DailyWorkTime\": null\r\n            },\r\n            \"WorkplaceID\": 106637,\r\n            \"OrganisationId\": \"90880\",\r\n            \"HiringOrgCVR\": 31119103,\r\n            \"UserLoggedIn\": false,\r\n            \"AnonymousEmployer\": false,\r\n            \"ShareUrl\": \"https://job.jobnet.dk/CV/FindWork/DetailsSocialmedia/5382440\",\r\n            \"DetailsUrl\": \"https://job.jobnet.dk/CV/FindWork/DetailsWidk/5382440\",\r\n            \"JobLogUrl\": \"https://job.jobnet.dk/CV/FindWork/Details/5382440\",\r\n            \"HasLocationValues\": true,\r\n            \"ID\": \"5382440\",\r\n            \"Latitude\": 55.7217,\r\n            \"Longitude\": 12.5432\r\n        }",
+                        title: "Assistant or associate professorship in general didactics and empirical school research",
+                        presentation: "The Department of Educational Theory and Curriculum Studies at the Danish School of Education, Aarhus University invites applications for an assistant/associate professorship in the field of general d",
+                        hiringOrgName: "Aarhus Universitet",
+                        workPlaceAddress: "Tuborgvej 164",
+                        workPlacePostalCode: 2400,
+                        workPlaceCity: "København NV",
                         postingCreated: new DateTime(2021, 07, 02),
-                        lastDateApplication: new DateTime(2021, 08, 26),
-                        url: "https://job.jobnet.dk/CV/FindWork/Details/5382486",
+                        lastDateApplication: new DateTime(2021, 08, 09),
+                        url: "https://job.jobnet.dk/CV/FindWork/Details/5382440",
                         region: "Hovedstaden og Bornholm",
-                        municipality: "Frederiksberg",
+                        municipality: "København",
                         country: "Danmark",
                         employmentType: "",
                         workHours: "Fuldtid",
-                        occupation: "Forsker, samfundsvidenskab",
-                        workplaceId: 79401,
-                        organisationId: 26360,
-                        hiringOrgCVR: 19596915,
-                        id: 5382486,
-                        workPlaceCityWithoutZone: "Frederiksberg",
-                        jobPostingNumber: 20,
-                        jobPostingId: "5382486postdocondigitalplatformsand"
+                        occupation: "Adjunkt, samfundsvidenskab",
+                        workplaceId: 106637,
+                        organisationId: 90880,
+                        hiringOrgCVR: 31119103,
+                        id: 5382440,
+                        workPlaceCityWithoutZone: "København",
+                        jobPostingNumber: 1,
+                        jobPostingId: "5382440assistantorassociateprofessorshipin"
                     );
 
             return jobPosting;
@@ -1917,7 +1916,7 @@ namespace NW.WIDJobsClient
 
             JobPostingExtended jobPostingExtended
                 = new JobPostingExtended(
-                        jobPosting: CreateJobPage01JobPosting20(),
+                        jobPosting: CreateJobPage02JobPosting01(),
                         response: null, // Ignored
                         hiringOrgDescription: null,
                         publicationStartDate: null,
@@ -1930,23 +1929,41 @@ namespace NW.WIDJobsClient
                         applicationDeadlineDate: null,
                         bulletPoints: new HashSet<string>()
                         {
-                            "How does digital platform design affect user behaviors and outcomes?",
-                            "How do complementors compete within and across digital ecosystems?",
-                            "How do ecosystems compete?",
-                            "What is the role of data and algorithms in steering interactions and value in platform markets and ecosystems (exploiting or correcting consumer behavioral biases)?",
-                            "Are data exclusionary or non-rivalry? How do they affect a firm’s competitive advantage in (platform) digital markets?",
-                            "How does data enable value creation (for organizations and their stakeholder)?",
-                            "How to organize the effective and efficient creation, sharing and usage of data in digital ecosystems?",
-                            "Applicants must have completed a PhD in Management, Economics, or other related social science discipline before the beginning the fellowship. Prior work (including but not limited to dissertation) should involve working with large datasets.",
-                            "Excellent academic record and work ethic required.",
-                            "Excellent organizational and oral/written communication skills required.",
-                            "Enthusiasm for research required. The ideal candidate will be thinking of this position as a platform to build skills towards taking on a research professorship in the future.",
-                            "Willingness to move to and live in Denmark.",
-                            "Cover letter.",
-                            "Proof of qualifications and a full CV.",
-                            "Any relevant information indicating experience in research management, industry co-operation and international cooperation.",
-                            "A complete, numbered list of publications (indicating titles, co-authors, page numbers and year) with an * marking of the academic productions to be considered during the review. A maximum of 10 publications for review are allowed. Applicants are requested to prioritize their publications in relation to the field of this job advertisement.",
-                            "Copies of the publications marked with an *. Only publications written in English (or another specified principal language, according to research tradition) or one of the Scandinavian languages will be taken into consideration."
+                            "Has specific research experience in the field of empirically informed teaching, learning outcome and/or student motivation",
+                            "Has specific research experience connected to the role of digital technologies in shaping teaching and subject areas",
+                            "Can demonstrate skills in collaborative and cross-disciplinary research",
+                            "Can demonstrate skills in handling various qualitative and quantitative scientific methods.",
+                            "Substantial research experience in general didactics in relation to empirical school research",
+                            "An internationally oriented research profile",
+                            "A relevant and internationally oriented publication profile",
+                            "Experience of or interest in participation in national and international research networks",
+                            "Experience of or interest in communication and knowledge exchange",
+                            "Experience of or interest in interdisciplinary collaboration as well as interdisciplinary research",
+                            "Experience of or the potential for obtaining external research funding",
+                            "Teaching experience at university level within the field of general didactics and educational research methods",
+                            "Experience of or interest in interdisciplinary teaching including innovative teaching methods",
+                            "Experience of or interest in supervising student projects, and interest in researcher talent development.",
+                            "Substantial research experience in the field of general didactics and empirical school research",
+                            "Substantial experience of empirical research related to didactics, learning outcomes and student motivation",
+                            "Skills in collaborative and cross-disciplinary school research",
+                            "Skills in empirical school research and empirically informed teaching, including mixed methods",
+                            "A strong, relevant international publication profile",
+                            "Participation in national and international research networks",
+                            "Experience of participation in collective research projects",
+                            "Teaching experience at university level within the field general didactics and educational research methods, including innovative teaching methods, and mastery of academic English in the classroom",
+                            "Proficiency in languages relevant to the area of research",
+                            "Experience of interdisciplinary cooperation outreach activities",
+                            "Experience of attracting external research funding",
+                            "Experience of supervising student projects and an interest in researcher talent development.",
+                            "Faculty of Arts refers to the Ministerial Order on the Appointment of Academic Staff at Danish Universities (the Appointment Order).",
+                            "Appointment shall be in accordance with the collective labour agreement between the Danish Ministry of Finance and the Danish Confederation of Professional Associations.",
+                            "Further information on qualification requirements and job content may be found in the Memorandum on Job Structure for Academic Staff at Danish Universities .",
+                            "Further information on the application and supplementary materials may be found in Application Guidelines.",
+                            "The application must outline the your motivation for applying for the position, attaching a curriculum vitae, copies of relevant degree certificates, and (if relevant for the position) a teaching portfolio. Please upload this material electronically along with your application.",
+                            "If you submit your application for the assistant professorship, please upload a maximum of five samples of your scholarly output (mandatory).",
+                            "If you submit your application for the associate professorship, please upload a maximum of eight samples of your scholarly output (mandatory).",
+                            "Faculty of Arts refers to the Ministerial Order on the Appointment of Academic Staff at Danish Universities(the Appointment Order).",
+                            "Further information on qualification requirements and job content may be found in theMemorandum on Job Structure for Academic Staff at Danish Universities."
                         },
                         bulletPointScenario: "generic"
                     );
@@ -1957,11 +1974,11 @@ namespace NW.WIDJobsClient
         static void DeserializeJobPage02JobPostingExtended01()
         {
 
-            IFileInfoAdapter fileInfoAdapter = new FileInfoAdapter(@"C:\Dropbox\Tasks\20210502 - NW.WIDJobs\New WID\JSONs\JobPage01_JobPostingExtended20.json");
+            IFileInfoAdapter fileInfoAdapter = new FileInfoAdapter(@"C:\Dropbox\Tasks\20210502 - NW.WIDJobs\New WID\JSONs\JobPage02_JobPostingExtended01.json");
             IFileManager fileManager = new FileManager();
             string response = fileManager.ReadAllText(fileInfoAdapter);
 
-            JobPosting jobPosting = CreateJobPage01JobPosting20();
+            JobPosting jobPosting = CreateJobPage02JobPosting01();
 
             IJobPostingExtendedDeserializer jobPostingExtendedDeserializer = new JobPostingExtendedDeserializer();
             JobPostingExtended jobPostingExtended = jobPostingExtendedDeserializer.Do(jobPosting, response);
