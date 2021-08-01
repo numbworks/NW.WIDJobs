@@ -14,7 +14,7 @@ namespace NW.WIDJobsClient
         static void Main(string[] args)
         {
 
-            DeserializeJobPage02JobPostingExtended08();
+            DeserializeJobPage02JobPostingExtended09();
 
             WIDExplorerComponents.DefaultLoggingAction.Invoke("Press a button to close the window.");
             Console.ReadLine();
@@ -2587,6 +2587,96 @@ namespace NW.WIDJobsClient
         }
 
         // JobPage02JobPosting09
+        static JobPosting CreateJobPage02JobPosting09()
+        {
+
+            JobPosting jobPosting
+                = new JobPosting(
+                        runId: "temp",
+                        pageNumber: 2,
+                        response: "{\r\n            \"AutomatchType\": 0,\r\n            \"Abroad\": false,\r\n            \"Weight\": 1.0,\r\n            \"Title\": \"Tenure Track Assistant Professor in paleoecology, ancient genomics and conservation biology\",\r\n            \"JobHeadline\": \"Tenure Track Assistant Professor in paleoecology, ancient genomics and conservation biology\",\r\n            \"Presentation\": \"The GLOBE Institute at the Faculty of Health and Medical Sciences, University of Copenhagen seeks to appoint a tenure track assistant professor in paleoecology, ancient genomics and conservation biolo\",\r\n            \"HiringOrgName\": \"KU - SCIENCE - SNM\",\r\n            \"WorkPlaceAddress\": \"Øster Voldgade 5-7\",\r\n            \"WorkPlacePostalCode\": \"1350\",\r\n            \"WorkPlaceCity\": \"København K\",\r\n            \"WorkPlaceOtherAddress\": false,\r\n            \"WorkPlaceAbroad\": false,\r\n            \"WorkPlaceNotStatic\": false,\r\n            \"UseWorkPlaceAddressForJoblog\": true,\r\n            \"PostingCreated\": \"2021-07-02T00:00:00\",\r\n            \"LastDateApplication\": \"2021-07-21T00:00:00\",\r\n            \"FormattedLastDateApplication\": \"21. juli 2021\",\r\n            \"AssignmentStartDate\": \"0001-01-01T00:00:00\",\r\n            \"IsHotjob\": false,\r\n            \"IsExternal\": false,\r\n            \"Url\": \"https://job.jobnet.dk/CV/FindWork/Details/5363343\",\r\n            \"Region\": \"Hovedstaden og Bornholm\",\r\n            \"Municipality\": \"København\",\r\n            \"Country\": \"Danmark\",\r\n            \"PostalCode\": \"1350\",\r\n            \"PostalCodeName\": null,\r\n            \"JobAnnouncementType\": \"\",\r\n            \"EmploymentType\": \"\",\r\n            \"WorkHours\": \"Fuldtid\",\r\n            \"OccupationArea\": \"\",\r\n            \"OccupationGroup\": \"\",\r\n            \"Occupation\": \"Adjunkt, sundhedsvidenskab\",\r\n            \"Location\": {\r\n                \"Latitude\": 55.6872,\r\n                \"Longitude\": 12.5772\r\n            },\r\n            \"JoblogWorkTime\": {\r\n                \"WorkHour\": null,\r\n                \"DailyWorkTime\": null\r\n            },\r\n            \"WorkplaceID\": 105129,\r\n            \"OrganisationId\": \"57758\",\r\n            \"HiringOrgCVR\": 29979812,\r\n            \"UserLoggedIn\": false,\r\n            \"AnonymousEmployer\": false,\r\n            \"ShareUrl\": \"https://job.jobnet.dk/CV/FindWork/DetailsSocialmedia/5363343\",\r\n            \"DetailsUrl\": \"https://job.jobnet.dk/CV/FindWork/DetailsWidk/5363343\",\r\n            \"JobLogUrl\": \"https://job.jobnet.dk/CV/FindWork/Details/5363343\",\r\n            \"HasLocationValues\": true,\r\n            \"ID\": \"5363343\",\r\n            \"Latitude\": 55.6872,\r\n            \"Longitude\": 12.5772\r\n        }",
+                        title: "Tenure Track Assistant Professor in paleoecology, ancient genomics and conservation biology",
+                        presentation: "The GLOBE Institute at the Faculty of Health and Medical Sciences, University of Copenhagen seeks to appoint a tenure track assistant professor in paleoecology, ancient genomics and conservation biolo",
+                        hiringOrgName: "KU - SCIENCE - SNM",
+                        workPlaceAddress: "Øster Voldgade 5-7",
+                        workPlacePostalCode: 1350,
+                        workPlaceCity: "København K",
+                        postingCreated: new DateTime(2021, 07, 02),
+                        lastDateApplication: new DateTime(2021, 07, 21),
+                        url: "https://job.jobnet.dk/CV/FindWork/Details/5363343",
+                        region: "Hovedstaden og Bornholm",
+                        municipality: "København",
+                        country: "Danmark",
+                        employmentType: "",
+                        workHours: "Fuldtid",
+                        occupation: "Adjunkt, sundhedsvidenskab",
+                        workplaceId: 105129,
+                        organisationId: 57758,
+                        hiringOrgCVR: 29979812,
+                        id: 5363343,
+                        workPlaceCityWithoutZone: "København",
+                        jobPostingNumber: 9,
+                        jobPostingId: "5363343tenuretrackassistantprofessorin"
+                    );
+
+            return jobPosting;
+
+        }
+        static JobPostingExtended CreateJobPage02JobPostingExtended09()
+        {
+
+            JobPostingExtended jobPostingExtended
+                = new JobPostingExtended(
+                        jobPosting: CreateJobPage02JobPosting09(),
+                        response: null, // Ignored
+                        hiringOrgDescription: null,
+                        publicationStartDate: null,
+                        publicationEndDate: null,
+                        purpose: null, // Ignored
+                        numberToFill: null,
+                        contactEmail: null,
+                        contactPersonName: null,
+                        employmentDate: null,
+                        applicationDeadlineDate: null,
+                        bulletPoints: new HashSet<string>() 
+                        {
+                            "research, including publication/academic dissemination",
+                            "research-based teaching",
+                            "sharing knowledge with society",
+                            "participation in formal pedagogical training programme for assistant professors",
+                            "a PhD degree or similar qualifications within the subject area",
+                            "research experience within the field of the position",
+                            "Application, including motivation for applying for this position (Maximum 2 pages)",
+                            "Curriculum vitae, including information about funding",
+                            "Diplomas (Master’s, PhD and other relevant diplomas)",
+                            "A complete list of publications",
+                            "Research plan (2-4 pages)",
+                            "Teaching plan",
+                            "Uploads of maximum 5 publications to be considered in the assessment",
+                            "Teaching portfolio, if applicable (Guidelines: https://employment.ku.dk/faculty/recruitment-process/job-application-portfolio)"
+                        },
+                        bulletPointScenario: "generic"
+                    );
+
+            return jobPostingExtended;
+
+        }
+        static void DeserializeJobPage02JobPostingExtended09()
+        {
+
+            IFileInfoAdapter fileInfoAdapter = new FileInfoAdapter(@"C:\Dropbox\Tasks\20210502 - NW.WIDJobs\New WID\JSONs\JobPage02_JobPostingExtended09.json");
+            IFileManager fileManager = new FileManager();
+            string response = fileManager.ReadAllText(fileInfoAdapter);
+
+            JobPosting jobPosting = CreateJobPage02JobPosting09();
+
+            IJobPostingExtendedDeserializer jobPostingExtendedDeserializer = new JobPostingExtendedDeserializer();
+            JobPostingExtended jobPostingExtended = jobPostingExtendedDeserializer.Do(jobPosting, response);
+
+            string json = Serialize(jobPostingExtended);
+
+        }
+
         // JobPage02JobPosting10
         // JobPage02JobPosting11
         // JobPage02JobPosting12
