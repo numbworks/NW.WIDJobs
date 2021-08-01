@@ -14,7 +14,7 @@ namespace NW.WIDJobsClient
         static void Main(string[] args)
         {
 
-            DeserializeJobPage02JobPostingExtended06();
+            DeserializeJobPage02JobPostingExtended07();
 
             WIDExplorerComponents.DefaultLoggingAction.Invoke("Press a button to close the window.");
             Console.ReadLine();
@@ -2424,6 +2424,93 @@ namespace NW.WIDJobsClient
         }
 
         // JobPage02JobPosting07
+        static JobPosting CreateJobPage02JobPosting07()
+        {
+
+            JobPosting jobPosting
+                = new JobPosting(
+                        runId: "temp",
+                        pageNumber: 2,
+                        response: "{\r\n            \"AutomatchType\": 0,\r\n            \"Abroad\": false,\r\n            \"Weight\": 1.0,\r\n            \"Title\": \"B2B Sales Specialist\",\r\n            \"JobHeadline\": \"B2B Sales Specialist\",\r\n            \"Presentation\": \" \",\r\n            \"HiringOrgName\": \"Plecto ApS\",\r\n            \"WorkPlaceAddress\": \"Viby Ringvej 11\",\r\n            \"WorkPlacePostalCode\": \"8260\",\r\n            \"WorkPlaceCity\": \"Viby J\",\r\n            \"WorkPlaceOtherAddress\": false,\r\n            \"WorkPlaceAbroad\": false,\r\n            \"WorkPlaceNotStatic\": false,\r\n            \"UseWorkPlaceAddressForJoblog\": true,\r\n            \"PostingCreated\": \"2021-07-02T00:00:00\",\r\n            \"LastDateApplication\": \"2021-07-30T00:00:00\",\r\n            \"FormattedLastDateApplication\": \"30. juli 2021\",\r\n            \"AssignmentStartDate\": \"0001-01-01T00:00:00\",\r\n            \"IsHotjob\": false,\r\n            \"IsExternal\": false,\r\n            \"Url\": \"https://job.jobnet.dk/CV/FindWork/Details/5345782\",\r\n            \"Region\": \"Midtjylland\",\r\n            \"Municipality\": \"Aarhus\",\r\n            \"Country\": \"Danmark\",\r\n            \"PostalCode\": \"8260\",\r\n            \"PostalCodeName\": null,\r\n            \"JobAnnouncementType\": \"\",\r\n            \"EmploymentType\": \"\",\r\n            \"WorkHours\": \"Fuldtid\",\r\n            \"OccupationArea\": \"\",\r\n            \"OccupationGroup\": \"\",\r\n            \"Occupation\": \"Salgskonsulent\",\r\n            \"Location\": {\r\n                \"Latitude\": 56.1288,\r\n                \"Longitude\": 10.161\r\n            },\r\n            \"JoblogWorkTime\": {\r\n                \"WorkHour\": null,\r\n                \"DailyWorkTime\": null\r\n            },\r\n            \"WorkplaceID\": 107348,\r\n            \"OrganisationId\": \"96927\",\r\n            \"HiringOrgCVR\": 34737460,\r\n            \"UserLoggedIn\": false,\r\n            \"AnonymousEmployer\": false,\r\n            \"ShareUrl\": \"https://job.jobnet.dk/CV/FindWork/DetailsSocialmedia/5345782\",\r\n            \"DetailsUrl\": \"https://job.jobnet.dk/CV/FindWork/DetailsWidk/5345782\",\r\n            \"JobLogUrl\": \"https://job.jobnet.dk/CV/FindWork/Details/5345782\",\r\n            \"HasLocationValues\": true,\r\n            \"ID\": \"5345782\",\r\n            \"Latitude\": 56.1288,\r\n            \"Longitude\": 10.161\r\n        }",
+                        title: "B2B Sales Specialist",
+                        presentation: " ",
+                        hiringOrgName: "Plecto ApS",
+                        workPlaceAddress: "Viby Ringvej 11",
+                        workPlacePostalCode: 8260,
+                        workPlaceCity: "Viby J",
+                        postingCreated: new DateTime(2021, 07, 02),
+                        lastDateApplication: new DateTime(2021, 07, 30),
+                        url: "https://job.jobnet.dk/CV/FindWork/Details/5345782",
+                        region: "Midtjylland",
+                        municipality: "Aarhus",
+                        country: "Danmark",
+                        employmentType: "",
+                        workHours: "Deltid",
+                        occupation: "Salgskonsulent",
+                        workplaceId: 107348,
+                        organisationId: 96927,
+                        hiringOrgCVR: 34737460,
+                        id: 5345782,
+                        workPlaceCityWithoutZone: "Viby",
+                        jobPostingNumber: 7,
+                        jobPostingId: "5345782bbsalesspecialist"
+                    );
+
+            return jobPosting;
+
+        }
+        static JobPostingExtended CreateJobPage02JobPostingExtended07()
+        {
+
+            JobPostingExtended jobPostingExtended
+                = new JobPostingExtended(
+                        jobPosting: CreateJobPage02JobPosting07(),
+                        response: null, // Ignored
+                        hiringOrgDescription: null,
+                        publicationStartDate: new DateTime(2021, 07, 02),
+                        publicationEndDate: new DateTime(2021, 07, 30),
+                        purpose: null, // Ignored
+                        numberToFill: 1,
+                        contactEmail: "justyna@plecto.com",
+                        contactPersonName: "Justyna Płaczkiewicz",
+                        employmentDate: null,
+                        applicationDeadlineDate: new DateTime(2021, 07, 30),
+                        bulletPoints: new HashSet<string>()
+                        {
+                            "Develop a strong base of customers",
+                            "Find leads and potential customers through for example networks and social platforms",
+                            "Identify areas where you can expand business with your existing customers",
+                            "Negotiate contracts and close deals while clearly predicting your pipeline",
+                            "You have excellent skills in both written and oral English",
+                            "You have a good business understanding and a structured work approach",
+                            "You are a team player with the ability to collaborate across teams",
+                            "You are able to identify needs and identify where Plecto can create value for potential customers",
+                            "It is an advantage if you have previous experience in the insurance-, telecommunications-, energy- or media industry",
+                            "It is an advantage if you have previous experience from B2B and/or sales",
+                            "You have a bubbly positive personality that we will love to get to know and work with"
+                        },
+                        bulletPointScenario: "generic"
+                    );
+
+            return jobPostingExtended;
+
+        }
+        static void DeserializeJobPage02JobPostingExtended07()
+        {
+
+            IFileInfoAdapter fileInfoAdapter = new FileInfoAdapter(@"C:\Dropbox\Tasks\20210502 - NW.WIDJobs\New WID\JSONs\JobPage02_JobPostingExtended07.json");
+            IFileManager fileManager = new FileManager();
+            string response = fileManager.ReadAllText(fileInfoAdapter);
+
+            JobPosting jobPosting = CreateJobPage02JobPosting07();
+
+            IJobPostingExtendedDeserializer jobPostingExtendedDeserializer = new JobPostingExtendedDeserializer();
+            JobPostingExtended jobPostingExtended = jobPostingExtendedDeserializer.Do(jobPosting, response);
+
+            string json = Serialize(jobPostingExtended);
+
+        }
+
         // JobPage02JobPosting08
         // JobPage02JobPosting09
         // JobPage02JobPosting10
