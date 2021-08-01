@@ -14,7 +14,7 @@ namespace NW.WIDJobsClient
         static void Main(string[] args)
         {
 
-            DeserializeJobPage02JobPostingExtended07();
+            DeserializeJobPage02JobPostingExtended08();
 
             WIDExplorerComponents.DefaultLoggingAction.Invoke("Press a button to close the window.");
             Console.ReadLine();
@@ -2512,6 +2512,80 @@ namespace NW.WIDJobsClient
         }
 
         // JobPage02JobPosting08
+        static JobPosting CreateJobPage02JobPosting08()
+        {
+
+            JobPosting jobPosting
+                = new JobPosting(
+                        runId: "temp",
+                        pageNumber: 2,
+                        response: "{\r\n            \"AutomatchType\": 0,\r\n            \"Abroad\": false,\r\n            \"Weight\": 1.0,\r\n            \"Title\": \"warwhose worker with in experince using a runner\",\r\n            \"JobHeadline\": \"warwhose worker with in experince using a runner\",\r\n            \"Presentation\": \"<p>10 persons needed for warehouse work in Horsens on both day and evening shift starting as soon as possible until the end of August.</p>\\n<p>\u00A0</p>\\n\",\r\n            \"HiringOrgName\": \"Vikar DK A/S\",\r\n            \"WorkPlaceAddress\": \"Egeskovvej 17\",\r\n            \"WorkPlacePostalCode\": \"8700\",\r\n            \"WorkPlaceCity\": \"Horsens\",\r\n            \"WorkPlaceOtherAddress\": false,\r\n            \"WorkPlaceAbroad\": false,\r\n            \"WorkPlaceNotStatic\": false,\r\n            \"UseWorkPlaceAddressForJoblog\": true,\r\n            \"PostingCreated\": \"2021-07-02T00:00:00\",\r\n            \"LastDateApplication\": \"2021-08-05T00:00:00\",\r\n            \"FormattedLastDateApplication\": \"5. august 2021\",\r\n            \"AssignmentStartDate\": \"0001-01-01T00:00:00\",\r\n            \"IsHotjob\": false,\r\n            \"IsExternal\": false,\r\n            \"Url\": \"https://job.jobnet.dk/CV/FindWork/Details/5366564\",\r\n            \"Region\": \"Midtjylland\",\r\n            \"Municipality\": \"Horsens\",\r\n            \"Country\": \"Danmark\",\r\n            \"PostalCode\": \"8700\",\r\n            \"PostalCodeName\": null,\r\n            \"JobAnnouncementType\": \"\",\r\n            \"EmploymentType\": \"\",\r\n            \"WorkHours\": \"Fuldtid\",\r\n            \"OccupationArea\": \"\",\r\n            \"OccupationGroup\": \"\",\r\n            \"Occupation\": \"Lager- og logistikmedarbejder\",\r\n            \"Location\": {\r\n                \"Latitude\": 55.923,\r\n                \"Longitude\": 9.8219\r\n            },\r\n            \"JoblogWorkTime\": {\r\n                \"WorkHour\": null,\r\n                \"DailyWorkTime\": \"Dag, aften\"\r\n            },\r\n            \"WorkplaceID\": 99015,\r\n            \"OrganisationId\": \"90677\",\r\n            \"HiringOrgCVR\": 34046956,\r\n            \"UserLoggedIn\": false,\r\n            \"AnonymousEmployer\": false,\r\n            \"ShareUrl\": \"https://job.jobnet.dk/CV/FindWork/DetailsSocialmedia/5366564\",\r\n            \"DetailsUrl\": \"https://job.jobnet.dk/CV/FindWork/DetailsWidk/5366564\",\r\n            \"JobLogUrl\": \"https://job.jobnet.dk/CV/FindWork/Details/5366564\",\r\n            \"HasLocationValues\": true,\r\n            \"ID\": \"5366564\",\r\n            \"Latitude\": 55.923,\r\n            \"Longitude\": 9.8219\r\n        }",
+                        title: "warwhose worker with in experince using a runner",
+                        presentation: "<p>10 persons needed for warehouse work in Horsens on both day and evening shift starting as soon as possible until the end of August.</p>\n<p>\u00A0</p>\n",
+                        hiringOrgName: "Vikar DK A/S",
+                        workPlaceAddress: "Egeskovvej 17",
+                        workPlacePostalCode: 8700,
+                        workPlaceCity: "Horsens",
+                        postingCreated: new DateTime(2021, 07, 02),
+                        lastDateApplication: new DateTime(2021, 08, 05),
+                        url: "https://job.jobnet.dk/CV/FindWork/Details/5366564",
+                        region: "Midtjylland",
+                        municipality: "Horsens",
+                        country: "Danmark",
+                        employmentType: "",
+                        workHours: "Fuldtid",
+                        occupation: "Lager- og logistikmedarbejder",
+                        workplaceId: 99015,
+                        organisationId: 90677,
+                        hiringOrgCVR: 34046956,
+                        id: 5366564,
+                        workPlaceCityWithoutZone: "Horsens",
+                        jobPostingNumber: 8,
+                        jobPostingId: "5366564warwhoseworkerwithinexperince"
+                    );
+
+            return jobPosting;
+
+        }
+        static JobPostingExtended CreateJobPage02JobPostingExtended08()
+        {
+
+            JobPostingExtended jobPostingExtended
+                = new JobPostingExtended(
+                        jobPosting: CreateJobPage02JobPosting08(),
+                        response: null, // Ignored
+                        hiringOrgDescription: null,
+                        publicationStartDate: new DateTime(2021, 07, 02),
+                        publicationEndDate: new DateTime(2021, 08, 05),
+                        purpose: null, // Ignored
+                        numberToFill: 10,
+                        contactEmail: "bbo@vikardk.dk",
+                        contactPersonName: "Bettina Bonde Thygesen",
+                        employmentDate: null,
+                        applicationDeadlineDate: new DateTime(2021, 08, 05),
+                        bulletPoints: new HashSet<string>() { },
+                        bulletPointScenario: "regex"
+                    );
+
+            return jobPostingExtended;
+
+        }
+        static void DeserializeJobPage02JobPostingExtended08()
+        {
+
+            IFileInfoAdapter fileInfoAdapter = new FileInfoAdapter(@"C:\Dropbox\Tasks\20210502 - NW.WIDJobs\New WID\JSONs\JobPage02_JobPostingExtended08.json");
+            IFileManager fileManager = new FileManager();
+            string response = fileManager.ReadAllText(fileInfoAdapter);
+
+            JobPosting jobPosting = CreateJobPage02JobPosting08();
+
+            IJobPostingExtendedDeserializer jobPostingExtendedDeserializer = new JobPostingExtendedDeserializer();
+            JobPostingExtended jobPostingExtended = jobPostingExtendedDeserializer.Do(jobPosting, response);
+
+            string json = Serialize(jobPostingExtended);
+
+        }
+
         // JobPage02JobPosting09
         // JobPage02JobPosting10
         // JobPage02JobPosting11
