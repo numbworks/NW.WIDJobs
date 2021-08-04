@@ -3315,6 +3315,9 @@ namespace NW.WIDJobs.UnitTests
                 Shared_JobPage01_JobPosting20
             };
 
+        internal static JobPage Shared_JobPage01_Object
+            = new JobPage(Shared_FakeRunId, 1, Shared_JobPage01_Content);
+
         #endregion
 
         #region Shared_JobPage02
@@ -4530,6 +4533,9 @@ namespace NW.WIDJobs.UnitTests
                 Shared_JobPage02_JobPosting19,
                 Shared_JobPage02_JobPosting20
             };
+
+        internal static JobPage Shared_JobPage02_Object
+            = new JobPage(Shared_FakeRunId, 2, Shared_JobPage02_Content);
 
         #endregion
 
