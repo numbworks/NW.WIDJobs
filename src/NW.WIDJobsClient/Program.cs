@@ -14,7 +14,7 @@ namespace NW.WIDJobsClient
         static void Main(string[] args)
         {
 
-            DeserializeJobPage02JobPostingExtended13();
+            DeserializeJobPage02JobPostingExtended14();
 
             WIDExplorerComponents.DefaultLoggingAction.Invoke("Press a button to close the window.");
             Console.ReadLine();
@@ -3020,6 +3020,80 @@ namespace NW.WIDJobsClient
         }
 
         // JobPage02JobPosting14
+        static JobPosting CreateJobPage02JobPosting14()
+        {
+
+            JobPosting jobPosting
+                = new JobPosting(
+                        runId: "temp",
+                        pageNumber: 2,
+                        response: "{\r\n            \"AutomatchType\": 0,\r\n            \"Abroad\": true,\r\n            \"Weight\": 1.0,\r\n            \"Title\": \"Support Engineer\",\r\n            \"JobHeadline\": \"Customer Support Engineer for Alfa Laval Aalborg\",\r\n            \"Presentation\": \"Customer Support Engineer for Alfa Laval Aalborg\\nAalborg\\nApply\\n\\nAt Alfa Laval, we always go that extra mile to overcome the toughest challenges. Our driving force is to accelerate success for our cust\",\r\n            \"HiringOrgName\": \"Alfa Laval Aalborg A/S\",\r\n            \"WorkPlaceAddress\": \"Gasværksvej 21\",\r\n            \"WorkPlacePostalCode\": \"9000\",\r\n            \"WorkPlaceCity\": \"Aalborg\",\r\n            \"WorkPlaceOtherAddress\": false,\r\n            \"WorkPlaceAbroad\": false,\r\n            \"WorkPlaceNotStatic\": false,\r\n            \"UseWorkPlaceAddressForJoblog\": true,\r\n            \"PostingCreated\": \"2021-07-02T00:00:00\",\r\n            \"LastDateApplication\": \"2021-07-20T00:00:00\",\r\n            \"FormattedLastDateApplication\": \"20. juli 2021\",\r\n            \"AssignmentStartDate\": \"2021-07-21T00:00:00\",\r\n            \"IsHotjob\": false,\r\n            \"IsExternal\": true,\r\n            \"Url\": \"https://alfalaval.wd3.myworkdayjobs.com/en-US/Alfa_Laval_jobs/job/Aalborg/Customer-Support-Engineer-for-Alfa-Laval-Aalborg_JR0007198\",\r\n            \"Region\": \"Nordjylland\",\r\n            \"Municipality\": \"Aalborg\",\r\n            \"Country\": \"\",\r\n            \"PostalCode\": \"9000\",\r\n            \"PostalCodeName\": null,\r\n            \"JobAnnouncementType\": \"Almindelige vilkår\",\r\n            \"EmploymentType\": \"Fastansættelse\",\r\n            \"WorkHours\": \"Fuldtid\",\r\n            \"OccupationArea\": \"\",\r\n            \"OccupationGroup\": \"\",\r\n            \"Occupation\": \"\",\r\n            \"Location\": {\r\n                \"Latitude\": 57.0493,\r\n                \"Longitude\": 9.9485\r\n            },\r\n            \"JoblogWorkTime\": {\r\n                \"WorkHour\": null,\r\n                \"DailyWorkTime\": null\r\n            },\r\n            \"WorkplaceID\": 0,\r\n            \"OrganisationId\": \"\",\r\n            \"HiringOrgCVR\": 0,\r\n            \"UserLoggedIn\": false,\r\n            \"AnonymousEmployer\": false,\r\n            \"ShareUrl\": \"https://alfalaval.wd3.myworkdayjobs.com/en-US/Alfa_Laval_jobs/job/Aalborg/Customer-Support-Engineer-for-Alfa-Laval-Aalborg_JR0007198\",\r\n            \"DetailsUrl\": null,\r\n            \"JobLogUrl\": \"https://alfalaval.wd3.myworkdayjobs.com/en-US/Alfa_Laval_jobs/job/Aalborg/Customer-Support-Engineer-for-Alfa-Laval-Aalborg_JR0007198\",\r\n            \"HasLocationValues\": true,\r\n            \"ID\": \"E8251039\",\r\n            \"Latitude\": 57.0493,\r\n            \"Longitude\": 9.9485\r\n        }",
+                        title: "Support Engineer",
+                        presentation: "Customer Support Engineer for Alfa Laval Aalborg\nAalborg\nApply\n\nAt Alfa Laval, we always go that extra mile to overcome the toughest challenges. Our driving force is to accelerate success for our cust",
+                        hiringOrgName: "Alfa Laval Aalborg A/S",
+                        workPlaceAddress: "Gasværksvej 21",
+                        workPlacePostalCode: 9000,
+                        workPlaceCity: "Aalborg",
+                        postingCreated: new DateTime(2021, 07, 02),
+                        lastDateApplication: new DateTime(2021, 07, 20),
+                        url: "https://alfalaval.wd3.myworkdayjobs.com/en-US/Alfa_Laval_jobs/job/Aalborg/Customer-Support-Engineer-for-Alfa-Laval-Aalborg_JR0007198",
+                        region: "Nordjylland",
+                        municipality: "Aalborg",
+                        country: "",
+                        employmentType: "Fastansættelse",
+                        workHours: "Fuldtid",
+                        occupation: "",
+                        workplaceId: 0,
+                        organisationId: null,
+                        hiringOrgCVR: 0,
+                        id: 8251039,
+                        workPlaceCityWithoutZone: "Aalborg",
+                        jobPostingNumber: 14,
+                        jobPostingId: "8251039supportengineer"
+                    );
+
+            return jobPosting;
+
+        }
+        static JobPostingExtended CreateJobPage02JobPostingExtended14()
+        {
+
+            JobPostingExtended jobPostingExtended
+                = new JobPostingExtended(
+                        jobPosting: CreateJobPage02JobPosting14(),
+                        response: null, // Ignored
+                        hiringOrgDescription: null,
+                        publicationStartDate: null,
+                        publicationEndDate: null,
+                        purpose: null, // Ignored
+                        numberToFill: null,
+                        contactEmail: null,
+                        contactPersonName: null,
+                        employmentDate: null,
+                        applicationDeadlineDate: null,
+                        bulletPoints: new HashSet<string>() { },
+                        bulletPointScenario: "regex"
+                    );
+
+            return jobPostingExtended;
+
+        }
+        static void DeserializeJobPage02JobPostingExtended14()
+        {
+
+            IFileInfoAdapter fileInfoAdapter = new FileInfoAdapter(@"C:\Dropbox\Tasks\20210502 - NW.WIDJobs\New WID\JSONs\JobPage02_JobPostingExtended14.html");
+            IFileManager fileManager = new FileManager();
+            string response = fileManager.ReadAllText(fileInfoAdapter);
+
+            JobPosting jobPosting = CreateJobPage02JobPosting14();
+
+            IJobPostingExtendedDeserializer jobPostingExtendedDeserializer = new JobPostingExtendedDeserializer();
+            JobPostingExtended jobPostingExtended = jobPostingExtendedDeserializer.Do(jobPosting, response);
+
+            string json = Serialize(jobPostingExtended);
+
+        }
+
         // JobPage02JobPosting15
         // JobPage02JobPosting16
         // JobPage02JobPosting17
