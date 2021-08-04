@@ -12,9 +12,6 @@ namespace NW.WIDJobs
     {
 
         #region Fields
-
-        private IJobPostingHelper _jobPostingHelper;
-
         #endregion
 
         #region Properties
@@ -23,19 +20,7 @@ namespace NW.WIDJobs
         #region Constructors
 
         /// <summary>Initializes a <see cref="JobPostingDeserializer"/> instance.</summary>
-        /// <exception cref="ArgumentNullException"></exception>
-        public JobPostingDeserializer(IJobPostingHelper jobPostingHelper)
-        {
-
-            Validator.ValidateObject(jobPostingHelper, nameof(jobPostingHelper));
-
-            _jobPostingHelper = jobPostingHelper;
-
-        }
-
-        /// <summary>Initializes a <see cref="JobPostingDeserializer"/> instance using default parameters.</summary>
-        public JobPostingDeserializer()
-            : this(new JobPostingHelper()) { }
+        public JobPostingDeserializer() { }
 
         #endregion
 

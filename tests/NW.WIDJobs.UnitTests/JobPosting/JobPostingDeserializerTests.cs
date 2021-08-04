@@ -11,18 +11,6 @@ namespace NW.WIDJobs.UnitTests
 
         #region Fields
 
-        private static TestCaseData[] jobPostingDeserializerExceptionTestCases =
-        {
-
-            new TestCaseData(
-                new TestDelegate(
-                    () => new JobPostingDeserializer(null)
-                ),
-                typeof(ArgumentNullException),
-                new ArgumentNullException("jobPostingHelper").Message
-            ).SetArgDisplayNames($"{nameof(jobPostingDeserializerExceptionTestCases)}_01")
-
-        };
         private static TestCaseData[] doExceptionTestCases =
         {
 
@@ -65,11 +53,6 @@ namespace NW.WIDJobs.UnitTests
         #endregion
 
         #region Tests
-
-        [TestCaseSource(nameof(jobPostingDeserializerExceptionTestCases))]
-        public void JobPostingDeserializer_ShouldThrowACertainException_WhenUnproperArguments
-            (TestDelegate del, Type expectedType, string expectedMessage)
-                => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
         [TestCaseSource(nameof(doExceptionTestCases))]
         public void Do_ShouldThrowACertainException_WhenUnproperArguments
