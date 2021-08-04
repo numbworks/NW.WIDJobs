@@ -2144,17 +2144,17 @@ namespace NW.WIDJobs.UnitTests
                     employmentDate: null,
                     applicationDeadlineDate: new DateTime(2021, 08, 04),
                     bulletPoints: new HashSet<string>()
-                        {
-                                "Good work conditions",
-                                "A social workplace with good colleagues",
-                                "Flexibility regarding shifts",
-                                "Possibility for day and evening shifts",
-                                "You want to work in warehousing and logistics",
-                                "You can work a minimum of 3 weeks in the period week 27 - 36",
-                                "You can work either day or evening",
-                                "You have experience with forklift driving",
-                                "You like working in teams"
-                        },
+                    {
+                        "Good work conditions",
+                        "A social workplace with good colleagues",
+                        "Flexibility regarding shifts",
+                        "Possibility for day and evening shifts",
+                        "You want to work in warehousing and logistics",
+                        "You can work a minimum of 3 weeks in the period week 27 - 36",
+                        "You can work either day or evening",
+                        "You have experience with forklift driving",
+                        "You like working in teams"
+                    },
                     bulletPointScenario: "generic"
                 );
 
@@ -2200,30 +2200,86 @@ namespace NW.WIDJobs.UnitTests
                     employmentDate: null,
                     applicationDeadlineDate: new DateTime(2021, 08, 13),
                     bulletPoints: new HashSet<string>()
-                        {
-                                "Ordnede forhold",
-                                "Attraktiv løn",
-                                "En social arbejdsplads med gode kollegaer",
-                                "Mulighed for vagter på daghold",
-                                "Du har lyst til at arbejde inden for lager og logistik",
-                                "Du kan arbejde om dagen",
-                                "Du har gerne erfaring med truckkørsel – dog ikke et krav",
-                                "Du kan lide at arbejde i teams",
-                                "Du må ikke være talblind",
-                                "Du kan arbejde i ugerne 29 og 30, eller en af ugerne",
-                                "Orderly conditions",
-                                "Attractive salary",
-                                "A social workplace with good colleagues",
-                                "Day shifts",
-                                "You want to work in warehousing and logistics",
-                                "You can work during the day",
-                                "You would like to have experience with truck driving - but not a requirement",
-                                "You must be able to count",
-                                "You can work in weeks 29 and 30, or one of the weeks"
-                        },
+                    {
+                        "Ordnede forhold",
+                        "Attraktiv løn",
+                        "En social arbejdsplads med gode kollegaer",
+                        "Mulighed for vagter på daghold",
+                        "Du har lyst til at arbejde inden for lager og logistik",
+                        "Du kan arbejde om dagen",
+                        "Du har gerne erfaring med truckkørsel – dog ikke et krav",
+                        "Du kan lide at arbejde i teams",
+                        "Du må ikke være talblind",
+                        "Du kan arbejde i ugerne 29 og 30, eller en af ugerne",
+                        "Orderly conditions",
+                        "Attractive salary",
+                        "A social workplace with good colleagues",
+                        "Day shifts",
+                        "You want to work in warehousing and logistics",
+                        "You can work during the day",
+                        "You would like to have experience with truck driving - but not a requirement",
+                        "You must be able to count",
+                        "You can work in weeks 29 and 30, or one of the weeks"
+                    },
                     bulletPointScenario: "generic"
                 );
 
+        internal static JobPosting Shared_JobPage01_JobPosting04
+            = new JobPosting(
+                    runId: Shared_FakeRunId,
+                    pageNumber: 1,
+                    response: "{\r\n            \"AutomatchType\": 0,\r\n            \"Abroad\": false,\r\n            \"Weight\": 1.0,\r\n            \"Title\": \"Erfaren og selvstændig truckfører til virksomhed i Skanderborg/Experienced forklift driver for a company in Skanderborg\",\r\n            \"JobHeadline\": \"Erfaren og selvstændig truckfører til virksomhed i Skanderborg/Experienced forklift driver for a company in Skanderborg\",\r\n            \"Presentation\": \"<p><strong>English version below the Danish</strong></p>\\n<p>Har du erfaring med lager og truckkørsel og kan du lide af arbejde aftener, så har vi jobbet til dig.</p>\\n<p><strong>Jobbet</strong></p>\\n\",\r\n            \"HiringOrgName\": \"TeamVikaren.dk, Århus ApS, Horsens Afdeling\",\r\n            \"WorkPlaceAddress\": \"\",\r\n            \"WorkPlacePostalCode\": \"8660\",\r\n            \"WorkPlaceCity\": \"Skanderborg\",\r\n            \"WorkPlaceOtherAddress\": true,\r\n            \"WorkPlaceAbroad\": false,\r\n            \"WorkPlaceNotStatic\": false,\r\n            \"UseWorkPlaceAddressForJoblog\": false,\r\n            \"PostingCreated\": \"2021-07-02T00:00:00\",\r\n            \"LastDateApplication\": \"2021-08-24T00:00:00\",\r\n            \"FormattedLastDateApplication\": \"24. august 2021\",\r\n            \"AssignmentStartDate\": \"0001-01-01T00:00:00\",\r\n            \"IsHotjob\": false,\r\n            \"IsExternal\": false,\r\n            \"Url\": \"https://job.jobnet.dk/CV/FindWork/Details/5379659\",\r\n            \"Region\": \"Midtjylland\",\r\n            \"Municipality\": \"Skanderborg\",\r\n            \"Country\": \"Danmark\",\r\n            \"PostalCode\": \"8660\",\r\n            \"PostalCodeName\": null,\r\n            \"JobAnnouncementType\": \"\",\r\n            \"EmploymentType\": \"\",\r\n            \"WorkHours\": \"Fuldtid\",\r\n            \"OccupationArea\": \"\",\r\n            \"OccupationGroup\": \"\",\r\n            \"Occupation\": \"Truckfører\",\r\n            \"Location\": {\r\n                \"Latitude\": 56.0239,\r\n                \"Longitude\": 9.8924\r\n            },\r\n            \"JoblogWorkTime\": {\r\n                \"WorkHour\": null,\r\n                \"DailyWorkTime\": \"Aften\"\r\n            },\r\n            \"WorkplaceID\": 126565,\r\n            \"OrganisationId\": \"71174\",\r\n            \"HiringOrgCVR\": 30899695,\r\n            \"UserLoggedIn\": false,\r\n            \"AnonymousEmployer\": false,\r\n            \"ShareUrl\": \"https://job.jobnet.dk/CV/FindWork/DetailsSocialmedia/5379659\",\r\n            \"DetailsUrl\": \"https://job.jobnet.dk/CV/FindWork/DetailsWidk/5379659\",\r\n            \"JobLogUrl\": \"https://job.jobnet.dk/CV/FindWork/Details/5379659\",\r\n            \"HasLocationValues\": true,\r\n            \"ID\": \"5379659\",\r\n            \"Latitude\": 56.0239,\r\n            \"Longitude\": 9.8924\r\n        }",
+                    title: "Erfaren og selvstændig truckfører til virksomhed i Skanderborg/Experienced forklift driver for a company in Skanderborg",
+                    presentation: "<p><strong>English version below the Danish</strong></p>\n<p>Har du erfaring med lager og truckkørsel og kan du lide af arbejde aftener, så har vi jobbet til dig.</p>\n<p><strong>Jobbet</strong></p>\n",
+                    hiringOrgName: "TeamVikaren.dk, Århus ApS, Horsens Afdeling",
+                    workPlaceAddress: "",
+                    workPlacePostalCode: 8660,
+                    workPlaceCity: "Skanderborg",
+                    postingCreated: new DateTime(2021, 07, 02),
+                    lastDateApplication: new DateTime(2021, 08, 24),
+                    url: "https://job.jobnet.dk/CV/FindWork/Details/5379659",
+                    region: "Midtjylland",
+                    municipality: "Skanderborg",
+                    country: "Danmark",
+                    employmentType: "",
+                    workHours: "Fuldtid",
+                    occupation: "Truckfører",
+                    workplaceId: 126565,
+                    organisationId: 71174,
+                    hiringOrgCVR: 30899695,
+                    id: 5379659,
+                    workPlaceCityWithoutZone: "Skanderborg",
+                    jobPostingNumber: 4,
+                    jobPostingId: "5379659erfarenogselvstndigtruckf"
+                );
+        internal static JobPostingExtended Shared_JobPage01_JobPostingExtended04
+            = new JobPostingExtended(
+                    jobPosting: Shared_JobPage01_JobPosting04,
+                    response: Shared_FakeResponse,                      // Ignored
+                    hiringOrgDescription: null,
+                    publicationStartDate: new DateTime(2021, 07, 02),
+                    publicationEndDate: new DateTime(2021, 08, 24),
+                    purpose: Shared_FakePurpose,                        // Ignored
+                    numberToFill: 1,
+                    contactEmail: null,
+                    contactPersonName: "Majken Lorentzen",
+                    employmentDate: null,
+                    applicationDeadlineDate: new DateTime(2021, 08, 24),
+                    bulletPoints: new HashSet<string>()
+                    {
+                        "Du har truckkort",
+                        "Du kan lide at arbejde om aftenen",
+                        "Du kan tale, skrive og læse dansk eller engelsk",
+                        "Du kan arbejde selvstændigt",
+                        "Du er grundig i dit arbejde",
+                        "You have a forklift licence",
+                        "You like working in the evenings",
+                        "You can speak, write and read Danish or English",
+                        "You can work independently",
+                        "You are thorough in your work"
+                    },
+                    bulletPointScenario: "generic"
+                );
 
         #endregion
 
