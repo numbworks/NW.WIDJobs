@@ -2889,7 +2889,106 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: "generic"
                 );
 
+        internal static JobPosting Shared_JobPage01_JobPosting15
+            = new JobPosting(
+                    runId: Shared_FakeRunId,
+                    pageNumber: 1,
+                    response: "{\r\n            \"AutomatchType\": 0,\r\n            \"Abroad\": false,\r\n            \"Weight\": 1.0,\r\n            \"Title\": \"Lagermedarbejdere til pakkeopgaver på daghold i Horsens / Warehouse worker for packing line on day shifts in Horsens\",\r\n            \"JobHeadline\": \"Lagermedarbejdere til pakkeopgaver på daghold i Horsens / Warehouse worker for packing line on day shifts in Horsens\",\r\n            \"Presentation\": \"<p><strong>English version below the Danish</strong>\u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0</p>\\n<p>Har du lyst til at arbejde inden for lager, og kan du lige aktivt arbejde, så se her.</p>\",\r\n            \"HiringOrgName\": \"TeamVikaren.dk, Århus ApS, Horsens Afdeling\",\r\n            \"WorkPlaceAddress\": \"\",\r\n            \"WorkPlacePostalCode\": \"8700\",\r\n            \"WorkPlaceCity\": \"Horsens\",\r\n            \"WorkPlaceOtherAddress\": false,\r\n            \"WorkPlaceAbroad\": false,\r\n            \"WorkPlaceNotStatic\": false,\r\n            \"UseWorkPlaceAddressForJoblog\": true,\r\n            \"PostingCreated\": \"2021-07-02T00:00:00\",\r\n            \"LastDateApplication\": \"2021-08-27T00:00:00\",\r\n            \"FormattedLastDateApplication\": \"27. august 2021\",\r\n            \"AssignmentStartDate\": \"0001-01-01T00:00:00\",\r\n            \"IsHotjob\": false,\r\n            \"IsExternal\": false,\r\n            \"Url\": \"https://job.jobnet.dk/CV/FindWork/Details/5383165\",\r\n            \"Region\": \"Midtjylland\",\r\n            \"Municipality\": \"Horsens\",\r\n            \"Country\": \"Danmark\",\r\n            \"PostalCode\": \"8700\",\r\n            \"PostalCodeName\": null,\r\n            \"JobAnnouncementType\": \"\",\r\n            \"EmploymentType\": \"\",\r\n            \"WorkHours\": \"Fuldtid\",\r\n            \"OccupationArea\": \"\",\r\n            \"OccupationGroup\": \"\",\r\n            \"Occupation\": \"Lager- og logistikmedarbejder\",\r\n            \"Location\": {\r\n                \"Latitude\": 55.866,\r\n                \"Longitude\": 9.893\r\n            },\r\n            \"JoblogWorkTime\": {\r\n                \"WorkHour\": null,\r\n                \"DailyWorkTime\": \"Dag\"\r\n            },\r\n            \"WorkplaceID\": 126565,\r\n            \"OrganisationId\": \"71174\",\r\n            \"HiringOrgCVR\": 30899695,\r\n            \"UserLoggedIn\": false,\r\n            \"AnonymousEmployer\": false,\r\n            \"ShareUrl\": \"https://job.jobnet.dk/CV/FindWork/DetailsSocialmedia/5383165\",\r\n            \"DetailsUrl\": \"https://job.jobnet.dk/CV/FindWork/DetailsWidk/5383165\",\r\n            \"JobLogUrl\": \"https://job.jobnet.dk/CV/FindWork/Details/5383165\",\r\n            \"HasLocationValues\": true,\r\n            \"ID\": \"5383165\",\r\n            \"Latitude\": 55.866,\r\n            \"Longitude\": 9.893\r\n        }",
+                    title: "Lagermedarbejdere til pakkeopgaver på daghold i Horsens / Warehouse worker for packing line on day shifts in Horsens",
+                    presentation: "<p><strong>English version below the Danish</strong>\u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0</p>\n<p>Har du lyst til at arbejde inden for lager, og kan du lige aktivt arbejde, så se her.</p>",
+                    hiringOrgName: "TeamVikaren.dk, Århus ApS, Horsens Afdeling",
+                    workPlaceAddress: "",
+                    workPlacePostalCode: 8700,
+                    workPlaceCity: "Horsens",
+                    postingCreated: new DateTime(2021, 07, 02),
+                    lastDateApplication: new DateTime(2021, 08, 27),
+                    url: "https://job.jobnet.dk/CV/FindWork/Details/5383165",
+                    region: "Midtjylland",
+                    municipality: "Horsens",
+                    country: "Danmark",
+                    employmentType: "",
+                    workHours: "Fuldtid",
+                    occupation: "Lager- og logistikmedarbejder",
+                    workplaceId: 126565,
+                    organisationId: 71174,
+                    hiringOrgCVR: 30899695,
+                    id: 5383165,
+                    workPlaceCityWithoutZone: "Horsens",
+                    jobPostingNumber: 15,
+                    jobPostingId: "5383165lagermedarbejderetilpakkeopgaverpdaghold"
+                );
+        internal static JobPostingExtended Shared_JobPage01_JobPostingExtended15
+            = new JobPostingExtended(
+                    jobPosting: Shared_JobPage01_JobPosting15,
+                    response: Shared_FakeResponse,                      // Ignored
+                    hiringOrgDescription: null,
+                    publicationStartDate: new DateTime(2021, 07, 02),
+                    publicationEndDate: new DateTime(2021, 08, 27),
+                    purpose: Shared_FakePurpose,                        // Ignored
+                    numberToFill: null,
+                    contactEmail: null,
+                    contactPersonName: "Majken Lorentzen",
+                    employmentDate: null,
+                    applicationDeadlineDate: new DateTime(2021, 08, 27),
+                    bulletPoints: new HashSet<string>() { },
+                    bulletPointScenario: "regex"
+                );
 
+        internal static JobPosting Shared_JobPage01_JobPosting16
+            = new JobPosting(
+                    runId: Shared_FakeRunId,
+                    pageNumber: 1,
+                    response: "{\r\n            \"AutomatchType\": 0,\r\n            \"Abroad\": false,\r\n            \"Weight\": 1.0,\r\n            \"Title\": \"Motivated employee for emptying containers in a warehouse in Horsens, start-up as soon as possible\",\r\n            \"JobHeadline\": \"Motivated employee for emptying containers in a warehouse in Horsens, start-up as soon as possible\",\r\n            \"Presentation\": \" Do you like active work, do you prefer to work morning shifts? Then we have the job for you. \\n  We offer  \\n \\n A social workplace \\n Active work \\n\",\r\n            \"HiringOrgName\": \"TeamVikaren.dk, Århus ApS, Horsens Afdeling\",\r\n            \"WorkPlaceAddress\": \"\",\r\n            \"WorkPlacePostalCode\": \"8700\",\r\n            \"WorkPlaceCity\": \"Horsens\",\r\n            \"WorkPlaceOtherAddress\": false,\r\n            \"WorkPlaceAbroad\": false,\r\n            \"WorkPlaceNotStatic\": false,\r\n            \"UseWorkPlaceAddressForJoblog\": true,\r\n            \"PostingCreated\": \"2021-07-02T00:00:00\",\r\n            \"LastDateApplication\": \"2021-07-12T00:00:00\",\r\n            \"FormattedLastDateApplication\": \"12. juli 2021\",\r\n            \"AssignmentStartDate\": \"0001-01-01T00:00:00\",\r\n            \"IsHotjob\": false,\r\n            \"IsExternal\": false,\r\n            \"Url\": \"https://job.jobnet.dk/CV/FindWork/Details/5346333\",\r\n            \"Region\": \"Midtjylland\",\r\n            \"Municipality\": \"Horsens\",\r\n            \"Country\": \"Danmark\",\r\n            \"PostalCode\": \"8700\",\r\n            \"PostalCodeName\": null,\r\n            \"JobAnnouncementType\": \"\",\r\n            \"EmploymentType\": \"\",\r\n            \"WorkHours\": \"Fuldtid\",\r\n            \"OccupationArea\": \"\",\r\n            \"OccupationGroup\": \"\",\r\n            \"Occupation\": \"Lager- og logistikmedarbejder\",\r\n            \"Location\": {\r\n                \"Latitude\": 55.866,\r\n                \"Longitude\": 9.893\r\n            },\r\n            \"JoblogWorkTime\": {\r\n                \"WorkHour\": null,\r\n                \"DailyWorkTime\": \"Dag\"\r\n            },\r\n            \"WorkplaceID\": 126565,\r\n            \"OrganisationId\": \"71174\",\r\n            \"HiringOrgCVR\": 30899695,\r\n            \"UserLoggedIn\": false,\r\n            \"AnonymousEmployer\": false,\r\n            \"ShareUrl\": \"https://job.jobnet.dk/CV/FindWork/DetailsSocialmedia/5346333\",\r\n            \"DetailsUrl\": \"https://job.jobnet.dk/CV/FindWork/DetailsWidk/5346333\",\r\n            \"JobLogUrl\": \"https://job.jobnet.dk/CV/FindWork/Details/5346333\",\r\n            \"HasLocationValues\": true,\r\n            \"ID\": \"5346333\",\r\n            \"Latitude\": 55.866,\r\n            \"Longitude\": 9.893\r\n        }",
+                    title: "Motivated employee for emptying containers in a warehouse in Horsens, start-up as soon as possible",
+                    presentation: " Do you like active work, do you prefer to work morning shifts? Then we have the job for you. \n  We offer  \n \n A social workplace \n Active work \n",
+                    hiringOrgName: "TeamVikaren.dk, Århus ApS, Horsens Afdeling",
+                    workPlaceAddress: "",
+                    workPlacePostalCode: 8700,
+                    workPlaceCity: "Horsens",
+                    postingCreated: new DateTime(2021, 07, 02),
+                    lastDateApplication: new DateTime(2021, 07, 12),
+                    url: "https://job.jobnet.dk/CV/FindWork/Details/5346333",
+                    region: "Midtjylland",
+                    municipality: "Horsens",
+                    country: "Danmark",
+                    employmentType: "",
+                    workHours: "Fuldtid",
+                    occupation: "Lager- og logistikmedarbejder",
+                    workplaceId: 126565,
+                    organisationId: 71174,
+                    hiringOrgCVR: 30899695,
+                    id: 5346333,
+                    workPlaceCityWithoutZone: "Horsens",
+                    jobPostingNumber: 16,
+                    jobPostingId: "5346333motivatedemployeeforemptyingcontainers"
+                );
+        internal static JobPostingExtended Shared_JobPage01_JobPostingExtended16
+            = new JobPostingExtended(
+                    jobPosting: Shared_JobPage01_JobPosting16,
+                    response: Shared_FakeResponse,                      // Ignored
+                    hiringOrgDescription: null,
+                    publicationStartDate: new DateTime(2021, 07, 02),
+                    publicationEndDate: new DateTime(2021, 07, 12),
+                    purpose: Shared_FakePurpose,                        // Ignored
+                    numberToFill: 5,
+                    contactEmail: null,
+                    contactPersonName: "Majken Lorentzen",
+                    employmentDate: null,
+                    applicationDeadlineDate: new DateTime(2021, 07, 12),
+                    bulletPoints: new HashSet<string>()
+                    {
+                        "A social workplace",
+                        "Active work",
+                        "Day and evening shifts",
+                        "A healthy working environment",
+                        "Good colleagues",
+                        "You would like to work in a warehouse",
+                        "You like active and physical work",
+                        "You can work full time or part time",
+                        "You can work independently"
+                    },
+                    bulletPointScenario: "generic"
+                );
 
 
         #endregion
