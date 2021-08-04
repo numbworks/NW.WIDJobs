@@ -2402,6 +2402,63 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: "generic"
                 );
 
+        internal static JobPosting Shared_JobPage01_JobPosting07
+            = new JobPosting(
+                    runId: Shared_FakeRunId,
+                    pageNumber: 1,
+                    response: "{\r\n            \"AutomatchType\": 0,\r\n            \"Abroad\": false,\r\n            \"Weight\": 1.0,\r\n            \"Title\": \"Motivated employees for warehouse work in Kolding - full time and part time work , start-up as soon as possible\",\r\n            \"JobHeadline\": \"Motivated employees for warehouse work in Kolding - full time and part time work , start-up as soon as possible\",\r\n            \"Presentation\": \" Do you want to help make a difference at our customer in Kolding, and can you start with short notice? Then we have the job for you. \\n  We offer  \\n \\n\",\r\n            \"HiringOrgName\": \"TeamVikaren.dk, Århus ApS, Horsens Afdeling\",\r\n            \"WorkPlaceAddress\": \"\",\r\n            \"WorkPlacePostalCode\": \"6000\",\r\n            \"WorkPlaceCity\": \"Kolding\",\r\n            \"WorkPlaceOtherAddress\": true,\r\n            \"WorkPlaceAbroad\": false,\r\n            \"WorkPlaceNotStatic\": false,\r\n            \"UseWorkPlaceAddressForJoblog\": false,\r\n            \"PostingCreated\": \"2021-07-02T00:00:00\",\r\n            \"LastDateApplication\": \"2021-08-27T00:00:00\",\r\n            \"FormattedLastDateApplication\": \"27. august 2021\",\r\n            \"AssignmentStartDate\": \"0001-01-01T00:00:00\",\r\n            \"IsHotjob\": false,\r\n            \"IsExternal\": false,\r\n            \"Url\": \"https://job.jobnet.dk/CV/FindWork/Details/5290988\",\r\n            \"Region\": \"Syddanmark\",\r\n            \"Municipality\": \"Kolding\",\r\n            \"Country\": \"Danmark\",\r\n            \"PostalCode\": \"6000\",\r\n            \"PostalCodeName\": null,\r\n            \"JobAnnouncementType\": \"\",\r\n            \"EmploymentType\": \"\",\r\n            \"WorkHours\": \"Deltid\",\r\n            \"OccupationArea\": \"\",\r\n            \"OccupationGroup\": \"\",\r\n            \"Occupation\": \"Lager- og logistikmedarbejder\",\r\n            \"Location\": {\r\n                \"Latitude\": 55.5022,\r\n                \"Longitude\": 9.4685\r\n            },\r\n            \"JoblogWorkTime\": {\r\n                \"WorkHour\": \"(1 - 36 timer ugentligt)\",\r\n                \"DailyWorkTime\": \"Dag, aften\"\r\n            },\r\n            \"WorkplaceID\": 126565,\r\n            \"OrganisationId\": \"71174\",\r\n            \"HiringOrgCVR\": 30899695,\r\n            \"UserLoggedIn\": false,\r\n            \"AnonymousEmployer\": false,\r\n            \"ShareUrl\": \"https://job.jobnet.dk/CV/FindWork/DetailsSocialmedia/5290988\",\r\n            \"DetailsUrl\": \"https://job.jobnet.dk/CV/FindWork/DetailsWidk/5290988\",\r\n            \"JobLogUrl\": \"https://job.jobnet.dk/CV/FindWork/Details/5290988\",\r\n            \"HasLocationValues\": true,\r\n            \"ID\": \"5290988\",\r\n            \"Latitude\": 55.5022,\r\n            \"Longitude\": 9.4685\r\n        }",
+                    title: "Motivated employees for warehouse work in Kolding - full time and part time work , start-up as soon as possible",
+                    presentation: " Do you want to help make a difference at our customer in Kolding, and can you start with short notice? Then we have the job for you. \n  We offer  \n \n",
+                    hiringOrgName: "TeamVikaren.dk, Århus ApS, Horsens Afdeling",
+                    workPlaceAddress: "",
+                    workPlacePostalCode: 6000,
+                    workPlaceCity: "Kolding",
+                    postingCreated: new DateTime(2021, 07, 02),
+                    lastDateApplication: new DateTime(2021, 08, 27),
+                    url: "https://job.jobnet.dk/CV/FindWork/Details/5290988",
+                    region: "Syddanmark",
+                    municipality: "Kolding",
+                    country: "Danmark",
+                    employmentType: "",
+                    workHours: "Deltid",
+                    occupation: "Lager- og logistikmedarbejder",
+                    workplaceId: 126565,
+                    organisationId: 71174,
+                    hiringOrgCVR: 30899695,
+                    id: 5290988,
+                    workPlaceCityWithoutZone: "Kolding",
+                    jobPostingNumber: 7,
+                    jobPostingId: "5290988motivatedemployeesforwarehousework"
+                );
+        internal static JobPostingExtended Shared_JobPage01_JobPostingExtended07
+            = new JobPostingExtended(
+                    jobPosting: Shared_JobPage01_JobPosting07,
+                    response: Shared_FakeResponse,                      // Ignored
+                    hiringOrgDescription: null,
+                    publicationStartDate: new DateTime(2021, 07, 02),
+                    publicationEndDate: new DateTime(2021, 08, 27),
+                    purpose: Shared_FakePurpose,                        // Ignored
+                    numberToFill: 12,
+                    contactEmail: null,
+                    contactPersonName: "Majken Lorentzen",
+                    employmentDate: null,
+                    applicationDeadlineDate: new DateTime(2021, 08, 27),
+                    bulletPoints: new HashSet<string>()
+                    {
+                        "A social workplace",
+                        "Day and evening shifts",
+                        "Full time work and part time work",
+                        "A healthy working environment",
+                        "Good colleagues",
+                        "Training in warehouse work such as picking, packing, sorting and much more",
+                        "You would like to work in a warehouse",
+                        "You like active work",
+                        "You can work full time or part time",
+                        "You can work independently"
+                    },
+                    bulletPointScenario: "generic"
+                );
+
         #endregion
 
         #region Shared_JobPage02
