@@ -14,36 +14,10 @@ namespace NW.WIDJobsClient
         static void Main(string[] args)
         {
 
-            DeserializeJobPage02JobPostingExtended19();
+            DeserializeJobPage02JobPostingExtended20();
 
             WIDExplorerComponents.DefaultLoggingAction.Invoke("Press a button to close the window.");
             Console.ReadLine();
-
-        }
-        static void DeserializeJobPage02()
-        {
-
-            IFileInfoAdapter fileInfoAdapter = new FileInfoAdapter(@"C:\Dropbox\Tasks\20210502 - NW.WIDJobs\New WID\JSONs\JobPage02.json");
-            IFileManager fileManager = new FileManager();
-            string response = fileManager.ReadAllText(fileInfoAdapter);
-
-            JobPage jobPage = new JobPage("temp", 2, response);
-
-            IJobPostingDeserializer jobPostingDeserializer = new JobPostingDeserializer();
-            List<JobPosting> jobPostings = jobPostingDeserializer.Do(jobPage);
-
-            JsonSerializerOptions jso = new JsonSerializerOptions
-            {
-                Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
-                WriteIndented = true
-            };
-
-            string json = JsonSerializer.Serialize(jobPostings, jso);
-        
-            fileManager.WriteAllText(
-                new FileInfoAdapter(@"C:\Users\Rubèn\Desktop\Serialized_JobPage02.json"),
-                json
-                );
 
         }
 
@@ -1875,6 +1849,35 @@ namespace NW.WIDJobsClient
 
         #endregion
 
+        #region Shared_JobPage02
+
+        static void DeserializeJobPage02()
+        {
+
+            IFileInfoAdapter fileInfoAdapter = new FileInfoAdapter(@"C:\Dropbox\Tasks\20210502 - NW.WIDJobs\New WID\JSONs\JobPage02.json");
+            IFileManager fileManager = new FileManager();
+            string response = fileManager.ReadAllText(fileInfoAdapter);
+
+            JobPage jobPage = new JobPage("temp", 2, response);
+
+            IJobPostingDeserializer jobPostingDeserializer = new JobPostingDeserializer();
+            List<JobPosting> jobPostings = jobPostingDeserializer.Do(jobPage);
+
+            JsonSerializerOptions jso = new JsonSerializerOptions
+            {
+                Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
+                WriteIndented = true
+            };
+
+            string json = JsonSerializer.Serialize(jobPostings, jso);
+
+            fileManager.WriteAllText(
+                new FileInfoAdapter(@"C:\Users\Rubèn\Desktop\Serialized_JobPage02.json"),
+                json
+                );
+
+        }
+
         // JobPage02JobPosting01
         static JobPosting CreateJobPage02JobPosting01()
         {
@@ -2114,7 +2117,7 @@ namespace NW.WIDJobsClient
                         contactPersonName: "Justyna Płaczkiewicz",
                         employmentDate: null,
                         applicationDeadlineDate: new DateTime(2021, 08, 27),
-                        bulletPoints: new HashSet<string>() 
+                        bulletPoints: new HashSet<string>()
                         {
                             "Join and hold meetings with prospects and customers to assist with any questions related to SQL, API or Plecto in general",
                             "Handle complex support cases and customer queries  in a timely and efficient manner",
@@ -2638,7 +2641,7 @@ namespace NW.WIDJobsClient
                         contactPersonName: null,
                         employmentDate: null,
                         applicationDeadlineDate: null,
-                        bulletPoints: new HashSet<string>() 
+                        bulletPoints: new HashSet<string>()
                         {
                             "research, including publication/academic dissemination",
                             "research-based teaching",
@@ -3146,7 +3149,7 @@ namespace NW.WIDJobsClient
                         contactPersonName: null,
                         employmentDate: null,
                         applicationDeadlineDate: null,
-                        bulletPoints: new HashSet<string>() 
+                        bulletPoints: new HashSet<string>()
                         {
                             "",
                             "Facebook",
@@ -3545,6 +3548,81 @@ namespace NW.WIDJobsClient
         }
 
         // JobPage02JobPosting20
+        static JobPosting CreateJobPage02JobPosting20()
+        {
+
+            JobPosting jobPosting
+                = new JobPosting(
+                        runId: "temp",
+                        pageNumber: 2,
+                        response: "{\r\n            \"AutomatchType\": 0,\r\n            \"Abroad\": true,\r\n            \"Weight\": 1.0,\r\n            \"Title\": \"Business Intelligence Analyst\",\r\n            \"JobHeadline\": \"International Business Intelligence Consultant\",\r\n            \"Presentation\": \"GN Careers\\nInternational Business Intelligence Consultant\\nBallerup\\nApply\\n\\nJabra\u00A0\u00A0Any EMEA location\\nAbout the job\\nWould you like to grow your career in a truly global role? Are you passionate about bus\",\r\n            \"HiringOrgName\": \"GN Store Nord A/S\",\r\n            \"WorkPlaceAddress\": \"Lautrupbjerg 7\",\r\n            \"WorkPlacePostalCode\": \"2750\",\r\n            \"WorkPlaceCity\": \"Ballerup\",\r\n            \"WorkPlaceOtherAddress\": false,\r\n            \"WorkPlaceAbroad\": false,\r\n            \"WorkPlaceNotStatic\": false,\r\n            \"UseWorkPlaceAddressForJoblog\": true,\r\n            \"PostingCreated\": \"2021-07-02T00:00:00\",\r\n            \"LastDateApplication\": \"2021-07-20T00:00:00\",\r\n            \"FormattedLastDateApplication\": \"20. juli 2021\",\r\n            \"AssignmentStartDate\": \"2021-07-21T00:00:00\",\r\n            \"IsHotjob\": false,\r\n            \"IsExternal\": true,\r\n            \"Url\": \"https://gn.wd3.myworkdayjobs.com/en-US/GN-Careers/job/Ballerup/International-Business-Intelligence-Consultant_R9793-1\",\r\n            \"Region\": \"Hovedstaden og Bornholm\",\r\n            \"Municipality\": \"Ballerup\",\r\n            \"Country\": \"\",\r\n            \"PostalCode\": \"2750\",\r\n            \"PostalCodeName\": null,\r\n            \"JobAnnouncementType\": \"Almindelige vilkår\",\r\n            \"EmploymentType\": \"Fastansættelse\",\r\n            \"WorkHours\": \"Fuldtid\",\r\n            \"OccupationArea\": \"\",\r\n            \"OccupationGroup\": \"\",\r\n            \"Occupation\": \"\",\r\n            \"Location\": {\r\n                \"Latitude\": 55.7387,\r\n                \"Longitude\": 12.3871\r\n            },\r\n            \"JoblogWorkTime\": {\r\n                \"WorkHour\": null,\r\n                \"DailyWorkTime\": null\r\n            },\r\n            \"WorkplaceID\": 0,\r\n            \"OrganisationId\": \"\",\r\n            \"HiringOrgCVR\": 0,\r\n            \"UserLoggedIn\": false,\r\n            \"AnonymousEmployer\": false,\r\n            \"ShareUrl\": \"https://gn.wd3.myworkdayjobs.com/en-US/GN-Careers/job/Ballerup/International-Business-Intelligence-Consultant_R9793-1\",\r\n            \"DetailsUrl\": null,\r\n            \"JobLogUrl\": \"https://gn.wd3.myworkdayjobs.com/en-US/GN-Careers/job/Ballerup/International-Business-Intelligence-Consultant_R9793-1\",\r\n            \"HasLocationValues\": true,\r\n            \"ID\": \"E8251029\",\r\n            \"Latitude\": 55.7387,\r\n            \"Longitude\": 12.3871\r\n        }",
+                        title: "Business Intelligence Analyst",
+                        presentation: "GN Careers\nInternational Business Intelligence Consultant\nBallerup\nApply\n\nJabra\u00A0\u00A0Any EMEA location\nAbout the job\nWould you like to grow your career in a truly global role? Are you passionate about bus",
+                        hiringOrgName: "GN Store Nord A/S",
+                        workPlaceAddress: "Lautrupbjerg 7",
+                        workPlacePostalCode: 2750,
+                        workPlaceCity: "Ballerup",
+                        postingCreated: new DateTime(2021, 07, 02),
+                        lastDateApplication: new DateTime(2021, 07, 20),
+                        url: "https://gn.wd3.myworkdayjobs.com/en-US/GN-Careers/job/Ballerup/International-Business-Intelligence-Consultant_R9793-1",
+                        region: "Hovedstaden og Bornholm",
+                        municipality: "Ballerup",
+                        country: "",
+                        employmentType: "Fastansættelse",
+                        workHours: "Fuldtid",
+                        occupation: "",
+                        workplaceId: 0,
+                        organisationId: null,
+                        hiringOrgCVR: 0,
+                        id: 8251029,
+                        workPlaceCityWithoutZone: "Ballerup",
+                        jobPostingNumber: 20,
+                        jobPostingId: "8251029businessintelligenceanalyst"
+                    );
+
+            return jobPosting;
+
+        }
+        static JobPostingExtended CreateJobPage02JobPostingExtended20()
+        {
+
+            JobPostingExtended jobPostingExtended
+                = new JobPostingExtended(
+                        jobPosting: CreateJobPage02JobPosting20(),
+                        response: null, // Ignored
+                        hiringOrgDescription: null,
+                        publicationStartDate: null,
+                        publicationEndDate: null,
+                        purpose: null, // Ignored
+                        numberToFill: null,
+                        contactEmail: null,
+                        contactPersonName: null,
+                        employmentDate: null,
+                        applicationDeadlineDate: null,
+                        bulletPoints: new HashSet<string>() { },
+                        bulletPointScenario: "regex"
+                    );
+
+            return jobPostingExtended;
+
+        }
+        static void DeserializeJobPage02JobPostingExtended20()
+        {
+
+            IFileInfoAdapter fileInfoAdapter = new FileInfoAdapter(@"C:\Dropbox\Tasks\20210502 - NW.WIDJobs\New WID\JSONs\JobPage02_JobPostingExtended20.html");
+            IFileManager fileManager = new FileManager();
+            string response = fileManager.ReadAllText(fileInfoAdapter);
+
+            JobPosting jobPosting = CreateJobPage02JobPosting20();
+
+            IJobPostingExtendedDeserializer jobPostingExtendedDeserializer = new JobPostingExtendedDeserializer();
+            JobPostingExtended jobPostingExtended = jobPostingExtendedDeserializer.Do(jobPosting, response);
+
+            string json = Serialize(jobPostingExtended);
+
+        }
+
+        #endregion
 
         // ...
         static string Serialize(JobPostingExtended jobPostingExtended)
