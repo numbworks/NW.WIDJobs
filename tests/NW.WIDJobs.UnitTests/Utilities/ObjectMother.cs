@@ -2053,47 +2053,47 @@ namespace NW.WIDJobs.UnitTests
         internal static string Shared_FakePurpose = "Fake purpose";
 
         internal static string Shared_JobPage01_Content 
-            = Properties.Resources.JobPage01.ToString();
+            = Properties.Resources.JobPage01_json;
         internal static string Shared_JobPage01_JobPostingExtended01_Content
-            = Properties.Resources.JobPage01_JobPostingExtended01.ToString();
+            = Properties.Resources.JobPage01_JobPostingExtended01_json;
         internal static string Shared_JobPage01_JobPostingExtended02_Content
-            = Properties.Resources.JobPage01_JobPostingExtended02.ToString();
+            = Properties.Resources.JobPage01_JobPostingExtended02_json;
         internal static string Shared_JobPage01_JobPostingExtended03_Content
-            = Properties.Resources.JobPage01_JobPostingExtended03.ToString();
+            = Properties.Resources.JobPage01_JobPostingExtended03_json;
         internal static string Shared_JobPage01_JobPostingExtended04_Content
-            = Properties.Resources.JobPage01_JobPostingExtended04.ToString();
+            = Properties.Resources.JobPage01_JobPostingExtended04_json;
         internal static string Shared_JobPage01_JobPostingExtended05_Content
-            = Properties.Resources.JobPage01_JobPostingExtended05.ToString();
+            = Properties.Resources.JobPage01_JobPostingExtended05_json;
         internal static string Shared_JobPage01_JobPostingExtended06_Content
-            = Properties.Resources.JobPage01_JobPostingExtended06.ToString();
+            = Properties.Resources.JobPage01_JobPostingExtended06_json;
         internal static string Shared_JobPage01_JobPostingExtended07_Content
-            = Properties.Resources.JobPage01_JobPostingExtended07.ToString();
+            = Properties.Resources.JobPage01_JobPostingExtended07_json;
         internal static string Shared_JobPage01_JobPostingExtended08_Content
-            = Properties.Resources.JobPage01_JobPostingExtended08.ToString();
+            = Properties.Resources.JobPage01_JobPostingExtended08_json;
         internal static string Shared_JobPage01_JobPostingExtended09_Content
-            = Properties.Resources.JobPage01_JobPostingExtended09.ToString();
+            = Properties.Resources.JobPage01_JobPostingExtended09_json;
         internal static string Shared_JobPage01_JobPostingExtended10_Content
-            = Properties.Resources.JobPage01_JobPostingExtended10.ToString();
+            = Properties.Resources.JobPage01_JobPostingExtended10_json;
         internal static string Shared_JobPage01_JobPostingExtended11_Content
-            = Properties.Resources.JobPage01_JobPostingExtended11.ToString();
+            = Properties.Resources.JobPage01_JobPostingExtended11_json;
         internal static string Shared_JobPage01_JobPostingExtended12_Content
-            = Properties.Resources.JobPage01_JobPostingExtended12.ToString();
+            = Properties.Resources.JobPage01_JobPostingExtended12_json;
         internal static string Shared_JobPage01_JobPostingExtended13_Content
-            = Properties.Resources.JobPage01_JobPostingExtended13.ToString();
+            = Properties.Resources.JobPage01_JobPostingExtended13_json;
         internal static string Shared_JobPage01_JobPostingExtended14_Content
-            = Properties.Resources.JobPage01_JobPostingExtended14.ToString();
+            = Properties.Resources.JobPage01_JobPostingExtended14_json;
         internal static string Shared_JobPage01_JobPostingExtended15_Content
-            = Properties.Resources.JobPage01_JobPostingExtended15.ToString();
+            = Properties.Resources.JobPage01_JobPostingExtended15_json;
         internal static string Shared_JobPage01_JobPostingExtended16_Content
-            = Properties.Resources.JobPage01_JobPostingExtended16.ToString();
+            = Properties.Resources.JobPage01_JobPostingExtended16_json;
         internal static string Shared_JobPage01_JobPostingExtended17_Content
-            = Properties.Resources.JobPage01_JobPostingExtended17.ToString();
+            = Properties.Resources.JobPage01_JobPostingExtended17_json;
         internal static string Shared_JobPage01_JobPostingExtended18_Content
-            = Properties.Resources.JobPage01_JobPostingExtended18.ToString();
+            = Properties.Resources.JobPage01_JobPostingExtended18_json;
         internal static string Shared_JobPage01_JobPostingExtended19_Content
-            = Properties.Resources.JobPage01_JobPostingExtended19.ToString();
+            = Properties.Resources.JobPage01_JobPostingExtended19_json;
         internal static string Shared_JobPage01_JobPostingExtended20_Content
-            = Properties.Resources.JobPage01_JobPostingExtended20.ToString();
+            = Properties.Resources.JobPage01_JobPostingExtended20_json;
 
         internal static JobPosting Shared_JobPage01_JobPosting01
             = new JobPosting(
@@ -3323,25 +3323,25 @@ namespace NW.WIDJobs.UnitTests
         #region Shared_JobPage02
 
         internal static string Shared_JobPage02_Content
-            = Properties.Resources.JobPage02.ToString();
+            = Properties.Resources.JobPage02_json;
         internal static string Shared_JobPage02_JobPostingExtended01_Content
-            = Properties.Resources.JobPage02_JobPostingExtended01.ToString();
+            = Properties.Resources.JobPage02_JobPostingExtended01_json;
         internal static string Shared_JobPage02_JobPostingExtended02_Content
-            = Properties.Resources.JobPage02_JobPostingExtended02.ToString();
+            = Properties.Resources.JobPage02_JobPostingExtended02_json;
         internal static string Shared_JobPage02_JobPostingExtended03_Content
-            = Properties.Resources.JobPage02_JobPostingExtended03.ToString();
+            = Properties.Resources.JobPage02_JobPostingExtended03_json;
         internal static string Shared_JobPage02_JobPostingExtended04_Content
-            = Properties.Resources.JobPage02_JobPostingExtended04.ToString();
+            = Properties.Resources.JobPage02_JobPostingExtended04_json;
         internal static string Shared_JobPage02_JobPostingExtended05_Content
-            = Properties.Resources.JobPage02_JobPostingExtended05.ToString();
+            = Properties.Resources.JobPage02_JobPostingExtended05_json;
         internal static string Shared_JobPage02_JobPostingExtended06_Content
-            = Properties.Resources.JobPage02_JobPostingExtended06.ToString();
+            = Properties.Resources.JobPage02_JobPostingExtended06_json;
         internal static string Shared_JobPage02_JobPostingExtended07_Content
-            = Properties.Resources.JobPage02_JobPostingExtended07.ToString();
+            = Properties.Resources.JobPage02_JobPostingExtended07_json;
         internal static string Shared_JobPage02_JobPostingExtended08_Content
-            = Properties.Resources.JobPage02_JobPostingExtended08.ToString();
+            = Properties.Resources.JobPage02_JobPostingExtended08_json;
         internal static string Shared_JobPage02_JobPostingExtended09_Content
-            = Properties.Resources.JobPage02_JobPostingExtended09.ToString();
+            = Properties.Resources.JobPage02_JobPostingExtended09_json;
         internal static string Shared_JobPage02_JobPostingExtended10_Content
             = Properties.Resources.JobPage02_JobPostingExtended10;
         internal static string Shared_JobPage02_JobPostingExtended11_Content

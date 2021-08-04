@@ -61,312 +61,1044 @@ namespace NW.WIDJobs.UnitTests.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized string similar to {
+        ///    &quot;WorkSchedule&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Fuldtid&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 16,
+        ///            &quot;Name&quot;: &quot;Deltid&quot;
+        ///        }
+        ///    ],
+        ///    &quot;WorkConditions&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Almindelige vilkår&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 2,
+        ///            &quot;Name&quot;: &quot;Fleksjob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 3,
+        ///            &quot;Name&quot;: &quot;Skånejob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 4,
+        ///            &quot;Name&quot;: &quot;Egnet t [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static byte[] JobPage01 {
+        internal static string JobPage01_JobPostingExtended01_json {
             get {
-                object obj = ResourceManager.GetObject("JobPage01", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetString("JobPage01_JobPostingExtended01_json", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized string similar to {
+        ///    &quot;WorkSchedule&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Fuldtid&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 16,
+        ///            &quot;Name&quot;: &quot;Deltid&quot;
+        ///        }
+        ///    ],
+        ///    &quot;WorkConditions&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Almindelige vilkår&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 2,
+        ///            &quot;Name&quot;: &quot;Fleksjob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 3,
+        ///            &quot;Name&quot;: &quot;Skånejob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 4,
+        ///            &quot;Name&quot;: &quot;Egnet t [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static byte[] JobPage01_JobPostingExtended01 {
+        internal static string JobPage01_JobPostingExtended02_json {
             get {
-                object obj = ResourceManager.GetObject("JobPage01_JobPostingExtended01", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetString("JobPage01_JobPostingExtended02_json", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized string similar to {
+        ///    &quot;WorkSchedule&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Fuldtid&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 16,
+        ///            &quot;Name&quot;: &quot;Deltid&quot;
+        ///        }
+        ///    ],
+        ///    &quot;WorkConditions&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Almindelige vilkår&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 2,
+        ///            &quot;Name&quot;: &quot;Fleksjob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 3,
+        ///            &quot;Name&quot;: &quot;Skånejob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 4,
+        ///            &quot;Name&quot;: &quot;Egnet t [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static byte[] JobPage01_JobPostingExtended02 {
+        internal static string JobPage01_JobPostingExtended03_json {
             get {
-                object obj = ResourceManager.GetObject("JobPage01_JobPostingExtended02", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetString("JobPage01_JobPostingExtended03_json", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized string similar to {
+        ///    &quot;WorkSchedule&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Fuldtid&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 16,
+        ///            &quot;Name&quot;: &quot;Deltid&quot;
+        ///        }
+        ///    ],
+        ///    &quot;WorkConditions&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Almindelige vilkår&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 2,
+        ///            &quot;Name&quot;: &quot;Fleksjob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 3,
+        ///            &quot;Name&quot;: &quot;Skånejob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 4,
+        ///            &quot;Name&quot;: &quot;Egnet t [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static byte[] JobPage01_JobPostingExtended03 {
+        internal static string JobPage01_JobPostingExtended04_json {
             get {
-                object obj = ResourceManager.GetObject("JobPage01_JobPostingExtended03", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetString("JobPage01_JobPostingExtended04_json", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized string similar to {
+        ///    &quot;WorkSchedule&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Fuldtid&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 16,
+        ///            &quot;Name&quot;: &quot;Deltid&quot;
+        ///        }
+        ///    ],
+        ///    &quot;WorkConditions&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Almindelige vilkår&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 2,
+        ///            &quot;Name&quot;: &quot;Fleksjob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 3,
+        ///            &quot;Name&quot;: &quot;Skånejob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 4,
+        ///            &quot;Name&quot;: &quot;Egnet t [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static byte[] JobPage01_JobPostingExtended04 {
+        internal static string JobPage01_JobPostingExtended05_json {
             get {
-                object obj = ResourceManager.GetObject("JobPage01_JobPostingExtended04", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetString("JobPage01_JobPostingExtended05_json", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized string similar to {
+        ///    &quot;WorkSchedule&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Fuldtid&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 16,
+        ///            &quot;Name&quot;: &quot;Deltid&quot;
+        ///        }
+        ///    ],
+        ///    &quot;WorkConditions&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Almindelige vilkår&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 2,
+        ///            &quot;Name&quot;: &quot;Fleksjob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 3,
+        ///            &quot;Name&quot;: &quot;Skånejob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 4,
+        ///            &quot;Name&quot;: &quot;Egnet t [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static byte[] JobPage01_JobPostingExtended05 {
+        internal static string JobPage01_JobPostingExtended06_json {
             get {
-                object obj = ResourceManager.GetObject("JobPage01_JobPostingExtended05", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetString("JobPage01_JobPostingExtended06_json", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized string similar to {
+        ///    &quot;WorkSchedule&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Fuldtid&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 16,
+        ///            &quot;Name&quot;: &quot;Deltid&quot;
+        ///        }
+        ///    ],
+        ///    &quot;WorkConditions&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Almindelige vilkår&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 2,
+        ///            &quot;Name&quot;: &quot;Fleksjob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 3,
+        ///            &quot;Name&quot;: &quot;Skånejob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 4,
+        ///            &quot;Name&quot;: &quot;Egnet t [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static byte[] JobPage01_JobPostingExtended06 {
+        internal static string JobPage01_JobPostingExtended07_json {
             get {
-                object obj = ResourceManager.GetObject("JobPage01_JobPostingExtended06", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetString("JobPage01_JobPostingExtended07_json", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized string similar to {
+        ///    &quot;WorkSchedule&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Fuldtid&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 16,
+        ///            &quot;Name&quot;: &quot;Deltid&quot;
+        ///        }
+        ///    ],
+        ///    &quot;WorkConditions&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Almindelige vilkår&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 2,
+        ///            &quot;Name&quot;: &quot;Fleksjob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 3,
+        ///            &quot;Name&quot;: &quot;Skånejob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 4,
+        ///            &quot;Name&quot;: &quot;Egnet t [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static byte[] JobPage01_JobPostingExtended07 {
+        internal static string JobPage01_JobPostingExtended08_json {
             get {
-                object obj = ResourceManager.GetObject("JobPage01_JobPostingExtended07", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetString("JobPage01_JobPostingExtended08_json", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized string similar to {
+        ///    &quot;WorkSchedule&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Fuldtid&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 16,
+        ///            &quot;Name&quot;: &quot;Deltid&quot;
+        ///        }
+        ///    ],
+        ///    &quot;WorkConditions&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Almindelige vilkår&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 2,
+        ///            &quot;Name&quot;: &quot;Fleksjob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 3,
+        ///            &quot;Name&quot;: &quot;Skånejob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 4,
+        ///            &quot;Name&quot;: &quot;Egnet t [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static byte[] JobPage01_JobPostingExtended08 {
+        internal static string JobPage01_JobPostingExtended09_json {
             get {
-                object obj = ResourceManager.GetObject("JobPage01_JobPostingExtended08", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetString("JobPage01_JobPostingExtended09_json", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized string similar to {
+        ///    &quot;WorkSchedule&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Fuldtid&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 16,
+        ///            &quot;Name&quot;: &quot;Deltid&quot;
+        ///        }
+        ///    ],
+        ///    &quot;WorkConditions&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Almindelige vilkår&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 2,
+        ///            &quot;Name&quot;: &quot;Fleksjob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 3,
+        ///            &quot;Name&quot;: &quot;Skånejob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 4,
+        ///            &quot;Name&quot;: &quot;Egnet t [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static byte[] JobPage01_JobPostingExtended09 {
+        internal static string JobPage01_JobPostingExtended10_json {
             get {
-                object obj = ResourceManager.GetObject("JobPage01_JobPostingExtended09", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetString("JobPage01_JobPostingExtended10_json", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized string similar to {
+        ///    &quot;WorkSchedule&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Fuldtid&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 16,
+        ///            &quot;Name&quot;: &quot;Deltid&quot;
+        ///        }
+        ///    ],
+        ///    &quot;WorkConditions&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Almindelige vilkår&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 2,
+        ///            &quot;Name&quot;: &quot;Fleksjob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 3,
+        ///            &quot;Name&quot;: &quot;Skånejob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 4,
+        ///            &quot;Name&quot;: &quot;Egnet t [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static byte[] JobPage01_JobPostingExtended10 {
+        internal static string JobPage01_JobPostingExtended11_json {
             get {
-                object obj = ResourceManager.GetObject("JobPage01_JobPostingExtended10", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetString("JobPage01_JobPostingExtended11_json", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized string similar to {
+        ///    &quot;WorkSchedule&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Fuldtid&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 16,
+        ///            &quot;Name&quot;: &quot;Deltid&quot;
+        ///        }
+        ///    ],
+        ///    &quot;WorkConditions&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Almindelige vilkår&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 2,
+        ///            &quot;Name&quot;: &quot;Fleksjob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 3,
+        ///            &quot;Name&quot;: &quot;Skånejob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 4,
+        ///            &quot;Name&quot;: &quot;Egnet t [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static byte[] JobPage01_JobPostingExtended11 {
+        internal static string JobPage01_JobPostingExtended12_json {
             get {
-                object obj = ResourceManager.GetObject("JobPage01_JobPostingExtended11", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetString("JobPage01_JobPostingExtended12_json", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized string similar to {
+        ///    &quot;WorkSchedule&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Fuldtid&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 16,
+        ///            &quot;Name&quot;: &quot;Deltid&quot;
+        ///        }
+        ///    ],
+        ///    &quot;WorkConditions&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Almindelige vilkår&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 2,
+        ///            &quot;Name&quot;: &quot;Fleksjob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 3,
+        ///            &quot;Name&quot;: &quot;Skånejob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 4,
+        ///            &quot;Name&quot;: &quot;Egnet t [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static byte[] JobPage01_JobPostingExtended12 {
+        internal static string JobPage01_JobPostingExtended13_json {
             get {
-                object obj = ResourceManager.GetObject("JobPage01_JobPostingExtended12", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetString("JobPage01_JobPostingExtended13_json", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized string similar to {
+        ///    &quot;WorkSchedule&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Fuldtid&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 16,
+        ///            &quot;Name&quot;: &quot;Deltid&quot;
+        ///        }
+        ///    ],
+        ///    &quot;WorkConditions&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Almindelige vilkår&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 2,
+        ///            &quot;Name&quot;: &quot;Fleksjob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 3,
+        ///            &quot;Name&quot;: &quot;Skånejob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 4,
+        ///            &quot;Name&quot;: &quot;Egnet t [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static byte[] JobPage01_JobPostingExtended13 {
+        internal static string JobPage01_JobPostingExtended14_json {
             get {
-                object obj = ResourceManager.GetObject("JobPage01_JobPostingExtended13", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetString("JobPage01_JobPostingExtended14_json", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized string similar to {
+        ///    &quot;WorkSchedule&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Fuldtid&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 16,
+        ///            &quot;Name&quot;: &quot;Deltid&quot;
+        ///        }
+        ///    ],
+        ///    &quot;WorkConditions&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Almindelige vilkår&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 2,
+        ///            &quot;Name&quot;: &quot;Fleksjob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 3,
+        ///            &quot;Name&quot;: &quot;Skånejob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 4,
+        ///            &quot;Name&quot;: &quot;Egnet t [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static byte[] JobPage01_JobPostingExtended14 {
+        internal static string JobPage01_JobPostingExtended15_json {
             get {
-                object obj = ResourceManager.GetObject("JobPage01_JobPostingExtended14", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetString("JobPage01_JobPostingExtended15_json", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized string similar to {
+        ///    &quot;WorkSchedule&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Fuldtid&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 16,
+        ///            &quot;Name&quot;: &quot;Deltid&quot;
+        ///        }
+        ///    ],
+        ///    &quot;WorkConditions&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Almindelige vilkår&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 2,
+        ///            &quot;Name&quot;: &quot;Fleksjob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 3,
+        ///            &quot;Name&quot;: &quot;Skånejob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 4,
+        ///            &quot;Name&quot;: &quot;Egnet t [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static byte[] JobPage01_JobPostingExtended15 {
+        internal static string JobPage01_JobPostingExtended16_json {
             get {
-                object obj = ResourceManager.GetObject("JobPage01_JobPostingExtended15", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetString("JobPage01_JobPostingExtended16_json", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized string similar to {
+        ///    &quot;WorkSchedule&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Fuldtid&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 16,
+        ///            &quot;Name&quot;: &quot;Deltid&quot;
+        ///        }
+        ///    ],
+        ///    &quot;WorkConditions&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Almindelige vilkår&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 2,
+        ///            &quot;Name&quot;: &quot;Fleksjob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 3,
+        ///            &quot;Name&quot;: &quot;Skånejob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 4,
+        ///            &quot;Name&quot;: &quot;Egnet t [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static byte[] JobPage01_JobPostingExtended16 {
+        internal static string JobPage01_JobPostingExtended17_json {
             get {
-                object obj = ResourceManager.GetObject("JobPage01_JobPostingExtended16", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetString("JobPage01_JobPostingExtended17_json", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized string similar to {
+        ///    &quot;WorkSchedule&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Fuldtid&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 16,
+        ///            &quot;Name&quot;: &quot;Deltid&quot;
+        ///        }
+        ///    ],
+        ///    &quot;WorkConditions&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Almindelige vilkår&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 2,
+        ///            &quot;Name&quot;: &quot;Fleksjob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 3,
+        ///            &quot;Name&quot;: &quot;Skånejob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 4,
+        ///            &quot;Name&quot;: &quot;Egnet t [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static byte[] JobPage01_JobPostingExtended17 {
+        internal static string JobPage01_JobPostingExtended18_json {
             get {
-                object obj = ResourceManager.GetObject("JobPage01_JobPostingExtended17", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetString("JobPage01_JobPostingExtended18_json", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized string similar to {
+        ///    &quot;WorkSchedule&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Fuldtid&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 16,
+        ///            &quot;Name&quot;: &quot;Deltid&quot;
+        ///        }
+        ///    ],
+        ///    &quot;WorkConditions&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Almindelige vilkår&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 2,
+        ///            &quot;Name&quot;: &quot;Fleksjob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 3,
+        ///            &quot;Name&quot;: &quot;Skånejob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 4,
+        ///            &quot;Name&quot;: &quot;Egnet t [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static byte[] JobPage01_JobPostingExtended18 {
+        internal static string JobPage01_JobPostingExtended19_json {
             get {
-                object obj = ResourceManager.GetObject("JobPage01_JobPostingExtended18", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetString("JobPage01_JobPostingExtended19_json", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized string similar to {
+        ///    &quot;WorkSchedule&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Fuldtid&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 16,
+        ///            &quot;Name&quot;: &quot;Deltid&quot;
+        ///        }
+        ///    ],
+        ///    &quot;WorkConditions&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Almindelige vilkår&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 2,
+        ///            &quot;Name&quot;: &quot;Fleksjob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 3,
+        ///            &quot;Name&quot;: &quot;Skånejob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 4,
+        ///            &quot;Name&quot;: &quot;Egnet t [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static byte[] JobPage01_JobPostingExtended19 {
+        internal static string JobPage01_JobPostingExtended20_json {
             get {
-                object obj = ResourceManager.GetObject("JobPage01_JobPostingExtended19", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetString("JobPage01_JobPostingExtended20_json", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized string similar to {
+        ///    &quot;Expression&quot;: {
+        ///        &quot;ShowNearbyCriteria&quot;: true,
+        ///        &quot;Offset&quot;: 0,
+        ///        &quot;Count&quot;: 20,
+        ///        &quot;SearchString&quot;: null,
+        ///        &quot;SortValue&quot;: &quot;CreationDate&quot;,
+        ///        &quot;Id&quot;: [],
+        ///        &quot;EarliestPublicationDate&quot;: &quot;0001-01-01T00:00:00&quot;,
+        ///        &quot;HotJob&quot;: false,
+        ///        &quot;Abroad&quot;: false,
+        ///        &quot;NearBy&quot;: null,
+        ///        &quot;ExternalJob&quot;: null,
+        ///        &quot;WorkPlaceNotStatic&quot;: null,
+        ///        &quot;WorkHourMin&quot;: null,
+        ///        &quot;WorkHourMax&quot;: null,
+        ///        &quot;OnlyGeoPoints&quot;: false,
+        ///        &quot;Facets&quot;: {
+        ///   [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static byte[] JobPage01_JobPostingExtended20 {
+        internal static string JobPage01_json {
             get {
-                object obj = ResourceManager.GetObject("JobPage01_JobPostingExtended20", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetString("JobPage01_json", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized string similar to {
+        ///    &quot;WorkSchedule&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Fuldtid&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 16,
+        ///            &quot;Name&quot;: &quot;Deltid&quot;
+        ///        }
+        ///    ],
+        ///    &quot;WorkConditions&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Almindelige vilkår&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 2,
+        ///            &quot;Name&quot;: &quot;Fleksjob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 3,
+        ///            &quot;Name&quot;: &quot;Skånejob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 4,
+        ///            &quot;Name&quot;: &quot;Egnet t [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static byte[] JobPage02 {
+        internal static string JobPage02_JobPostingExtended01_json {
             get {
-                object obj = ResourceManager.GetObject("JobPage02", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetString("JobPage02_JobPostingExtended01_json", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized string similar to {
+        ///    &quot;WorkSchedule&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Fuldtid&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 16,
+        ///            &quot;Name&quot;: &quot;Deltid&quot;
+        ///        }
+        ///    ],
+        ///    &quot;WorkConditions&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Almindelige vilkår&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 2,
+        ///            &quot;Name&quot;: &quot;Fleksjob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 3,
+        ///            &quot;Name&quot;: &quot;Skånejob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 4,
+        ///            &quot;Name&quot;: &quot;Egnet t [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static byte[] JobPage02_JobPostingExtended01 {
+        internal static string JobPage02_JobPostingExtended02_json {
             get {
-                object obj = ResourceManager.GetObject("JobPage02_JobPostingExtended01", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetString("JobPage02_JobPostingExtended02_json", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized string similar to {
+        ///    &quot;WorkSchedule&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Fuldtid&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 16,
+        ///            &quot;Name&quot;: &quot;Deltid&quot;
+        ///        }
+        ///    ],
+        ///    &quot;WorkConditions&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Almindelige vilkår&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 2,
+        ///            &quot;Name&quot;: &quot;Fleksjob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 3,
+        ///            &quot;Name&quot;: &quot;Skånejob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 4,
+        ///            &quot;Name&quot;: &quot;Egnet t [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static byte[] JobPage02_JobPostingExtended02 {
+        internal static string JobPage02_JobPostingExtended03_json {
             get {
-                object obj = ResourceManager.GetObject("JobPage02_JobPostingExtended02", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetString("JobPage02_JobPostingExtended03_json", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized string similar to {
+        ///    &quot;WorkSchedule&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Fuldtid&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 16,
+        ///            &quot;Name&quot;: &quot;Deltid&quot;
+        ///        }
+        ///    ],
+        ///    &quot;WorkConditions&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Almindelige vilkår&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 2,
+        ///            &quot;Name&quot;: &quot;Fleksjob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 3,
+        ///            &quot;Name&quot;: &quot;Skånejob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 4,
+        ///            &quot;Name&quot;: &quot;Egnet t [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static byte[] JobPage02_JobPostingExtended03 {
+        internal static string JobPage02_JobPostingExtended04_json {
             get {
-                object obj = ResourceManager.GetObject("JobPage02_JobPostingExtended03", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetString("JobPage02_JobPostingExtended04_json", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized string similar to {
+        ///    &quot;WorkSchedule&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Fuldtid&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 16,
+        ///            &quot;Name&quot;: &quot;Deltid&quot;
+        ///        }
+        ///    ],
+        ///    &quot;WorkConditions&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Almindelige vilkår&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 2,
+        ///            &quot;Name&quot;: &quot;Fleksjob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 3,
+        ///            &quot;Name&quot;: &quot;Skånejob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 4,
+        ///            &quot;Name&quot;: &quot;Egnet t [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static byte[] JobPage02_JobPostingExtended04 {
+        internal static string JobPage02_JobPostingExtended05_json {
             get {
-                object obj = ResourceManager.GetObject("JobPage02_JobPostingExtended04", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetString("JobPage02_JobPostingExtended05_json", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized string similar to {
+        ///    &quot;WorkSchedule&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Fuldtid&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 16,
+        ///            &quot;Name&quot;: &quot;Deltid&quot;
+        ///        }
+        ///    ],
+        ///    &quot;WorkConditions&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Almindelige vilkår&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 2,
+        ///            &quot;Name&quot;: &quot;Fleksjob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 3,
+        ///            &quot;Name&quot;: &quot;Skånejob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 4,
+        ///            &quot;Name&quot;: &quot;Egnet t [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static byte[] JobPage02_JobPostingExtended05 {
+        internal static string JobPage02_JobPostingExtended06_json {
             get {
-                object obj = ResourceManager.GetObject("JobPage02_JobPostingExtended05", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetString("JobPage02_JobPostingExtended06_json", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized string similar to {
+        ///    &quot;WorkSchedule&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Fuldtid&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 16,
+        ///            &quot;Name&quot;: &quot;Deltid&quot;
+        ///        }
+        ///    ],
+        ///    &quot;WorkConditions&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Almindelige vilkår&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 2,
+        ///            &quot;Name&quot;: &quot;Fleksjob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 3,
+        ///            &quot;Name&quot;: &quot;Skånejob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 4,
+        ///            &quot;Name&quot;: &quot;Egnet t [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static byte[] JobPage02_JobPostingExtended06 {
+        internal static string JobPage02_JobPostingExtended07_json {
             get {
-                object obj = ResourceManager.GetObject("JobPage02_JobPostingExtended06", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetString("JobPage02_JobPostingExtended07_json", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized string similar to {
+        ///    &quot;WorkSchedule&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Fuldtid&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 16,
+        ///            &quot;Name&quot;: &quot;Deltid&quot;
+        ///        }
+        ///    ],
+        ///    &quot;WorkConditions&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Almindelige vilkår&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 2,
+        ///            &quot;Name&quot;: &quot;Fleksjob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 3,
+        ///            &quot;Name&quot;: &quot;Skånejob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 4,
+        ///            &quot;Name&quot;: &quot;Egnet t [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static byte[] JobPage02_JobPostingExtended07 {
+        internal static string JobPage02_JobPostingExtended08_json {
             get {
-                object obj = ResourceManager.GetObject("JobPage02_JobPostingExtended07", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetString("JobPage02_JobPostingExtended08_json", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized string similar to {
+        ///    &quot;WorkSchedule&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Fuldtid&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 16,
+        ///            &quot;Name&quot;: &quot;Deltid&quot;
+        ///        }
+        ///    ],
+        ///    &quot;WorkConditions&quot;: [
+        ///        {
+        ///            &quot;Id&quot;: 1,
+        ///            &quot;Name&quot;: &quot;Almindelige vilkår&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 2,
+        ///            &quot;Name&quot;: &quot;Fleksjob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 3,
+        ///            &quot;Name&quot;: &quot;Skånejob&quot;
+        ///        },
+        ///        {
+        ///            &quot;Id&quot;: 4,
+        ///            &quot;Name&quot;: &quot;Egnet t [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static byte[] JobPage02_JobPostingExtended08 {
+        internal static string JobPage02_JobPostingExtended09_json {
             get {
-                object obj = ResourceManager.GetObject("JobPage02_JobPostingExtended08", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] JobPage02_JobPostingExtended09 {
-            get {
-                object obj = ResourceManager.GetObject("JobPage02_JobPostingExtended09", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetString("JobPage02_JobPostingExtended09_json", resourceCulture);
             }
         }
         
@@ -608,6 +1340,33 @@ namespace NW.WIDJobs.UnitTests.Properties {
         internal static string JobPage02_JobPostingExtended20 {
             get {
                 return ResourceManager.GetString("JobPage02_JobPostingExtended20", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
+        ///    &quot;Expression&quot;: {
+        ///        &quot;ShowNearbyCriteria&quot;: true,
+        ///        &quot;Offset&quot;: 20,
+        ///        &quot;Count&quot;: 20,
+        ///        &quot;SearchString&quot;: null,
+        ///        &quot;SortValue&quot;: &quot;CreationDate&quot;,
+        ///        &quot;Id&quot;: [],
+        ///        &quot;EarliestPublicationDate&quot;: &quot;0001-01-01T00:00:00&quot;,
+        ///        &quot;HotJob&quot;: false,
+        ///        &quot;Abroad&quot;: false,
+        ///        &quot;NearBy&quot;: null,
+        ///        &quot;ExternalJob&quot;: null,
+        ///        &quot;WorkPlaceNotStatic&quot;: null,
+        ///        &quot;WorkHourMin&quot;: null,
+        ///        &quot;WorkHourMax&quot;: null,
+        ///        &quot;OnlyGeoPoints&quot;: false,
+        ///        &quot;Facets&quot;: {
+        ///  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string JobPage02_json {
+            get {
+                return ResourceManager.GetString("JobPage02_json", resourceCulture);
             }
         }
         

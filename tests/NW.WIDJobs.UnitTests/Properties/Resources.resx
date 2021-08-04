@@ -118,98 +118,95 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="JobPage01" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\jobpage01\jobpage01.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="JobPage01_JobPostingExtended01_json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\jobpage01\jobpage01_jobpostingextended01.json.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="JobPage01_JobPostingExtended01" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\jobpage01\jobpage01_jobpostingextended01.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="JobPage01_JobPostingExtended02_json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\jobpage01\jobpage01_jobpostingextended02.json.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="JobPage01_JobPostingExtended02" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\jobpage01\jobpage01_jobpostingextended02.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="JobPage01_JobPostingExtended03_json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\jobpage01\jobpage01_jobpostingextended03.json.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="JobPage01_JobPostingExtended03" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\jobpage01\jobpage01_jobpostingextended03.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="JobPage01_JobPostingExtended04_json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\jobpage01\jobpage01_jobpostingextended04.json.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="JobPage01_JobPostingExtended04" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\jobpage01\jobpage01_jobpostingextended04.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="JobPage01_JobPostingExtended05_json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\jobpage01\jobpage01_jobpostingextended05.json.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="JobPage01_JobPostingExtended05" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\jobpage01\jobpage01_jobpostingextended05.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="JobPage01_JobPostingExtended06_json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\jobpage01\jobpage01_jobpostingextended06.json.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="JobPage01_JobPostingExtended06" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\jobpage01\jobpage01_jobpostingextended06.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="JobPage01_JobPostingExtended07_json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\jobpage01\jobpage01_jobpostingextended07.json.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="JobPage01_JobPostingExtended07" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\jobpage01\jobpage01_jobpostingextended07.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="JobPage01_JobPostingExtended08_json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\jobpage01\jobpage01_jobpostingextended08.json.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="JobPage01_JobPostingExtended08" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\jobpage01\jobpage01_jobpostingextended08.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="JobPage01_JobPostingExtended09_json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\jobpage01\jobpage01_jobpostingextended09.json.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="JobPage01_JobPostingExtended09" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\jobpage01\jobpage01_jobpostingextended09.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="JobPage01_JobPostingExtended10_json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\jobpage01\jobpage01_jobpostingextended10.json.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="JobPage01_JobPostingExtended10" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\jobpage01\jobpage01_jobpostingextended10.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="JobPage01_JobPostingExtended11_json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\jobpage01\jobpage01_jobpostingextended11.json.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="JobPage01_JobPostingExtended11" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\jobpage01\jobpage01_jobpostingextended11.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="JobPage01_JobPostingExtended12_json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\jobpage01\jobpage01_jobpostingextended12.json.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="JobPage01_JobPostingExtended12" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\jobpage01\jobpage01_jobpostingextended12.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="JobPage01_JobPostingExtended13_json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\jobpage01\jobpage01_jobpostingextended13.json.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="JobPage01_JobPostingExtended13" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\jobpage01\jobpage01_jobpostingextended13.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="JobPage01_JobPostingExtended14_json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\jobpage01\jobpage01_jobpostingextended14.json.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="JobPage01_JobPostingExtended14" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\jobpage01\jobpage01_jobpostingextended14.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="JobPage01_JobPostingExtended15_json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\jobpage01\jobpage01_jobpostingextended15.json.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="JobPage01_JobPostingExtended15" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\jobpage01\jobpage01_jobpostingextended15.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="JobPage01_JobPostingExtended16_json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\jobpage01\jobpage01_jobpostingextended16.json.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="JobPage01_JobPostingExtended16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\jobpage01\jobpage01_jobpostingextended16.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="JobPage01_JobPostingExtended17_json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\jobpage01\jobpage01_jobpostingextended17.json.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="JobPage01_JobPostingExtended17" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\jobpage01\jobpage01_jobpostingextended17.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="JobPage01_JobPostingExtended18_json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\jobpage01\jobpage01_jobpostingextended18.json.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="JobPage01_JobPostingExtended18" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\jobpage01\jobpage01_jobpostingextended18.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="JobPage01_JobPostingExtended19_json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\jobpage01\jobpage01_jobpostingextended19.json.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="JobPage01_JobPostingExtended19" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\jobpage01\jobpage01_jobpostingextended19.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="JobPage01_JobPostingExtended20_json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\jobpage01\jobpage01_jobpostingextended20.json.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="JobPage01_JobPostingExtended20" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\jobpage01\jobpage01_jobpostingextended20.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="JobPage01_json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\jobpage01\jobpage01.json.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="JobPage02" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\jobpage02\jobpage02.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="JobPage02_JobPostingExtended01_json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\jobpage02\jobpage02_jobpostingextended01.json.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="JobPage02_JobPostingExtended01" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\jobpage02\jobpage02_jobpostingextended01.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="JobPage02_JobPostingExtended02_json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\jobpage02\jobpage02_jobpostingextended02.json.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="JobPage02_JobPostingExtended02" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\jobpage02\jobpage02_jobpostingextended02.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="JobPage02_JobPostingExtended03_json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\jobpage02\jobpage02_jobpostingextended03.json.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="JobPage02_JobPostingExtended03" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\jobpage02\jobpage02_jobpostingextended03.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="JobPage02_JobPostingExtended04_json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\jobpage02\jobpage02_jobpostingextended04.json.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="JobPage02_JobPostingExtended04" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\jobpage02\jobpage02_jobpostingextended04.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="JobPage02_JobPostingExtended05_json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\jobpage02\jobpage02_jobpostingextended05.json.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="JobPage02_JobPostingExtended05" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\jobpage02\jobpage02_jobpostingextended05.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="JobPage02_JobPostingExtended06_json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\jobpage02\jobpage02_jobpostingextended06.json.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="JobPage02_JobPostingExtended06" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\jobpage02\jobpage02_jobpostingextended06.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="JobPage02_JobPostingExtended07_json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\jobpage02\jobpage02_jobpostingextended07.json.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="JobPage02_JobPostingExtended07" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\jobpage02\jobpage02_jobpostingextended07.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="JobPage02_JobPostingExtended08_json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\jobpage02\jobpage02_jobpostingextended08.json.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="JobPage02_JobPostingExtended08" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\jobpage02\jobpage02_jobpostingextended08.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="JobPage02_JobPostingExtended09" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\jobpage02\jobpage02_jobpostingextended09.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="JobPage02_JobPostingExtended09_json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\jobpage02\jobpage02_jobpostingextended09.json.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="JobPage02_JobPostingExtended10" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\jobpage02\jobpage02_jobpostingextended10.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
@@ -243,6 +240,9 @@
   </data>
   <data name="JobPage02_JobPostingExtended20" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\jobpage02\jobpage02_jobpostingextended20.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="JobPage02_json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\jobpage02\jobpage02.json.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="Page01" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\html\page01.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
