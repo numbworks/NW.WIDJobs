@@ -2781,6 +2781,60 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: "generic"
                 );
 
+        internal static JobPosting Shared_JobPage01_JobPosting13
+            = new JobPosting(
+                    runId: Shared_FakeRunId,
+                    pageNumber: 1,
+                    response: "{\r\n            \"AutomatchType\": 0,\r\n            \"Abroad\": false,\r\n            \"Weight\": 1.0,\r\n            \"Title\": \"Laboratory technician for plant analysis and microbiology, Department of Food Science, Aarhus University\",\r\n            \"JobHeadline\": \"Laboratory technician for plant analysis and microbiology, Department of Food Science, Aarhus University\",\r\n            \"Presentation\": \"At the Department of Food Science, the Science Team for Food Technology (FT), a full-time position as a laboratory technician is available for appointment as from 15 September 2021 or soon thereafter.\",\r\n            \"HiringOrgName\": \"Aarhus Universitet\",\r\n            \"WorkPlaceAddress\": \"Ag\",\r\n            \"WorkPlacePostalCode\": \"8200\",\r\n            \"WorkPlaceCity\": \"Aarhus N\",\r\n            \"WorkPlaceOtherAddress\": false,\r\n            \"WorkPlaceAbroad\": false,\r\n            \"WorkPlaceNotStatic\": false,\r\n            \"UseWorkPlaceAddressForJoblog\": true,\r\n            \"PostingCreated\": \"2021-07-02T00:00:00\",\r\n            \"LastDateApplication\": \"2021-08-02T00:00:00\",\r\n            \"FormattedLastDateApplication\": \"2. august 2021\",\r\n            \"AssignmentStartDate\": \"0001-01-01T00:00:00\",\r\n            \"IsHotjob\": false,\r\n            \"IsExternal\": false,\r\n            \"Url\": \"https://job.jobnet.dk/CV/FindWork/Details/5383201\",\r\n            \"Region\": \"Midtjylland\",\r\n            \"Municipality\": \"Aarhus\",\r\n            \"Country\": \"Danmark\",\r\n            \"PostalCode\": \"8200\",\r\n            \"PostalCodeName\": null,\r\n            \"JobAnnouncementType\": \"\",\r\n            \"EmploymentType\": \"\",\r\n            \"WorkHours\": \"Fuldtid\",\r\n            \"OccupationArea\": \"\",\r\n            \"OccupationGroup\": \"\",\r\n            \"Occupation\": \"Laboratorietekniker\",\r\n            \"Location\": {\r\n                \"Latitude\": 56.2017,\r\n                \"Longitude\": 10.1592\r\n            },\r\n            \"JoblogWorkTime\": {\r\n                \"WorkHour\": null,\r\n                \"DailyWorkTime\": null\r\n            },\r\n            \"WorkplaceID\": 0,\r\n            \"OrganisationId\": \"90880\",\r\n            \"HiringOrgCVR\": 31119103,\r\n            \"UserLoggedIn\": false,\r\n            \"AnonymousEmployer\": false,\r\n            \"ShareUrl\": \"https://job.jobnet.dk/CV/FindWork/DetailsSocialmedia/5383201\",\r\n            \"DetailsUrl\": \"https://job.jobnet.dk/CV/FindWork/DetailsWidk/5383201\",\r\n            \"JobLogUrl\": \"https://job.jobnet.dk/CV/FindWork/Details/5383201\",\r\n            \"HasLocationValues\": true,\r\n            \"ID\": \"5383201\",\r\n            \"Latitude\": 56.2017,\r\n            \"Longitude\": 10.1592\r\n        }",
+                    title: "Laboratory technician for plant analysis and microbiology, Department of Food Science, Aarhus University",
+                    presentation: "At the Department of Food Science, the Science Team for Food Technology (FT), a full-time position as a laboratory technician is available for appointment as from 15 September 2021 or soon thereafter.",
+                    hiringOrgName: "Aarhus Universitet",
+                    workPlaceAddress: "Ag",
+                    workPlacePostalCode: 8200,
+                    workPlaceCity: "Aarhus N",
+                    postingCreated: new DateTime(2021, 07, 02),
+                    lastDateApplication: new DateTime(2021, 08, 02),
+                    url: "https://job.jobnet.dk/CV/FindWork/Details/5383201",
+                    region: "Midtjylland",
+                    municipality: "Aarhus",
+                    country: "Danmark",
+                    employmentType: "",
+                    workHours: "Fuldtid",
+                    occupation: "Laboratorietekniker",
+                    workplaceId: 0,
+                    organisationId: 90880,
+                    hiringOrgCVR: 31119103,
+                    id: 5383201,
+                    workPlaceCityWithoutZone: "Aarhus",
+                    jobPostingNumber: 13,
+                    jobPostingId: "5383201laboratorytechnicianforplantanalysis"
+                );
+        internal static JobPostingExtended Shared_JobPage01_JobPostingExtended13
+            = new JobPostingExtended(
+                    jobPosting: Shared_JobPage01_JobPosting13,
+                    response: Shared_FakeResponse,                      // Ignored
+                    hiringOrgDescription: null,
+                    publicationStartDate: null,
+                    publicationEndDate: null,
+                    purpose: Shared_FakePurpose,                        // Ignored
+                    numberToFill: null,
+                    contactEmail: null,
+                    contactPersonName: null,
+                    employmentDate: null,
+                    applicationDeadlineDate: null,
+                    bulletPoints: new HashSet<string>()
+                    {
+                        "Analysis of plant ingredients e.g. phenols, carbohydrates, polyacetylenes, glucosinolates, etc. using HPLC, GC-MS, and IC",
+                        "Microbiology",
+                        "Laboratory guidance of students and researchers",
+                        "Method development",
+                        "Sample collection, sample preparation and data processing",
+                        "Maintenance of various analysis equipment and laboratory management",
+                        "Photography in studios and ‘on the spot’ plants, plant products and experimental setup as documentation of the experimental work."
+                    },
+                    bulletPointScenario: "generic"
+                );
+
 
 
 
