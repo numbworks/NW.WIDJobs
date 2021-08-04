@@ -49,7 +49,12 @@ namespace NW.WIDJobs.UnitTests
             new TestCaseData(
                     ObjectMother.Shared_JobPage01_Object,
                     ObjectMother.Shared_JobPage01_JobPostings
-                ).SetArgDisplayNames($"{nameof(doTestCases)}_01")
+                ).SetArgDisplayNames($"{nameof(doTestCases)}_01"),
+
+            new TestCaseData(
+                    ObjectMother.Shared_JobPage02_Object,
+                    ObjectMother.Shared_JobPage02_JobPostings
+                ).SetArgDisplayNames($"{nameof(doTestCases)}_02")
 
         };
 
