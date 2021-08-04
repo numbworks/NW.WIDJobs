@@ -32,7 +32,15 @@ namespace NW.WIDJobs.UnitTests
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("jobPage").Message
-            ).SetArgDisplayNames($"{nameof(doExceptionTestCases)}_01")
+            ).SetArgDisplayNames($"{nameof(doExceptionTestCases)}_01"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new JobPostingDeserializer().Do(ObjectMother.Shared_JobPage01WithEmptyResponse_Object)
+                ),
+                typeof(KeyNotFoundException),
+                "The given key was not present in the dictionary."
+            ).SetArgDisplayNames($"{nameof(doExceptionTestCases)}_02")
 
         };
         private static TestCaseData[] doTestCases =

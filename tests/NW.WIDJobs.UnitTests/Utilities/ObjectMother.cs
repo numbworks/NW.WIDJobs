@@ -3317,6 +3317,8 @@ namespace NW.WIDJobs.UnitTests
 
         internal static JobPage Shared_JobPage01_Object
             = new JobPage(Shared_FakeRunId, 1, Shared_JobPage01_Content);
+        internal static JobPage Shared_JobPage01WithEmptyResponse_Object
+            = new JobPage(Shared_FakeRunId, 1, "{ }");
 
         #endregion
 
