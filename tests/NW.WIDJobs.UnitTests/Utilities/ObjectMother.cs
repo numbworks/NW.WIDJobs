@@ -2158,6 +2158,73 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: "generic"
                 );
 
+        internal static JobPosting Shared_JobPage01_JobPosting03
+            = new JobPosting(
+                    runId: Shared_FakeRunId,
+                    pageNumber: 1,
+                    response: "{\r\n            \"AutomatchType\": 0,\r\n            \"Abroad\": false,\r\n            \"Weight\": 1.0,\r\n            \"Title\": \"Selvstændige truckførere til status og tælleopgave i Kolding/Forklift drivers for inventory assignment in Kolding\",\r\n            \"JobHeadline\": \"Selvstændige truckførere til status og tælleopgave i Kolding/Forklift drivers for inventory assignment in Kolding\",\r\n            \"Presentation\": \"<p><strong>English version below the Danish</strong></p>\\n\",\r\n            \"HiringOrgName\": \"TeamVikaren.dk, Århus ApS, Horsens Afdeling\",\r\n            \"WorkPlaceAddress\": \"\",\r\n            \"WorkPlacePostalCode\": \"6000\",\r\n            \"WorkPlaceCity\": \"Kolding\",\r\n            \"WorkPlaceOtherAddress\": true,\r\n            \"WorkPlaceAbroad\": false,\r\n            \"WorkPlaceNotStatic\": false,\r\n            \"UseWorkPlaceAddressForJoblog\": false,\r\n            \"PostingCreated\": \"2021-07-02T00:00:00\",\r\n            \"LastDateApplication\": \"2021-08-13T00:00:00\",\r\n            \"FormattedLastDateApplication\": \"13. august 2021\",\r\n            \"AssignmentStartDate\": \"0001-01-01T00:00:00\",\r\n            \"IsHotjob\": false,\r\n            \"IsExternal\": false,\r\n            \"Url\": \"https://job.jobnet.dk/CV/FindWork/Details/5372675\",\r\n            \"Region\": \"Syddanmark\",\r\n            \"Municipality\": \"Kolding\",\r\n            \"Country\": \"Danmark\",\r\n            \"PostalCode\": \"6000\",\r\n            \"PostalCodeName\": null,\r\n            \"JobAnnouncementType\": \"\",\r\n            \"EmploymentType\": \"\",\r\n            \"WorkHours\": \"Fuldtid\",\r\n            \"OccupationArea\": \"\",\r\n            \"OccupationGroup\": \"\",\r\n            \"Occupation\": \"Truckfører\",\r\n            \"Location\": {\r\n                \"Latitude\": 55.5022,\r\n                \"Longitude\": 9.4685\r\n            },\r\n            \"JoblogWorkTime\": {\r\n                \"WorkHour\": null,\r\n                \"DailyWorkTime\": \"Dag\"\r\n            },\r\n            \"WorkplaceID\": 126565,\r\n            \"OrganisationId\": \"71174\",\r\n            \"HiringOrgCVR\": 30899695,\r\n            \"UserLoggedIn\": false,\r\n            \"AnonymousEmployer\": false,\r\n            \"ShareUrl\": \"https://job.jobnet.dk/CV/FindWork/DetailsSocialmedia/5372675\",\r\n            \"DetailsUrl\": \"https://job.jobnet.dk/CV/FindWork/DetailsWidk/5372675\",\r\n            \"JobLogUrl\": \"https://job.jobnet.dk/CV/FindWork/Details/5372675\",\r\n            \"HasLocationValues\": true,\r\n            \"ID\": \"5372675\",\r\n            \"Latitude\": 55.5022,\r\n            \"Longitude\": 9.4685\r\n        }",
+                    title: "Selvstændige truckførere til status og tælleopgave i Kolding/Forklift drivers for inventory assignment in Kolding",
+                    presentation: "<p><strong>English version below the Danish</strong></p>\n",
+                    hiringOrgName: "TeamVikaren.dk, Århus ApS, Horsens Afdeling",
+                    workPlaceAddress: "",
+                    workPlacePostalCode: 6000,
+                    workPlaceCity: "Kolding",
+                    postingCreated: new DateTime(2021, 07, 02),
+                    lastDateApplication: new DateTime(2021, 08, 13),
+                    url: "https://job.jobnet.dk/CV/FindWork/Details/5372675",
+                    region: "Syddanmark",
+                    municipality: "Kolding",
+                    country: "Danmark",
+                    employmentType: "",
+                    workHours: "Fuldtid",
+                    occupation: "Truckfører",
+                    workplaceId: 126565,
+                    organisationId: 71174,
+                    hiringOrgCVR: 30899695,
+                    id: 5372675,
+                    workPlaceCityWithoutZone: "Kolding",
+                    jobPostingNumber: 3,
+                    jobPostingId: "5372675selvstndigetruckfreretil"
+                );
+        internal static JobPostingExtended Shared_JobPage01_JobPostingExtended03
+            = new JobPostingExtended(
+                    jobPosting: Shared_JobPage01_JobPosting03,
+                    response: Shared_FakeResponse,                      // Ignored
+                    hiringOrgDescription: null,
+                    publicationStartDate: new DateTime(2021, 07, 02),
+                    publicationEndDate: new DateTime(2021, 08, 13),
+                    purpose: Shared_FakePurpose,                        // Ignored
+                    numberToFill: 2,
+                    contactEmail: null,
+                    contactPersonName: "Majken Lorentzen",
+                    employmentDate: null,
+                    applicationDeadlineDate: new DateTime(2021, 08, 13),
+                    bulletPoints: new HashSet<string>()
+                        {
+                                "Ordnede forhold",
+                                "Attraktiv løn",
+                                "En social arbejdsplads med gode kollegaer",
+                                "Mulighed for vagter på daghold",
+                                "Du har lyst til at arbejde inden for lager og logistik",
+                                "Du kan arbejde om dagen",
+                                "Du har gerne erfaring med truckkørsel – dog ikke et krav",
+                                "Du kan lide at arbejde i teams",
+                                "Du må ikke være talblind",
+                                "Du kan arbejde i ugerne 29 og 30, eller en af ugerne",
+                                "Orderly conditions",
+                                "Attractive salary",
+                                "A social workplace with good colleagues",
+                                "Day shifts",
+                                "You want to work in warehousing and logistics",
+                                "You can work during the day",
+                                "You would like to have experience with truck driving - but not a requirement",
+                                "You must be able to count",
+                                "You can work in weeks 29 and 30, or one of the weeks"
+                        },
+                    bulletPointScenario: "generic"
+                );
+
+
         #endregion
 
         #region Shared_JobPage02
