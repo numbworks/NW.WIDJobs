@@ -73,6 +73,9 @@ namespace NW.WIDJobs.UnitTests
             List<JobPosting> actual = new JobPostingDeserializer().Do(jobPage);
 
             // Assert
+            Assert.IsTrue(
+                    ObjectMother.AreEqual(expected, actual)
+                );
 
         }
 
