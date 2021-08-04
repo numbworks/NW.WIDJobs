@@ -3290,6 +3290,31 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: "generic"
                 );
 
+        internal static List<JobPosting> Shared_JobPage01_JobPostings
+            = new List<JobPosting>()
+            {
+                Shared_JobPage01_JobPosting01,
+                Shared_JobPage01_JobPosting02,
+                Shared_JobPage01_JobPosting03,
+                Shared_JobPage01_JobPosting04,
+                Shared_JobPage01_JobPosting05,
+                Shared_JobPage01_JobPosting06,
+                Shared_JobPage01_JobPosting07,
+                Shared_JobPage01_JobPosting08,
+                Shared_JobPage01_JobPosting09,
+                Shared_JobPage01_JobPosting10,
+                Shared_JobPage01_JobPosting11,
+                Shared_JobPage01_JobPosting12,
+                Shared_JobPage01_JobPosting13,
+                Shared_JobPage01_JobPosting14,
+                Shared_JobPage01_JobPosting15,
+                Shared_JobPage01_JobPosting16,
+                Shared_JobPage01_JobPosting17,
+                Shared_JobPage01_JobPosting18,
+                Shared_JobPage01_JobPosting19,
+                Shared_JobPage01_JobPosting20
+            };
+
         #endregion
 
         #region Shared_JobPage02
@@ -4480,6 +4505,31 @@ namespace NW.WIDJobs.UnitTests
                     bulletPoints: new HashSet<string>() { },
                     bulletPointScenario: "regex"
                 );
+
+        internal static List<JobPosting> Shared_JobPage02_JobPostings
+            = new List<JobPosting>()
+            {
+                Shared_JobPage02_JobPosting01,
+                Shared_JobPage02_JobPosting02,
+                Shared_JobPage02_JobPosting03,
+                Shared_JobPage02_JobPosting04,
+                Shared_JobPage02_JobPosting05,
+                Shared_JobPage02_JobPosting06,
+                Shared_JobPage02_JobPosting07,
+                Shared_JobPage02_JobPosting08,
+                Shared_JobPage02_JobPosting09,
+                Shared_JobPage02_JobPosting10,
+                Shared_JobPage02_JobPosting11,
+                Shared_JobPage02_JobPosting12,
+                Shared_JobPage02_JobPosting13,
+                Shared_JobPage02_JobPosting14,
+                Shared_JobPage02_JobPosting15,
+                Shared_JobPage02_JobPosting16,
+                Shared_JobPage02_JobPosting17,
+                Shared_JobPage02_JobPosting18,
+                Shared_JobPage02_JobPosting19,
+                Shared_JobPage02_JobPosting20
+            };
 
         #endregion
 
