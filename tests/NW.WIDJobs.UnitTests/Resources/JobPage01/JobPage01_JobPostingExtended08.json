@@ -1,0 +1,306 @@
+{
+    "WorkSchedule": [
+        {
+            "Id": 1,
+            "Name": "Fuldtid"
+        },
+        {
+            "Id": 16,
+            "Name": "Deltid"
+        }
+    ],
+    "WorkConditions": [
+        {
+            "Id": 1,
+            "Name": "Almindelige vilkår"
+        },
+        {
+            "Id": 2,
+            "Name": "Fleksjob"
+        },
+        {
+            "Id": 3,
+            "Name": "Skånejob"
+        },
+        {
+            "Id": 4,
+            "Name": "Egnet til efterlønnere og seniorer"
+        },
+        {
+            "Id": 5,
+            "Name": "Job med løntilskud"
+        },
+        {
+            "Id": 6,
+            "Name": "Rotationsjob"
+        },
+        {
+            "Id": 7,
+            "Name": "Virksomhedspraktik"
+        }
+    ],
+    "EmploymentTypes": [
+        {
+            "Id": 1,
+            "Name": "Fastansættelse"
+        },
+        {
+            "Id": 16,
+            "Name": "Tidsbegrænset ansættelse"
+        }
+    ],
+    "WorkPlace": {
+        "Name": "Keepit A/S",
+        "Address": {
+            "AddressLine": "Per Henrik Lings Allé 4 7",
+            "Country": {
+                "Id": 58,
+                "Name": "Danmark"
+            },
+            "Municipality": {
+                "Id": 101,
+                "Name": "København"
+            },
+            "Region": {
+                "Id": 4,
+                "Name": "Hovedstaden, Sjælland og Bornholm"
+            },
+            "PostalCode": "2100",
+            "City": "København Ø"
+        },
+        "PhoneNumber": {
+            "Number": null,
+            "Type": 0,
+            "Description": "Primary"
+        },
+        "FaxNumber": null,
+        "Email": null,
+        "WebAddress": "https://www.keepit.com",
+        "Description": null,
+        "Logo": null,
+        "WorkPlaceOrganizationNumber": "1013551371",
+        "OrganizationNumber": "30806883",
+        "OrganizationDescription": null
+    },
+    "JobPositionPosting": {
+        "Id": 5383229,
+        "OriginalJppId": 5383229,
+        "HiringOrg": {
+            "Name": "Keepit A/S",
+            "Address": {
+                "AddressLine": "Per Henrik Lings Allé 4 7",
+                "Country": {
+                    "Id": 58,
+                    "Name": "Danmark"
+                },
+                "Municipality": {
+                    "Id": 101,
+                    "Name": "København"
+                },
+                "Region": {
+                    "Id": 4,
+                    "Name": "Hovedstaden, Sjælland og Bornholm"
+                },
+                "PostalCode": "2100",
+                "City": "København Ø"
+            },
+            "PhoneNumber": {
+                "Number": null,
+                "Type": 0,
+                "Description": "Primary"
+            },
+            "FaxNumber": null,
+            "Email": null,
+            "WebAddress": "https://www.keepit.com",
+            "Description": null,
+            "Logo": null,
+            "WorkPlaceOrganizationNumber": "1013551371",
+            "OrganizationNumber": "30806883",
+            "OrganizationDescription": null
+        },
+        "RecruitingCompany": null,
+        "PublicationStartDate": "2021-07-02T00:00:00",
+        "PublicationEndDate": "2021-08-27T00:00:00",
+        "JobPositionInformation": {
+            "PositionTitle": "Vice President of Product Marketing",
+            "Purpose": "<p><strong>PARKEN, COPENHAGEN /</strong></p>\n<p><strong>BRAND AND MARKETING – PRODUCT MARKETING /</strong></p>\n<p><strong>FULL TIME, PERMANENT CONTRACT</strong></p>\n<p>How would you lead our team of product marketing experts and help us build a trusted, global brand?</p>\n<p>&nbsp;</p>\n<p>Keepit is looking for a&nbsp;Vice President of Product Marketing&nbsp;to join our product marketing team in Copenhagen, Denmark</p>\n<p>Keepit is set on a mission to help companies around the world protect and manage their cloud-based data. We are a fast-growing software scale-up company with 22 years of experience in data protection. Our team is both academically and culturally diverse, and we have more than thirty different nationalities working together to promote trust and security in a world transforming towards new levels of digitalization. In 2020, Keepit raised $30 million in funding to fuel growth and position Keepit as the category leader in the Backup-as-a-Service market. Keepit covers a broad client base of major corporations and institutions across all sectors and industries globally.&nbsp;</p>\n<p>&nbsp;</p>\n<p>We are growing fast as a company, and we are set on using our momentum to bring our SaaS backup product to the global audience. We understand that our future growth as a company relies profoundly on our ability to build and promote a trusted brand. Therefore, we are looking for a talented Vice President of Product Marketing who can lead and inspire our product marketing team and help us articulate and position our product through a value-based positioning.&nbsp;</p>\n<p>As&nbsp;<strong>Vice President of Product Marketing</strong>, you will&nbsp;help us define our&nbsp;worldwide&nbsp;product marketing strategies and ultimately make our&nbsp;products&nbsp;succeed on a global scale. You will be responsible&nbsp;for&nbsp;leading our&nbsp;talented&nbsp;product marketing team&nbsp;and work closely with&nbsp;the&nbsp;entire&nbsp;Brand and Marketing Team to&nbsp;secure&nbsp;the creative, powerful, and transparent&nbsp;positioning and messaging of our products.&nbsp;</p>\n<p>We are looking for a profile&nbsp;who has an outstanding Product Marketing skill- and mindset and knows&nbsp;how to bring SaaS&nbsp;products to a global audience. We expect you to help us define the right strategies based on the right data, and we&nbsp;trust&nbsp;you to inspire your team and ensure that the strategies come to life.&nbsp;</p>\n<p>Your responsibility:&nbsp;&nbsp;</p>\n<ul>\n<li>As a Vice President, we expect a truly transparent and inclusive leadership style, empowering your team to perform at their maximum abilities.&nbsp;&nbsp;</li>\n<li>Facilitate outstanding collaborations between the product marketing team and the full brand &amp; marketing team as well as&nbsp;internal core stakeholders such as product&nbsp;management&nbsp;and sales&nbsp;</li>\n<li>Help us&nbsp;articulate&nbsp;and implement&nbsp;a&nbsp;global product marketing&nbsp;strategy&nbsp;·Serve as an evangelist for our products through thought leadership&nbsp;&nbsp;</li>\n<li>Keep the company up-to-date with market trends and competition&nbsp;&nbsp;</li>\n</ul>\n<p>At Keepit, we take pride in being an equal opportunity employer and recognize how being a diverse workplace strengthens our product, customer relationships, and work culture.&nbsp;Our Copenhagen office is located on the 7th floor at Parken, the national stadium of Denmark, with a beautiful view of the park and the sea.&nbsp;&nbsp;&nbsp;</p>\n<p><strong>A fair and transparent recruitment process</strong></p>\n<p>We know that it is just as important that you choose us as the other way around. We believe it to be crucial to cultivate a culture where you feel you belong – this starts already in the recruitment process. Therefore, to be fair and transparent, we want to present the criteria you are assessed by if you choose to let your curiosity fall on us.&nbsp;</p>\n<ol>\n<li><strong>Product Marketing Strategy:&nbsp;</strong>We are looking for a profile that can help us define the right strategies that will&nbsp;fuel our continued growth.&nbsp;Having experience with making product marketing strategies for SaaS products&nbsp;is a requirement.&nbsp;</li>\n</ol>\n<p>&nbsp;</p>\n<ol start=\"2\">\n<li><strong>Product Marketing:&nbsp;</strong>The right candidate has&nbsp;a&nbsp;solid&nbsp;product marketing skill-set&nbsp;with an entrepreneurial spirit.&nbsp;You&nbsp;know how to&nbsp;deliver&nbsp;sales&nbsp;enablement content&nbsp;and can execute marketing initiatives, including aligning and getting buy-in from stakeholders across the organization (including marketing, product, and sales).&nbsp;</li>\n</ol>\n<p>&nbsp;</p>\n<ol start=\"3\">\n<li><strong>Leadership Style:&nbsp;</strong>We believe that the right candidate&nbsp;has the ability to&nbsp;inspire&nbsp;the&nbsp;team&nbsp;with an including and transparent leadership style.&nbsp;</li>\n</ol>\n<p>&nbsp;</p>\n<ol start=\"4\">\n<li><strong>Language:&nbsp;</strong>We use English as our preferred language, and being fluent in English, both written and spoken, is essential for this role.&nbsp;</li>\n</ol>\n<p>&nbsp;</p>\n<ol start=\"5\">\n<li><strong>Entrepreneurial spirit:&nbsp;</strong>We are passionate about winning in the market. However, we are also passionate about our workplace, and we know that a good work environment and great collaboration across our organization are crucial to achieving our ambitious goals. Therefore, we are searching for team leaders who, like us, are being motivated by building a fair and fun work environment at Keepit.</li>\n</ol>\n<p><strong>Terms and conditions</strong></p>\n<p><strong>Process:</strong>&nbsp;Please submit your Resume/CV on our&nbsp;<a href=\"https://jobs.lever.co/keepit\">job page</a>. Selected candidates will be contacted continuously. We hire as soon as we find the right candidate.</p>\n<p><strong>Scope:</strong>&nbsp;As soon as possible</p>\n<p><strong>The position:&nbsp;</strong>Full-Time occupation (37 hours per week) based in Copenhagen.</p>\n<p><strong>Salary:</strong>&nbsp;The compensation package is market competitive and will be negotiated with the successful candidate.&nbsp;</p>\n<p>For more information about KEEPIT go to&nbsp;<a href=\"http://www.keepit.com/\">www.Keepit.com</a>&nbsp;</p>\n<p>If you have any questions about the job or the recruitment process, please feel free to reach out to Emil Daniel Christensen at&nbsp;<a href=\"mailto:edc@keepit.com\">edc@keepit.com</a>&nbsp;or on the phone: +45 51 51 89 80</p>\n<p>Apply via the company web page soonest possible:</p>\n<p>https://jobs.lever.co/keepit/e708ac55-bde2-45ae-b5fb-2657dcf2813b</p>",
+            "WorkLocation": {
+                "AddressLine": "Per Henrik Lings Allé 4, 7",
+                "Country": {
+                    "Id": 58,
+                    "Name": "Danmark"
+                },
+                "Municipality": {
+                    "Id": 101,
+                    "Name": "København"
+                },
+                "Region": {
+                    "Id": 4,
+                    "Name": "Hovedstaden, Sjælland og Bornholm"
+                },
+                "PostalCode": "2100",
+                "City": "København Ø"
+            },
+            "EmploymentType": 1,
+            "WeeklyWorkHours": {
+                "TypeId": 1,
+                "TypeName": "Fuldtid",
+                "Description": null
+            },
+            "CompensationDescription": null,
+            "NumberToFill": 1,
+            "DriverLicense": [],
+            "Occupation": {
+                "DiscoWeb": 0,
+                "AlternateNames": [],
+                "GroupId": 0,
+                "AreaId": 0,
+                "Id": 0,
+                "Name": null
+            },
+            "IsGovernmentHiring": false,
+            "JppContacts": [
+                {
+                    "Id": 7126708,
+                    "Email": "edc@keepit.com",
+                    "FaxNumber": null,
+                    "PersonName": "Emil Daniel Christensen",
+                    "FirstName": "Emil Daniel",
+                    "LastName": "Christensen",
+                    "PositionTitle": null,
+                    "PhoneNumbers": [
+                        {
+                            "Number": "004551518980",
+                            "Type": 0,
+                            "Description": "Hovednummer"
+                        },
+                        {
+                            "Number": "004551518980",
+                            "Type": 1,
+                            "Description": "Arbejde direkte"
+                        }
+                    ]
+                }
+            ],
+            "EmploymentDate": null
+        },
+        "IsRecruitmentOfForeignNationals": true,
+        "IsWorkInDenmark": true,
+        "IsAnonymousEmployer": false,
+        "IsDisabilityFriendly": false,
+        "JppType": 4,
+        "ApplicationDetails": {
+            "WorkHourMax": null,
+            "WorkHourMin": null,
+            "DailyWorkTimeWeekend": false,
+            "DailyWorkTimeNight": false,
+            "DailyWorkTimeEvening": false,
+            "DailyWorkTimeDay": false,
+            "ReferenceText": null,
+            "RemarksToApplicant": null,
+            "ByEmail": null,
+            "ByPhone": null,
+            "ApplyViaUrl": "https://jobs.lever.co/keepit/e708ac55-bde2-45ae-b5fb-2657dcf2813b",
+            "ReplyInWriting": false,
+            "ApplicationDeadlineDate": "2021-08-27T00:00:00"
+        },
+        "ContactAuthorityPhoneNumber": {
+            "Number": null,
+            "Type": 0,
+            "Description": "Primary"
+        },
+        "Status": 7
+    },
+    "LogoUrl": "/CV/FindWork/GetLogo?JobAdId=5383229&Organisation=30806883",
+    "Address": "Per Henrik Lings Allé 4, 7,2100, København Ø",
+    "ShowMap": true,
+    "ShowShareButtonJobLog": false,
+    "JobLogUrl": "/CV/Jobseeking/JobLog/CreateJobSearch?JobnetJobPostingIdentifier=5383229&Company.Name=Keepit A/S&SubmissionDeadlineDate=2021-8-27&Title=Vice President of Product Marketing&JobAdUrl=https://job.jobnet.dk/CV/FindWork/Details/5383229&WeeklyWorkTime=1",
+    "JobLogTemplateModel": {
+        "Identifier": "00000000-0000-0000-0000-000000000000",
+        "UseWorkPlaceAddressForJoblog": false,
+        "Category": 0,
+        "CvCustomerIdentifier": null,
+        "JobSeekingStatus": null,
+        "Title": "Vice President of Product Marketing",
+        "IsApplicationSourceRequired": true,
+        "ApplicationSource": null,
+        "IsWeeklyWorkTimeRequired": true,
+        "WeeklyWorkTime": 1,
+        "HoursPerWeek": null,
+        "JobnetJobPostingIdentifier": "5383229",
+        "JobAdUrl": "https://job.jobnet.dk/CV/FindWork/JobDetailJsonWIDK?id=5383229",
+        "JobAdDocument": null,
+        "Company": {
+            "JobLogEntryCategory": 0,
+            "ShowAddressFieldsEvenIfEmpty": false,
+            "Name": "Keepit A/S",
+            "Address": "Per Henrik Lings Allé 4 7",
+            "Country": null,
+            "EmploymentAreaID": null,
+            "PostCode": "2100",
+            "IsCountryAndTownAndPostCodeEmpty": false,
+            "IsTownAndPostCodeEmpty": false,
+            "IsCountryDanmark": false,
+            "Town": "København Ø",
+            "ContactPerson": "Emil Daniel Christensen",
+            "Phone": "004551518980",
+            "Email": "edc@keepit.com",
+            "Latitude": null,
+            "Longitude": null,
+            "DailyTravelTimeInMinutes": null,
+            "DistanceToCompanyInMeters": null,
+            "IsCreateMode": false
+        },
+        "TypeOfSubmission": null,
+        "SubmissionDate": "2021-08-27T00:00:00",
+        "SubmissionDateFormatted": null,
+        "SubmissionDateTiks": 0,
+        "IsSubmissionDateRequired": false,
+        "Status": 0,
+        "DateCreatedFormatted": null,
+        "DateCreated": null,
+        "DateModifiedFormatted": null,
+        "DateModified": null,
+        "LastModifiedDateTiks": 0,
+        "DateClosed": null,
+        "JobApplicationDocument": {
+            "Title": null,
+            "Identifier": null,
+            "IsDeleted": false
+        },
+        "CvDocument": {
+            "Title": null,
+            "Identifier": null,
+            "IsDeleted": false
+        },
+        "JobApplicationFile": null,
+        "CvFile": null,
+        "SubmissionDeadlineDate": null,
+        "IsPersisted": false,
+        "ServerValidationErrors": [],
+        "HasServerValidationErrors": false
+    },
+    "JoblogWorkTime": {
+        "WorkHour": null,
+        "DailyWorkTime": null
+    },
+    "Place": "Work place location København municipality",
+    "OpenPrintDialog": false,
+    "WorkPlaceInfoText": "Keepit A/S",
+    "JobCenterContactDetails": "",
+    "WorkPlaceDescriptionText": null,
+    "FavoriteText": "",
+    "IsFavorite": false,
+    "ShowFavorite": false,
+    "MetaOgTextForSharing": "PARKEN, COPENHAGEN /\nBRAND AND MARKETING – PRODUCT MARKETING /\nFULL TIME, PERMANENT CONTRACT\nHow would you lead our team of product marketing experts and help us build a trusted, global brand?\n\nKeepit is looking for aVice President of Product Marketingto join our product marketing team in Copenhagen, Denmark\nKeepit is set on a mission to help compa",
+    "DescriptionForSharing": "\"PARKEN, COPENHAGEN /\\nBRAND AND MARKETING – PRODUCT MARKETING /\\nFULL TIME, PERMANENT CONTRACT\\nHow would you lead our team of product marketing experts and help us build a trusted, global brand?\\n\\nKeepit is looking for aVice President of Product Marketingto join our product marketing team in Copenhagen, Denmark\\nKeepit is set on a mission to help compa\"",
+    "TitleForSharing": "\"Vice President of Product Marketing\"",
+    "RutePlan": "https://www.google.dk/maps/dir//Per+Henrik+Lings+Allé+4,+7,2100,+København+Ø/",
+    "FormattedPurpose": "<p><strong>PARKEN, COPENHAGEN /</strong></p>\n<p><strong>BRAND AND MARKETING – PRODUCT MARKETING /</strong></p>\n<p><strong>FULL TIME, PERMANENT CONTRACT</strong></p>\n<p>How would you lead our team of product marketing experts and help us build a trusted, global brand?</p>\n<p> </p>\n<p>Keepit is looking for a Vice President of Product Marketing to join our product marketing team in Copenhagen, Denmark</p>\n<p>Keepit is set on a mission to help companies around the world protect and manage their cloud-based data. We are a fast-growing software scale-up company with 22 years of experience in data protection. Our team is both academically and culturally diverse, and we have more than thirty different nationalities working together to promote trust and security in a world transforming towards new levels of digitalization. In 2020, Keepit raised $30 million in funding to fuel growth and position Keepit as the category leader in the Backup-as-a-Service market. Keepit covers a broad client base of major corporations and institutions across all sectors and industries globally. </p>\n<p> </p>\n<p>We are growing fast as a company, and we are set on using our momentum to bring our SaaS backup product to the global audience. We understand that our future growth as a company relies profoundly on our ability to build and promote a trusted brand. Therefore, we are looking for a talented Vice President of Product Marketing who can lead and inspire our product marketing team and help us articulate and position our product through a value-based positioning. </p>\n<p>As <strong>Vice President of Product Marketing</strong>, you will help us define our worldwide product marketing strategies and ultimately make our products succeed on a global scale. You will be responsible for leading our talented product marketing team and work closely with the entire Brand and Marketing Team to secure the creative, powerful, and transparent positioning and messaging of our products. </p>\n<p>We are looking for a profile who has an outstanding Product Marketing skill- and mindset and knows how to bring SaaS products to a global audience. We expect you to help us define the right strategies based on the right data, and we trust you to inspire your team and ensure that the strategies come to life. </p>\n<p>Your responsibility:  </p>\n<ul>\n<li>As a Vice President, we expect a truly transparent and inclusive leadership style, empowering your team to perform at their maximum abilities.  </li>\n<li>Facilitate outstanding collaborations between the product marketing team and the full brand &amp; marketing team as well as internal core stakeholders such as product management and sales </li>\n<li>Help us articulate and implement a global product marketing strategy ·Serve as an evangelist for our products through thought leadership  </li>\n<li>Keep the company up-to-date with market trends and competition  </li>\n</ul>\n<p>At Keepit, we take pride in being an equal opportunity employer and recognize how being a diverse workplace strengthens our product, customer relationships, and work culture. Our Copenhagen office is located on the 7th floor at Parken, the national stadium of Denmark, with a beautiful view of the park and the sea.   </p>\n<p><strong>A fair and transparent recruitment process</strong></p>\n<p>We know that it is just as important that you choose us as the other way around. We believe it to be crucial to cultivate a culture where you feel you belong – this starts already in the recruitment process. Therefore, to be fair and transparent, we want to present the criteria you are assessed by if you choose to let your curiosity fall on us. </p>\n<ol>\n<li><strong>Product Marketing Strategy: </strong>We are looking for a profile that can help us define the right strategies that will fuel our continued growth. Having experience with making product marketing strategies for SaaS products is a requirement. </li>\n</ol>\n<p> </p>\n<ol start=\"2\">\n<li><strong>Product Marketing: </strong>The right candidate has a solid product marketing skill-set with an entrepreneurial spirit. You know how to deliver sales enablement content and can execute marketing initiatives, including aligning and getting buy-in from stakeholders across the organization (including marketing, product, and sales). </li>\n</ol>\n<p> </p>\n<ol start=\"3\">\n<li><strong>Leadership Style: </strong>We believe that the right candidate has the ability to inspire the team with an including and transparent leadership style. </li>\n</ol>\n<p> </p>\n<ol start=\"4\">\n<li><strong>Language: </strong>We use English as our preferred language, and being fluent in English, both written and spoken, is essential for this role. </li>\n</ol>\n<p> </p>\n<ol start=\"5\">\n<li><strong>Entrepreneurial spirit: </strong>We are passionate about winning in the market. However, we are also passionate about our workplace, and we know that a good work environment and great collaboration across our organization are crucial to achieving our ambitious goals. Therefore, we are searching for team leaders who, like us, are being motivated by building a fair and fun work environment at Keepit.</li>\n</ol>\n<p><strong>Terms and conditions</strong></p>\n<p><strong>Process:</strong> Please submit your Resume/CV on our <a target=\"_blank\" href=\"https://jobs.lever.co/keepit\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5383229\">job page</a>. Selected candidates will be contacted continuously. We hire as soon as we find the right candidate.</p>\n<p><strong>Scope:</strong> As soon as possible</p>\n<p><strong>The position: </strong>Full-Time occupation (37 hours per week) based in Copenhagen.</p>\n<p><strong>Salary:</strong> The compensation package is market competitive and will be negotiated with the successful candidate. </p>\n<p>For more information about KEEPIT go to <a target=\"_blank\" href=\"http://www.keepit.com/\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5383229\">www.Keepit.com</a> </p>\n<p>If you have any questions about the job or the recruitment process, please feel free to reach out to Emil Daniel Christensen at <a target=\"_blank\" href=\"mailto:edc@keepit.com\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5383229\">edc@keepit.com</a> or on the phone: +45 51 51 89 80</p>\n<p>Apply via the company web page soonest possible:</p>\n<p><a target=\"_blank\" href=\"https://jobs.lever.co/keepit/e708ac55-bde2-45ae-b5fb-2657dcf2813b\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5383229\">https://jobs.lever.co/keepit/e708ac55-bde2-45ae-b5fb-2657dcf2813b</a></p>",
+    "MapUrl": "https://www.google.dk/maps/place/Per+Henrik+Lings+Allé+4,+7,2100,+København+Ø/",
+    "OrganizationNumber": "30806883",
+    "ShowSearchJobButton": false,
+    "ShowPrint": false,
+    "BackToFindWorkButtonUrl": null
+}

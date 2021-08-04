@@ -1,0 +1,306 @@
+{
+    "WorkSchedule": [
+        {
+            "Id": 1,
+            "Name": "Fuldtid"
+        },
+        {
+            "Id": 16,
+            "Name": "Deltid"
+        }
+    ],
+    "WorkConditions": [
+        {
+            "Id": 1,
+            "Name": "Almindelige vilkår"
+        },
+        {
+            "Id": 2,
+            "Name": "Fleksjob"
+        },
+        {
+            "Id": 3,
+            "Name": "Skånejob"
+        },
+        {
+            "Id": 4,
+            "Name": "Egnet til efterlønnere og seniorer"
+        },
+        {
+            "Id": 5,
+            "Name": "Job med løntilskud"
+        },
+        {
+            "Id": 6,
+            "Name": "Rotationsjob"
+        },
+        {
+            "Id": 7,
+            "Name": "Virksomhedspraktik"
+        }
+    ],
+    "EmploymentTypes": [
+        {
+            "Id": 1,
+            "Name": "Fastansættelse"
+        },
+        {
+            "Id": 16,
+            "Name": "Tidsbegrænset ansættelse"
+        }
+    ],
+    "WorkPlace": {
+        "Name": "Aarhus Universitet",
+        "Address": {
+            "AddressLine": "Blichers Alle 20",
+            "Country": {
+                "Id": 58,
+                "Name": "Danmark"
+            },
+            "Municipality": {
+                "Id": 791,
+                "Name": "Viborg"
+            },
+            "Region": {
+                "Id": 2,
+                "Name": "Midtjylland"
+            },
+            "PostalCode": "8830",
+            "City": "Tjele"
+        },
+        "PhoneNumber": {
+            "Number": null,
+            "Type": 0,
+            "Description": "Primary"
+        },
+        "FaxNumber": null,
+        "Email": null,
+        "WebAddress": null,
+        "Description": null,
+        "Logo": 100437,
+        "WorkPlaceOrganizationNumber": "1015079041",
+        "OrganizationNumber": "31119103",
+        "OrganizationDescription": null
+    },
+    "JobPositionPosting": {
+        "Id": 5383212,
+        "OriginalJppId": 5383212,
+        "HiringOrg": {
+            "Name": "Aarhus Universitet",
+            "Address": {
+                "AddressLine": "Blichers Alle 20",
+                "Country": {
+                    "Id": 58,
+                    "Name": "Danmark"
+                },
+                "Municipality": {
+                    "Id": 791,
+                    "Name": "Viborg"
+                },
+                "Region": {
+                    "Id": 2,
+                    "Name": "Midtjylland"
+                },
+                "PostalCode": "8830",
+                "City": "Tjele"
+            },
+            "PhoneNumber": {
+                "Number": null,
+                "Type": 0,
+                "Description": "Primary"
+            },
+            "FaxNumber": null,
+            "Email": null,
+            "WebAddress": null,
+            "Description": null,
+            "Logo": 100437,
+            "WorkPlaceOrganizationNumber": "1015079041",
+            "OrganizationNumber": "31119103",
+            "OrganizationDescription": null
+        },
+        "RecruitingCompany": null,
+        "PublicationStartDate": "2021-07-02T00:00:00",
+        "PublicationEndDate": "2021-08-13T00:00:00",
+        "JobPositionInformation": {
+            "PositionTitle": "Tenure track assistant professor in applied statistics",
+            "Purpose": "Department of Agroecology, Aarhus University, invites applications for a tenure track position in applied statistics.<br/><br/>The main activity will be research and support in statistical methods and analysis in relation to research in agronomy, biology, soil and system analysis science. A broad variety of statistical methods and analyses are used to cover the activities in the department, e.g. experiments at many scales from laboratories to field using both controlled factorial experiments to geo-statistics, time-series analysis at plant and crop level, image analysis, multivariate analysis, system analysis, machine learning methods and development of mathematical models. Other activities include contributions to the department’s teaching at undergraduate and graduate level and a statistical support program for scientists and students at graduate level. It is expected that the candidate is able to collaborate with researchers at different levels of statistical knowledge and support the research at Department of Agroecology with state-of-the-art statistical knowledge and solutions.<br/><br/><strong>Qualifications</strong><br/>We are looking for a tenure track assistant professor with the following qualifications:<ul><li>PhD degree and post doc research experience within applied statistics or similar aspects</li><li>Proven publication record in international peer-reviewed ISI journals</li><li>Strong expertise in classical statistical methods (analysis of variance, regression analysis, mixed model analysis, generalized linear models, categorical data analysis, non-parametric analysis, multivariate data analysis) and in areas such as spatial statistics, image analysis, time series analysis and machine learning. We are aware that candidates may not have strong expertise in all areas, but we expect the applicant to have at least some knowledge in the areas mentioned.</li><li>The ability to manage, participate, collaborate and communicate in interdisciplinary research, and to participate in joint projects with other scientists.</li><li>Skills in clearly communicating statistical methods and results to persons with non-statistical background.</li></ul><br/><strong>Application</strong><br/>The application must be written in English and include a description of previous research experience highlighting the relevance for the present position as well as future research plans, curriculum vitae, degree certificate, a complete list of publications, a brief description of technical, administrative and academic competences in relation to the position. Guidelines for applicants can be found <a href=\"http://scitech.au.dk/en/about-science-and-technology/vacant-positions/application-form-guide/\" target=\"_blank\">here.</a><br/><br/>The application should include names and e-mail addresses of three people who can provide a letter of reference upon request. Please provide your ResearcherID, ORCID, Google Scholar profile link, and/or a unique search query in Web of Science required to retrieve your publication and citation track record<br/><br/><strong>Deadline</strong><br/>All applications must be made online and received by 13 August 2021.<br/>The intended starting date is 1 January 2022 or as soon as possible thereafter.<br/><br/><strong>Place of Work and area of Employment</strong><br/>The area of employment is Aarhus University, and the place of work is Blichers Allé 20, 8830 Tjele with regular travels to Forsøgsvej 1, Flakkebjerg, 4200 Slagelse, Denmark.<br/><br/>For further information contact Head of Department Jørgen E. Olesen at <a href=\"mailto:jeo@agro.au.dk\" target=\"_blank\">jeo@agro.au.dk</a> or on +45 4082 1656.<br/><br/><strong>Research environment</strong><br/>The successful candidate will be part of the Department of Agroecology, Aarhus University, which includes research across agroecology, that is to say the interaction between plants, animals, humans and the environment within agroecosystems for the production of food, feed, energy and biobased products. The Department currently employs approx. 60 full time scientific staff, 100 PhD students and Postdocs, and approx. 100 technical/administrative staff. Furthermore, we have a number of students and guests each year contributing to an international research environment. The department is geographically distributed between several locations in Denmark. The department has a flexible and informal working environment. The candidate will also be part of the network of applied statisticians at the Faculty of Technical Sciences<br/><br/>Please refer to http://agro.au.dk/en/ for further information about The Department of Agroecology.<br/><br/><strong>Technical Sciences Tenure Track</strong><br/>Aarhus University offers talented scientists from around the world attractive career perspectives via the Technical Sciences Tenure Track Programme. Highly qualified candidates are appointed as Assistant Professors for a period of six years with the prospect of performance- based advancement to a tenured Associate Professorship.<br/><br/>The aim of the Technical Sciences Tenure Track Programme is to:<ul><li>attract outstanding talented individuals that are competitive at an international level</li><li>to promote the early development of independent research success early in the career of scientists</li><li>to create transparency in the academic career path</li></ul>As part of the tenure track position, the candidate is offered:<ul><li>access to research infrastructure</li><li>capability development, including postgraduate teacher training</li><li>a mentoring programme</li><li>support to develop scientific networks and to secure interdisciplinary research at the highest level</li></ul>As part of the Aarhus University Tenure Track Programme, the University carries out a mid-way evaluation to review the progress of the tenure track candidate after three years, according to the same criteria used in the final tenure review. The final tenure review is conducted after five and a half years. If the review is positive, the candidate will be offered a tenured position as Associate Professor at Aarhus University.<br/><br/>Please refer to the <a href=\"https://tech.au.dk/fileadmin/tech.au.dk/hr/vejledninger_tech_eng/tenure_track_-_engelsk__tech_.pdf\" target=\"_blank\">tenure track guidelines </a>for the tenure review criteria and for the tenure review process.<br/><br/><strong>Application procedure</strong><br/>Shortlisting is used. This means that after the deadline for applications – and with the assistance from the assessment committee chairman, and the assessment committee if necessary, – the head of department selects the candidates to be evaluated. The selection is made on the basis of an assessment of who of the candidates are most relevant considering the requirements of the advertisement. All applicants will be notified within 6 weeks whether or not their applications have been sent to an expert assessment committee for evaluation. The selected applicants will be informed about the composition of the committee and will receive his/her assessment. Once the recruitment process is completed a final letter of rejection is sent to the deselected applicants.<br/><br/><strong>Letter of reference</strong><br/>If you want a referee to upload a letter of reference on your behalf, please state the referee’s contact information when you submit your application. We strongly recommend that you make an agreement with the person in question before you enter the referee’s contact information, and that you ensure that the referee has enough time to write the letter of reference before the application deadline.<br/>Unfortunately, it is not possible to ensure that letters of reference received after the application deadline will be taken into consideration.<br/><br/><strong>Formalities and salary range</strong><br/>Technical Sciences refers to the <a href=\"http://www.medarbejdere.au.dk/job_structure_for_academic_staff_at_universities_2013\" target=\"_blank\">Ministerial Order on the Appointment of Academic Staff at Danish Universities under the Danish Ministry of Science, Technology and Innovation. </a><br/><br/>The application must be in English and include a curriculum vitae, degree certificate, a complete list of publications, a statement of future research plans and information about research activities, teaching portfolio and verified information on previous teaching experience (if any). Guidelines for applicants can be found <a href=\"https://tech.au.dk/en/about-the-faculty/vacant-positions-and-career/guidelines-and-rules/\" target=\"_blank\">here.</a><br/><br/>Appointment shall be in accordance with the collective labour agreement between the Danish Ministry of Finance and the Danish Confederation of Professional Associations. Further information on qualification requirements and job content may be found in the <a href=\"https://medarbejdere.au.dk/fileadmin/www.medarbejdere.au.dk/hr/rekruttering/onboarding/ministerial_order_no._1443_of_11_december_2019_on_job_structure_for_academic_staff_at_universities.pdf\" target=\"_blank\">Memorandum on Job Structure for Academic Staff at Danish Universities</a>.<br/><br/>Salary depends on seniority as agreed between the Danish Ministry of Finance and the Confederation of Professional Associations.<br/><br/>Aarhus University’s ambition is to be an attractive and inspiring workplace for all and to foster a culture in which each individual has opportunities to thrive, achieve and develop. We view equality and diversity as assets, and we welcome all applicants.<br/><br/>Research activities will be evaluated in relation to actual research time. Thus, we encourage applicants to specify periods of leave without research activities, in order to be able to subtract these periods from the span of the scientific career during the evaluation of scientific productivity.<br/><br/>Aarhus University offers a broad variety of services for international researchers and accompanying families, including relocation service and career counselling to expat partners. Read more <a href=\"http://ias.au.dk/au-relocation-service/\" target=\"_blank\">here</a>. Please find more information about entering and working in Denmark <a href=\"http://international.au.dk/research/\" target=\"_blank\">here</a>.<br/><br/><em>The application must be submitted via Aarhus University’s recruitment system, which can be accessed under the job advertisement on Aarhus University's website</em>.<br/><br/><strong>Aarhus </strong><strong>University</strong><br/><em>Aarhus University is an academically diverse and research-intensive university with a strong commitment to high-quality research and education and the development of society nationally and globally. The university offers an inspiring research and teaching environment to </em><em>its 38,000 students (FTEs) and 8,000 employees, and has an annual revenues of EUR 885 million. Learn more at <a href=\"http://www.international.au.dk/\" target=\"_blank\">www.international.au.dk/</a></em><p>&nbsp;</p>",
+            "WorkLocation": {
+                "AddressLine": "Blichers Alle 20",
+                "Country": {
+                    "Id": 58,
+                    "Name": "Danmark"
+                },
+                "Municipality": {
+                    "Id": 791,
+                    "Name": "Viborg"
+                },
+                "Region": {
+                    "Id": 2,
+                    "Name": "Midtjylland"
+                },
+                "PostalCode": "8830",
+                "City": "Tjele"
+            },
+            "EmploymentType": 1,
+            "WeeklyWorkHours": {
+                "TypeId": 1,
+                "TypeName": "Fuldtid",
+                "Description": null
+            },
+            "CompensationDescription": null,
+            "NumberToFill": 1,
+            "DriverLicense": [],
+            "Occupation": {
+                "DiscoWeb": 0,
+                "AlternateNames": [],
+                "GroupId": 0,
+                "AreaId": 0,
+                "Id": 0,
+                "Name": null
+            },
+            "IsGovernmentHiring": true,
+            "JppContacts": [
+                {
+                    "Id": 7126687,
+                    "Email": "jeo@agro.au.dk",
+                    "FaxNumber": null,
+                    "PersonName": "Jørgen E. Olesen",
+                    "FirstName": "Jørgen",
+                    "LastName": "E. Olesen",
+                    "PositionTitle": null,
+                    "PhoneNumbers": [
+                        {
+                            "Number": "-",
+                            "Type": 0,
+                            "Description": "Hovednummer"
+                        },
+                        {
+                            "Number": "4082 1656",
+                            "Type": 1,
+                            "Description": "Arbejde direkte"
+                        }
+                    ]
+                }
+            ],
+            "EmploymentDate": "2022-01-01T00:00:00"
+        },
+        "IsRecruitmentOfForeignNationals": false,
+        "IsWorkInDenmark": true,
+        "IsAnonymousEmployer": false,
+        "IsDisabilityFriendly": false,
+        "JppType": 4,
+        "ApplicationDetails": {
+            "WorkHourMax": null,
+            "WorkHourMin": null,
+            "DailyWorkTimeWeekend": false,
+            "DailyWorkTimeNight": false,
+            "DailyWorkTimeEvening": false,
+            "DailyWorkTimeDay": false,
+            "ReferenceText": null,
+            "RemarksToApplicant": null,
+            "ByEmail": null,
+            "ByPhone": null,
+            "ApplyViaUrl": "https://AU.emply.net/recruitment/vacancyApply.aspx?publishingId=f98f1759-491e-4009-8776-cf98cc2f1f36",
+            "ReplyInWriting": false,
+            "ApplicationDeadlineDate": "2021-08-13T00:00:00"
+        },
+        "ContactAuthorityPhoneNumber": {
+            "Number": null,
+            "Type": 0,
+            "Description": "Primary"
+        },
+        "Status": 7
+    },
+    "LogoUrl": "/CV/FindWork/GetLogo?JobAdId=5383212&WorkPlace=100437&Organisation=31119103",
+    "Address": "Blichers Alle 20,8830, Tjele",
+    "ShowMap": true,
+    "ShowShareButtonJobLog": false,
+    "JobLogUrl": "/CV/Jobseeking/JobLog/CreateJobSearch?JobnetJobPostingIdentifier=5383212&Company.Name=Aarhus Universitet&SubmissionDeadlineDate=2021-8-13&Title=Tenure track assistant professor in applied statistics&JobAdUrl=https://job.jobnet.dk/CV/FindWork/Details/5383212&WeeklyWorkTime=1",
+    "JobLogTemplateModel": {
+        "Identifier": "00000000-0000-0000-0000-000000000000",
+        "UseWorkPlaceAddressForJoblog": false,
+        "Category": 0,
+        "CvCustomerIdentifier": null,
+        "JobSeekingStatus": null,
+        "Title": "Tenure track assistant professor in applied statistics",
+        "IsApplicationSourceRequired": true,
+        "ApplicationSource": null,
+        "IsWeeklyWorkTimeRequired": true,
+        "WeeklyWorkTime": 1,
+        "HoursPerWeek": null,
+        "JobnetJobPostingIdentifier": "5383212",
+        "JobAdUrl": "https://job.jobnet.dk/CV/FindWork/JobDetailJsonWIDK?id=5383212",
+        "JobAdDocument": null,
+        "Company": {
+            "JobLogEntryCategory": 0,
+            "ShowAddressFieldsEvenIfEmpty": false,
+            "Name": "Aarhus Universitet",
+            "Address": "Blichers Alle 20",
+            "Country": null,
+            "EmploymentAreaID": null,
+            "PostCode": "8830",
+            "IsCountryAndTownAndPostCodeEmpty": false,
+            "IsTownAndPostCodeEmpty": false,
+            "IsCountryDanmark": false,
+            "Town": "Tjele",
+            "ContactPerson": "Jørgen E. Olesen",
+            "Phone": "-",
+            "Email": "jeo@agro.au.dk",
+            "Latitude": null,
+            "Longitude": null,
+            "DailyTravelTimeInMinutes": null,
+            "DistanceToCompanyInMeters": null,
+            "IsCreateMode": false
+        },
+        "TypeOfSubmission": null,
+        "SubmissionDate": "2021-08-13T00:00:00",
+        "SubmissionDateFormatted": null,
+        "SubmissionDateTiks": 0,
+        "IsSubmissionDateRequired": false,
+        "Status": 0,
+        "DateCreatedFormatted": null,
+        "DateCreated": null,
+        "DateModifiedFormatted": null,
+        "DateModified": null,
+        "LastModifiedDateTiks": 0,
+        "DateClosed": null,
+        "JobApplicationDocument": {
+            "Title": null,
+            "Identifier": null,
+            "IsDeleted": false
+        },
+        "CvDocument": {
+            "Title": null,
+            "Identifier": null,
+            "IsDeleted": false
+        },
+        "JobApplicationFile": null,
+        "CvFile": null,
+        "SubmissionDeadlineDate": null,
+        "IsPersisted": false,
+        "ServerValidationErrors": [],
+        "HasServerValidationErrors": false
+    },
+    "JoblogWorkTime": {
+        "WorkHour": null,
+        "DailyWorkTime": null
+    },
+    "Place": "Work place location Viborg municipality",
+    "OpenPrintDialog": false,
+    "WorkPlaceInfoText": "Aarhus Universitet",
+    "JobCenterContactDetails": "",
+    "WorkPlaceDescriptionText": null,
+    "FavoriteText": "",
+    "IsFavorite": false,
+    "ShowFavorite": false,
+    "MetaOgTextForSharing": "Department of Agroecology, Aarhus University, invites applications for a tenure track position in applied statistics.The main activity will be research and support in statistical methods and analysis in relation to research in agronomy, biology, soil and system analysis science. A broad variety of statistical methods and analyses are used to cover ",
+    "DescriptionForSharing": "\"Department of Agroecology, Aarhus University, invites applications for a tenure track position in applied statistics.The main activity will be research and support in statistical methods and analysis in relation to research in agronomy, biology, soil and system analysis science. A broad variety of statistical methods and analyses are used to cover \"",
+    "TitleForSharing": "\"Tenure track assistant professor in applied statistics\"",
+    "RutePlan": "https://www.google.dk/maps/dir//Blichers+Alle+20,8830,+Tjele/",
+    "FormattedPurpose": "Department of Agroecology, Aarhus University, invites applications for a tenure track position in applied statistics.<br/><br/>The main activity will be research and support in statistical methods and analysis in relation to research in agronomy, biology, soil and system analysis science. A broad variety of statistical methods and analyses are used to cover the activities in the department, e.g. experiments at many scales from laboratories to field using both controlled factorial experiments to geo-statistics, time-series analysis at plant and crop level, image analysis, multivariate analysis, system analysis, machine learning methods and development of mathematical models. Other activities include contributions to the department’s teaching at undergraduate and graduate level and a statistical support program for scientists and students at graduate level. It is expected that the candidate is able to collaborate with researchers at different levels of statistical knowledge and support the research at Department of Agroecology with state-of-the-art statistical knowledge and solutions.<br/><br/><strong>Qualifications</strong><br/>We are looking for a tenure track assistant professor with the following qualifications:<ul><li>PhD degree and post doc research experience within applied statistics or similar aspects</li><li>Proven publication record in international peer-reviewed ISI journals</li><li>Strong expertise in classical statistical methods (analysis of variance, regression analysis, mixed model analysis, generalized linear models, categorical data analysis, non-parametric analysis, multivariate data analysis) and in areas such as spatial statistics, image analysis, time series analysis and machine learning. We are aware that candidates may not have strong expertise in all areas, but we expect the applicant to have at least some knowledge in the areas mentioned.</li><li>The ability to manage, participate, collaborate and communicate in interdisciplinary research, and to participate in joint projects with other scientists.</li><li>Skills in clearly communicating statistical methods and results to persons with non-statistical background.</li></ul><br/><strong>Application</strong><br/>The application must be written in English and include a description of previous research experience highlighting the relevance for the present position as well as future research plans, curriculum vitae, degree certificate, a complete list of publications, a brief description of technical, administrative and academic competences in relation to the position. Guidelines for applicants can be found <a target=\"_blank\" href=\"http://scitech.au.dk/en/about-science-and-technology/vacant-positions/application-form-guide/\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5383212\">here.</a><br/><br/>The application should include names and e-mail addresses of three people who can provide a letter of reference upon request. Please provide your ResearcherID, ORCID, Google Scholar profile link, and/or a unique search query in Web of Science required to retrieve your publication and citation track record<br/><br/><strong>Deadline</strong><br/>All applications must be made online and received by 13 August 2021.<br/>The intended starting date is 1 January 2022 or as soon as possible thereafter.<br/><br/><strong>Place of Work and area of Employment</strong><br/>The area of employment is Aarhus University, and the place of work is Blichers Allé 20, 8830 Tjele with regular travels to Forsøgsvej 1, Flakkebjerg, 4200 Slagelse, Denmark.<br/><br/>For further information contact Head of Department Jørgen E. Olesen at <a target=\"_blank\" href=\"mailto:jeo@agro.au.dk\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5383212\">jeo@agro.au.dk</a> or on +45 4082 1656.<br/><br/><strong>Research environment</strong><br/>The successful candidate will be part of the Department of Agroecology, Aarhus University, which includes research across agroecology, that is to say the interaction between plants, animals, humans and the environment within agroecosystems for the production of food, feed, energy and biobased products. The Department currently employs approx. 60 full time scientific staff, 100 PhD students and Postdocs, and approx. 100 technical/administrative staff. Furthermore, we have a number of students and guests each year contributing to an international research environment. The department is geographically distributed between several locations in Denmark. The department has a flexible and informal working environment. The candidate will also be part of the network of applied statisticians at the Faculty of Technical Sciences<br/><br/>Please refer to <a target=\"_blank\" href=\"http://agro.au.dk/en/\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5383212\">http://agro.au.dk/en/</a> for further information about The Department of Agroecology.<br/><br/><strong>Technical Sciences Tenure Track</strong><br/>Aarhus University offers talented scientists from around the world attractive career perspectives via the Technical Sciences Tenure Track Programme. Highly qualified candidates are appointed as Assistant Professors for a period of six years with the prospect of performance- based advancement to a tenured Associate Professorship.<br/><br/>The aim of the Technical Sciences Tenure Track Programme is to:<ul><li>attract outstanding talented individuals that are competitive at an international level</li><li>to promote the early development of independent research success early in the career of scientists</li><li>to create transparency in the academic career path</li></ul>As part of the tenure track position, the candidate is offered:<ul><li>access to research infrastructure</li><li>capability development, including postgraduate teacher training</li><li>a mentoring programme</li><li>support to develop scientific networks and to secure interdisciplinary research at the highest level</li></ul>As part of the Aarhus University Tenure Track Programme, the University carries out a mid-way evaluation to review the progress of the tenure track candidate after three years, according to the same criteria used in the final tenure review. The final tenure review is conducted after five and a half years. If the review is positive, the candidate will be offered a tenured position as Associate Professor at Aarhus University.<br/><br/>Please refer to the <a target=\"_blank\" href=\"https://tech.au.dk/fileadmin/tech.au.dk/hr/vejledninger_tech_eng/tenure_track_-_engelsk__tech_.pdf\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5383212\">tenure track guidelines</a>for the tenure review criteria and for the tenure review process.<br/><br/><strong>Application procedure</strong><br/>Shortlisting is used. This means that after the deadline for applications – and with the assistance from the assessment committee chairman, and the assessment committee if necessary, – the head of department selects the candidates to be evaluated. The selection is made on the basis of an assessment of who of the candidates are most relevant considering the requirements of the advertisement. All applicants will be notified within 6 weeks whether or not their applications have been sent to an expert assessment committee for evaluation. The selected applicants will be informed about the composition of the committee and will receive his/her assessment. Once the recruitment process is completed a final letter of rejection is sent to the deselected applicants.<br/><br/><strong>Letter of reference</strong><br/>If you want a referee to upload a letter of reference on your behalf, please state the referee’s contact information when you submit your application. We strongly recommend that you make an agreement with the person in question before you enter the referee’s contact information, and that you ensure that the referee has enough time to write the letter of reference before the application deadline.<br/>Unfortunately, it is not possible to ensure that letters of reference received after the application deadline will be taken into consideration.<br/><br/><strong>Formalities and salary range</strong><br/>Technical Sciences refers to the <a target=\"_blank\" href=\"http://www.medarbejdere.au.dk/job_structure_for_academic_staff_at_universities_2013\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5383212\">Ministerial Order on the Appointment of Academic Staff at Danish Universities under the Danish Ministry of Science, Technology and Innovation.</a><br/><br/>The application must be in English and include a curriculum vitae, degree certificate, a complete list of publications, a statement of future research plans and information about research activities, teaching portfolio and verified information on previous teaching experience (if any). Guidelines for applicants can be found <a target=\"_blank\" href=\"https://tech.au.dk/en/about-the-faculty/vacant-positions-and-career/guidelines-and-rules/\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5383212\">here.</a><br/><br/>Appointment shall be in accordance with the collective labour agreement between the Danish Ministry of Finance and the Danish Confederation of Professional Associations. Further information on qualification requirements and job content may be found in the <a target=\"_blank\" href=\"https://medarbejdere.au.dk/fileadmin/www.medarbejdere.au.dk/hr/rekruttering/onboarding/ministerial_order_no._1443_of_11_december_2019_on_job_structure_for_academic_staff_at_universities.pdf\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5383212\">Memorandum on Job Structure for Academic Staff at Danish Universities</a>.<br/><br/>Salary depends on seniority as agreed between the Danish Ministry of Finance and the Confederation of Professional Associations.<br/><br/>Aarhus University’s ambition is to be an attractive and inspiring workplace for all and to foster a culture in which each individual has opportunities to thrive, achieve and develop. We view equality and diversity as assets, and we welcome all applicants.<br/><br/>Research activities will be evaluated in relation to actual research time. Thus, we encourage applicants to specify periods of leave without research activities, in order to be able to subtract these periods from the span of the scientific career during the evaluation of scientific productivity.<br/><br/>Aarhus University offers a broad variety of services for international researchers and accompanying families, including relocation service and career counselling to expat partners. Read more <a target=\"_blank\" href=\"http://ias.au.dk/au-relocation-service/\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5383212\">here</a>. Please find more information about entering and working in Denmark <a target=\"_blank\" href=\"http://international.au.dk/research/\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5383212\">here</a>.<br/><br/><em>The application must be submitted via Aarhus University’s recruitment system, which can be accessed under the job advertisement on Aarhus University's website</em>.<br/><br/><strong>Aarhus </strong><strong>University</strong><br/><em>Aarhus University is an academically diverse and research-intensive university with a strong commitment to high-quality research and education and the development of society nationally and globally. The university offers an inspiring research and teaching environment to </em><em>its 38,000 students (FTEs) and 8,000 employees, and has an annual revenues of EUR 885 million. Learn more at <a target=\"_blank\" href=\"http://www.international.au.dk/\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5383212\">www.international.au.dk/</a></em><p> </p>",
+    "MapUrl": "https://www.google.dk/maps/place/Blichers+Alle+20,8830,+Tjele/",
+    "OrganizationNumber": "31119103",
+    "ShowSearchJobButton": false,
+    "ShowPrint": false,
+    "BackToFindWorkButtonUrl": null
+}

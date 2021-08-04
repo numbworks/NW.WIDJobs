@@ -1,0 +1,301 @@
+{
+    "WorkSchedule": [
+        {
+            "Id": 1,
+            "Name": "Fuldtid"
+        },
+        {
+            "Id": 16,
+            "Name": "Deltid"
+        }
+    ],
+    "WorkConditions": [
+        {
+            "Id": 1,
+            "Name": "Almindelige vilkår"
+        },
+        {
+            "Id": 2,
+            "Name": "Fleksjob"
+        },
+        {
+            "Id": 3,
+            "Name": "Skånejob"
+        },
+        {
+            "Id": 4,
+            "Name": "Egnet til efterlønnere og seniorer"
+        },
+        {
+            "Id": 5,
+            "Name": "Job med løntilskud"
+        },
+        {
+            "Id": 6,
+            "Name": "Rotationsjob"
+        },
+        {
+            "Id": 7,
+            "Name": "Virksomhedspraktik"
+        }
+    ],
+    "EmploymentTypes": [
+        {
+            "Id": 1,
+            "Name": "Fastansættelse"
+        },
+        {
+            "Id": 16,
+            "Name": "Tidsbegrænset ansættelse"
+        }
+    ],
+    "WorkPlace": {
+        "Name": "Danmarks Tekniske Universitet",
+        "Address": {
+            "AddressLine": "Anker Engelunds Vej 101",
+            "Country": {
+                "Id": 58,
+                "Name": "Danmark"
+            },
+            "Municipality": {
+                "Id": 159,
+                "Name": "Gladsaxe"
+            },
+            "Region": {
+                "Id": 4,
+                "Name": "Hovedstaden, Sjælland og Bornholm"
+            },
+            "PostalCode": "2800",
+            "City": "Kongens Lyngby"
+        },
+        "PhoneNumber": {
+            "Number": null,
+            "Type": 0,
+            "Description": "Primary"
+        },
+        "FaxNumber": null,
+        "Email": null,
+        "WebAddress": null,
+        "Description": null,
+        "Logo": 83955,
+        "WorkPlaceOrganizationNumber": "1003403265",
+        "OrganizationNumber": "30060946",
+        "OrganizationDescription": null
+    },
+    "JobPositionPosting": {
+        "Id": 5382358,
+        "OriginalJppId": 5382358,
+        "HiringOrg": {
+            "Name": "Danmarks Tekniske Universitet",
+            "Address": {
+                "AddressLine": "Anker Engelunds Vej 101",
+                "Country": {
+                    "Id": 58,
+                    "Name": "Danmark"
+                },
+                "Municipality": {
+                    "Id": 159,
+                    "Name": "Gladsaxe"
+                },
+                "Region": {
+                    "Id": 4,
+                    "Name": "Hovedstaden, Sjælland og Bornholm"
+                },
+                "PostalCode": "2800",
+                "City": "Kongens Lyngby"
+            },
+            "PhoneNumber": {
+                "Number": null,
+                "Type": 0,
+                "Description": "Primary"
+            },
+            "FaxNumber": null,
+            "Email": null,
+            "WebAddress": null,
+            "Description": null,
+            "Logo": 83955,
+            "WorkPlaceOrganizationNumber": "1003403265",
+            "OrganizationNumber": "30060946",
+            "OrganizationDescription": null
+        },
+        "RecruitingCompany": null,
+        "PublicationStartDate": "2021-07-02T00:00:00",
+        "PublicationEndDate": "2021-07-16T00:00:00",
+        "JobPositionInformation": {
+            "PositionTitle": "Project Officer - Impact Assessment and Adaptation Analysis",
+            "Purpose": "<br/>\n UNEP DTU Partnership (UDP) is a leading international research and advisory institution on energy, climate and sustainable development. UDP is part of the Department for Technology, Management and Economics at the Technical University of Denmark (DTU). <br/>\n<br/>\n As a collaborating center of UN Environment (UNEP), UDP works with a large range of international institutions, national governments, advisory agencies and research institutions, to assist developing countries in their efforts to move towards low carbon and climate resilient sustainable development. UDP has a staff of approximately 70 professionals from 20 different countries with backgrounds covering economics, science, geography, energy and environment planning. UDP currently implements project activities in more than 60 developing countries. <br/>\n<br/>\n The Impact Assessment and Adaptation Analysis section works on evidence-based assessments of the wider economic, social and environmental effects of climate adaptation and mitigation policies and actions, as well as on the climate implications of economic, social and environmental policies. The section supports the design, development and implementation of strategies and measures that effectively address climate change adaptation and sustainable development needs, with a primary focus on developing countries. This includes: the assessment of adaptation and resilience policy actions and results; measuring and tracking progress on adaptation, mitigation and sustainable development; and engaging with governments and non-state actors to enhance sustainable societal transformations. In each of these areas, the section is engaged in project implementation, research, capacity building and provision of technical support, combined with methodology development and piloting. In addition, the section provides policy advice and engages in knowledge dissemination. <br/>\n<br/>\n Currently, we are urgently seeking to recruit a Project Officer for a permanent position on the TAP track to join a team of 9 colleagues, starting as soon as possible after the successful candidate has been identified and ideally by mid to late July. The successful candidate will contribute to our work across adaptation assessment, tracking and transparency, private sector adaptation, impact assessment of mitigation and adaptation policies, and adaptation finance tracking. <br/>\n<br/>\n Key tasks and responsibilities The successful candidate is expected to: <ul><li>Lead the development of tools and guidance materials within adaptation assessment, tracking and transparency. </li>\n<li>Support the production of UNEP's Adaptation Gap Report; </li>\n<li>Contribute to the section's work on private sector adaptation, and adaptation business models. </li>\n<li>Contribute to the section's work on impact assessments of mitigation and adaptation actions and their contribution to sustainable development; </li>\n<li>Contribute to the section's work on adaptation finance tracking; </li>\n<li>Contribute to the development of scientific papers, briefs, and reports; </li>\n<li>Other tasks as assigned by the head of section. </li>\n</ul>\n<br/>\n Selection Criteria We are looking for a highly motivated team player with knowledge and understanding of climate change adaptation and impact assessment in the context of sustainable development and the UNFCCC, who meets the following criteria: <ul><li>M.Sc. degree in environmental science, environmental engineering, sustainability studies, environmental economics, or other relevant field; </li>\n<li>Understanding of the Paris Agreement, in particular of the Enhanced Transparency Framework; </li>\n<li>Good knowledge of methods and approaches for adaptation assessment and tracking at aggregated levels (i.e. national and global-levels) </li>\n<li>Good knowledge of the adaptation finance landscape, and methods and approaches for tracking adaptation finance </li>\n<li>Good knowledge of the Sustainable Development Goal framework, including of the SDG targets and indicators, particularly in the context of impact assessment; </li>\n<li>Good knowledge of private sector adaptation is an asset; </li>\n<li>Strong analytical skills, an innovative mindset, and the ability to adapt to different tasks and workloads quickly and effectively; </li>\n<li>Demonstrated excellent writing, communication, and presentation skills in English; proficiency in other languages, in particular Spanish and/or French is an asset </li>\n<li>Ability to work effectively both individually as well as in teams, with people from different academic and cultural backgrounds; </li>\n<li>Experience in preparing technical and/or policy-relevant reports and papers is considered a strong asset; </li>\n<li>Experience in working with developing countries is an asset; </li>\n</ul>\n<br/>\n<b>We offer</b>\n<br/>\n<br/>\n UDP offers an international setting with room for professional and personal development with a possibility to work across teams. Staff members have a high degree of freedom and responsibility in organizing their work, they play different roles in different projects, and project teams vary from one project to another. <br/>\n<br/>\n<b>Terms of employment</b>\n<br/>\n<br/>\n UDP is part of the Department of Technology, Management and Economics at the Technical University of Denmark and employees are university staff. The successful candidate will be employed in a full-time position according to the collective agreement with the Confederation of Professional Associations. The position is a permanent position. <br/>\n<br/>\n<b>How to Apply</b>\n<br/>\n<br/>\n Please submit your online application no later than 16 July 2021 (Danish time). Open the 'Apply online' link, fill out the form and attach your motivated <ul><li>Application letter; </li>\n<li>CV with full personal data and contact details; </li>\n<li>Indication of three references; and, </li>\n<li>A copy of your diploma(s) </li>\n</ul>\n<br/>\n Interviews will be held remotely in the third or fourth week of July. <br/>\n<br/>\n For further information please contact Henry Neufeldt, Head of Section, +45 4533 5251, email: hneu@dtu.dk. Additional information is also available at http://www.unepdtu.org. <br/>\n<br/>\n All interested candidates irrespective of age, gender, disability, race, religion or ethnic background are encouraged to apply. <br/>\n<br/>\n DTU Management conducts excellent research in the intersection between management, technology and economics. We develop solutions in close cooperation with companies and public authorities. Our research aims at strengthening welfare, productivity and sustainability within the society. A key element is the role of technology and its interaction with industry and individuals. The department's research is divided in four divisions: Innovation, Management Science, Sustainability and Transport. Furthermore, the department hosts a UN Collaborating Centre. The UN DTU Partnership conducts research, policy analysis and advising on a global scale. The department offers a wide range of courses and programs at bachelor, master and PhD level across DTU's study programs. DTU Management employs about 300 people. We offer an international environment with around 50 different nationalities represented at the department. <br/>\n<br/>\n<b>Technology for people</b>\n<br/>\n<br/>\n DTU develops technology for people. With our international elite research and study programmes, we are helping to create a better world and to solve the global challenges formulated in the UN's 17 Sustainable Development Goals. Hans Christian Ørsted founded DTU in 1829 with a clear vision to develop and create value using science and engineering to benefit society. That vision lives on today. DTU has 12,900 students and 6,000 employees. We work in an international atmosphere and have an inclusive, evolving, and informal working environment. DTU has campuses in all parts of Denmark and in Greenland, and we collaborate with the best universities around the world. <br/>",
+            "WorkLocation": {
+                "AddressLine": "Anker Engelunds Vej 101",
+                "Country": {
+                    "Id": 58,
+                    "Name": "Danmark"
+                },
+                "Municipality": {
+                    "Id": 159,
+                    "Name": "Gladsaxe"
+                },
+                "Region": {
+                    "Id": 4,
+                    "Name": "Hovedstaden, Sjælland og Bornholm"
+                },
+                "PostalCode": "2800",
+                "City": "Kongens Lyngby"
+            },
+            "EmploymentType": 1,
+            "WeeklyWorkHours": {
+                "TypeId": 1,
+                "TypeName": "Fuldtid",
+                "Description": null
+            },
+            "CompensationDescription": null,
+            "NumberToFill": 1,
+            "DriverLicense": [],
+            "Occupation": {
+                "DiscoWeb": 0,
+                "AlternateNames": [],
+                "GroupId": 0,
+                "AreaId": 0,
+                "Id": 0,
+                "Name": null
+            },
+            "IsGovernmentHiring": true,
+            "JppContacts": [
+                {
+                    "Id": 7124080,
+                    "Email": null,
+                    "FaxNumber": null,
+                    "PersonName": "Henry Neufeldt",
+                    "FirstName": "Henry",
+                    "LastName": "Neufeldt",
+                    "PositionTitle": null,
+                    "PhoneNumbers": [
+                        {
+                            "Number": "4533 5251",
+                            "Type": 2,
+                            "Description": "Mobil"
+                        }
+                    ]
+                }
+            ],
+            "EmploymentDate": null
+        },
+        "IsRecruitmentOfForeignNationals": true,
+        "IsWorkInDenmark": true,
+        "IsAnonymousEmployer": false,
+        "IsDisabilityFriendly": false,
+        "JppType": 4,
+        "ApplicationDetails": {
+            "WorkHourMax": null,
+            "WorkHourMin": null,
+            "DailyWorkTimeWeekend": false,
+            "DailyWorkTimeNight": false,
+            "DailyWorkTimeEvening": false,
+            "DailyWorkTimeDay": false,
+            "ReferenceText": null,
+            "RemarksToApplicant": null,
+            "ByEmail": null,
+            "ByPhone": null,
+            "ApplyViaUrl": "https://www.dtu.dk/om-dtu/job-og-karriere/ledige-stillinger/job?id=3f1f8beb-4914-4274-9041-71a5c2466c59",
+            "ReplyInWriting": false,
+            "ApplicationDeadlineDate": "2021-07-16T00:00:00"
+        },
+        "ContactAuthorityPhoneNumber": {
+            "Number": null,
+            "Type": 0,
+            "Description": "Primary"
+        },
+        "Status": 7
+    },
+    "LogoUrl": "/CV/FindWork/GetLogo?JobAdId=5382358&WorkPlace=83955&Organisation=30060946",
+    "Address": "Anker Engelunds Vej 101,2800, Kongens Lyngby",
+    "ShowMap": true,
+    "ShowShareButtonJobLog": false,
+    "JobLogUrl": "/CV/Jobseeking/JobLog/CreateJobSearch?JobnetJobPostingIdentifier=5382358&Company.Name=Danmarks Tekniske Universitet&SubmissionDeadlineDate=2021-7-16&Title=Project Officer - Impact Assessment and Adaptation Analysis&JobAdUrl=https://job.jobnet.dk/CV/FindWork/Details/5382358&WeeklyWorkTime=1",
+    "JobLogTemplateModel": {
+        "Identifier": "00000000-0000-0000-0000-000000000000",
+        "UseWorkPlaceAddressForJoblog": false,
+        "Category": 0,
+        "CvCustomerIdentifier": null,
+        "JobSeekingStatus": null,
+        "Title": "Project Officer - Impact Assessment and Adaptation Analysis",
+        "IsApplicationSourceRequired": true,
+        "ApplicationSource": null,
+        "IsWeeklyWorkTimeRequired": true,
+        "WeeklyWorkTime": 1,
+        "HoursPerWeek": null,
+        "JobnetJobPostingIdentifier": "5382358",
+        "JobAdUrl": "https://job.jobnet.dk/CV/FindWork/JobDetailJsonWIDK?id=5382358",
+        "JobAdDocument": null,
+        "Company": {
+            "JobLogEntryCategory": 0,
+            "ShowAddressFieldsEvenIfEmpty": false,
+            "Name": "Danmarks Tekniske Universitet",
+            "Address": "Anker Engelunds Vej 101",
+            "Country": null,
+            "EmploymentAreaID": null,
+            "PostCode": "2800",
+            "IsCountryAndTownAndPostCodeEmpty": false,
+            "IsTownAndPostCodeEmpty": false,
+            "IsCountryDanmark": false,
+            "Town": "Kongens Lyngby",
+            "ContactPerson": "Henry Neufeldt",
+            "Phone": "4533 5251",
+            "Email": null,
+            "Latitude": null,
+            "Longitude": null,
+            "DailyTravelTimeInMinutes": null,
+            "DistanceToCompanyInMeters": null,
+            "IsCreateMode": false
+        },
+        "TypeOfSubmission": null,
+        "SubmissionDate": "2021-07-16T00:00:00",
+        "SubmissionDateFormatted": null,
+        "SubmissionDateTiks": 0,
+        "IsSubmissionDateRequired": false,
+        "Status": 0,
+        "DateCreatedFormatted": null,
+        "DateCreated": null,
+        "DateModifiedFormatted": null,
+        "DateModified": null,
+        "LastModifiedDateTiks": 0,
+        "DateClosed": null,
+        "JobApplicationDocument": {
+            "Title": null,
+            "Identifier": null,
+            "IsDeleted": false
+        },
+        "CvDocument": {
+            "Title": null,
+            "Identifier": null,
+            "IsDeleted": false
+        },
+        "JobApplicationFile": null,
+        "CvFile": null,
+        "SubmissionDeadlineDate": null,
+        "IsPersisted": false,
+        "ServerValidationErrors": [],
+        "HasServerValidationErrors": false
+    },
+    "JoblogWorkTime": {
+        "WorkHour": null,
+        "DailyWorkTime": null
+    },
+    "Place": "Work place location Gladsaxe municipality",
+    "OpenPrintDialog": false,
+    "WorkPlaceInfoText": "Danmarks Tekniske Universitet",
+    "JobCenterContactDetails": "",
+    "WorkPlaceDescriptionText": null,
+    "FavoriteText": "",
+    "IsFavorite": false,
+    "ShowFavorite": false,
+    "MetaOgTextForSharing": "\n UNEP DTU Partnership (UDP) is a leading international research and advisory institution on energy, climate and sustainable development. UDP is part of the Department for Technology, Management and Economics at the Technical University of Denmark (DTU). \n\n As a collaborating center of UN Environment (UNEP), UDP works with a large range of internat",
+    "DescriptionForSharing": "\"\\n UNEP DTU Partnership (UDP) is a leading international research and advisory institution on energy, climate and sustainable development. UDP is part of the Department for Technology, Management and Economics at the Technical University of Denmark (DTU). \\n\\n As a collaborating center of UN Environment (UNEP), UDP works with a large range of internat\"",
+    "TitleForSharing": "\"Project Officer - Impact Assessment and Adaptation Analysis\"",
+    "RutePlan": "https://www.google.dk/maps/dir//Anker+Engelunds+Vej+101,2800,+Kongens+Lyngby/",
+    "FormattedPurpose": "<br/>\n UNEP DTU Partnership (UDP) is a leading international research and advisory institution on energy, climate and sustainable development. UDP is part of the Department for Technology, Management and Economics at the Technical University of Denmark (DTU). <br/>\n<br/>\n As a collaborating center of UN Environment (UNEP), UDP works with a large range of international institutions, national governments, advisory agencies and research institutions, to assist developing countries in their efforts to move towards low carbon and climate resilient sustainable development. UDP has a staff of approximately 70 professionals from 20 different countries with backgrounds covering economics, science, geography, energy and environment planning. UDP currently implements project activities in more than 60 developing countries. <br/>\n<br/>\n The Impact Assessment and Adaptation Analysis section works on evidence-based assessments of the wider economic, social and environmental effects of climate adaptation and mitigation policies and actions, as well as on the climate implications of economic, social and environmental policies. The section supports the design, development and implementation of strategies and measures that effectively address climate change adaptation and sustainable development needs, with a primary focus on developing countries. This includes: the assessment of adaptation and resilience policy actions and results; measuring and tracking progress on adaptation, mitigation and sustainable development; and engaging with governments and non-state actors to enhance sustainable societal transformations. In each of these areas, the section is engaged in project implementation, research, capacity building and provision of technical support, combined with methodology development and piloting. In addition, the section provides policy advice and engages in knowledge dissemination. <br/>\n<br/>\n Currently, we are urgently seeking to recruit a Project Officer for a permanent position on the TAP track to join a team of 9 colleagues, starting as soon as possible after the successful candidate has been identified and ideally by mid to late July. The successful candidate will contribute to our work across adaptation assessment, tracking and transparency, private sector adaptation, impact assessment of mitigation and adaptation policies, and adaptation finance tracking. <br/>\n<br/>\n Key tasks and responsibilities The successful candidate is expected to: <ul><li>Lead the development of tools and guidance materials within adaptation assessment, tracking and transparency. </li>\n<li>Support the production of UNEP's Adaptation Gap Report; </li>\n<li>Contribute to the section's work on private sector adaptation, and adaptation business models. </li>\n<li>Contribute to the section's work on impact assessments of mitigation and adaptation actions and their contribution to sustainable development; </li>\n<li>Contribute to the section's work on adaptation finance tracking; </li>\n<li>Contribute to the development of scientific papers, briefs, and reports; </li>\n<li>Other tasks as assigned by the head of section. </li>\n</ul>\n<br/>\n Selection Criteria We are looking for a highly motivated team player with knowledge and understanding of climate change adaptation and impact assessment in the context of sustainable development and the UNFCCC, who meets the following criteria: <ul><li>M.Sc. degree in environmental science, environmental engineering, sustainability studies, environmental economics, or other relevant field; </li>\n<li>Understanding of the Paris Agreement, in particular of the Enhanced Transparency Framework; </li>\n<li>Good knowledge of methods and approaches for adaptation assessment and tracking at aggregated levels (i.e. national and global-levels) </li>\n<li>Good knowledge of the adaptation finance landscape, and methods and approaches for tracking adaptation finance </li>\n<li>Good knowledge of the Sustainable Development Goal framework, including of the SDG targets and indicators, particularly in the context of impact assessment; </li>\n<li>Good knowledge of private sector adaptation is an asset; </li>\n<li>Strong analytical skills, an innovative mindset, and the ability to adapt to different tasks and workloads quickly and effectively; </li>\n<li>Demonstrated excellent writing, communication, and presentation skills in English; proficiency in other languages, in particular Spanish and/or French is an asset </li>\n<li>Ability to work effectively both individually as well as in teams, with people from different academic and cultural backgrounds; </li>\n<li>Experience in preparing technical and/or policy-relevant reports and papers is considered a strong asset; </li>\n<li>Experience in working with developing countries is an asset; </li>\n</ul>\n<br/>\n<b>We offer</b>\n<br/>\n<br/>\n UDP offers an international setting with room for professional and personal development with a possibility to work across teams. Staff members have a high degree of freedom and responsibility in organizing their work, they play different roles in different projects, and project teams vary from one project to another. <br/>\n<br/>\n<b>Terms of employment</b>\n<br/>\n<br/>\n UDP is part of the Department of Technology, Management and Economics at the Technical University of Denmark and employees are university staff. The successful candidate will be employed in a full-time position according to the collective agreement with the Confederation of Professional Associations. The position is a permanent position. <br/>\n<br/>\n<b>How to Apply</b>\n<br/>\n<br/>\n Please submit your online application no later than 16 July 2021 (Danish time). Open the 'Apply online' link, fill out the form and attach your motivated <ul><li>Application letter; </li>\n<li>CV with full personal data and contact details; </li>\n<li>Indication of three references; and, </li>\n<li>A copy of your diploma(s) </li>\n</ul>\n<br/>\n Interviews will be held remotely in the third or fourth week of July. <br/>\n<br/>\n For further information please contact Henry Neufeldt, Head of Section, +45 4533 5251, email: hneu@dtu.dk. Additional information is also available at <a target=\"_blank\" href=\"http://www.unepdtu.org\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5382358\">http://www.unepdtu.org</a>. <br/>\n<br/>\n All interested candidates irrespective of age, gender, disability, race, religion or ethnic background are encouraged to apply. <br/>\n<br/>\n DTU Management conducts excellent research in the intersection between management, technology and economics. We develop solutions in close cooperation with companies and public authorities. Our research aims at strengthening welfare, productivity and sustainability within the society. A key element is the role of technology and its interaction with industry and individuals. The department's research is divided in four divisions: Innovation, Management Science, Sustainability and Transport. Furthermore, the department hosts a UN Collaborating Centre. The UN DTU Partnership conducts research, policy analysis and advising on a global scale. The department offers a wide range of courses and programs at bachelor, master and PhD level across DTU's study programs. DTU Management employs about 300 people. We offer an international environment with around 50 different nationalities represented at the department. <br/>\n<br/>\n<b>Technology for people</b>\n<br/>\n<br/>\n DTU develops technology for people. With our international elite research and study programmes, we are helping to create a better world and to solve the global challenges formulated in the UN's 17 Sustainable Development Goals. Hans Christian Ørsted founded DTU in 1829 with a clear vision to develop and create value using science and engineering to benefit society. That vision lives on today. DTU has 12,900 students and 6,000 employees. We work in an international atmosphere and have an inclusive, evolving, and informal working environment. DTU has campuses in all parts of Denmark and in Greenland, and we collaborate with the best universities around the world. <br/>",
+    "MapUrl": "https://www.google.dk/maps/place/Anker+Engelunds+Vej+101,2800,+Kongens+Lyngby/",
+    "OrganizationNumber": "30060946",
+    "ShowSearchJobButton": false,
+    "ShowPrint": false,
+    "BackToFindWorkButtonUrl": null
+}

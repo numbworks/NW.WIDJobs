@@ -1,0 +1,306 @@
+{
+    "WorkSchedule": [
+        {
+            "Id": 1,
+            "Name": "Fuldtid"
+        },
+        {
+            "Id": 16,
+            "Name": "Deltid"
+        }
+    ],
+    "WorkConditions": [
+        {
+            "Id": 1,
+            "Name": "Almindelige vilkår"
+        },
+        {
+            "Id": 2,
+            "Name": "Fleksjob"
+        },
+        {
+            "Id": 3,
+            "Name": "Skånejob"
+        },
+        {
+            "Id": 4,
+            "Name": "Egnet til efterlønnere og seniorer"
+        },
+        {
+            "Id": 5,
+            "Name": "Job med løntilskud"
+        },
+        {
+            "Id": 6,
+            "Name": "Rotationsjob"
+        },
+        {
+            "Id": 7,
+            "Name": "Virksomhedspraktik"
+        }
+    ],
+    "EmploymentTypes": [
+        {
+            "Id": 1,
+            "Name": "Fastansættelse"
+        },
+        {
+            "Id": 16,
+            "Name": "Tidsbegrænset ansættelse"
+        }
+    ],
+    "WorkPlace": {
+        "Name": "Aarhus Universitet",
+        "Address": {
+            "AddressLine": "Agro Food Park 48",
+            "Country": {
+                "Id": 58,
+                "Name": "Danmark"
+            },
+            "Municipality": {
+                "Id": 751,
+                "Name": "Aarhus"
+            },
+            "Region": {
+                "Id": 2,
+                "Name": "Midtjylland"
+            },
+            "PostalCode": "8200",
+            "City": "Aarhus N"
+        },
+        "PhoneNumber": {
+            "Number": null,
+            "Type": 0,
+            "Description": "Primary"
+        },
+        "FaxNumber": null,
+        "Email": null,
+        "WebAddress": null,
+        "Description": null,
+        "Logo": null,
+        "WorkPlaceOrganizationNumber": "1025268543",
+        "OrganizationNumber": "31119103",
+        "OrganizationDescription": null
+    },
+    "JobPositionPosting": {
+        "Id": 5383195,
+        "OriginalJppId": 5383195,
+        "HiringOrg": {
+            "Name": "Aarhus Universitet",
+            "Address": {
+                "AddressLine": "Agro Food Park 48",
+                "Country": {
+                    "Id": 58,
+                    "Name": "Danmark"
+                },
+                "Municipality": {
+                    "Id": 751,
+                    "Name": "Aarhus"
+                },
+                "Region": {
+                    "Id": 2,
+                    "Name": "Midtjylland"
+                },
+                "PostalCode": "8200",
+                "City": "Aarhus N"
+            },
+            "PhoneNumber": {
+                "Number": null,
+                "Type": 0,
+                "Description": "Primary"
+            },
+            "FaxNumber": null,
+            "Email": null,
+            "WebAddress": null,
+            "Description": null,
+            "Logo": null,
+            "WorkPlaceOrganizationNumber": "1025268543",
+            "OrganizationNumber": "31119103",
+            "OrganizationDescription": null
+        },
+        "RecruitingCompany": null,
+        "PublicationStartDate": "2021-07-02T00:00:00",
+        "PublicationEndDate": "2021-08-02T00:00:00",
+        "JobPositionInformation": {
+            "PositionTitle": "Laboratory technician for food processing and ingredients analysis, Department of Food Science, Aarhus University",
+            "Purpose": "At the Department of Food Science, the Science Team for Food Technology (FT), a full-time position as a laboratory technician is available for appointment as from 15 September 2021 or soon thereafter.<br/><br/><strong>Position activities</strong><br/>You will be part of a Science Team consisting of researchers, technicians and students from bachelor to PhD level. The teams work is project-oriented and the tasks will primarily consist of analysis of food, processing and ingredients and participation in experimental work in collaboration with the researchers. You will be responsible for many different tasks in the laboratory around food analysis work, method development, and laboratory management and support and guidance of students in instruments.<br/><br/><strong>Your activities will primarily be within the following areas:</strong><ul><li>Analysis with ICP-MS and HPLC</li><li>Working with food processing in laboratory / pilot scale</li><li>Laboratory guidance of students and researchers</li><li>Method development</li><li>Sample collection, sample preparation and data processing</li><li>Maintenance of various analysis equipment and laboratory management</li><li>Purchase of consumables and minor equipment for the laboratory.</li></ul><br/>Success in the position means that you will be flexible, responsible and able to thrive in a dynamic environment with changing projects and work contexts, as the department's research is constantly evolving.<br/><br/><strong>Qualifications</strong><br/>You must be a laboratory graduate and preferably have several years of experience with HPLC, physical analysis and preferably ICP-MS. In addition, you must have experience in food analysis and processing. If you have experience of participating in research projects, this will be an advantage.<br/><br/>Emphasis will be placed on having good analytical skills so that you can independently organize and carry out the laboratory work. You must be good at collaborating and sharing your knowledge with others regardless of job category. You should work carefully and structured, and be able to assess the reliability of your results. It is expected that you are committed, energetic and have a sense of high precision in your work.<br/><br/>We offer a professional, dynamic and international research environment, where we largely communicate in English in the laboratories, in project descriptions and in meetings. The laboratories have Bachelor, Master and PhD students as well as guest researchers, therefore you must be able to read instructions and supervise within your area of expertise in English. Our work environment includes independence and teamwork, social activities and an appreciative approach with colleagues.<br/><br/><strong>Area of ??employment and place of employment</strong><br/>The area of ??employment is Aarhus University, and the workplace is Agro Food Park 48, 8200 Aarhus N.<br/><br/><strong>Further information</strong> can be obtained by contacting Science Team Leader Marianne Hammershøj, tel. 2216 9259, e-mail: <a href=\"mailto:marianne.hammershoj@food.au.dk\" target=\"_blank\">marianne.hammershoj@food.au.dk</a><br/><br/><strong>Formalities and salary range</strong><br/>Salary and employment conditions in accordance with the joint agreement between the Ministry of Finance and Public Employees' Organizations as well as the organization agreement between the Ministry of Finance and HK / STAT for office workers, laboratory technicians and IT staff.<br/><br/>Aarhus University’s ambition is to be an attractive and inspiring workplace for all and to foster a culture in which each individual has opportunities to thrive, achieve and develop. We view equality and diversity as assets, and we welcome all applicants.<br/><br/><em>The application must be submitted via Aarhus University’s recruitment system, which can be accessed under the job advertisement on Aarhus University's website.</em><br/><br/><strong>Aarhus </strong><strong>University</strong><br/><em>Aarhus University is an academically diverse and research-intensive university with a strong commitment to high-quality research and education and the development of society nationally and globally. The university offers an inspiring research and teaching environment to </em><em>its 38,000 students (FTEs) and 8,000 employees, and has an annual revenues of EUR 885 million. Learn more at <a href=\"http://www.international.au.dk/\" target=\"_blank\">www.international.au.dk/</a></em><br/><br/><strong>Deadline:</strong> 02 August 2021<p>&nbsp;</p>",
+            "WorkLocation": {
+                "AddressLine": "Agro Food Park 48",
+                "Country": {
+                    "Id": 58,
+                    "Name": "Danmark"
+                },
+                "Municipality": {
+                    "Id": 751,
+                    "Name": "Aarhus"
+                },
+                "Region": {
+                    "Id": 2,
+                    "Name": "Midtjylland"
+                },
+                "PostalCode": "8200",
+                "City": "Aarhus N"
+            },
+            "EmploymentType": 1,
+            "WeeklyWorkHours": {
+                "TypeId": 1,
+                "TypeName": "Fuldtid",
+                "Description": null
+            },
+            "CompensationDescription": null,
+            "NumberToFill": 1,
+            "DriverLicense": [],
+            "Occupation": {
+                "DiscoWeb": 0,
+                "AlternateNames": [],
+                "GroupId": 0,
+                "AreaId": 0,
+                "Id": 0,
+                "Name": null
+            },
+            "IsGovernmentHiring": true,
+            "JppContacts": [
+                {
+                    "Id": 7126640,
+                    "Email": "marianne.hammershoj@food.au.dk",
+                    "FaxNumber": null,
+                    "PersonName": "Marianne Hammershøj",
+                    "FirstName": "Marianne",
+                    "LastName": "Hammershøj",
+                    "PositionTitle": null,
+                    "PhoneNumbers": [
+                        {
+                            "Number": "-",
+                            "Type": 0,
+                            "Description": "Hovednummer"
+                        },
+                        {
+                            "Number": "2216 9259",
+                            "Type": 1,
+                            "Description": "Arbejde direkte"
+                        }
+                    ]
+                }
+            ],
+            "EmploymentDate": "2021-09-15T00:00:00"
+        },
+        "IsRecruitmentOfForeignNationals": false,
+        "IsWorkInDenmark": true,
+        "IsAnonymousEmployer": false,
+        "IsDisabilityFriendly": false,
+        "JppType": 4,
+        "ApplicationDetails": {
+            "WorkHourMax": null,
+            "WorkHourMin": null,
+            "DailyWorkTimeWeekend": false,
+            "DailyWorkTimeNight": false,
+            "DailyWorkTimeEvening": false,
+            "DailyWorkTimeDay": false,
+            "ReferenceText": null,
+            "RemarksToApplicant": null,
+            "ByEmail": null,
+            "ByPhone": null,
+            "ApplyViaUrl": "https://AU.emply.net/recruitment/vacancyApply.aspx?publishingId=b3a180d1-bdaf-4de0-828c-b5e7fae1c1a4",
+            "ReplyInWriting": false,
+            "ApplicationDeadlineDate": "2021-08-02T00:00:00"
+        },
+        "ContactAuthorityPhoneNumber": {
+            "Number": null,
+            "Type": 0,
+            "Description": "Primary"
+        },
+        "Status": 7
+    },
+    "LogoUrl": "/CV/FindWork/GetLogo?JobAdId=5383195&Organisation=31119103",
+    "Address": "Agro Food Park 48,8200, Aarhus N",
+    "ShowMap": true,
+    "ShowShareButtonJobLog": false,
+    "JobLogUrl": "/CV/Jobseeking/JobLog/CreateJobSearch?JobnetJobPostingIdentifier=5383195&Company.Name=Aarhus Universitet&SubmissionDeadlineDate=2021-8-2&Title=Laboratory technician for food processing and ingredients analysis, Department of Food Science, Aarhus University&JobAdUrl=https://job.jobnet.dk/CV/FindWork/Details/5383195&WeeklyWorkTime=1",
+    "JobLogTemplateModel": {
+        "Identifier": "00000000-0000-0000-0000-000000000000",
+        "UseWorkPlaceAddressForJoblog": false,
+        "Category": 0,
+        "CvCustomerIdentifier": null,
+        "JobSeekingStatus": null,
+        "Title": "Laboratory technician for food processing and ingredients analysis, Department of Food Science, Aarhus University",
+        "IsApplicationSourceRequired": true,
+        "ApplicationSource": null,
+        "IsWeeklyWorkTimeRequired": true,
+        "WeeklyWorkTime": 1,
+        "HoursPerWeek": null,
+        "JobnetJobPostingIdentifier": "5383195",
+        "JobAdUrl": "https://job.jobnet.dk/CV/FindWork/JobDetailJsonWIDK?id=5383195",
+        "JobAdDocument": null,
+        "Company": {
+            "JobLogEntryCategory": 0,
+            "ShowAddressFieldsEvenIfEmpty": false,
+            "Name": "Aarhus Universitet",
+            "Address": "Agro Food Park 48",
+            "Country": null,
+            "EmploymentAreaID": null,
+            "PostCode": "8200",
+            "IsCountryAndTownAndPostCodeEmpty": false,
+            "IsTownAndPostCodeEmpty": false,
+            "IsCountryDanmark": false,
+            "Town": "Aarhus N",
+            "ContactPerson": "Marianne Hammershøj",
+            "Phone": "-",
+            "Email": "marianne.hammershoj@food.au.dk",
+            "Latitude": null,
+            "Longitude": null,
+            "DailyTravelTimeInMinutes": null,
+            "DistanceToCompanyInMeters": null,
+            "IsCreateMode": false
+        },
+        "TypeOfSubmission": null,
+        "SubmissionDate": "2021-08-02T00:00:00",
+        "SubmissionDateFormatted": null,
+        "SubmissionDateTiks": 0,
+        "IsSubmissionDateRequired": false,
+        "Status": 0,
+        "DateCreatedFormatted": null,
+        "DateCreated": null,
+        "DateModifiedFormatted": null,
+        "DateModified": null,
+        "LastModifiedDateTiks": 0,
+        "DateClosed": null,
+        "JobApplicationDocument": {
+            "Title": null,
+            "Identifier": null,
+            "IsDeleted": false
+        },
+        "CvDocument": {
+            "Title": null,
+            "Identifier": null,
+            "IsDeleted": false
+        },
+        "JobApplicationFile": null,
+        "CvFile": null,
+        "SubmissionDeadlineDate": null,
+        "IsPersisted": false,
+        "ServerValidationErrors": [],
+        "HasServerValidationErrors": false
+    },
+    "JoblogWorkTime": {
+        "WorkHour": null,
+        "DailyWorkTime": null
+    },
+    "Place": "Work place location Aarhus municipality",
+    "OpenPrintDialog": false,
+    "WorkPlaceInfoText": "Aarhus Universitet",
+    "JobCenterContactDetails": "",
+    "WorkPlaceDescriptionText": null,
+    "FavoriteText": "",
+    "IsFavorite": false,
+    "ShowFavorite": false,
+    "MetaOgTextForSharing": "At the Department of Food Science, the Science Team for Food Technology (FT), a full-time position as a laboratory technician is available for appointment as from 15 September 2021 or soon thereafter.Position activitiesYou will be part of a Science Team consisting of researchers, technicians and students from bachelor to PhD level. The teams work i",
+    "DescriptionForSharing": "\"At the Department of Food Science, the Science Team for Food Technology (FT), a full-time position as a laboratory technician is available for appointment as from 15 September 2021 or soon thereafter.Position activitiesYou will be part of a Science Team consisting of researchers, technicians and students from bachelor to PhD level. The teams work i\"",
+    "TitleForSharing": "\"Laboratory technician for food processing and ingredients analysis, Department of Food Science, Aarhus University\"",
+    "RutePlan": "https://www.google.dk/maps/dir//Agro+Food+Park+48,8200,+Aarhus+N/",
+    "FormattedPurpose": "At the Department of Food Science, the Science Team for Food Technology (FT), a full-time position as a laboratory technician is available for appointment as from 15 September 2021 or soon thereafter.<br/><br/><strong>Position activities</strong><br/>You will be part of a Science Team consisting of researchers, technicians and students from bachelor to PhD level. The teams work is project-oriented and the tasks will primarily consist of analysis of food, processing and ingredients and participation in experimental work in collaboration with the researchers. You will be responsible for many different tasks in the laboratory around food analysis work, method development, and laboratory management and support and guidance of students in instruments.<br/><br/><strong>Your activities will primarily be within the following areas:</strong><ul><li>Analysis with ICP-MS and HPLC</li><li>Working with food processing in laboratory / pilot scale</li><li>Laboratory guidance of students and researchers</li><li>Method development</li><li>Sample collection, sample preparation and data processing</li><li>Maintenance of various analysis equipment and laboratory management</li><li>Purchase of consumables and minor equipment for the laboratory.</li></ul><br/>Success in the position means that you will be flexible, responsible and able to thrive in a dynamic environment with changing projects and work contexts, as the department's research is constantly evolving.<br/><br/><strong>Qualifications</strong><br/>You must be a laboratory graduate and preferably have several years of experience with HPLC, physical analysis and preferably ICP-MS. In addition, you must have experience in food analysis and processing. If you have experience of participating in research projects, this will be an advantage.<br/><br/>Emphasis will be placed on having good analytical skills so that you can independently organize and carry out the laboratory work. You must be good at collaborating and sharing your knowledge with others regardless of job category. You should work carefully and structured, and be able to assess the reliability of your results. It is expected that you are committed, energetic and have a sense of high precision in your work.<br/><br/>We offer a professional, dynamic and international research environment, where we largely communicate in English in the laboratories, in project descriptions and in meetings. The laboratories have Bachelor, Master and PhD students as well as guest researchers, therefore you must be able to read instructions and supervise within your area of expertise in English. Our work environment includes independence and teamwork, social activities and an appreciative approach with colleagues.<br/><br/><strong>Area of ??employment and place of employment</strong><br/>The area of ??employment is Aarhus University, and the workplace is Agro Food Park 48, 8200 Aarhus N.<br/><br/><strong>Further information</strong> can be obtained by contacting Science Team Leader Marianne Hammershøj, tel. 2216 9259, e-mail: <a target=\"_blank\" href=\"mailto:marianne.hammershoj@food.au.dk\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5383195\">marianne.hammershoj@food.au.dk</a><br/><br/><strong>Formalities and salary range</strong><br/>Salary and employment conditions in accordance with the joint agreement between the Ministry of Finance and Public Employees' Organizations as well as the organization agreement between the Ministry of Finance and HK / STAT for office workers, laboratory technicians and IT staff.<br/><br/>Aarhus University’s ambition is to be an attractive and inspiring workplace for all and to foster a culture in which each individual has opportunities to thrive, achieve and develop. We view equality and diversity as assets, and we welcome all applicants.<br/><br/><em>The application must be submitted via Aarhus University’s recruitment system, which can be accessed under the job advertisement on Aarhus University's website.</em><br/><br/><strong>Aarhus </strong><strong>University</strong><br/><em>Aarhus University is an academically diverse and research-intensive university with a strong commitment to high-quality research and education and the development of society nationally and globally. The university offers an inspiring research and teaching environment to </em><em>its 38,000 students (FTEs) and 8,000 employees, and has an annual revenues of EUR 885 million. Learn more at <a target=\"_blank\" href=\"http://www.international.au.dk/\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5383195\">www.international.au.dk/</a></em><br/><br/><strong>Deadline:</strong> 02 August 2021<p> </p>",
+    "MapUrl": "https://www.google.dk/maps/place/Agro+Food+Park+48,8200,+Aarhus+N/",
+    "OrganizationNumber": "31119103",
+    "ShowSearchJobButton": false,
+    "ShowPrint": false,
+    "BackToFindWorkButtonUrl": null
+}

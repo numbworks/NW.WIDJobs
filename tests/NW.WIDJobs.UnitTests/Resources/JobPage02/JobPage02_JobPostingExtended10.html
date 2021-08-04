@@ -1,0 +1,1339 @@
+
+<!DOCTYPE HTML>
+<html lang="da">
+    <head>
+    <meta charset="UTF-8"/>
+    <title>Jobannonce</title>
+    
+    
+    <meta name="template" content="content-page"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    
+
+    
+
+    
+
+	<!-- OneTrust Cookie Consent - START -->
+	<!-- OneTrust Cookies Consent Notice start for www.novonordisk.dk -->
+<script type="text/javascript" src="https://cdn.cookielaw.org/consent/ef63df1a-7968-4c59-944c-931160f6fff8/OtAutoBlock.js"></script>
+<script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" data-document-language="true" type="text/javascript" charset="UTF-8" data-domain-script="ef63df1a-7968-4c59-944c-931160f6fff8"></script>
+<script type="text/javascript">
+var consent = false;
+    function OptanonWrapper() {
+        window.dataLayer.push( { event: 'OneTrustGroupsUpdated' } );
+        var button = document.querySelector('.ot-pc-refuse-all-handler').cloneNode(true)
+                    button.style.display = 'inline-block';
+        var savePrefencesWrapper = document.querySelector('#ot-pc-content')
+
+            if (savePrefencesWrapper.querySelector('.ot-pc-refuse-all-handler') === null) {
+                //savePrefencesWrapper.appendChild(button)
+                savePrefencesWrapper.insertBefore(button, savePrefencesWrapper.children[3]);
+
+
+            }
+            
+            var button1 = document.querySelector('.save-preference-btn-handler.onetrust-close-btn-handler').cloneNode(true)
+                    button1.style.display = 'inline-block';
+        
+            if (savePrefencesWrapper.querySelector('.save-preference-btn-handler.onetrust-close-btn-handler') === null) {
+                //savePrefencesWrapper.appendChild(button)
+                savePrefencesWrapper.insertBefore(button1, savePrefencesWrapper.children[4]);
+
+
+            }
+         /*var savePrefencesWrapper = document.querySelector('#ot-pc-content')
+            if (savePrefencesWrapper.querySelector('.save-preference-btn-handler') === null) {
+                //savePrefencesWrapper.appendChild(button)
+                savePrefencesWrapper.insertBefore(button, savePrefencesWrapper.children[2]);
+
+            }*/
+            
+
+        if(!getCookie("OptanonAlertBoxClosed") && !consent){
+            consent = true;
+            console.log('consent', consent, 'Box', !getCookie('OptanonAlertBoxClosed'));
+            Optanon.ToggleInfoDisplay();
+            var banner = document.getElementById("onetrust-banner-sdk");
+            var prefpc = document.getElementById("onetrust-pc-sdk");
+            var filter = document.getElementsByClassName("onetrust-pc-dark-filter")[0];
+            banner.style = "display: none;";
+            prefpc.style = "display: block !important;";
+            filter.style = "display: block !important;";
+        }
+
+
+        /*
+         * Get Confirm My Choices button by class name and apply listener to close
+         * Preference Centre when the button is clicked
+         */
+        var classname = document.getElementsByClassName("save-preference-btn-handler");
+        for (var i = 0; i < classname.length; i++) {
+            classname[i].addEventListener('click', closePreferenceCntr, false);
+        }
+    }
+
+
+    function getCookie(name) {
+        var value = "; " + document.cookie;
+        var parts = value.split("; " + name + "=");
+        if (parts.length == 2)
+            return parts.pop().split(";").shift();
+    }
+    function closePreferenceCntr() {
+        var prefpc = document.getElementById("onetrust-pc-sdk");
+        prefpc.style = "display: none";
+    };
+
+</script>
+<!-- OneTrust Cookies Consent Notice end for www.novonordisk.dk -->
+	<!-- OneTrust Cookie Consent - END -->
+
+
+
+    
+    <script>try {
+        Typekit.load({async: true});
+    } catch (e) {
+    }</script>
+    
+    <link rel="stylesheet" href="https://use.typekit.net/pxc7vyl.css"/>
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    <link rel="icon" type="image/x-icon" href="/etc.clientlibs/nncorp/components/structure/page/clientlib/resources/favicon.ico"/>
+
+    
+        
+        
+    
+<script type="text/javascript" src="/etc.clientlibs/nncorp/clientlibs/vendor/clientlib-vuejs/production.min.8ae014f55bdc3ca4a468226072062706.js"></script>
+
+
+        
+    
+<script type="text/javascript" src="/etc.clientlibs/nncorp/clientlibs/clientlib-mandatory-dependencies.min.8793e5d8a5a951c957119350e2ab7231.js"></script>
+
+
+        
+    
+<script type="text/javascript" src="/etc.clientlibs/nncorp/clientlibs/clientlib-dependencies.min.60192f064325b182324f5cfccd563daa.js" async onload="VueBus.activeResource()"></script>
+
+
+        
+    
+<link rel="stylesheet" href="/etc.clientlibs/nncorp/clientlibs/clientlib-grid.min.a06817d3892c4e41921fb7ffb05783e6.css" type="text/css">
+
+
+        
+    
+<link rel="stylesheet" href="/etc.clientlibs/nncorp/clientlibs/vuejs/components/disclaimer-dialog.min.997cf142eccefe9a907ea806099248a6.css" type="text/css"><link rel="stylesheet" href="/etc.clientlibs/nncorp/clientlibs/vuejs/components/confirm-dialog.min.dd6a3fa62033e1d456a82e4f13f40bb0.css" type="text/css"><link rel="stylesheet" href="/etc.clientlibs/nncorp/clientlibs/vuejs/components/rnd-dialog.min.9d79f7fff9015cc7cd605d49b54ef8c1.css" type="text/css"><link rel="stylesheet" href="/etc.clientlibs/nncorp/clientlibs/clientlib-base.min.e5b7ae3ced8f60929bf3999805117a7a.css" type="text/css">
+
+
+        
+    
+<link rel="stylesheet" href="/etc.clientlibs/nncorp/clientlibs/clientlib-resetcss.min.6779423c663adcef9ece9d0b7dbb9bf6.css" type="text/css">
+
+
+    
+
+
+
+    
+        <meta name="robots" content="all"/>
+        <meta name="googlebot" content="all"/>
+        
+            <meta name="keywords"/>
+        
+    
+
+    
+    
+    
+
+    
+
+    
+
+
+        <script type="text/javascript" src="//assets.adobedtm.com/449939fcae6a/515aca118678/launch-11054402cf74.min.js" async></script>
+
+
+    
+    
+    
+
+    
+    
+</head>
+    <body class="page basicpage" id="page-08b4aa604c">
+        
+        
+        
+            
+
+
+
+
+            
+
+
+
+            <script type="text/javascript">
+    var digitalData = digitalData || []
+    digitalData.push({
+        event: "",
+        data: {
+            pageInfo: {}
+        }
+    });
+</script>
+<div class="container top-margin">
+    
+     <div id="pagesettings">
+        <input type="hidden" name="currentPagePath" ref="currentPagePath" value="/content/nncorp/dk/da/careers/find-a-job/job-ad"/>
+        <input type="hidden" name="currentLanguage" ref="currentLanguage" value="Velkommen til Novo Nordisk Danmark"/>
+        <input type="hidden" name="currentCountry" ref="currentCountry" value="Denmark"/>
+        <input type="hidden" name="currentCountryPath" ref="currentCountryPath" value="/content/nncorp/dk"/>
+        <input type="hidden" name="searchPagePath" ref="searchPagePath" value="/content/nncorp/dk/da/search"/>
+        <input type="hidden" name="countryListPath" ref="countryListPath" value="/content/nncorp/dk/da/location"/>
+        <input type="hidden" name="rootPagePath" ref="rootPagePath" value="/content/nncorp/dk/da"/>
+        <input type="hidden" name="structureDepth" ref="structureDepth" value="5"/>
+        <input type="hidden" name="navRootShiftDepth" ref="navRootShiftDepth" value="0"/>
+        <input type="hidden" name="navigationColorInverted" ref="navigationColorInverted" value="false"/>
+        <input type="hidden" name="topMargin" ref="topMargin" value="true"/>
+        <input type="hidden" name="digitalDataAsJSON" ref="digitalDataAsJSON" value="{&#34;event&#34;:&#34;Page Load&#34;,&#34;data&#34;:{&#34;pageInfo&#34;:{&#34;pageName&#34;:&#34;careers \u003e find a job \u003e job ad&#34;,&#34;siteSection&#34;:&#34;careers&#34;,&#34;subSection1&#34;:&#34;careers \u003e find a job&#34;,&#34;subSection2&#34;:&#34;careers \u003e find a job&#34;,&#34;subSection3&#34;:&#34;careers \u003e find a job&#34;,&#34;region&#34;:&#34;dk-da&#34;,&#34;id&#34;:&#34;7a419b1e-8e41-47b0-a855-70ab36fe44a1&#34;,&#34;siteName&#34;:&#34;novo - dk&#34;,&#34;pageType&#34;:&#34;content-page&#34;}}}"/>
+     </div>
+
+    <div class="header experiencefragment">
+<div id="experiencefragment-b443ca1e56" class="cmp-experiencefragment cmp-experiencefragment--xf-header">
+
+    
+
+
+
+<div class="xf-content-height">
+    
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="header aem-GridColumn aem-GridColumn--default--12"><div id="nncorp-header" class="nncorp-header">
+    <div>
+    <div id="headersettings">
+        <input type="hidden" name="exitRampConfig" ref="exitRampConfig" value='{"exitRamp": "true", "exitRampMessage": "Du er ved at forlade Novo Nordisk DK’s hjemmeside og vil fortsætte på en ekstern hjemmeside. Novo Nordisk DK kan ikke påtage sig ansvaret for indholdet af den eksterne hjemmeside.", "whitelistedURLs": "https://www.novonordisk.com/,https://brandportal.novonordisk.com/,https://pro.novonordisk.dk/,https://www.diabeteswhatsnext.com/dk/da.html,https://www.truthaboutweight.global/dk/da.html,https://www.godovergangsalder.dk/", "exitrampTitle": "www.novonordisk.dk says","openExitRampTarget": "false"}'/>
+    </div>
+
+    <div class="tb-Grid tb-Grid--24 tb-Grid--l--24">
+        <div class="tb-GridColumn tb-GridColumn--l--14">
+            <div id="left-side-header" class="left-side header-item" :class="showLeftHeader">
+                <a :href="rootPathUrl | htmlExtension" class="logo-lnk">
+                    <span class="logo icon-logo-blue m-m-right"></span>
+                </a>
+                <div class="left-side-header-content">
+                    <div class="display-flex-center m-xxs-top">
+                        <div class="country-selector-wrapper">
+                            <country-selector :color="'blue'">
+                            </country-selector>
+                        </div>
+                        
+                    </div>
+                    <div class="nncorp-breadcrumbs blue"><div>
+
+    
+    
+        <div class="breadcrumbs">
+            <a href="/careers/find-a-job.html" class="breadcrumb-link">Finde et job</a>
+            <span>  /  </span>
+        
+            <a href="/careers/find-a-job/job-ad.html" class="breadcrumb-link-last">Jobannonce</a>
+            <span></span>
+        </div>
+    
+</div>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="right-side header-item">
+        <div class="nncorp-navigation blue">
+
+    
+<link rel="stylesheet" href="/etc.clientlibs/nncorp/components/structure/navigation/clientlib.min.a5f8af9c669415818e62795166c63479.css" type="text/css">
+
+   
+<nav id="cmp-navigation" class="cmp-navigation top" ref="cmp-navigation" :class="handleNavAction" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+    <div class="top-bar">
+        <ul class="cmp-navigation__group main-navigation">
+            
+    <li class="cmp-navigation__item cmp-navigation__item--level-0">
+        
+    
+
+    
+        <a href="javascript:void(0)" :class="{dirty: navHoveredItems.includes(' Behandlings\u002Dområder')}" v-on:mouseover="onLinkHover(' Behandlings\u002Dområder')" v-on:click="openSubNav(' Behandlings\u002Dområder')" aria-label=" Behandlings-områder" class="cmp-navigation__item-link true">
+            <span class="text"> Behandlings-områder</span>
+        </a>
+        
+    
+
+    </li>
+
+        
+            
+    <li class="cmp-navigation__item cmp-navigation__item--level-0">
+        
+    
+
+    
+        
+        <a href="/sundhedspersonale.html" :class="{dirty: navHoveredItems.includes('Sundheds\u002Dpersonale')}" v-on:mouseover="onLinkHover('Sundheds\u002Dpersonale')" aria-label="Sundheds-personale" class="cmp-navigation__item-link false">
+           <span class="text">Sundheds-personale</span>
+            
+        </a>
+    
+
+    </li>
+
+        
+            
+    <li class="cmp-navigation__item cmp-navigation__item--level-0">
+        
+    
+
+    
+        <a href="javascript:void(0)" :class="{dirty: navHoveredItems.includes('Videnskab \x26 teknologi')}" v-on:mouseover="onLinkHover('Videnskab \x26 teknologi')" v-on:click="openSubNav('Videnskab \x26 teknologi')" aria-label="Videnskab &amp; teknologi" class="cmp-navigation__item-link true">
+            <span class="text">Videnskab &amp; teknologi</span>
+        </a>
+        
+    
+
+    </li>
+
+        
+            
+    <li class="cmp-navigation__item cmp-navigation__item--level-0">
+        
+    
+        <a href="javascript:void(0)" :class="{dirty: navHoveredItems.includes('Bæredygtig forretning')}" v-on:mouseover="onLinkHover('Bæredygtig forretning')" v-on:click="openSubNav('Bæredygtig forretning')" aria-label="Bæredygtig forretning" class="cmp-navigation__item-link true">
+            <span class="text">Bæredygtig forretning</span>
+        </a>
+        
+    
+
+    
+
+    </li>
+
+        
+            
+    <li class="cmp-navigation__item cmp-navigation__item--level-0 cmp-navigation__item--active">
+        
+    
+        <a href="javascript:void(0)" :class="{dirty: navHoveredItems.includes('Karriere')}" v-on:mouseover="onLinkHover('Karriere')" v-on:click="openSubNav('Karriere')" aria-label="Karriere" aria-current="page" class="cmp-navigation__item-link true">
+            <span class="text">Karriere</span>
+        </a>
+        
+    
+
+    
+
+    </li>
+
+        
+            
+    <li class="cmp-navigation__item cmp-navigation__item--level-0">
+        
+    
+
+    
+        <a href="javascript:void(0)" :class="{dirty: navHoveredItems.includes('Om Novo Nordisk')}" v-on:mouseover="onLinkHover('Om Novo Nordisk')" v-on:click="openSubNav('Om Novo Nordisk')" aria-label="Om Novo Nordisk" class="cmp-navigation__item-link true">
+            <span class="text">Om Novo Nordisk</span>
+        </a>
+        
+    
+
+    </li>
+
+        
+            
+    <li class="cmp-navigation__item cmp-navigation__item--level-0">
+        
+    
+        
+        <a href="/search.html" :class="{dirty: navHoveredItems.includes('Søg')}" v-on:mouseover="onLinkHover('Søg')" aria-label="Søg" class="cmp-navigation__item-link false">
+           
+            <span role="button" aria-label="Search icon navigation" class="icon icon-search"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span>
+        </a>
+    
+
+    
+
+    </li>
+
+        </ul>
+    </div>
+    <div class="bottom-bar">
+        <ul class="cmp-navigation__group utility-navigation">
+            
+    <li class="cmp-navigation__item cmp-navigation__item--level-0">
+        
+    
+
+    
+        
+        <a href="/fa-mere-viden.html" :class="{dirty: navHoveredItems.includes('Få mere viden')}" v-on:mouseover="onLinkHover('Få mere viden')" aria-label="Få mere viden" class="cmp-navigation__item-link false">
+           <span class="text">Få mere viden</span>
+            
+        </a>
+    
+
+    </li>
+
+        
+            
+    <li class="cmp-navigation__item cmp-navigation__item--level-0">
+        
+    
+        
+        <a href="/aktuelt-og-media.html" :class="{dirty: navHoveredItems.includes('Nyheder og presse')}" v-on:mouseover="onLinkHover('Nyheder og presse')" aria-label="Nyheder og presse" class="cmp-navigation__item-link false">
+           <span class="text">Nyheder og presse</span>
+            
+        </a>
+    
+
+    
+
+    </li>
+
+        
+            
+    <li class="cmp-navigation__item cmp-navigation__item--level-0">
+        
+    
+        <a href="javascript:void(0)" :class="{dirty: navHoveredItems.includes('Kontakt os')}" v-on:mouseover="onLinkHover('Kontakt os')" v-on:click="openSubNav('Kontakt os')" aria-label="Kontakt os" class="cmp-navigation__item-link true">
+            <span class="text">Kontakt os</span>
+        </a>
+        
+    
+
+    
+
+    </li>
+
+        </ul>
+    </div>
+    <div class="burger-float desktop">
+        <button class="button burger-button" v-on:click="handleBurger" role="button" aria-label="Burger navigation button">
+            <span class="icon icon-burger-float-blue"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></span>
+            <span class="icon icon-close-float-blue"><span class="path1"></span><span class="path2"></span><span class="path3"></span></span>
+        </button>
+    </div>
+    <div class="burger-float mobile" v-on:click="openSubNav('')">
+        <button class="button burger-button" role="button" aria-label="Burger navigation button">
+            <span class="icon icon-burger-float-blue"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></span></span>            
+        </button>
+    </div>
+</nav>
+
+    
+
+
+    
+<script type="text/javascript" src="/etc.clientlibs/nncorp/components/structure/navigation/clientlib.min.8d1e2ff6dcb644da62f5e94ecb160db1.js" async></script>
+
+   </div>
+    </div>
+</div>
+    <div id="modals" class="modals">
+    <overlay-navigation :remove-country-selector="false" :remove-language-navigation="true"></overlay-navigation>
+    <disclaimer-dialog></disclaimer-dialog>
+    <confirm-dialog></confirm-dialog>
+    <rnddialog></rnddialog>
+</div>
+
+</div>
+</div>
+
+    
+</div>
+
+</div></div>
+
+    
+</div>
+<div class="root responsivegrid">
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="experiencefragment aem-GridColumn aem-GridColumn--default--12">
+<div id="experiencefragment-d359766542" class="cmp-experiencefragment cmp-experiencefragment--xf-job-display">
+
+    
+
+
+
+<div class="xf-content-height">
+    
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="careerjobdisplay focuspointimage image aem-GridColumn aem-GridColumn--default--12">
+    
+    
+<link rel="stylesheet" href="/etc.clientlibs/nncorp/components/careers/careerjobdisplay/clientlib.min.5e95c7a2d6742a87bc8617690c60b11a.css" type="text/css"><script type="text/javascript" src="/etc.clientlibs/nncorp/components/careers/careerjobdisplay/clientlib.min.3af1a399bfe5ce4b6f2a14c5ef1538f2.js" async></script>
+
+
+    
+        <div id="careerjobdisplay" class="career-search-wrapper gutters frame component-padding" style="background-color: white">
+            
+            <div class="career-search-content">
+    <div class="tb-Grid tb-Grid--l--24 tb-Grid--m--24 tb-Grid--s--24">
+        <div class="tb-GridColumn tb-GridColumn--l--20 tb-GridColumn--offset--l--2">
+            <p class="tagline color-blue m-s-bottom">Stilling</p>
+            <h1 class="title color-blue h1-s m-m-bottom">
+                Security Receptionist
+            </h1>
+            
+                <div class="career-banner-image-wrapper">
+                    <a target="_blank" aria-label="">
+                        <img class="career-banner-image" src="/content/dam/nncorp/language-masters/en/careers/images/job-ads/may-2021/GM.png.corpimgw.1280.1280.jpeg" alt="Bannerbillede'"/>
+                    </a>
+                </div>
+            
+            
+            <h2 class="h2 color-blue m-m-top m-xs-bottom mobile-title">Jobbeskrivelse</h2>
+            <div class="career-job-display columns tb-Grid tb-Grid--l--24 tb-Grid--m--22 tb-Grid--s--22 tb-Grid--xs--22" v-cloak>
+                <div class="job-display-info left-column">
+                    <input type="hidden" name="applyButtonLink" ref="applyButtonLink" value="https://career2.successfactors.eu/career?career_ns=job_listing&amp;company=novonordisk&amp;navBarLevel=JOB_SEARCH&amp;rcm_site_locale=en_GB&amp;career_job_req_id=199941&amp;selected_lang=en_GB"/>
+                    <h2 class="h2 color-blue m-m-top m-xs-bottom desktop-title">Jobbeskrivelse</h2>
+                    <p><b>Placering</b></p>
+                    <p>Bagsværd, Denmark</p>
+                    <p class="m-xs-top"><b>Jobkategori</b></p>
+                    <p>General Management and Administration</p>
+                    
+                        <p>
+                            <button class="button seablue job-display-apply-btn m-m-top button-link-animation" @click="clickApply" target="_self" aria-label="Ansøg nu">
+                                <span class="text">Ansøg nu</span>
+                                <span class="icon icon-right-arrow"></span>
+                            </button>
+                        </p>
+                    
+                </div>
+                <div class="job-display-details right-column color-blue paragraph-l tb-GridColumn tb-GridColumn--l--13 tb-GridColumn--m--13 tb-GridColumn--s--20 tb-GridColumn--xs--20 tb-GridColumn--offset--l--2 tb-GridColumn--offset--m--2 tb-GridColumn--offset--s--1 tb-GridColumn--offset--xs--1 m-m-top">
+                    <p>   </p>
+<p>
+  <span>
+    <span>
+      <b>Security receptionist in Novo Nordisk – temporary position</b></span></span></p>
+<p> </p>
+<p>
+  <span>
+    <span>
+      <span>
+        <span>Do you want to be part of a hectic and ever changing
+          environment where customer service, security and
+          professionalism are at the forefront? Are you motivated by
+          delivering service at a high level? Then you may be the new
+          Security Receptionist we are looking for.</span></span></span></span></p>
+<p>
+  <span>
+    <span>
+      <span> </span></span></span></p>
+<p>
+  <span>
+    <span>
+      <span>
+        <b>
+          <span>About the department</span></b>
+        <br />
+        <span>“We make a big difference as Security Receptionists – Our
+          jobs are very different and it demands great tolerance – We
+          have no deadlines – Only one point customer service”. If you
+          think this sounds like statements that could be made by you
+          and if you think it could be exciting to be part of a group of
+          Receptionist within Novo Nordisk then you may be one of the
+          new colleagues we are looking for.</span></span></span></span></p>
+<p>
+  <br />
+  <span>
+    <span>
+      <span>
+        <span>Our Receptions are open from 6.00-18.00 and therefore your
+          working hours will be placed within this period of time. Our
+          department is a part of Corporate Facilities which enables the
+          Novo Nordisk way of working for more than 16,000+ colleagues
+          in Denmark.</span></span></span></span></p>
+<p>
+  <span>
+    <span>
+      <span> </span></span></span></p>
+<p>
+  <span>
+    <span>
+      <span>
+        <b>
+          <span>The position</span></b>
+        <br />
+        <span>You will be part of a team of 18 colleagues manning
+           receptions and servicing  Virtual receptions within Novo
+          Nordisk both in Greater Copenhagen area and Hillerød. You will
+          be an important and very visible part of Novo Nordisk.
+          Together with your other colleagues in the receptions, you
+          will be our face externally and thereby the first person our
+          customers meet when they visit us. Your primary task will
+          include receiving guests, operating the telephone exchange,
+          and operating our virtual reception. It is also you who book
+          meeting rooms, taxis and see to it that the reception has the
+          right stationary etc. We have 1 available temporary position.</span></span></span></span></p>
+<p>
+  <span>
+    <span>
+      <span> </span></span></span></p>
+<p>
+  <span>
+    <span>
+      <span>
+        <b>
+          <span>Qualifications</span></b></span></span></span></p>
+<ul>
+  <li>
+    <span>
+      <span>
+        <span>
+          <span>The most important in this job is your personality. We
+            weigh discretion highly and the importance of our customers
+            getting a professional service when they are welcomed by you
+            at our receptions.</span></span></span></span></li>
+  <li>
+    <span>
+      <span>
+        <span>
+          <span>We are an active part of the security setup and it will
+            be an advantage if you have worked as an Security
+            Receptionist before.</span></span></span></span></li>
+  <li>
+    <span>
+      <span>
+        <span>
+          <span>As you will have colleagues from very different
+            backgrounds, it will require tolerance and understanding to
+            positively gain from the differences.</span></span></span></span></li>
+  <li>
+    <span>
+      <span>
+        <span>
+          <span>You will need a good deal of curiosity and have the
+            ability to work very thorough with your tasks.</span></span></span></span></li>
+  <li>
+    <span>
+      <span>
+        <span>
+          <span>You have a solid language background, speak and write
+            Danish and English at a high level. It will be an advantage
+            if you master another foreign language. You have the ability
+            to absorb and handle large amounts of information and in
+            depth organisational knowledge.</span></span></span></span></li>
+  <li>
+    <span>
+      <span>
+        <span>
+          <span>You are used to working in a large company and handling
+            many different stakeholders. You are a super user in regards
+            to the Office-package, are used to working with data and Key
+            Performance Indicators (KPIs) and you have technical insight
+            into SAP and IT systems including maintenance hereof.</span></span></span></span></li></ul>
+<p>
+  <span>
+    <span>
+      <span> </span></span></span></p>
+<p>
+  <span>
+    <span>
+      <span>
+        <b>
+          <span>Working at Novo Nordisk</span></b>
+        <br />
+        <span>At Novo Nordisk, your skills, dedication and ambition help
+          us change lives for the better. In exchange, we offer you an
+          opportunity to work with extraordinary talent and benefit from
+          a range of possibilities for professional and personal development.</span></span></span></span></p>
+<p>
+  <span>
+    <span>
+      <span> </span></span></span></p>
+<p>
+  <span>
+    <span>
+      <span>
+        <b>
+          <span>Contact</span></b>
+        <br />
+        <span>For further information, please contact Amie Dawson at +45
+          3075 1399</span></span></span></span></p>
+<p> </p>
+<p>
+  <span>
+    <span>
+      <span>
+        <span>
+          <b>Closing date</b></span></span></span></span></p>
+<p>
+  <span>
+    <span>
+      <span>
+        <span>6 July 2021</span></span></span></span></p>
+<p> </p>
+<p>
+  <span>
+    <span>
+      <strong>Millions rely on us </strong></span></span></p>
+<p>
+  <span>
+    <span>At Novo Nordisk, we don’t wait for change. We drive change.
+      We’re a dynamic company in an even more dynamic industry, and we
+      know that what got us to where we are today is not necessarily
+      what will make us successful in the future. We embrace the spirit
+      of experimentation, striving for excellence without fixating on
+      perfection. We never shy away from opportunities to develop, we
+      seize them. Working at Novo Nordisk is working toward something
+      bigger than ourselves, and it’s a collective effort. Novo Nordisk
+      relies on the joint potential and collaboration of its more than
+      40,000 employees to change the lives for the better for millions
+      of patients living with diabetes and other chronic diseases.
+      Together, we go further. Together, we’re life changing.</span></span></p>
+<p> </p>
+                    <div class="job-display-details-buttons m-m-top">
+                        <a @click="clickPrint('careerjobdisplay')" href="javascript:void(0)" class="m-m-right" aria-label="Print job">
+                            <span class="icon icon-download m-xxs-right"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span>Print job
+                        </a>
+                        <a :href="href" ref="emailButton" data-jobtitle="Security Receptionist" @click="clickMail" aria-label="Send til mail"><span class="icon icon-email-blue m-xxs-right"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span>Send til mail
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        </div>
+    
+
+</div>
+
+    
+</div>
+
+</div></div>
+
+    
+</div>
+<div class="sharebutton aem-GridColumn aem-GridColumn--default--12">
+
+    
+<link rel="stylesheet" href="/etc.clientlibs/nncorp/components/content/sharebutton/clientlib.min.45bf2894029d315cc4f5ca342db670cc.css" type="text/css">
+
+
+
+<div id="shareButtonContainer" class="article-share-tools" :class="{expand: expand}">
+    <div class="all-share-items" :style="{'maxHeight': boxHeight}" ref="allShareBox">
+        
+            <a id="shareSocial" class="resp-sharing-button__link" @click="shareSocial('facebook','facebook')" target="_blank" aria-label="Facebook">
+                <button class="button social-share-button seablue">
+                    <span class="icon icon-facebook white"></span>
+                </button>
+            </a>
+        
+    
+        
+            <a id="shareSocial" class="resp-sharing-button__link" @click="shareSocial('Linkedin','linkedin')" target="_blank" aria-label="Linkedin">
+                <button class="button social-share-button seablue">
+                    <span class="icon icon-linkedin white"></span>
+                </button>
+            </a>
+        
+    
+        
+            <a id="shareSocial" class="resp-sharing-button__link" @click="shareSocial('Twitter','twitter')" target="_blank" aria-label="Kvidre">
+                <button class="button social-share-button seablue">
+                    <span class="icon icon-twitter white"></span>
+                </button>
+            </a>
+        
+    </div>
+    <button class="button social-share-button close-button seablue" @click="toggle">
+        <span class="icon icon-plus-white"><span class="path1"></span><span class="path2"></span></span>
+    </button>
+    <button class="button social-share-button icon-share-text-button seablue" @click="toggle">
+        <span class="icon icon-share"><span class="path1"></span></span>
+        <span class="text">Share</span>
+    </button>
+    
+    
+
+</div>
+
+    
+<script type="text/javascript" src="/etc.clientlibs/nncorp/components/content/sharebutton/clientlib.min.fa70e13dc00177b177001a1310fea380.js" async></script>
+
+</div>
+<div class="fullwidth focuspointimage image aem-GridColumn aem-GridColumn--default--12">
+    
+<link rel="stylesheet" href="/etc.clientlibs/nncorp/clientlibs/vuejs/components/gradient-cover.min.b338558c6f38dbba2a5a6bbfbaf4c048.css" type="text/css"><link rel="stylesheet" href="/etc.clientlibs/nncorp/clientlibs/vuejs/components/focuspoint-image.min.cfffee448e8dc3b8b7326190bcf5ba94.css" type="text/css"><link rel="stylesheet" href="/etc.clientlibs/nncorp/components/content/fullwidth/clientlibs/clientlib-fullwidth.min.7554fe53b3decdf6959b27bf8a2b9573.css" type="text/css">
+
+
+<div class="fullwidth-wrapper" v-cloak>
+    
+    
+    <div class="box box-video box-image tb-Grid tb-Grid--24">
+        <div class="full-height">
+    <gradient-cover :visibility="resouceLoaded"></gradient-cover>
+    <div class="video-wrapper" ref="videoWrapper">
+        <video class="video" autoplay muted loop width="100%">
+            <source temp-src="/content/dam/nncorp/language-masters/da/careers/videos/Life-changing careers at Novo Nordisk-1080p.mp4" type="video/mp4"/>
+            <source temp-src="/content/dam/nncorp/language-masters/da/careers/videos/Life-changing careers at Novo Nordisk-1080p.mp4" type="video/mov"/>
+            <source temp-src="/content/dam/nncorp/language-masters/da/careers/videos/Life-changing careers at Novo Nordisk-1080p.mp4" type="video/ogg"/>
+            <source temp-src="/content/dam/nncorp/language-masters/da/careers/videos/Life-changing careers at Novo Nordisk-1080p.mp4" type="video/WEBM"/>
+            <p></p>
+        </video>
+    </div>
+    <focuspoint-image :image-url="'/careers/find-a-job/job-ad/_jcr_content/root/fullwidth.coreimg.jpeg/1606491037634/careers-main.jpeg'" class="staticimage zoom-zoomIn" :coordinates="'-0.44:0.49'">
+    </focuspoint-image>
+    <img ref="resolutionImage" class="staticimage" fullimagesrc="/careers/find-a-job/job-ad/_jcr_content/root/fullwidth.coreimg.jpeg/1606491037634/careers-main.jpeg" src="/content/dam/nncorp/language-masters/en/careers/images/careers-main.jpg.corpimgt.48.48.jpeg"/>
+    <div class="content-wrapper">
+        <div class="gutters full-height">
+            <div class="tb-Grid tb-Grid--24 full-height">
+                <div class="tb-GridColumn tb-GridColumn--l--24 tb-GridColumn--m--18 tb-GridColumn--s--18
+                            tb-GridColumn--offset--l--0 tb-GridColumn--offset--m--2 tb-GridColumn--offset--s--2
+                            content-block">
+                    <div class="overlay-container">
+                        <div class="overlay-text color-white">
+                            
+                        </div>
+                    </div>
+                    <div class="titleblock">
+                        
+                        
+                        
+                        <div class="descriptionwithlink">
+                            <p class="img-des paragraph-l" v-html="applyContentStyle('')"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+    
+</div>
+
+    
+<script type="text/javascript" src="/etc.clientlibs/nncorp/clientlibs/vuejs/components/gradient-cover.min.d188f7c4c192f00896b1d484fa17efe9.js"></script><script type="text/javascript" src="/etc.clientlibs/nncorp/clientlibs/vuejs/components/focuspoint-image.min.a3b63c4bed061c413b1e3c08886393c6.js"></script><script type="text/javascript" src="/etc.clientlibs/nncorp/components/content/fullwidth/clientlibs/clientlib-fullwidth.min.28de691ee3ed4022fa280b0117b811ee.js"></script>
+
+
+
+    
+
+</div>
+<div class="plaintext aem-GridColumn aem-GridColumn--default--12"><div>
+    
+    
+<link rel="stylesheet" href="/etc.clientlibs/nncorp/components/content/plaintext/clientlibs.min.5c75bd74c81d2fe6bea445f8731dfe2f.css" type="text/css"><script type="text/javascript" src="/etc.clientlibs/nncorp/components/content/plaintext/clientlibs.min.49e418542985e1df66dcd09169fcce86.js" async></script>
+
+
+    <div class="background gutters component-padding-top white tb-Grid
+    tb-Grid--24 tb-Grid--l--24 tb-Grid--m--24 tb-Grid--s--24 tb-Grid--xs--24" style="background-color: white">
+        <div>
+            <div class="introplaintext-wrapper">
+                <div class="titlegrid tb-Grid tb-Grid--24 tb-Grid--l--24 tb-Grid--m--24 tb-Grid--s--24 tb-Grid--xs--24">
+                    <div class="titleframe white small tb-GridColumn tb-GridColumn--l--20 tb-GridColumn--xs--20 tb-GridColumn--offset--l--2">
+                        <div class="tb-Grid tb-Grid--20 tb-Grid--l--20 tb-Grid--m--20 tb-Grid--s--20 tb-Grid--xs--20">
+                            <div class="tb-GridColumn tb-GridColumn--l--6 tb-GridColumn--m--9 tb-GridColumn--s--12 tb-GridColumn--xs--20">
+                                
+                            </div>
+                            
+                            
+                                <div class="tb-GridColumn tb-GridColumn--l--20 tb-GridColumn--m--16 tb-GridColumn--s--18 tb-GridColumn--xs--20">
+                                    <h2 class="text plaintexttitle title color-blue
+                                        smalltitle" v-html="applyContentStyle('Hvad driver os')">
+                                    </h2>
+                                </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="tb-Grid tb-Grid--24 tb-Grid--l--24 tb-Grid--m--24 tb-Grid--s--24 tb-Grid--xs--24">
+                    <div class="tb-GridColumn tb-GridColumn--l--24 tb-GridColumn--m--22 tb-GridColumn--s--22 tb-GridColumn--xs--22 tb-GridColumn--offset--l--none tb-GridColumn--offset--m--1 tb-GridColumn--offset--s--1 tb-GridColumn--offset--xs--1">
+                        <div class="frame-box tb-Grid tb-Grid--24 tb-Grid--l--24 tb-Grid--m--22 tb-Grid--s--22 tb-Grid--xs--22 no-frame-padding white small" style="background-color: white">
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+</div>
+<div class="layoutcontainergrid responsivegrid aem-GridColumn aem-GridColumn--default--12">
+    
+<link rel="stylesheet" href="/etc.clientlibs/nncorp/components/content/layoutcontainergrid/clientlibs.min.e4f0f87e89c4fa8ca052cd73bb95225f.css" type="text/css"><script type="text/javascript" src="/etc.clientlibs/nncorp/components/content/layoutcontainergrid/clientlibs.min.171a7ca77be56f15301624914902fc77.js" async></script>
+
+
+<div class="layout-container-grid">
+    <div class="gutters component-padding-bottom frame shift outer-container" style="background-color: white">
+        <div class="tb-Grid tb-Grid--24 tb-Grid--l--24 tb-Grid--m--24 tb-Grid--s--24">
+            
+            <div class="frame-padding tb-GridColumn tb-GridColumn--l--24 tb-GridColumn--m--22 tb-GridColumn--s--22 tb-GridColumn--offset--l--none tb-GridColumn--offset--m--1 tb-GridColumn--offset--s--1" style="background-color:#fcf2f5;">
+                <div class="tb-Grid tb-Grid--24 tb-Grid--l--22 tb-Grid--m--24 tb-Grid--s--24">
+                    <div class="tb-GridColumn tb-GridColumn--l--20 tb-GridColumn--m--22 tb-GridColumn--s--22 tb-GridColumn--offset--l--2 tb-GridColumn--offset--m--1 tb-GridColumn--offset--s--1">
+                        <div>
+                            <div class="rowcontainer">
+                                
+    <div>
+            <div class="contentgrid_row">
+                
+                    <div class="columns-2 column has-content-true column-0 top_align contentgrid_column">
+                        
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="image-video image aem-GridColumn aem-GridColumn--default--12">
+<!-- /* Image Video clientlib can not be placed here due to VueJS compile error once Image Video component is added along with Content Grid */ -->
+<!-- /* Image Video clientlib will be added into Base clientlib due to Image Video can be stand alone */ -->
+
+    
+<link rel="stylesheet" href="/etc.clientlibs/nncorp/components/content/image-video/clientlibs.min.2c96dc95db6a61ba1bbb42364e89e853.css" type="text/css">
+
+
+
+<div>
+    
+        
+
+        
+            <a href="/about/what-we-do.html" target="_self" aria-label="Klik her for at få mere at vide om Novo Nordisk.">
+                <div class="image-video-wrapper">
+                    <div class="image-video-content-wrapper m-xs-bottom">
+                        
+                        
+                            
+<div data-cmp-is="image" data-cmp-lazythreshold="0" data-cmp-src="/careers/find-a-job/job-ad/_jcr_content/root/layoutcontainergrid/content/item0/column-0/image_video.coreimg{.width}.jpeg/1606491037726/rnd-talentattraction-cmc-mdgh-2018-11-lowres.jpeg" data-asset="/content/dam/nncorp/language-masters/da/about-us/images/rnd-talentattraction-CMC-MDGH-2018-11-lowres.jpeg" data-asset-id="431f9b17-4df4-4748-a599-603b6a400a6d" data-title="Mette Bjergaard, Novo Nordisk Danmark." id="image-video-13d9a48fa9" class="cmp-image" itemscope itemtype="http://schema.org/ImageObject">
+    
+        
+            
+            <img src="/careers/find-a-job/job-ad/_jcr_content/root/layoutcontainergrid/content/item0/column-0/image_video.coreimg.jpeg/1606491037726/rnd-talentattraction-cmc-mdgh-2018-11-lowres.jpeg" class="cmp-image__image" itemprop="contentUrl" data-cmp-hook-image="image" alt="Mette Bjergaard, Novo Nordisk Danmark."/>
+            
+        
+    
+    
+    
+</div>
+
+    
+
+                        
+                    </div>
+                    <p class="infotext color-granite-gray m-xxs-bottom rtl-text" v-html="applyContentStyle('Mette Bjergaard, Novo Nordisk Danmark.')">
+                    </p>
+                    <div class="right-arrow-animation">
+                        <h3 class="color-blue subtext subheadline paragraph-s rtl-text" v-html="applyContentStyle('Om Novo Nordisk')">
+                        </h3>
+                        <p class="color-blue subtext paragraph-s paragraph-line-break rtl-text" v-html="applyContentStyle('Novo Nordisk er en global lægemiddelvirksomhed med mere end 95 års innovation og lederskab inden for diabetesbehandling. Denne baggrund har givet os erfaring og evner, der også gør det muligt for os at hjælpe folk med at bekæmpe svær overvægt, vækstforstyrrelser og andre alvorlige kroniske sygdomme. ')">
+                        </p>
+                        <div class="link m-xs-top">
+                            <a href="/about/what-we-do.html" target="_self" class="color-blue link-label paragraph-s">
+                                <span class="icon icon-right-arrow"></span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </a>
+        
+
+    
+    
+</div>
+
+    
+
+
+</div>
+
+    
+</div>
+
+                    </div>
+                
+                    <div class="columns-2 column has-content-true column-1 top_align contentgrid_column">
+                        
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="image-video image aem-GridColumn aem-GridColumn--default--12">
+<!-- /* Image Video clientlib can not be placed here due to VueJS compile error once Image Video component is added along with Content Grid */ -->
+<!-- /* Image Video clientlib will be added into Base clientlib due to Image Video can be stand alone */ -->
+
+    
+
+
+
+<div>
+    
+        
+
+        
+            <a href="/careers/working-at-novo-nordisk.html" target="_self" aria-label="Klik her for at få adgang til alle jobmulighederne hos Novo Nordisk.">
+                <div class="image-video-wrapper">
+                    <div class="image-video-content-wrapper m-xs-bottom">
+                        
+                        
+                            
+<div data-cmp-is="image" data-cmp-lazythreshold="0" data-cmp-src="/careers/find-a-job/job-ad/_jcr_content/root/layoutcontainergrid/content/item0/column-1/image_video.coreimg{.width}.jpeg/1606491037754/zsc-wnfr-novonordisk-2265cmyk1.jpeg" data-asset="/content/dam/nncorp/language-masters/da/careers/images/ZSC-WNFR-NovoNordisk-2265CMYK1.jpg" data-asset-id="5d226e93-0033-455f-b83c-95d47209af0e" data-title="Zac Sirna og Wendy Frisby, Novo Nordisk US." id="image-video-1d69615d57" class="cmp-image" itemscope itemtype="http://schema.org/ImageObject">
+    
+        
+            
+            <img src="/careers/find-a-job/job-ad/_jcr_content/root/layoutcontainergrid/content/item0/column-1/image_video.coreimg.jpeg/1606491037754/zsc-wnfr-novonordisk-2265cmyk1.jpeg" class="cmp-image__image" itemprop="contentUrl" data-cmp-hook-image="image" alt="Zac Sirna og Wendy Frisby, Novo Nordisk US."/>
+            
+        
+    
+    
+    
+</div>
+
+    
+
+                        
+                    </div>
+                    <p class="infotext color-granite-gray m-xxs-bottom rtl-text" v-html="applyContentStyle('Zac Sirna og Wendy Frisby, Novo Nordisk US.')">
+                    </p>
+                    <div class="right-arrow-animation">
+                        <h3 class="color-blue subtext subheadline paragraph-s rtl-text" v-html="applyContentStyle('At arbejde hos Novo Nordisk')">
+                        </h3>
+                        <p class="color-blue subtext paragraph-s paragraph-line-break rtl-text" v-html="applyContentStyle('At starte en karriere hos Novo Nordisk er mere end bare at få et job. Det er en mulighed for at forbedre livet for millioner af mennesker, der lever med en alvorlig kronisk sygdom.\r\nUanset om du er med til at levere insulin til patienter over hele verden eller opdage det næste gennembrud på et af vores avancerede forskningscentre, er det i sandhed livsforandrende at arbejde hos os.')">
+                        </p>
+                        <div class="link m-xs-top">
+                            <a href="/careers/working-at-novo-nordisk.html" target="_self" class="color-blue link-label paragraph-s">
+                                <span class="icon icon-right-arrow"></span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </a>
+        
+
+    
+    
+</div>
+
+    
+
+
+</div>
+
+    
+</div>
+
+                    </div>
+                
+            </div>
+    </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</div>
+<div class="relatedjobs aem-GridColumn aem-GridColumn--default--12">
+
+    
+<link rel="stylesheet" href="/etc.clientlibs/nncorp/components/content/relatedjobs/clientlib.min.14a977dc0926e44c75d4acff319b50ba.css" type="text/css">
+
+
+<div class="gutters component-padding" style="background-color:#fcf2f5;">
+    <div class="rj-wrapper tb-Grid tb-Grid--24 tb-Grid--l--24 tb-Grid--m--24 tb-Grid--s--24 tb-Grid--xs--24">
+        <div class="titleframe color small tb-GridColumn tb-GridColumn--l--20 tb-GridColumn--xs--20 tb-GridColumn--offset--l--2">
+            <div class="tb-Grid tb-Grid--20 tb-Grid--l--20 tb-Grid--m--20 tb-Grid--s--20 tb-Grid--xs--20">
+                <div class="tb-GridColumn tb-GridColumn--l--6 tb-GridColumn--m--9 tb-GridColumn--s--12 tb-GridColumn--xs--20">
+                    <p class="tagline color-blue m-xxs-bottom">Lignende stillinger </p>
+                </div>
+                
+                
+                    <div class="tb-GridColumn tb-GridColumn--l--20 tb-GridColumn--m--16 tb-GridColumn--s--18 tb-GridColumn--xs--20">
+                        <h2 class="plaintexttitle title color-blue smalltitle">
+                            Arbejd sammen med os
+                        </h2>
+                    </div>  
+                
+            </div>
+        </div>
+        <div class="rj-box tb-GridColumn tb-GridColumn--l--24 tb-GridColumn--m--22 tb-GridColumn--s--22 tb-GridColumn--xs--22 tb-GridColumn--offset--l--none tb-GridColumn--offset--m--1 tb-GridColumn--offset--s--1 tb-GridColumn--offset--xs--1 p-s-top" style="background-color:#fcf2f5;">
+            <div class="tb-Grid tb-Grid--24 tb-Grid--l--24 tb-Grid--m--24">
+                <div class="rj-container tb-GridColumn tb-GridColumn--l--20 tb-GridColumn--m--22 tb-GridColumn--offset--l--2 tb-GridColumn--offset--m--1">
+                    <p class="paragraph-s m-s-top m-m-bottom"></p>
+                    <div>
+                        <div class="rj-link-list tb-Grid tb-Grid--20">
+                            <a href="/careers/find-a-job/job-ad.160885.en_GB.html" class="rj-link-item m-m-bottom right-arrow-animation tb-GridColumn tb-GridColumn--offset--l--1 tb-GridColumn--l--6" aria-label="">
+                                <p class="job-name m-xxs-bottom">Project Manager</p>
+                                <div class="location-info infotext m-xxs-bottom">
+                                    <b>Placering:</b>
+                                    <p>Tianjin, China Mainland</p>
+                                </div>
+                                <div class="job-category infotext m-xs-bottom">
+                                    <b>Kategori:</b>
+                                    <p>General Management and Administration</p>
+                                </div>
+                                <span class="icon icon-right-arrow"></span>
+                            </a>
+                        
+                            <a href="/careers/find-a-job/job-ad.169702.en_GB.html" class="rj-link-item m-m-bottom right-arrow-animation tb-GridColumn tb-GridColumn--offset--l--1 tb-GridColumn--l--6" aria-label="">
+                                <p class="job-name m-xxs-bottom">Assistant to CVP</p>
+                                <div class="location-info infotext m-xxs-bottom">
+                                    <b>Placering:</b>
+                                    <p>Beijing, China Mainland</p>
+                                </div>
+                                <div class="job-category infotext m-xs-bottom">
+                                    <b>Kategori:</b>
+                                    <p>General Management and Administration</p>
+                                </div>
+                                <span class="icon icon-right-arrow"></span>
+                            </a>
+                        
+                            <a href="/careers/find-a-job/job-ad.183241.en_GB.html" class="rj-link-item m-m-bottom right-arrow-animation tb-GridColumn tb-GridColumn--offset--l--1 tb-GridColumn--l--6" aria-label="">
+                                <p class="job-name m-xxs-bottom">Project Manager</p>
+                                <div class="location-info infotext m-xxs-bottom">
+                                    <b>Placering:</b>
+                                    <p>Hillerød, Denmark</p>
+                                </div>
+                                <div class="job-category infotext m-xs-bottom">
+                                    <b>Kategori:</b>
+                                    <p>General Management and Administration</p>
+                                </div>
+                                <span class="icon icon-right-arrow"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="rj-footer p-xs-top p-xs-bottom">
+                        <a href="/careers/find-a-job.html" class="paragraph-s all-jobs-lnk right-arrow-animation" aria-label="See all jobs">
+                            Se alle stillinger<span class="icon icon-right-arrow"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+<script type="text/javascript" src="/etc.clientlibs/nncorp/components/content/relatedjobs/clientlib.min.d41d8cd98f00b204e9800998ecf8427e.js" async></script>
+
+</div>
+
+    
+</div>
+</div>
+<div class="footer experiencefragment">
+
+    
+    
+
+    
+
+
+
+<div class="xf-content-height">
+    
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="promomatsid aem-GridColumn aem-GridColumn--default--12">
+
+    
+<link rel="stylesheet" href="/etc.clientlibs/nncorp/components/content/promomatsid/clientlibs.min.34a10aaa449ba556731680b8c9938d00.css" type="text/css">
+
+
+
+
+
+
+
+    
+
+
+</div>
+<div class="footer aem-GridColumn aem-GridColumn--default--12"><footer id="footer" class="ft-wrapper gutters"/>
+    
+
+
+
+<div class="tb-Grid tb-Grid--l--24 tb-Grid--m--24 tb-Grid--s--24 position-relative">
+    <div class="tb-GridColumn tb-GridColumn--l--5 tb-GridColumn--offset--l--0 tb-GridColumn--m--5 tb-GridColumn--offset--m--1 tb-GridColumn--s--10 tb-GridColumn--offset--s--2 m-xl-bottom">
+        
+            <p class="tagline m-xxs-bottom">Novo Nordisk Denmark A/S</p>
+            <div class="infotext"><p>Ørestads Boulevard 108, 6. sal<br /> 2300 København S<br />
+  Omstilling: +45 4588 0800<br /> Kundeservice: +45 8020 0240<br />
+  CVR-nr. 3818 0045</p>
+</div>
+        
+    </div>
+    <div class="tb-GridColumn tb-GridColumn--l--5 tb-GridColumn--offset--l--1 tb-GridColumn--m--5 tb-GridColumn--offset--m--1 tb-GridColumn--s--8 tb-GridColumn--offset--s--2 m-xl-bottom">
+        <p class="tagline m-xxs-bottom">Nyttige links</p>
+        <div class="list">
+            
+                <a href="/contact-us.html" target="_self" class="infotext">Kontakt os
+                    <span class="icon icon-right-arrow m-xxs-left"></span></a>
+                
+            
+                <a href="/about.html" target="_self" class="infotext">Om Novo Nordisk
+                    <span class="icon icon-right-arrow m-xxs-left"></span></a>
+                
+            
+                <a href="/aktuelt-og-media/corona-virus-updates.html" target="_self" class="infotext">Covid-19
+                    <span class="icon icon-right-arrow m-xxs-left"></span></a>
+                
+            
+                
+                <a href="https://www.novonordisk.com/annual-report.html" target="_blank" class="infotext">Årsrapport
+                    <span class="icon icon-right-arrow m-xxs-left"></span></a>
+            
+                <a href="/fa-mere-viden.html" target="_self" class="infotext">Interessant for patienter
+                    <span class="icon icon-right-arrow m-xxs-left"></span></a>
+                
+            
+        </div>
+    </div>
+    <div class="tb-GridColumn tb-GridColumn--l--5 tb-GridColumn--offset--l--1 tb-GridColumn--m--5 tb-GridColumn--offset--m--1 tb-GridColumn--s--10 tb-GridColumn--offset--s--2 m-xl-bottom social-media-links">
+        
+            
+                
+            
+                
+                    <p class="tagline m-xxs-bottom">
+                        Følg os</p>
+                    <div class="list">
+                        
+                            <a href="https://www.linkedin.com/company/novo-nordisk" target="_blank" class="infotext">LinkedIn
+                                <span class="icon icon-right-arrow m-xxs-left"></span></a>
+                        
+                            <a href="https://www.youtube.com/user/novonordisk" target="_blank" class="infotext">YouTube
+                                <span class="icon icon-right-arrow m-xxs-left"></span></a>
+                        
+                            <a href="https://www.facebook.com/novonordisk" target="_blank" class="infotext">Facebook
+                                <span class="icon icon-right-arrow m-xxs-left"></span></a>
+                        
+                            <a href="https://twitter.com/novonordisk" target="_blank" class="infotext">Twitter
+                                <span class="icon icon-right-arrow m-xxs-left"></span></a>
+                        
+                            <a href="https://www.instagram.com/novonordisk" target="_blank" class="infotext">Instagram
+                                <span class="icon icon-right-arrow m-xxs-left"></span></a>
+                        
+                    </div>
+                
+            
+                
+            
+        
+    </div>
+    <div class="tb-GridColumn tb-GridColumn--l--6 tb-GridColumn--offset--l--1 tb-GridColumn--m--5 tb-GridColumn--offset--m--1 tb-GridColumn--s--10 tb-GridColumn--offset--s--2 local-office">
+        
+            <p class="tagline m-xxs-bottom">Andre kontorer</p>
+            <a href="/location.html" target="_self" class="infotext"><span class="icon icon-location-blue-edge m-xxs-right"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span>
+                Vælg land</a>
+        
+    </div>
+    <div :ref="'legalLinks'" class="tb-GridColumn tb-GridColumn--l--24 tb-GridColumn--offset--l--0 tb-GridColumn--m--22 tb-GridColumn--s--20 tb-GridColumn--offset--m--1 tb-GridColumn--offset--s--2 legal-links m-xl-top">
+        
+            <a href="/copyright.html" target="_self" class="infotext">© 2021 Novo Nordisk A/S
+                <span class="icon icon-right-arrow m-xxs-left"></span></a>
+        
+            <a href="/privacy-policy.html" target="_self" class="infotext">Privatlivspolitik
+                <span class="icon icon-right-arrow m-xxs-left"></span></a>
+        
+            <a href="/cookie-policy.html" target="_self" class="infotext">Cookie-politik
+                <span class="icon icon-right-arrow m-xxs-left"></span></a>
+        
+            <a href="/terms-of-use.html" target="_self" class="infotext">Vilkår for brug
+                <span class="icon icon-right-arrow m-xxs-left"></span></a>
+        
+        <a class="infotext optanon-toggle-display">Indstillinger for cookies
+            <span class="icon icon-right-arrow m-xxs-left"></span></a>
+    </div>
+    <div class="water-mark-container" ref="water-mark-container">
+        
+            <p class="watermark-text" :style="waterMarkStyles" ref="watermark-text">Ændre</p>
+        
+    </div>
+</div>
+</footer>
+
+    
+</div>
+
+    
+</div>
+
+</div>
+</div>
+
+    
+</div>
+
+
+            
+    
+    
+    
+    
+<script type="text/javascript" src="/etc.clientlibs/core/wcm/components/commons/site/clientlibs/container.min.64e934d0a16266574945c8fb92e68316.js"></script><script type="text/javascript" src="/etc.clientlibs/nncorp/clientlibs/vuejs/components/disclaimer-dialog.min.4f96dfe2a3964a788f8fc9f6fef7f96e.js"></script><script type="text/javascript" src="/etc.clientlibs/nncorp/clientlibs/vuejs/components/confirm-dialog.min.b05499c22d177ecdb3a1e95ce81ec023.js"></script><script type="text/javascript" src="/etc.clientlibs/nncorp/clientlibs/vuejs/components/rnd-dialog.min.530d966b2835315396059422f285cc11.js"></script><script type="text/javascript" src="/etc.clientlibs/nncorp/clientlibs/vuejs/services/base-http.min.0977b3d22d6ef3c04a2b1fc94d6581bc.js"></script><script type="text/javascript" src="/etc.clientlibs/nncorp/clientlibs/vuejs/services/find-country-contact-service.min.9d5e9e79cae5b2ff6822b7f8b72bf073.js"></script><script type="text/javascript" src="/etc.clientlibs/nncorp/clientlibs/clientlib-base.min.3f754b8983fc0c93ecb0b8e19db72834.js"></script>
+
+    
+
+
+    
+    
+    
+    
+    
+
+
+    
+
+    
+
+    
+
+
+
+    
+    
+
+            
+
+        
+    </body>
+</html>

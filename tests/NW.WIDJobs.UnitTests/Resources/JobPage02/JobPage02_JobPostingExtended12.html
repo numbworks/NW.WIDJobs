@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html class="ku-bs theme-faelles" lang="da">
+<head>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+
+  <!-- Responsive viewport: -->
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+
+  <!-- jQuery 3.1.0 -->
+  <script src="https://cms.ku.dk/jquery/jquery.min.js" type="text/javascript"></script>
+
+  <script src="https://cms.ku.dk/scripts_js/cookies/cookie_filters.js?ku_rollout_2021_07_01_version763"></script>
+
+
+  <title>Two postdoctoral positions in field-based research and modelling of permafrost-affected ecosystems at Center for Permafrost, University of Copenhagen (Denmark)</title>
+
+  <meta content="text/html; charset=utf-8" http-equiv="content-Type">
+
+      <meta content="Københavns Universitet" name="Author">
+    <meta content="Københavns Universitet" name="Creator">
+    <meta content="Københavns Universitet" name="DC.Creator">
+    <meta content="text/xhtml" name="DC.Format">
+    <meta content="Two postdoctoral positions in field-based research and modelling of permafrost-affected ecosystems at Center for Permafrost, University of Copenhagen (Denmark)" name="DC.Title">
+    <meta content="2020-07-06 13:29:00" name="DC.Title.Release">
+    <meta content="Københavns Universitet, Fælles HR" name="Keywords">
+    <meta content="Two postdoctoral positions in field-based research and modelling of permafrost-affected ecosystems at Center for Permafrost, University of Copenhagen (Denmark)" name="Title">
+    <meta content="Københavns Universitet" name="DC.Subject">
+    <meta content="Fælles HR" name="DC.Subject">
+    <meta content="2014-02-14" name="DC.Date" scheme="ISO8601">
+    <meta content="2014-02-14" name="DC.Date.Created" scheme="ISO8601">
+    <meta content="2020-07-06" name="DC.Date.Modified" scheme="ISO8601">
+    <meta content="da" name="DC.Language" scheme="ISO639-1">
+    <meta content="Københavns Universitet" name="DC.Publisher">
+    <meta content="Fælles HR" name="DC.Publisher">
+    <meta content="index,follow" name="robots">
+
+
+
+
+
+  <link href="https://cdn.jsdelivr.net/gh/ku-kom/bootstrap@9b2ccecb/docs/images/favicons/favicon_fa.ico" rel="shortcut icon">
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdn.jsdelivr.net/gh/ku-kom/bootstrap@9b2ccecb/docs/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Gridbox styles -->
+  <link href="https://cdn.jsdelivr.net/gh/ku-kom/bootstrap@9b2ccecb/docs/dist/css/ku-gridboxes.min.css" rel="stylesheet">
+
+  <!-- Specific faculty styles -->
+  <link href="https://cdn.jsdelivr.net/gh/ku-kom/bootstrap@9b2ccecb/docs/dist/css/faculties/faelles.css" rel="stylesheet">
+
+  <!-- Specific doctype styles -->
+  <link href="https://cdn.jsdelivr.net/gh/ku-kom/bootstrap@9b2ccecb/docs/dist/css/doctypes/jobportalsubpage.css" rel="stylesheet">
+
+  <!-- Mobile navigation (jQuery MMenu) -->
+  <link href="https://cdn.jsdelivr.net/gh/ku-kom/bootstrap@9b2ccecb/docs/assets/css/mmenu/jquery.mmenu.css" rel="stylesheet">
+
+  <!-- Print stylesheet -->
+  <link href="https://cdn.jsdelivr.net/gh/ku-kom/bootstrap@9b2ccecb/docs/dist/css/print.min.css" media="print" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="/bootstrap/assets/js/ie8-responsive-file-warning.js"></script>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+
+  <meta content="https://jobportal.ku.dk/billeder/jobportal_fb_1200x630.png" property="og:image">
+<link href="https://cdn.jsdelivr.net/gh/ku-kom/bootstrap@9b2ccecb/docs/dist/css/datatables.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/gh/ku-kom/bootstrap@9b2ccecb/docs/dist/js/datatables.min.js"></script>
+<script src="//cdn.datatables.net/plug-ins/1.10.11/sorting/date-eu.js"></script>
+<script>
+$(document).ready(function() {
+  // DataTable - Sort by application date desc
+  var pageString = "Side %d";
+  var table = $('.vacancies').DataTable({
+    language: getLanguage(),
+    "dom": '<"listing"l>tip',
+    ordering: true,
+    "autoWidth": false,
+    "responsive": true,
+    "columnDefs": [
+      {
+        responsivePriority: 1,
+        targets: 0
+      },
+      {
+        responsivePriority: 2,
+        targets: 1
+      }
+     ],
+    "order": [[3, "asc"]],
+    "columnDefs": [{
+      "targets": 3,
+      "type": "date-eu"
+    }],
+    drawCallback: function() {
+      // Set aria attributes on pagination buttons
+      $('.dataTables_paginate span a.paginate_button').each(function() {
+        const $this = $(this);
+        const page = $this.text();
+        $this.attr("aria-label", pageString.replace("%d", page));
+        if ($this.hasClass("current")) {
+          $this.attr("aria-current", "true");
+        } else {
+          $this.removeAttr("aria-current");
+        }
+      });
+    },
+  });
+
+  // Datatable language adjustments
+  function getLanguage() {
+    var $langMap = {
+      en: {
+        path: 'English',
+        mods: {
+          sLengthMenu: 'Display _MENU_ positions',
+          sInfo: 'Showing _START_ to _END_ of _TOTAL_ positions',
+          sInfoEmpty: 'Showin 0 to 0 out of 0 persons'
+        }
+      },
+      da: {
+        path: 'Danish',
+        mods: {
+          sLengthMenu: 'Vis _MENU_ stillinger',
+          sInfo: 'Viser _START_ til _END_ af _TOTAL_ stillinger',
+          sInfoEmpty: 'Viser 0 til 0 af 0 stillinger',
+          "oPaginate": {
+            "sFirst": "F&oslash;rste",
+            "sPrevious": "Forrige",
+            "sNext": "N&aelig;ste",
+            "sLast": "Sidste"
+          }
+        }
+      }
+    };
+    var $lang = $('html').attr('lang');
+    if (!$langMap[$lang]) {
+      $lang = 'en';
+    }
+    var $result = null;
+    var paths = '//cdn.datatables.net/plug-ins/1.10.13/i18n/';
+    var url = paths + $langMap[$lang].path + '.json';
+    $.ajax({
+      async: true,
+      url: url,
+      success: function(obj) {
+        $tmp = $.extend({}, obj, $langMap[$lang].mods);
+        $langMap[$lang].mods = $tmp;
+      },
+      error: function(xhr, status, error) {
+        console.log(xhr.responseText);
+      }
+    });
+    return $langMap[$lang].mods;
+  }
+});
+</script>
+<style>
+th.pxs_list_deadline_dk {
+    padding-right: 8px;
+}
+
+.pxs_signature {
+font-style: italic;
+margin-top: 20px;
+}
+
+.pxs_list_deadline_dk {
+    min-width: 145px;
+}
+.pxs_list_deadline_uk {
+    font-style: normal;
+    min-width: 110px;
+}
+.pxs_header_arrow_asc:after {
+    content: url("https://cms.ku.dk/grafik/dropdown_arrow_dark.png");
+}
+.pxs_header_arrow_desc:after {
+    content: url("https://cms.ku.dk/grafik/dropdown_arrow_up_dark.png");
+}
+
+fieldset {margin-top:15px;padding-left:5%;background-color:#f6f6f6;}
+legend {padding: 0 6px; white-space:normal;font-weight:bold;}
+span.mandatory {color:#CD0000;}
+
+form .Button {margin-left:7%;}
+
+.pxs_search_label {
+display:block;
+}
+
+.ustabilitet {
+    background-color: #c6312a;
+    color: #fff;
+    font-weight: bold;
+    padding: 12px;
+}
+
+</style>
+
+
+  <script type="text/javascript">
+// Ensure `_gaq` is always instantiated and available
+var _gaq = _gaq || [];
+</script>
+<script class="cookiefilter-wrapped-script" id="cookiefilter-placeholder-1" type="text/javascript">
+KUCookieFilters.wrap_inline_script(function() {
+
+_gaq.push(['mainTracker._setAccount', 'UA-28098356-1']);
+_gaq.push(['mainTracker._gat._anonymizeIp']);
+_gaq.push(['mainTracker._setDomainName','ku.dk']);
+_gaq.push(['mainTracker._setAllowHash',false]);
+_gaq.push(['mainTracker._setAllowAnchor',true]);
+_gaq.push(['mainTracker._setAllowLinker',true]);
+_gaq.push(['mainTracker._trackPageview']);
+
+
+    _gaq.push(['legacyTracker._setAccount', 'UA-2368844-17']);
+    _gaq.push(['legacyTracker._gat._anonymizeIp']);
+    _gaq.push(['legacyTracker._setDomainName','ku.dk']);
+    _gaq.push(['legacyTracker._setAllowHash',false]);
+    _gaq.push(['legacyTracker._setAllowAnchor',true]);
+    _gaq.push(['legacyTracker._setAllowLinker',true]);
+    _gaq.push(['legacyTracker._trackPageview']);
+
+
+
+(function() {
+	var ga = document.createElement('script');
+	ga.type = 'text/javascript';
+	ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0];
+	s.parentNode.insertBefore(ga, s);
+})();
+
+(function() {
+	var kuga = document.createElement('script');
+	kuga.type = 'text/javascript';
+	kuga.async = true;
+	kuga.src = ('https:' == document.location.protocol ? 'https://cms.secure.ku.dk' : 'http://cms.ku.dk') + '/scripts_js/ga.extended.js';
+	var s = document.getElementsByTagName('script')[1];
+	s.parentNode.insertBefore(kuga, s);
+})();
+
+}, ["statistical"]);
+</script>
+
+
+  <link href="?get_rss=1" rel="alternate" title="Videnskabelige stillinger" type="application/rss+xml">
+
+  
+
+</head>
+
+<body class="column-layout-standard JobportalSubpage ">
+  <div id="pagewrapper">
+
+     <nav aria-label="Spring til indhold på siden" class="jumpbox" title="Spring til indhold på siden">
+      <ul class="jump">
+        <li>
+          <a accesskey="1" class="btn" href="#kunav" title="Spring til sidens menu"><span class="glyphicon glyphicon-menu-hamburger"></span><span> Emnenavigation</span></a>
+        </li>
+        <li>
+          <a accesskey="2" class="btn" href="#main-area" title="Spring til indhold på siden"><span class="glyphicon glyphicon-list"></span><span> Indhold</span></a>
+        </li>
+        <li>
+          <a accesskey="3" class="btn" href="#globalfooter" title="Spring til footer links"><span class="glyphicon glyphicon-list"></span><span> Footerlinks</span></a>
+        </li>
+      </ul>
+    </nav>
+
+    <!--googleoff: all-->
+    <div data-nosnippet id="warning-banner" role="banner">
+      <div id="warning-banner-inner">
+        <div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <p><span style="font-weight:bold;font-size:14px">Coronavirus</span> <svg aria-hidden="true" class="icon-corona" height="21" viewbox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">
+          <path clip-rule="evenodd" d="M14.3 7.1l.5-1.2c-.4-.3-.6-.6-.5-.8.1-.3.7-.3 1.4 0 .6.3 1 .7.9 1-.1.2-.5.3-.9.2l-.6 1.4c-.2.5.5 1.1.9.6l3-2.9c-.4-.5-.5-1-.3-1.3.3-.3 1 0 1.6.6.6.6.9 1.3.6 1.6-.2.2-.7.1-1.3-.3l-2.8 2.8c-.6.6 0 1.6.8 1.3l1.2-.5c-.1-.4 0-.8.2-.9.3-.1.7.3 1 1 .2.6.2 1.3-.1 1.4-.2.1-.5-.1-.8-.5l-1.4.5c-.6.2-.4 1.1.2 1.1H22c.1-.6.4-1.1.7-1.1.4 0 .7.7.7 1.6 0 .9-.3 1.6-.7 1.6-.3 0-.6-.5-.7-1.1h-3.9c-.8 0-1.1 1.2-.3 1.5l1.2.5c.3-.4.6-.6.8-.5.3.1.3.7 0 1.4-.3.6-.7 1-1 .9-.2-.1-.3-.5-.2-.9l-1.4-.6c-.5-.2-1.1.5-.6.9l2.9 2.9c.5-.4 1-.5 1.3-.3.3.3 0 1-.6 1.6-.6.6-1.3.9-1.6.6-.1-.2 0-.7.4-1.2l-2.8-2.8c-.6-.6-1.6 0-1.3.8l.5 1.2c.4-.1.8 0 .9.2.1.3-.3.7-1 1-.6.2-1.3.2-1.4-.1-.1-.2.1-.5.5-.8l-.5-1.4c-.2-.6-1.1-.4-1.1.2v4.1c.6.1 1.1.4 1.1.7 0 .4-.7.7-1.6.7-.9 0-1.6-.3-1.6-.7 0-.3.5-.6 1.1-.7v-3.9c0-.8-1.2-1.1-1.5-.3l-.5 1.2c.4.3.6.6.5.8-.1.3-.7.3-1.4 0s-1-.7-.9-1c.1-.2.5-.2.9-.1l.6-1.4c.2-.5-.5-1.1-.9-.6L5.7 20c.4.5.5 1 .3 1.3-.3.3-1 0-1.6-.6-.6-.6-.9-1.3-.6-1.6.2-.3.7-.1 1.2.2l2.8-2.8c.6-.6 0-1.6-.8-1.3l-1.2.5c.1.4 0 .8-.2.9-.3.1-.7-.3-1-1-.2-.6-.2-1.3.1-1.4.2-.1.5.1.8.5l1.4-.5c.6-.2.4-1.1-.2-1.1H2.4c-.1.6-.4 1.1-.7 1.1-.4 0-.7-.7-.7-1.6 0-.9.3-1.6.7-1.6.3 0 .6.5.7 1.1h3.9c.8 0 1.1-1.2.3-1.5l-1.2-.5c-.3.4-.6.6-.8.5-.3-.1-.3-.7 0-1.4.3-.6.7-1 1-.9.4.2.4.6.3 1l1.4.6c.5.3 1-.5.6-.9L5 6.1c-.5.3-1 .5-1.3.2-.3-.3 0-1 .6-1.6.6-.6 1.4-.9 1.7-.6.2.2.1.7-.3 1.3l2.8 2.8c.6.6 1.6 0 1.3-.8l-.5-1.3c-.4.1-.8 0-.9-.2-.1-.3.3-.7 1-1 .6-.3 1.2-.2 1.3.1.1.2-.1.5-.5.8l.5 1.4c.2.6 1.1.4 1.1-.2V2.8c-.6-.1-1.1-.4-1.1-.7 0-.4.7-.7 1.6-.7.9 0 1.6.3 1.6.7 0 .3-.5.6-1.1.7v3.9c0 .9 1.2 1.1 1.5.4z" fill="#fff" fill-rule="evenodd"></path>
+        </svg> <a aria-label="Information om Coronasituationen på dansk" href="https://akut.ku.dk/" lang="da">Dansk</a> / <a aria-label="Information about the Corona situation in English" href="https://akut.ku.dk/english/" lang="en">English</a></p>
+    </div>
+  </div>
+</div>
+      </div>
+    </div>
+
+    <!--googleon: all-->
+
+    <script type="text/javascript">KUCookieFilters.output_popup_placeholder();</script>
+
+    <header>
+    <div aria-label="Globale genveje" class="navbar-inverse navbar-static-top ku-topbar" role="navigation">
+        <div class="container relative">
+            <a class="topbar-logo" href="https://www.ku.dk/" title="Start"><span class="sr-only">Start</span></a>
+            <a class="navbar-toggle leftmenu-toggle" href="#mobileleftmenu" id="btn_left" role="button">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+            <div class="navbar-collapse collapse" id="topbar">
+                <nav aria-label="Værktøjsmenu">
+                    <ul class="nav navbar-nav navbar-right" id="topbar_menu">
+                        <li><a aria-label="Find vej på KU" href="https://findvej.ku.dk" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Globaltools-DA&#39;, &#39;klik&#39;, &#39;Find-vej&#39;]);">Find vej</a></li>
+<li><a aria-label="Telefonbog for KU" href="https://om.ku.dk/kontakt/telefonbog/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Globaltools-DA&#39;, &#39;klik&#39;, &#39;Telefonbog&#39;]);">Telefonbog</a></li>
+<li><a aria-label="Job og karriere på KU" href="https://jobportal.ku.dk/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Globaltools-DA&#39;, &#39;klik&#39;, &#39;Job&#39;]);">Job</a></li>
+<li><a aria-label="Indgang til KUnet" href="https://kunet.ku.dk/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Globaltools-DA&#39;, &#39;klik&#39;, &#39;KUnet&#39;]);">KUnet</a></li>
+<li class="global-sprog"><a aria-label="Website in English" class="english" href="https://employment.ku.dk/" lang="en" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Globaltools-DA&#39;, &#39;klik&#39;, &#39;English&#39;]);">English</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+<nav aria-label="Global navigation" class="navbar navbar-default navbar-static-top ku-nav" id="kunav">
+    <div class="container">
+        <div class="navbar-collapse collapse" id="navbar">
+            
+<ul aria-hidden="false" aria-label="Globale navigationsemner" class="sf-menu nav navbar-nav" id="navbar_menu">
+  <li class="dropdown"><a aria-expanded="false" aria-haspopup="true" aria-label="Se alle uddannelser på KU" class="dropdown-toggle" data-toggle="dropdown" href="https://studier.ku.dk/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Globalmenu&#39;, &#39;klik&#39;, &#39;Uddannelser-paa-KU&#39;]);" role="button">Uddannelser på KU</a>
+    <ul aria-hidden="true" class="dropdown-menu">
+      <li><a aria-label="Se alle Bacheloruddannelser på Københavns Universitet" href="https://studier.ku.dk/bachelor/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Globalmenu&#39;, &#39;klik&#39;, &#39;Bachelor&#39;]);">Bachelor</a></li>
+      <li><a aria-label="Se alle Kandidatuddannelser på Københavns Universitet" href="https://studier.ku.dk/kandidat/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Globalmenu&#39;, &#39;klik&#39;, &#39;Kandidat&#39;]);">Kandidat</a></li>
+      <li><a aria-label="Ph.d. på KU" href="https://phd.ku.dk" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Globalmenu&#39;, &#39;klik&#39;, &#39;Phd&#39;]);">Ph.d.</a></li>
+      <li><a aria-label="Se mere om efter- og videreuddannelse på Københavns Universitet" href="https://evu.ku.dk/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Globalmenu&#39;, &#39;klik&#39;, &#39;Efter-og-videreuddannelse&#39;]);">Efter- og
+          videreuddannelse</a></li>
+      <li><a href="https://kurser.ku.dk" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Globalmenu&#39;, &#39;klik&#39;, &#39;Kursuskatalog&#39;]);">Kursuskatalog</a></li>
+    </ul>
+  </li>
+  <li class="dropdown"><a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown" href="https://forskning.ku.dk" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Globalmenu&#39;, &#39;klik&#39;, &#39;Forskning-paa-KU&#39;]);" role="button">Forskning på KU</a>
+    <ul aria-hidden="true" class="dropdown-menu">
+      <li><a aria-label="Søg efter forskere og publikationer på KU" href="https://forskning.ku.dk/soeg/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Globalmenu&#39;, &#39;klik&#39;, &#39;Find-en-forsker&#39;]);">Forskere og
+          publikationer</a></li>
+      <li><a aria-label="Se alle Ph.d.-programmer på Københavns Universitet" href="https://phd.ku.dk" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Globalmenu&#39;, &#39;klik&#39;, &#39;Phd-programmer&#39;]);">Ph.d.-programmer</a></li>
+      <li><a aria-label="Forskningscentre på Københavns Universitet" href="https://forskning.ku.dk/omraader/centre/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Globalmenu&#39;, &#39;klik&#39;, &#39;Forskningscentre&#39;]);">Forskningscentre</a></li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a aria-expanded="false" aria-haspopup="true" aria-label="Nyheder fra Københavns Universitet" class="dropdown-toggle" data-toggle="dropdown" href="https://nyheder.ku.dk" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Globalmenu&#39;, &#39;klik&#39;, &#39;Nyheder&#39;]);" role="button">Nyheder</a>
+    <ul aria-hidden="true" class="nyheder dropdown-menu">
+      
+    <li>
+        <img alt="Forskere tester virtual reality som redskab til at fremme vaccination" src="https://samf.ku.dk/nyheder/2021/forskere-tester-virtual-reality-som-redskab-til-at-fremme-vaccination/vr-eksperiment.png?resize=globalmenu">
+        <a href="https://nyheder.ku.dk/alle_nyheder/2021/06/forskere-tester-virtual-reality-som-redskab-til-at-fremme-vaccination/">Forskere tester virtual reality som redskab til at fremme vaccination</a>
+        <div class="small">17.06.2021</div>
+    </li>
+    <li>
+        <img alt="Ny opfindelse holder kvantebits stabile ved stuetemperatur" src="https://science.ku.dk/presse/nyhedsarkiv/2021/ny-opfindelse-holder-kvantebits-stabile-ved-stuetemperatur/billedinformationer/Eugene_1100x600.jpg?resize=globalmenu">
+        <a href="https://nyheder.ku.dk/alle_nyheder/2021/06/ny-opfindelse-holder-kvantebits-stabile-ved-stuetemperatur/">Ny opfindelse holder kvantebits stabile ved stuetemperatur</a>
+        <div class="small">17.06.2021</div>
+    </li>
+    <li>
+        <img alt="Algoritme afslører narhvalers mystiske madvaner" src="https://science.ku.dk/presse/nyhedsarkiv/2021/algoritme-afsloerer-narhvalers-mystiske-madvaner/billedinformationer/Narwhal_Getty_1100x600.jpg?resize=globalmenu">
+        <a href="https://nyheder.ku.dk/alle_nyheder/2021/06/algoritme-afsloerer-narhvalers-mystiske-madvaner/">Algoritme afslører narhvalers mystiske madvaner</a>
+        <div class="small">16.06.2021</div>
+    </li>
+
+      <li class="no-track"><a aria-label="Se alle nyheder fra KU" href="https://nyheder.ku.dk/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Globalmenu&#39;, &#39;klik&#39;, &#39;Alle-nyheder&#39;]);">Alle nyheder</a></li>
+      <li class="no-track"><a aria-label="Presseservice på KU" href="https://nyheder.ku.dk/presseservice/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Globalmenu&#39;, &#39;klik&#39;, &#39;Presseservice&#39;]);">Presseservice</a>
+      </li>
+    </ul>
+  </li>
+  <li class="dropdown"><a aria-expanded="false" aria-haspopup="true" aria-label="Samarbejde med Københavns Universitet" class="dropdown-toggle" data-toggle="dropdown" href="https://samarbejde.ku.dk/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Globalmenu&#39;, &#39;klik&#39;, &#39;Samarbejde&#39;]);" role="button">Samarbejde</a>
+    <ul aria-hidden="true" class="dropdown-menu">
+      <li><a aria-label="Forskningssamarbejde med Københavns Universitet" href="https://forskning.ku.dk/samarbejde/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Globalmenu&#39;, &#39;klik&#39;, &#39;Forskningssamarbejde&#39;]);">Forskningssamarbejde</a>
+      </li>
+      <li><a aria-label="Liste over Internationale alliancer Københavns Universitet er med i" href="https://samarbejde.ku.dk/internationale-alliancer/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Globalmenu&#39;, &#39;klik&#39;, &#39;Internationalt&#39;]);">Internationale alliancer</a></li>
+      <li><a href="https://ie.ku.dk/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Globalmenu&#39;, &#39;klik&#39;, &#39;Innovation-entreprenoerskab&#39;]);">Innovation og entreprenørskab</a></li>
+      <li><a aria-label="Alumni på KU" href="https://alumni.ku.dk" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Globalmenu&#39;, &#39;klik&#39;, &#39;Alumni&#39;]);">Alumni</a></li>
+    </ul>
+  </li>
+  <li class="dropdown"><a aria-expanded="false" aria-haspopup="true" aria-label="Besøg KU og dets museer" class="dropdown-toggle" data-toggle="dropdown" href="https://om.ku.dk/besoeg/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Globalmenu&#39;, &#39;klik&#39;, &#39;Besoeg-KU&#39;]);" role="button">Besøg KU</a>
+    <ul aria-hidden="true" class="dropdown-menu">
+      <li><a aria-label="Offentlige arrangementer på KU" href="https://kalender.ku.dk/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Globalmenu&#39;, &#39;klik&#39;, &#39;offentlige-arrangementer&#39;]);">Offentlige arrangementer</a></li>
+      <li><a aria-label="Biblioteker på KU" href="https://kub.ku.dk/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Globalmenu&#39;, &#39;klik&#39;, &#39;Biblioteker&#39;]);">Biblioteker</a></li>
+      <li><a href="https://om.ku.dk/besoeg/museer/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Globalmenu&#39;, &#39;klik&#39;, &#39;Museer&#39;]);">Museer</a></li>
+      <li><a aria-label="Information for skoler og gymnasier" href="https://fokus.ku.dk/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Globalmenu&#39;, &#39;klik&#39;, &#39;For-skoler-og-gymnasier&#39;]);">For skoler og gymnasier</a></li>
+    </ul>
+  </li>
+  <li class="dropdown"><a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown" href="https://om.ku.dk/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Globalmenu&#39;, &#39;klik&#39;, &#39;Om-KU&#39;]);" role="button">Om KU</a>
+    <ul aria-hidden="true" class="dropdown-menu">
+      <li><a aria-label="Oversigt over KU&#39;s organisation" href="https://om.ku.dk/organisation/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Globalmenu&#39;, &#39;klik&#39;, &#39;Organisation&#39;]);">Organisation</a></li>
+      <li><a aria-label="Tal og fakta fra KU" href="https://om.ku.dk/tal-og-fakta/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Globalmenu&#39;, &#39;klik&#39;, &#39;Tal-og-fakta&#39;]);">Tal og fakta</a></li>
+      <li><a aria-label="KU&#39;s profil og historie" href="https://om.ku.dk/profil/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Globalmenu&#39;, &#39;klik&#39;, &#39;Profil&#39;]);">Profil og historie</a></li>
+      <li><a href="https://om.ku.dk/organisation/fakulteter/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Globalmenu&#39;, &#39;klik&#39;, &#39;Fakulteter&#39;]);">Fakulteter</a></li>
+      <li><a aria-label="Institutter på KU" href="https://om.ku.dk/organisation/institutter/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Globalmenu&#39;, &#39;klik&#39;, &#39;Institutter&#39;]);">Institutter</a></li>
+      <li><a aria-label="Kontakt KU" href="https://om.ku.dk/kontakt/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Globalmenu&#39;, &#39;klik&#39;, &#39;Kontakt&#39;]);">Kontakt</a></li>
+    </ul>
+  </li>
+</ul>
+        </div>
+    </div>
+</nav>
+
+
+
+    <main id="content">
+      <div class="container ku-branding">
+  <div class="row row-equal-height">
+    <div class="col-sm-7 ku-branding-line">
+      <div class="ku-branding-logo">
+        <a aria-label="Københavns Universitet" href="/" title="Jobportal - Job og karriere på KU">
+          <img alt="Københavns Universitet" class="img-responsive" src="https://cdn.jsdelivr.net/gh/ku-kom/bootstrap@9b2ccecb/docs/images/branding/faelles.svg">
+        </a>
+      </div>
+      <div class="ku-branding-text">
+        <a href="/" tabindex="-1">
+            <div class="ku-branding-text-major">Jobportal</div>
+            <div class="ku-branding-text-sub">- Job og karriere på KU</div>
+        </a>
+      </div>
+    </div>
+    <div class="col-sm-5 search-area">
+      <form action="" aria-label="Formular til søgning" class="navbar-form navbar-right search_form search_reset global-search" method="GET" name="">
+                <div class="input-group">
+                    <input aria-label="Inputfelt til søgeord" class="form-control global-search-query" placeholder="Søg..." type="text">
+                    <div class="input-group-btn btn-global-search">
+                        <button aria-expanded="false" aria-haspopup="true" class="btn btn-default dropdown-toggle global-search-options-toggle" data-toggle="dropdown" type="button">
+                            <span class="sr-only">Vis søgemuligheder</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-right global-search-options-filter"></ul>
+                        <button aria-label="Søg" class="btn btn-default global-search-submit" type="submit"><span aria-hidden="true" class="glyphicon glyphicon-search"></span></button>
+                    </div>
+                </div>
+            </form>
+    </div>
+  </div>
+</div>
+
+
+      <div class="container main-area" id="main-area">
+        <div class="row">
+          <!-- Content with right menu -->
+<div class="col-sm-4 col-md-3 ku-leftmenu">
+  <div class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm" id="leftmenu_container">
+  <div class="ku-navbar-header">
+    <a aria-label="Forside: Jobportal - Job og karriere på KU" href="/">Jobportal - Job og karriere på KU</a>
+  </div>
+  <nav aria-label="Venstremenu">
+  <ul class="nav" id="leftmenu">
+    <li class="active">
+      
+<a aria-current="page" href="/videnskabelige-stillinger/">Videnskabelige stillinger</a>
+
+      <ul>
+        <li class="">
+          
+<a href="/videnskabelige-stillinger/karriere-paa-ku/">Karriere på KU</a>
+
+	    </li>
+        <li class="">
+          
+<a href="/videnskabelige-stillinger/kriterier-for-videnskabelige-stillinger/">Kriterier for meritering</a>
+
+	    </li>
+        <li class="">
+          
+<a href="/videnskabelige-stillinger/rekrutteringsproces/">Rekrutteringsproces</a>
+
+	    </li>
+        <li class="">
+          
+<a href="/videnskabelige-stillinger/saerligt-for-yngre-forskere/">Særligt for yngre forskere</a>
+
+	    </li>
+      </ul>
+    </li>
+    <li class="">
+      
+<a href="/tenure-track/">Tenure-track-stillinger</a>
+
+    </li>
+    <li class="">
+      
+<a href="/phd/">Ph.d.-stillinger</a>
+
+    </li>
+    <li class="">
+      
+<a href="/undervisningsstillinger/">Undervisningsstillinger</a>
+
+    </li>
+    <li class="">
+      
+<a href="/administrative-og-forskningsunderstoettende-stillinger/">Administrative og forskningsunderstøttende stillinger</a>
+
+    </li>
+    <li class="">
+      
+<a href="/ku-som-arbejdsplads/">KU som arbejdsplads</a>
+
+    </li>
+    <li class="">
+      
+<a href="/kontakt/">Kontakt</a>
+
+    </li>
+  </ul>
+  <ul class="nav" id="leftmenu_2">
+    <li><a href="/alle-opslag/">Søg i alle ledige stillinger</a></li>
+<li><a href="https://candidate.hr-manager.net/Agent/Subscription.aspx?customer=ku&amp;uiculture=da">Tilmeld jobagent</a></li>
+<li><a href="/saadan-soeger-du/">Sådan søger du</a></li>
+</ul>
+<ul aria-label="Navigation">
+<li><a href="/studerende/">Jobbank for studerende</a></li>
+
+  </ul>
+</nav>
+</div>
+
+</div>
+<div class="col-xs-12 col-sm-8 col-md-6 main-content">
+  
+    
+<div class="breadcrumbs">
+
+    <ul class="breadcrumb">
+        <li>
+            <a aria-label="Brødkrumme: Jobportal DK" href="/">
+                Jobportal DK
+            </a>
+        </li>
+        <li class="active">Videnskabelige stillinger</li>
+    </ul>	    
+
+
+</div>
+
+
+
+
+  <!-- JobPortalSubpage doctype: -->
+
+
+
+
+
+
+    <h1>
+        Two postdoctoral positions in field-based research and modelling of permafrost-affected ecosystems at Center for Permafrost, University of Copenhagen (Denmark)
+    </h1>
+    <div class="vacancy_details_area">
+        <p>Center for Permafrost (CENPERM) at University of Copenhagen is recruiting two postdoctoral associates to work with field-based ecosystem manipulations and process-based ecosystem modelling with a focus on soil physics and biogeochemical processes.</p>
+
+<p>Both positions are for two years starting from 1 November 2021 or as soon as possible thereafter.                               </p>
+
+<p><strong>CENPERM</strong> is a Center of Excellence financed by the Danish National Research Foundation (2012-2023) aiming to integrate multidisciplinary research of biogeochemical and physical processes in a “climate-vegetation-soil-microorganism-permafrost” approach in transects across the major climate zones of Greenland. The ambition is to improve the quantification and predictions of changes in element pools and fluxes relevant for Arctic ecosystems.</p>
+
+<p><strong>Research project</strong><br>
+More than eight years of data collected by CENPERM in the Arctic is now available and ready for additional model-data comparison and upscaling, to extend findings in time and space and thereby provide area-based estimates of changes. Recent manipulations include winter warming and year-round measurements of important subsurface greenhouse gas production and exchange with the atmosphere.<br>
+The two postdocs can expect to work within a well-established research group and take part in co-supervising of PhD-students and take lead in database management.</p>
+
+<p><strong>Qualifications</strong><br>
+Candidates are expected to have qualifications and interests in more than one of the following topics:</p>
+
+<ul>
+	<li>Field-based ecosystem manipulations experiments and monitoring of greenhouse gas production</li>
+	<li>Measurements of subsurface and snow gas concentrations, diffusion and greenhouse gas fluxes</li>
+	<li>Process-based models to simulate changes in climate-soil-plant-microbial characteristics</li>
+	<li>Structural equation modelling</li>
+</ul>
+
+<p>We specifically seek candidates with documented knowledge and interest in field-based experimental work and/or process-based modelling of the terrestrial environment, with hands-on experience using specific models - preferable with experience with Arctic ecosystems, while this is not a requirement. The candidates are expected to be familiar with data management and statistical analyses of experimental data. Good English communication skills, both oral and written, are expected.</p>
+
+<p>Candidates should have a PhD degree preferably in environmental sciences, biogeochemistry or soil sciences with documented research in soil-plant interactions, preferably linked to gas production/transport.</p>
+
+<p><strong>Salary and terms of employment</strong><br>
+The place of work will be in Copenhagen. The position is for 24 months starting on 1 November 2021 or as early as possible thereafter.</p>
+
+<p>The position is covered by the Memorandum on Job Structure for Academic Staff.</p>
+
+<p>Terms of appointment and payment accord to the agreement between the Ministry of Finance and The Danish Confederation of Professional Associations on Academics in the State.</p>
+
+<p>The starting salary is currently up to DKK 440.935 including annual supplement (+ pension up to DKK 75.399). Negotiation for salary supplement is possible.</p>
+
+<p><strong>How to apply</strong><br>
+The applications must be in English, submitted electronically and include:</p>
+
+<ul>
+	<li>Letter of application</li>
+	<li>Curriculum vita, incl. education, experience, previous employments, language skills and other relevant skills (max 5 pages).</li>
+	<li>Detailed outline of proposed research, including research questions and methods (max 5 pages)</li>
+	<li>Diplomas (Master and PhD degree or equivalent)</li>
+	<li>Complete publication list, highlighting the 3 most important ones</li>
+	<li>Separate reprints of 3 particularly relevant papers</li>
+	<li>Two letters of recommendation.</li>
+</ul>
+
+<p><strong>The deadline for applications is 1 September 2021, 23:59 GMT +2. </strong><br>
+Interviews are held in the middle of October 2021.             </p>
+
+<p><strong>Questions</strong><br>
+For more information, please contact Bo Elberling, professor and director of Center for Permafrost (CENPERM), Department of Geosciences and Natural Resource Management, University of Copenhagen. E-mail: <a href="mailto:be@ign.ku.dk">be@ign.ku.dk</a> and the CENPERM homepage: <a href="http://www.cenperm.ku.dk">www.cenperm.ku.dk</a>.</p>
+
+    </div>
+    <a class="pxs_application_link" href="https://candidate.hr-manager.net/ApplicationInit.aspx?cid=1307&amp;ProjectId=154356&amp;DepartmentId=18976&amp;MediaId=5&amp;SkipAdvertisement=true" target="_blank">SØG STILLINGEN</a>
+    <div class="pxs_signature">
+        <p>Københavns Universitet giver sine knap 10.000 medarbejdere muligheder for at udnytte deres talent fuldt ud i et ambitiøst, uformelt miljø. Vi sikrer traditionsrige og moderne rammer om uddannelser og fri forskning på højt internationalt niveau. Vi søger svar og løsninger på fælles problemer og gør ny viden tilgængelig og nyttig for andre.</p>
+    </div>
+
+<div id="rightbox_content">
+
+
+
+        <div class="rightBox">
+            <h3>Info</h3>
+            <div class="teaser job-info">
+
+                <div>
+                    <strong>Ansøgningsfrist:</strong> 01-09-2021
+                </div>
+
+
+                <div>
+                    <strong>Ansættelsesdato:</strong>
+                     01-11-2021
+                </div>
+
+
+                <div>
+                    <strong>Arbejdstid:</strong> Fuldtid
+                </div>
+
+                <div>
+                    <strong>Afdeling/Sted:</strong> Department of Geosciences and Natural Resource Management
+                </div>
+
+
+            </div>
+        </div>
+
+
+        <div class="rightBox">
+            <h3>Søg i stillinger</h3>
+            <div class="teaser job-search">
+                <form accept-charset="UTF-8" action="/videnskabelige-stillinger/" method="POST">
+                    <label class="pxs_search_label sr-only" for="pxs_search">Søg</label>
+                    <input aria-label="Søg i ledige stillinger" class="pxs_search_field" id="pxs_search" name="pxs_search" type="text">
+                    <button class="pxs_search_button" type="submit">SØG</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $(".container-right").append($('#rightbox_content'));
+        });
+    </script>
+
+
+  
+
+</div>
+<div class="col-xs-12 col-sm-8 col-md-3 right-side">
+
+  
+    
+    
+
+
+
+
+  
+</div>
+
+        </div>
+      </div>
+
+      <div class="container local-footer">
+  <hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 footer-address">
+	    <address>
+            <a aria-label="Enhed: Fælles HR" href="https://hr.ku.dk/">Fælles HR</a><br>
+            <a aria-label="Københavns Universitet hovedside" href="https://www.ku.dk/">
+              Københavns Universitet
+            </a><br>
+            Nørregade 10 <br>1165 København K
+        <br>
+	    </address>
+    </div>
+    <div class="col-xs-12 col-sm-6 footer-data">
+        Kontakt:
+	    <address>
+            Københavns Universitet<br>
+            
+<a aria-label="Kontakt: ku@ku.dk" href="#" onclick="this.href= &#39;mai&#39; + &#39;lto:&#39; + &#39;ku&#39; + &#39;@&#39; + &#39;ku.dk&#39; ; return true;">ku<!-- @@@ -->@<!-- @@@ -->ku<!-- nospam -->.<!-- nomorespam -->dk</a><br>
+        </address>
+    </div>
+  </div>
+</div>
+
+
+    </main>
+
+    
+<nav aria-label="Mobilnavigation" id="mobileleftmenu">
+    <ul id="mmenu">
+        <li id="mmenu-placeholder"></li>
+    </ul>
+</nav>
+
+
+
+    <footer>
+      <div class="container-fluid" id="globalfooter">
+        <div class="container">
+  <div aria-label="Footer navigation" class="row footercontent clearfix" role="navigation">
+    <div class="col-xs-3 footercolumn">
+      <h2 class="footer-heading" data-heading="toggle">Københavns Universitet</h2>
+      <ul class="footerlinks">
+        <li><a aria-label="KU&#39;s Ledelse" href="https://om.ku.dk/ledelse-strategi/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Footer-dk&#39;, &#39;klik&#39;, &#39;Ledelse&#39;]);">Ledelse</a></li>
+        <li><a aria-label="KU&#39;s Administration" href="https://om.ku.dk/organisation/administration/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Footer-dk&#39;, &#39;klik&#39;, &#39;Administration&#39;]);">Administration</a></li>
+        <li><a aria-label="KU&#39;s Fakulteter" href="https://om.ku.dk/organisation/fakulteter/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Footer-dk&#39;, &#39;klik&#39;, &#39;Fakulteter&#39;]);">Fakulteter</a></li>
+        <li><a aria-label="KU&#39;s Institutter" href="https://om.ku.dk/organisation/institutter/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Footer-dk&#39;, &#39;klik&#39;, &#39;Institutter&#39;]);">Institutter</a></li>
+        <li><a aria-label="KU&#39;s Forskningscentre" href="https://forskning.ku.dk/omraader/centre/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Footer-dk&#39;, &#39;klik&#39;, &#39;Centre&#39;]);">Forskningscentre</a></li>
+        <li><a aria-label="KU&#39;s Dyrehospitaler" href="https://vetschool.ku.dk/om/VetOmDyrehospitaler/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Footer-dk&#39;, &#39;klik&#39;, &#39;Dyrehospitaler&#39;]);">Dyrehospitaler</a></li>
+        <li><a aria-label="KU Tandlægeskolen" href="https://xn--tandlgeskolen-7fb.ku.dk/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Footer-dk&#39;, &#39;klik&#39;, &#39;Tandlægeskolen&#39;]);">Tandlægeskolen</a></li>
+        <li><a aria-label="KU&#39;s Biblioteker" href="https://kub.ku.dk/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Footer-dk&#39;, &#39;klik&#39;, &#39;Biblioteker&#39;]);">Biblioteker</a></li>
+        <li><a aria-label="KU&#39;s Museer" href="https://om.ku.dk/besoeg/museer/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Footer-dk&#39;, &#39;klik&#39;, &#39;Museer&#39;]);">Museer</a></li>
+      </ul>
+    </div>
+    <div class="col-xs-3 footercolumn">
+      <h2 class="footer-heading" data-heading="toggle">Kontakt</h2>
+      <ul class="footerlinks">
+        <li><a aria-label="Find vej på KU" href="https://findvej.ku.dk/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Footer-dk&#39;, &#39;klik&#39;, &#39;Findvej&#39;]);">Find vej</a></li>
+        <li><a aria-label="Find en medarbejder på KU" href="https://om.ku.dk/kontakt/telefonbog/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Footer-dk&#39;, &#39;klik&#39;, &#39;Find-en-medarbejder&#39;]);">Find en medarbejder</a></li>
+        <li><a aria-label="Kontakt KU, Københavns Universitet" href="https://om.ku.dk/kontakt/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Footer-dk&#39;, &#39;klik&#39;, &#39;Kontakt&#39;]);">Kontakt KU</a></li>
+      </ul>
+      <h2 class="footer-heading" data-heading="toggle">Services</h2>
+      <ul class="footerlinks">
+        <li><a aria-label="KU Presseservice" href="https://nyheder.ku.dk/presseservice/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Footer-dk&#39;, &#39;klik&#39;, &#39;Presse&#39;]);">Presseservice</a></li>
+        <li><a aria-label="KU&#39;s Designguide" href="https://designguide.ku.dk" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Footer-dk&#39;, &#39;klik&#39;, &#39;Design&#39;]);">Designguide</a></li>
+        <li><a aria-label="KU&#39;s Merchandise" href="http://ku-shop.dk" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Footer-dk&#39;, &#39;klik&#39;, &#39;Merchandise&#39;]);">Merchandise</a></li>
+        <li><a aria-label="KU&#39;s IT-support" href="https://it.ku.dk/kontakt/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Footer-dk&#39;, &#39;klik&#39;, &#39;IT&#39;]);">IT-support</a></li>
+        <li><a aria-label="Info til leverandører" href="https://om.ku.dk/kontakt/til-leverandoerer/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Footer-dk&#39;, &#39;klik&#39;, &#39;Til-leverandoerer&#39;]);">Til leverandører</a></li>
+      </ul>
+    </div>
+    <div class="col-xs-3 footercolumn">
+      <h2 class="footer-heading" data-heading="toggle">For studerende og ansatte</h2>
+      <ul class="footerlinks">
+        <li><a aria-label="KU&#39;s intranet KUnet" class="padlock" href="https://kunet.ku.dk" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Footer-dk&#39;, &#39;klik&#39;, &#39;KUnet&#39;]);">KUnet</a>
+          <span class="icon icon-padlock"></span>
+        </li>
+      </ul>
+      <h2 class="footer-heading" data-heading="toggle">Job og karriere</h2>
+      <ul class="footerlinks">
+        <li><a aria-label="Ledige stillinger på KU" href="https://jobportal.ku.dk" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Footer-dk&#39;, &#39;klik&#39;, &#39;Jobportal&#39;]);">Ledige stillinger</a></li>
+        <li><a aria-label="KU Jobbank for studerende" href="https://karriere.ku.dk/da/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Footer-dk&#39;, &#39;klik&#39;, &#39;Jobbank&#39;]);">Jobbank for studerende</a></li>
+        <li><a aria-label="KU Alumne" href="https://alumni.ku.dk" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Footer-dk&#39;, &#39;klik&#39;, &#39;Alumne&#39;]);">Alumne</a></li>
+      </ul>
+      <h2 class="footer-heading" data-heading="toggle">Nødsituationer</h2>
+      <ul class="footerlinks">
+        <li><a aria-label="KU&#39;s sikkerhedsberedskab" href="https://akut.ku.dk" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Footer-dk&#39;, &#39;klik&#39;, &#39;Akut&#39;]);">KU&#39;s sikkerhedsberedskab</a></li>
+      </ul>
+    </div>
+    <div class="col-xs-3 footercolumn">
+      <h2 class="footer-heading" data-heading="toggle">Web</h2>
+      <ul class="footerlinks">
+        <li><a aria-label="Info om websitet" href="https://om.ku.dk/om-webstedet/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Footer-dk&#39;, &#39;klik&#39;, &#39;Om&#39;]);">Om websitet</a></li>
+        <li><a aria-label="KU cookies og privatlivspolitik" href="https://om.ku.dk/om-webstedet/cookie-og-privatlivspolitik/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Footer-dk&#39;, &#39;klik&#39;, &#39;Cookies&#39;]);">Cookies og
+            privatlivspolitik</a></li>
+        <li><a aria-label="KU&#39;s Tilgængelighedserklæring" href="https://www.ku.dk/was" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Footer-dk&#39;, &#39;klik&#39;, &#39;Tilgaengelighed&#39;]);">Tilgængelighedserklæring</a></li>
+        <li><a aria-label="KU Informationssikkerhed" href="https://informationssikkerhed.ku.dk" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Footer-dk&#39;, &#39;klik&#39;, &#39;Sikkerhed&#39;]);">Informationssikkerhed</a></li>
+        <!-- <li><a href="https://om.ku.dk/indeks/" onClick="_gaq.push(['mainTracker._trackEvent', 'Footer-dk', 'klik', 'Indeks']);" aria-label="KU A-Å-indeks">A-Å-indeks</a></li> -->
+      </ul>
+      <div class="social-items">
+        <h2 class="footer-heading" data-heading="open">Mød KU på</h2>
+        <div class="social-item">
+          <a aria-label="KU på Facebook" class="social-icon" href="https://www.facebook.com/universitet" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Footer-dk&#39;, &#39;klik&#39;, &#39;Facebook&#39;]);" rel="noopener" target="_blank"><span aria-hidden="true" class="icon icon-facebook"></span></a>
+        </div>
+        <div class="social-item">
+          <a aria-label="KU på LinkedIn" class="social-icon" href="https://www.linkedin.com/school/university-of-copenhagen/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Footer-dk&#39;, &#39;klik&#39;, &#39;LinkedIn&#39;]);" rel="noopener" target="_blank"><span aria-hidden="true" class="icon icon-linkedin"></span></a>
+        </div>
+        <div class="social-item">
+          <a aria-label="KU på Instagram" class="social-icon" href="https://www.instagram.com/university_of_copenhagen/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Footer-dk&#39;, &#39;klik&#39;, &#39;Instagram&#39;]);" rel="noopener" target="_blank"><span aria-hidden="true" class="icon icon-instagram"></span></a>
+        </div>
+        <div class="social-item">
+          <a aria-label="KU på Twitter" class="social-icon" href="https://twitter.com/koebenhavns_uni" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Footer-dk&#39;, &#39;klik&#39;, &#39;Twitter&#39;]);" rel="noopener" target="_blank"><span aria-hidden="true" class="icon icon-twitter"></span></a>
+        </div>
+        <div class="social-item">
+          <a aria-label="KU på YouTube" class="social-icon" href="https://www.youtube.com/user/CopenhagenUniversity" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Footer-dk&#39;, &#39;klik&#39;, &#39;Youtube&#39;]);" rel="noopener" target="_blank"><span aria-hidden="true" class="icon icon-youtube"></span></a>
+        </div>
+        <div class="social-item">
+          <a aria-label="KU Videoportal" class="social-icon" href="https://video.ku.dk" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Footer-dk&#39;, &#39;klik&#39;, &#39;Video&#39;]);" rel="noopener" target="_blank"><span aria-hidden="true" class="icon icon-video"></span></a>
+        </div>
+        <div class="social-item">
+          <a aria-label="KU Apps" class="social-icon" href="https://om.ku.dk/apps/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Footer-dk&#39;, &#39;klik&#39;, &#39;Apps&#39;]);"><span aria-hidden="true" class="icon icon-phone"></span></a>
+        </div>
+        <div class="social-item">
+          <a aria-label="KU på Futurity" class="social-icon" href="https://www.futurity.org/university/university-of-copenhagen/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Footer-dk&#39;, &#39;klik&#39;, &#39;Futurity&#39;]);" rel="noopener" target="_blank"><span aria-hidden="true" class="icon icon-futurity"></span></a>
+        </div>
+        <div class="social-item">
+          <a aria-label="KU på The Conversation" class="social-icon" href="https://theconversation.com/institutions/university-of-copenhagen-1186" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Footer-dk&#39;, &#39;klik&#39;, &#39;Conversation&#39;]);" rel="noopener" target="_blank"><span aria-hidden="true" class="icon icon-conversation"></span></a>
+        </div>
+        <div class="social-item">
+          <a aria-label="KU på Coursera" class="social-icon" href="https://www.coursera.org/ucph" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Footer-dk&#39;, &#39;klik&#39;, &#39;Coursera&#39;]);" rel="noopener" target="_blank"><span aria-hidden="true" class="icon icon-coursera"></span></a>
+        </div>
+        <div class="social-item">
+          <a aria-label="Nyheder RSS" class="social-icon" href="https://nyheder.ku.dk/rss/" onclick="_gaq.push([&#39;mainTracker._trackEvent&#39;, &#39;Footer-dk&#39;, &#39;klik&#39;, &#39;RSS&#39;]);" rel="noopener" target="_blank"><span aria-hidden="true" class="icon icon-rss"></span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div aria-label="Scroll til toppen (tast enter)" class="scrolltop fade" id="scrolltop" tabindex="0"><span aria-hidden="true" class="glyphicon-menu-up"></span></div>
+      </div>
+    </footer>
+
+    <script>
+      var pageTitle = "Videnskabelige stillinger";
+
+      // Set screen reader tooltip
+      $(document).ready(function() {
+        var toggleText = "Fold tekst ind eller ud";
+        $("span.bootstrap-collapsible-toggle-text").text(toggleText);
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/gh/ku-kom/bootstrap@9b2ccecb/docs/dist/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript"><!--
+(function() {
+    if (!window.searchEngines) {
+        window.searchEngines = [{"id":"allKU","label":"Hele KU","querykey":"q","url":"https://soeg.ku.dk"},{"id":"news","label":"Nyheder","param":{"doctype":"Nyhed","obvius_mode":"search","path":"/fa-sites/nyhedssites/nyheder/alle_nyheder/"},"querykey":"query","url":"https://nyheder.ku.dk"},{"id":"studies","label":"Studier","param":{"gcse":"014167723083474301078:sxgnobjpld4"},"querykey":"q","url":"https://studier.ku.dk/soeg/"},{"id":"scientists","label":"Forskere","param":{"pure":"da/persons/search.html"},"querykey":"search","url":"https://forskning.ku.dk/soeg/result/"},{"id":"publications","label":"Publikationer","param":{"pure":"da/publications/search.html"},"querykey":"search","url":"https://forskning.ku.dk/soeg/result/"},{"id":"job","label":"Job","method":"POST","querykey":"pxs_search","url":"https://jobportal.ku.dk/alle-opslag/"}];
+    };
+})();
+//--></script>
+
+    <script src="https://cdn.jsdelivr.net/gh/ku-kom/bootstrap@9b2ccecb/docs/assets/js/ku-global-search/search.js"></script>
+
+    
+    <script>
+    // Setting current DocID as a global variable
+    var DOC_ID = 1431011;
+</script>
+<script src="https://cms.ku.dk/scripts_js/mmenu.js"></script>
+<script src="https://cms.ku.dk/scripts_js/ku-mmenu.js"></script>
+<script async="async" defer="defer" src="https://cdn.jsdelivr.net/gh/ku-kom/bootstrap@9b2ccecb/docs/assets/js/mmenu/hammer.min.js"></script>
+
+
+    <script src="https://cms.ku.dk/scripts_js/accordions.js?ku_rollout_2021_07_01_version763"></script>
+
+    
+
+
+  </div>
+
+  <script src="https://cms.ku.dk/scripts_js/cookies/cookiedata.js?ku_rollout_2021_07_01_version763"></script>
+<script type="text/javascript">KUCookieFilters.init(".ku.dk")</script>
+<script src="https://cms.ku.dk/scripts_js/cookies/ccc.js?ku_rollout_2021_07_01_version763"></script>
+
+
+</body>
+
+</html>

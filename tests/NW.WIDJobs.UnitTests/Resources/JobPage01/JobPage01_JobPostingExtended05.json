@@ -1,0 +1,301 @@
+{
+    "WorkSchedule": [
+        {
+            "Id": 1,
+            "Name": "Fuldtid"
+        },
+        {
+            "Id": 16,
+            "Name": "Deltid"
+        }
+    ],
+    "WorkConditions": [
+        {
+            "Id": 1,
+            "Name": "Almindelige vilkår"
+        },
+        {
+            "Id": 2,
+            "Name": "Fleksjob"
+        },
+        {
+            "Id": 3,
+            "Name": "Skånejob"
+        },
+        {
+            "Id": 4,
+            "Name": "Egnet til efterlønnere og seniorer"
+        },
+        {
+            "Id": 5,
+            "Name": "Job med løntilskud"
+        },
+        {
+            "Id": 6,
+            "Name": "Rotationsjob"
+        },
+        {
+            "Id": 7,
+            "Name": "Virksomhedspraktik"
+        }
+    ],
+    "EmploymentTypes": [
+        {
+            "Id": 1,
+            "Name": "Fastansættelse"
+        },
+        {
+            "Id": 16,
+            "Name": "Tidsbegrænset ansættelse"
+        }
+    ],
+    "WorkPlace": {
+        "Name": "TeamVikaren.dk, Århus ApS, Horsens Afdeling",
+        "Address": {
+            "AddressLine": "Strandpromenaden 6",
+            "Country": {
+                "Id": 58,
+                "Name": "Danmark"
+            },
+            "Municipality": {
+                "Id": 615,
+                "Name": "Horsens"
+            },
+            "Region": {
+                "Id": 2,
+                "Name": "Midtjylland"
+            },
+            "PostalCode": "8700",
+            "City": "Horsens"
+        },
+        "PhoneNumber": {
+            "Number": null,
+            "Type": 0,
+            "Description": "Primary"
+        },
+        "FaxNumber": null,
+        "Email": null,
+        "WebAddress": null,
+        "Description": null,
+        "Logo": 126565,
+        "WorkPlaceOrganizationNumber": "1016232765",
+        "OrganizationNumber": "30899695",
+        "OrganizationDescription": null
+    },
+    "JobPositionPosting": {
+        "Id": 5376524,
+        "OriginalJppId": 5376524,
+        "HiringOrg": {
+            "Name": "TeamVikaren.dk, Århus ApS, Horsens Afdeling",
+            "Address": {
+                "AddressLine": "Strandpromenaden 6",
+                "Country": {
+                    "Id": 58,
+                    "Name": "Danmark"
+                },
+                "Municipality": {
+                    "Id": 615,
+                    "Name": "Horsens"
+                },
+                "Region": {
+                    "Id": 2,
+                    "Name": "Midtjylland"
+                },
+                "PostalCode": "8700",
+                "City": "Horsens"
+            },
+            "PhoneNumber": {
+                "Number": null,
+                "Type": 0,
+                "Description": "Primary"
+            },
+            "FaxNumber": null,
+            "Email": null,
+            "WebAddress": null,
+            "Description": null,
+            "Logo": 126565,
+            "WorkPlaceOrganizationNumber": "1016232765",
+            "OrganizationNumber": "30899695",
+            "OrganizationDescription": null
+        },
+        "RecruitingCompany": null,
+        "PublicationStartDate": "2021-07-02T00:00:00",
+        "PublicationEndDate": "2021-08-19T00:00:00",
+        "JobPositionInformation": {
+            "PositionTitle": "Vi søger rengøringsassistenter til weekendarbejde i Vejers Strand/We are looking for cleaning assistants for weekend work in Vejers Strand",
+            "Purpose": "<p><strong>English version below the Danish</strong></p>\n<p>Vi søger rengøringsassistenter til weekendarbejde i Vejers Strand.</p>\n<p>Har du mulighed for at arbejde i weekender, har du egen bil, og har du lyst til at prøve kræfter med rengøring af sommerhuse, så har vi et job til dig.</p>\n<p><strong>Jobbet</strong></p>\n<p>Rengøring af sommerhuse, støvsugning, rengøring af badeværelser, køleskabe, skabe mv.</p>\n<p>Det er vigtigt at du kan arbejde weekender, da det primært er der behovet er. Der er tale om ca. 4 timer på fredage og ca. 6 timer på lørdage, arbejdstiden er varierende i tidsrummet kl. 08.00-19.00. Der er sidemandsoplæring, så tidligere erfaring er ikke et krav.</p>\n<p><strong>Vi tilbyder</strong></p>\n<ul>\n<li>Fleksible arbejdstider</li>\n<li>Attraktiv løn (DKK 180,- per time)</li>\n<li>Kørselsgodtgørelse (statens takst)</li>\n<li>Aktivt og alsidigt arbejde</li>\n</ul>\n<p><strong>Virksomheden</strong></p>\n<p>Virksomheden er en del af et stort sommerhus udlejningsfirma, og da højsæsonen nærmer sig, har de brug for ekstra hænder som kan hjælpe til med at holde deres gode standard.</p>\n<p><strong>Din profil</strong></p>\n<ul>\n<li>Du kan arbejde i weekender</li>\n<li>Du har egen bil til rådighed</li>\n<li>Du kan lide aktivt arbejde</li>\n<li>Du har erfaring fra tidligere arbejde – dog ikke et krav</li>\n<li>Du taler, læser og skriver dansk, engelsk eller tysk</li>\n</ul>\n<p>Der er opstart hurtigst muligt.</p>\n<p><strong>Sådan kan du ansøge</strong></p>\n<p>Gå ind på <a href=\"http://www.teamvikaren.dk\">www.teamvikaren.dk</a> og opret din profil, husk at ligge dit CV ind på din profil.</p>\n<p>Er du allerede medlem af Teamvikaren og ønsker du at blive taget i betragtning til denne stilling, er du velkommen til at kontakte os tidsrummet mandag til fredag kl. 08.00-17.00 på telefon 7027 7665.</p>\n<p><strong>English version</strong></p>\n<p>We are looking for cleaning assistants for weekend work in Vejers Strand.</p>\n<p>Can you work on weekends, do you have your own car, and do you want to clean holiday homes, then we have a job for you.</p>\n<p><strong>The job</strong></p>\n<p>Cleaning of holiday homes, vacu0901803099uming, cleaning of bathrooms, refrigerators, cupboards, etc.</p>\n<p>It is important that you can work weekends, as this is primarily where the work is. There are approx. 4 hours on Fridays and approx. 6 hours on Saturdays, working hours vary in the period between 08.00-19.00. There is peer training, so previous experience is not a requirement.</p>\n<p><strong>We offer</strong></p>\n<ul>\n<li>Flexible hours</li>\n<li>Attractive salary (DKK 180 per hour)</li>\n<li>Travel allowance (state tariff)</li>\n<li>Active and versatile work</li>\n</ul>\n<p><strong>The company</strong></p>\n<p>The company is part of a large holiday home rental company, and as the high season approaches, they need extra hands that can help maintain their good standard.</p>\n<p><strong>Your profile</strong></p>\n<ul>\n<li>You can work on weekends</li>\n<li>You have your own car available</li>\n<li>You like active work</li>\n<li>You have experience from previous work - not a requirement</li>\n<li>You speak, read and write Danish, English or German</li>\n</ul>\n<p>Start-up is as soon as possible.</p>\n<p><strong>How to apply</strong></p>\n<p>Go to <a href=\"http://www.teamvikaren.dk\">www.teamvikaren.dk</a> and create your profile, remember to put your CV in your profile.</p>\n<p>If you are already a member of Teamvikaren and would like to be considered for this position, you are welcome to contact us from Monday to Friday from 08: 00-17: 00 on telephone 7027 7665.</p>",
+            "WorkLocation": {
+                "AddressLine": "",
+                "Country": {
+                    "Id": 58,
+                    "Name": "Danmark"
+                },
+                "Municipality": {
+                    "Id": 573,
+                    "Name": "Varde"
+                },
+                "Region": {
+                    "Id": 3,
+                    "Name": "Syddanmark"
+                },
+                "PostalCode": "6853",
+                "City": "Vejers Strand"
+            },
+            "EmploymentType": 16,
+            "WeeklyWorkHours": {
+                "TypeId": 16,
+                "TypeName": "Deltid",
+                "Description": null
+            },
+            "CompensationDescription": null,
+            "NumberToFill": 20,
+            "DriverLicense": [],
+            "Occupation": {
+                "DiscoWeb": 0,
+                "AlternateNames": [],
+                "GroupId": 0,
+                "AreaId": 0,
+                "Id": 0,
+                "Name": null
+            },
+            "IsGovernmentHiring": false,
+            "JppContacts": [
+                {
+                    "Id": 7126735,
+                    "Email": null,
+                    "FaxNumber": null,
+                    "PersonName": "Majken Lorentzen",
+                    "FirstName": "Majken",
+                    "LastName": "Lorentzen",
+                    "PositionTitle": "Personalekonsulent",
+                    "PhoneNumbers": [
+                        {
+                            "Number": "70277665",
+                            "Type": 0,
+                            "Description": "Hovednummer"
+                        }
+                    ]
+                }
+            ],
+            "EmploymentDate": null
+        },
+        "IsRecruitmentOfForeignNationals": true,
+        "IsWorkInDenmark": true,
+        "IsAnonymousEmployer": false,
+        "IsDisabilityFriendly": false,
+        "JppType": 4,
+        "ApplicationDetails": {
+            "WorkHourMax": 12,
+            "WorkHourMin": 0,
+            "DailyWorkTimeWeekend": true,
+            "DailyWorkTimeNight": false,
+            "DailyWorkTimeEvening": false,
+            "DailyWorkTimeDay": false,
+            "ReferenceText": null,
+            "RemarksToApplicant": null,
+            "ByEmail": null,
+            "ByPhone": null,
+            "ApplyViaUrl": "www.teamvikaren.dk",
+            "ReplyInWriting": false,
+            "ApplicationDeadlineDate": "2021-08-19T00:00:00"
+        },
+        "ContactAuthorityPhoneNumber": {
+            "Number": null,
+            "Type": 0,
+            "Description": "Primary"
+        },
+        "Status": 7
+    },
+    "LogoUrl": "/CV/FindWork/GetLogo?JobAdId=5376524&WorkPlace=126565&Organisation=30899695",
+    "Address": "Strandpromenaden 6,8700, Horsens",
+    "ShowMap": false,
+    "ShowShareButtonJobLog": false,
+    "JobLogUrl": "/CV/Jobseeking/JobLog/CreateJobSearch?JobnetJobPostingIdentifier=5376524&Company.Name=TeamVikaren.dk, Århus ApS, Horsens Afdeling&SubmissionDeadlineDate=2021-8-19&Title=Vi søger rengøringsassistenter til weekendarbejde i Vejers Strand/We are looking for cleaning assistants for weekend work in Vejers Strand&JobAdUrl=https://job.jobnet.dk/CV/FindWork/Details/5376524&WeeklyWorkTime=2",
+    "JobLogTemplateModel": {
+        "Identifier": "00000000-0000-0000-0000-000000000000",
+        "UseWorkPlaceAddressForJoblog": false,
+        "Category": 0,
+        "CvCustomerIdentifier": null,
+        "JobSeekingStatus": null,
+        "Title": "Vi søger rengøringsassistenter til weekendarbejde i Vejers Strand/We are looking for cleaning assistants for weekend work in Vejers Strand",
+        "IsApplicationSourceRequired": true,
+        "ApplicationSource": null,
+        "IsWeeklyWorkTimeRequired": true,
+        "WeeklyWorkTime": 2,
+        "HoursPerWeek": null,
+        "JobnetJobPostingIdentifier": "5376524",
+        "JobAdUrl": "https://job.jobnet.dk/CV/FindWork/JobDetailJsonWIDK?id=5376524",
+        "JobAdDocument": null,
+        "Company": {
+            "JobLogEntryCategory": 0,
+            "ShowAddressFieldsEvenIfEmpty": false,
+            "Name": "TeamVikaren.dk, Århus ApS, Horsens Afdeling",
+            "Address": "Strandpromenaden 6",
+            "Country": null,
+            "EmploymentAreaID": null,
+            "PostCode": "8700",
+            "IsCountryAndTownAndPostCodeEmpty": false,
+            "IsTownAndPostCodeEmpty": false,
+            "IsCountryDanmark": false,
+            "Town": "Horsens",
+            "ContactPerson": "Majken Lorentzen",
+            "Phone": "70277665",
+            "Email": null,
+            "Latitude": null,
+            "Longitude": null,
+            "DailyTravelTimeInMinutes": null,
+            "DistanceToCompanyInMeters": null,
+            "IsCreateMode": false
+        },
+        "TypeOfSubmission": null,
+        "SubmissionDate": "2021-08-19T00:00:00",
+        "SubmissionDateFormatted": null,
+        "SubmissionDateTiks": 0,
+        "IsSubmissionDateRequired": false,
+        "Status": 0,
+        "DateCreatedFormatted": null,
+        "DateCreated": null,
+        "DateModifiedFormatted": null,
+        "DateModified": null,
+        "LastModifiedDateTiks": 0,
+        "DateClosed": null,
+        "JobApplicationDocument": {
+            "Title": null,
+            "Identifier": null,
+            "IsDeleted": false
+        },
+        "CvDocument": {
+            "Title": null,
+            "Identifier": null,
+            "IsDeleted": false
+        },
+        "JobApplicationFile": null,
+        "CvFile": null,
+        "SubmissionDeadlineDate": null,
+        "IsPersisted": false,
+        "ServerValidationErrors": [],
+        "HasServerValidationErrors": false
+    },
+    "JoblogWorkTime": {
+        "WorkHour": "(0 - 12 timer ugentligt)",
+        "DailyWorkTime": "Weekend"
+    },
+    "Place": "Work place location Varde municipality",
+    "OpenPrintDialog": false,
+    "WorkPlaceInfoText": "TeamVikaren.dk, Århus ApS, Horsens Afdeling",
+    "JobCenterContactDetails": "",
+    "WorkPlaceDescriptionText": null,
+    "FavoriteText": "",
+    "IsFavorite": false,
+    "ShowFavorite": false,
+    "MetaOgTextForSharing": "English version below the Danish\nVi søger rengøringsassistenter til weekendarbejde i Vejers Strand.\nHar du mulighed for at arbejde i weekender, har du egen bil, og har du lyst til at prøve kræfter med rengøring af sommerhuse, så har vi et job til dig.\nJobbet\nRengøring af sommerhuse, støvsugning, rengøring af badeværelser, køleskabe, skabe mv.\nDet e",
+    "DescriptionForSharing": "\"English version below the Danish\\nVi søger rengøringsassistenter til weekendarbejde i Vejers Strand.\\nHar du mulighed for at arbejde i weekender, har du egen bil, og har du lyst til at prøve kræfter med rengøring af sommerhuse, så har vi et job til dig.\\nJobbet\\nRengøring af sommerhuse, støvsugning, rengøring af badeværelser, køleskabe, skabe mv.\\nDet e\"",
+    "TitleForSharing": "\"Vi søger rengøringsassistenter til weekendarbejde i Vejers Strand/We are looking for cleaning assistants for weekend work in Vejers Strand\"",
+    "RutePlan": "https://www.google.dk/maps/dir//Strandpromenaden+6,8700,+Horsens/",
+    "FormattedPurpose": "<p><strong>English version below the Danish</strong></p>\n<p>Vi søger rengøringsassistenter til weekendarbejde i Vejers Strand.</p>\n<p>Har du mulighed for at arbejde i weekender, har du egen bil, og har du lyst til at prøve kræfter med rengøring af sommerhuse, så har vi et job til dig.</p>\n<p><strong>Jobbet</strong></p>\n<p>Rengøring af sommerhuse, støvsugning, rengøring af badeværelser, køleskabe, skabe mv.</p>\n<p>Det er vigtigt at du kan arbejde weekender, da det primært er der behovet er. Der er tale om ca. 4 timer på fredage og ca. 6 timer på lørdage, arbejdstiden er varierende i tidsrummet kl. 08.00-19.00. Der er sidemandsoplæring, så tidligere erfaring er ikke et krav.</p>\n<p><strong>Vi tilbyder</strong></p>\n<ul>\n<li>Fleksible arbejdstider</li>\n<li>Attraktiv løn (DKK 180,- per time)</li>\n<li>Kørselsgodtgørelse (statens takst)</li>\n<li>Aktivt og alsidigt arbejde</li>\n</ul>\n<p><strong>Virksomheden</strong></p>\n<p>Virksomheden er en del af et stort sommerhus udlejningsfirma, og da højsæsonen nærmer sig, har de brug for ekstra hænder som kan hjælpe til med at holde deres gode standard.</p>\n<p><strong>Din profil</strong></p>\n<ul>\n<li>Du kan arbejde i weekender</li>\n<li>Du har egen bil til rådighed</li>\n<li>Du kan lide aktivt arbejde</li>\n<li>Du har erfaring fra tidligere arbejde – dog ikke et krav</li>\n<li>Du taler, læser og skriver dansk, engelsk eller tysk</li>\n</ul>\n<p>Der er opstart hurtigst muligt.</p>\n<p><strong>Sådan kan du ansøge</strong></p>\n<p>Gå ind på <a target=\"_blank\" href=\"http://www.teamvikaren.dk\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5376524\">www.teamvikaren.dk</a> og opret din profil, husk at ligge dit CV ind på din profil.</p>\n<p>Er du allerede medlem af Teamvikaren og ønsker du at blive taget i betragtning til denne stilling, er du velkommen til at kontakte os tidsrummet mandag til fredag kl. 08.00-17.00 på telefon 7027 7665.</p>\n<p><strong>English version</strong></p>\n<p>We are looking for cleaning assistants for weekend work in Vejers Strand.</p>\n<p>Can you work on weekends, do you have your own car, and do you want to clean holiday homes, then we have a job for you.</p>\n<p><strong>The job</strong></p>\n<p>Cleaning of holiday homes, vacu0901803099uming, cleaning of bathrooms, refrigerators, cupboards, etc.</p>\n<p>It is important that you can work weekends, as this is primarily where the work is. There are approx. 4 hours on Fridays and approx. 6 hours on Saturdays, working hours vary in the period between 08.00-19.00. There is peer training, so previous experience is not a requirement.</p>\n<p><strong>We offer</strong></p>\n<ul>\n<li>Flexible hours</li>\n<li>Attractive salary (DKK 180 per hour)</li>\n<li>Travel allowance (state tariff)</li>\n<li>Active and versatile work</li>\n</ul>\n<p><strong>The company</strong></p>\n<p>The company is part of a large holiday home rental company, and as the high season approaches, they need extra hands that can help maintain their good standard.</p>\n<p><strong>Your profile</strong></p>\n<ul>\n<li>You can work on weekends</li>\n<li>You have your own car available</li>\n<li>You like active work</li>\n<li>You have experience from previous work - not a requirement</li>\n<li>You speak, read and write Danish, English or German</li>\n</ul>\n<p>Start-up is as soon as possible.</p>\n<p><strong>How to apply</strong></p>\n<p>Go to <a target=\"_blank\" href=\"http://www.teamvikaren.dk\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5376524\">www.teamvikaren.dk</a> and create your profile, remember to put your CV in your profile.</p>\n<p>If you are already a member of Teamvikaren and would like to be considered for this position, you are welcome to contact us from Monday to Friday from 08: 00-17: 00 on telephone 7027 7665.</p>",
+    "MapUrl": "https://www.google.dk/maps/place/Strandpromenaden+6,8700,+Horsens/",
+    "OrganizationNumber": "30899695",
+    "ShowSearchJobButton": false,
+    "ShowPrint": false,
+    "BackToFindWorkButtonUrl": null
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Job Posting Page External</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+  <link type="text/css" rel="stylesheet" href="https://jobsearch.maersk.com/jobposting/css/styles.css" media="all"/>
+  <link type="text/css" rel="stylesheet" href="https://jobsearch.maersk.com/jobposting/css/print.css" media="print"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://jobsearch.maersk.com/jobposting/js/script.js"></script>
+</head>
+<body>
+    <!--[if lt IE 10]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <header class="branding-bar">
+        <a href="https://www.maersk.com/">
+            <img class="logo" src="https://jobsearch.maersk.com/jobposting/img/logo-colored.png" alt="logo">
+            <!-- <div class="logo" data-dynamic-img="Details.BusinessUnit.Icon" data-recover-img=="img/logo-colored.png" alt="logo"></div> -->
+        </a>
+    </header>
+    <h1 class="main-headline" data-dynamic="Title"></h1>
+    <nav class="navigation-bar">
+        <div class="nav-holder">
+            <ul>
+                <li data-dynamic="CountryTxt"></li>
+                <li data-dynamic="Details.Location.City"></li>
+                <li data-dynamic="ContractTypeTxt"></li>
+                <li data-dynamic="FunctionalAreaTxt"></li>
+            </ul>
+            <span class="app-date">Last application date: <span data-dynamic="EndDate"></span></span>
+        </div>
+    </nav>
+    <div class="two-columns-area">
+        <article class="content">
+            <ul class="social-networks mobile-content">
+                <li><a class="icon icon-facebook js-share" href="#"><span>Facebook</span></a></li>
+                <li><a class="icon icon-linkedin js-share" href="#"><span>Linkedin</span></a></li>
+                <li><a class="icon icon-google js-share" href="#"><span>Google+</span></a></li>
+                <li><a class="icon icon-twitter js-share" href="#"><span>Twitter</span></a></li>
+                <li><a class="icon icon-mail js-share" href="#" title="Del på mail"><span>Email</span></a></li>
+                <li><a class="icon icon-print" onclick="window.print();"><span>Print</span></a></li>
+            </ul>
+            <div class="text-area">
+                <p class="expanding-block" data-dynamic="Company"></p>
+                <button class="show-more-btn">Show More</button>
+                <h2>We offer</h2>
+                <div class="expanding-block">
+                    <p data-dynamic="GeneralInfo"></p>
+                </div>
+                <button class="show-more-btn">Show More</button>
+                <h2>Key responsibilities</h2>
+                <div class="expanding-block">
+                    <p data-dynamic="AdditionalInfo"></p>
+                </div>
+                <button class="show-more-btn">Show More</button>
+                <h2>We are looking for</h2>
+                <div class="expanding-block">
+                    <p data-dynamic="Requirements"></p>
+                </div>
+                <button class="show-more-btn">Show More</button>
+            </div>
+            <div class="mobile-content">
+                <a class="action-button js-apply" href="#">Apply</a>
+                <span class="app-date">Last application date: <span data-dynamic="EndDate"></span></span>
+                <ul class="social-networks">
+                    <li><a class="icon icon-facebook js-share" href="#"><span>Facebook</span></a></li>
+                    <li><a class="icon icon-linkedin js-share" href="#"><span>Linkedin</span></a></li>
+                    <li><a class="icon icon-google js-share" href="#"><span>Google+</span></a></li>
+                    <li><a class="icon icon-twitter js-share" href="#"><span>Twitter</span></a></li>
+                    <li><a class="icon icon-mail js-share" href="#" title="Del på mail"><span>Email</span></a></li>
+                    <li><a class="icon icon-print" href="#" onclick="window.print();"><span>Print</span></a></li>
+                </ul>
+            </div>
+            <div class="sub-info-block">
+                <h2>
+                    <div class="img-normal" data-dynamic-img="Details.BusinessUnit.Iconurl" data-recover-img=="img/logo-colored.png" alt="logo"></div>
+                </h2>
+                <p data-dynamic="Tasks"></p>
+            </div>
+            <div class="sub-info-block">
+                <p data-dynamic="Details.BusinessUnit.Description"></p>
+            </div>
+        </article>
+        <aside class="sidebar">
+            <a class="action-button js-apply" href="#">Apply</a>
+            <ul class="social-networks">
+                <li><a class="icon icon-facebook js-share" href="#"><span>Facebook</span></a></li>
+                <li><a class="icon icon-linkedin js-share" href="#"><span>Linkedin</span></a></li>
+                <li><a class="icon icon-google js-share" href="#"><span>Google+</span></a></li>
+                <li><a class="icon icon-twitter js-share" href="#"><span>Twitter</span></a></li>
+                <li><a class="icon icon-mail js-share" href="#" title="Del på mail"><span>Email</span></a></li>
+                <li><a class="icon icon-print" href="#" onclick="window.print();"><span>Print</span></a></li>
+            </ul>
+            <!-- <div data-dynamic-img="Image" data-recover-img="img/maersk-sample-image.jpg"></div> -->
+            <img src="https://jobsearch.maersk.com/jobposting/img/maersk-sample-image.jpg" />
+            <div class="info-box">
+                <h3>Additional info</h3>
+                <p>Ref.: <span data-dynamic="Details.ExternalCode"></span></p>
+                <p data-extern>For further information, please contact: <span data-dynamic="Details.Responsible.EMail"></span>
+                    <!-- <span data-dynamic="Details.Responsible.Fullname"></span> -->
+                    <span class="hidden" data-dynamic="Details.FunctionalArea"></span>
+                </p>
+                <p data-intern>Internal contact: <span data-dynamic="Details.Responsible.EMail"></span>
+                    <!-- <span data-dynamic="Details.Responsible.Fullname"></span> -->
+                    <span class="hidden" data-dynamic="Details.FunctionalArea"></span>
+                </p>
+                <p data-intern>JobLevel: <span data-dynamic="Details.JobLevel"></span></p>
+                <p data-intern>Carreer Stream:<br>
+                    <span data-dynamic="CarreerStreamTxt"></span><br>
+                    <span data-dynamic="CarreerStream"></span>
+                </p>
+            </div>
+            <a class="js-jobs action-button inverted" data-intern href="#">Maersk Jobs</a>
+        </aside>
+    </div>
+    <script>
+    var appId = "140586622674265";
+    window.fbAsyncInit = function() {
+        FB.init({
+          appId      : appId,
+          xfbml      : true,
+          version    : 'v2.8'
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KZ7Q32');</script>
+    <!-- End Google Tag Manager -->
+</html>

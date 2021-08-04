@@ -1,0 +1,306 @@
+{
+    "WorkSchedule": [
+        {
+            "Id": 1,
+            "Name": "Fuldtid"
+        },
+        {
+            "Id": 16,
+            "Name": "Deltid"
+        }
+    ],
+    "WorkConditions": [
+        {
+            "Id": 1,
+            "Name": "Almindelige vilkår"
+        },
+        {
+            "Id": 2,
+            "Name": "Fleksjob"
+        },
+        {
+            "Id": 3,
+            "Name": "Skånejob"
+        },
+        {
+            "Id": 4,
+            "Name": "Egnet til efterlønnere og seniorer"
+        },
+        {
+            "Id": 5,
+            "Name": "Job med løntilskud"
+        },
+        {
+            "Id": 6,
+            "Name": "Rotationsjob"
+        },
+        {
+            "Id": 7,
+            "Name": "Virksomhedspraktik"
+        }
+    ],
+    "EmploymentTypes": [
+        {
+            "Id": 1,
+            "Name": "Fastansættelse"
+        },
+        {
+            "Id": 16,
+            "Name": "Tidsbegrænset ansættelse"
+        }
+    ],
+    "WorkPlace": {
+        "Name": "Aarhus Universitet",
+        "Address": {
+            "AddressLine": "Tuborgvej 164",
+            "Country": {
+                "Id": 58,
+                "Name": "Danmark"
+            },
+            "Municipality": {
+                "Id": 101,
+                "Name": "København"
+            },
+            "Region": {
+                "Id": 4,
+                "Name": "Hovedstaden, Sjælland og Bornholm"
+            },
+            "PostalCode": "2400",
+            "City": "København NV"
+        },
+        "PhoneNumber": {
+            "Number": null,
+            "Type": 0,
+            "Description": "Primary"
+        },
+        "FaxNumber": null,
+        "Email": null,
+        "WebAddress": null,
+        "Description": null,
+        "Logo": 106637,
+        "WorkPlaceOrganizationNumber": "1017164038",
+        "OrganizationNumber": "31119103",
+        "OrganizationDescription": null
+    },
+    "JobPositionPosting": {
+        "Id": 5382440,
+        "OriginalJppId": 5382440,
+        "HiringOrg": {
+            "Name": "Aarhus Universitet",
+            "Address": {
+                "AddressLine": "Tuborgvej 164",
+                "Country": {
+                    "Id": 58,
+                    "Name": "Danmark"
+                },
+                "Municipality": {
+                    "Id": 101,
+                    "Name": "København"
+                },
+                "Region": {
+                    "Id": 4,
+                    "Name": "Hovedstaden, Sjælland og Bornholm"
+                },
+                "PostalCode": "2400",
+                "City": "København NV"
+            },
+            "PhoneNumber": {
+                "Number": null,
+                "Type": 0,
+                "Description": "Primary"
+            },
+            "FaxNumber": null,
+            "Email": null,
+            "WebAddress": null,
+            "Description": null,
+            "Logo": 106637,
+            "WorkPlaceOrganizationNumber": "1017164038",
+            "OrganizationNumber": "31119103",
+            "OrganizationDescription": null
+        },
+        "RecruitingCompany": null,
+        "PublicationStartDate": "2021-07-02T00:00:00",
+        "PublicationEndDate": "2021-08-09T00:00:00",
+        "JobPositionInformation": {
+            "PositionTitle": "Assistant or associate professorship in general didactics and empirical school research",
+            "Purpose": "The Department of Educational Theory and Curriculum Studies at the Danish School of Education, Aarhus University invites applications for an assistant/associate professorship in the field of general didactics and empirical school research.<br/><br/>The assistant professorship is a full-time, three-year training position, which begins on 1 December 2021 or as soon as possible thereafter.<br/>The associate professorship is a permanent position, which begins on 1 December 2021 or as soon as possible thereafter.<br/><br/>We are looking for an innovative and dedicated applicant who will contribute to Aarhus University’s core activities in the areas of research, education, talent development and knowledge exchange.<br/><br/>The position is based at DPU Emdrup Campus, Copenhagen or DPU, Aarhus Campus.<br/>The Danish School of Education (DPU) is committed to diversity and encourages all qualified applicants to apply regardless of their personal background.<br/><br/><strong>The position</strong><br/>The Department of Educational Theory and Curriculum Studies aims to be at the forefront of research in the fields of didactics, disciplinary didactics and empirical school research. We are looking for dedicated applicants who can contribute to these research fields.<br/><br/>The position focuses on empirical research related to didactics, disciplinary didactics, teacher competences, learning outcome and student motivation. We expect the successful applicant to cooperate with colleagues in relation to these areas, for instance by contributing to the research unit in general didactics, the research programme Teachers and Teaching: Teacher Education, Practice, Professional Development (TaT), or the research unit in secondary-school pedagogy.<br/><br/>Key criteria of the assessment will be the quality of the research output, which is expected to meet international standards, and successful teaching experience at university level within the field of general didactics and educational research methods.<br/><br/><strong>Research</strong><br/>We are looking for a candidate who has substantial research experience in general didactics with special relevance for empirical school research and/or teacher competences and teaching development, a person who can demonstrate skills in empirical research.<br/><br/>In addition, it will be considered an advantage if an applicant:<ul><li>Has specific research experience in the field of empirically informed teaching, learning outcome and/or student motivation</li><li>Has specific research experience connected to the role of digital technologies in shaping teaching and subject areas</li><li>Can demonstrate skills in collaborative and cross-disciplinary research</li><li>Can demonstrate skills in handling various qualitative and quantitative scientific methods.</li></ul><br/><strong>Teaching</strong><br/>An assistant professor will be expected to teach and supervise students at BA and MA level, whereas an associate professor will be expected to teach and supervise students at all levels (BA, MA and PhD). Both assistant and associate professors are expected to contribute to the development and application of innovative teaching methods. The position involves teaching duties as well as responsibility for the development of courses that encompass the above-mentioned fields of study. This could also include the coordination and leadership of education in the field of general didactics and educational research methods.<br/>If an assistant professor is appointed, he/she will be obliged to complete a course in university teaching designed especially for assistant professors.<br/><br/><strong>Talent development </strong><br/>If an assistant professor is appointed, he/she will be expected to develop his or her supervision capabilities at MA level.<br/><br/>If an associate professor is appointed, he/she will be expected to contribute to talent development within the fields of general didactics, disciplinary didactics and school research. He/she will be expected to supervise PhD students as well as teaching and developing PhD courses.<br/><br/><strong>Knowledge exchange</strong><br/>It is expected that the successful applicant will engage in knowledge exchange as mentioned in the strategy for the Faculty of Arts, for instance in research cooperation with private companies, government consultancy, cooperation with civil society or the public dissemination of knowledge. Applicants should document any prior experience within the field of knowledge exchange.<br/><br/><strong>Qualifications</strong><br/>The successful applicant for the assistant professorship must have a PhD or the equivalent qualifications in general didactics in relation to empirical school research or related fields, and must be able to document:<ul><li>Substantial research experience in general didactics in relation to empirical school research</li><li>An internationally oriented research profile</li><li>A relevant and internationally oriented publication profile</li><li>Experience of or interest in participation in national and international research networks</li><li>Experience of or interest in communication and knowledge exchange</li><li>Experience of or interest in interdisciplinary collaboration as well as interdisciplinary research</li><li>Experience of or the potential for obtaining external research funding</li><li>Teaching experience at university level within the field of general didactics and educational research methods</li><li>Experience of or interest in interdisciplinary teaching including innovative teaching methods</li><li>Experience of or interest in supervising student projects, and interest in researcher talent development.</li></ul>The successful applicant for the associate professorship must have a PhD or the equivalent qualifications in general didactics in relation to empirical school research, as well as research and teaching qualifications equivalent to those acquired in an assistant professorship, and must also be able to document:<ul><li>Substantial research experience in the field of general didactics and empirical school research</li><li>Substantial experience of empirical research related to didactics, learning outcomes and student motivation</li><li>Skills in collaborative and cross-disciplinary school research</li><li>Skills in empirical school research and empirically informed teaching, including mixed methods</li><li>An internationally oriented research profile</li><li>A strong, relevant international publication profile</li><li>Participation in national and international research networks</li><li>Experience of participation in collective research projects</li><li>Teaching experience at university level within the field general didactics and educational research methods, including innovative teaching methods, and mastery of academic English in the classroom</li><li>Proficiency in languages relevant to the area of research</li><li>Experience of interdisciplinary cooperation outreach activities</li><li>Experience of attracting external research funding</li><li>Experience of supervising student projects and an interest in researcher talent development.</li></ul>The successful applicant must be able to teach and publish in Danish and English.<br/><br/>The successful applicant will be expected to contribute to the department’s academic environment. We emphasise the importance of good working relationships, both among colleagues and with our students.<br/><br/><strong>For further information</strong> about the position, please contact:<br/>Head of the Department of Educational Theory and Curriculum Studies Helle Rørbech, email: <a href=\"mailto:hero@edu.au.dk\" target=\"_blank\">hero@edu.au.dk</a>, tel.: + 45 61464424.<br/><br/>Read about the Department of Educational Theory and Curriculum Studies <a href=\"http://edu.au.dk/en/about-the-school/organisation/department-of-educational-theory-and-curriculum-studies/\" target=\"_blank\">here</a>.<br/><br/>The application must be submitted in English.<br/><br/><strong>Work environment</strong><br/>Active participation in the daily life of the department is a high priority, and we emphasise the importance of good working relationships, both among colleagues and with our students.<br/>We respect the balance between work and private life and strive to create a work environment in which that balance can be maintained. See <a href=\"https://international.au.dk/life/lifeindenmark/familyworklife/\" target=\"_blank\">https://international.au.dk/life/lifeindenmark/familyworklife/</a> for further information.<br/><br/><strong>International applicants</strong><br/>International applicants are encouraged to see <a href=\"https://international.au.dk/research/researcher-positions/workingconditions/\" target=\"_blank\">https://international.au.dk/research/researcher-positions/workingconditions/</a> for further information about the benefits of working at Aarhus University and in Denmark, including healthcare, paid holidays and, if relevant, maternity/paternity leave, childcare and schooling. Aarhus University offers a broad variety of services for international researchers and accompanying families, including a relocation service and career counselling for expat partners. For information about taxation, see Taxation aspects of international researchers’ employment by AU.<br/><br/><strong>Research environment</strong><br/>The Danish School of Education at Aarhus University is the largest centre for research and teaching in the fields of education, didactics and learning in Denmark, with approximately 250 full-time researchers, including 80 PhD students, and approximately 5,000 Bachelor’s and Master’s degree students.<br/><br/>The department’s activities are characterised by a high degree of interdisciplinary and close interaction with society, including businesses, organisations, government agencies and institutions, both in Denmark and abroad.<br/><br/>Please note that the Danish School of Education is located in both Copenhagen and Aarhus. It is important that the successful applicant takes part in the daily activities of the department, including both teaching and supervising, so the successful applicant should expect to perform duties in both Aarhus and Copenhagen.<br/><br/>Visit the Danish School of Education’s website: <a href=\"http://edu.au.dk/en/\" target=\"_blank\">http://edu.au.dk/en/</a><br/>For questions about working at Aarhus University, visit <a href=\"http://talent.au.dk\" target=\"_blank\">http://talent.au.dk</a><br/>For questions about relocating to Denmark, visit <a href=\"http://ias.au.dk\" target=\"_blank\">http://ias.au.dk</a><br/><br/><strong>Formalities</strong><ul><li>Faculty of Arts refers to the Ministerial Order on the Appointment of Academic Staff at Danish Universities<a href=\"http://www.medarbejdere.au.dk/appointment_of_academic_staff_at_universities\" target=\"_blank\"> (the Appointment Order)</a>.</li><li>Appointment shall be in accordance with the <a href=\"http://www.medarbejdere.au.dk/overenskomst_for_akademikere_i_staten\" target=\"_blank\">collective labour agreement between the Danish Ministry of Finance and the Danish Confederation of Professional Associations</a>.</li><li>Further information on qualification requirements and job content may be found in the<a href=\"https://medarbejdere.au.dk/fileadmin/www.medarbejdere.au.dk/hr/rekruttering/onboarding/ministerial_order_no._1443_of_11_december_2019_on_job_structure_for_academic_staff_at_universities.pdf\" target=\"_blank\"> Memorandum on Job Structure for Academic Staff at Danish Universities </a><a href=\"https://medarbejdere.au.dk/fileadmin/www.medarbejdere.au.dk/hr/rekruttering/onboarding/ministerial_order_no._1443_of_11_december_2019_on_job_structure_for_academic_staff_at_universities.pdf\" target=\"_blank\">.</a></li><li>Further information on the application and supplementary materials may be found in <a href=\"http://arts.au.dk/en/about-arts/vacant-positions/application-guidelines-academic-positions-2014/\" target=\"_blank\">Application Guidelines</a>.</li><li>The application must outline the your motivation for applying for the position, attaching a curriculum vitae, copies of relevant degree certificates, and (if relevant for the position) a teaching portfolio. Please upload this material electronically along with your application.</li><li>If you submit your application for the assistant professorship, please upload a maximum of five samples of your scholarly output (mandatory).</li><li>If you submit your application for the associate professorship, please upload a maximum of eight samples of your scholarly output (mandatory).</li></ul>If nothing else is noted, applications must be submitted in English. Application deadline is at 11.59 pm Danish time (same as Central European Time) on the deadline day.<br/><br/>Aarhus University’s ambition is to be an attractive and inspiring workplace for all and to foster a culture in which each individual has opportunities to thrive, achieve and develop. We view equality and diversity as assets, and we welcome all applicants.<br/><br/>Shortlists may be prepared with the candidates that have been selected for a detailed academic assessment. A committee set up by the head of school is responsible for selecting the most qualified candidates. See this link for further information about shortlisting at the Faculty of Arts: <a href=\"https://medarbejdere.au.dk/fileadmin/user_upload/proces_for_shortlisting_til_web_december_2017_en.pdf\" target=\"_blank\">shortlisting</a><br/><br/>Aarhus University offers a broad variety of services for international researchers and accompanying families, including relocation service and career counselling to expat partners: <a href=\"http://ias.au.dk/au-relocation-service/\" target=\"_blank\">http://ias.au.dk/au-relocation-service/</a>. Please find more information about entering and working in Denmark here: <a href=\"http://international.au.dk/research/\" target=\"_blank\">http://international.au.dk/research/</a><br/><br/><strong>Faculty of Arts</strong><br/>The Faculty of Arts is one of five main academic areas at Aarhus University.<br/>The faculty contributes to Aarhus University's research, talent development, knowledge exchange and degree programmes.<br/>With its 550 academic staff members, 275 PhD students, 9,500 BA and MA students, and 1,500 students following continuing/further education programmes, the faculty constitutes a strong and diverse research and teaching environment.<br/>The Faculty of Arts consists of the School of Communication and Culture, the School of Culture and Society and the Danish School of Education. Each of these units has strong academic environments and forms the basis for interdisciplinary research and education.<br/>The faculty's academic environments and degree programmes engage in international collaboration and share the common goal of contributing to the development of knowledge, welfare and culture in interaction with society.<br/><br/>Read more at <a href=\"http://www.arts.au.dk/en\" target=\"_blank\">arts.au.dk/en</a><br/><br/><em>The application must be submitted via Aarhus University’s recruitment system, which can be accessed under the job advertisement on Aarhus University's website.</em><br/><br/><strong>Aarhus </strong><strong>University</strong><br/><em>Aarhus University is an academically diverse and research-intensive university with a strong commitment to high-quality research and education and the development of society nationally and globally. The university offers an inspiring research and teaching environment to </em><em>its 38,000 students (FTEs) and 8,000 employees, and has an annual revenues of EUR 885 million. Learn more at <a href=\"http://www.international.au.dk/\" target=\"_blank\">www.international.au.dk/</a></em><br/><br/><strong>Deadline:</strong> 09 August 2021<p>&nbsp;</p>",
+            "WorkLocation": {
+                "AddressLine": "Tuborgvej 164",
+                "Country": {
+                    "Id": 58,
+                    "Name": "Danmark"
+                },
+                "Municipality": {
+                    "Id": 101,
+                    "Name": "København"
+                },
+                "Region": {
+                    "Id": 4,
+                    "Name": "Hovedstaden, Sjælland og Bornholm"
+                },
+                "PostalCode": "2400",
+                "City": "København NV"
+            },
+            "EmploymentType": 16,
+            "WeeklyWorkHours": {
+                "TypeId": 1,
+                "TypeName": "Fuldtid",
+                "Description": null
+            },
+            "CompensationDescription": null,
+            "NumberToFill": 1,
+            "DriverLicense": [],
+            "Occupation": {
+                "DiscoWeb": 0,
+                "AlternateNames": [],
+                "GroupId": 0,
+                "AreaId": 0,
+                "Id": 0,
+                "Name": null
+            },
+            "IsGovernmentHiring": true,
+            "JppContacts": [
+                {
+                    "Id": 7124420,
+                    "Email": "hero@edu.au.dk",
+                    "FaxNumber": null,
+                    "PersonName": "Helle Rørbech",
+                    "FirstName": "Helle",
+                    "LastName": "Rørbech",
+                    "PositionTitle": null,
+                    "PhoneNumbers": [
+                        {
+                            "Number": "-",
+                            "Type": 0,
+                            "Description": "Hovednummer"
+                        },
+                        {
+                            "Number": "61464424",
+                            "Type": 1,
+                            "Description": "Arbejde direkte"
+                        }
+                    ]
+                }
+            ],
+            "EmploymentDate": "2021-12-01T00:00:00"
+        },
+        "IsRecruitmentOfForeignNationals": false,
+        "IsWorkInDenmark": true,
+        "IsAnonymousEmployer": false,
+        "IsDisabilityFriendly": false,
+        "JppType": 4,
+        "ApplicationDetails": {
+            "WorkHourMax": null,
+            "WorkHourMin": null,
+            "DailyWorkTimeWeekend": false,
+            "DailyWorkTimeNight": false,
+            "DailyWorkTimeEvening": false,
+            "DailyWorkTimeDay": false,
+            "ReferenceText": null,
+            "RemarksToApplicant": null,
+            "ByEmail": null,
+            "ByPhone": null,
+            "ApplyViaUrl": "https://AU.emply.net/recruitment/vacancyApply.aspx?publishingId=32d13cb4-2de3-4c9a-88b8-4709927f59d0",
+            "ReplyInWriting": false,
+            "ApplicationDeadlineDate": "2021-08-09T00:00:00"
+        },
+        "ContactAuthorityPhoneNumber": {
+            "Number": null,
+            "Type": 0,
+            "Description": "Primary"
+        },
+        "Status": 7
+    },
+    "LogoUrl": "/CV/FindWork/GetLogo?JobAdId=5382440&WorkPlace=106637&Organisation=31119103",
+    "Address": "Tuborgvej 164,2400, København NV",
+    "ShowMap": true,
+    "ShowShareButtonJobLog": false,
+    "JobLogUrl": "/CV/Jobseeking/JobLog/CreateJobSearch?JobnetJobPostingIdentifier=5382440&Company.Name=Aarhus Universitet&SubmissionDeadlineDate=2021-8-9&Title=Assistant or associate professorship in general didactics and empirical school research&JobAdUrl=https://job.jobnet.dk/CV/FindWork/Details/5382440&WeeklyWorkTime=1",
+    "JobLogTemplateModel": {
+        "Identifier": "00000000-0000-0000-0000-000000000000",
+        "UseWorkPlaceAddressForJoblog": false,
+        "Category": 0,
+        "CvCustomerIdentifier": null,
+        "JobSeekingStatus": null,
+        "Title": "Assistant or associate professorship in general didactics and empirical school research",
+        "IsApplicationSourceRequired": true,
+        "ApplicationSource": null,
+        "IsWeeklyWorkTimeRequired": true,
+        "WeeklyWorkTime": 1,
+        "HoursPerWeek": null,
+        "JobnetJobPostingIdentifier": "5382440",
+        "JobAdUrl": "https://job.jobnet.dk/CV/FindWork/JobDetailJsonWIDK?id=5382440",
+        "JobAdDocument": null,
+        "Company": {
+            "JobLogEntryCategory": 0,
+            "ShowAddressFieldsEvenIfEmpty": false,
+            "Name": "Aarhus Universitet",
+            "Address": "Tuborgvej 164",
+            "Country": null,
+            "EmploymentAreaID": null,
+            "PostCode": "2400",
+            "IsCountryAndTownAndPostCodeEmpty": false,
+            "IsTownAndPostCodeEmpty": false,
+            "IsCountryDanmark": false,
+            "Town": "København NV",
+            "ContactPerson": "Helle Rørbech",
+            "Phone": "-",
+            "Email": "hero@edu.au.dk",
+            "Latitude": null,
+            "Longitude": null,
+            "DailyTravelTimeInMinutes": null,
+            "DistanceToCompanyInMeters": null,
+            "IsCreateMode": false
+        },
+        "TypeOfSubmission": null,
+        "SubmissionDate": "2021-08-09T00:00:00",
+        "SubmissionDateFormatted": null,
+        "SubmissionDateTiks": 0,
+        "IsSubmissionDateRequired": false,
+        "Status": 0,
+        "DateCreatedFormatted": null,
+        "DateCreated": null,
+        "DateModifiedFormatted": null,
+        "DateModified": null,
+        "LastModifiedDateTiks": 0,
+        "DateClosed": null,
+        "JobApplicationDocument": {
+            "Title": null,
+            "Identifier": null,
+            "IsDeleted": false
+        },
+        "CvDocument": {
+            "Title": null,
+            "Identifier": null,
+            "IsDeleted": false
+        },
+        "JobApplicationFile": null,
+        "CvFile": null,
+        "SubmissionDeadlineDate": null,
+        "IsPersisted": false,
+        "ServerValidationErrors": [],
+        "HasServerValidationErrors": false
+    },
+    "JoblogWorkTime": {
+        "WorkHour": null,
+        "DailyWorkTime": null
+    },
+    "Place": "Work place location København municipality",
+    "OpenPrintDialog": false,
+    "WorkPlaceInfoText": "Aarhus Universitet",
+    "JobCenterContactDetails": "",
+    "WorkPlaceDescriptionText": null,
+    "FavoriteText": "",
+    "IsFavorite": false,
+    "ShowFavorite": false,
+    "MetaOgTextForSharing": "The Department of Educational Theory and Curriculum Studies at the Danish School of Education, Aarhus University invites applications for an assistant/associate professorship in the field of general didactics and empirical school research.The assistant professorship is a full-time, three-year training position, which begins on 1 December 2021 or as",
+    "DescriptionForSharing": "\"The Department of Educational Theory and Curriculum Studies at the Danish School of Education, Aarhus University invites applications for an assistant/associate professorship in the field of general didactics and empirical school research.The assistant professorship is a full-time, three-year training position, which begins on 1 December 2021 or as\"",
+    "TitleForSharing": "\"Assistant or associate professorship in general didactics and empirical school research\"",
+    "RutePlan": "https://www.google.dk/maps/dir//Tuborgvej+164,2400,+København+NV/",
+    "FormattedPurpose": "The Department of Educational Theory and Curriculum Studies at the Danish School of Education, Aarhus University invites applications for an assistant/associate professorship in the field of general didactics and empirical school research.<br/><br/>The assistant professorship is a full-time, three-year training position, which begins on 1 December 2021 or as soon as possible thereafter.<br/>The associate professorship is a permanent position, which begins on 1 December 2021 or as soon as possible thereafter.<br/><br/>We are looking for an innovative and dedicated applicant who will contribute to Aarhus University’s core activities in the areas of research, education, talent development and knowledge exchange.<br/><br/>The position is based at DPU Emdrup Campus, Copenhagen or DPU, Aarhus Campus.<br/>The Danish School of Education (DPU) is committed to diversity and encourages all qualified applicants to apply regardless of their personal background.<br/><br/><strong>The position</strong><br/>The Department of Educational Theory and Curriculum Studies aims to be at the forefront of research in the fields of didactics, disciplinary didactics and empirical school research. We are looking for dedicated applicants who can contribute to these research fields.<br/><br/>The position focuses on empirical research related to didactics, disciplinary didactics, teacher competences, learning outcome and student motivation. We expect the successful applicant to cooperate with colleagues in relation to these areas, for instance by contributing to the research unit in general didactics, the research programme Teachers and Teaching: Teacher Education, Practice, Professional Development (TaT), or the research unit in secondary-school pedagogy.<br/><br/>Key criteria of the assessment will be the quality of the research output, which is expected to meet international standards, and successful teaching experience at university level within the field of general didactics and educational research methods.<br/><br/><strong>Research</strong><br/>We are looking for a candidate who has substantial research experience in general didactics with special relevance for empirical school research and/or teacher competences and teaching development, a person who can demonstrate skills in empirical research.<br/><br/>In addition, it will be considered an advantage if an applicant:<ul><li>Has specific research experience in the field of empirically informed teaching, learning outcome and/or student motivation</li><li>Has specific research experience connected to the role of digital technologies in shaping teaching and subject areas</li><li>Can demonstrate skills in collaborative and cross-disciplinary research</li><li>Can demonstrate skills in handling various qualitative and quantitative scientific methods.</li></ul><br/><strong>Teaching</strong><br/>An assistant professor will be expected to teach and supervise students at BA and MA level, whereas an associate professor will be expected to teach and supervise students at all levels (BA, MA and PhD). Both assistant and associate professors are expected to contribute to the development and application of innovative teaching methods. The position involves teaching duties as well as responsibility for the development of courses that encompass the above-mentioned fields of study. This could also include the coordination and leadership of education in the field of general didactics and educational research methods.<br/>If an assistant professor is appointed, he/she will be obliged to complete a course in university teaching designed especially for assistant professors.<br/><br/><strong>Talent development </strong><br/>If an assistant professor is appointed, he/she will be expected to develop his or her supervision capabilities at MA level.<br/><br/>If an associate professor is appointed, he/she will be expected to contribute to talent development within the fields of general didactics, disciplinary didactics and school research. He/she will be expected to supervise PhD students as well as teaching and developing PhD courses.<br/><br/><strong>Knowledge exchange</strong><br/>It is expected that the successful applicant will engage in knowledge exchange as mentioned in the strategy for the Faculty of Arts, for instance in research cooperation with private companies, government consultancy, cooperation with civil society or the public dissemination of knowledge. Applicants should document any prior experience within the field of knowledge exchange.<br/><br/><strong>Qualifications</strong><br/>The successful applicant for the assistant professorship must have a PhD or the equivalent qualifications in general didactics in relation to empirical school research or related fields, and must be able to document:<ul><li>Substantial research experience in general didactics in relation to empirical school research</li><li>An internationally oriented research profile</li><li>A relevant and internationally oriented publication profile</li><li>Experience of or interest in participation in national and international research networks</li><li>Experience of or interest in communication and knowledge exchange</li><li>Experience of or interest in interdisciplinary collaboration as well as interdisciplinary research</li><li>Experience of or the potential for obtaining external research funding</li><li>Teaching experience at university level within the field of general didactics and educational research methods</li><li>Experience of or interest in interdisciplinary teaching including innovative teaching methods</li><li>Experience of or interest in supervising student projects, and interest in researcher talent development.</li></ul>The successful applicant for the associate professorship must have a PhD or the equivalent qualifications in general didactics in relation to empirical school research, as well as research and teaching qualifications equivalent to those acquired in an assistant professorship, and must also be able to document:<ul><li>Substantial research experience in the field of general didactics and empirical school research</li><li>Substantial experience of empirical research related to didactics, learning outcomes and student motivation</li><li>Skills in collaborative and cross-disciplinary school research</li><li>Skills in empirical school research and empirically informed teaching, including mixed methods</li><li>An internationally oriented research profile</li><li>A strong, relevant international publication profile</li><li>Participation in national and international research networks</li><li>Experience of participation in collective research projects</li><li>Teaching experience at university level within the field general didactics and educational research methods, including innovative teaching methods, and mastery of academic English in the classroom</li><li>Proficiency in languages relevant to the area of research</li><li>Experience of interdisciplinary cooperation outreach activities</li><li>Experience of attracting external research funding</li><li>Experience of supervising student projects and an interest in researcher talent development.</li></ul>The successful applicant must be able to teach and publish in Danish and English.<br/><br/>The successful applicant will be expected to contribute to the department’s academic environment. We emphasise the importance of good working relationships, both among colleagues and with our students.<br/><br/><strong>For further information</strong> about the position, please contact:<br/>Head of the Department of Educational Theory and Curriculum Studies Helle Rørbech, email: <a target=\"_blank\" href=\"mailto:hero@edu.au.dk\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5382440\">hero@edu.au.dk</a>, tel.: + 45 61464424.<br/><br/>Read about the Department of Educational Theory and Curriculum Studies <a target=\"_blank\" href=\"http://edu.au.dk/en/about-the-school/organisation/department-of-educational-theory-and-curriculum-studies/\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5382440\">here</a>.<br/><br/>The application must be submitted in English.<br/><br/><strong>Work environment</strong><br/>Active participation in the daily life of the department is a high priority, and we emphasise the importance of good working relationships, both among colleagues and with our students.<br/>We respect the balance between work and private life and strive to create a work environment in which that balance can be maintained. See <a target=\"_blank\" href=\"https://international.au.dk/life/lifeindenmark/familyworklife/\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5382440\">https://international.au.dk/life/lifeindenmark/familyworklife/</a> for further information.<br/><br/><strong>International applicants</strong><br/>International applicants are encouraged to see <a target=\"_blank\" href=\"https://international.au.dk/research/researcher-positions/workingconditions/\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5382440\">https://international.au.dk/research/researcher-positions/workingconditions/</a> for further information about the benefits of working at Aarhus University and in Denmark, including healthcare, paid holidays and, if relevant, maternity/paternity leave, childcare and schooling. Aarhus University offers a broad variety of services for international researchers and accompanying families, including a relocation service and career counselling for expat partners. For information about taxation, see Taxation aspects of international researchers’ employment by AU.<br/><br/><strong>Research environment</strong><br/>The Danish School of Education at Aarhus University is the largest centre for research and teaching in the fields of education, didactics and learning in Denmark, with approximately 250 full-time researchers, including 80 PhD students, and approximately 5,000 Bachelor’s and Master’s degree students.<br/><br/>The department’s activities are characterised by a high degree of interdisciplinary and close interaction with society, including businesses, organisations, government agencies and institutions, both in Denmark and abroad.<br/><br/>Please note that the Danish School of Education is located in both Copenhagen and Aarhus. It is important that the successful applicant takes part in the daily activities of the department, including both teaching and supervising, so the successful applicant should expect to perform duties in both Aarhus and Copenhagen.<br/><br/>Visit the Danish School of Education’s website: <a target=\"_blank\" href=\"http://edu.au.dk/en/\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5382440\">http://edu.au.dk/en/</a><br/>For questions about working at Aarhus University, visit <a target=\"_blank\" href=\"http://talent.au.dk\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5382440\">http://talent.au.dk</a><br/>For questions about relocating to Denmark, visit <a target=\"_blank\" href=\"http://ias.au.dk\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5382440\">http://ias.au.dk</a><br/><br/><strong>Formalities</strong><ul><li>Faculty of Arts refers to the Ministerial Order on the Appointment of Academic Staff at Danish Universities<a target=\"_blank\" href=\"http://www.medarbejdere.au.dk/appointment_of_academic_staff_at_universities\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5382440\">(the Appointment Order)</a>.</li><li>Appointment shall be in accordance with the <a target=\"_blank\" href=\"http://www.medarbejdere.au.dk/overenskomst_for_akademikere_i_staten\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5382440\">collective labour agreement between the Danish Ministry of Finance and the Danish Confederation of Professional Associations</a>.</li><li>Further information on qualification requirements and job content may be found in the<a target=\"_blank\" href=\"https://medarbejdere.au.dk/fileadmin/www.medarbejdere.au.dk/hr/rekruttering/onboarding/ministerial_order_no._1443_of_11_december_2019_on_job_structure_for_academic_staff_at_universities.pdf\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5382440\">Memorandum on Job Structure for Academic Staff at Danish Universities</a><a target=\"_blank\" href=\"https://medarbejdere.au.dk/fileadmin/www.medarbejdere.au.dk/hr/rekruttering/onboarding/ministerial_order_no._1443_of_11_december_2019_on_job_structure_for_academic_staff_at_universities.pdf\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5382440\">.</a></li><li>Further information on the application and supplementary materials may be found in <a target=\"_blank\" href=\"http://arts.au.dk/en/about-arts/vacant-positions/application-guidelines-academic-positions-2014/\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5382440\">Application Guidelines</a>.</li><li>The application must outline the your motivation for applying for the position, attaching a curriculum vitae, copies of relevant degree certificates, and (if relevant for the position) a teaching portfolio. Please upload this material electronically along with your application.</li><li>If you submit your application for the assistant professorship, please upload a maximum of five samples of your scholarly output (mandatory).</li><li>If you submit your application for the associate professorship, please upload a maximum of eight samples of your scholarly output (mandatory).</li></ul>If nothing else is noted, applications must be submitted in English. Application deadline is at 11.59 pm Danish time (same as Central European Time) on the deadline day.<br/><br/>Aarhus University’s ambition is to be an attractive and inspiring workplace for all and to foster a culture in which each individual has opportunities to thrive, achieve and develop. We view equality and diversity as assets, and we welcome all applicants.<br/><br/>Shortlists may be prepared with the candidates that have been selected for a detailed academic assessment. A committee set up by the head of school is responsible for selecting the most qualified candidates. See this link for further information about shortlisting at the Faculty of Arts: <a target=\"_blank\" href=\"https://medarbejdere.au.dk/fileadmin/user_upload/proces_for_shortlisting_til_web_december_2017_en.pdf\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5382440\">shortlisting</a><br/><br/>Aarhus University offers a broad variety of services for international researchers and accompanying families, including relocation service and career counselling to expat partners: <a target=\"_blank\" href=\"http://ias.au.dk/au-relocation-service/\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5382440\">http://ias.au.dk/au-relocation-service/</a>. Please find more information about entering and working in Denmark here: <a target=\"_blank\" href=\"http://international.au.dk/research/\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5382440\">http://international.au.dk/research/</a><br/><br/><strong>Faculty of Arts</strong><br/>The Faculty of Arts is one of five main academic areas at Aarhus University.<br/>The faculty contributes to Aarhus University's research, talent development, knowledge exchange and degree programmes.<br/>With its 550 academic staff members, 275 PhD students, 9,500 BA and MA students, and 1,500 students following continuing/further education programmes, the faculty constitutes a strong and diverse research and teaching environment.<br/>The Faculty of Arts consists of the School of Communication and Culture, the School of Culture and Society and the Danish School of Education. Each of these units has strong academic environments and forms the basis for interdisciplinary research and education.<br/>The faculty's academic environments and degree programmes engage in international collaboration and share the common goal of contributing to the development of knowledge, welfare and culture in interaction with society.<br/><br/>Read more at <a target=\"_blank\" href=\"http://www.arts.au.dk/en\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5382440\">arts.au.dk/en</a><br/><br/><em>The application must be submitted via Aarhus University’s recruitment system, which can be accessed under the job advertisement on Aarhus University's website.</em><br/><br/><strong>Aarhus </strong><strong>University</strong><br/><em>Aarhus University is an academically diverse and research-intensive university with a strong commitment to high-quality research and education and the development of society nationally and globally. The university offers an inspiring research and teaching environment to </em><em>its 38,000 students (FTEs) and 8,000 employees, and has an annual revenues of EUR 885 million. Learn more at <a target=\"_blank\" href=\"http://www.international.au.dk/\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5382440\">www.international.au.dk/</a></em><br/><br/><strong>Deadline:</strong> 09 August 2021<p> </p>",
+    "MapUrl": "https://www.google.dk/maps/place/Tuborgvej+164,2400,+København+NV/",
+    "OrganizationNumber": "31119103",
+    "ShowSearchJobButton": false,
+    "ShowPrint": false,
+    "BackToFindWorkButtonUrl": null
+}

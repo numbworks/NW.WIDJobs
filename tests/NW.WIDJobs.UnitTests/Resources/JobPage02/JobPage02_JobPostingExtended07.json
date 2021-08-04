@@ -1,0 +1,295 @@
+{
+    "WorkSchedule": [
+        {
+            "Id": 1,
+            "Name": "Fuldtid"
+        },
+        {
+            "Id": 16,
+            "Name": "Deltid"
+        }
+    ],
+    "WorkConditions": [
+        {
+            "Id": 1,
+            "Name": "Almindelige vilkår"
+        },
+        {
+            "Id": 2,
+            "Name": "Fleksjob"
+        },
+        {
+            "Id": 3,
+            "Name": "Skånejob"
+        },
+        {
+            "Id": 4,
+            "Name": "Egnet til efterlønnere og seniorer"
+        },
+        {
+            "Id": 5,
+            "Name": "Job med løntilskud"
+        },
+        {
+            "Id": 6,
+            "Name": "Rotationsjob"
+        },
+        {
+            "Id": 7,
+            "Name": "Virksomhedspraktik"
+        }
+    ],
+    "EmploymentTypes": [
+        {
+            "Id": 1,
+            "Name": "Fastansættelse"
+        },
+        {
+            "Id": 16,
+            "Name": "Tidsbegrænset ansættelse"
+        }
+    ],
+    "WorkPlace": {
+        "Name": "Plecto ApS",
+        "Address": {
+            "AddressLine": "Viby Ringvej 11",
+            "Country": {
+                "Id": 58,
+                "Name": "Danmark"
+            },
+            "Municipality": {
+                "Id": 751,
+                "Name": "Aarhus"
+            },
+            "Region": {
+                "Id": 2,
+                "Name": "Midtjylland"
+            },
+            "PostalCode": "8260",
+            "City": "Viby J"
+        },
+        "PhoneNumber": {
+            "Number": null,
+            "Type": 0,
+            "Description": "Primary"
+        },
+        "FaxNumber": null,
+        "Email": null,
+        "WebAddress": null,
+        "Description": null,
+        "Logo": 107348,
+        "WorkPlaceOrganizationNumber": "1018068687",
+        "OrganizationNumber": "34737460",
+        "OrganizationDescription": null
+    },
+    "JobPositionPosting": {
+        "Id": 5345782,
+        "OriginalJppId": 5345782,
+        "HiringOrg": {
+            "Name": "Plecto ApS",
+            "Address": {
+                "AddressLine": "Viby Ringvej 11",
+                "Country": {
+                    "Id": 58,
+                    "Name": "Danmark"
+                },
+                "Municipality": {
+                    "Id": 751,
+                    "Name": "Aarhus"
+                },
+                "Region": {
+                    "Id": 2,
+                    "Name": "Midtjylland"
+                },
+                "PostalCode": "8260",
+                "City": "Viby J"
+            },
+            "PhoneNumber": {
+                "Number": null,
+                "Type": 0,
+                "Description": "Primary"
+            },
+            "FaxNumber": null,
+            "Email": null,
+            "WebAddress": null,
+            "Description": null,
+            "Logo": 107348,
+            "WorkPlaceOrganizationNumber": "1018068687",
+            "OrganizationNumber": "34737460",
+            "OrganizationDescription": null
+        },
+        "RecruitingCompany": null,
+        "PublicationStartDate": "2021-07-02T00:00:00",
+        "PublicationEndDate": "2021-07-30T00:00:00",
+        "JobPositionInformation": {
+            "PositionTitle": "B2B Sales Specialist",
+            "Purpose": "<p><strong>Do you have sales in your blood, can you prospect and qualify B2B leads, and do you have a good business understanding? At the same time, do you dream of working in a young, internationally recognized company where the whole world is your playground and where you are at the forefront of digital development? Then it’s you we are looking for!</strong></p>\n<p>&nbsp;</p>\n<p><strong>A Danish world success!</strong></p>\n<p>&nbsp;</p>\n<p>If you love data, then you probably already know us. We make the complicated simple, by visualizing business data for companies and teams in more than 75 different countries - so far! Plecto is a dashboard software that engages thousands of companies and teams, giving them better insight into their data, KPIs and performance. Said in another way; Plecto can visualize pretty much all the company data, and make it easy to view and respond to in real time.</p>\n<p>&nbsp;</p>\n<p><strong>You will become…</strong></p>\n<p>… a part of the sales team, which in addition to you consists of a group of energetic colleagues who love to make a difference.</p>\n<p>We work closely with our colleagues in marketing, development, customer success and finance.</p>\n<p>You will have a key role in Plecto, where you will be responsible for developing sales opportunities by qualifying potential customers in the insurance-, telecommunications-, energy- or media industry.</p>\n<p>You will be responsible for proactive sales to other companies within specific industries in Scandinavia, where we already have good cases with similar companies.</p>\n<p>Since you’ll be the first contact to all potential Plecto customers, you need to be able to balance many leads in a structured way, while at the same time uncovering the customers' individual needs.</p>\n<p>&nbsp;</p>\n<p><strong>About the job</strong></p>\n<ul>\n<li>Develop a strong base of customers</li>\n<li>Find leads and potential customers through for example networks and social platforms</li>\n<li>Identify areas where you can expand business with your existing customers</li>\n<li>Negotiate contracts and close deals while clearly predicting your pipeline</li>\n</ul>\n<p>&nbsp;</p>\n<p><strong>About you</strong></p>\n<ul>\n<li>You have excellent skills in both written and oral English</li>\n<li>You have a good business understanding and a structured work approach</li>\n<li>You are a team player with the ability to collaborate across teams</li>\n<li>You are able to identify needs and identify where Plecto can create value for potential customers</li>\n<li>It is an advantage if you have previous experience in the insurance-, telecommunications-, energy- or media industry</li>\n<li>It is an advantage if you have previous experience from B2B and/or sales</li>\n<li>You have a bubbly positive personality that we will love to get to know and work with</li>\n</ul>\n<p>&nbsp;</p>\n<p><strong>About Plecto</strong></p>\n<p>We are a Danish SaaS company, based in Aarhus, and offices in London and Warsaw. We are approx. 45 employees, from 12 different nationalities, aged 19 to 43. Some of us have long educations and international experience. Others are newly hatched, and have learned to program while working with us. We believe that anything is possible if you have the right approach and attitude. That's why we take good care of each other while we're here. We work hard, and have fun.</p>\n<p>&nbsp;</p>\n<p>We hold (under normal circumstances) fantastic parties every month, and every year (again, under normal circumstances) the whole company moves south, to talk strategy, have fun and get to know each other better. We are getting served fresh croissants and juices every morning, and enjoy a delicious lunch. We get free snacks and sodas, have our own gaming club, play PS4 in the kitchen, and have our own disco set-up. What’s not to like?</p>",
+            "WorkLocation": {
+                "AddressLine": "Viby Ringvej 11",
+                "Country": {
+                    "Id": 58,
+                    "Name": "Danmark"
+                },
+                "Municipality": {
+                    "Id": 751,
+                    "Name": "Aarhus"
+                },
+                "Region": {
+                    "Id": 2,
+                    "Name": "Midtjylland"
+                },
+                "PostalCode": "8260",
+                "City": "Viby J"
+            },
+            "EmploymentType": 1,
+            "WeeklyWorkHours": {
+                "TypeId": 1,
+                "TypeName": "Fuldtid",
+                "Description": null
+            },
+            "CompensationDescription": null,
+            "NumberToFill": 1,
+            "DriverLicense": [],
+            "Occupation": {
+                "DiscoWeb": 0,
+                "AlternateNames": [],
+                "GroupId": 0,
+                "AreaId": 0,
+                "Id": 0,
+                "Name": null
+            },
+            "IsGovernmentHiring": false,
+            "JppContacts": [
+                {
+                    "Id": 7123231,
+                    "Email": "justyna@plecto.com",
+                    "FaxNumber": null,
+                    "PersonName": "Justyna Płaczkiewicz",
+                    "FirstName": "Justyna",
+                    "LastName": "Płaczkiewicz",
+                    "PositionTitle": null,
+                    "PhoneNumbers": []
+                }
+            ],
+            "EmploymentDate": null
+        },
+        "IsRecruitmentOfForeignNationals": true,
+        "IsWorkInDenmark": true,
+        "IsAnonymousEmployer": false,
+        "IsDisabilityFriendly": false,
+        "JppType": 4,
+        "ApplicationDetails": {
+            "WorkHourMax": null,
+            "WorkHourMin": null,
+            "DailyWorkTimeWeekend": false,
+            "DailyWorkTimeNight": false,
+            "DailyWorkTimeEvening": false,
+            "DailyWorkTimeDay": false,
+            "ReferenceText": null,
+            "RemarksToApplicant": null,
+            "ByEmail": null,
+            "ByPhone": null,
+            "ApplyViaUrl": "https://plecto.bamboohr.com/jobs/view.php?id=62",
+            "ReplyInWriting": false,
+            "ApplicationDeadlineDate": "2021-07-30T00:00:00"
+        },
+        "ContactAuthorityPhoneNumber": {
+            "Number": null,
+            "Type": 0,
+            "Description": "Primary"
+        },
+        "Status": 7
+    },
+    "LogoUrl": "/CV/FindWork/GetLogo?JobAdId=5345782&WorkPlace=107348&Organisation=34737460",
+    "Address": "Viby Ringvej 11,8260, Viby J",
+    "ShowMap": true,
+    "ShowShareButtonJobLog": false,
+    "JobLogUrl": "/CV/Jobseeking/JobLog/CreateJobSearch?JobnetJobPostingIdentifier=5345782&Company.Name=Plecto ApS&SubmissionDeadlineDate=2021-7-30&Title=B2B Sales Specialist&JobAdUrl=https://job.jobnet.dk/CV/FindWork/Details/5345782&WeeklyWorkTime=1",
+    "JobLogTemplateModel": {
+        "Identifier": "00000000-0000-0000-0000-000000000000",
+        "UseWorkPlaceAddressForJoblog": false,
+        "Category": 0,
+        "CvCustomerIdentifier": null,
+        "JobSeekingStatus": null,
+        "Title": "B2B Sales Specialist",
+        "IsApplicationSourceRequired": true,
+        "ApplicationSource": null,
+        "IsWeeklyWorkTimeRequired": true,
+        "WeeklyWorkTime": 1,
+        "HoursPerWeek": null,
+        "JobnetJobPostingIdentifier": "5345782",
+        "JobAdUrl": "https://job.jobnet.dk/CV/FindWork/JobDetailJsonWIDK?id=5345782",
+        "JobAdDocument": null,
+        "Company": {
+            "JobLogEntryCategory": 0,
+            "ShowAddressFieldsEvenIfEmpty": false,
+            "Name": "Plecto ApS",
+            "Address": "Viby Ringvej 11",
+            "Country": null,
+            "EmploymentAreaID": null,
+            "PostCode": "8260",
+            "IsCountryAndTownAndPostCodeEmpty": false,
+            "IsTownAndPostCodeEmpty": false,
+            "IsCountryDanmark": false,
+            "Town": "Viby J",
+            "ContactPerson": "Justyna Płaczkiewicz",
+            "Phone": "",
+            "Email": "justyna@plecto.com",
+            "Latitude": null,
+            "Longitude": null,
+            "DailyTravelTimeInMinutes": null,
+            "DistanceToCompanyInMeters": null,
+            "IsCreateMode": false
+        },
+        "TypeOfSubmission": null,
+        "SubmissionDate": "2021-07-30T00:00:00",
+        "SubmissionDateFormatted": null,
+        "SubmissionDateTiks": 0,
+        "IsSubmissionDateRequired": false,
+        "Status": 0,
+        "DateCreatedFormatted": null,
+        "DateCreated": null,
+        "DateModifiedFormatted": null,
+        "DateModified": null,
+        "LastModifiedDateTiks": 0,
+        "DateClosed": null,
+        "JobApplicationDocument": {
+            "Title": null,
+            "Identifier": null,
+            "IsDeleted": false
+        },
+        "CvDocument": {
+            "Title": null,
+            "Identifier": null,
+            "IsDeleted": false
+        },
+        "JobApplicationFile": null,
+        "CvFile": null,
+        "SubmissionDeadlineDate": null,
+        "IsPersisted": false,
+        "ServerValidationErrors": [],
+        "HasServerValidationErrors": false
+    },
+    "JoblogWorkTime": {
+        "WorkHour": null,
+        "DailyWorkTime": null
+    },
+    "Place": "Work place location Aarhus municipality",
+    "OpenPrintDialog": false,
+    "WorkPlaceInfoText": "Plecto ApS",
+    "JobCenterContactDetails": "",
+    "WorkPlaceDescriptionText": null,
+    "FavoriteText": "",
+    "IsFavorite": false,
+    "ShowFavorite": false,
+    "MetaOgTextForSharing": "Do you have sales in your blood, can you prospect and qualify B2B leads, and do you have a good business understanding? At the same time, do you dream of working in a young, internationally recognized company where the whole world is your playground and where you are at the forefront of digital development? Then it’s you we are looking for!\n\nA Dani",
+    "DescriptionForSharing": "\"Do you have sales in your blood, can you prospect and qualify B2B leads, and do you have a good business understanding? At the same time, do you dream of working in a young, internationally recognized company where the whole world is your playground and where you are at the forefront of digital development? Then it’s you we are looking for!\\n\\nA Dani\"",
+    "TitleForSharing": "\"B2B Sales Specialist\"",
+    "RutePlan": "https://www.google.dk/maps/dir//Viby+Ringvej+11,8260,+Viby+J/",
+    "FormattedPurpose": "<p><strong>Do you have sales in your blood, can you prospect and qualify B2B leads, and do you have a good business understanding? At the same time, do you dream of working in a young, internationally recognized company where the whole world is your playground and where you are at the forefront of digital development? Then it’s you we are looking for!</strong></p>\n<p> </p>\n<p><strong>A Danish world success!</strong></p>\n<p> </p>\n<p>If you love data, then you probably already know us. We make the complicated simple, by visualizing business data for companies and teams in more than 75 different countries - so far! Plecto is a dashboard software that engages thousands of companies and teams, giving them better insight into their data, KPIs and performance. Said in another way; Plecto can visualize pretty much all the company data, and make it easy to view and respond to in real time.</p>\n<p> </p>\n<p><strong>You will become…</strong></p>\n<p>… a part of the sales team, which in addition to you consists of a group of energetic colleagues who love to make a difference.</p>\n<p>We work closely with our colleagues in marketing, development, customer success and finance.</p>\n<p>You will have a key role in Plecto, where you will be responsible for developing sales opportunities by qualifying potential customers in the insurance-, telecommunications-, energy- or media industry.</p>\n<p>You will be responsible for proactive sales to other companies within specific industries in Scandinavia, where we already have good cases with similar companies.</p>\n<p>Since you’ll be the first contact to all potential Plecto customers, you need to be able to balance many leads in a structured way, while at the same time uncovering the customers' individual needs.</p>\n<p> </p>\n<p><strong>About the job</strong></p>\n<ul>\n<li>Develop a strong base of customers</li>\n<li>Find leads and potential customers through for example networks and social platforms</li>\n<li>Identify areas where you can expand business with your existing customers</li>\n<li>Negotiate contracts and close deals while clearly predicting your pipeline</li>\n</ul>\n<p> </p>\n<p><strong>About you</strong></p>\n<ul>\n<li>You have excellent skills in both written and oral English</li>\n<li>You have a good business understanding and a structured work approach</li>\n<li>You are a team player with the ability to collaborate across teams</li>\n<li>You are able to identify needs and identify where Plecto can create value for potential customers</li>\n<li>It is an advantage if you have previous experience in the insurance-, telecommunications-, energy- or media industry</li>\n<li>It is an advantage if you have previous experience from B2B and/or sales</li>\n<li>You have a bubbly positive personality that we will love to get to know and work with</li>\n</ul>\n<p> </p>\n<p><strong>About Plecto</strong></p>\n<p>We are a Danish SaaS company, based in Aarhus, and offices in London and Warsaw. We are approx. 45 employees, from 12 different nationalities, aged 19 to 43. Some of us have long educations and international experience. Others are newly hatched, and have learned to program while working with us. We believe that anything is possible if you have the right approach and attitude. That's why we take good care of each other while we're here. We work hard, and have fun.</p>\n<p> </p>\n<p>We hold (under normal circumstances) fantastic parties every month, and every year (again, under normal circumstances) the whole company moves south, to talk strategy, have fun and get to know each other better. We are getting served fresh croissants and juices every morning, and enjoy a delicious lunch. We get free snacks and sodas, have our own gaming club, play PS4 in the kitchen, and have our own disco set-up. What’s not to like?</p>",
+    "MapUrl": "https://www.google.dk/maps/place/Viby+Ringvej+11,8260,+Viby+J/",
+    "OrganizationNumber": "34737460",
+    "ShowSearchJobButton": false,
+    "ShowPrint": false,
+    "BackToFindWorkButtonUrl": null
+}

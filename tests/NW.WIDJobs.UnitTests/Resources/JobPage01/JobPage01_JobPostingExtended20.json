@@ -1,0 +1,301 @@
+{
+    "WorkSchedule": [
+        {
+            "Id": 1,
+            "Name": "Fuldtid"
+        },
+        {
+            "Id": 16,
+            "Name": "Deltid"
+        }
+    ],
+    "WorkConditions": [
+        {
+            "Id": 1,
+            "Name": "Almindelige vilkår"
+        },
+        {
+            "Id": 2,
+            "Name": "Fleksjob"
+        },
+        {
+            "Id": 3,
+            "Name": "Skånejob"
+        },
+        {
+            "Id": 4,
+            "Name": "Egnet til efterlønnere og seniorer"
+        },
+        {
+            "Id": 5,
+            "Name": "Job med løntilskud"
+        },
+        {
+            "Id": 6,
+            "Name": "Rotationsjob"
+        },
+        {
+            "Id": 7,
+            "Name": "Virksomhedspraktik"
+        }
+    ],
+    "EmploymentTypes": [
+        {
+            "Id": 1,
+            "Name": "Fastansættelse"
+        },
+        {
+            "Id": 16,
+            "Name": "Tidsbegrænset ansættelse"
+        }
+    ],
+    "WorkPlace": {
+        "Name": "Copenhagen Business School",
+        "Address": {
+            "AddressLine": "Solbjerg Plads 3",
+            "Country": {
+                "Id": 58,
+                "Name": "Danmark"
+            },
+            "Municipality": {
+                "Id": 147,
+                "Name": "Frederiksberg"
+            },
+            "Region": {
+                "Id": 4,
+                "Name": "Hovedstaden, Sjælland og Bornholm"
+            },
+            "PostalCode": "2000",
+            "City": "Frederiksberg"
+        },
+        "PhoneNumber": {
+            "Number": null,
+            "Type": 0,
+            "Description": "Primary"
+        },
+        "FaxNumber": null,
+        "Email": null,
+        "WebAddress": null,
+        "Description": "CBS er et unikt erhvervsuniversitet med 600 undervisere og forskere, 220 ph.d.'er og 630 administrative medarbejdere. Ca. 19.000 studerende er fordelt på bachelor-, kandidat-, MBA/EMBA-, ph.d.- og Executive-programmer, der udbydes på dansk og engelsk.\n\nVores videnskabelige medarbejdere tæller internationale eksperter inden for de klassiske forretningsdiscipliner, men også i filosofi, historie, psykologi, sociologi, jura, politik, informationssystemer, kultur og sprog.",
+        "Logo": 79401,
+        "WorkPlaceOrganizationNumber": "1003403332",
+        "OrganizationNumber": "19596915",
+        "OrganizationDescription": null
+    },
+    "JobPositionPosting": {
+        "Id": 5382486,
+        "OriginalJppId": 5382486,
+        "HiringOrg": {
+            "Name": "Copenhagen Business School",
+            "Address": {
+                "AddressLine": "Solbjerg Plads 3",
+                "Country": {
+                    "Id": 58,
+                    "Name": "Danmark"
+                },
+                "Municipality": {
+                    "Id": 147,
+                    "Name": "Frederiksberg"
+                },
+                "Region": {
+                    "Id": 4,
+                    "Name": "Hovedstaden, Sjælland og Bornholm"
+                },
+                "PostalCode": "2000",
+                "City": "Frederiksberg"
+            },
+            "PhoneNumber": {
+                "Number": null,
+                "Type": 0,
+                "Description": "Primary"
+            },
+            "FaxNumber": null,
+            "Email": null,
+            "WebAddress": null,
+            "Description": "CBS er et unikt erhvervsuniversitet med 600 undervisere og forskere, 220 ph.d.'er og 630 administrative medarbejdere. Ca. 19.000 studerende er fordelt på bachelor-, kandidat-, MBA/EMBA-, ph.d.- og Executive-programmer, der udbydes på dansk og engelsk.\n\nVores videnskabelige medarbejdere tæller internationale eksperter inden for de klassiske forretningsdiscipliner, men også i filosofi, historie, psykologi, sociologi, jura, politik, informationssystemer, kultur og sprog.",
+            "Logo": 79401,
+            "WorkPlaceOrganizationNumber": "1003403332",
+            "OrganizationNumber": "19596915",
+            "OrganizationDescription": null
+        },
+        "RecruitingCompany": null,
+        "PublicationStartDate": "2021-07-02T00:00:00",
+        "PublicationEndDate": "2021-08-26T00:00:00",
+        "JobPositionInformation": {
+            "PositionTitle": "Postdoc on Digital Platforms and Ecosystems Innovation Dynamics",
+            "Purpose": "Copenhagen Business School, as part of a new initiative to launch a European research network to foster multidisciplinary research on the digital economy, invites applications for a postdoc position at the Department of Strategy and Innovation. Expected starting date is 1 December 2021.<br/><br/>The Department of Strategy and Innovation has an emphasis on Strategy and Innovation, as well as on Entrepreneurship and International Business. The four areas are the pillars that the department is resting on in its teaching and research activities. The number of staff in the department is approximately 90. This includes about 50 faculty members (professors, associate professors, tenure track assistant professors), 7 administrative staff members, and 30 members of staff who are hired on temporary contracts as research assistants, post docs or PhD students.<br/><br/>The department’s ambition is to host an internationally leading environment for research and teaching in strategy, innovation, entrepreneurship, and international business. The theoretical foundation for research in these areas is eclectic, combining strategy and/or internationalization theory with insights from economics, sociology, psychology, and economic geography. Methodologically, the department places considerable emphasis on the solid application of empirical methods, featuring econometric analysis, digital trace data, experiments, surveys, qualitative interview studies, or (field) experiments. Faculty members have published in top academic journals including the Academy of Management Journal, Strategic Management Journal, Organization Science, Management Science, Academy of Management Review, Journal of International Business Studies, Research Policy, among others.<br/><br/>The postdoc position is time-limited to 1.5 years and connected to the research network initiative led by Professor Carmelo Cennamo. The postdoctoral fellow will join a dynamic and soon growing group of researchers connected to the initiative and be involved in the related research program under the direction of Professor Carmelo Cennamo. The postdoctoral fellow will have the opportunity to work with other CBS faculty members directly involved with the initiative, including professor Jorg Claussen, Tom Grad, and Ioanna Constantiou, as well as the opportunity to interact with network affiliate external to the CBS, through workshops and joint research initiatives. The focus of the network, and related research, is on digital technologies and platform markets, and the role that data and ecosystems have on value creation and competition dynamics, and new organizing forms, and the implications for society.<br/><br/><strong>The research program investigates topics such as:</strong><ul><li>How does digital platform design affect user behaviors and outcomes?</li><li>How do complementors compete within and across digital ecosystems?</li><li>How do ecosystems compete?</li><li>What is the role of data and algorithms in steering interactions and value in platform markets and ecosystems (exploiting or correcting consumer behavioral biases)?</li><li>Are data exclusionary or non-rivalry? How do they affect a firm’s competitive advantage in (platform) digital markets?</li><li>How does data enable value creation (for organizations and their stakeholder)?</li><li>How to organize the effective and efficient creation, sharing and usage of data in digital ecosystems?</li></ul><br/>The analysis will mostly rely on empirical, econometric methods, namely on the analysis of large-scale macro and microdata sets.<br/><br/>The ideal candidate for the position will be a recent PhD graduate with a deep interest in this domain who can develop and conduct research projects in autonomy and together with the affiliated faculty and support the establishment and development of the research network initiative. Strong technical skills in empirical analysis, in addition to a thorough training in the relevant research literature (digital strategy/innovation and platform/ecosystems) are desirable. A solid background in Economics is a plus.<br/><br/><strong>Qualifications:</strong><ul><li>Applicants must have completed a PhD in Management, Economics, or other related social science discipline before the beginning the fellowship. Prior work (including but not limited to dissertation) should involve working with large datasets.</li><li>Excellent academic record and work ethic required.</li><li>Excellent organizational and oral/written communication skills required.</li><li>Enthusiasm for research required. The ideal candidate will be thinking of this position as a platform to build skills towards taking on a research professorship in the future.</li><li>Willingness to move to and live in Denmark.</li></ul><br/><strong>For further information</strong> about the position and research projects, please contact Professor Carmelo Cennamo: <a href=\"mailto:cce.si@cbs.dk\">cce.si@cbs.dk</a><br/><br/>Information about the department is available at <a href=\"http://www.cbs.dk/si\" target=\"_blank\">www.cbs.dk/si</a><br/><br/><strong>Appointment and salary</strong> will be in accordance with the Danish Ministry of Finance’s agreement with the Central Academic Organization. A small personal research budget for travel and conference participation will be available. Information about CBS as a workplace is available at <a href=\"https://www.cbs.dk/en/about-cbs/jobs-cbs\" target=\"_blank\">https://www.cbs.dk/en/about-cbs/jobs-cbs</a>.<br/><br/><strong>Application</strong><br/>Applications must be sent via the electronic recruitment system, using the link below.<br/><br/>Application must include:<ul><li>Cover letter.</li><li>Proof of qualifications and a full CV.</li><li>Any relevant information indicating experience in research management, industry co-operation and international cooperation.</li><li>A complete, numbered list of publications (indicating titles, co-authors, page numbers and year) with an * marking of the academic productions to be considered during the review. A maximum of 10 publications for review are allowed. Applicants are requested to prioritize their publications in relation to the field of this job advertisement.</li><li>Copies of the publications marked with an *. Only publications written in English (or another specified principal language, according to research tradition) or one of the Scandinavian languages will be taken into consideration.</li></ul><br/><strong>Recruitment procedure</strong><br/>The Recruitment Committee will shortlist minimum two applicants; when possible five or more applicants will be shortlisted. The shortlisted applicants will be assessed by the Assessment Committee.<br/>All applicants will be notified of their status in the recruitment process shortly after the application deadline.<br/>The applicants selected for assessment will be notified about the composition of the Assessment Committee and later in the process about the result of the assessment.<br/>Once the recruitment process is completed, each applicant will be notified of the outcome of his or her application.<br/>Copenhagen Business School must receive all application material, including all appendices (see items above), by the application deadline.<br/><br/><strong>Application due:</strong> 8/29/2021<p>&nbsp;</p>",
+            "WorkLocation": {
+                "AddressLine": "Solbjerg Plads 3",
+                "Country": {
+                    "Id": 58,
+                    "Name": "Danmark"
+                },
+                "Municipality": {
+                    "Id": 147,
+                    "Name": "Frederiksberg"
+                },
+                "Region": {
+                    "Id": 4,
+                    "Name": "Hovedstaden, Sjælland og Bornholm"
+                },
+                "PostalCode": "2000",
+                "City": "Frederiksberg"
+            },
+            "EmploymentType": 16,
+            "WeeklyWorkHours": {
+                "TypeId": 1,
+                "TypeName": "Fuldtid",
+                "Description": null
+            },
+            "CompensationDescription": null,
+            "NumberToFill": 1,
+            "DriverLicense": [],
+            "Occupation": {
+                "DiscoWeb": 0,
+                "AlternateNames": [],
+                "GroupId": 0,
+                "AreaId": 0,
+                "Id": 0,
+                "Name": null
+            },
+            "IsGovernmentHiring": true,
+            "JppContacts": [
+                {
+                    "Id": 7124525,
+                    "Email": "cce.si@cbs.dk",
+                    "FaxNumber": null,
+                    "PersonName": "Carmelo Cennamo",
+                    "FirstName": "Carmelo",
+                    "LastName": "Cennamo",
+                    "PositionTitle": null,
+                    "PhoneNumbers": [
+                        {
+                            "Number": "38153815",
+                            "Type": 0,
+                            "Description": "Hovednummer"
+                        }
+                    ]
+                }
+            ],
+            "EmploymentDate": "2021-12-01T00:00:00"
+        },
+        "IsRecruitmentOfForeignNationals": false,
+        "IsWorkInDenmark": true,
+        "IsAnonymousEmployer": false,
+        "IsDisabilityFriendly": false,
+        "JppType": 4,
+        "ApplicationDetails": {
+            "WorkHourMax": null,
+            "WorkHourMin": null,
+            "DailyWorkTimeWeekend": false,
+            "DailyWorkTimeNight": false,
+            "DailyWorkTimeEvening": false,
+            "DailyWorkTimeDay": false,
+            "ReferenceText": null,
+            "RemarksToApplicant": null,
+            "ByEmail": null,
+            "ByPhone": null,
+            "ApplyViaUrl": "https://candidate.hr-manager.net/ApplicationInit.aspx?cid=1309&ProjectId=146122&DepartmentId=19023&MediaId=4627&SkipAdvertisement=true",
+            "ReplyInWriting": false,
+            "ApplicationDeadlineDate": "2021-08-26T00:00:00"
+        },
+        "ContactAuthorityPhoneNumber": {
+            "Number": null,
+            "Type": 0,
+            "Description": "Primary"
+        },
+        "Status": 7
+    },
+    "LogoUrl": "/CV/FindWork/GetLogo?JobAdId=5382486&WorkPlace=79401&Organisation=19596915",
+    "Address": "Solbjerg Plads 3,2000, Frederiksberg",
+    "ShowMap": true,
+    "ShowShareButtonJobLog": false,
+    "JobLogUrl": "/CV/Jobseeking/JobLog/CreateJobSearch?JobnetJobPostingIdentifier=5382486&Company.Name=Copenhagen Business School&SubmissionDeadlineDate=2021-8-26&Title=Postdoc on Digital Platforms and Ecosystems Innovation Dynamics&JobAdUrl=https://job.jobnet.dk/CV/FindWork/Details/5382486&WeeklyWorkTime=1",
+    "JobLogTemplateModel": {
+        "Identifier": "00000000-0000-0000-0000-000000000000",
+        "UseWorkPlaceAddressForJoblog": false,
+        "Category": 0,
+        "CvCustomerIdentifier": null,
+        "JobSeekingStatus": null,
+        "Title": "Postdoc on Digital Platforms and Ecosystems Innovation Dynamics",
+        "IsApplicationSourceRequired": true,
+        "ApplicationSource": null,
+        "IsWeeklyWorkTimeRequired": true,
+        "WeeklyWorkTime": 1,
+        "HoursPerWeek": null,
+        "JobnetJobPostingIdentifier": "5382486",
+        "JobAdUrl": "https://job.jobnet.dk/CV/FindWork/JobDetailJsonWIDK?id=5382486",
+        "JobAdDocument": null,
+        "Company": {
+            "JobLogEntryCategory": 0,
+            "ShowAddressFieldsEvenIfEmpty": false,
+            "Name": "Copenhagen Business School",
+            "Address": "Solbjerg Plads 3",
+            "Country": null,
+            "EmploymentAreaID": null,
+            "PostCode": "2000",
+            "IsCountryAndTownAndPostCodeEmpty": false,
+            "IsTownAndPostCodeEmpty": false,
+            "IsCountryDanmark": false,
+            "Town": "Frederiksberg",
+            "ContactPerson": "Carmelo Cennamo",
+            "Phone": "38153815",
+            "Email": "cce.si@cbs.dk",
+            "Latitude": null,
+            "Longitude": null,
+            "DailyTravelTimeInMinutes": null,
+            "DistanceToCompanyInMeters": null,
+            "IsCreateMode": false
+        },
+        "TypeOfSubmission": null,
+        "SubmissionDate": "2021-08-26T00:00:00",
+        "SubmissionDateFormatted": null,
+        "SubmissionDateTiks": 0,
+        "IsSubmissionDateRequired": false,
+        "Status": 0,
+        "DateCreatedFormatted": null,
+        "DateCreated": null,
+        "DateModifiedFormatted": null,
+        "DateModified": null,
+        "LastModifiedDateTiks": 0,
+        "DateClosed": null,
+        "JobApplicationDocument": {
+            "Title": null,
+            "Identifier": null,
+            "IsDeleted": false
+        },
+        "CvDocument": {
+            "Title": null,
+            "Identifier": null,
+            "IsDeleted": false
+        },
+        "JobApplicationFile": null,
+        "CvFile": null,
+        "SubmissionDeadlineDate": null,
+        "IsPersisted": false,
+        "ServerValidationErrors": [],
+        "HasServerValidationErrors": false
+    },
+    "JoblogWorkTime": {
+        "WorkHour": null,
+        "DailyWorkTime": null
+    },
+    "Place": "Work place location Frederiksberg municipality",
+    "OpenPrintDialog": false,
+    "WorkPlaceInfoText": "Copenhagen Business School",
+    "JobCenterContactDetails": "",
+    "WorkPlaceDescriptionText": "CBS er et unikt erhvervsuniversitet med 600 undervisere og forskere, 220 ph.d.'er og 630 administrative medarbejdere. Ca. 19.000 studerende er fordelt på bachelor-, kandidat-, MBA/EMBA-, ph.d.- og Executive-programmer, der udbydes på dansk og engelsk.\n\nVores videnskabelige medarbejdere tæller internationale eksperter inden for de klassiske forretningsdiscipliner, men også i filosofi, historie, psykologi, sociologi, jura, politik, informationssystemer, kultur og sprog.",
+    "FavoriteText": "",
+    "IsFavorite": false,
+    "ShowFavorite": false,
+    "MetaOgTextForSharing": "Copenhagen Business School, as part of a new initiative to launch a European research network to foster multidisciplinary research on the digital economy, invites applications for a postdoc position at the Department of Strategy and Innovation. Expected starting date is 1 December 2021.The Department of Strategy and Innovation has an emphasis on St",
+    "DescriptionForSharing": "\"Copenhagen Business School, as part of a new initiative to launch a European research network to foster multidisciplinary research on the digital economy, invites applications for a postdoc position at the Department of Strategy and Innovation. Expected starting date is 1 December 2021.The Department of Strategy and Innovation has an emphasis on St\"",
+    "TitleForSharing": "\"Postdoc on Digital Platforms and Ecosystems Innovation Dynamics\"",
+    "RutePlan": "https://www.google.dk/maps/dir//Solbjerg+Plads+3,2000,+Frederiksberg/",
+    "FormattedPurpose": "Copenhagen Business School, as part of a new initiative to launch a European research network to foster multidisciplinary research on the digital economy, invites applications for a postdoc position at the Department of Strategy and Innovation. Expected starting date is 1 December 2021.<br/><br/>The Department of Strategy and Innovation has an emphasis on Strategy and Innovation, as well as on Entrepreneurship and International Business. The four areas are the pillars that the department is resting on in its teaching and research activities. The number of staff in the department is approximately 90. This includes about 50 faculty members (professors, associate professors, tenure track assistant professors), 7 administrative staff members, and 30 members of staff who are hired on temporary contracts as research assistants, post docs or PhD students.<br/><br/>The department’s ambition is to host an internationally leading environment for research and teaching in strategy, innovation, entrepreneurship, and international business. The theoretical foundation for research in these areas is eclectic, combining strategy and/or internationalization theory with insights from economics, sociology, psychology, and economic geography. Methodologically, the department places considerable emphasis on the solid application of empirical methods, featuring econometric analysis, digital trace data, experiments, surveys, qualitative interview studies, or (field) experiments. Faculty members have published in top academic journals including the Academy of Management Journal, Strategic Management Journal, Organization Science, Management Science, Academy of Management Review, Journal of International Business Studies, Research Policy, among others.<br/><br/>The postdoc position is time-limited to 1.5 years and connected to the research network initiative led by Professor Carmelo Cennamo. The postdoctoral fellow will join a dynamic and soon growing group of researchers connected to the initiative and be involved in the related research program under the direction of Professor Carmelo Cennamo. The postdoctoral fellow will have the opportunity to work with other CBS faculty members directly involved with the initiative, including professor Jorg Claussen, Tom Grad, and Ioanna Constantiou, as well as the opportunity to interact with network affiliate external to the CBS, through workshops and joint research initiatives. The focus of the network, and related research, is on digital technologies and platform markets, and the role that data and ecosystems have on value creation and competition dynamics, and new organizing forms, and the implications for society.<br/><br/><strong>The research program investigates topics such as:</strong><ul><li>How does digital platform design affect user behaviors and outcomes?</li><li>How do complementors compete within and across digital ecosystems?</li><li>How do ecosystems compete?</li><li>What is the role of data and algorithms in steering interactions and value in platform markets and ecosystems (exploiting or correcting consumer behavioral biases)?</li><li>Are data exclusionary or non-rivalry? How do they affect a firm’s competitive advantage in (platform) digital markets?</li><li>How does data enable value creation (for organizations and their stakeholder)?</li><li>How to organize the effective and efficient creation, sharing and usage of data in digital ecosystems?</li></ul><br/>The analysis will mostly rely on empirical, econometric methods, namely on the analysis of large-scale macro and microdata sets.<br/><br/>The ideal candidate for the position will be a recent PhD graduate with a deep interest in this domain who can develop and conduct research projects in autonomy and together with the affiliated faculty and support the establishment and development of the research network initiative. Strong technical skills in empirical analysis, in addition to a thorough training in the relevant research literature (digital strategy/innovation and platform/ecosystems) are desirable. A solid background in Economics is a plus.<br/><br/><strong>Qualifications:</strong><ul><li>Applicants must have completed a PhD in Management, Economics, or other related social science discipline before the beginning the fellowship. Prior work (including but not limited to dissertation) should involve working with large datasets.</li><li>Excellent academic record and work ethic required.</li><li>Excellent organizational and oral/written communication skills required.</li><li>Enthusiasm for research required. The ideal candidate will be thinking of this position as a platform to build skills towards taking on a research professorship in the future.</li><li>Willingness to move to and live in Denmark.</li></ul><br/><strong>For further information</strong> about the position and research projects, please contact Professor Carmelo Cennamo: <a target=\"_blank\" href=\"mailto:cce.si@cbs.dk\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5382486\">cce.si@cbs.dk</a><br/><br/>Information about the department is available at <a target=\"_blank\" href=\"http://www.cbs.dk/si\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5382486\">www.cbs.dk/si</a><br/><br/><strong>Appointment and salary</strong> will be in accordance with the Danish Ministry of Finance’s agreement with the Central Academic Organization. A small personal research budget for travel and conference participation will be available. Information about CBS as a workplace is available at <a target=\"_blank\" href=\"https://www.cbs.dk/en/about-cbs/jobs-cbs\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5382486\">https://www.cbs.dk/en/about-cbs/jobs-cbs</a>.<br/><br/><strong>Application</strong><br/>Applications must be sent via the electronic recruitment system, using the link below.<br/><br/>Application must include:<ul><li>Cover letter.</li><li>Proof of qualifications and a full CV.</li><li>Any relevant information indicating experience in research management, industry co-operation and international cooperation.</li><li>A complete, numbered list of publications (indicating titles, co-authors, page numbers and year) with an * marking of the academic productions to be considered during the review. A maximum of 10 publications for review are allowed. Applicants are requested to prioritize their publications in relation to the field of this job advertisement.</li><li>Copies of the publications marked with an *. Only publications written in English (or another specified principal language, according to research tradition) or one of the Scandinavian languages will be taken into consideration.</li></ul><br/><strong>Recruitment procedure</strong><br/>The Recruitment Committee will shortlist minimum two applicants; when possible five or more applicants will be shortlisted. The shortlisted applicants will be assessed by the Assessment Committee.<br/>All applicants will be notified of their status in the recruitment process shortly after the application deadline.<br/>The applicants selected for assessment will be notified about the composition of the Assessment Committee and later in the process about the result of the assessment.<br/>Once the recruitment process is completed, each applicant will be notified of the outcome of his or her application.<br/>Copenhagen Business School must receive all application material, including all appendices (see items above), by the application deadline.<br/><br/><strong>Application due:</strong> 8/29/2021<p> </p>",
+    "MapUrl": "https://www.google.dk/maps/place/Solbjerg+Plads+3,2000,+Frederiksberg/",
+    "OrganizationNumber": "19596915",
+    "ShowSearchJobButton": false,
+    "ShowPrint": false,
+    "BackToFindWorkButtonUrl": null
+}

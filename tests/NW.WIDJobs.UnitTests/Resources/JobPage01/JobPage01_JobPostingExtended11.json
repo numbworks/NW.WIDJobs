@@ -1,0 +1,301 @@
+{
+    "WorkSchedule": [
+        {
+            "Id": 1,
+            "Name": "Fuldtid"
+        },
+        {
+            "Id": 16,
+            "Name": "Deltid"
+        }
+    ],
+    "WorkConditions": [
+        {
+            "Id": 1,
+            "Name": "Almindelige vilkår"
+        },
+        {
+            "Id": 2,
+            "Name": "Fleksjob"
+        },
+        {
+            "Id": 3,
+            "Name": "Skånejob"
+        },
+        {
+            "Id": 4,
+            "Name": "Egnet til efterlønnere og seniorer"
+        },
+        {
+            "Id": 5,
+            "Name": "Job med løntilskud"
+        },
+        {
+            "Id": 6,
+            "Name": "Rotationsjob"
+        },
+        {
+            "Id": 7,
+            "Name": "Virksomhedspraktik"
+        }
+    ],
+    "EmploymentTypes": [
+        {
+            "Id": 1,
+            "Name": "Fastansættelse"
+        },
+        {
+            "Id": 16,
+            "Name": "Tidsbegrænset ansættelse"
+        }
+    ],
+    "WorkPlace": {
+        "Name": "TeamVikaren.dk, Århus ApS, Horsens Afdeling",
+        "Address": {
+            "AddressLine": "Strandpromenaden 6",
+            "Country": {
+                "Id": 58,
+                "Name": "Danmark"
+            },
+            "Municipality": {
+                "Id": 615,
+                "Name": "Horsens"
+            },
+            "Region": {
+                "Id": 2,
+                "Name": "Midtjylland"
+            },
+            "PostalCode": "8700",
+            "City": "Horsens"
+        },
+        "PhoneNumber": {
+            "Number": null,
+            "Type": 0,
+            "Description": "Primary"
+        },
+        "FaxNumber": null,
+        "Email": null,
+        "WebAddress": null,
+        "Description": null,
+        "Logo": 126565,
+        "WorkPlaceOrganizationNumber": "1016232765",
+        "OrganizationNumber": "30899695",
+        "OrganizationDescription": null
+    },
+    "JobPositionPosting": {
+        "Id": 5361275,
+        "OriginalJppId": 5361275,
+        "HiringOrg": {
+            "Name": "TeamVikaren.dk, Århus ApS, Horsens Afdeling",
+            "Address": {
+                "AddressLine": "Strandpromenaden 6",
+                "Country": {
+                    "Id": 58,
+                    "Name": "Danmark"
+                },
+                "Municipality": {
+                    "Id": 615,
+                    "Name": "Horsens"
+                },
+                "Region": {
+                    "Id": 2,
+                    "Name": "Midtjylland"
+                },
+                "PostalCode": "8700",
+                "City": "Horsens"
+            },
+            "PhoneNumber": {
+                "Number": null,
+                "Type": 0,
+                "Description": "Primary"
+            },
+            "FaxNumber": null,
+            "Email": null,
+            "WebAddress": null,
+            "Description": null,
+            "Logo": 126565,
+            "WorkPlaceOrganizationNumber": "1016232765",
+            "OrganizationNumber": "30899695",
+            "OrganizationDescription": null
+        },
+        "RecruitingCompany": null,
+        "PublicationStartDate": "2021-07-02T00:00:00",
+        "PublicationEndDate": "2021-07-29T00:00:00",
+        "JobPositionInformation": {
+            "PositionTitle": "Committed employees for assembling displays in a large warehouse in Hedensted.",
+            "Purpose": "<p>Our costumer is busy and they need employees to help in their warehouse.</p>\n<p><strong>We offer</strong></p>\n<ul>\n<li>Work in a large international company</li>\n<li>Possibility of day shifts</li>\n<li>A social workplace with good colleagues</li>\n<li>Thorough training</li>\n</ul>\n<p><strong>The company</strong></p>\n<p>Based in a Hedensted, our customer services more than 900 stores throughout Denmark on a daily basis.</p>\n<p><strong>The job</strong></p>\n<p>Your primary task will be to collect and assemble cardboard displays.</p>\n<p><strong>Your profile</strong></p>\n<ul>\n<li>You are flexible during busy periods</li>\n<li>You have an eye for detail</li>\n<li>You can work full time</li>\n<li>You can work independently</li>\n<li>You are thorough and take pride in your work</li>\n</ul>\n<p><strong>Working hours</strong></p>\n<p>Working hours are Monday to Friday from kl. 07.00- 15.00</p>\n<p><strong>How to apply</strong></p>\n<p>Go to our website <a href=\"http://www.teamvikaren.dk\">www.teamvikaren.dk</a> remember to upload your CV.</p>\n<p>Are you already part of our database or do you have further questions, you can contact us on 7027 7665 Monday to Friday from kl. 09.00-15.00.</p>",
+            "WorkLocation": {
+                "AddressLine": "",
+                "Country": {
+                    "Id": 58,
+                    "Name": "Danmark"
+                },
+                "Municipality": {
+                    "Id": 766,
+                    "Name": "Hedensted"
+                },
+                "Region": {
+                    "Id": 2,
+                    "Name": "Midtjylland"
+                },
+                "PostalCode": "8722",
+                "City": "Hedensted"
+            },
+            "EmploymentType": 16,
+            "WeeklyWorkHours": {
+                "TypeId": 1,
+                "TypeName": "Fuldtid",
+                "Description": null
+            },
+            "CompensationDescription": null,
+            "NumberToFill": 1,
+            "DriverLicense": [],
+            "Occupation": {
+                "DiscoWeb": 0,
+                "AlternateNames": [],
+                "GroupId": 0,
+                "AreaId": 0,
+                "Id": 0,
+                "Name": null
+            },
+            "IsGovernmentHiring": false,
+            "JppContacts": [
+                {
+                    "Id": 7126681,
+                    "Email": null,
+                    "FaxNumber": null,
+                    "PersonName": "Majken Lorentzen",
+                    "FirstName": "Majken",
+                    "LastName": "Lorentzen",
+                    "PositionTitle": "Personalekonsulent",
+                    "PhoneNumbers": [
+                        {
+                            "Number": "70277665",
+                            "Type": 0,
+                            "Description": "Hovednummer"
+                        }
+                    ]
+                }
+            ],
+            "EmploymentDate": null
+        },
+        "IsRecruitmentOfForeignNationals": true,
+        "IsWorkInDenmark": true,
+        "IsAnonymousEmployer": false,
+        "IsDisabilityFriendly": false,
+        "JppType": 4,
+        "ApplicationDetails": {
+            "WorkHourMax": null,
+            "WorkHourMin": null,
+            "DailyWorkTimeWeekend": false,
+            "DailyWorkTimeNight": false,
+            "DailyWorkTimeEvening": false,
+            "DailyWorkTimeDay": true,
+            "ReferenceText": null,
+            "RemarksToApplicant": null,
+            "ByEmail": null,
+            "ByPhone": null,
+            "ApplyViaUrl": "www.teamvikaren.dk",
+            "ReplyInWriting": false,
+            "ApplicationDeadlineDate": "2021-07-29T00:00:00"
+        },
+        "ContactAuthorityPhoneNumber": {
+            "Number": null,
+            "Type": 0,
+            "Description": "Primary"
+        },
+        "Status": 7
+    },
+    "LogoUrl": "/CV/FindWork/GetLogo?JobAdId=5361275&WorkPlace=126565&Organisation=30899695",
+    "Address": "Strandpromenaden 6,8700, Horsens",
+    "ShowMap": false,
+    "ShowShareButtonJobLog": false,
+    "JobLogUrl": "/CV/Jobseeking/JobLog/CreateJobSearch?JobnetJobPostingIdentifier=5361275&Company.Name=TeamVikaren.dk, Århus ApS, Horsens Afdeling&SubmissionDeadlineDate=2021-7-29&Title=Committed employees for assembling displays in a large warehouse in Hedensted.&JobAdUrl=https://job.jobnet.dk/CV/FindWork/Details/5361275&WeeklyWorkTime=1",
+    "JobLogTemplateModel": {
+        "Identifier": "00000000-0000-0000-0000-000000000000",
+        "UseWorkPlaceAddressForJoblog": false,
+        "Category": 0,
+        "CvCustomerIdentifier": null,
+        "JobSeekingStatus": null,
+        "Title": "Committed employees for assembling displays in a large warehouse in Hedensted.",
+        "IsApplicationSourceRequired": true,
+        "ApplicationSource": null,
+        "IsWeeklyWorkTimeRequired": true,
+        "WeeklyWorkTime": 1,
+        "HoursPerWeek": null,
+        "JobnetJobPostingIdentifier": "5361275",
+        "JobAdUrl": "https://job.jobnet.dk/CV/FindWork/JobDetailJsonWIDK?id=5361275",
+        "JobAdDocument": null,
+        "Company": {
+            "JobLogEntryCategory": 0,
+            "ShowAddressFieldsEvenIfEmpty": false,
+            "Name": "TeamVikaren.dk, Århus ApS, Horsens Afdeling",
+            "Address": "Strandpromenaden 6",
+            "Country": null,
+            "EmploymentAreaID": null,
+            "PostCode": "8700",
+            "IsCountryAndTownAndPostCodeEmpty": false,
+            "IsTownAndPostCodeEmpty": false,
+            "IsCountryDanmark": false,
+            "Town": "Horsens",
+            "ContactPerson": "Majken Lorentzen",
+            "Phone": "70277665",
+            "Email": null,
+            "Latitude": null,
+            "Longitude": null,
+            "DailyTravelTimeInMinutes": null,
+            "DistanceToCompanyInMeters": null,
+            "IsCreateMode": false
+        },
+        "TypeOfSubmission": null,
+        "SubmissionDate": "2021-07-29T00:00:00",
+        "SubmissionDateFormatted": null,
+        "SubmissionDateTiks": 0,
+        "IsSubmissionDateRequired": false,
+        "Status": 0,
+        "DateCreatedFormatted": null,
+        "DateCreated": null,
+        "DateModifiedFormatted": null,
+        "DateModified": null,
+        "LastModifiedDateTiks": 0,
+        "DateClosed": null,
+        "JobApplicationDocument": {
+            "Title": null,
+            "Identifier": null,
+            "IsDeleted": false
+        },
+        "CvDocument": {
+            "Title": null,
+            "Identifier": null,
+            "IsDeleted": false
+        },
+        "JobApplicationFile": null,
+        "CvFile": null,
+        "SubmissionDeadlineDate": null,
+        "IsPersisted": false,
+        "ServerValidationErrors": [],
+        "HasServerValidationErrors": false
+    },
+    "JoblogWorkTime": {
+        "WorkHour": null,
+        "DailyWorkTime": "Dag"
+    },
+    "Place": "Work place location Hedensted municipality",
+    "OpenPrintDialog": false,
+    "WorkPlaceInfoText": "TeamVikaren.dk, Århus ApS, Horsens Afdeling",
+    "JobCenterContactDetails": "",
+    "WorkPlaceDescriptionText": null,
+    "FavoriteText": "",
+    "IsFavorite": false,
+    "ShowFavorite": false,
+    "MetaOgTextForSharing": "Our costumer is busy and they need employees to help in their warehouse.\nWe offer\n\nWork in a large international company\nPossibility of day shifts\nA social workplace with good colleagues\nThorough training\n\nThe company\nBased in a Hedensted, our customer services more than 900 stores throughout Denmark on a daily basis.\nThe job\nYour primary task will",
+    "DescriptionForSharing": "\"Our costumer is busy and they need employees to help in their warehouse.\\nWe offer\\n\\nWork in a large international company\\nPossibility of day shifts\\nA social workplace with good colleagues\\nThorough training\\n\\nThe company\\nBased in a Hedensted, our customer services more than 900 stores throughout Denmark on a daily basis.\\nThe job\\nYour primary task will\"",
+    "TitleForSharing": "\"Committed employees for assembling displays in a large warehouse in Hedensted.\"",
+    "RutePlan": "https://www.google.dk/maps/dir//Strandpromenaden+6,8700,+Horsens/",
+    "FormattedPurpose": "<p>Our costumer is busy and they need employees to help in their warehouse.</p>\n<p><strong>We offer</strong></p>\n<ul>\n<li>Work in a large international company</li>\n<li>Possibility of day shifts</li>\n<li>A social workplace with good colleagues</li>\n<li>Thorough training</li>\n</ul>\n<p><strong>The company</strong></p>\n<p>Based in a Hedensted, our customer services more than 900 stores throughout Denmark on a daily basis.</p>\n<p><strong>The job</strong></p>\n<p>Your primary task will be to collect and assemble cardboard displays.</p>\n<p><strong>Your profile</strong></p>\n<ul>\n<li>You are flexible during busy periods</li>\n<li>You have an eye for detail</li>\n<li>You can work full time</li>\n<li>You can work independently</li>\n<li>You are thorough and take pride in your work</li>\n</ul>\n<p><strong>Working hours</strong></p>\n<p>Working hours are Monday to Friday from kl. 07.00- 15.00</p>\n<p><strong>How to apply</strong></p>\n<p>Go to our website <a target=\"_blank\" href=\"http://www.teamvikaren.dk\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5361275\">www.teamvikaren.dk</a> remember to upload your CV.</p>\n<p>Are you already part of our database or do you have further questions, you can contact us on 7027 7665 Monday to Friday from kl. 09.00-15.00.</p>",
+    "MapUrl": "https://www.google.dk/maps/place/Strandpromenaden+6,8700,+Horsens/",
+    "OrganizationNumber": "30899695",
+    "ShowSearchJobButton": false,
+    "ShowPrint": false,
+    "BackToFindWorkButtonUrl": null
+}

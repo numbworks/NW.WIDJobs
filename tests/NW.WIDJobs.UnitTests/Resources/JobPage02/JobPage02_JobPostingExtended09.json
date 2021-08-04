@@ -1,0 +1,295 @@
+{
+    "WorkSchedule": [
+        {
+            "Id": 1,
+            "Name": "Fuldtid"
+        },
+        {
+            "Id": 16,
+            "Name": "Deltid"
+        }
+    ],
+    "WorkConditions": [
+        {
+            "Id": 1,
+            "Name": "Almindelige vilkår"
+        },
+        {
+            "Id": 2,
+            "Name": "Fleksjob"
+        },
+        {
+            "Id": 3,
+            "Name": "Skånejob"
+        },
+        {
+            "Id": 4,
+            "Name": "Egnet til efterlønnere og seniorer"
+        },
+        {
+            "Id": 5,
+            "Name": "Job med løntilskud"
+        },
+        {
+            "Id": 6,
+            "Name": "Rotationsjob"
+        },
+        {
+            "Id": 7,
+            "Name": "Virksomhedspraktik"
+        }
+    ],
+    "EmploymentTypes": [
+        {
+            "Id": 1,
+            "Name": "Fastansættelse"
+        },
+        {
+            "Id": 16,
+            "Name": "Tidsbegrænset ansættelse"
+        }
+    ],
+    "WorkPlace": {
+        "Name": "KU - SCIENCE - SNM",
+        "Address": {
+            "AddressLine": "Museo, Øster Voldgade 5-7",
+            "Country": {
+                "Id": 58,
+                "Name": "Danmark"
+            },
+            "Municipality": {
+                "Id": 101,
+                "Name": "København"
+            },
+            "Region": {
+                "Id": 4,
+                "Name": "Hovedstaden, Sjælland og Bornholm"
+            },
+            "PostalCode": "1350",
+            "City": "København K"
+        },
+        "PhoneNumber": {
+            "Number": null,
+            "Type": 0,
+            "Description": "Primary"
+        },
+        "FaxNumber": null,
+        "Email": null,
+        "WebAddress": null,
+        "Description": null,
+        "Logo": 105129,
+        "WorkPlaceOrganizationNumber": "1003402889",
+        "OrganizationNumber": "29979812",
+        "OrganizationDescription": null
+    },
+    "JobPositionPosting": {
+        "Id": 5363343,
+        "OriginalJppId": 5363343,
+        "HiringOrg": {
+            "Name": "KU - SCIENCE - SNM",
+            "Address": {
+                "AddressLine": "Museo, Øster Voldgade 5-7",
+                "Country": {
+                    "Id": 58,
+                    "Name": "Danmark"
+                },
+                "Municipality": {
+                    "Id": 101,
+                    "Name": "København"
+                },
+                "Region": {
+                    "Id": 4,
+                    "Name": "Hovedstaden, Sjælland og Bornholm"
+                },
+                "PostalCode": "1350",
+                "City": "København K"
+            },
+            "PhoneNumber": {
+                "Number": null,
+                "Type": 0,
+                "Description": "Primary"
+            },
+            "FaxNumber": null,
+            "Email": null,
+            "WebAddress": null,
+            "Description": null,
+            "Logo": 105129,
+            "WorkPlaceOrganizationNumber": "1003402889",
+            "OrganizationNumber": "29979812",
+            "OrganizationDescription": null
+        },
+        "RecruitingCompany": null,
+        "PublicationStartDate": "2021-07-02T00:00:00",
+        "PublicationEndDate": "2021-07-21T00:00:00",
+        "JobPositionInformation": {
+            "PositionTitle": "Tenure Track Assistant Professor in paleoecology, ancient genomics and conservation biology",
+            "Purpose": "The GLOBE Institute at the Faculty of Health and Medical Sciences, University of Copenhagen seeks to appoint a tenure track assistant professor in paleoecology, ancient genomics and conservation biology to commence as soon as possible.<br/><br/>  Information on the department can be found at: <a href=\"https://globe.ku.dk\">https://globe.ku.dk</a><br/><br/>   <br/><br/>  <strong>Job description </strong><br/><br/>  We invite applications from candidates with research interests in paleoecology, ancient genomics and conservation biology. We are looking for experimental scientists with an exciting and ambitious research programme focused on applying ancient genomics and paleoecology to advance conservation science. Emphasis on tropical biodiversity is desirable but not essential.    <br/><br/>  The ideal candidate will have demonstrated/track-record of excellence in research and developing novel methods for the retrieval of DNA from underutilised fossil materials such as microfossils (pollen, diatoms, etc.). The ideal candidate will also have experience in international fieldwork and a variety of paleo wetlab techniques (in addition to ancient DNA). A track-record of securing grant funding is advantageous.<br/><br/>  The tenure track assistant professor’s responsibilities will primarily consist of:<br/><br/>  <ul> \t<li>research, including publication/academic dissemination</li> \t<li>research-based teaching</li> \t<li>sharing knowledge with society</li> \t<li>participation in formal pedagogical training programme for assistant professors</li> </ul>  The tenure track assistant professor’s performance will be evaluated through annual evaluations. Furthermore, the tenure track assistant professor will be evaluated in a mid-track appraisal.<br/><br/>  After no more than six years of employment and on condition of a positive final appraisal, the tenure track assistant professor will be employed as associate professor. Read more about tenure track at the University of Copenhagen here: <a href=\"http://employment.ku.dk/tenure-track/tenure-track-at-ucph/\">http://employment.ku.dk/tenure-track/tenure-track-at-ucph/</a><br/><br/>   <br/><br/>  <strong>Required qualifications </strong><br/><br/>  <em>Six overall criteria apply for assistant professor appointments at the University of Copenhagen. The six criteria (research, teaching, societal impact, organisational contribution, external funding and leadership) are considered a framework for the overall assessment of candidates. Find information about each criteria here: </em><a href=\"https://employment.ku.dk/faculty/criteria-for-recognising-merit\">https://employment.ku.dk/faculty/criteria-for-recognising-merit</a><em>.</em><br/><br/>  <em>Furthermore, each applicant must be </em>able to document:<br/><br/>  <ul> \t<li>a PhD degree or similar qualifications within the subject area</li> \t<li>research experience within the field of the position</li> </ul>  The tenure track assistant professor must have an academic standing showing internationally competitive research, and/or have internationally recognized high potential to make a future impact.<br/><br/>  The assistant professor is also required to possess good interpersonal and communicative skills.<br/><br/>   <br/><br/>  <strong>Terms of employment </strong><br/><br/>  Salary and other terms and conditions of appointment are set in accordance with the Agreement between the Ministry of Finance and AC (Danish Confederation of Professional Associations) or other relevant professional organisations.<br/><br/>  Commencing annual salary is currently up to DKK 437,436 (including annual supplement) + pension up to DKK 74,801 annually (February 2021 level). Negotiation for salary supplement is possible.<br/><br/>  The position is covered by the Job Structure for Academic Staff at Universities 2020.<br/><br/>   <br/><br/>  <strong>Questions </strong><br/><br/>  For further information, please contact Head of section for GeoGenetics, Prof. Kurt H. Kjær, e-mail: <a href=\"mailto:kurtk@sund.ku.dk\">kurtk@sund.ku.dk</a>, phone: +45 3058 9730, <a href=\"https://globe.ku.dk/research/geogenetics/\">https://globe.ku.dk/research/geogenetics/</a>.<br/><br/>  Foreign applicants may find the following links useful: <a href=\"http://www.ism.ku.dk/\">http://www.ism.ku.dk/</a> (International Staff Mobility).<br/><br/>   <br/><br/>  <strong>Application </strong><br/><br/>  The application must be submitted in English, and must include the following documents:<br/><br/>  <ul> \t<li>Application, including motivation for applying for this position (Maximum 2 pages)</li> \t<li>Curriculum vitae, including information about funding</li> \t<li>Diplomas (Master’s, PhD and other relevant diplomas)</li> \t<li>A complete list of publications</li> \t<li>Research plan (2-4 pages)</li> \t<li>Teaching plan</li> \t<li>Uploads of maximum 5 publications to be considered in the assessment</li> \t<li>Teaching portfolio, if applicable (Guidelines: <a href=\"https://employment.ku.dk/faculty/recruitment-process/job-application-portfolio\" target=\"_blank\">https://employment.ku.dk/faculty/recruitment-process/job-application-portfolio</a>)</li> </ul>  <em>Please note:  It is mandatory to upload a teaching plan in the online application form. Should you not have a teaching plan, please upload a blank document in this box instead.</em><br/><br/>   <br/><br/>  <strong>Application procedure</strong><br/> After the expiry of the deadline for applications, the authorized recruitment manager selects applicants for assessment on the advice of the Appointments Committee.  All applicants are then immediately notified whether their application has been passed for assessment. The Dean then appoints an expert assessment committee in order to make an assessment of the selected applicants for the specific post. Selected applicants are notified of the composition of the committee and each applicant has the opportunity to comment on the part of the assessment that relates to the applicant him/herself. You can read about the recruitment process at <a href=\"https://employment.ku.dk/faculty/recruitment-process/\">https://employment.ku.dk/faculty/recruitment-process/</a>.<br/><br/>  Please note that the applicant will be contacted if the assessment committee requires further documentation.<br/><br/>  The application will be assessed according to the Ministerial Order no. 242 of 13 March 2012 on the Appointment of Academic Staff at Universities.<br/><br/>  The University of Copenhagen encourages all interested in this post to apply.<br/><br/>  Please submit the application with the required attachments. Only online applications will be accepted.<br/><br/>   <br/><br/>  <strong>The closing date for applications is 21 July 2021</strong><strong> at</strong><strong> 23.59 p.m. CET</strong><strong>.</strong><br/><br/>   <br/><br/>   <br/><br/>",
+            "WorkLocation": {
+                "AddressLine": "Øster Voldgade 5-7",
+                "Country": {
+                    "Id": 58,
+                    "Name": "Danmark"
+                },
+                "Municipality": {
+                    "Id": 101,
+                    "Name": "København"
+                },
+                "Region": {
+                    "Id": 4,
+                    "Name": "Hovedstaden, Sjælland og Bornholm"
+                },
+                "PostalCode": "1350",
+                "City": "København K"
+            },
+            "EmploymentType": 1,
+            "WeeklyWorkHours": {
+                "TypeId": 1,
+                "TypeName": "Fuldtid",
+                "Description": null
+            },
+            "CompensationDescription": null,
+            "NumberToFill": 1,
+            "DriverLicense": [],
+            "Occupation": {
+                "DiscoWeb": 0,
+                "AlternateNames": [],
+                "GroupId": 0,
+                "AreaId": 0,
+                "Id": 0,
+                "Name": null
+            },
+            "IsGovernmentHiring": false,
+            "JppContacts": [
+                {
+                    "Id": 7125629,
+                    "Email": "hans.pedersen@sund.ku.dk",
+                    "FaxNumber": null,
+                    "PersonName": "Hans Pedersen",
+                    "FirstName": "Hans",
+                    "LastName": "Pedersen",
+                    "PositionTitle": "Fuldmægtig",
+                    "PhoneNumbers": []
+                }
+            ],
+            "EmploymentDate": "2021-12-01T00:00:00"
+        },
+        "IsRecruitmentOfForeignNationals": false,
+        "IsWorkInDenmark": true,
+        "IsAnonymousEmployer": false,
+        "IsDisabilityFriendly": false,
+        "JppType": 4,
+        "ApplicationDetails": {
+            "WorkHourMax": null,
+            "WorkHourMin": null,
+            "DailyWorkTimeWeekend": false,
+            "DailyWorkTimeNight": false,
+            "DailyWorkTimeEvening": false,
+            "DailyWorkTimeDay": false,
+            "ReferenceText": null,
+            "RemarksToApplicant": null,
+            "ByEmail": null,
+            "ByPhone": null,
+            "ApplyViaUrl": "https://candidate.hr-manager.net/ApplicationInit.aspx?cid=1307&ProjectId=154226&DepartmentId=19217&MediaId=4632&SkipAdvertisement=true",
+            "ReplyInWriting": false,
+            "ApplicationDeadlineDate": "2021-07-21T00:00:00"
+        },
+        "ContactAuthorityPhoneNumber": {
+            "Number": null,
+            "Type": 0,
+            "Description": "Primary"
+        },
+        "Status": 7
+    },
+    "LogoUrl": "/CV/FindWork/GetLogo?JobAdId=5363343&WorkPlace=105129&Organisation=29979812",
+    "Address": "Øster Voldgade 5-7,1350, København K",
+    "ShowMap": true,
+    "ShowShareButtonJobLog": false,
+    "JobLogUrl": "/CV/Jobseeking/JobLog/CreateJobSearch?JobnetJobPostingIdentifier=5363343&Company.Name=KU - SCIENCE - SNM&SubmissionDeadlineDate=2021-7-21&Title=Tenure Track Assistant Professor in paleoecology, ancient genomics and conservation biology&JobAdUrl=https://job.jobnet.dk/CV/FindWork/Details/5363343&WeeklyWorkTime=1",
+    "JobLogTemplateModel": {
+        "Identifier": "00000000-0000-0000-0000-000000000000",
+        "UseWorkPlaceAddressForJoblog": false,
+        "Category": 0,
+        "CvCustomerIdentifier": null,
+        "JobSeekingStatus": null,
+        "Title": "Tenure Track Assistant Professor in paleoecology, ancient genomics and conservation biology",
+        "IsApplicationSourceRequired": true,
+        "ApplicationSource": null,
+        "IsWeeklyWorkTimeRequired": true,
+        "WeeklyWorkTime": 1,
+        "HoursPerWeek": null,
+        "JobnetJobPostingIdentifier": "5363343",
+        "JobAdUrl": "https://job.jobnet.dk/CV/FindWork/JobDetailJsonWIDK?id=5363343",
+        "JobAdDocument": null,
+        "Company": {
+            "JobLogEntryCategory": 0,
+            "ShowAddressFieldsEvenIfEmpty": false,
+            "Name": "KU - SCIENCE - SNM",
+            "Address": "Museo, Øster Voldgade 5-7",
+            "Country": null,
+            "EmploymentAreaID": null,
+            "PostCode": "1350",
+            "IsCountryAndTownAndPostCodeEmpty": false,
+            "IsTownAndPostCodeEmpty": false,
+            "IsCountryDanmark": false,
+            "Town": "København K",
+            "ContactPerson": "Hans Pedersen",
+            "Phone": "",
+            "Email": "hans.pedersen@sund.ku.dk",
+            "Latitude": null,
+            "Longitude": null,
+            "DailyTravelTimeInMinutes": null,
+            "DistanceToCompanyInMeters": null,
+            "IsCreateMode": false
+        },
+        "TypeOfSubmission": null,
+        "SubmissionDate": "2021-07-21T00:00:00",
+        "SubmissionDateFormatted": null,
+        "SubmissionDateTiks": 0,
+        "IsSubmissionDateRequired": false,
+        "Status": 0,
+        "DateCreatedFormatted": null,
+        "DateCreated": null,
+        "DateModifiedFormatted": null,
+        "DateModified": null,
+        "LastModifiedDateTiks": 0,
+        "DateClosed": null,
+        "JobApplicationDocument": {
+            "Title": null,
+            "Identifier": null,
+            "IsDeleted": false
+        },
+        "CvDocument": {
+            "Title": null,
+            "Identifier": null,
+            "IsDeleted": false
+        },
+        "JobApplicationFile": null,
+        "CvFile": null,
+        "SubmissionDeadlineDate": null,
+        "IsPersisted": false,
+        "ServerValidationErrors": [],
+        "HasServerValidationErrors": false
+    },
+    "JoblogWorkTime": {
+        "WorkHour": null,
+        "DailyWorkTime": null
+    },
+    "Place": "Work place location København municipality",
+    "OpenPrintDialog": false,
+    "WorkPlaceInfoText": "KU - SCIENCE - SNM",
+    "JobCenterContactDetails": "",
+    "WorkPlaceDescriptionText": null,
+    "FavoriteText": "",
+    "IsFavorite": false,
+    "ShowFavorite": false,
+    "MetaOgTextForSharing": "The GLOBE Institute at the Faculty of Health and Medical Sciences, University of Copenhagen seeks to appoint a tenure track assistant professor in paleoecology, ancient genomics and conservation biology to commence as soon as possible.  Information on the department can be found at: https://globe.ku.dk     Job description   We invite applications f",
+    "DescriptionForSharing": "\"The GLOBE Institute at the Faculty of Health and Medical Sciences, University of Copenhagen seeks to appoint a tenure track assistant professor in paleoecology, ancient genomics and conservation biology to commence as soon as possible.  Information on the department can be found at: https://globe.ku.dk     Job description   We invite applications f\"",
+    "TitleForSharing": "\"Tenure Track Assistant Professor in paleoecology, ancient genomics and conservation biology\"",
+    "RutePlan": "https://www.google.dk/maps/dir//Øster+Voldgade+5-7,1350,+København+K/",
+    "FormattedPurpose": "The GLOBE Institute at the Faculty of Health and Medical Sciences, University of Copenhagen seeks to appoint a tenure track assistant professor in paleoecology, ancient genomics and conservation biology to commence as soon as possible.<br/><br/>  Information on the department can be found at: <a target=\"_blank\" href=\"https://globe.ku.dk\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5363343\">https://globe.ku.dk</a><br/><br/>   <br/><br/>  <strong>Job description </strong><br/><br/>  We invite applications from candidates with research interests in paleoecology, ancient genomics and conservation biology. We are looking for experimental scientists with an exciting and ambitious research programme focused on applying ancient genomics and paleoecology to advance conservation science. Emphasis on tropical biodiversity is desirable but not essential.    <br/><br/>  The ideal candidate will have demonstrated/track-record of excellence in research and developing novel methods for the retrieval of DNA from underutilised fossil materials such as microfossils (pollen, diatoms, etc.). The ideal candidate will also have experience in international fieldwork and a variety of paleo wetlab techniques (in addition to ancient DNA). A track-record of securing grant funding is advantageous.<br/><br/>  The tenure track assistant professor’s responsibilities will primarily consist of:<br/><br/>  <ul> \t<li>research, including publication/academic dissemination</li> \t<li>research-based teaching</li> \t<li>sharing knowledge with society</li> \t<li>participation in formal pedagogical training programme for assistant professors</li> </ul>  The tenure track assistant professor’s performance will be evaluated through annual evaluations. Furthermore, the tenure track assistant professor will be evaluated in a mid-track appraisal.<br/><br/>  After no more than six years of employment and on condition of a positive final appraisal, the tenure track assistant professor will be employed as associate professor. Read more about tenure track at the University of Copenhagen here: <a target=\"_blank\" href=\"http://employment.ku.dk/tenure-track/tenure-track-at-ucph/\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5363343\">http://employment.ku.dk/tenure-track/tenure-track-at-ucph/</a><br/><br/>   <br/><br/>  <strong>Required qualifications </strong><br/><br/>  <em>Six overall criteria apply for assistant professor appointments at the University of Copenhagen. The six criteria (research, teaching, societal impact, organisational contribution, external funding and leadership) are considered a framework for the overall assessment of candidates. Find information about each criteria here: </em><a target=\"_blank\" href=\"https://employment.ku.dk/faculty/criteria-for-recognising-merit\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5363343\">https://employment.ku.dk/faculty/criteria-for-recognising-merit</a><em>.</em><br/><br/>  <em>Furthermore, each applicant must be </em>able to document:<br/><br/>  <ul> \t<li>a PhD degree or similar qualifications within the subject area</li> \t<li>research experience within the field of the position</li> </ul>  The tenure track assistant professor must have an academic standing showing internationally competitive research, and/or have internationally recognized high potential to make a future impact.<br/><br/>  The assistant professor is also required to possess good interpersonal and communicative skills.<br/><br/>   <br/><br/>  <strong>Terms of employment </strong><br/><br/>  Salary and other terms and conditions of appointment are set in accordance with the Agreement between the Ministry of Finance and AC (Danish Confederation of Professional Associations) or other relevant professional organisations.<br/><br/>  Commencing annual salary is currently up to DKK 437,436 (including annual supplement) + pension up to DKK 74,801 annually (February 2021 level). Negotiation for salary supplement is possible.<br/><br/>  The position is covered by the Job Structure for Academic Staff at Universities 2020.<br/><br/>   <br/><br/>  <strong>Questions </strong><br/><br/>  For further information, please contact Head of section for GeoGenetics, Prof. Kurt H. Kjær, e-mail: <a target=\"_blank\" href=\"mailto:kurtk@sund.ku.dk\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5363343\">kurtk@sund.ku.dk</a>, phone: +45 3058 9730, <a target=\"_blank\" href=\"https://globe.ku.dk/research/geogenetics/\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5363343\">https://globe.ku.dk/research/geogenetics/</a>.<br/><br/>  Foreign applicants may find the following links useful: <a target=\"_blank\" href=\"http://www.ism.ku.dk/\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5363343\">http://www.ism.ku.dk/</a> (International Staff Mobility).<br/><br/>   <br/><br/>  <strong>Application </strong><br/><br/>  The application must be submitted in English, and must include the following documents:<br/><br/>  <ul> \t<li>Application, including motivation for applying for this position (Maximum 2 pages)</li> \t<li>Curriculum vitae, including information about funding</li> \t<li>Diplomas (Master’s, PhD and other relevant diplomas)</li> \t<li>A complete list of publications</li> \t<li>Research plan (2-4 pages)</li> \t<li>Teaching plan</li> \t<li>Uploads of maximum 5 publications to be considered in the assessment</li> \t<li>Teaching portfolio, if applicable (Guidelines: <a target=\"_blank\" href=\"https://employment.ku.dk/faculty/recruitment-process/job-application-portfolio\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5363343\">https://employment.ku.dk/faculty/recruitment-process/job-application-portfolio</a>)</li> </ul>  <em>Please note:  It is mandatory to upload a teaching plan in the online application form. Should you not have a teaching plan, please upload a blank document in this box instead.</em><br/><br/>   <br/><br/>  <strong>Application procedure</strong><br/> After the expiry of the deadline for applications, the authorized recruitment manager selects applicants for assessment on the advice of the Appointments Committee.  All applicants are then immediately notified whether their application has been passed for assessment. The Dean then appoints an expert assessment committee in order to make an assessment of the selected applicants for the specific post. Selected applicants are notified of the composition of the committee and each applicant has the opportunity to comment on the part of the assessment that relates to the applicant him/herself. You can read about the recruitment process at <a target=\"_blank\" href=\"https://employment.ku.dk/faculty/recruitment-process/\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5363343\">https://employment.ku.dk/faculty/recruitment-process/</a>.<br/><br/>  Please note that the applicant will be contacted if the assessment committee requires further documentation.<br/><br/>  The application will be assessed according to the Ministerial Order no. 242 of 13 March 2012 on the Appointment of Academic Staff at Universities.<br/><br/>  The University of Copenhagen encourages all interested in this post to apply.<br/><br/>  Please submit the application with the required attachments. Only online applications will be accepted.<br/><br/>   <br/><br/>  <strong>The closing date for applications is 21 July 2021</strong><strong> at</strong><strong> 23.59 p.m. CET</strong><strong>.</strong><br/><br/>   <br/><br/>   <br/><br/>",
+    "MapUrl": "https://www.google.dk/maps/place/Øster+Voldgade+5-7,1350,+København+K/",
+    "OrganizationNumber": "29979812",
+    "ShowSearchJobButton": false,
+    "ShowPrint": false,
+    "BackToFindWorkButtonUrl": null
+}

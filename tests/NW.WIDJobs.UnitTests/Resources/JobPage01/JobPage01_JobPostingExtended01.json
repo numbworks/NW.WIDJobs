@@ -1,0 +1,306 @@
+{
+    "WorkSchedule": [
+        {
+            "Id": 1,
+            "Name": "Fuldtid"
+        },
+        {
+            "Id": 16,
+            "Name": "Deltid"
+        }
+    ],
+    "WorkConditions": [
+        {
+            "Id": 1,
+            "Name": "Almindelige vilkår"
+        },
+        {
+            "Id": 2,
+            "Name": "Fleksjob"
+        },
+        {
+            "Id": 3,
+            "Name": "Skånejob"
+        },
+        {
+            "Id": 4,
+            "Name": "Egnet til efterlønnere og seniorer"
+        },
+        {
+            "Id": 5,
+            "Name": "Job med løntilskud"
+        },
+        {
+            "Id": 6,
+            "Name": "Rotationsjob"
+        },
+        {
+            "Id": 7,
+            "Name": "Virksomhedspraktik"
+        }
+    ],
+    "EmploymentTypes": [
+        {
+            "Id": 1,
+            "Name": "Fastansættelse"
+        },
+        {
+            "Id": 16,
+            "Name": "Tidsbegrænset ansættelse"
+        }
+    ],
+    "WorkPlace": {
+        "Name": "Keepit A/S",
+        "Address": {
+            "AddressLine": "Per Henrik Lings Allé 4 7",
+            "Country": {
+                "Id": 58,
+                "Name": "Danmark"
+            },
+            "Municipality": {
+                "Id": 101,
+                "Name": "København"
+            },
+            "Region": {
+                "Id": 4,
+                "Name": "Hovedstaden, Sjælland og Bornholm"
+            },
+            "PostalCode": "2100",
+            "City": "København Ø"
+        },
+        "PhoneNumber": {
+            "Number": null,
+            "Type": 0,
+            "Description": "Primary"
+        },
+        "FaxNumber": null,
+        "Email": null,
+        "WebAddress": "https://www.keepit.com/",
+        "Description": null,
+        "Logo": null,
+        "WorkPlaceOrganizationNumber": "1013551371",
+        "OrganizationNumber": "30806883",
+        "OrganizationDescription": null
+    },
+    "JobPositionPosting": {
+        "Id": 5332213,
+        "OriginalJppId": 5332213,
+        "HiringOrg": {
+            "Name": "Keepit A/S",
+            "Address": {
+                "AddressLine": "Per Henrik Lings Allé 4 7",
+                "Country": {
+                    "Id": 58,
+                    "Name": "Danmark"
+                },
+                "Municipality": {
+                    "Id": 101,
+                    "Name": "København"
+                },
+                "Region": {
+                    "Id": 4,
+                    "Name": "Hovedstaden, Sjælland og Bornholm"
+                },
+                "PostalCode": "2100",
+                "City": "København Ø"
+            },
+            "PhoneNumber": {
+                "Number": null,
+                "Type": 0,
+                "Description": "Primary"
+            },
+            "FaxNumber": null,
+            "Email": null,
+            "WebAddress": "https://www.keepit.com/",
+            "Description": null,
+            "Logo": null,
+            "WorkPlaceOrganizationNumber": "1013551371",
+            "OrganizationNumber": "30806883",
+            "OrganizationDescription": null
+        },
+        "RecruitingCompany": null,
+        "PublicationStartDate": "2021-07-02T00:00:00",
+        "PublicationEndDate": "2021-08-27T00:00:00",
+        "JobPositionInformation": {
+            "PositionTitle": "Linux Specialist",
+            "Purpose": "<p>PARKEN, COPENHAGEN /</p>\n<p>ENGINEERING – SYSTEM ADMINISTRATION /</p>\n<p>FULL TIME, PERMANENT CONTRACT</p>\n<p>Do you want to join us on our ambitious mission to secure the digital world?Keepit is looking for a&nbsp;Linux Specialist&nbsp;to join our Engineering Team in Copenhagen, Denmark</p>\n<p>Keepit is a fast-growing IT scale-up with many years of experience in software and data protection. Our mission is to help companies around the world protect and manage their cloud-based data. Our team is both academically and culturally diverse, and we have more than thirty different nationalities working together to promote trust and security in a world transforming towards new levels of digitalization.&nbsp;</p>\n<p>We are growing fast as a company, and we are set on using our momentum to bring our SaaS cloud-based backup services to a global audience. We are proud of our product which we believe can solve many of the data-security issues that people and organizations encounter worldwide. In order to grow, we need to improve our product continuously. Therefore, we are currently looking at strengthening our team with a highly skilled Linux Specialist.&nbsp;</p>\n<p>The Keepit platform is a set of networked services working in concert; we have a strong emphasis on performance and reliability, which influences how we approach development and write our code. The Keepit product is built from scratch which means that we can improve our platform as we see fit and address any issues we encounter. The entire platform runs on Linux. To support our growth with more and larger customers in more regions of the world, we need specialists with an in-depth understanding of the Linux kernel and its surrounding ecosystem.</p>\n<p>As&nbsp;a&nbsp;<strong>Linux Specialist&nbsp;</strong>with Keepit, you will help us develop and improve our world-leading cloud-backup solution. You will help us solve the tasks and challenges we encounter on our way, and you will help us continuously iterate our platform to make sure that it lives up to the highest standards for security and performance.</p>\n<p><strong>The types of technical challenges that you will be solving with your team could be:</strong></p>\n<p>-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Performance troubleshooting - if a service is not performing as expected, troubleshooting the process interactions on a live server in order to identify the root cause and propose a remedy, possibly in collaboration with the development team.</p>\n<p>-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Planning, testing, and executing Postgres database cluster migration from an older version to a newer version with little or no user-visible interruptions.</p>\n<p>-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Designing the next iteration of our network infrastructure for high-performance multi-site communication, and planning and executing the transition from the previous iteration with no customer visible downtime.&nbsp;</p>\n<p>As a Linux specialist, you will be joining our growing international Engineering team and you will play a significant role in the continued growth and success of our company. You will refer to our Chief Technology Officer, Jakob, and your office will be at Parken, the national stadium of Denmark. At Keepit, we take pride in being an equal opportunity employer and recognize how being a diverse workplace strengthens our product, customer relationships, and work culture.&nbsp;</p>\n<p><strong>A fair and transparent recruitment process</strong></p>\n<p>We know that it is just as important that you choose us as the other way around. We believe it to be crucial to cultivate a culture where you feel you belong – this starts already in the recruitment process. Therefore, to be fair and transparent, we want to present the criteria you are assessed by if you choose to let your curiosity fall on us.&nbsp;</p>\n<p><strong>1.&nbsp;&nbsp;&nbsp;Linux Administration:&nbsp;</strong>Having a good understanding of Linux will be essential for this role. This includes being familiar with the Linux Kernel, filesystems, and memory management.&nbsp;</p>\n<p><strong>2.&nbsp;&nbsp;&nbsp;Networking:&nbsp;</strong>A good understanding of L2, L3, and L4 networking as well as an understanding of OSPF, BGP and Netfilter are significant bonus skills for this position. The emphasis is on Linux, but networking is important in everything we do.&nbsp;</p>\n<p><strong>3.&nbsp;&nbsp;&nbsp;Language:&nbsp;</strong>We use English as our preferred language, and being fluent in English, both written and spoken, is essential for this role.&nbsp;</p>\n<p><strong>4.&nbsp;&nbsp;&nbsp;Entrepreneurial spirit:&nbsp;</strong>We are passionate about winning in the market. However, we are also passionate about our workplace, and we know that a good work environment and great collaboration across our organization are crucial to achieving our ambitious goals. Therefore, we are searching for team leaders who, like us, are being motivated by building a fair and fun work environment at Keepit.</p>\n<p><strong>Terms and conditions</strong></p>\n<p><strong>Process:</strong>&nbsp;Please submit your Resume/CV on our&nbsp;<a href=\"https://jobs.lever.co/keepit\">job page</a>. Selected candidates will be contacted continuously. We hire when finding the right candidate.&nbsp;</p>\n<p><strong>Scope:</strong>&nbsp;As soon as possible</p>\n<p><strong>The position:&nbsp;</strong>Full-Time occupation (37 hours per week) based in Copenhagen.</p>\n<p><strong>Salary:</strong>&nbsp;The compensation package is market competitive and will be negotiated with the successful candidate.&nbsp;</p>\n<p>For more information about KEEPIT go to&nbsp;<a href=\"http://www.keepit.com/\">www.Keepit.com</a>&nbsp;</p>\n<p>If you have any questions about the job or the recruitment process, please feel free to reach out to Emil Daniel Christensen at&nbsp;<a>edc@keepit.com</a>&nbsp;or on the phone: +45 51 51 89 80</p>\n<p>Apply soonest possible via the company web page:</p>\n<p>https://jobs.lever.co/keepit/77402b65-a995-479a-86ee-7062c79a7b0b</p>\n<p>&nbsp;</p>",
+            "WorkLocation": {
+                "AddressLine": "Per Henrik Lings Allé 4, 7",
+                "Country": {
+                    "Id": 58,
+                    "Name": "Danmark"
+                },
+                "Municipality": {
+                    "Id": 101,
+                    "Name": "København"
+                },
+                "Region": {
+                    "Id": 4,
+                    "Name": "Hovedstaden, Sjælland og Bornholm"
+                },
+                "PostalCode": "2100",
+                "City": "København Ø"
+            },
+            "EmploymentType": 1,
+            "WeeklyWorkHours": {
+                "TypeId": 1,
+                "TypeName": "Fuldtid",
+                "Description": null
+            },
+            "CompensationDescription": null,
+            "NumberToFill": 1,
+            "DriverLicense": [],
+            "Occupation": {
+                "DiscoWeb": 0,
+                "AlternateNames": [],
+                "GroupId": 0,
+                "AreaId": 0,
+                "Id": 0,
+                "Name": null
+            },
+            "IsGovernmentHiring": false,
+            "JppContacts": [
+                {
+                    "Id": 7126869,
+                    "Email": "edc@keepit.com",
+                    "FaxNumber": null,
+                    "PersonName": "Emil Daniel Christensen",
+                    "FirstName": "Emil Daniel",
+                    "LastName": "Christensen",
+                    "PositionTitle": null,
+                    "PhoneNumbers": [
+                        {
+                            "Number": "004551518980",
+                            "Type": 0,
+                            "Description": "Hovednummer"
+                        },
+                        {
+                            "Number": "004551518980",
+                            "Type": 1,
+                            "Description": "Arbejde direkte"
+                        }
+                    ]
+                }
+            ],
+            "EmploymentDate": null
+        },
+        "IsRecruitmentOfForeignNationals": true,
+        "IsWorkInDenmark": true,
+        "IsAnonymousEmployer": false,
+        "IsDisabilityFriendly": false,
+        "JppType": 4,
+        "ApplicationDetails": {
+            "WorkHourMax": null,
+            "WorkHourMin": null,
+            "DailyWorkTimeWeekend": false,
+            "DailyWorkTimeNight": false,
+            "DailyWorkTimeEvening": false,
+            "DailyWorkTimeDay": false,
+            "ReferenceText": null,
+            "RemarksToApplicant": null,
+            "ByEmail": null,
+            "ByPhone": null,
+            "ApplyViaUrl": "https://jobs.lever.co/keepit/77402b65-a995-479a-86ee-7062c79a7b0b",
+            "ReplyInWriting": false,
+            "ApplicationDeadlineDate": "2021-08-27T00:00:00"
+        },
+        "ContactAuthorityPhoneNumber": {
+            "Number": null,
+            "Type": 0,
+            "Description": "Primary"
+        },
+        "Status": 7
+    },
+    "LogoUrl": "/CV/FindWork/GetLogo?JobAdId=5332213&Organisation=30806883",
+    "Address": "Per Henrik Lings Allé 4, 7,2100, København Ø",
+    "ShowMap": true,
+    "ShowShareButtonJobLog": false,
+    "JobLogUrl": "/CV/Jobseeking/JobLog/CreateJobSearch?JobnetJobPostingIdentifier=5332213&Company.Name=Keepit A/S&SubmissionDeadlineDate=2021-8-27&Title=Linux Specialist&JobAdUrl=https://job.jobnet.dk/CV/FindWork/Details/5332213&WeeklyWorkTime=1",
+    "JobLogTemplateModel": {
+        "Identifier": "00000000-0000-0000-0000-000000000000",
+        "UseWorkPlaceAddressForJoblog": false,
+        "Category": 0,
+        "CvCustomerIdentifier": null,
+        "JobSeekingStatus": null,
+        "Title": "Linux Specialist",
+        "IsApplicationSourceRequired": true,
+        "ApplicationSource": null,
+        "IsWeeklyWorkTimeRequired": true,
+        "WeeklyWorkTime": 1,
+        "HoursPerWeek": null,
+        "JobnetJobPostingIdentifier": "5332213",
+        "JobAdUrl": "https://job.jobnet.dk/CV/FindWork/JobDetailJsonWIDK?id=5332213",
+        "JobAdDocument": null,
+        "Company": {
+            "JobLogEntryCategory": 0,
+            "ShowAddressFieldsEvenIfEmpty": false,
+            "Name": "Keepit A/S",
+            "Address": "Per Henrik Lings Allé 4 7",
+            "Country": null,
+            "EmploymentAreaID": null,
+            "PostCode": "2100",
+            "IsCountryAndTownAndPostCodeEmpty": false,
+            "IsTownAndPostCodeEmpty": false,
+            "IsCountryDanmark": false,
+            "Town": "København Ø",
+            "ContactPerson": "Emil Daniel Christensen",
+            "Phone": "004551518980",
+            "Email": "edc@keepit.com",
+            "Latitude": null,
+            "Longitude": null,
+            "DailyTravelTimeInMinutes": null,
+            "DistanceToCompanyInMeters": null,
+            "IsCreateMode": false
+        },
+        "TypeOfSubmission": null,
+        "SubmissionDate": "2021-08-27T00:00:00",
+        "SubmissionDateFormatted": null,
+        "SubmissionDateTiks": 0,
+        "IsSubmissionDateRequired": false,
+        "Status": 0,
+        "DateCreatedFormatted": null,
+        "DateCreated": null,
+        "DateModifiedFormatted": null,
+        "DateModified": null,
+        "LastModifiedDateTiks": 0,
+        "DateClosed": null,
+        "JobApplicationDocument": {
+            "Title": null,
+            "Identifier": null,
+            "IsDeleted": false
+        },
+        "CvDocument": {
+            "Title": null,
+            "Identifier": null,
+            "IsDeleted": false
+        },
+        "JobApplicationFile": null,
+        "CvFile": null,
+        "SubmissionDeadlineDate": null,
+        "IsPersisted": false,
+        "ServerValidationErrors": [],
+        "HasServerValidationErrors": false
+    },
+    "JoblogWorkTime": {
+        "WorkHour": null,
+        "DailyWorkTime": null
+    },
+    "Place": "Work place location København municipality",
+    "OpenPrintDialog": false,
+    "WorkPlaceInfoText": "Keepit A/S",
+    "JobCenterContactDetails": "",
+    "WorkPlaceDescriptionText": null,
+    "FavoriteText": "",
+    "IsFavorite": false,
+    "ShowFavorite": false,
+    "MetaOgTextForSharing": "PARKEN, COPENHAGEN /\nENGINEERING – SYSTEM ADMINISTRATION /\nFULL TIME, PERMANENT CONTRACT\nDo you want to join us on our ambitious mission to secure the digital world?Keepit is looking for aLinux Specialistto join our Engineering Team in Copenhagen, Denmark\nKeepit is a fast-growing IT scale-up with many years of experience in software and data protec",
+    "DescriptionForSharing": "\"PARKEN, COPENHAGEN /\\nENGINEERING – SYSTEM ADMINISTRATION /\\nFULL TIME, PERMANENT CONTRACT\\nDo you want to join us on our ambitious mission to secure the digital world?Keepit is looking for aLinux Specialistto join our Engineering Team in Copenhagen, Denmark\\nKeepit is a fast-growing IT scale-up with many years of experience in software and data protec\"",
+    "TitleForSharing": "\"Linux Specialist\"",
+    "RutePlan": "https://www.google.dk/maps/dir//Per+Henrik+Lings+Allé+4,+7,2100,+København+Ø/",
+    "FormattedPurpose": "<p>PARKEN, COPENHAGEN /</p>\n<p>ENGINEERING – SYSTEM ADMINISTRATION /</p>\n<p>FULL TIME, PERMANENT CONTRACT</p>\n<p>Do you want to join us on our ambitious mission to secure the digital world?Keepit is looking for a Linux Specialist to join our Engineering Team in Copenhagen, Denmark</p>\n<p>Keepit is a fast-growing IT scale-up with many years of experience in software and data protection. Our mission is to help companies around the world protect and manage their cloud-based data. Our team is both academically and culturally diverse, and we have more than thirty different nationalities working together to promote trust and security in a world transforming towards new levels of digitalization. </p>\n<p>We are growing fast as a company, and we are set on using our momentum to bring our SaaS cloud-based backup services to a global audience. We are proud of our product which we believe can solve many of the data-security issues that people and organizations encounter worldwide. In order to grow, we need to improve our product continuously. Therefore, we are currently looking at strengthening our team with a highly skilled Linux Specialist. </p>\n<p>The Keepit platform is a set of networked services working in concert; we have a strong emphasis on performance and reliability, which influences how we approach development and write our code. The Keepit product is built from scratch which means that we can improve our platform as we see fit and address any issues we encounter. The entire platform runs on Linux. To support our growth with more and larger customers in more regions of the world, we need specialists with an in-depth understanding of the Linux kernel and its surrounding ecosystem.</p>\n<p>As a <strong>Linux Specialist </strong>with Keepit, you will help us develop and improve our world-leading cloud-backup solution. You will help us solve the tasks and challenges we encounter on our way, and you will help us continuously iterate our platform to make sure that it lives up to the highest standards for security and performance.</p>\n<p><strong>The types of technical challenges that you will be solving with your team could be:</strong></p>\n<p>-       Performance troubleshooting - if a service is not performing as expected, troubleshooting the process interactions on a live server in order to identify the root cause and propose a remedy, possibly in collaboration with the development team.</p>\n<p>-       Planning, testing, and executing Postgres database cluster migration from an older version to a newer version with little or no user-visible interruptions.</p>\n<p>-       Designing the next iteration of our network infrastructure for high-performance multi-site communication, and planning and executing the transition from the previous iteration with no customer visible downtime. </p>\n<p>As a Linux specialist, you will be joining our growing international Engineering team and you will play a significant role in the continued growth and success of our company. You will refer to our Chief Technology Officer, Jakob, and your office will be at Parken, the national stadium of Denmark. At Keepit, we take pride in being an equal opportunity employer and recognize how being a diverse workplace strengthens our product, customer relationships, and work culture. </p>\n<p><strong>A fair and transparent recruitment process</strong></p>\n<p>We know that it is just as important that you choose us as the other way around. We believe it to be crucial to cultivate a culture where you feel you belong – this starts already in the recruitment process. Therefore, to be fair and transparent, we want to present the criteria you are assessed by if you choose to let your curiosity fall on us. </p>\n<p><strong>1.   Linux Administration: </strong>Having a good understanding of Linux will be essential for this role. This includes being familiar with the Linux Kernel, filesystems, and memory management. </p>\n<p><strong>2.   Networking: </strong>A good understanding of L2, L3, and L4 networking as well as an understanding of OSPF, BGP and Netfilter are significant bonus skills for this position. The emphasis is on Linux, but networking is important in everything we do. </p>\n<p><strong>3.   Language: </strong>We use English as our preferred language, and being fluent in English, both written and spoken, is essential for this role. </p>\n<p><strong>4.   Entrepreneurial spirit: </strong>We are passionate about winning in the market. However, we are also passionate about our workplace, and we know that a good work environment and great collaboration across our organization are crucial to achieving our ambitious goals. Therefore, we are searching for team leaders who, like us, are being motivated by building a fair and fun work environment at Keepit.</p>\n<p><strong>Terms and conditions</strong></p>\n<p><strong>Process:</strong> Please submit your Resume/CV on our <a target=\"_blank\" href=\"https://jobs.lever.co/keepit\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5332213\">job page</a>. Selected candidates will be contacted continuously. We hire when finding the right candidate. </p>\n<p><strong>Scope:</strong> As soon as possible</p>\n<p><strong>The position: </strong>Full-Time occupation (37 hours per week) based in Copenhagen.</p>\n<p><strong>Salary:</strong> The compensation package is market competitive and will be negotiated with the successful candidate. </p>\n<p>For more information about KEEPIT go to <a target=\"_blank\" href=\"http://www.keepit.com/\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5332213\">www.Keepit.com</a> </p>\n<p>If you have any questions about the job or the recruitment process, please feel free to reach out to Emil Daniel Christensen at <a>edc@keepit.com</a> or on the phone: +45 51 51 89 80</p>\n<p>Apply soonest possible via the company web page:</p>\n<p><a target=\"_blank\" href=\"https://jobs.lever.co/keepit/77402b65-a995-479a-86ee-7062c79a7b0b\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5332213\">https://jobs.lever.co/keepit/77402b65-a995-479a-86ee-7062c79a7b0b</a></p>\n<p> </p>",
+    "MapUrl": "https://www.google.dk/maps/place/Per+Henrik+Lings+Allé+4,+7,2100,+København+Ø/",
+    "OrganizationNumber": "30806883",
+    "ShowSearchJobButton": false,
+    "ShowPrint": false,
+    "BackToFindWorkButtonUrl": null
+}

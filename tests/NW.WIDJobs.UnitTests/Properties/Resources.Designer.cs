@@ -61,6 +61,557 @@ namespace NW.WIDJobs.UnitTests.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] JobPage01 {
+            get {
+                object obj = ResourceManager.GetObject("JobPage01", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] JobPage01_JobPostingExtended01 {
+            get {
+                object obj = ResourceManager.GetObject("JobPage01_JobPostingExtended01", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] JobPage01_JobPostingExtended02 {
+            get {
+                object obj = ResourceManager.GetObject("JobPage01_JobPostingExtended02", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] JobPage01_JobPostingExtended03 {
+            get {
+                object obj = ResourceManager.GetObject("JobPage01_JobPostingExtended03", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] JobPage01_JobPostingExtended04 {
+            get {
+                object obj = ResourceManager.GetObject("JobPage01_JobPostingExtended04", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] JobPage01_JobPostingExtended05 {
+            get {
+                object obj = ResourceManager.GetObject("JobPage01_JobPostingExtended05", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] JobPage01_JobPostingExtended06 {
+            get {
+                object obj = ResourceManager.GetObject("JobPage01_JobPostingExtended06", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] JobPage01_JobPostingExtended07 {
+            get {
+                object obj = ResourceManager.GetObject("JobPage01_JobPostingExtended07", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] JobPage01_JobPostingExtended08 {
+            get {
+                object obj = ResourceManager.GetObject("JobPage01_JobPostingExtended08", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] JobPage01_JobPostingExtended09 {
+            get {
+                object obj = ResourceManager.GetObject("JobPage01_JobPostingExtended09", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] JobPage01_JobPostingExtended10 {
+            get {
+                object obj = ResourceManager.GetObject("JobPage01_JobPostingExtended10", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] JobPage01_JobPostingExtended11 {
+            get {
+                object obj = ResourceManager.GetObject("JobPage01_JobPostingExtended11", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] JobPage01_JobPostingExtended12 {
+            get {
+                object obj = ResourceManager.GetObject("JobPage01_JobPostingExtended12", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] JobPage01_JobPostingExtended13 {
+            get {
+                object obj = ResourceManager.GetObject("JobPage01_JobPostingExtended13", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] JobPage01_JobPostingExtended14 {
+            get {
+                object obj = ResourceManager.GetObject("JobPage01_JobPostingExtended14", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] JobPage01_JobPostingExtended15 {
+            get {
+                object obj = ResourceManager.GetObject("JobPage01_JobPostingExtended15", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] JobPage01_JobPostingExtended16 {
+            get {
+                object obj = ResourceManager.GetObject("JobPage01_JobPostingExtended16", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] JobPage01_JobPostingExtended17 {
+            get {
+                object obj = ResourceManager.GetObject("JobPage01_JobPostingExtended17", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] JobPage01_JobPostingExtended18 {
+            get {
+                object obj = ResourceManager.GetObject("JobPage01_JobPostingExtended18", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] JobPage01_JobPostingExtended19 {
+            get {
+                object obj = ResourceManager.GetObject("JobPage01_JobPostingExtended19", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] JobPage01_JobPostingExtended20 {
+            get {
+                object obj = ResourceManager.GetObject("JobPage01_JobPostingExtended20", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] JobPage02 {
+            get {
+                object obj = ResourceManager.GetObject("JobPage02", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] JobPage02_JobPostingExtended01 {
+            get {
+                object obj = ResourceManager.GetObject("JobPage02_JobPostingExtended01", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] JobPage02_JobPostingExtended02 {
+            get {
+                object obj = ResourceManager.GetObject("JobPage02_JobPostingExtended02", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] JobPage02_JobPostingExtended03 {
+            get {
+                object obj = ResourceManager.GetObject("JobPage02_JobPostingExtended03", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] JobPage02_JobPostingExtended04 {
+            get {
+                object obj = ResourceManager.GetObject("JobPage02_JobPostingExtended04", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] JobPage02_JobPostingExtended05 {
+            get {
+                object obj = ResourceManager.GetObject("JobPage02_JobPostingExtended05", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] JobPage02_JobPostingExtended06 {
+            get {
+                object obj = ResourceManager.GetObject("JobPage02_JobPostingExtended06", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] JobPage02_JobPostingExtended07 {
+            get {
+                object obj = ResourceManager.GetObject("JobPage02_JobPostingExtended07", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] JobPage02_JobPostingExtended08 {
+            get {
+                object obj = ResourceManager.GetObject("JobPage02_JobPostingExtended08", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] JobPage02_JobPostingExtended09 {
+            get {
+                object obj = ResourceManager.GetObject("JobPage02_JobPostingExtended09", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 
+        ///&lt;!DOCTYPE HTML&gt;
+        ///&lt;html lang=&quot;da&quot;&gt;
+        ///    &lt;head&gt;
+        ///    &lt;meta charset=&quot;UTF-8&quot;/&gt;
+        ///    &lt;title&gt;Jobannonce&lt;/title&gt;
+        ///    
+        ///    
+        ///    &lt;meta name=&quot;template&quot; content=&quot;content-page&quot;/&gt;
+        ///    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;/&gt;
+        ///    
+        ///
+        ///    
+        ///
+        ///    
+        ///
+        ///	&lt;!-- OneTrust Cookie Consent - START --&gt;
+        ///	&lt;!-- OneTrust Cookies Consent Notice start for www.novonordisk.dk --&gt;
+        ///&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdn.cookielaw.org/consent/ef63df1a-7968-4c59-944c-931160f6fff8/OtAutoBlock.js&quot;&gt;&lt;/script&gt;
+        ///&lt;script  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string JobPage02_JobPostingExtended10 {
+            get {
+                return ResourceManager.GetString("JobPage02_JobPostingExtended10", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 
+        ///&lt;!DOCTYPE HTML&gt;
+        ///&lt;html lang=&quot;da&quot;&gt;
+        ///    &lt;head&gt;
+        ///    &lt;meta charset=&quot;UTF-8&quot;/&gt;
+        ///    &lt;title&gt;Jobannonce&lt;/title&gt;
+        ///    
+        ///    
+        ///    &lt;meta name=&quot;template&quot; content=&quot;content-page&quot;/&gt;
+        ///    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;/&gt;
+        ///    
+        ///
+        ///    
+        ///
+        ///    
+        ///
+        ///	&lt;!-- OneTrust Cookie Consent - START --&gt;
+        ///	&lt;!-- OneTrust Cookies Consent Notice start for www.novonordisk.dk --&gt;
+        ///&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdn.cookielaw.org/consent/ef63df1a-7968-4c59-944c-931160f6fff8/OtAutoBlock.js&quot;&gt;&lt;/script&gt;
+        ///&lt;script  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string JobPage02_JobPostingExtended11 {
+            get {
+                return ResourceManager.GetString("JobPage02_JobPostingExtended11", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;!DOCTYPE html&gt;
+        ///&lt;html class=&quot;ku-bs theme-faelles&quot; lang=&quot;da&quot;&gt;
+        ///&lt;head&gt;
+        ///  &lt;meta content=&quot;IE=edge&quot; http-equiv=&quot;X-UA-Compatible&quot;&gt;
+        ///
+        ///  &lt;!-- Responsive viewport: --&gt;
+        ///  &lt;meta content=&quot;width=device-width, initial-scale=1.0&quot; name=&quot;viewport&quot;&gt;
+        ///
+        ///
+        ///  &lt;!-- jQuery 3.1.0 --&gt;
+        ///  &lt;script src=&quot;https://cms.ku.dk/jquery/jquery.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+        ///
+        ///  &lt;script src=&quot;https://cms.ku.dk/scripts_js/cookies/cookie_filters.js?ku_rollout_2021_07_01_version763&quot;&gt;&lt;/script&gt;
+        ///
+        ///
+        ///  &lt;title&gt;Two postdoctoral positions in field-based  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string JobPage02_JobPostingExtended12 {
+            get {
+                return ResourceManager.GetString("JobPage02_JobPostingExtended12", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;!DOCTYPE html&gt;
+        ///&lt;html&gt;
+        ///&lt;head&gt;
+        ///	&lt;!-- Basic Meta tags --&gt;
+        ///	&lt;meta charset=&quot;utf-8&quot;&gt;
+        ///  &lt;meta http-equiv=&quot;x-ua-compatible&quot; content=&quot;IE=Edge&quot;&gt;
+        ///	&lt;meta name=&quot;description&quot; content=&quot;LEO Pharma - Clinical disclosure specialist&quot;&gt;
+        ///	&lt;meta name=&quot;designer&quot; content=&quot;Kenneth A. Amundsen, Visma Software Labs&quot;&gt;
+        ///	&lt;meta name=&quot;author&quot; content=&quot;LEO Pharma&quot;&gt;
+        ///	&lt;!-- Page title --&gt;
+        ///	&lt;title&gt;LEO Pharma - Clinical disclosure specialist&lt;/title&gt;
+        ///  &lt;!-- Favicon --&gt;
+        ///	&lt;link rel=&quot;shortcut icon&quot; href=&quot;/files/favicon.ico&quot;&gt;
+        ///	&lt;!-- Open Graph Protoc [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string JobPage02_JobPostingExtended13 {
+            get {
+                return ResourceManager.GetString("JobPage02_JobPostingExtended13", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 
+        ///
+        ///&lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en-US&quot;&gt;
+        ///  &lt;head&gt;
+        ///    &lt;!-- Application Properties --&gt;
+        ///    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;chrome=1;IE=EDGE&quot; /&gt;
+        ///    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
+        ///    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=2.0&quot;&gt;
+        ///    &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer-when-downgrade&quot;&gt;
+        ///    
+        ///
+        ///	&lt;title&gt;Workday&lt;/title&gt;
+        ///	&lt;link rel=&quot;icon&quot; href=&quot;/assets/images/favicon.ico&quot;&gt;
+        ///
+        ///    &lt;!-- Stylesheets --&gt;
+        ///    &lt;style type=&quot;text [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string JobPage02_JobPostingExtended14 {
+            get {
+                return ResourceManager.GetString("JobPage02_JobPostingExtended14", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///&lt;head&gt;
+        ///  &lt;meta charset=&quot;utf-8&quot;&gt;
+        ///  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+        ///  &lt;title&gt;Job Posting Page External&lt;/title&gt;
+        ///  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0&quot;/&gt;
+        ///  &lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;https://jobsearch.maersk.com/jobposting/css/styles.css&quot; media=&quot;all&quot;/&gt;
+        ///  &lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;https://jobsearch.maersk.com/jobposting/css/print.css&quot; media=&quot;print&quot;/&gt; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string JobPage02_JobPostingExtended15 {
+            get {
+                return ResourceManager.GetString("JobPage02_JobPostingExtended15", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;!DOCTYPE html&gt;
+        ///&lt;html class=&quot;no-js&quot; prefix=&quot;og: http://ogp.me/ns#&quot;&gt;
+        ///&lt;head&gt;
+        ///&lt;meta charset=&quot;utf-8&quot; /&gt;
+        ///&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=1&quot;&gt;
+        ///
+        ///
+        ///&lt;meta name=&quot;description&quot; content=&quot;Vis ledig stilling på Aalborg Universitet&quot; /&gt;
+        ///&lt;title&gt;Ledige stillinger på Aalborg Universitet&lt;/title&gt;
+        ///
+        ///&lt;!-- Cookie Information Consent --&gt;
+        ///&lt;script id=&quot;CookieConsent&quot; src=&quot;https://policy.app.cookieinformation.com/uc.js&quot; data-culture=&quot;DA&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+        ///&lt;!-- Rem [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string JobPage02_JobPostingExtended16 {
+            get {
+                return ResourceManager.GetString("JobPage02_JobPostingExtended16", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///&lt;head&gt;
+        ///  &lt;meta charset=&quot;utf-8&quot;&gt;
+        ///  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+        ///  &lt;title&gt;Job Posting Page External&lt;/title&gt;
+        ///  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0&quot;/&gt;
+        ///  &lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;https://jobsearch.maersk.com/jobposting/css/styles.css&quot; media=&quot;all&quot;/&gt;
+        ///  &lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;https://jobsearch.maersk.com/jobposting/css/print.css&quot; media=&quot;print&quot;/&gt; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string JobPage02_JobPostingExtended17 {
+            get {
+                return ResourceManager.GetString("JobPage02_JobPostingExtended17", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///&lt;head&gt;
+        ///  &lt;meta charset=&quot;utf-8&quot;&gt;
+        ///  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+        ///  &lt;title&gt;Job Posting Page External&lt;/title&gt;
+        ///  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0&quot;/&gt;
+        ///  &lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;https://jobsearch.maersk.com/jobposting/css/styles.css&quot; media=&quot;all&quot;/&gt;
+        ///  &lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;https://jobsearch.maersk.com/jobposting/css/print.css&quot; media=&quot;print&quot;/&gt; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string JobPage02_JobPostingExtended18 {
+            get {
+                return ResourceManager.GetString("JobPage02_JobPostingExtended18", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;!DOCTYPE html&gt;
+        ///&lt;html class=&quot;html5&quot; xml:lang=&quot;en-GB&quot; lang=&quot;en-GB&quot; xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+        ///
+        ///        &lt;head&gt;
+        ///            &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot; /&gt;
+        ///            &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
+        ///                &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+        ///                        &lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;/platform/bootstrap/3.4.1/css/bootstrap.min.css&quot; /&gt;
+        ///                        [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string JobPage02_JobPostingExtended19 {
+            get {
+                return ResourceManager.GetString("JobPage02_JobPostingExtended19", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 
+        ///
+        ///&lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en-US&quot;&gt;
+        ///  &lt;head&gt;
+        ///    &lt;!-- Application Properties --&gt;
+        ///    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;chrome=1;IE=EDGE&quot; /&gt;
+        ///    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
+        ///    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=2.0&quot;&gt;
+        ///    &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer-when-downgrade&quot;&gt;
+        ///    
+        ///
+        ///	&lt;title&gt;Workday&lt;/title&gt;
+        ///	&lt;link rel=&quot;icon&quot; href=&quot;/assets/images/favicon.ico&quot;&gt;
+        ///
+        ///    &lt;!-- Stylesheets --&gt;
+        ///    &lt;style type=&quot;text [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string JobPage02_JobPostingExtended20 {
+            get {
+                return ResourceManager.GetString("JobPage02_JobPostingExtended20", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 
         ///
         ///

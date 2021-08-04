@@ -1,0 +1,301 @@
+{
+    "WorkSchedule": [
+        {
+            "Id": 1,
+            "Name": "Fuldtid"
+        },
+        {
+            "Id": 16,
+            "Name": "Deltid"
+        }
+    ],
+    "WorkConditions": [
+        {
+            "Id": 1,
+            "Name": "Almindelige vilkår"
+        },
+        {
+            "Id": 2,
+            "Name": "Fleksjob"
+        },
+        {
+            "Id": 3,
+            "Name": "Skånejob"
+        },
+        {
+            "Id": 4,
+            "Name": "Egnet til efterlønnere og seniorer"
+        },
+        {
+            "Id": 5,
+            "Name": "Job med løntilskud"
+        },
+        {
+            "Id": 6,
+            "Name": "Rotationsjob"
+        },
+        {
+            "Id": 7,
+            "Name": "Virksomhedspraktik"
+        }
+    ],
+    "EmploymentTypes": [
+        {
+            "Id": 1,
+            "Name": "Fastansættelse"
+        },
+        {
+            "Id": 16,
+            "Name": "Tidsbegrænset ansættelse"
+        }
+    ],
+    "WorkPlace": {
+        "Name": "TeamVikaren.dk, Århus ApS, Horsens Afdeling",
+        "Address": {
+            "AddressLine": "Strandpromenaden 6",
+            "Country": {
+                "Id": 58,
+                "Name": "Danmark"
+            },
+            "Municipality": {
+                "Id": 615,
+                "Name": "Horsens"
+            },
+            "Region": {
+                "Id": 2,
+                "Name": "Midtjylland"
+            },
+            "PostalCode": "8700",
+            "City": "Horsens"
+        },
+        "PhoneNumber": {
+            "Number": null,
+            "Type": 0,
+            "Description": "Primary"
+        },
+        "FaxNumber": null,
+        "Email": null,
+        "WebAddress": null,
+        "Description": null,
+        "Logo": 126565,
+        "WorkPlaceOrganizationNumber": "1016232765",
+        "OrganizationNumber": "30899695",
+        "OrganizationDescription": null
+    },
+    "JobPositionPosting": {
+        "Id": 5365786,
+        "OriginalJppId": 5365786,
+        "HiringOrg": {
+            "Name": "TeamVikaren.dk, Århus ApS, Horsens Afdeling",
+            "Address": {
+                "AddressLine": "Strandpromenaden 6",
+                "Country": {
+                    "Id": 58,
+                    "Name": "Danmark"
+                },
+                "Municipality": {
+                    "Id": 615,
+                    "Name": "Horsens"
+                },
+                "Region": {
+                    "Id": 2,
+                    "Name": "Midtjylland"
+                },
+                "PostalCode": "8700",
+                "City": "Horsens"
+            },
+            "PhoneNumber": {
+                "Number": null,
+                "Type": 0,
+                "Description": "Primary"
+            },
+            "FaxNumber": null,
+            "Email": null,
+            "WebAddress": null,
+            "Description": null,
+            "Logo": 126565,
+            "WorkPlaceOrganizationNumber": "1016232765",
+            "OrganizationNumber": "30899695",
+            "OrganizationDescription": null
+        },
+        "RecruitingCompany": null,
+        "PublicationStartDate": "2021-07-02T00:00:00",
+        "PublicationEndDate": "2021-08-04T00:00:00",
+        "JobPositionInformation": {
+            "PositionTitle": "Motivated forklift drivers for temporary positions during the summer in Skanderborg",
+            "Purpose": "<p>Are you looking to work during the Summer in the weeks between 27 to 36, then we have the job for you.</p>\n<p><strong>We offer</strong></p>\n<ul>\n<li>Good work conditions</li>\n<li>A social workplace with good colleagues</li>\n<li>Flexibility regarding shifts</li>\n<li>Possibility for day and evening shifts</li>\n</ul>\n<p><strong>The company</strong></p>\n<p>Our customers are all large warehouses that needs help with holiday settlement.</p>\n<p><strong>The job</strong></p>\n<p>As a temporary worker in these companies, you have the opportunity to become part of an international workplace. You will work in a warehouse, your tasks will primarily be forklift driving. In close collaboration with your new colleagues, you will receive training.</p>\n<p><strong>Your profile</strong></p>\n<ul>\n<li>You want to work in warehousing and logistics</li>\n<li>You can work a minimum of 3 weeks in the period week 27 - 36</li>\n<li>You can work either day or evening</li>\n<li>You have experience with forklift driving</li>\n<li>You like working in teams</li>\n</ul>\n<p><strong>Working hours</strong></p>\n<p><strong>Day shifts</strong></p>\n<p>Monday to Friday from 08.00–16.00</p>\n<p><strong>Evening shift</strong></p>\n<p>Monday to Friday from 15.00-23.00</p>\n<p><strong>How to apply</strong></p>\n<p>Go to our website&nbsp;<strong><a href=\"http://www.teamvikaren.dk/\">www.teamvikaren.dk</a></strong>&nbsp;remember to upload your CV.</p>\n<p>Are you already part of our database or do you have further questions, you can contact us on 7027 7665 Monday to Friday from kl. 09.00-15.00.</p>\n<p>&nbsp;</p>",
+            "WorkLocation": {
+                "AddressLine": "",
+                "Country": {
+                    "Id": 58,
+                    "Name": "Danmark"
+                },
+                "Municipality": {
+                    "Id": 746,
+                    "Name": "Skanderborg"
+                },
+                "Region": {
+                    "Id": 2,
+                    "Name": "Midtjylland"
+                },
+                "PostalCode": "8660",
+                "City": "Skanderborg"
+            },
+            "EmploymentType": 16,
+            "WeeklyWorkHours": {
+                "TypeId": 1,
+                "TypeName": "Fuldtid",
+                "Description": null
+            },
+            "CompensationDescription": null,
+            "NumberToFill": 5,
+            "DriverLicense": [],
+            "Occupation": {
+                "DiscoWeb": 0,
+                "AlternateNames": [],
+                "GroupId": 0,
+                "AreaId": 0,
+                "Id": 0,
+                "Name": null
+            },
+            "IsGovernmentHiring": false,
+            "JppContacts": [
+                {
+                    "Id": 7126775,
+                    "Email": null,
+                    "FaxNumber": null,
+                    "PersonName": "Majken Lorentzen",
+                    "FirstName": "Majken",
+                    "LastName": "Lorentzen",
+                    "PositionTitle": "Personalekonsulent",
+                    "PhoneNumbers": [
+                        {
+                            "Number": "70277665",
+                            "Type": 0,
+                            "Description": "Hovednummer"
+                        }
+                    ]
+                }
+            ],
+            "EmploymentDate": null
+        },
+        "IsRecruitmentOfForeignNationals": true,
+        "IsWorkInDenmark": true,
+        "IsAnonymousEmployer": false,
+        "IsDisabilityFriendly": false,
+        "JppType": 4,
+        "ApplicationDetails": {
+            "WorkHourMax": null,
+            "WorkHourMin": null,
+            "DailyWorkTimeWeekend": false,
+            "DailyWorkTimeNight": false,
+            "DailyWorkTimeEvening": true,
+            "DailyWorkTimeDay": true,
+            "ReferenceText": null,
+            "RemarksToApplicant": null,
+            "ByEmail": null,
+            "ByPhone": null,
+            "ApplyViaUrl": "www.teamvikaren.dk",
+            "ReplyInWriting": false,
+            "ApplicationDeadlineDate": "2021-08-04T00:00:00"
+        },
+        "ContactAuthorityPhoneNumber": {
+            "Number": null,
+            "Type": 0,
+            "Description": "Primary"
+        },
+        "Status": 7
+    },
+    "LogoUrl": "/CV/FindWork/GetLogo?JobAdId=5365786&WorkPlace=126565&Organisation=30899695",
+    "Address": "Strandpromenaden 6,8700, Horsens",
+    "ShowMap": false,
+    "ShowShareButtonJobLog": false,
+    "JobLogUrl": "/CV/Jobseeking/JobLog/CreateJobSearch?JobnetJobPostingIdentifier=5365786&Company.Name=TeamVikaren.dk, Århus ApS, Horsens Afdeling&SubmissionDeadlineDate=2021-8-4&Title=Motivated forklift drivers for temporary positions during the summer in Skanderborg&JobAdUrl=https://job.jobnet.dk/CV/FindWork/Details/5365786&WeeklyWorkTime=1",
+    "JobLogTemplateModel": {
+        "Identifier": "00000000-0000-0000-0000-000000000000",
+        "UseWorkPlaceAddressForJoblog": false,
+        "Category": 0,
+        "CvCustomerIdentifier": null,
+        "JobSeekingStatus": null,
+        "Title": "Motivated forklift drivers for temporary positions during the summer in Skanderborg",
+        "IsApplicationSourceRequired": true,
+        "ApplicationSource": null,
+        "IsWeeklyWorkTimeRequired": true,
+        "WeeklyWorkTime": 1,
+        "HoursPerWeek": null,
+        "JobnetJobPostingIdentifier": "5365786",
+        "JobAdUrl": "https://job.jobnet.dk/CV/FindWork/JobDetailJsonWIDK?id=5365786",
+        "JobAdDocument": null,
+        "Company": {
+            "JobLogEntryCategory": 0,
+            "ShowAddressFieldsEvenIfEmpty": false,
+            "Name": "TeamVikaren.dk, Århus ApS, Horsens Afdeling",
+            "Address": "Strandpromenaden 6",
+            "Country": null,
+            "EmploymentAreaID": null,
+            "PostCode": "8700",
+            "IsCountryAndTownAndPostCodeEmpty": false,
+            "IsTownAndPostCodeEmpty": false,
+            "IsCountryDanmark": false,
+            "Town": "Horsens",
+            "ContactPerson": "Majken Lorentzen",
+            "Phone": "70277665",
+            "Email": null,
+            "Latitude": null,
+            "Longitude": null,
+            "DailyTravelTimeInMinutes": null,
+            "DistanceToCompanyInMeters": null,
+            "IsCreateMode": false
+        },
+        "TypeOfSubmission": null,
+        "SubmissionDate": "2021-08-04T00:00:00",
+        "SubmissionDateFormatted": null,
+        "SubmissionDateTiks": 0,
+        "IsSubmissionDateRequired": false,
+        "Status": 0,
+        "DateCreatedFormatted": null,
+        "DateCreated": null,
+        "DateModifiedFormatted": null,
+        "DateModified": null,
+        "LastModifiedDateTiks": 0,
+        "DateClosed": null,
+        "JobApplicationDocument": {
+            "Title": null,
+            "Identifier": null,
+            "IsDeleted": false
+        },
+        "CvDocument": {
+            "Title": null,
+            "Identifier": null,
+            "IsDeleted": false
+        },
+        "JobApplicationFile": null,
+        "CvFile": null,
+        "SubmissionDeadlineDate": null,
+        "IsPersisted": false,
+        "ServerValidationErrors": [],
+        "HasServerValidationErrors": false
+    },
+    "JoblogWorkTime": {
+        "WorkHour": null,
+        "DailyWorkTime": "Dag, aften"
+    },
+    "Place": "Work place location Skanderborg municipality",
+    "OpenPrintDialog": false,
+    "WorkPlaceInfoText": "TeamVikaren.dk, Århus ApS, Horsens Afdeling",
+    "JobCenterContactDetails": "",
+    "WorkPlaceDescriptionText": null,
+    "FavoriteText": "",
+    "IsFavorite": false,
+    "ShowFavorite": false,
+    "MetaOgTextForSharing": "Are you looking to work during the Summer in the weeks between 27 to 36, then we have the job for you.\nWe offer\n\nGood work conditions\nA social workplace with good colleagues\nFlexibility regarding shifts\nPossibility for day and evening shifts\n\nThe company\nOur customers are all large warehouses that needs help with holiday settlement.\nThe job\nAs a te",
+    "DescriptionForSharing": "\"Are you looking to work during the Summer in the weeks between 27 to 36, then we have the job for you.\\nWe offer\\n\\nGood work conditions\\nA social workplace with good colleagues\\nFlexibility regarding shifts\\nPossibility for day and evening shifts\\n\\nThe company\\nOur customers are all large warehouses that needs help with holiday settlement.\\nThe job\\nAs a te\"",
+    "TitleForSharing": "\"Motivated forklift drivers for temporary positions during the summer in Skanderborg\"",
+    "RutePlan": "https://www.google.dk/maps/dir//Strandpromenaden+6,8700,+Horsens/",
+    "FormattedPurpose": "<p>Are you looking to work during the Summer in the weeks between 27 to 36, then we have the job for you.</p>\n<p><strong>We offer</strong></p>\n<ul>\n<li>Good work conditions</li>\n<li>A social workplace with good colleagues</li>\n<li>Flexibility regarding shifts</li>\n<li>Possibility for day and evening shifts</li>\n</ul>\n<p><strong>The company</strong></p>\n<p>Our customers are all large warehouses that needs help with holiday settlement.</p>\n<p><strong>The job</strong></p>\n<p>As a temporary worker in these companies, you have the opportunity to become part of an international workplace. You will work in a warehouse, your tasks will primarily be forklift driving. In close collaboration with your new colleagues, you will receive training.</p>\n<p><strong>Your profile</strong></p>\n<ul>\n<li>You want to work in warehousing and logistics</li>\n<li>You can work a minimum of 3 weeks in the period week 27 - 36</li>\n<li>You can work either day or evening</li>\n<li>You have experience with forklift driving</li>\n<li>You like working in teams</li>\n</ul>\n<p><strong>Working hours</strong></p>\n<p><strong>Day shifts</strong></p>\n<p>Monday to Friday from 08.00–16.00</p>\n<p><strong>Evening shift</strong></p>\n<p>Monday to Friday from 15.00-23.00</p>\n<p><strong>How to apply</strong></p>\n<p>Go to our website <strong><a target=\"_blank\" href=\"http://www.teamvikaren.dk/\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5365786\">www.teamvikaren.dk</a></strong> remember to upload your CV.</p>\n<p>Are you already part of our database or do you have further questions, you can contact us on 7027 7665 Monday to Friday from kl. 09.00-15.00.</p>\n<p> </p>",
+    "MapUrl": "https://www.google.dk/maps/place/Strandpromenaden+6,8700,+Horsens/",
+    "OrganizationNumber": "30899695",
+    "ShowSearchJobButton": false,
+    "ShowPrint": false,
+    "BackToFindWorkButtonUrl": null
+}

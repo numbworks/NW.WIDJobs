@@ -1,0 +1,301 @@
+{
+    "WorkSchedule": [
+        {
+            "Id": 1,
+            "Name": "Fuldtid"
+        },
+        {
+            "Id": 16,
+            "Name": "Deltid"
+        }
+    ],
+    "WorkConditions": [
+        {
+            "Id": 1,
+            "Name": "Almindelige vilkår"
+        },
+        {
+            "Id": 2,
+            "Name": "Fleksjob"
+        },
+        {
+            "Id": 3,
+            "Name": "Skånejob"
+        },
+        {
+            "Id": 4,
+            "Name": "Egnet til efterlønnere og seniorer"
+        },
+        {
+            "Id": 5,
+            "Name": "Job med løntilskud"
+        },
+        {
+            "Id": 6,
+            "Name": "Rotationsjob"
+        },
+        {
+            "Id": 7,
+            "Name": "Virksomhedspraktik"
+        }
+    ],
+    "EmploymentTypes": [
+        {
+            "Id": 1,
+            "Name": "Fastansættelse"
+        },
+        {
+            "Id": 16,
+            "Name": "Tidsbegrænset ansættelse"
+        }
+    ],
+    "WorkPlace": {
+        "Name": "Vikar DK A/S",
+        "Address": {
+            "AddressLine": "Egeskovvej 17",
+            "Country": {
+                "Id": 58,
+                "Name": "Danmark"
+            },
+            "Municipality": {
+                "Id": 615,
+                "Name": "Horsens"
+            },
+            "Region": {
+                "Id": 2,
+                "Name": "Midtjylland"
+            },
+            "PostalCode": "8700",
+            "City": "Horsens"
+        },
+        "PhoneNumber": {
+            "Number": null,
+            "Type": 0,
+            "Description": "Primary"
+        },
+        "FaxNumber": null,
+        "Email": null,
+        "WebAddress": null,
+        "Description": null,
+        "Logo": 99015,
+        "WorkPlaceOrganizationNumber": "1017246042",
+        "OrganizationNumber": "34046956",
+        "OrganizationDescription": null
+    },
+    "JobPositionPosting": {
+        "Id": 5366564,
+        "OriginalJppId": 5366564,
+        "HiringOrg": {
+            "Name": "Vikar DK A/S",
+            "Address": {
+                "AddressLine": "Egeskovvej 17",
+                "Country": {
+                    "Id": 58,
+                    "Name": "Danmark"
+                },
+                "Municipality": {
+                    "Id": 615,
+                    "Name": "Horsens"
+                },
+                "Region": {
+                    "Id": 2,
+                    "Name": "Midtjylland"
+                },
+                "PostalCode": "8700",
+                "City": "Horsens"
+            },
+            "PhoneNumber": {
+                "Number": null,
+                "Type": 0,
+                "Description": "Primary"
+            },
+            "FaxNumber": null,
+            "Email": null,
+            "WebAddress": null,
+            "Description": null,
+            "Logo": 99015,
+            "WorkPlaceOrganizationNumber": "1017246042",
+            "OrganizationNumber": "34046956",
+            "OrganizationDescription": null
+        },
+        "RecruitingCompany": null,
+        "PublicationStartDate": "2021-07-02T00:00:00",
+        "PublicationEndDate": "2021-08-05T00:00:00",
+        "JobPositionInformation": {
+            "PositionTitle": "warwhose worker with in experince using a runner",
+            "Purpose": "<p>10 persons needed for warehouse work in Horsens on both day and evening shift starting as soon as possible until the end of August.</p>\n<p>&nbsp;</p>\n<p>You need to have experience using a runner and will be able to work all of July and to the first weeks of August.</p>\n<p>&nbsp;</p>\n<p>Dayshift is from 07.00-15.00</p>\n<p>Evening shift is from 15.00-23.00</p>\n<p>&nbsp;</p>\n<p>The hourly pay is 148,95 and on evening shift there will be ekstra after kl 18.00</p>",
+            "WorkLocation": {
+                "AddressLine": "Egeskovvej 17",
+                "Country": {
+                    "Id": 58,
+                    "Name": "Danmark"
+                },
+                "Municipality": {
+                    "Id": 615,
+                    "Name": "Horsens"
+                },
+                "Region": {
+                    "Id": 2,
+                    "Name": "Midtjylland"
+                },
+                "PostalCode": "8700",
+                "City": "Horsens"
+            },
+            "EmploymentType": 16,
+            "WeeklyWorkHours": {
+                "TypeId": 1,
+                "TypeName": "Fuldtid",
+                "Description": null
+            },
+            "CompensationDescription": null,
+            "NumberToFill": 10,
+            "DriverLicense": [],
+            "Occupation": {
+                "DiscoWeb": 0,
+                "AlternateNames": [],
+                "GroupId": 0,
+                "AreaId": 0,
+                "Id": 0,
+                "Name": null
+            },
+            "IsGovernmentHiring": false,
+            "JppContacts": [
+                {
+                    "Id": 7119715,
+                    "Email": "bbo@vikardk.dk",
+                    "FaxNumber": null,
+                    "PersonName": "Bettina Bonde Thygesen",
+                    "FirstName": "Bettina",
+                    "LastName": "Bonde Thygesen",
+                    "PositionTitle": "Personalekonsulent",
+                    "PhoneNumbers": [
+                        {
+                            "Number": "75666060",
+                            "Type": 0,
+                            "Description": "Hovednummer"
+                        }
+                    ]
+                }
+            ],
+            "EmploymentDate": null
+        },
+        "IsRecruitmentOfForeignNationals": true,
+        "IsWorkInDenmark": true,
+        "IsAnonymousEmployer": false,
+        "IsDisabilityFriendly": false,
+        "JppType": 4,
+        "ApplicationDetails": {
+            "WorkHourMax": null,
+            "WorkHourMin": null,
+            "DailyWorkTimeWeekend": false,
+            "DailyWorkTimeNight": false,
+            "DailyWorkTimeEvening": true,
+            "DailyWorkTimeDay": true,
+            "ReferenceText": null,
+            "RemarksToApplicant": null,
+            "ByEmail": "bbj@vikardk.dk",
+            "ByPhone": "75666060",
+            "ApplyViaUrl": null,
+            "ReplyInWriting": true,
+            "ApplicationDeadlineDate": "2021-08-05T00:00:00"
+        },
+        "ContactAuthorityPhoneNumber": {
+            "Number": null,
+            "Type": 0,
+            "Description": "Primary"
+        },
+        "Status": 7
+    },
+    "LogoUrl": "/CV/FindWork/GetLogo?JobAdId=5366564&WorkPlace=99015&Organisation=34046956",
+    "Address": "Egeskovvej 17,8700, Horsens",
+    "ShowMap": true,
+    "ShowShareButtonJobLog": false,
+    "JobLogUrl": "/CV/Jobseeking/JobLog/CreateJobSearch?JobnetJobPostingIdentifier=5366564&Company.Name=Vikar DK A/S&SubmissionDeadlineDate=2021-8-5&Title=warwhose worker with in experince using a runner&JobAdUrl=https://job.jobnet.dk/CV/FindWork/Details/5366564&WeeklyWorkTime=1",
+    "JobLogTemplateModel": {
+        "Identifier": "00000000-0000-0000-0000-000000000000",
+        "UseWorkPlaceAddressForJoblog": false,
+        "Category": 0,
+        "CvCustomerIdentifier": null,
+        "JobSeekingStatus": null,
+        "Title": "warwhose worker with in experince using a runner",
+        "IsApplicationSourceRequired": true,
+        "ApplicationSource": null,
+        "IsWeeklyWorkTimeRequired": true,
+        "WeeklyWorkTime": 1,
+        "HoursPerWeek": null,
+        "JobnetJobPostingIdentifier": "5366564",
+        "JobAdUrl": "https://job.jobnet.dk/CV/FindWork/JobDetailJsonWIDK?id=5366564",
+        "JobAdDocument": null,
+        "Company": {
+            "JobLogEntryCategory": 0,
+            "ShowAddressFieldsEvenIfEmpty": false,
+            "Name": "Vikar DK A/S",
+            "Address": "Egeskovvej 17",
+            "Country": null,
+            "EmploymentAreaID": null,
+            "PostCode": "8700",
+            "IsCountryAndTownAndPostCodeEmpty": false,
+            "IsTownAndPostCodeEmpty": false,
+            "IsCountryDanmark": false,
+            "Town": "Horsens",
+            "ContactPerson": "Bettina Bonde Thygesen",
+            "Phone": "75666060",
+            "Email": "bbo@vikardk.dk",
+            "Latitude": null,
+            "Longitude": null,
+            "DailyTravelTimeInMinutes": null,
+            "DistanceToCompanyInMeters": null,
+            "IsCreateMode": false
+        },
+        "TypeOfSubmission": null,
+        "SubmissionDate": "2021-08-05T00:00:00",
+        "SubmissionDateFormatted": null,
+        "SubmissionDateTiks": 0,
+        "IsSubmissionDateRequired": false,
+        "Status": 0,
+        "DateCreatedFormatted": null,
+        "DateCreated": null,
+        "DateModifiedFormatted": null,
+        "DateModified": null,
+        "LastModifiedDateTiks": 0,
+        "DateClosed": null,
+        "JobApplicationDocument": {
+            "Title": null,
+            "Identifier": null,
+            "IsDeleted": false
+        },
+        "CvDocument": {
+            "Title": null,
+            "Identifier": null,
+            "IsDeleted": false
+        },
+        "JobApplicationFile": null,
+        "CvFile": null,
+        "SubmissionDeadlineDate": null,
+        "IsPersisted": false,
+        "ServerValidationErrors": [],
+        "HasServerValidationErrors": false
+    },
+    "JoblogWorkTime": {
+        "WorkHour": null,
+        "DailyWorkTime": "Dag, aften"
+    },
+    "Place": "Work place location Horsens municipality",
+    "OpenPrintDialog": false,
+    "WorkPlaceInfoText": "Vikar DK A/S",
+    "JobCenterContactDetails": "",
+    "WorkPlaceDescriptionText": null,
+    "FavoriteText": "",
+    "IsFavorite": false,
+    "ShowFavorite": false,
+    "MetaOgTextForSharing": "10 persons needed for warehouse work in Horsens on both day and evening shift starting as soon as possible until the end of August.\n\nYou need to have experience using a runner and will be able to work all of July and to the first weeks of August.\n\nDayshift is from 07.00-15.00\nEvening shift is from 15.00-23.00\n\nThe hourly pay is 148,95 and on evenin",
+    "DescriptionForSharing": "\"10 persons needed for warehouse work in Horsens on both day and evening shift starting as soon as possible until the end of August.\\n\\nYou need to have experience using a runner and will be able to work all of July and to the first weeks of August.\\n\\nDayshift is from 07.00-15.00\\nEvening shift is from 15.00-23.00\\n\\nThe hourly pay is 148,95 and on evenin\"",
+    "TitleForSharing": "\"warwhose worker with in experince using a runner\"",
+    "RutePlan": "https://www.google.dk/maps/dir//Egeskovvej+17,8700,+Horsens/",
+    "FormattedPurpose": "<p>10 persons needed for warehouse work in Horsens on both day and evening shift starting as soon as possible until the end of August.</p>\n<p> </p>\n<p>You need to have experience using a runner and will be able to work all of July and to the first weeks of August.</p>\n<p> </p>\n<p>Dayshift is from 07.00-15.00</p>\n<p>Evening shift is from 15.00-23.00</p>\n<p> </p>\n<p>The hourly pay is 148,95 and on evening shift there will be ekstra after kl 18.00</p>",
+    "MapUrl": "https://www.google.dk/maps/place/Egeskovvej+17,8700,+Horsens/",
+    "OrganizationNumber": "34046956",
+    "ShowSearchJobButton": false,
+    "ShowPrint": false,
+    "BackToFindWorkButtonUrl": null
+}

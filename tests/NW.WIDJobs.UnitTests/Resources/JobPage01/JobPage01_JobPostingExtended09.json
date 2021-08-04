@@ -1,0 +1,301 @@
+{
+    "WorkSchedule": [
+        {
+            "Id": 1,
+            "Name": "Fuldtid"
+        },
+        {
+            "Id": 16,
+            "Name": "Deltid"
+        }
+    ],
+    "WorkConditions": [
+        {
+            "Id": 1,
+            "Name": "Almindelige vilkår"
+        },
+        {
+            "Id": 2,
+            "Name": "Fleksjob"
+        },
+        {
+            "Id": 3,
+            "Name": "Skånejob"
+        },
+        {
+            "Id": 4,
+            "Name": "Egnet til efterlønnere og seniorer"
+        },
+        {
+            "Id": 5,
+            "Name": "Job med løntilskud"
+        },
+        {
+            "Id": 6,
+            "Name": "Rotationsjob"
+        },
+        {
+            "Id": 7,
+            "Name": "Virksomhedspraktik"
+        }
+    ],
+    "EmploymentTypes": [
+        {
+            "Id": 1,
+            "Name": "Fastansættelse"
+        },
+        {
+            "Id": 16,
+            "Name": "Tidsbegrænset ansættelse"
+        }
+    ],
+    "WorkPlace": {
+        "Name": "TeamVikaren.dk, Århus ApS, Horsens Afdeling",
+        "Address": {
+            "AddressLine": "Strandpromenaden 6",
+            "Country": {
+                "Id": 58,
+                "Name": "Danmark"
+            },
+            "Municipality": {
+                "Id": 615,
+                "Name": "Horsens"
+            },
+            "Region": {
+                "Id": 2,
+                "Name": "Midtjylland"
+            },
+            "PostalCode": "8700",
+            "City": "Horsens"
+        },
+        "PhoneNumber": {
+            "Number": null,
+            "Type": 0,
+            "Description": "Primary"
+        },
+        "FaxNumber": null,
+        "Email": null,
+        "WebAddress": null,
+        "Description": null,
+        "Logo": 126565,
+        "WorkPlaceOrganizationNumber": "1016232765",
+        "OrganizationNumber": "30899695",
+        "OrganizationDescription": null
+    },
+    "JobPositionPosting": {
+        "Id": 5331002,
+        "OriginalJppId": 5331002,
+        "HiringOrg": {
+            "Name": "TeamVikaren.dk, Århus ApS, Horsens Afdeling",
+            "Address": {
+                "AddressLine": "Strandpromenaden 6",
+                "Country": {
+                    "Id": 58,
+                    "Name": "Danmark"
+                },
+                "Municipality": {
+                    "Id": 615,
+                    "Name": "Horsens"
+                },
+                "Region": {
+                    "Id": 2,
+                    "Name": "Midtjylland"
+                },
+                "PostalCode": "8700",
+                "City": "Horsens"
+            },
+            "PhoneNumber": {
+                "Number": null,
+                "Type": 0,
+                "Description": "Primary"
+            },
+            "FaxNumber": null,
+            "Email": null,
+            "WebAddress": null,
+            "Description": null,
+            "Logo": 126565,
+            "WorkPlaceOrganizationNumber": "1016232765",
+            "OrganizationNumber": "30899695",
+            "OrganizationDescription": null
+        },
+        "RecruitingCompany": null,
+        "PublicationStartDate": "2021-07-02T00:00:00",
+        "PublicationEndDate": "2021-07-15T00:00:00",
+        "JobPositionInformation": {
+            "PositionTitle": "Friske og oplagte medarbejdere til sortering af pakker på stort lager i Horsens/Motivated employees for sorting packages in a large warehouse in Horsens",
+            "Purpose": "<p><strong>English version below the Danish</strong></p>\n<p>Har du lyst til at være en del af et stort internationalt lager i Horsens, med højt til loftet og gode kollegaer og kan du starte med kort varsel, så er det dig vi søger.</p>\n<p><strong>Vi tilbyder</strong></p>\n<ul>\n<li>Ordnede forhold</li>\n<li>En social arbejdsplads med gode kollegaer</li>\n<li>Fleksibilitet vedr. vagter</li>\n<li>Mulighed for vagter både på hverdage og i weekender</li>\n</ul>\n<p><strong>Virksomheden</strong></p>\n<p>Vores kunde er en global udbyder af transport- og logistikløsninger, med lokationer i mere end 80 lande.</p>\n<p><strong>Jobbet</strong></p>\n<p>Som medarbejder i denne virksomhed, har du mulighed for at blive en del af en international arbejdsplads. Du kommer til at arbejde på lager, dine opgave består af sortering af pakker, som fordeles på paller efter numre. Du vil i tæt samarbejde med dine nye kollegaer få oplæring, så du er klædt ordentligt på til opgaven.</p>\n<p><strong>Din profil</strong></p>\n<ul>\n<li>Du har lyst til at arbejde inden for lager og logistik</li>\n<li>Du er fleksibel</li>\n<li>Du kan arbejde minimum 2 dage om ugen</li>\n<li>Du kan arbejde om eftermiddagen og aftenen</li>\n<li>Du har en god fysik</li>\n<li>Du kan lide at arbejde i teams</li>\n</ul>\n<p><strong>Arbejdstid</strong></p>\n<p>Arbejdstiderne er fastlagte på hverdage fra kl. 16.00-21.00 eller 20.00-00.00, lørdage fra 07.00-14.00</p>\n<p><strong>Sådan ansøger du</strong></p>\n<p>Gå ind på vores hjemmeside <a href=\"http://www.teamvikaren.dk\">www.teamvikaren.dk</a> husk at uploade CV.</p>\n<p>Er du allerede en del af vores database eller har du yderligere spørgsmål kan du kontakte os på 7027 7665 mandag til fredag fra kl. 09.00-15.00.</p>\n<p>&nbsp;</p>\n<p><strong>English version</strong></p>\n<p>Do you want to be part of a large international warehouse in Horsens, with good colleagues, are you able to start with a short notice, then we have the job for you.</p>\n<p><strong>We offer</strong></p>\n<ul>\n<li>Orderly conditions</li>\n<li>A social workplace with good colleagues</li>\n<li>Flexibility regarding shifts</li>\n<li>Possibility of shifts both on weekdays and on weekends</li>\n</ul>\n<p><strong>The company</strong></p>\n<p>Our customer is a global provider of transport and logistics solutions, with locations in more than 80 countries.</p>\n<p><strong>The job</strong></p>\n<p>As an employee of this company, you have the opportunity to become part of an international workplace. You will work in warehouse, your task consists of sorting packages, which are distributed on pallets by numbers. In close collaboration with your new colleagues, you will receive training.</p>\n<p><strong>Your profile</strong></p>\n<ul>\n<li>You want to work in warehousing and logistics</li>\n<li>You are flexible</li>\n<li>You can work a minimum of 2 days a week</li>\n<li>You can work in the afternoon and evening time</li>\n<li>You have a good physique</li>\n<li>You like working in teams</li>\n</ul>\n<p><strong>Working hours</strong></p>\n<p>The working hours are determined on weekdays from 16.00-21.00 or 20.00-00.00, Saturdays from 07.00-14.00</p>\n<p><strong>How to apply</strong></p>\n<p>Go to our website&nbsp;<a href=\"http://www.teamvikaren.dk\">www.teamvikaren.dk</a> remember to upload your CV.</p>\n<p>Are you already part of our database or do you have further questions, you can contact us on 7027 7665 Monday to Friday from 09.00-15.00.</p>",
+            "WorkLocation": {
+                "AddressLine": "Strandpromenaden 6",
+                "Country": {
+                    "Id": 58,
+                    "Name": "Danmark"
+                },
+                "Municipality": {
+                    "Id": 615,
+                    "Name": "Horsens"
+                },
+                "Region": {
+                    "Id": 2,
+                    "Name": "Midtjylland"
+                },
+                "PostalCode": "8700",
+                "City": "Horsens"
+            },
+            "EmploymentType": 16,
+            "WeeklyWorkHours": {
+                "TypeId": 16,
+                "TypeName": "Deltid",
+                "Description": null
+            },
+            "CompensationDescription": null,
+            "NumberToFill": 5,
+            "DriverLicense": [],
+            "Occupation": {
+                "DiscoWeb": 0,
+                "AlternateNames": [],
+                "GroupId": 0,
+                "AreaId": 0,
+                "Id": 0,
+                "Name": null
+            },
+            "IsGovernmentHiring": false,
+            "JppContacts": [
+                {
+                    "Id": 7126695,
+                    "Email": null,
+                    "FaxNumber": null,
+                    "PersonName": "Majken Lorentzen",
+                    "FirstName": "Majken",
+                    "LastName": "Lorentzen",
+                    "PositionTitle": "Personalekonsulent",
+                    "PhoneNumbers": [
+                        {
+                            "Number": "70277665",
+                            "Type": 0,
+                            "Description": "Hovednummer"
+                        }
+                    ]
+                }
+            ],
+            "EmploymentDate": null
+        },
+        "IsRecruitmentOfForeignNationals": true,
+        "IsWorkInDenmark": true,
+        "IsAnonymousEmployer": false,
+        "IsDisabilityFriendly": false,
+        "JppType": 4,
+        "ApplicationDetails": {
+            "WorkHourMax": 20,
+            "WorkHourMin": 8,
+            "DailyWorkTimeWeekend": false,
+            "DailyWorkTimeNight": false,
+            "DailyWorkTimeEvening": true,
+            "DailyWorkTimeDay": false,
+            "ReferenceText": null,
+            "RemarksToApplicant": null,
+            "ByEmail": null,
+            "ByPhone": null,
+            "ApplyViaUrl": "www.teamvikaren.dk",
+            "ReplyInWriting": false,
+            "ApplicationDeadlineDate": "2021-07-15T00:00:00"
+        },
+        "ContactAuthorityPhoneNumber": {
+            "Number": null,
+            "Type": 0,
+            "Description": "Primary"
+        },
+        "Status": 7
+    },
+    "LogoUrl": "/CV/FindWork/GetLogo?JobAdId=5331002&WorkPlace=126565&Organisation=30899695",
+    "Address": "Strandpromenaden 6,8700, Horsens",
+    "ShowMap": true,
+    "ShowShareButtonJobLog": false,
+    "JobLogUrl": "/CV/Jobseeking/JobLog/CreateJobSearch?JobnetJobPostingIdentifier=5331002&Company.Name=TeamVikaren.dk, Århus ApS, Horsens Afdeling&SubmissionDeadlineDate=2021-7-15&Title=Friske og oplagte medarbejdere til sortering af pakker på stort lager i Horsens/Motivated employees for sorting packages in a large warehouse in Horsens&JobAdUrl=https://job.jobnet.dk/CV/FindWork/Details/5331002&WeeklyWorkTime=2",
+    "JobLogTemplateModel": {
+        "Identifier": "00000000-0000-0000-0000-000000000000",
+        "UseWorkPlaceAddressForJoblog": false,
+        "Category": 0,
+        "CvCustomerIdentifier": null,
+        "JobSeekingStatus": null,
+        "Title": "Friske og oplagte medarbejdere til sortering af pakker på stort lager i Horsens/Motivated employees for sorting packages in a large warehouse in Horsens",
+        "IsApplicationSourceRequired": true,
+        "ApplicationSource": null,
+        "IsWeeklyWorkTimeRequired": true,
+        "WeeklyWorkTime": 2,
+        "HoursPerWeek": null,
+        "JobnetJobPostingIdentifier": "5331002",
+        "JobAdUrl": "https://job.jobnet.dk/CV/FindWork/JobDetailJsonWIDK?id=5331002",
+        "JobAdDocument": null,
+        "Company": {
+            "JobLogEntryCategory": 0,
+            "ShowAddressFieldsEvenIfEmpty": false,
+            "Name": "TeamVikaren.dk, Århus ApS, Horsens Afdeling",
+            "Address": "Strandpromenaden 6",
+            "Country": null,
+            "EmploymentAreaID": null,
+            "PostCode": "8700",
+            "IsCountryAndTownAndPostCodeEmpty": false,
+            "IsTownAndPostCodeEmpty": false,
+            "IsCountryDanmark": false,
+            "Town": "Horsens",
+            "ContactPerson": "Majken Lorentzen",
+            "Phone": "70277665",
+            "Email": null,
+            "Latitude": null,
+            "Longitude": null,
+            "DailyTravelTimeInMinutes": null,
+            "DistanceToCompanyInMeters": null,
+            "IsCreateMode": false
+        },
+        "TypeOfSubmission": null,
+        "SubmissionDate": "2021-07-15T00:00:00",
+        "SubmissionDateFormatted": null,
+        "SubmissionDateTiks": 0,
+        "IsSubmissionDateRequired": false,
+        "Status": 0,
+        "DateCreatedFormatted": null,
+        "DateCreated": null,
+        "DateModifiedFormatted": null,
+        "DateModified": null,
+        "LastModifiedDateTiks": 0,
+        "DateClosed": null,
+        "JobApplicationDocument": {
+            "Title": null,
+            "Identifier": null,
+            "IsDeleted": false
+        },
+        "CvDocument": {
+            "Title": null,
+            "Identifier": null,
+            "IsDeleted": false
+        },
+        "JobApplicationFile": null,
+        "CvFile": null,
+        "SubmissionDeadlineDate": null,
+        "IsPersisted": false,
+        "ServerValidationErrors": [],
+        "HasServerValidationErrors": false
+    },
+    "JoblogWorkTime": {
+        "WorkHour": "(8 - 20 timer ugentligt)",
+        "DailyWorkTime": "Aften"
+    },
+    "Place": "Work place location Horsens municipality",
+    "OpenPrintDialog": false,
+    "WorkPlaceInfoText": "TeamVikaren.dk, Århus ApS, Horsens Afdeling",
+    "JobCenterContactDetails": "",
+    "WorkPlaceDescriptionText": null,
+    "FavoriteText": "",
+    "IsFavorite": false,
+    "ShowFavorite": false,
+    "MetaOgTextForSharing": "English version below the Danish\nHar du lyst til at være en del af et stort internationalt lager i Horsens, med højt til loftet og gode kollegaer og kan du starte med kort varsel, så er det dig vi søger.\nVi tilbyder\n\nOrdnede forhold\nEn social arbejdsplads med gode kollegaer\nFleksibilitet vedr. vagter\nMulighed for vagter både på hverdage og i weeken",
+    "DescriptionForSharing": "\"English version below the Danish\\nHar du lyst til at være en del af et stort internationalt lager i Horsens, med højt til loftet og gode kollegaer og kan du starte med kort varsel, så er det dig vi søger.\\nVi tilbyder\\n\\nOrdnede forhold\\nEn social arbejdsplads med gode kollegaer\\nFleksibilitet vedr. vagter\\nMulighed for vagter både på hverdage og i weeken\"",
+    "TitleForSharing": "\"Friske og oplagte medarbejdere til sortering af pakker på stort lager i Horsens/Motivated employees for sorting packages in a large warehouse in Horsens\"",
+    "RutePlan": "https://www.google.dk/maps/dir//Strandpromenaden+6,8700,+Horsens/",
+    "FormattedPurpose": "<p><strong>English version below the Danish</strong></p>\n<p>Har du lyst til at være en del af et stort internationalt lager i Horsens, med højt til loftet og gode kollegaer og kan du starte med kort varsel, så er det dig vi søger.</p>\n<p><strong>Vi tilbyder</strong></p>\n<ul>\n<li>Ordnede forhold</li>\n<li>En social arbejdsplads med gode kollegaer</li>\n<li>Fleksibilitet vedr. vagter</li>\n<li>Mulighed for vagter både på hverdage og i weekender</li>\n</ul>\n<p><strong>Virksomheden</strong></p>\n<p>Vores kunde er en global udbyder af transport- og logistikløsninger, med lokationer i mere end 80 lande.</p>\n<p><strong>Jobbet</strong></p>\n<p>Som medarbejder i denne virksomhed, har du mulighed for at blive en del af en international arbejdsplads. Du kommer til at arbejde på lager, dine opgave består af sortering af pakker, som fordeles på paller efter numre. Du vil i tæt samarbejde med dine nye kollegaer få oplæring, så du er klædt ordentligt på til opgaven.</p>\n<p><strong>Din profil</strong></p>\n<ul>\n<li>Du har lyst til at arbejde inden for lager og logistik</li>\n<li>Du er fleksibel</li>\n<li>Du kan arbejde minimum 2 dage om ugen</li>\n<li>Du kan arbejde om eftermiddagen og aftenen</li>\n<li>Du har en god fysik</li>\n<li>Du kan lide at arbejde i teams</li>\n</ul>\n<p><strong>Arbejdstid</strong></p>\n<p>Arbejdstiderne er fastlagte på hverdage fra kl. 16.00-21.00 eller 20.00-00.00, lørdage fra 07.00-14.00</p>\n<p><strong>Sådan ansøger du</strong></p>\n<p>Gå ind på vores hjemmeside <a target=\"_blank\" href=\"http://www.teamvikaren.dk\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5331002\">www.teamvikaren.dk</a> husk at uploade CV.</p>\n<p>Er du allerede en del af vores database eller har du yderligere spørgsmål kan du kontakte os på 7027 7665 mandag til fredag fra kl. 09.00-15.00.</p>\n<p> </p>\n<p><strong>English version</strong></p>\n<p>Do you want to be part of a large international warehouse in Horsens, with good colleagues, are you able to start with a short notice, then we have the job for you.</p>\n<p><strong>We offer</strong></p>\n<ul>\n<li>Orderly conditions</li>\n<li>A social workplace with good colleagues</li>\n<li>Flexibility regarding shifts</li>\n<li>Possibility of shifts both on weekdays and on weekends</li>\n</ul>\n<p><strong>The company</strong></p>\n<p>Our customer is a global provider of transport and logistics solutions, with locations in more than 80 countries.</p>\n<p><strong>The job</strong></p>\n<p>As an employee of this company, you have the opportunity to become part of an international workplace. You will work in warehouse, your task consists of sorting packages, which are distributed on pallets by numbers. In close collaboration with your new colleagues, you will receive training.</p>\n<p><strong>Your profile</strong></p>\n<ul>\n<li>You want to work in warehousing and logistics</li>\n<li>You are flexible</li>\n<li>You can work a minimum of 2 days a week</li>\n<li>You can work in the afternoon and evening time</li>\n<li>You have a good physique</li>\n<li>You like working in teams</li>\n</ul>\n<p><strong>Working hours</strong></p>\n<p>The working hours are determined on weekdays from 16.00-21.00 or 20.00-00.00, Saturdays from 07.00-14.00</p>\n<p><strong>How to apply</strong></p>\n<p>Go to our website <a target=\"_blank\" href=\"http://www.teamvikaren.dk\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5331002\">www.teamvikaren.dk</a> remember to upload your CV.</p>\n<p>Are you already part of our database or do you have further questions, you can contact us on 7027 7665 Monday to Friday from 09.00-15.00.</p>",
+    "MapUrl": "https://www.google.dk/maps/place/Strandpromenaden+6,8700,+Horsens/",
+    "OrganizationNumber": "30899695",
+    "ShowSearchJobButton": false,
+    "ShowPrint": false,
+    "BackToFindWorkButtonUrl": null
+}

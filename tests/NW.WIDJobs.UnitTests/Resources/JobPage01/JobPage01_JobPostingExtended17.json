@@ -1,0 +1,301 @@
+{
+    "WorkSchedule": [
+        {
+            "Id": 1,
+            "Name": "Fuldtid"
+        },
+        {
+            "Id": 16,
+            "Name": "Deltid"
+        }
+    ],
+    "WorkConditions": [
+        {
+            "Id": 1,
+            "Name": "Almindelige vilkår"
+        },
+        {
+            "Id": 2,
+            "Name": "Fleksjob"
+        },
+        {
+            "Id": 3,
+            "Name": "Skånejob"
+        },
+        {
+            "Id": 4,
+            "Name": "Egnet til efterlønnere og seniorer"
+        },
+        {
+            "Id": 5,
+            "Name": "Job med løntilskud"
+        },
+        {
+            "Id": 6,
+            "Name": "Rotationsjob"
+        },
+        {
+            "Id": 7,
+            "Name": "Virksomhedspraktik"
+        }
+    ],
+    "EmploymentTypes": [
+        {
+            "Id": 1,
+            "Name": "Fastansættelse"
+        },
+        {
+            "Id": 16,
+            "Name": "Tidsbegrænset ansættelse"
+        }
+    ],
+    "WorkPlace": {
+        "Name": "TeamVikaren.dk, Århus ApS, Horsens Afdeling",
+        "Address": {
+            "AddressLine": "Strandpromenaden 6",
+            "Country": {
+                "Id": 58,
+                "Name": "Danmark"
+            },
+            "Municipality": {
+                "Id": 615,
+                "Name": "Horsens"
+            },
+            "Region": {
+                "Id": 2,
+                "Name": "Midtjylland"
+            },
+            "PostalCode": "8700",
+            "City": "Horsens"
+        },
+        "PhoneNumber": {
+            "Number": null,
+            "Type": 0,
+            "Description": "Primary"
+        },
+        "FaxNumber": null,
+        "Email": null,
+        "WebAddress": null,
+        "Description": null,
+        "Logo": 126565,
+        "WorkPlaceOrganizationNumber": "1016232765",
+        "OrganizationNumber": "30899695",
+        "OrganizationDescription": null
+    },
+    "JobPositionPosting": {
+        "Id": 5376709,
+        "OriginalJppId": 5376709,
+        "HiringOrg": {
+            "Name": "TeamVikaren.dk, Århus ApS, Horsens Afdeling",
+            "Address": {
+                "AddressLine": "Strandpromenaden 6",
+                "Country": {
+                    "Id": 58,
+                    "Name": "Danmark"
+                },
+                "Municipality": {
+                    "Id": 615,
+                    "Name": "Horsens"
+                },
+                "Region": {
+                    "Id": 2,
+                    "Name": "Midtjylland"
+                },
+                "PostalCode": "8700",
+                "City": "Horsens"
+            },
+            "PhoneNumber": {
+                "Number": null,
+                "Type": 0,
+                "Description": "Primary"
+            },
+            "FaxNumber": null,
+            "Email": null,
+            "WebAddress": null,
+            "Description": null,
+            "Logo": 126565,
+            "WorkPlaceOrganizationNumber": "1016232765",
+            "OrganizationNumber": "30899695",
+            "OrganizationDescription": null
+        },
+        "RecruitingCompany": null,
+        "PublicationStartDate": "2021-07-02T00:00:00",
+        "PublicationEndDate": "2021-08-19T00:00:00",
+        "JobPositionInformation": {
+            "PositionTitle": "Medarbejdere til sommer vikariater på lager i Kolding/Employees for temporary summer positions in a warehouse in Kolding",
+            "Purpose": "<p>&nbsp;</p>\n<p><strong>English version below the Danish</strong></p>\n<p>Har du lyst til at arbejde på lager, og kan du arbejde i perioden 12/7 til 30/9 på daghold, så har vi arbejde til dig.</p>\n<p><strong>Vi tilbyder</strong></p>\n<ul>\n<li>Arbejde på daghold</li>\n<li>Gode kollegaer</li>\n<li>Grundig oplæring</li>\n<li>Mulighed for aktivt arbejde</li>\n</ul>\n<p><strong>Virksomheden</strong></p>\n<p>Virksomheden arbejder med tekstiler, de huser et stort lager med pluk og pakkeopgaver, kvalitetskontrolafdeling og en varemodtagelse.</p>\n<p><strong>Jobbet</strong></p>\n<p>Som medarbejder i virksomheden, bliver du en del af et stort lager, hvor arbejdsopgaverne kan variere i mellem pluk og pakkeopgaver, tømning af containere og sortering på paller i varemodtagelsen mv. (der kan forekomme tunge løft)</p>\n<p><strong>Din profil</strong></p>\n<ul>\n<li>Du kan lide aktivt arbejde</li>\n<li>Du kan lide at veksle mellem forskellige arbejdsopgaver</li>\n<li>Du har en god fysik</li>\n<li>Du kan arbejde daghold på fuldtid – deltid kan også arrangeres</li>\n<li>Du er grundig i dit arbejde og har en positiv tilgang til dine arbejdsopgaver</li>\n<li>Du er fleksibel i travle perioder</li>\n</ul>\n<p><strong>Arbejdstider</strong></p>\n<p>Arbejdstiderne er mandag til fredag kl. 07.30 – 15.30. Overarbejde kan forekomme.</p>\n<p><strong>Sådan ansøger du</strong></p>\n<p>Gå ind på www.teamvikaren.dk og opret din profil, husk at ligge dit CV ind på din profil.</p>\n<p>Er du allerede medlem af Teamvikaren og ønsker du at blive taget i betragtning til denne stilling, er du velkommen til at kontakte os tidsrummet mandag til fredag kl. 08.00-17.00 på telefon 7027 7665.</p>\n<p><strong>English version</strong></p>\n<p>Do you want to work in a warehouse, and can you work in the period 12/7 to 30/9 on day shifts, then we have work for you.</p>\n<p><strong>We offer</strong></p>\n<ul>\n<li>Work on day shifts</li>\n<li>Good colleagues</li>\n<li>Thorough training</li>\n<li>Opportunity for active work</li>\n</ul>\n<p><strong>The Company</strong></p>\n<p>The company works with textiles, it is a large warehouse with picking and packing tasks, quality control, and receiving goods.</p>\n<p><strong>The job</strong></p>\n<p>As an employee in the company, you become part of a large warehouse, where the work tasks can vary between picking and packing tasks, emptying containers and sorting on pallets etc. (heavy lifting may occur)</p>\n<p><strong>Your profile</strong></p>\n<ul>\n<li>You like active work</li>\n<li>You like to have different work tasks</li>\n<li>You have a good physique</li>\n<li>You can work day shifts full time - part time can also be arranged</li>\n<li>You are thorough in your work and have a positive approach to your work tasks</li>\n<li>You are flexible during busy periods</li>\n</ul>\n<p><strong>Working hours</strong></p>\n<p>Working hours are Monday to Friday at 07.30 - 15.30. Overtime may occur.</p>\n<p><strong>How to apply</strong></p>\n<p>Go to <a href=\"http://www.teamvikaren.dk\">www.teamvikaren.dk</a> and create your profile, remember to put your CV on your profile.</p>\n<p>If you are already a member of Teamvikaren and would like to be considered for this position, you are welcome to contact us from Monday to Friday at 08: 00-17: 00 on telephone 7027 7665.</p>",
+            "WorkLocation": {
+                "AddressLine": "",
+                "Country": {
+                    "Id": 58,
+                    "Name": "Danmark"
+                },
+                "Municipality": {
+                    "Id": 621,
+                    "Name": "Kolding"
+                },
+                "Region": {
+                    "Id": 3,
+                    "Name": "Syddanmark"
+                },
+                "PostalCode": "6000",
+                "City": "Kolding"
+            },
+            "EmploymentType": 16,
+            "WeeklyWorkHours": {
+                "TypeId": 1,
+                "TypeName": "Fuldtid",
+                "Description": null
+            },
+            "CompensationDescription": null,
+            "NumberToFill": 10,
+            "DriverLicense": [],
+            "Occupation": {
+                "DiscoWeb": 0,
+                "AlternateNames": [],
+                "GroupId": 0,
+                "AreaId": 0,
+                "Id": 0,
+                "Name": null
+            },
+            "IsGovernmentHiring": false,
+            "JppContacts": [
+                {
+                    "Id": 7125814,
+                    "Email": null,
+                    "FaxNumber": null,
+                    "PersonName": "Majken Lorentzen",
+                    "FirstName": "Majken",
+                    "LastName": "Lorentzen",
+                    "PositionTitle": "Personalekonsulent",
+                    "PhoneNumbers": [
+                        {
+                            "Number": "70277665",
+                            "Type": 0,
+                            "Description": "Hovednummer"
+                        }
+                    ]
+                }
+            ],
+            "EmploymentDate": null
+        },
+        "IsRecruitmentOfForeignNationals": true,
+        "IsWorkInDenmark": true,
+        "IsAnonymousEmployer": false,
+        "IsDisabilityFriendly": false,
+        "JppType": 4,
+        "ApplicationDetails": {
+            "WorkHourMax": null,
+            "WorkHourMin": null,
+            "DailyWorkTimeWeekend": false,
+            "DailyWorkTimeNight": false,
+            "DailyWorkTimeEvening": false,
+            "DailyWorkTimeDay": true,
+            "ReferenceText": null,
+            "RemarksToApplicant": null,
+            "ByEmail": null,
+            "ByPhone": null,
+            "ApplyViaUrl": "www.teamvikaren.dk",
+            "ReplyInWriting": false,
+            "ApplicationDeadlineDate": "2021-08-19T00:00:00"
+        },
+        "ContactAuthorityPhoneNumber": {
+            "Number": null,
+            "Type": 0,
+            "Description": "Primary"
+        },
+        "Status": 7
+    },
+    "LogoUrl": "/CV/FindWork/GetLogo?JobAdId=5376709&WorkPlace=126565&Organisation=30899695",
+    "Address": "Strandpromenaden 6,8700, Horsens",
+    "ShowMap": false,
+    "ShowShareButtonJobLog": false,
+    "JobLogUrl": "/CV/Jobseeking/JobLog/CreateJobSearch?JobnetJobPostingIdentifier=5376709&Company.Name=TeamVikaren.dk, Århus ApS, Horsens Afdeling&SubmissionDeadlineDate=2021-8-19&Title=Medarbejdere til sommer vikariater på lager i Kolding/Employees for temporary summer positions in a warehouse in Kolding&JobAdUrl=https://job.jobnet.dk/CV/FindWork/Details/5376709&WeeklyWorkTime=1",
+    "JobLogTemplateModel": {
+        "Identifier": "00000000-0000-0000-0000-000000000000",
+        "UseWorkPlaceAddressForJoblog": false,
+        "Category": 0,
+        "CvCustomerIdentifier": null,
+        "JobSeekingStatus": null,
+        "Title": "Medarbejdere til sommer vikariater på lager i Kolding/Employees for temporary summer positions in a warehouse in Kolding",
+        "IsApplicationSourceRequired": true,
+        "ApplicationSource": null,
+        "IsWeeklyWorkTimeRequired": true,
+        "WeeklyWorkTime": 1,
+        "HoursPerWeek": null,
+        "JobnetJobPostingIdentifier": "5376709",
+        "JobAdUrl": "https://job.jobnet.dk/CV/FindWork/JobDetailJsonWIDK?id=5376709",
+        "JobAdDocument": null,
+        "Company": {
+            "JobLogEntryCategory": 0,
+            "ShowAddressFieldsEvenIfEmpty": false,
+            "Name": "TeamVikaren.dk, Århus ApS, Horsens Afdeling",
+            "Address": "Strandpromenaden 6",
+            "Country": null,
+            "EmploymentAreaID": null,
+            "PostCode": "8700",
+            "IsCountryAndTownAndPostCodeEmpty": false,
+            "IsTownAndPostCodeEmpty": false,
+            "IsCountryDanmark": false,
+            "Town": "Horsens",
+            "ContactPerson": "Majken Lorentzen",
+            "Phone": "70277665",
+            "Email": null,
+            "Latitude": null,
+            "Longitude": null,
+            "DailyTravelTimeInMinutes": null,
+            "DistanceToCompanyInMeters": null,
+            "IsCreateMode": false
+        },
+        "TypeOfSubmission": null,
+        "SubmissionDate": "2021-08-19T00:00:00",
+        "SubmissionDateFormatted": null,
+        "SubmissionDateTiks": 0,
+        "IsSubmissionDateRequired": false,
+        "Status": 0,
+        "DateCreatedFormatted": null,
+        "DateCreated": null,
+        "DateModifiedFormatted": null,
+        "DateModified": null,
+        "LastModifiedDateTiks": 0,
+        "DateClosed": null,
+        "JobApplicationDocument": {
+            "Title": null,
+            "Identifier": null,
+            "IsDeleted": false
+        },
+        "CvDocument": {
+            "Title": null,
+            "Identifier": null,
+            "IsDeleted": false
+        },
+        "JobApplicationFile": null,
+        "CvFile": null,
+        "SubmissionDeadlineDate": null,
+        "IsPersisted": false,
+        "ServerValidationErrors": [],
+        "HasServerValidationErrors": false
+    },
+    "JoblogWorkTime": {
+        "WorkHour": null,
+        "DailyWorkTime": "Dag"
+    },
+    "Place": "Work place location Kolding municipality",
+    "OpenPrintDialog": false,
+    "WorkPlaceInfoText": "TeamVikaren.dk, Århus ApS, Horsens Afdeling",
+    "JobCenterContactDetails": "",
+    "WorkPlaceDescriptionText": null,
+    "FavoriteText": "",
+    "IsFavorite": false,
+    "ShowFavorite": false,
+    "MetaOgTextForSharing": "\nEnglish version below the Danish\nHar du lyst til at arbejde på lager, og kan du arbejde i perioden 12/7 til 30/9 på daghold, så har vi arbejde til dig.\nVi tilbyder\n\nArbejde på daghold\nGode kollegaer\nGrundig oplæring\nMulighed for aktivt arbejde\n\nVirksomheden\nVirksomheden arbejder med tekstiler, de huser et stort lager med pluk og pakkeopgaver, kval",
+    "DescriptionForSharing": "\"\\nEnglish version below the Danish\\nHar du lyst til at arbejde på lager, og kan du arbejde i perioden 12/7 til 30/9 på daghold, så har vi arbejde til dig.\\nVi tilbyder\\n\\nArbejde på daghold\\nGode kollegaer\\nGrundig oplæring\\nMulighed for aktivt arbejde\\n\\nVirksomheden\\nVirksomheden arbejder med tekstiler, de huser et stort lager med pluk og pakkeopgaver, kval\"",
+    "TitleForSharing": "\"Medarbejdere til sommer vikariater på lager i Kolding/Employees for temporary summer positions in a warehouse in Kolding\"",
+    "RutePlan": "https://www.google.dk/maps/dir//Strandpromenaden+6,8700,+Horsens/",
+    "FormattedPurpose": "<p> </p>\n<p><strong>English version below the Danish</strong></p>\n<p>Har du lyst til at arbejde på lager, og kan du arbejde i perioden 12/7 til 30/9 på daghold, så har vi arbejde til dig.</p>\n<p><strong>Vi tilbyder</strong></p>\n<ul>\n<li>Arbejde på daghold</li>\n<li>Gode kollegaer</li>\n<li>Grundig oplæring</li>\n<li>Mulighed for aktivt arbejde</li>\n</ul>\n<p><strong>Virksomheden</strong></p>\n<p>Virksomheden arbejder med tekstiler, de huser et stort lager med pluk og pakkeopgaver, kvalitetskontrolafdeling og en varemodtagelse.</p>\n<p><strong>Jobbet</strong></p>\n<p>Som medarbejder i virksomheden, bliver du en del af et stort lager, hvor arbejdsopgaverne kan variere i mellem pluk og pakkeopgaver, tømning af containere og sortering på paller i varemodtagelsen mv. (der kan forekomme tunge løft)</p>\n<p><strong>Din profil</strong></p>\n<ul>\n<li>Du kan lide aktivt arbejde</li>\n<li>Du kan lide at veksle mellem forskellige arbejdsopgaver</li>\n<li>Du har en god fysik</li>\n<li>Du kan arbejde daghold på fuldtid – deltid kan også arrangeres</li>\n<li>Du er grundig i dit arbejde og har en positiv tilgang til dine arbejdsopgaver</li>\n<li>Du er fleksibel i travle perioder</li>\n</ul>\n<p><strong>Arbejdstider</strong></p>\n<p>Arbejdstiderne er mandag til fredag kl. 07.30 – 15.30. Overarbejde kan forekomme.</p>\n<p><strong>Sådan ansøger du</strong></p>\n<p>Gå ind på <a target=\"_blank\" href=\"http://www.teamvikaren.dk\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5376709\">www.teamvikaren.dk</a> og opret din profil, husk at ligge dit CV ind på din profil.</p>\n<p>Er du allerede medlem af Teamvikaren og ønsker du at blive taget i betragtning til denne stilling, er du velkommen til at kontakte os tidsrummet mandag til fredag kl. 08.00-17.00 på telefon 7027 7665.</p>\n<p><strong>English version</strong></p>\n<p>Do you want to work in a warehouse, and can you work in the period 12/7 to 30/9 on day shifts, then we have work for you.</p>\n<p><strong>We offer</strong></p>\n<ul>\n<li>Work on day shifts</li>\n<li>Good colleagues</li>\n<li>Thorough training</li>\n<li>Opportunity for active work</li>\n</ul>\n<p><strong>The Company</strong></p>\n<p>The company works with textiles, it is a large warehouse with picking and packing tasks, quality control, and receiving goods.</p>\n<p><strong>The job</strong></p>\n<p>As an employee in the company, you become part of a large warehouse, where the work tasks can vary between picking and packing tasks, emptying containers and sorting on pallets etc. (heavy lifting may occur)</p>\n<p><strong>Your profile</strong></p>\n<ul>\n<li>You like active work</li>\n<li>You like to have different work tasks</li>\n<li>You have a good physique</li>\n<li>You can work day shifts full time - part time can also be arranged</li>\n<li>You are thorough in your work and have a positive approach to your work tasks</li>\n<li>You are flexible during busy periods</li>\n</ul>\n<p><strong>Working hours</strong></p>\n<p>Working hours are Monday to Friday at 07.30 - 15.30. Overtime may occur.</p>\n<p><strong>How to apply</strong></p>\n<p>Go to <a target=\"_blank\" href=\"http://www.teamvikaren.dk\" user-behavior-tracking=\"Contact\" user-behavior-tracking-id=\"5376709\">www.teamvikaren.dk</a> and create your profile, remember to put your CV on your profile.</p>\n<p>If you are already a member of Teamvikaren and would like to be considered for this position, you are welcome to contact us from Monday to Friday at 08: 00-17: 00 on telephone 7027 7665.</p>",
+    "MapUrl": "https://www.google.dk/maps/place/Strandpromenaden+6,8700,+Horsens/",
+    "OrganizationNumber": "30899695",
+    "ShowSearchJobButton": false,
+    "ShowPrint": false,
+    "BackToFindWorkButtonUrl": null
+}

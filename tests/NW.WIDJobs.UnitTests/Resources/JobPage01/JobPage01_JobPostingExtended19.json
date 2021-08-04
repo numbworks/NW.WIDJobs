@@ -1,0 +1,295 @@
+{
+    "WorkSchedule": [
+        {
+            "Id": 1,
+            "Name": "Fuldtid"
+        },
+        {
+            "Id": 16,
+            "Name": "Deltid"
+        }
+    ],
+    "WorkConditions": [
+        {
+            "Id": 1,
+            "Name": "Almindelige vilkår"
+        },
+        {
+            "Id": 2,
+            "Name": "Fleksjob"
+        },
+        {
+            "Id": 3,
+            "Name": "Skånejob"
+        },
+        {
+            "Id": 4,
+            "Name": "Egnet til efterlønnere og seniorer"
+        },
+        {
+            "Id": 5,
+            "Name": "Job med løntilskud"
+        },
+        {
+            "Id": 6,
+            "Name": "Rotationsjob"
+        },
+        {
+            "Id": 7,
+            "Name": "Virksomhedspraktik"
+        }
+    ],
+    "EmploymentTypes": [
+        {
+            "Id": 1,
+            "Name": "Fastansættelse"
+        },
+        {
+            "Id": 16,
+            "Name": "Tidsbegrænset ansættelse"
+        }
+    ],
+    "WorkPlace": {
+        "Name": "RANDSTAD A/S",
+        "Address": {
+            "AddressLine": "Kokholm 3B",
+            "Country": {
+                "Id": 58,
+                "Name": "Danmark"
+            },
+            "Municipality": {
+                "Id": 621,
+                "Name": "Kolding"
+            },
+            "Region": {
+                "Id": 3,
+                "Name": "Syddanmark"
+            },
+            "PostalCode": "6000",
+            "City": "Kolding"
+        },
+        "PhoneNumber": {
+            "Number": null,
+            "Type": 0,
+            "Description": "Primary"
+        },
+        "FaxNumber": null,
+        "Email": null,
+        "WebAddress": null,
+        "Description": "Randstad er en del af den internationale Randstad Group, der er verdens andenstørste udbyder af HR-løsninger. Hver dag formidler Randstad arbejde til mere end 500.000 mennesker i hele verden. I Danmark er vi blandt de førende vikar- og rekrutteringsbureauer med fire afdelinger fordelt over hele landet. En position vi har opnået, fordi vi som eksperter på arbejdsmarkedet formår at matche kvalificerede kandidater med de rette jobmuligheder.",
+        "Logo": 120191,
+        "WorkPlaceOrganizationNumber": "1010475550",
+        "OrganizationNumber": "25050541",
+        "OrganizationDescription": "Randstad er en del af den internationale Randstad Group, der er verdens andenstørste udbyder af HR-løsninger. Hver dag formidler Randstad arbejde til mere end 500.000 mennesker i hele verden. I Danmark er vi blandt de førende vikar- og rekrutteringsbureauer med fire afdelinger fordelt over hele landet. En position vi har opnået, fordi vi som eksperter på arbejdsmarkedet formår at matche kvalificerede kandidater med de rette jobmuligheder."
+    },
+    "JobPositionPosting": {
+        "Id": 5382781,
+        "OriginalJppId": 5382781,
+        "HiringOrg": {
+            "Name": "RANDSTAD A/S",
+            "Address": {
+                "AddressLine": "Kokholm 3B",
+                "Country": {
+                    "Id": 58,
+                    "Name": "Danmark"
+                },
+                "Municipality": {
+                    "Id": 621,
+                    "Name": "Kolding"
+                },
+                "Region": {
+                    "Id": 3,
+                    "Name": "Syddanmark"
+                },
+                "PostalCode": "6000",
+                "City": "Kolding"
+            },
+            "PhoneNumber": {
+                "Number": null,
+                "Type": 0,
+                "Description": "Primary"
+            },
+            "FaxNumber": null,
+            "Email": null,
+            "WebAddress": null,
+            "Description": "Randstad er en del af den internationale Randstad Group, der er verdens andenstørste udbyder af HR-løsninger. Hver dag formidler Randstad arbejde til mere end 500.000 mennesker i hele verden. I Danmark er vi blandt de førende vikar- og rekrutteringsbureauer med fire afdelinger fordelt over hele landet. En position vi har opnået, fordi vi som eksperter på arbejdsmarkedet formår at matche kvalificerede kandidater med de rette jobmuligheder.",
+            "Logo": 120191,
+            "WorkPlaceOrganizationNumber": "1010475550",
+            "OrganizationNumber": "25050541",
+            "OrganizationDescription": "Randstad er en del af den internationale Randstad Group, der er verdens andenstørste udbyder af HR-løsninger. Hver dag formidler Randstad arbejde til mere end 500.000 mennesker i hele verden. I Danmark er vi blandt de førende vikar- og rekrutteringsbureauer med fire afdelinger fordelt over hele landet. En position vi har opnået, fordi vi som eksperter på arbejdsmarkedet formår at matche kvalificerede kandidater med de rette jobmuligheder."
+        },
+        "RecruitingCompany": null,
+        "PublicationStartDate": "2021-07-02T00:00:00",
+        "PublicationEndDate": "2021-08-27T00:00:00",
+        "JobPositionInformation": {
+            "PositionTitle": "warehouse employee",
+            "Purpose": "<p><strong>Warehouse employee</strong></p>\n<p>Do you want to join the evening team at DSV in Horsens?<br/>It is a permanent day shift, and for the right person it will be a permanent employment.<br/><br/><strong>The tasks</strong></p>\n<p>- Picking/packing tasks<br/>- Loading/unloading tasks<br/>- Receipt of goods<br/>- Truck driving, most often reach truck<br/>- Scanner operation<br/>- Various warehouse tasks<br/><br/>You will of course receive a thorough training in the work tasks, so you will have the best conditions for success.<br/><br/>The company generally has an informal work environment with the opportunity to take responsibility for work tasks and planning.<br/><br/><strong>We expect that you</strong></p>\n<p>- Are ready to take on evening work<br/>- Have experience from working at a warehouse<br/>- Have a truck certificate<br/>- Are ready to taking up the challenge when it comes to new tasks and flexible working days<br/>- Are able to perform a good job<br/>- Can represent Randstad as an external employee in a positive way at the customer’s premises<br/>- Danish- and English-speaking at a reasonable level<br/><br/><strong>Working hours</strong></p>\n<p>Monday to Friday 7:00 AM – 3:00 PM<br/><br/><strong>We offer</strong></p>\n<p>- Basic salary according to qualifications and in addition to this, cf. collective agreement, pension scheme and holiday<br/>- A generally informal work environment with the opportunity to take responsibility for work tasks and planning<br/><br/>Start-up: As soon as possible, please send your CV<br/>All inquiries are treated confidentially. Interviews will take place on an ongoing basis.<br/><br/><strong>About Randstad</strong></p>\n<p>Randstad DK is part of the international Randstad Group, which is the global leader in HR services. With more than 4,800 offices in 38 countries, we are providing work to more than 650,000 people every day.<br/>In Denmark, we are among the leading temp and recruitment agencies with branches in Copenhagen, Aarhus, Aalborg, Kolding and Esbjerg. A position we have achieved due to our expertise in matching qualified candidates with the right job opportunities.<br/><br/><br/></p>",
+            "WorkLocation": {
+                "AddressLine": "",
+                "Country": {
+                    "Id": 58,
+                    "Name": "Danmark"
+                },
+                "Municipality": {
+                    "Id": 615,
+                    "Name": "Horsens"
+                },
+                "Region": {
+                    "Id": 2,
+                    "Name": "Midtjylland"
+                },
+                "PostalCode": "8700",
+                "City": "Horsens"
+            },
+            "EmploymentType": 1,
+            "WeeklyWorkHours": {
+                "TypeId": 1,
+                "TypeName": "Fuldtid",
+                "Description": null
+            },
+            "CompensationDescription": null,
+            "NumberToFill": 1,
+            "DriverLicense": [],
+            "Occupation": {
+                "DiscoWeb": 0,
+                "AlternateNames": [],
+                "GroupId": 0,
+                "AreaId": 0,
+                "Id": 0,
+                "Name": null
+            },
+            "IsGovernmentHiring": false,
+            "JppContacts": [
+                {
+                    "Id": 7125673,
+                    "Email": "charlotte.meck@randstad.dk",
+                    "FaxNumber": null,
+                    "PersonName": "Charlotte Meck",
+                    "FirstName": "Charlotte",
+                    "LastName": "Meck",
+                    "PositionTitle": null,
+                    "PhoneNumbers": []
+                }
+            ],
+            "EmploymentDate": null
+        },
+        "IsRecruitmentOfForeignNationals": false,
+        "IsWorkInDenmark": true,
+        "IsAnonymousEmployer": false,
+        "IsDisabilityFriendly": false,
+        "JppType": 4,
+        "ApplicationDetails": {
+            "WorkHourMax": null,
+            "WorkHourMin": null,
+            "DailyWorkTimeWeekend": false,
+            "DailyWorkTimeNight": false,
+            "DailyWorkTimeEvening": false,
+            "DailyWorkTimeDay": true,
+            "ReferenceText": "7775",
+            "RemarksToApplicant": null,
+            "ByEmail": null,
+            "ByPhone": null,
+            "ApplyViaUrl": "https://www.randstad.dk/jobs/warehouse-employee_horsens_7775/",
+            "ReplyInWriting": false,
+            "ApplicationDeadlineDate": "2021-08-27T00:00:00"
+        },
+        "ContactAuthorityPhoneNumber": {
+            "Number": null,
+            "Type": 0,
+            "Description": "Primary"
+        },
+        "Status": 7
+    },
+    "LogoUrl": "/CV/FindWork/GetLogo?JobAdId=5382781&WorkPlace=120191&Organisation=25050541",
+    "Address": "Kokholm 3B,6000, Kolding",
+    "ShowMap": false,
+    "ShowShareButtonJobLog": false,
+    "JobLogUrl": "/CV/Jobseeking/JobLog/CreateJobSearch?JobnetJobPostingIdentifier=5382781&Company.Name=RANDSTAD A/S&SubmissionDeadlineDate=2021-8-27&Title=warehouse employee&JobAdUrl=https://job.jobnet.dk/CV/FindWork/Details/5382781&WeeklyWorkTime=1",
+    "JobLogTemplateModel": {
+        "Identifier": "00000000-0000-0000-0000-000000000000",
+        "UseWorkPlaceAddressForJoblog": false,
+        "Category": 0,
+        "CvCustomerIdentifier": null,
+        "JobSeekingStatus": null,
+        "Title": "warehouse employee",
+        "IsApplicationSourceRequired": true,
+        "ApplicationSource": null,
+        "IsWeeklyWorkTimeRequired": true,
+        "WeeklyWorkTime": 1,
+        "HoursPerWeek": null,
+        "JobnetJobPostingIdentifier": "5382781",
+        "JobAdUrl": "https://job.jobnet.dk/CV/FindWork/JobDetailJsonWIDK?id=5382781",
+        "JobAdDocument": null,
+        "Company": {
+            "JobLogEntryCategory": 0,
+            "ShowAddressFieldsEvenIfEmpty": false,
+            "Name": "RANDSTAD A/S",
+            "Address": "Kokholm 3B",
+            "Country": null,
+            "EmploymentAreaID": null,
+            "PostCode": "6000",
+            "IsCountryAndTownAndPostCodeEmpty": false,
+            "IsTownAndPostCodeEmpty": false,
+            "IsCountryDanmark": false,
+            "Town": "Kolding",
+            "ContactPerson": "Charlotte Meck",
+            "Phone": "",
+            "Email": "charlotte.meck@randstad.dk",
+            "Latitude": null,
+            "Longitude": null,
+            "DailyTravelTimeInMinutes": null,
+            "DistanceToCompanyInMeters": null,
+            "IsCreateMode": false
+        },
+        "TypeOfSubmission": null,
+        "SubmissionDate": "2021-08-27T00:00:00",
+        "SubmissionDateFormatted": null,
+        "SubmissionDateTiks": 0,
+        "IsSubmissionDateRequired": false,
+        "Status": 0,
+        "DateCreatedFormatted": null,
+        "DateCreated": null,
+        "DateModifiedFormatted": null,
+        "DateModified": null,
+        "LastModifiedDateTiks": 0,
+        "DateClosed": null,
+        "JobApplicationDocument": {
+            "Title": null,
+            "Identifier": null,
+            "IsDeleted": false
+        },
+        "CvDocument": {
+            "Title": null,
+            "Identifier": null,
+            "IsDeleted": false
+        },
+        "JobApplicationFile": null,
+        "CvFile": null,
+        "SubmissionDeadlineDate": null,
+        "IsPersisted": false,
+        "ServerValidationErrors": [],
+        "HasServerValidationErrors": false
+    },
+    "JoblogWorkTime": {
+        "WorkHour": null,
+        "DailyWorkTime": "Dag"
+    },
+    "Place": "Work place location Horsens municipality",
+    "OpenPrintDialog": false,
+    "WorkPlaceInfoText": "RANDSTAD A/S",
+    "JobCenterContactDetails": "",
+    "WorkPlaceDescriptionText": "Randstad er en del af den internationale Randstad Group, der er verdens andenstørste udbyder af HR-løsninger. Hver dag formidler Randstad arbejde til mere end 500.000 mennesker i hele verden. I Danmark er vi blandt de førende vikar- og rekrutteringsbureauer med fire afdelinger fordelt over hele landet. En position vi har opnået, fordi vi som eksperter på arbejdsmarkedet formår at matche kvalificerede kandidater med de rette jobmuligheder.",
+    "FavoriteText": "",
+    "IsFavorite": false,
+    "ShowFavorite": false,
+    "MetaOgTextForSharing": "Warehouse employee\nDo you want to join the evening team at DSV in Horsens?It is a permanent day shift, and for the right person it will be a permanent employment.The tasks\n- Picking/packing tasks- Loading/unloading tasks- Receipt of goods- Truck driving, most often reach truck- Scanner operation- Various warehouse tasksYou will of course receive a ",
+    "DescriptionForSharing": "\"Warehouse employee\\nDo you want to join the evening team at DSV in Horsens?It is a permanent day shift, and for the right person it will be a permanent employment.The tasks\\n- Picking/packing tasks- Loading/unloading tasks- Receipt of goods- Truck driving, most often reach truck- Scanner operation- Various warehouse tasksYou will of course receive a \"",
+    "TitleForSharing": "\"warehouse employee\"",
+    "RutePlan": "https://www.google.dk/maps/dir//Kokholm+3B,6000,+Kolding/",
+    "FormattedPurpose": "<p><strong>Warehouse employee</strong></p>\n<p>Do you want to join the evening team at DSV in Horsens?<br/>It is a permanent day shift, and for the right person it will be a permanent employment.<br/><br/><strong>The tasks</strong></p>\n<p>- Picking/packing tasks<br/>- Loading/unloading tasks<br/>- Receipt of goods<br/>- Truck driving, most often reach truck<br/>- Scanner operation<br/>- Various warehouse tasks<br/><br/>You will of course receive a thorough training in the work tasks, so you will have the best conditions for success.<br/><br/>The company generally has an informal work environment with the opportunity to take responsibility for work tasks and planning.<br/><br/><strong>We expect that you</strong></p>\n<p>- Are ready to take on evening work<br/>- Have experience from working at a warehouse<br/>- Have a truck certificate<br/>- Are ready to taking up the challenge when it comes to new tasks and flexible working days<br/>- Are able to perform a good job<br/>- Can represent Randstad as an external employee in a positive way at the customer’s premises<br/>- Danish- and English-speaking at a reasonable level<br/><br/><strong>Working hours</strong></p>\n<p>Monday to Friday 7:00 AM – 3:00 PM<br/><br/><strong>We offer</strong></p>\n<p>- Basic salary according to qualifications and in addition to this, cf. collective agreement, pension scheme and holiday<br/>- A generally informal work environment with the opportunity to take responsibility for work tasks and planning<br/><br/>Start-up: As soon as possible, please send your CV<br/>All inquiries are treated confidentially. Interviews will take place on an ongoing basis.<br/><br/><strong>About Randstad</strong></p>\n<p>Randstad DK is part of the international Randstad Group, which is the global leader in HR services. With more than 4,800 offices in 38 countries, we are providing work to more than 650,000 people every day.<br/>In Denmark, we are among the leading temp and recruitment agencies with branches in Copenhagen, Aarhus, Aalborg, Kolding and Esbjerg. A position we have achieved due to our expertise in matching qualified candidates with the right job opportunities.<br/><br/><br/></p>",
+    "MapUrl": "https://www.google.dk/maps/place/Kokholm+3B,6000,+Kolding/",
+    "OrganizationNumber": "25050541",
+    "ShowSearchJobButton": false,
+    "ShowPrint": false,
+    "BackToFindWorkButtonUrl": null
+}

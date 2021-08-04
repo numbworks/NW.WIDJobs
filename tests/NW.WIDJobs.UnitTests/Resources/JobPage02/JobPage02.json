@@ -1,0 +1,3338 @@
+{
+    "Expression": {
+        "ShowNearbyCriteria": true,
+        "Offset": 20,
+        "Count": 20,
+        "SearchString": null,
+        "SortValue": "CreationDate",
+        "Id": [],
+        "EarliestPublicationDate": "0001-01-01T00:00:00",
+        "HotJob": false,
+        "Abroad": false,
+        "NearBy": null,
+        "ExternalJob": null,
+        "WorkPlaceNotStatic": null,
+        "WorkHourMin": null,
+        "WorkHourMax": null,
+        "OnlyGeoPoints": false,
+        "Facets": {
+            "Region": [],
+            "Country": [],
+            "Municipality": [],
+            "PostalCode": [],
+            "OccupationAreas": [],
+            "OccupationGroups": [],
+            "Occupations": [],
+            "EmploymentType": [],
+            "WorkHours": [],
+            "WorkHourPartTime": [],
+            "JobAnnouncementType": [],
+            "WorkPlaceNotStatic": []
+        },
+        "LocatedIn": null,
+        "LocationZip": null,
+        "Location": null,
+        "SearchInGeoDistance": 0,
+        "IsWorkInDenmarkJob": true
+    },
+    "Facets": {
+        "Region": [
+            {
+                "Id": 0,
+                "Value": "Hovedstaden og Bornholm",
+                "Count": 1180
+            },
+            {
+                "Id": 0,
+                "Value": "Midtjylland",
+                "Count": 445
+            },
+            {
+                "Id": 0,
+                "Value": "Syddanmark",
+                "Count": 403
+            },
+            {
+                "Id": 0,
+                "Value": "Øvrige Sjælland",
+                "Count": 72
+            },
+            {
+                "Id": 0,
+                "Value": "Nordjylland",
+                "Count": 56
+            }
+        ],
+        "Country": [
+            {
+                "Id": 0,
+                "Value": "Danmark",
+                "Count": 507
+            },
+            {
+                "Id": 0,
+                "Value": "Nederlandene",
+                "Count": 2
+            }
+        ],
+        "Municipality": [
+            {
+                "Id": 0,
+                "Value": "København",
+                "Count": 628
+            },
+            {
+                "Id": 0,
+                "Value": "Aarhus",
+                "Count": 242
+            },
+            {
+                "Id": 0,
+                "Value": "Billund",
+                "Count": 103
+            },
+            {
+                "Id": 0,
+                "Value": "Odense",
+                "Count": 90
+            },
+            {
+                "Id": 0,
+                "Value": "Ballerup",
+                "Count": 90
+            },
+            {
+                "Id": 0,
+                "Value": "Sønderborg",
+                "Count": 87
+            },
+            {
+                "Id": 0,
+                "Value": "Gentofte",
+                "Count": 83
+            },
+            {
+                "Id": 0,
+                "Value": "Lyngby-Taarbæk",
+                "Count": 78
+            },
+            {
+                "Id": 0,
+                "Value": "Gladsaxe",
+                "Count": 58
+            },
+            {
+                "Id": 0,
+                "Value": "Norddjurs",
+                "Count": 45
+            },
+            {
+                "Id": 0,
+                "Value": "Aalborg",
+                "Count": 40
+            },
+            {
+                "Id": 0,
+                "Value": "Viborg",
+                "Count": 39
+            },
+            {
+                "Id": 0,
+                "Value": "Fredensborg",
+                "Count": 35
+            },
+            {
+                "Id": 0,
+                "Value": "Kolding",
+                "Count": 30
+            },
+            {
+                "Id": 0,
+                "Value": "Brøndby",
+                "Count": 30
+            },
+            {
+                "Id": 0,
+                "Value": "Rudersdal",
+                "Count": 25
+            },
+            {
+                "Id": 0,
+                "Value": "Høje-Taastrup",
+                "Count": 24
+            },
+            {
+                "Id": 0,
+                "Value": "Esbjerg",
+                "Count": 22
+            },
+            {
+                "Id": 0,
+                "Value": "Roskilde",
+                "Count": 21
+            },
+            {
+                "Id": 0,
+                "Value": "Kalundborg",
+                "Count": 20
+            },
+            {
+                "Id": 0,
+                "Value": "Silkeborg",
+                "Count": 17
+            },
+            {
+                "Id": 0,
+                "Value": "Middelfart",
+                "Count": 17
+            },
+            {
+                "Id": 0,
+                "Value": "Frederiksberg",
+                "Count": 17
+            },
+            {
+                "Id": 0,
+                "Value": "Ikast-Brande",
+                "Count": 15
+            },
+            {
+                "Id": 0,
+                "Value": "Horsens",
+                "Count": 15
+            },
+            {
+                "Id": 0,
+                "Value": "Ringkøbing-Skjern",
+                "Count": 15
+            },
+            {
+                "Id": 0,
+                "Value": "Hillerød",
+                "Count": 14
+            },
+            {
+                "Id": 0,
+                "Value": "Herlev",
+                "Count": 14
+            },
+            {
+                "Id": 0,
+                "Value": "Skanderborg",
+                "Count": 14
+            },
+            {
+                "Id": 0,
+                "Value": "Køge",
+                "Count": 12
+            },
+            {
+                "Id": 0,
+                "Value": "Hørsholm",
+                "Count": 11
+            },
+            {
+                "Id": 0,
+                "Value": "Fredericia",
+                "Count": 11
+            },
+            {
+                "Id": 0,
+                "Value": "Vejen",
+                "Count": 9
+            },
+            {
+                "Id": 0,
+                "Value": "Favrskov",
+                "Count": 9
+            },
+            {
+                "Id": 0,
+                "Value": "Struer",
+                "Count": 9
+            },
+            {
+                "Id": 0,
+                "Value": "Herning",
+                "Count": 8
+            },
+            {
+                "Id": 0,
+                "Value": "Tønder",
+                "Count": 7
+            },
+            {
+                "Id": 0,
+                "Value": "Helsingør",
+                "Count": 7
+            },
+            {
+                "Id": 0,
+                "Value": "Thisted",
+                "Count": 6
+            },
+            {
+                "Id": 0,
+                "Value": "Hedensted",
+                "Count": 6
+            },
+            {
+                "Id": 0,
+                "Value": "Aabenraa",
+                "Count": 6
+            },
+            {
+                "Id": 0,
+                "Value": "Glostrup",
+                "Count": 6
+            },
+            {
+                "Id": 0,
+                "Value": "Varde",
+                "Count": 5
+            },
+            {
+                "Id": 0,
+                "Value": "Vejle",
+                "Count": 5
+            },
+            {
+                "Id": 0,
+                "Value": "Holbæk",
+                "Count": 5
+            },
+            {
+                "Id": 0,
+                "Value": "Skive",
+                "Count": 4
+            },
+            {
+                "Id": 0,
+                "Value": "Lolland",
+                "Count": 4
+            },
+            {
+                "Id": 0,
+                "Value": "Holstebro",
+                "Count": 4
+            },
+            {
+                "Id": 0,
+                "Value": "Ishøj",
+                "Count": 4
+            },
+            {
+                "Id": 0,
+                "Value": "Hvidovre",
+                "Count": 4
+            },
+            {
+                "Id": 0,
+                "Value": "Ærø",
+                "Count": 3
+            },
+            {
+                "Id": 0,
+                "Value": "Egedal",
+                "Count": 3
+            },
+            {
+                "Id": 0,
+                "Value": "Lejre",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "Jammerbugt",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "Slagelse",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "Greve",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "Tårnby",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "Haderslev",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "Vesthimmerlands",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "Brønderslev",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "Assens",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "Allerød",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "Randers",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "Nordfyns",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "Næstved",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "Hjørring",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "Albertslund",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Kerteminde",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Furesø",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Gribskov",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Frederikshavn",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Sorø",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Ringsted",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Nyborg",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Mariagerfjord",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Syddjurs",
+                "Count": 1
+            }
+        ],
+        "PostalCode": [
+            {
+                "Id": 0,
+                "Value": "1000",
+                "Count": 169
+            },
+            {
+                "Id": 0,
+                "Value": "8000",
+                "Count": 122
+            },
+            {
+                "Id": 0,
+                "Value": "2800",
+                "Count": 113
+            },
+            {
+                "Id": 0,
+                "Value": "7190",
+                "Count": 103
+            },
+            {
+                "Id": 0,
+                "Value": "2300",
+                "Count": 89
+            },
+            {
+                "Id": 0,
+                "Value": "8200",
+                "Count": 81
+            },
+            {
+                "Id": 0,
+                "Value": "6430",
+                "Count": 75
+            },
+            {
+                "Id": 0,
+                "Value": "2100",
+                "Count": 73
+            },
+            {
+                "Id": 0,
+                "Value": "2750",
+                "Count": 67
+            },
+            {
+                "Id": 0,
+                "Value": "2900",
+                "Count": 45
+            },
+            {
+                "Id": 0,
+                "Value": "8950",
+                "Count": 45
+            },
+            {
+                "Id": 0,
+                "Value": "2820",
+                "Count": 38
+            },
+            {
+                "Id": 0,
+                "Value": "9000",
+                "Count": 36
+            },
+            {
+                "Id": 0,
+                "Value": "2880",
+                "Count": 35
+            },
+            {
+                "Id": 0,
+                "Value": "8850",
+                "Count": 35
+            },
+            {
+                "Id": 0,
+                "Value": "3050",
+                "Count": 34
+            },
+            {
+                "Id": 0,
+                "Value": "1112",
+                "Count": 34
+            },
+            {
+                "Id": 0,
+                "Value": "2605",
+                "Count": 29
+            },
+            {
+                "Id": 0,
+                "Value": "6000",
+                "Count": 29
+            },
+            {
+                "Id": 0,
+                "Value": "5090",
+                "Count": 28
+            },
+            {
+                "Id": 0,
+                "Value": "5260",
+                "Count": 26
+            },
+            {
+                "Id": 0,
+                "Value": "2950",
+                "Count": 23
+            },
+            {
+                "Id": 0,
+                "Value": "2760",
+                "Count": 23
+            },
+            {
+                "Id": 0,
+                "Value": "2860",
+                "Count": 22
+            },
+            {
+                "Id": 0,
+                "Value": "4000",
+                "Count": 22
+            },
+            {
+                "Id": 0,
+                "Value": "4400",
+                "Count": 20
+            },
+            {
+                "Id": 0,
+                "Value": "8260",
+                "Count": 20
+            },
+            {
+                "Id": 0,
+                "Value": "2450",
+                "Count": 19
+            },
+            {
+                "Id": 0,
+                "Value": "6700",
+                "Count": 18
+            },
+            {
+                "Id": 0,
+                "Value": "2200",
+                "Count": 18
+            },
+            {
+                "Id": 0,
+                "Value": "5500",
+                "Count": 17
+            },
+            {
+                "Id": 0,
+                "Value": "8700",
+                "Count": 16
+            },
+            {
+                "Id": 0,
+                "Value": "8600",
+                "Count": 16
+            },
+            {
+                "Id": 0,
+                "Value": "5220",
+                "Count": 16
+            },
+            {
+                "Id": 0,
+                "Value": "1153",
+                "Count": 16
+            },
+            {
+                "Id": 0,
+                "Value": "5000",
+                "Count": 15
+            },
+            {
+                "Id": 0,
+                "Value": "1799",
+                "Count": 15
+            },
+            {
+                "Id": 0,
+                "Value": "1437",
+                "Count": 15
+            },
+            {
+                "Id": 0,
+                "Value": "2640",
+                "Count": 15
+            },
+            {
+                "Id": 0,
+                "Value": "2000",
+                "Count": 14
+            },
+            {
+                "Id": 0,
+                "Value": "2730",
+                "Count": 14
+            },
+            {
+                "Id": 0,
+                "Value": "3400",
+                "Count": 14
+            },
+            {
+                "Id": 0,
+                "Value": "8220",
+                "Count": 13
+            },
+            {
+                "Id": 0,
+                "Value": "1360",
+                "Count": 13
+            },
+            {
+                "Id": 0,
+                "Value": "1058",
+                "Count": 13
+            },
+            {
+                "Id": 0,
+                "Value": "7330",
+                "Count": 12
+            },
+            {
+                "Id": 0,
+                "Value": "4600",
+                "Count": 12
+            },
+            {
+                "Id": 0,
+                "Value": "7000",
+                "Count": 12
+            },
+            {
+                "Id": 0,
+                "Value": "8660",
+                "Count": 10
+            },
+            {
+                "Id": 0,
+                "Value": "2970",
+                "Count": 10
+            },
+            {
+                "Id": 0,
+                "Value": "2830",
+                "Count": 9
+            },
+            {
+                "Id": 0,
+                "Value": "7600",
+                "Count": 9
+            },
+            {
+                "Id": 0,
+                "Value": "6600",
+                "Count": 9
+            },
+            {
+                "Id": 0,
+                "Value": "1150",
+                "Count": 8
+            },
+            {
+                "Id": 0,
+                "Value": "2500",
+                "Count": 8
+            },
+            {
+                "Id": 0,
+                "Value": "6920",
+                "Count": 8
+            },
+            {
+                "Id": 0,
+                "Value": "1264",
+                "Count": 8
+            },
+            {
+                "Id": 0,
+                "Value": "1606",
+                "Count": 7
+            },
+            {
+                "Id": 0,
+                "Value": "6400",
+                "Count": 7
+            },
+            {
+                "Id": 0,
+                "Value": "7400",
+                "Count": 7
+            },
+            {
+                "Id": 0,
+                "Value": "6261",
+                "Count": 7
+            },
+            {
+                "Id": 0,
+                "Value": "1717",
+                "Count": 7
+            },
+            {
+                "Id": 0,
+                "Value": "2400",
+                "Count": 6
+            },
+            {
+                "Id": 0,
+                "Value": "800",
+                "Count": 6
+            },
+            {
+                "Id": 0,
+                "Value": "1200",
+                "Count": 6
+            },
+            {
+                "Id": 0,
+                "Value": "2600",
+                "Count": 6
+            },
+            {
+                "Id": 0,
+                "Value": "2630",
+                "Count": 6
+            },
+            {
+                "Id": 0,
+                "Value": "1358",
+                "Count": 6
+            },
+            {
+                "Id": 0,
+                "Value": "1353",
+                "Count": 6
+            },
+            {
+                "Id": 0,
+                "Value": "1306",
+                "Count": 5
+            },
+            {
+                "Id": 0,
+                "Value": "3140",
+                "Count": 5
+            },
+            {
+                "Id": 0,
+                "Value": "6300",
+                "Count": 5
+            },
+            {
+                "Id": 0,
+                "Value": "1100",
+                "Count": 5
+            },
+            {
+                "Id": 0,
+                "Value": "1152",
+                "Count": 4
+            },
+            {
+                "Id": 0,
+                "Value": "7100",
+                "Count": 4
+            },
+            {
+                "Id": 0,
+                "Value": "1060",
+                "Count": 4
+            },
+            {
+                "Id": 0,
+                "Value": "1159",
+                "Count": 4
+            },
+            {
+                "Id": 0,
+                "Value": "9230",
+                "Count": 4
+            },
+            {
+                "Id": 0,
+                "Value": "1577",
+                "Count": 4
+            },
+            {
+                "Id": 0,
+                "Value": "1350",
+                "Count": 4
+            },
+            {
+                "Id": 0,
+                "Value": "8382",
+                "Count": 4
+            },
+            {
+                "Id": 0,
+                "Value": "7700",
+                "Count": 4
+            },
+            {
+                "Id": 0,
+                "Value": "6710",
+                "Count": 4
+            },
+            {
+                "Id": 0,
+                "Value": "1712",
+                "Count": 4
+            },
+            {
+                "Id": 0,
+                "Value": "8450",
+                "Count": 4
+            },
+            {
+                "Id": 0,
+                "Value": "2650",
+                "Count": 4
+            },
+            {
+                "Id": 0,
+                "Value": "4970",
+                "Count": 4
+            },
+            {
+                "Id": 0,
+                "Value": "1456",
+                "Count": 3
+            },
+            {
+                "Id": 0,
+                "Value": "8723",
+                "Count": 3
+            },
+            {
+                "Id": 0,
+                "Value": "2765",
+                "Count": 3
+            },
+            {
+                "Id": 0,
+                "Value": "5960",
+                "Count": 3
+            },
+            {
+                "Id": 0,
+                "Value": "8830",
+                "Count": 3
+            },
+            {
+                "Id": 0,
+                "Value": "5270",
+                "Count": 3
+            },
+            {
+                "Id": 0,
+                "Value": "7430",
+                "Count": 3
+            },
+            {
+                "Id": 0,
+                "Value": "1553",
+                "Count": 3
+            },
+            {
+                "Id": 0,
+                "Value": "6870",
+                "Count": 3
+            },
+            {
+                "Id": 0,
+                "Value": "6940",
+                "Count": 3
+            },
+            {
+                "Id": 0,
+                "Value": "3460",
+                "Count": 3
+            },
+            {
+                "Id": 0,
+                "Value": "1401",
+                "Count": 3
+            },
+            {
+                "Id": 0,
+                "Value": "7500",
+                "Count": 3
+            },
+            {
+                "Id": 0,
+                "Value": "5230",
+                "Count": 3
+            },
+            {
+                "Id": 0,
+                "Value": "1620",
+                "Count": 3
+            },
+            {
+                "Id": 0,
+                "Value": "1117",
+                "Count": 3
+            },
+            {
+                "Id": 0,
+                "Value": "1161",
+                "Count": 3
+            },
+            {
+                "Id": 0,
+                "Value": "6900",
+                "Count": 3
+            },
+            {
+                "Id": 0,
+                "Value": "6200",
+                "Count": 3
+            },
+            {
+                "Id": 0,
+                "Value": "8680",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "2670",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "8722",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "2770",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "2635",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "1720",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "8361",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "8464",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "2150",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "3000",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "4700",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "9200",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "9670",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "9320",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "4340",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "9999",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "3060",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "4320",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "8882",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "1716",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "1165",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "1157",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "1256",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "1253",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "1054",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "6230",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "5683",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "1050",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "6853",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "7570",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "1453",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "1432",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "1652",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "1560",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "7870",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "1300",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "1263",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "7800",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "7730",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "8870",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "1457",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "6640",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "1434",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "8940",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "8920",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "8900",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "1561",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "1601",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "6360",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "2740",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "8800",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "1473",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "6500",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "4420",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "6950",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "9500",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "9492",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "9800",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "8721",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "9900",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "9850",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "1369",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "1403",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "8960",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "9220",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "9490",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "1069",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "1362",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "8653",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "2660",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "2700",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "5210",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "2620",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "5400",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "5300",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "2610",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "7160",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "3500",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "1067",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "4200",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "2960",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "3200",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "3450",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "1970",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "8410",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "4180",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "6100",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "4100",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "1700",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "8520",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "1704",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "8210",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "5853",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "4220",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "1870",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "1827",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "8240",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "8230",
+                "Count": 1
+            }
+        ],
+        "OccupationAreas": [],
+        "OccupationGroups": [],
+        "Occupations": [
+            {
+                "Id": 0,
+                "Value": "Ph.d., naturvidenskab og teknik",
+                "Count": 72
+            },
+            {
+                "Id": 0,
+                "Value": "Lager- og logistikmedarbejder",
+                "Count": 31
+            },
+            {
+                "Id": 0,
+                "Value": "Programmør og systemudvikler",
+                "Count": 27
+            },
+            {
+                "Id": 0,
+                "Value": "Forsker, naturvidenskab og teknik",
+                "Count": 24
+            },
+            {
+                "Id": 0,
+                "Value": "Kok",
+                "Count": 17
+            },
+            {
+                "Id": 0,
+                "Value": "Rengøringsassistent",
+                "Count": 16
+            },
+            {
+                "Id": 0,
+                "Value": "Kundeservicemedarbejder",
+                "Count": 14
+            },
+            {
+                "Id": 0,
+                "Value": "Rengøringsassistent, hotel",
+                "Count": 13
+            },
+            {
+                "Id": 0,
+                "Value": "Studentermedhjælp",
+                "Count": 11
+            },
+            {
+                "Id": 0,
+                "Value": "Ph.d., sundhedsvidenskab",
+                "Count": 10
+            },
+            {
+                "Id": 0,
+                "Value": "Køkkenmedhjælper",
+                "Count": 8
+            },
+            {
+                "Id": 0,
+                "Value": "Opvasker",
+                "Count": 8
+            },
+            {
+                "Id": 0,
+                "Value": "Forsker, sundhedsvidenskab",
+                "Count": 8
+            },
+            {
+                "Id": 0,
+                "Value": "Serveringsmedarbejder",
+                "Count": 8
+            },
+            {
+                "Id": 0,
+                "Value": "Truckfører",
+                "Count": 6
+            },
+            {
+                "Id": 0,
+                "Value": "Tjener",
+                "Count": 6
+            },
+            {
+                "Id": 0,
+                "Value": "Tømrer",
+                "Count": 6
+            },
+            {
+                "Id": 0,
+                "Value": "Adjunkt, sundhedsvidenskab",
+                "Count": 6
+            },
+            {
+                "Id": 0,
+                "Value": "Ph.d., samfundsvidenskab",
+                "Count": 6
+            },
+            {
+                "Id": 0,
+                "Value": "Lektor, naturvidenskab og teknik",
+                "Count": 5
+            },
+            {
+                "Id": 0,
+                "Value": "Maskiningeniør",
+                "Count": 5
+            },
+            {
+                "Id": 0,
+                "Value": "Adjunkt, samfundsvidenskab",
+                "Count": 5
+            },
+            {
+                "Id": 0,
+                "Value": "Marketingmedarbejder",
+                "Count": 5
+            },
+            {
+                "Id": 0,
+                "Value": "IT-arkitekt",
+                "Count": 4
+            },
+            {
+                "Id": 0,
+                "Value": "Produktionsmedarbejder",
+                "Count": 4
+            },
+            {
+                "Id": 0,
+                "Value": "Souschef, køkken",
+                "Count": 4
+            },
+            {
+                "Id": 0,
+                "Value": "Forsker, samfundsvidenskab",
+                "Count": 4
+            },
+            {
+                "Id": 0,
+                "Value": "Adjunkt, naturvidenskab og teknik",
+                "Count": 4
+            },
+            {
+                "Id": 0,
+                "Value": "Salgs- og kundeansvarlig",
+                "Count": 3
+            },
+            {
+                "Id": 0,
+                "Value": "Professor, sundhedsvidenskab",
+                "Count": 3
+            },
+            {
+                "Id": 0,
+                "Value": "Specialarbejder, byggeri",
+                "Count": 3
+            },
+            {
+                "Id": 0,
+                "Value": "Lektor, sundhedsvidenskab",
+                "Count": 3
+            },
+            {
+                "Id": 0,
+                "Value": "Omdeler",
+                "Count": 3
+            },
+            {
+                "Id": 0,
+                "Value": "UX designer",
+                "Count": 3
+            },
+            {
+                "Id": 0,
+                "Value": "Interviewer",
+                "Count": 3
+            },
+            {
+                "Id": 0,
+                "Value": "Civilingeniør",
+                "Count": 3
+            },
+            {
+                "Id": 0,
+                "Value": "Bager",
+                "Count": 3
+            },
+            {
+                "Id": 0,
+                "Value": "Videnskabelig assistent, sundhedsvidenskab",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "Softwareudvikler, backend",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "Elektronikingeniør",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "Direktionssekretær",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "Salgschef",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "Restaurantchef",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "CNC-operatør",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "Smed",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "IT-tekniker",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "IT-konsulent",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "Laboratorietekniker",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "Køkkenchef",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "Forskningsassistent, samfundsvidenskab",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "Fast food ekspedient",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "IT-ingeniør",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "IT-chef",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "Receptionist, hotel",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "Assistant professor, sundhedsvidenskab",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "Lektor",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "Massør",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "Lektor, samfundsvidenskab",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "Lagerekspedient",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "Folkeskolelærer",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "Softwareudvikler, frontend",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "Landbrugsmedhjælper",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "Professor, samfundsvidenskab",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "Pizzabager",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "Projektleder",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "Landmand",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "Personalechef",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "Møbelsnedker",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "Bartender",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "Bagermester",
+                "Count": 2
+            },
+            {
+                "Id": 0,
+                "Value": "Sekretariatschef",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Gulvlægger",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Laboratorieleder",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Salgskonsulent",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Servicetekniker, jern og metal",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Mekaniker",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Miljøingeniør",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Servicetekniker, rengøring og ejendomsservice",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Slagteriarbejder",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Kvalitetsingeniør",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "HR-konsulent",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Marketingchef",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Projektmedarbejder",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Hotelmedarbejder",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Rådgivende konsulent",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Hardware-udvikler",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Rengøringsassistent, privat",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Kvalitetschef",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Account manager",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Finanschef",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Elektronikfagtekniker",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Tandlæge",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Teknisk chef",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Elektronikarbejder",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Videnskabelig assistent, naturvidenskab og teknik",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Molekylærbiolog",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Undervisningsassistent, samfundsvidenskab",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Ekspedient",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Specialarbejder, jord og beton",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Specialarbejder, maler",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Forskningsassistent, sundhedsvidenskab",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Brolægger",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Specialarbejder, medicinal",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Svejser",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Tandklinikassistent",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Specialkonsulent",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Flyttemand",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Bygningskonstruktør",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Cater",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Biokemiker",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Byggeleder",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Chauffør, budtransport, køretøj under 3½ ton",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Datakonsulent",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Laborant",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Chauffør, fragt, distribution, blandet kørsel",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Cykelmekaniker",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Arbejdsleder, produktion",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Assistant professor, samfundsvidenskab",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Adjunkt",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Afdelingsleder",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Assistent til salgssupport",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Automontør",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Betonmager",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Associate professor, humaniora",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Associate professor, naturvidenskab og teknik",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Oldfrue",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Kommunikationschef",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Produktionstekniker",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Logistikmedarbejder, salg og indkøb",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Produktchef",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Produktspecialist",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Kemiingeniør",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "IT-produktejer",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Produktudvikler",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Lønbogholder",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Oversætter",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Pedelmedhjælper",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Kursuskoordinator",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Kemiker",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Lektor, teologi",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Kontormedhjælper",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Kontorfuldmægtig",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Ph.d., humaniora",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Koordinator",
+                "Count": 1
+            }
+        ],
+        "EmploymentType": [
+            {
+                "Id": 0,
+                "Value": "Fastansættelse",
+                "Count": 1849
+            },
+            {
+                "Id": 0,
+                "Value": "Tidsbegrænset ansættelse",
+                "Count": 328
+            }
+        ],
+        "WorkHours": [
+            {
+                "Id": 0,
+                "Value": "Fuldtid",
+                "Count": 2080
+            },
+            {
+                "Id": 0,
+                "Value": "Deltid",
+                "Count": 97
+            }
+        ],
+        "WorkHourPartTime": [
+            {
+                "Id": 0,
+                "Value": "Deltid",
+                "Count": 87
+            }
+        ],
+        "JobAnnouncementType": [
+            {
+                "Id": 0,
+                "Value": "Almindelige vilkår",
+                "Count": 2176
+            },
+            {
+                "Id": 0,
+                "Value": "Hotjob",
+                "Count": 1
+            },
+            {
+                "Id": 0,
+                "Value": "Handicap ingen hindring",
+                "Count": 1
+            }
+        ],
+        "WorkPlaceNotStatic": [
+            {
+                "Id": 0,
+                "Value": "false",
+                "Count": 2160
+            },
+            {
+                "Id": 0,
+                "Value": "true",
+                "Count": 17
+            }
+        ]
+    },
+    "JobPositionPostings": [
+        {
+            "AutomatchType": 0,
+            "Abroad": false,
+            "Weight": 1.0,
+            "Title": "Assistant or associate professorship in general didactics and empirical school research",
+            "JobHeadline": "Assistant or associate professorship in general didactics and empirical school research",
+            "Presentation": "The Department of Educational Theory and Curriculum Studies at the Danish School of Education, Aarhus University invites applications for an assistant/associate professorship in the field of general d",
+            "HiringOrgName": "Aarhus Universitet",
+            "WorkPlaceAddress": "Tuborgvej 164",
+            "WorkPlacePostalCode": "2400",
+            "WorkPlaceCity": "København NV",
+            "WorkPlaceOtherAddress": false,
+            "WorkPlaceAbroad": false,
+            "WorkPlaceNotStatic": false,
+            "UseWorkPlaceAddressForJoblog": true,
+            "PostingCreated": "2021-07-02T00:00:00",
+            "LastDateApplication": "2021-08-09T00:00:00",
+            "FormattedLastDateApplication": "9. august 2021",
+            "AssignmentStartDate": "0001-01-01T00:00:00",
+            "IsHotjob": false,
+            "IsExternal": false,
+            "Url": "https://job.jobnet.dk/CV/FindWork/Details/5382440",
+            "Region": "Hovedstaden og Bornholm",
+            "Municipality": "København",
+            "Country": "Danmark",
+            "PostalCode": "2400",
+            "PostalCodeName": null,
+            "JobAnnouncementType": "",
+            "EmploymentType": "",
+            "WorkHours": "Fuldtid",
+            "OccupationArea": "",
+            "OccupationGroup": "",
+            "Occupation": "Adjunkt, samfundsvidenskab",
+            "Location": {
+                "Latitude": 55.7217,
+                "Longitude": 12.5432
+            },
+            "JoblogWorkTime": {
+                "WorkHour": null,
+                "DailyWorkTime": null
+            },
+            "WorkplaceID": 106637,
+            "OrganisationId": "90880",
+            "HiringOrgCVR": 31119103,
+            "UserLoggedIn": false,
+            "AnonymousEmployer": false,
+            "ShareUrl": "https://job.jobnet.dk/CV/FindWork/DetailsSocialmedia/5382440",
+            "DetailsUrl": "https://job.jobnet.dk/CV/FindWork/DetailsWidk/5382440",
+            "JobLogUrl": "https://job.jobnet.dk/CV/FindWork/Details/5382440",
+            "HasLocationValues": true,
+            "ID": "5382440",
+            "Latitude": 55.7217,
+            "Longitude": 12.5432
+        },
+        {
+            "AutomatchType": 0,
+            "Abroad": false,
+            "Weight": 1.0,
+            "Title": "carpenter",
+            "JobHeadline": "carpenter",
+            "Presentation": "",
+            "HiringOrgName": "Lokal Boligservice ApS",
+            "WorkPlaceAddress": "",
+            "WorkPlacePostalCode": "",
+            "WorkPlaceCity": "",
+            "WorkPlaceOtherAddress": false,
+            "WorkPlaceAbroad": false,
+            "WorkPlaceNotStatic": true,
+            "UseWorkPlaceAddressForJoblog": false,
+            "PostingCreated": "2021-07-02T00:00:00",
+            "LastDateApplication": "2021-08-27T00:00:00",
+            "FormattedLastDateApplication": "27. august 2021",
+            "AssignmentStartDate": "0001-01-01T00:00:00",
+            "IsHotjob": false,
+            "IsExternal": false,
+            "Url": "https://job.jobnet.dk/CV/FindWork/Details/5316797",
+            "Region": "",
+            "Municipality": "",
+            "Country": "Danmark",
+            "PostalCode": "2800",
+            "PostalCodeName": null,
+            "JobAnnouncementType": "",
+            "EmploymentType": "",
+            "WorkHours": "Fuldtid",
+            "OccupationArea": "",
+            "OccupationGroup": "",
+            "Occupation": "Tømrer",
+            "Location": {
+                "Latitude": 55.7857,
+                "Longitude": 12.5208
+            },
+            "JoblogWorkTime": {
+                "WorkHour": null,
+                "DailyWorkTime": "Dag"
+            },
+            "WorkplaceID": 138690,
+            "OrganisationId": "121402",
+            "HiringOrgCVR": 41075899,
+            "UserLoggedIn": false,
+            "AnonymousEmployer": false,
+            "ShareUrl": "https://job.jobnet.dk/CV/FindWork/DetailsSocialmedia/5316797",
+            "DetailsUrl": "https://job.jobnet.dk/CV/FindWork/DetailsWidk/5316797",
+            "JobLogUrl": "https://job.jobnet.dk/CV/FindWork/Details/5316797",
+            "HasLocationValues": true,
+            "ID": "5316797",
+            "Latitude": 55.7857,
+            "Longitude": 12.5208
+        },
+        {
+            "AutomatchType": 0,
+            "Abroad": false,
+            "Weight": 1.0,
+            "Title": "Solution Architect",
+            "JobHeadline": "Solution Architect",
+            "Presentation": " ",
+            "HiringOrgName": "Plecto ApS",
+            "WorkPlaceAddress": "Viby Ringvej 11",
+            "WorkPlacePostalCode": "8260",
+            "WorkPlaceCity": "Viby J",
+            "WorkPlaceOtherAddress": false,
+            "WorkPlaceAbroad": false,
+            "WorkPlaceNotStatic": false,
+            "UseWorkPlaceAddressForJoblog": true,
+            "PostingCreated": "2021-07-02T00:00:00",
+            "LastDateApplication": "2021-08-27T00:00:00",
+            "FormattedLastDateApplication": "27. august 2021",
+            "AssignmentStartDate": "0001-01-01T00:00:00",
+            "IsHotjob": false,
+            "IsExternal": false,
+            "Url": "https://job.jobnet.dk/CV/FindWork/Details/5382367",
+            "Region": "Midtjylland",
+            "Municipality": "Aarhus",
+            "Country": "Danmark",
+            "PostalCode": "8260",
+            "PostalCodeName": null,
+            "JobAnnouncementType": "",
+            "EmploymentType": "",
+            "WorkHours": "Fuldtid",
+            "OccupationArea": "",
+            "OccupationGroup": "",
+            "Occupation": "Kundeservicemedarbejder",
+            "Location": {
+                "Latitude": 56.1288,
+                "Longitude": 10.161
+            },
+            "JoblogWorkTime": {
+                "WorkHour": null,
+                "DailyWorkTime": null
+            },
+            "WorkplaceID": 107348,
+            "OrganisationId": "96927",
+            "HiringOrgCVR": 34737460,
+            "UserLoggedIn": false,
+            "AnonymousEmployer": false,
+            "ShareUrl": "https://job.jobnet.dk/CV/FindWork/DetailsSocialmedia/5382367",
+            "DetailsUrl": "https://job.jobnet.dk/CV/FindWork/DetailsWidk/5382367",
+            "JobLogUrl": "https://job.jobnet.dk/CV/FindWork/Details/5382367",
+            "HasLocationValues": true,
+            "ID": "5382367",
+            "Latitude": 56.1288,
+            "Longitude": 10.161
+        },
+        {
+            "AutomatchType": 0,
+            "Abroad": false,
+            "Weight": 1.0,
+            "Title": "Project Officer - Impact Assessment and Adaptation Analysis",
+            "JobHeadline": "Project Officer - Impact Assessment and Adaptation Analysis",
+            "Presentation": "<br>\n UNEP DTU Partnership (UDP) is a leading international research and advisory institution on energy, climate and sustainable development. UDP is part of the Department for Technology, Management ",
+            "HiringOrgName": "Danmarks Tekniske Universitet",
+            "WorkPlaceAddress": "Anker Engelunds Vej 101",
+            "WorkPlacePostalCode": "2800",
+            "WorkPlaceCity": "Kongens Lyngby",
+            "WorkPlaceOtherAddress": false,
+            "WorkPlaceAbroad": false,
+            "WorkPlaceNotStatic": false,
+            "UseWorkPlaceAddressForJoblog": true,
+            "PostingCreated": "2021-07-02T00:00:00",
+            "LastDateApplication": "2021-07-16T00:00:00",
+            "FormattedLastDateApplication": "16. juli 2021",
+            "AssignmentStartDate": "0001-01-01T00:00:00",
+            "IsHotjob": false,
+            "IsExternal": false,
+            "Url": "https://job.jobnet.dk/CV/FindWork/Details/5382358",
+            "Region": "Hovedstaden og Bornholm",
+            "Municipality": "Gladsaxe",
+            "Country": "Danmark",
+            "PostalCode": "2800",
+            "PostalCodeName": null,
+            "JobAnnouncementType": "",
+            "EmploymentType": "",
+            "WorkHours": "Fuldtid",
+            "OccupationArea": "",
+            "OccupationGroup": "",
+            "Occupation": "Miljøingeniør",
+            "Location": {
+                "Latitude": 55.7859,
+                "Longitude": 12.5241
+            },
+            "JoblogWorkTime": {
+                "WorkHour": null,
+                "DailyWorkTime": null
+            },
+            "WorkplaceID": 83955,
+            "OrganisationId": "66175",
+            "HiringOrgCVR": 30060946,
+            "UserLoggedIn": false,
+            "AnonymousEmployer": false,
+            "ShareUrl": "https://job.jobnet.dk/CV/FindWork/DetailsSocialmedia/5382358",
+            "DetailsUrl": "https://job.jobnet.dk/CV/FindWork/DetailsWidk/5382358",
+            "JobLogUrl": "https://job.jobnet.dk/CV/FindWork/Details/5382358",
+            "HasLocationValues": true,
+            "ID": "5382358",
+            "Latitude": 55.7859,
+            "Longitude": 12.5241
+        },
+        {
+            "AutomatchType": 0,
+            "Abroad": false,
+            "Weight": 1.0,
+            "Title": "Warehouse workers",
+            "JobHeadline": "Warehouse workers",
+            "Presentation": "<p>For our client in Middelfart, we are looking for warehouse workers to empty containers daily - Monday to Friday from 8 AM to 4 PM.</p>\n",
+            "HiringOrgName": "RANDSTAD A/S",
+            "WorkPlaceAddress": "",
+            "WorkPlacePostalCode": "5500",
+            "WorkPlaceCity": "Middelfart",
+            "WorkPlaceOtherAddress": true,
+            "WorkPlaceAbroad": false,
+            "WorkPlaceNotStatic": false,
+            "UseWorkPlaceAddressForJoblog": false,
+            "PostingCreated": "2021-07-02T00:00:00",
+            "LastDateApplication": "2021-08-27T00:00:00",
+            "FormattedLastDateApplication": "27. august 2021",
+            "AssignmentStartDate": "0001-01-01T00:00:00",
+            "IsHotjob": false,
+            "IsExternal": false,
+            "Url": "https://job.jobnet.dk/CV/FindWork/Details/5382226",
+            "Region": "Syddanmark",
+            "Municipality": "Middelfart",
+            "Country": "Danmark",
+            "PostalCode": "5500",
+            "PostalCodeName": null,
+            "JobAnnouncementType": "",
+            "EmploymentType": "",
+            "WorkHours": "Fuldtid",
+            "OccupationArea": "",
+            "OccupationGroup": "",
+            "Occupation": "Lager- og logistikmedarbejder",
+            "Location": {
+                "Latitude": 55.4893,
+                "Longitude": 9.7849
+            },
+            "JoblogWorkTime": {
+                "WorkHour": null,
+                "DailyWorkTime": "Dag"
+            },
+            "WorkplaceID": 120191,
+            "OrganisationId": "106608",
+            "HiringOrgCVR": 25050541,
+            "UserLoggedIn": false,
+            "AnonymousEmployer": false,
+            "ShareUrl": "https://job.jobnet.dk/CV/FindWork/DetailsSocialmedia/5382226",
+            "DetailsUrl": "https://job.jobnet.dk/CV/FindWork/DetailsWidk/5382226",
+            "JobLogUrl": "https://job.jobnet.dk/CV/FindWork/Details/5382226",
+            "HasLocationValues": true,
+            "ID": "5382226",
+            "Latitude": 55.4893,
+            "Longitude": 9.7849
+        },
+        {
+            "AutomatchType": 0,
+            "Abroad": false,
+            "Weight": 1.0,
+            "Title": "Cleaning / Housekeeping",
+            "JobHeadline": "Cleaning / Housekeeping",
+            "Presentation": "   Are you the new fantastic employee at BH HotelService?                                                                                     ",
+            "HiringOrgName": "BH HotelService ApS",
+            "WorkPlaceAddress": "Amagerbrogade 44, 1. tv.",
+            "WorkPlacePostalCode": "2300",
+            "WorkPlaceCity": "København S",
+            "WorkPlaceOtherAddress": false,
+            "WorkPlaceAbroad": false,
+            "WorkPlaceNotStatic": false,
+            "UseWorkPlaceAddressForJoblog": true,
+            "PostingCreated": "2021-07-02T00:00:00",
+            "LastDateApplication": "2021-07-30T00:00:00",
+            "FormattedLastDateApplication": "30. juli 2021",
+            "AssignmentStartDate": "0001-01-01T00:00:00",
+            "IsHotjob": false,
+            "IsExternal": false,
+            "Url": "https://job.jobnet.dk/CV/FindWork/Details/5339477",
+            "Region": "Hovedstaden og Bornholm",
+            "Municipality": "København",
+            "Country": "Danmark",
+            "PostalCode": "2300",
+            "PostalCodeName": null,
+            "JobAnnouncementType": "",
+            "EmploymentType": "",
+            "WorkHours": "Deltid",
+            "OccupationArea": "",
+            "OccupationGroup": "",
+            "Occupation": "Rengøringsassistent, hotel",
+            "Location": {
+                "Latitude": 55.6636,
+                "Longitude": 12.601
+            },
+            "JoblogWorkTime": {
+                "WorkHour": "(20 - 30 timer ugentligt)",
+                "DailyWorkTime": "Dag, weekend"
+            },
+            "WorkplaceID": 84451,
+            "OrganisationId": "78371",
+            "HiringOrgCVR": 32286550,
+            "UserLoggedIn": false,
+            "AnonymousEmployer": false,
+            "ShareUrl": "https://job.jobnet.dk/CV/FindWork/DetailsSocialmedia/5339477",
+            "DetailsUrl": "https://job.jobnet.dk/CV/FindWork/DetailsWidk/5339477",
+            "JobLogUrl": "https://job.jobnet.dk/CV/FindWork/Details/5339477",
+            "HasLocationValues": true,
+            "ID": "5339477",
+            "Latitude": 55.6636,
+            "Longitude": 12.601
+        },
+        {
+            "AutomatchType": 0,
+            "Abroad": false,
+            "Weight": 1.0,
+            "Title": "B2B Sales Specialist",
+            "JobHeadline": "B2B Sales Specialist",
+            "Presentation": " ",
+            "HiringOrgName": "Plecto ApS",
+            "WorkPlaceAddress": "Viby Ringvej 11",
+            "WorkPlacePostalCode": "8260",
+            "WorkPlaceCity": "Viby J",
+            "WorkPlaceOtherAddress": false,
+            "WorkPlaceAbroad": false,
+            "WorkPlaceNotStatic": false,
+            "UseWorkPlaceAddressForJoblog": true,
+            "PostingCreated": "2021-07-02T00:00:00",
+            "LastDateApplication": "2021-07-30T00:00:00",
+            "FormattedLastDateApplication": "30. juli 2021",
+            "AssignmentStartDate": "0001-01-01T00:00:00",
+            "IsHotjob": false,
+            "IsExternal": false,
+            "Url": "https://job.jobnet.dk/CV/FindWork/Details/5345782",
+            "Region": "Midtjylland",
+            "Municipality": "Aarhus",
+            "Country": "Danmark",
+            "PostalCode": "8260",
+            "PostalCodeName": null,
+            "JobAnnouncementType": "",
+            "EmploymentType": "",
+            "WorkHours": "Fuldtid",
+            "OccupationArea": "",
+            "OccupationGroup": "",
+            "Occupation": "Salgskonsulent",
+            "Location": {
+                "Latitude": 56.1288,
+                "Longitude": 10.161
+            },
+            "JoblogWorkTime": {
+                "WorkHour": null,
+                "DailyWorkTime": null
+            },
+            "WorkplaceID": 107348,
+            "OrganisationId": "96927",
+            "HiringOrgCVR": 34737460,
+            "UserLoggedIn": false,
+            "AnonymousEmployer": false,
+            "ShareUrl": "https://job.jobnet.dk/CV/FindWork/DetailsSocialmedia/5345782",
+            "DetailsUrl": "https://job.jobnet.dk/CV/FindWork/DetailsWidk/5345782",
+            "JobLogUrl": "https://job.jobnet.dk/CV/FindWork/Details/5345782",
+            "HasLocationValues": true,
+            "ID": "5345782",
+            "Latitude": 56.1288,
+            "Longitude": 10.161
+        },
+        {
+            "AutomatchType": 0,
+            "Abroad": false,
+            "Weight": 1.0,
+            "Title": "warwhose worker with in experince using a runner",
+            "JobHeadline": "warwhose worker with in experince using a runner",
+            "Presentation": "<p>10 persons needed for warehouse work in Horsens on both day and evening shift starting as soon as possible until the end of August.</p>\n<p> </p>\n",
+            "HiringOrgName": "Vikar DK A/S",
+            "WorkPlaceAddress": "Egeskovvej 17",
+            "WorkPlacePostalCode": "8700",
+            "WorkPlaceCity": "Horsens",
+            "WorkPlaceOtherAddress": false,
+            "WorkPlaceAbroad": false,
+            "WorkPlaceNotStatic": false,
+            "UseWorkPlaceAddressForJoblog": true,
+            "PostingCreated": "2021-07-02T00:00:00",
+            "LastDateApplication": "2021-08-05T00:00:00",
+            "FormattedLastDateApplication": "5. august 2021",
+            "AssignmentStartDate": "0001-01-01T00:00:00",
+            "IsHotjob": false,
+            "IsExternal": false,
+            "Url": "https://job.jobnet.dk/CV/FindWork/Details/5366564",
+            "Region": "Midtjylland",
+            "Municipality": "Horsens",
+            "Country": "Danmark",
+            "PostalCode": "8700",
+            "PostalCodeName": null,
+            "JobAnnouncementType": "",
+            "EmploymentType": "",
+            "WorkHours": "Fuldtid",
+            "OccupationArea": "",
+            "OccupationGroup": "",
+            "Occupation": "Lager- og logistikmedarbejder",
+            "Location": {
+                "Latitude": 55.923,
+                "Longitude": 9.8219
+            },
+            "JoblogWorkTime": {
+                "WorkHour": null,
+                "DailyWorkTime": "Dag, aften"
+            },
+            "WorkplaceID": 99015,
+            "OrganisationId": "90677",
+            "HiringOrgCVR": 34046956,
+            "UserLoggedIn": false,
+            "AnonymousEmployer": false,
+            "ShareUrl": "https://job.jobnet.dk/CV/FindWork/DetailsSocialmedia/5366564",
+            "DetailsUrl": "https://job.jobnet.dk/CV/FindWork/DetailsWidk/5366564",
+            "JobLogUrl": "https://job.jobnet.dk/CV/FindWork/Details/5366564",
+            "HasLocationValues": true,
+            "ID": "5366564",
+            "Latitude": 55.923,
+            "Longitude": 9.8219
+        },
+        {
+            "AutomatchType": 0,
+            "Abroad": false,
+            "Weight": 1.0,
+            "Title": "Tenure Track Assistant Professor in paleoecology, ancient genomics and conservation biology",
+            "JobHeadline": "Tenure Track Assistant Professor in paleoecology, ancient genomics and conservation biology",
+            "Presentation": "The GLOBE Institute at the Faculty of Health and Medical Sciences, University of Copenhagen seeks to appoint a tenure track assistant professor in paleoecology, ancient genomics and conservation biolo",
+            "HiringOrgName": "KU - SCIENCE - SNM",
+            "WorkPlaceAddress": "Øster Voldgade 5-7",
+            "WorkPlacePostalCode": "1350",
+            "WorkPlaceCity": "København K",
+            "WorkPlaceOtherAddress": false,
+            "WorkPlaceAbroad": false,
+            "WorkPlaceNotStatic": false,
+            "UseWorkPlaceAddressForJoblog": true,
+            "PostingCreated": "2021-07-02T00:00:00",
+            "LastDateApplication": "2021-07-21T00:00:00",
+            "FormattedLastDateApplication": "21. juli 2021",
+            "AssignmentStartDate": "0001-01-01T00:00:00",
+            "IsHotjob": false,
+            "IsExternal": false,
+            "Url": "https://job.jobnet.dk/CV/FindWork/Details/5363343",
+            "Region": "Hovedstaden og Bornholm",
+            "Municipality": "København",
+            "Country": "Danmark",
+            "PostalCode": "1350",
+            "PostalCodeName": null,
+            "JobAnnouncementType": "",
+            "EmploymentType": "",
+            "WorkHours": "Fuldtid",
+            "OccupationArea": "",
+            "OccupationGroup": "",
+            "Occupation": "Adjunkt, sundhedsvidenskab",
+            "Location": {
+                "Latitude": 55.6872,
+                "Longitude": 12.5772
+            },
+            "JoblogWorkTime": {
+                "WorkHour": null,
+                "DailyWorkTime": null
+            },
+            "WorkplaceID": 105129,
+            "OrganisationId": "57758",
+            "HiringOrgCVR": 29979812,
+            "UserLoggedIn": false,
+            "AnonymousEmployer": false,
+            "ShareUrl": "https://job.jobnet.dk/CV/FindWork/DetailsSocialmedia/5363343",
+            "DetailsUrl": "https://job.jobnet.dk/CV/FindWork/DetailsWidk/5363343",
+            "JobLogUrl": "https://job.jobnet.dk/CV/FindWork/Details/5363343",
+            "HasLocationValues": true,
+            "ID": "5363343",
+            "Latitude": 55.6872,
+            "Longitude": 12.5772
+        },
+        {
+            "AutomatchType": 0,
+            "Abroad": true,
+            "Weight": 1.0,
+            "Title": "Receptionist",
+            "JobHeadline": "Security Receptionist",
+            "Presentation": "Stilling\n\nSecurity Receptionist\nJobbeskrivelse\nJobbeskrivelse\n\nPlacering\n\nBagsværd, Denmark\n\nJobkategori\n\nGeneral Management and Administration\n\nAnsøg nu\n\n   \n\nSecurity receptionist in Novo Nordisk – ",
+            "HiringOrgName": "Novo Nordisk A/S",
+            "WorkPlaceAddress": "Novo alle 1",
+            "WorkPlacePostalCode": "2880",
+            "WorkPlaceCity": "Bagsværd",
+            "WorkPlaceOtherAddress": false,
+            "WorkPlaceAbroad": false,
+            "WorkPlaceNotStatic": false,
+            "UseWorkPlaceAddressForJoblog": true,
+            "PostingCreated": "2021-07-02T00:00:00",
+            "LastDateApplication": "2021-07-06T00:00:00",
+            "FormattedLastDateApplication": "6. juli 2021",
+            "AssignmentStartDate": "2021-07-07T00:00:00",
+            "IsHotjob": false,
+            "IsExternal": true,
+            "Url": "https://www.novonordisk.dk/content/nncorp/dk/da/careers/find-a-job/job-ad.199941.en_GB.html",
+            "Region": "Hovedstaden og Bornholm",
+            "Municipality": "Lyngby-Taarbæk",
+            "Country": "",
+            "PostalCode": "2880",
+            "PostalCodeName": null,
+            "JobAnnouncementType": "Almindelige vilkår",
+            "EmploymentType": "Tidsbegrænset ansættelse",
+            "WorkHours": "Fuldtid",
+            "OccupationArea": "",
+            "OccupationGroup": "",
+            "Occupation": "",
+            "Location": {
+                "Latitude": 55.7546,
+                "Longitude": 12.4552
+            },
+            "JoblogWorkTime": {
+                "WorkHour": null,
+                "DailyWorkTime": null
+            },
+            "WorkplaceID": 0,
+            "OrganisationId": "",
+            "HiringOrgCVR": 0,
+            "UserLoggedIn": false,
+            "AnonymousEmployer": false,
+            "ShareUrl": "https://www.novonordisk.dk/content/nncorp/dk/da/careers/find-a-job/job-ad.199941.en_GB.html",
+            "DetailsUrl": null,
+            "JobLogUrl": "https://www.novonordisk.dk/content/nncorp/dk/da/careers/find-a-job/job-ad.199941.en_GB.html",
+            "HasLocationValues": true,
+            "ID": "E8251052",
+            "Latitude": 55.7546,
+            "Longitude": 12.4552
+        },
+        {
+            "AutomatchType": 0,
+            "Abroad": true,
+            "Weight": 1.0,
+            "Title": "Security Officer",
+            "JobHeadline": "Security officer",
+            "Presentation": "Stilling\n\nSecurity officer\nJobbeskrivelse\nJobbeskrivelse\n\nPlacering\n\nBagsværd, Denmark\n\nJobkategori\n\nQuality\n\nAnsøg nu\n\n   \n\nSecurity Officer, Novo Nordisk Alarm Response centre\n\nDo you wish to be par",
+            "HiringOrgName": "Novo Nordisk A/S",
+            "WorkPlaceAddress": "Novo alle 1",
+            "WorkPlacePostalCode": "2880",
+            "WorkPlaceCity": "Bagsværd",
+            "WorkPlaceOtherAddress": false,
+            "WorkPlaceAbroad": false,
+            "WorkPlaceNotStatic": false,
+            "UseWorkPlaceAddressForJoblog": true,
+            "PostingCreated": "2021-07-02T00:00:00",
+            "LastDateApplication": "2021-07-06T00:00:00",
+            "FormattedLastDateApplication": "6. juli 2021",
+            "AssignmentStartDate": "2021-07-07T00:00:00",
+            "IsHotjob": false,
+            "IsExternal": true,
+            "Url": "https://www.novonordisk.dk/content/nncorp/dk/da/careers/find-a-job/job-ad.199961.en_GB.html",
+            "Region": "Hovedstaden og Bornholm",
+            "Municipality": "Lyngby-Taarbæk",
+            "Country": "",
+            "PostalCode": "2880",
+            "PostalCodeName": null,
+            "JobAnnouncementType": "Almindelige vilkår",
+            "EmploymentType": "Fastansættelse",
+            "WorkHours": "Fuldtid",
+            "OccupationArea": "",
+            "OccupationGroup": "",
+            "Occupation": "",
+            "Location": {
+                "Latitude": 55.7546,
+                "Longitude": 12.4552
+            },
+            "JoblogWorkTime": {
+                "WorkHour": null,
+                "DailyWorkTime": null
+            },
+            "WorkplaceID": 0,
+            "OrganisationId": "",
+            "HiringOrgCVR": 0,
+            "UserLoggedIn": false,
+            "AnonymousEmployer": false,
+            "ShareUrl": "https://www.novonordisk.dk/content/nncorp/dk/da/careers/find-a-job/job-ad.199961.en_GB.html",
+            "DetailsUrl": null,
+            "JobLogUrl": "https://www.novonordisk.dk/content/nncorp/dk/da/careers/find-a-job/job-ad.199961.en_GB.html",
+            "HasLocationValues": true,
+            "ID": "E8251051",
+            "Latitude": 55.7546,
+            "Longitude": 12.4552
+        },
+        {
+            "AutomatchType": 0,
+            "Abroad": true,
+            "Weight": 1.0,
+            "Title": "PhD",
+            "JobHeadline": "PhD",
+            "Presentation": "Center for Permafrost (CENPERM) at University of Copenhagen is recruiting two postdoctoral associates to work with field-based ecosystem manipulations and process-based ecosystem modelling with a focu",
+            "HiringOrgName": "Københavns Universitet",
+            "WorkPlaceAddress": "",
+            "WorkPlacePostalCode": "",
+            "WorkPlaceCity": "",
+            "WorkPlaceOtherAddress": false,
+            "WorkPlaceAbroad": false,
+            "WorkPlaceNotStatic": false,
+            "UseWorkPlaceAddressForJoblog": false,
+            "PostingCreated": "2021-07-02T00:00:00",
+            "LastDateApplication": "2021-09-01T00:00:00",
+            "FormattedLastDateApplication": "1. september 2021",
+            "AssignmentStartDate": "2021-11-01T00:00:00",
+            "IsHotjob": false,
+            "IsExternal": true,
+            "Url": "https://jobportal.ku.dk/videnskabelige-stillinger/?show=154356",
+            "Region": "Hovedstaden og Bornholm",
+            "Municipality": "København",
+            "Country": "",
+            "PostalCode": "1000",
+            "PostalCodeName": null,
+            "JobAnnouncementType": "Almindelige vilkår",
+            "EmploymentType": "Tidsbegrænset ansættelse",
+            "WorkHours": "Fuldtid",
+            "OccupationArea": "",
+            "OccupationGroup": "",
+            "Occupation": "",
+            "Location": null,
+            "JoblogWorkTime": {
+                "WorkHour": null,
+                "DailyWorkTime": null
+            },
+            "WorkplaceID": 0,
+            "OrganisationId": "",
+            "HiringOrgCVR": 0,
+            "UserLoggedIn": false,
+            "AnonymousEmployer": false,
+            "ShareUrl": "https://jobportal.ku.dk/videnskabelige-stillinger/?show=154356",
+            "DetailsUrl": null,
+            "JobLogUrl": "https://jobportal.ku.dk/videnskabelige-stillinger/?show=154356",
+            "HasLocationValues": false,
+            "ID": "E8251042",
+            "Latitude": 0.0,
+            "Longitude": 0.0
+        },
+        {
+            "AutomatchType": 0,
+            "Abroad": true,
+            "Weight": 1.0,
+            "Title": "Specialist",
+            "JobHeadline": "Clinical disclosure specialist",
+            "Presentation": "Are you an expert in clinical disclosure regulations and can you drive the implementation and ensure compliance? Then continue reading!\n \n\nLEO Pharma has embarked on a very ambitious journey to become",
+            "HiringOrgName": "LEO Pharma A/S",
+            "WorkPlaceAddress": "Industriparken 55",
+            "WorkPlacePostalCode": "2750",
+            "WorkPlaceCity": "Ballerup",
+            "WorkPlaceOtherAddress": false,
+            "WorkPlaceAbroad": false,
+            "WorkPlaceNotStatic": false,
+            "UseWorkPlaceAddressForJoblog": true,
+            "PostingCreated": "2021-07-02T00:00:00",
+            "LastDateApplication": "2021-08-01T00:00:00",
+            "FormattedLastDateApplication": "1. august 2021",
+            "AssignmentStartDate": "2021-08-02T00:00:00",
+            "IsHotjob": false,
+            "IsExternal": true,
+            "Url": "https://leopharma.easycruit.com/vacancy/2738279/127513?iso=dk",
+            "Region": "Hovedstaden og Bornholm",
+            "Municipality": "Ballerup",
+            "Country": "",
+            "PostalCode": "2750",
+            "PostalCodeName": null,
+            "JobAnnouncementType": "Almindelige vilkår",
+            "EmploymentType": "Fastansættelse",
+            "WorkHours": "Fuldtid",
+            "OccupationArea": "",
+            "OccupationGroup": "",
+            "Occupation": "",
+            "Location": {
+                "Latitude": 55.7268,
+                "Longitude": 12.3937
+            },
+            "JoblogWorkTime": {
+                "WorkHour": null,
+                "DailyWorkTime": null
+            },
+            "WorkplaceID": 0,
+            "OrganisationId": "",
+            "HiringOrgCVR": 0,
+            "UserLoggedIn": false,
+            "AnonymousEmployer": false,
+            "ShareUrl": "https://leopharma.easycruit.com/vacancy/2738279/127513?iso=dk",
+            "DetailsUrl": null,
+            "JobLogUrl": "https://leopharma.easycruit.com/vacancy/2738279/127513?iso=dk",
+            "HasLocationValues": true,
+            "ID": "E8251041",
+            "Latitude": 55.7268,
+            "Longitude": 12.3937
+        },
+        {
+            "AutomatchType": 0,
+            "Abroad": true,
+            "Weight": 1.0,
+            "Title": "Support Engineer",
+            "JobHeadline": "Customer Support Engineer for Alfa Laval Aalborg",
+            "Presentation": "Customer Support Engineer for Alfa Laval Aalborg\nAalborg\nApply\n\nAt Alfa Laval, we always go that extra mile to overcome the toughest challenges. Our driving force is to accelerate success for our cust",
+            "HiringOrgName": "Alfa Laval Aalborg A/S",
+            "WorkPlaceAddress": "Gasværksvej 21",
+            "WorkPlacePostalCode": "9000",
+            "WorkPlaceCity": "Aalborg",
+            "WorkPlaceOtherAddress": false,
+            "WorkPlaceAbroad": false,
+            "WorkPlaceNotStatic": false,
+            "UseWorkPlaceAddressForJoblog": true,
+            "PostingCreated": "2021-07-02T00:00:00",
+            "LastDateApplication": "2021-07-20T00:00:00",
+            "FormattedLastDateApplication": "20. juli 2021",
+            "AssignmentStartDate": "2021-07-21T00:00:00",
+            "IsHotjob": false,
+            "IsExternal": true,
+            "Url": "https://alfalaval.wd3.myworkdayjobs.com/en-US/Alfa_Laval_jobs/job/Aalborg/Customer-Support-Engineer-for-Alfa-Laval-Aalborg_JR0007198",
+            "Region": "Nordjylland",
+            "Municipality": "Aalborg",
+            "Country": "",
+            "PostalCode": "9000",
+            "PostalCodeName": null,
+            "JobAnnouncementType": "Almindelige vilkår",
+            "EmploymentType": "Fastansættelse",
+            "WorkHours": "Fuldtid",
+            "OccupationArea": "",
+            "OccupationGroup": "",
+            "Occupation": "",
+            "Location": {
+                "Latitude": 57.0493,
+                "Longitude": 9.9485
+            },
+            "JoblogWorkTime": {
+                "WorkHour": null,
+                "DailyWorkTime": null
+            },
+            "WorkplaceID": 0,
+            "OrganisationId": "",
+            "HiringOrgCVR": 0,
+            "UserLoggedIn": false,
+            "AnonymousEmployer": false,
+            "ShareUrl": "https://alfalaval.wd3.myworkdayjobs.com/en-US/Alfa_Laval_jobs/job/Aalborg/Customer-Support-Engineer-for-Alfa-Laval-Aalborg_JR0007198",
+            "DetailsUrl": null,
+            "JobLogUrl": "https://alfalaval.wd3.myworkdayjobs.com/en-US/Alfa_Laval_jobs/job/Aalborg/Customer-Support-Engineer-for-Alfa-Laval-Aalborg_JR0007198",
+            "HasLocationValues": true,
+            "ID": "E8251039",
+            "Latitude": 57.0493,
+            "Longitude": 9.9485
+        },
+        {
+            "AutomatchType": 0,
+            "Abroad": true,
+            "Weight": 1.0,
+            "Title": "Software Developer",
+            "JobHeadline": "Software Developers (Back End & Full Stack)",
+            "Presentation": " \nSoftware Developers (Back End & Full Stack)\nDenmark Copenhagen Local IT Last application date: 17/7/2021\nMaersk is going through times of unprecedented change. We are rethinking the way we engage wi",
+            "HiringOrgName": "A.P. Møller - Mærsk A/S",
+            "WorkPlaceAddress": "",
+            "WorkPlacePostalCode": "",
+            "WorkPlaceCity": "",
+            "WorkPlaceOtherAddress": false,
+            "WorkPlaceAbroad": false,
+            "WorkPlaceNotStatic": false,
+            "UseWorkPlaceAddressForJoblog": false,
+            "PostingCreated": "2021-07-02T00:00:00",
+            "LastDateApplication": "2021-07-17T00:00:00",
+            "FormattedLastDateApplication": "17. juli 2021",
+            "AssignmentStartDate": "2021-07-18T00:00:00",
+            "IsHotjob": false,
+            "IsExternal": true,
+            "Url": "https://jobsearch.maersk.com/jobposting/index.html?id=MA-275828",
+            "Region": "Hovedstaden og Bornholm",
+            "Municipality": "København",
+            "Country": "",
+            "PostalCode": "1000",
+            "PostalCodeName": null,
+            "JobAnnouncementType": "Almindelige vilkår",
+            "EmploymentType": "Fastansættelse",
+            "WorkHours": "Fuldtid",
+            "OccupationArea": "",
+            "OccupationGroup": "",
+            "Occupation": "",
+            "Location": null,
+            "JoblogWorkTime": {
+                "WorkHour": null,
+                "DailyWorkTime": null
+            },
+            "WorkplaceID": 0,
+            "OrganisationId": "",
+            "HiringOrgCVR": 0,
+            "UserLoggedIn": false,
+            "AnonymousEmployer": false,
+            "ShareUrl": "https://jobsearch.maersk.com/jobposting/index.html?id=MA-275828",
+            "DetailsUrl": null,
+            "JobLogUrl": "https://jobsearch.maersk.com/jobposting/index.html?id=MA-275828",
+            "HasLocationValues": false,
+            "ID": "E8251038",
+            "Latitude": 0.0,
+            "Longitude": 0.0
+        },
+        {
+            "AutomatchType": 0,
+            "Abroad": true,
+            "Weight": 1.0,
+            "Title": "PhD",
+            "JobHeadline": "PhD",
+            "Presentation": "PhD Stipend in State of Temperature Estimation in Smart Batteries using Artificial Intelligence (14-21065) At the Faculty of Engineering and Science, Department of Energy Technology a PhD stipend is a",
+            "HiringOrgName": "Aalborg Universitet",
+            "WorkPlaceAddress": "",
+            "WorkPlacePostalCode": "9000",
+            "WorkPlaceCity": "Aalborg",
+            "WorkPlaceOtherAddress": false,
+            "WorkPlaceAbroad": false,
+            "WorkPlaceNotStatic": false,
+            "UseWorkPlaceAddressForJoblog": true,
+            "PostingCreated": "2021-07-02T00:00:00",
+            "LastDateApplication": "2021-07-28T00:00:00",
+            "FormattedLastDateApplication": "28. juli 2021",
+            "AssignmentStartDate": "2021-11-01T00:00:00",
+            "IsHotjob": false,
+            "IsExternal": true,
+            "Url": "https://www.stillinger.aau.dk/vis-stilling/?vacancy=1159620",
+            "Region": "Nordjylland",
+            "Municipality": "Aalborg",
+            "Country": "",
+            "PostalCode": "9000",
+            "PostalCodeName": null,
+            "JobAnnouncementType": "Almindelige vilkår",
+            "EmploymentType": "Tidsbegrænset ansættelse",
+            "WorkHours": "Fuldtid",
+            "OccupationArea": "",
+            "OccupationGroup": "",
+            "Occupation": "",
+            "Location": {
+                "Latitude": 57.0517,
+                "Longitude": 9.835
+            },
+            "JoblogWorkTime": {
+                "WorkHour": null,
+                "DailyWorkTime": null
+            },
+            "WorkplaceID": 0,
+            "OrganisationId": "",
+            "HiringOrgCVR": 0,
+            "UserLoggedIn": false,
+            "AnonymousEmployer": false,
+            "ShareUrl": "https://www.stillinger.aau.dk/vis-stilling/?vacancy=1159620",
+            "DetailsUrl": null,
+            "JobLogUrl": "https://www.stillinger.aau.dk/vis-stilling/?vacancy=1159620",
+            "HasLocationValues": true,
+            "ID": "E8251036",
+            "Latitude": 57.0517,
+            "Longitude": 9.835
+        },
+        {
+            "AutomatchType": 0,
+            "Abroad": true,
+            "Weight": 1.0,
+            "Title": "Leader",
+            "JobHeadline": "Commercial Excellence Manager",
+            "Presentation": " \nCommercial Excellence Manager\nDenmark Nordhavn, Copenhagen Local Commercial/Sales/Business Development Last application date: 5/8/2021\nHello, this is Elijah, Betha, and Suraj and we are looking for ",
+            "HiringOrgName": "Rederiet A.P. Møller A/S",
+            "WorkPlaceAddress": "",
+            "WorkPlacePostalCode": "",
+            "WorkPlaceCity": "",
+            "WorkPlaceOtherAddress": false,
+            "WorkPlaceAbroad": false,
+            "WorkPlaceNotStatic": false,
+            "UseWorkPlaceAddressForJoblog": false,
+            "PostingCreated": "2021-07-02T00:00:00",
+            "LastDateApplication": "2021-08-05T00:00:00",
+            "FormattedLastDateApplication": "5. august 2021",
+            "AssignmentStartDate": "2021-08-06T00:00:00",
+            "IsHotjob": false,
+            "IsExternal": true,
+            "Url": "https://jobsearch.maersk.com/jobposting/index.html?id=SV-275846",
+            "Region": "Hovedstaden og Bornholm",
+            "Municipality": "København",
+            "Country": "",
+            "PostalCode": "1000",
+            "PostalCodeName": null,
+            "JobAnnouncementType": "Almindelige vilkår",
+            "EmploymentType": "Fastansættelse",
+            "WorkHours": "Fuldtid",
+            "OccupationArea": "",
+            "OccupationGroup": "",
+            "Occupation": "",
+            "Location": null,
+            "JoblogWorkTime": {
+                "WorkHour": null,
+                "DailyWorkTime": null
+            },
+            "WorkplaceID": 0,
+            "OrganisationId": "",
+            "HiringOrgCVR": 0,
+            "UserLoggedIn": false,
+            "AnonymousEmployer": false,
+            "ShareUrl": "https://jobsearch.maersk.com/jobposting/index.html?id=SV-275846",
+            "DetailsUrl": null,
+            "JobLogUrl": "https://jobsearch.maersk.com/jobposting/index.html?id=SV-275846",
+            "HasLocationValues": false,
+            "ID": "E8251035",
+            "Latitude": 0.0,
+            "Longitude": 0.0
+        },
+        {
+            "AutomatchType": 0,
+            "Abroad": true,
+            "Weight": 1.0,
+            "Title": "Product Owner",
+            "JobHeadline": "Lead Logistics Orchestration Product Owner",
+            "Presentation": " \nLead Logistics Orchestration Product Owner\nDenmark Copenhagen Local Supply Chain/Logistics Operations Last application date: 16/7/2021\nAs part of the core product team, the Senior Business Product M",
+            "HiringOrgName": "A.P. Møller - Mærsk A/S",
+            "WorkPlaceAddress": "",
+            "WorkPlacePostalCode": "",
+            "WorkPlaceCity": "",
+            "WorkPlaceOtherAddress": false,
+            "WorkPlaceAbroad": false,
+            "WorkPlaceNotStatic": false,
+            "UseWorkPlaceAddressForJoblog": false,
+            "PostingCreated": "2021-07-02T00:00:00",
+            "LastDateApplication": "2021-07-16T00:00:00",
+            "FormattedLastDateApplication": "16. juli 2021",
+            "AssignmentStartDate": "2021-07-17T00:00:00",
+            "IsHotjob": false,
+            "IsExternal": true,
+            "Url": "https://jobsearch.maersk.com/jobposting/index.html?id=MA-275792",
+            "Region": "Hovedstaden og Bornholm",
+            "Municipality": "København",
+            "Country": "",
+            "PostalCode": "1000",
+            "PostalCodeName": null,
+            "JobAnnouncementType": "Almindelige vilkår",
+            "EmploymentType": "Fastansættelse",
+            "WorkHours": "Fuldtid",
+            "OccupationArea": "",
+            "OccupationGroup": "",
+            "Occupation": "",
+            "Location": null,
+            "JoblogWorkTime": {
+                "WorkHour": null,
+                "DailyWorkTime": null
+            },
+            "WorkplaceID": 0,
+            "OrganisationId": "",
+            "HiringOrgCVR": 0,
+            "UserLoggedIn": false,
+            "AnonymousEmployer": false,
+            "ShareUrl": "https://jobsearch.maersk.com/jobposting/index.html?id=MA-275792",
+            "DetailsUrl": null,
+            "JobLogUrl": "https://jobsearch.maersk.com/jobposting/index.html?id=MA-275792",
+            "HasLocationValues": false,
+            "ID": "E8251034",
+            "Latitude": 0.0,
+            "Longitude": 0.0
+        },
+        {
+            "AutomatchType": 0,
+            "Abroad": true,
+            "Weight": 1.0,
+            "Title": "Senior Manager",
+            "JobHeadline": "Senior Manager, Sales Excellence",
+            "Presentation": "Senior Manager, Sales Excellence\n\nLocation:  Humlebæk, DK\nJob Family:  Marketing\nCountry/Region:  Denmark\n \nSenior Manager, Sales Excellence \nSales Force Excellence (Senior) Manager for our Consumer s",
+            "HiringOrgName": "Coloplast Danmark A/S",
+            "WorkPlaceAddress": "Holtedam 1",
+            "WorkPlacePostalCode": "3050",
+            "WorkPlaceCity": "Humlebæk",
+            "WorkPlaceOtherAddress": false,
+            "WorkPlaceAbroad": false,
+            "WorkPlaceNotStatic": false,
+            "UseWorkPlaceAddressForJoblog": true,
+            "PostingCreated": "2021-07-02T00:00:00",
+            "LastDateApplication": "1900-01-01T00:00:00",
+            "FormattedLastDateApplication": "Ikke oplyst",
+            "AssignmentStartDate": "2021-08-01T15:48:43.9414636+02:00",
+            "IsHotjob": false,
+            "IsExternal": true,
+            "Url": "https://careers.coloplast.com/job/Humlebæk-Senior-Manager,-Sales-Excellence/689406301/",
+            "Region": "Hovedstaden og Bornholm",
+            "Municipality": "Fredensborg",
+            "Country": "",
+            "PostalCode": "3050",
+            "PostalCodeName": null,
+            "JobAnnouncementType": "Almindelige vilkår",
+            "EmploymentType": "Fastansættelse",
+            "WorkHours": "Fuldtid",
+            "OccupationArea": "",
+            "OccupationGroup": "",
+            "Occupation": "",
+            "Location": {
+                "Latitude": 55.9651,
+                "Longitude": 12.4947
+            },
+            "JoblogWorkTime": {
+                "WorkHour": null,
+                "DailyWorkTime": null
+            },
+            "WorkplaceID": 0,
+            "OrganisationId": "",
+            "HiringOrgCVR": 0,
+            "UserLoggedIn": false,
+            "AnonymousEmployer": false,
+            "ShareUrl": "https://careers.coloplast.com/job/Humlebæk-Senior-Manager,-Sales-Excellence/689406301/",
+            "DetailsUrl": null,
+            "JobLogUrl": "https://careers.coloplast.com/job/Humlebæk-Senior-Manager,-Sales-Excellence/689406301/",
+            "HasLocationValues": true,
+            "ID": "E8251030",
+            "Latitude": 55.9651,
+            "Longitude": 12.4947
+        },
+        {
+            "AutomatchType": 0,
+            "Abroad": true,
+            "Weight": 1.0,
+            "Title": "Business Intelligence Analyst",
+            "JobHeadline": "International Business Intelligence Consultant",
+            "Presentation": "GN Careers\nInternational Business Intelligence Consultant\nBallerup\nApply\n\nJabra  Any EMEA location\nAbout the job\nWould you like to grow your career in a truly global role? Are you passionate about bus",
+            "HiringOrgName": "GN Store Nord A/S",
+            "WorkPlaceAddress": "Lautrupbjerg 7",
+            "WorkPlacePostalCode": "2750",
+            "WorkPlaceCity": "Ballerup",
+            "WorkPlaceOtherAddress": false,
+            "WorkPlaceAbroad": false,
+            "WorkPlaceNotStatic": false,
+            "UseWorkPlaceAddressForJoblog": true,
+            "PostingCreated": "2021-07-02T00:00:00",
+            "LastDateApplication": "2021-07-20T00:00:00",
+            "FormattedLastDateApplication": "20. juli 2021",
+            "AssignmentStartDate": "2021-07-21T00:00:00",
+            "IsHotjob": false,
+            "IsExternal": true,
+            "Url": "https://gn.wd3.myworkdayjobs.com/en-US/GN-Careers/job/Ballerup/International-Business-Intelligence-Consultant_R9793-1",
+            "Region": "Hovedstaden og Bornholm",
+            "Municipality": "Ballerup",
+            "Country": "",
+            "PostalCode": "2750",
+            "PostalCodeName": null,
+            "JobAnnouncementType": "Almindelige vilkår",
+            "EmploymentType": "Fastansættelse",
+            "WorkHours": "Fuldtid",
+            "OccupationArea": "",
+            "OccupationGroup": "",
+            "Occupation": "",
+            "Location": {
+                "Latitude": 55.7387,
+                "Longitude": 12.3871
+            },
+            "JoblogWorkTime": {
+                "WorkHour": null,
+                "DailyWorkTime": null
+            },
+            "WorkplaceID": 0,
+            "OrganisationId": "",
+            "HiringOrgCVR": 0,
+            "UserLoggedIn": false,
+            "AnonymousEmployer": false,
+            "ShareUrl": "https://gn.wd3.myworkdayjobs.com/en-US/GN-Careers/job/Ballerup/International-Business-Intelligence-Consultant_R9793-1",
+            "DetailsUrl": null,
+            "JobLogUrl": "https://gn.wd3.myworkdayjobs.com/en-US/GN-Careers/job/Ballerup/International-Business-Intelligence-Consultant_R9793-1",
+            "HasLocationValues": true,
+            "ID": "E8251029",
+            "Latitude": 55.7387,
+            "Longitude": 12.3871
+        }
+    ],
+    "TotalResultCount": 2177
+}
