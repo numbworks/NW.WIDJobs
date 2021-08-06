@@ -4,13 +4,11 @@ using System.Text;
 
 namespace NW.WIDJobs.UnitTests
 {
-    /// <inheritdoc cref="IFakePostRequestManager"/>
+
     public class FakePostRequestManager : IPostRequestManager
     {
 
         #region Fields
-
-        private string _response;
 
         #endregion
 
@@ -35,6 +33,9 @@ namespace NW.WIDJobs.UnitTests
         public string UserAgent
             => throw new NotImplementedException();
 
+        public string Response { get; private set; }
+        public string Url { get; private set; }
+
         #endregion
 
         #region Constructors
@@ -42,7 +43,7 @@ namespace NW.WIDJobs.UnitTests
         public FakePostRequestManager(string response) 
         {
 
-                _response = response;
+            Response = response;
         
         }
 
@@ -51,7 +52,13 @@ namespace NW.WIDJobs.UnitTests
         #region Methods_public
 
         public string Send(string url)
-            => _response;
+        {
+
+            Url = url;
+
+            return Response;
+
+        }
 
         #endregion
 

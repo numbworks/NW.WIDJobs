@@ -4545,6 +4545,14 @@ namespace NW.WIDJobs.UnitTests
 
         #endregion
 
+        #region Shared_HTTPRequests
+
+        internal static IPostRequestManagerFactory FakePostRequestManagerFactory_JobPage01
+            = new FakePostRequestManagerFactory(Shared_JobPage01_Content);
+
+
+        #endregion
+
         /* -------------------------------------------- */
 
         #region DbSetExtensionMethodsTests

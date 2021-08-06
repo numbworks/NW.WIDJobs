@@ -105,7 +105,7 @@ namespace NW.WIDJobs
 
         #endregion
 
-        #region Methods_public
+        #region Methods_private
 
         private ushort GetOffset(ushort pageNumber)
         {
