@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Text.Json;
-using System.Text.Encodings.Web;
 
 namespace NW.WIDJobs
 {
@@ -35,11 +34,8 @@ namespace NW.WIDJobs
 
             Validator.ValidateStringNullOrWhiteSpace(response, nameof(response));
 
-            JsonSerializerOptions jso = new JsonSerializerOptions();
-            jso.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
-
-            dynamic dyn = JsonSerializer.Deserialize<dynamic>(response, jso);
-            ushort totalJobPostings = ushort.Parse(dyn.fields["TotalResultCount"]);
+            using JsonDocument jsonRoot = JsonDocument.Parse(response);
+                ushort totalJobPostings = jsonRoot.RootElement.GetProperty("TotalResultCount").GetUInt16();
 
             return totalJobPostings;
 

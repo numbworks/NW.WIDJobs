@@ -3320,6 +3320,8 @@ namespace NW.WIDJobs.UnitTests
         internal static JobPage Shared_JobPage01WithEmptyResponse_Object
             = new JobPage(Shared_FakeRunId, 1, "{ }");
 
+        internal static ushort Shared_JobPage01_TotalResultCount = 2177;
+
         #endregion
 
         #region Shared_JobPage02
@@ -4538,6 +4540,8 @@ namespace NW.WIDJobs.UnitTests
 
         internal static JobPage Shared_JobPage02_Object
             = new JobPage(Shared_FakeRunId, 2, Shared_JobPage02_Content);
+
+        internal static ushort Shared_JobPage02_TotalResultCount = 2177;
 
         #endregion
 
