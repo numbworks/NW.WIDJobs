@@ -65,26 +65,24 @@ namespace NW.WIDJobs.UnitTests
             ).SetArgDisplayNames($"{nameof(sendPostRequestExceptionTestCases)}_01")
 
         };
-
-        private static TestCaseData[] someMethodTestCases =
+        private static TestCaseData[] getJobPageTestCases =
         {
 
             new TestCaseData(
-                    "Some message",
-                    false
-                ).SetArgDisplayNames($"{nameof(someMethodTestCases)}_01")
-
-        };
-        private static TestCaseData[] someMethodExceptionTestCases =
-        {
+                    ObjectMother.Shared_JobPage01_Content,
+                    ObjectMother.Shared_FakeRunId,
+                    (ushort)1,
+                    new JobPage(ObjectMother.Shared_FakeRunId, (ushort)1, ObjectMother.Shared_JobPage01_Content),
+                    JobPageManager.UrlTemplate.Invoke((ushort)0)
+                ).SetArgDisplayNames($"{nameof(getJobPageTestCases)}_01"),
 
             new TestCaseData(
-                new TestDelegate(
-                    () => Console.WriteLine("Some message") // Replace method call.
-				),
-                typeof(ArgumentNullException),
-                new ArgumentNullException("null_argument_name").Message
-            ).SetArgDisplayNames($"{nameof(someMethodExceptionTestCases)}_01")
+                    ObjectMother.Shared_JobPage02_Content,
+                    ObjectMother.Shared_FakeRunId,
+                    (ushort)2,
+                    new JobPage(ObjectMother.Shared_FakeRunId, (ushort)2, ObjectMother.Shared_JobPage02_Content),
+                    JobPageManager.UrlTemplate.Invoke((ushort)20)
+                ).SetArgDisplayNames($"{nameof(getJobPageTestCases)}_02")
 
         };
 
@@ -116,20 +114,25 @@ namespace NW.WIDJobs.UnitTests
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
-        [TestCaseSource(nameof(someMethodTestCases))]
-        public void SomeMethod_Should_When
-            (string message, bool expected)
+        [TestCaseSource(nameof(getJobPageTestCases))]
+        public void GetJobPage_ShouldReturnExpectedJobPage_WhenInvoked
+            (string fakeResponse, string runId, ushort pageNumber, JobPage expectedJobPage, string expectedUrl)
         {
 
             // Arrange
+            FakePostRequestManager fakePostRequestManager = new FakePostRequestManager(fakeResponse);
+            FakePostRequestManagerFactory fakePostRequestManagerFactory = new FakePostRequestManagerFactory(fakePostRequestManager);
+
             // Act
+            JobPage actualJobPage = new JobPageManager(fakePostRequestManagerFactory).GetJobPage(runId, pageNumber);
+
             // Assert
+            Assert.IsTrue(
+                ObjectMother.AreEqual(expectedJobPage, actualJobPage)
+                );
+            Assert.AreEqual(expectedUrl, fakePostRequestManager.Url);
 
         }
-        [TestCaseSource(nameof(someMethodExceptionTestCases))]
-        public void SomeMethod_ShouldThrowACertainException_WhenUnproperArguments
-            (TestDelegate del, Type expectedType, string expectedMessage)
-                => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
         #endregion
 

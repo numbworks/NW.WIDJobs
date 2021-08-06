@@ -10,20 +10,20 @@ namespace NW.WIDJobs.UnitTests
 
         #region Fields
 
-        private IPostRequestManager _postRequestManager;
-
         #endregion
 
         #region Properties
+
+        public FakePostRequestManager FakePostRequestManager { get; private set; }
 
         #endregion
 
         #region Constructors
 
-        public FakePostRequestManagerFactory(string response) 
+        public FakePostRequestManagerFactory(FakePostRequestManager fakePostRequestManager) 
         {
 
-            _postRequestManager = new FakePostRequestManager(response);
+            FakePostRequestManager = fakePostRequestManager;
 
         }
 
@@ -34,7 +34,7 @@ namespace NW.WIDJobs.UnitTests
         public IPostRequestManager Create
             (WebHeaderCollection headers, string contentType, CookieContainer cookieContainer,
             string userAgent, Version protocolVersion, string postData, Encoding postDataEncoding)
-            => _postRequestManager;
+            => FakePostRequestManager;
 
         #endregion
 

@@ -4545,10 +4545,7 @@ namespace NW.WIDJobs.UnitTests
 
         #endregion
 
-        #region Shared_HTTPRequests
-
-        internal static IPostRequestManagerFactory FakePostRequestManagerFactory_JobPage01
-            = new FakePostRequestManagerFactory(Shared_JobPage01_Content);
+        #region some
 
 
         #endregion
@@ -4878,6 +4875,14 @@ namespace NW.WIDJobs.UnitTests
                     return false;
 
             return true;
+
+        }
+        internal static bool AreEqual(JobPage jobPage1, JobPage jobPage2)
+        {
+
+            return (jobPage1.PageNumber == jobPage2.PageNumber)
+                    && string.Equals(jobPage1.Response, jobPage2.Response, StringComparison.InvariantCulture)
+                    && string.Equals(jobPage1.RunId, jobPage2.RunId, StringComparison.InvariantCulture);
 
         }
 
