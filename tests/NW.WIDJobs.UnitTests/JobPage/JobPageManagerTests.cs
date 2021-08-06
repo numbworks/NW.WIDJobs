@@ -62,7 +62,15 @@ namespace NW.WIDJobs.UnitTests
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("url").Message
-            ).SetArgDisplayNames($"{nameof(sendPostRequestExceptionTestCases)}_01")
+            ).SetArgDisplayNames($"{nameof(sendPostRequestExceptionTestCases)}_01"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new JobPageManager().SendPostRequest("http://www.gooogle.com")
+                ),
+                typeof(Exception),
+                MessageCollection.JobPageManager_NotPossibleExtractOffset.Invoke("http://www.gooogle.com")
+            ).SetArgDisplayNames($"{nameof(sendPostRequestExceptionTestCases)}_02")
 
         };
         private static TestCaseData[] getJobPageTestCases =
@@ -131,6 +139,22 @@ namespace NW.WIDJobs.UnitTests
                 ObjectMother.AreEqual(expectedJobPage, actualJobPage)
                 );
             Assert.AreEqual(expectedUrl, fakePostRequestManager.Url);
+
+        }
+
+        [TestCase((uint)0, (ushort)0)]
+        [TestCase((uint)1, (ushort)1)]
+        [TestCase((uint)1243, (ushort)63)]
+        public void GetTotalPages_ShouldReturnExpectedTotalPages_WhenInvoked
+            (uint totalJobPostings, ushort expected)
+        {
+
+            // Arrange
+            // Act
+            ushort actual = new JobPageManager().GetTotalPages(totalJobPostings);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
 
         }
 

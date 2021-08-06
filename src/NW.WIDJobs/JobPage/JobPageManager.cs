@@ -18,6 +18,7 @@ namespace NW.WIDJobs
         public static ushort JobPostingsPerPage = 20;
         public static Func<ushort, string> UrlTemplate
             = (offset) => $"https://job.jobnet.dk/CV/FindWork?Offset={offset}&SortValue=CreationDate&widk=true";
+        public static string OffsetPattern = "(?<=Offset=)[0-9]{1,}";
 
         #endregion
 
@@ -92,8 +93,9 @@ namespace NW.WIDJobs
         {
 
             Validator.ValidateStringNullOrWhiteSpace(url, nameof(url));
+            ValidateUrl(url, OffsetPattern);
 
-            string offset = ExtractOffset(url);
+            string offset = ExtractOffset(url, OffsetPattern);
             string body = CreateBody(offset);
 
             IPostRequestManager postRequestManager
@@ -177,7 +179,14 @@ namespace NW.WIDJobs
             return body;
 
         }
-        private string ExtractOffset(string url)
+        private void ValidateUrl(string url, string pattern)
+        {
+
+            if (!Regex.IsMatch(url, pattern))
+                throw new Exception(MessageCollection.JobPageManager_NotPossibleExtractOffset.Invoke(url));
+
+        }
+        private string ExtractOffset(string url, string pattern)
         {
 
             /*
@@ -186,10 +195,6 @@ namespace NW.WIDJobs
                 "https://job.jobnet.dk/CV/FindWork?Offset=20&SortValue=CreationDate&widk=true"
                     => "Offset=20" => "20"
             */
-
-            string pattern = "(?<=Offset=)[0-9]{1,}";
-            if (!Regex.IsMatch(url, pattern))
-                throw new Exception(MessageCollection.JobPageManager_NotPossibleExtractOffset.Invoke(url));
 
             string offset = Regex.Match(url, pattern).ToString();
 
@@ -204,5 +209,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 25.06.2021
+    Last Update: 06.08.2021
 */
