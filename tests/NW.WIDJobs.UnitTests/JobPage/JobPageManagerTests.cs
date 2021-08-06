@@ -158,6 +158,24 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
+        [Test]
+        public void JobPageManager_ShouldReturnExpectedValues_WhenStaticPropertiesAreInvoked()
+        {
+
+            // Arrange
+            ushort expectedJobPostingsPerPage = 20;
+            ushort offset = 20;
+            string expectedUrlTemplate = $"https://job.jobnet.dk/CV/FindWork?Offset={offset}&SortValue=CreationDate&widk=true";
+            string expectedOffsetPattern = "(?<=Offset=)[0-9]{1,}";
+
+            // Act
+            // Assert
+            Assert.AreEqual(expectedJobPostingsPerPage, JobPageManager.JobPostingsPerPage);
+            Assert.AreEqual(expectedUrlTemplate, JobPageManager.UrlTemplate.Invoke(offset));
+            Assert.AreEqual(expectedOffsetPattern, JobPageManager.OffsetPattern);
+
+        }
+
         #endregion
 
         #region TearDown
