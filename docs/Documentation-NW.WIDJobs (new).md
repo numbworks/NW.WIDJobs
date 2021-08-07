@@ -57,7 +57,7 @@ The relationship between these objects is summarized in the diagram below:
 
 Side note: the names of the API endpoints are arbitrary and adapted to our object model to maximize understanding.
 
-## GetJobPage: the endpoint
+## GetJobPage - The endpoint
 
 **Request:**
 
@@ -208,13 +208,13 @@ The `Offset` field identifies the starting point and can only be 0 or a number t
     "TotalResultCount": 2265
 }
 ```
-## GetJobPage: the TotalResultCount value 
+## GetJobPage - The TotalResultCount value 
 
 |Type|Field|ExampleValue|Action|
 |---|---|---|---|
 |`Mandatory`|`TotalResultCount`|2265|Parse to `uint16`.|
 
-## GetJobPage: the JobPage object
+## GetJobPage - The JobPage object
 
 The following fields will be extracted from the response:
 
@@ -229,7 +229,7 @@ The following fields are provided or derivative:
 |`Mandatory`|`RunId`||
 |`Mandatory`|`PageNumber`||
 
-## GetJobPage: the JobPosting object
+## GetJobPage - The JobPosting object
 
 The following fields will be extracted from the response:
 
@@ -295,7 +295,7 @@ The `WorkPlaceCityWithoutZone` field is required, because in many cases `WorkPla
 |Odense SØ|Odense|
 |Lem St|Lem|
 
-## GetJobPostingExtended: the endpoint
+## GetJobPostingExtended - The endpoint
 
 **Request:**
 
@@ -346,7 +346,7 @@ The `WorkPlaceCityWithoutZone` field is required, because in many cases `WorkPla
 }
 ```
 
-## GetJobPostingExtended: the JobPostingExtended object
+## GetJobPostingExtended - The JobPostingExtended object
 
 The following fields will be extracted from the response:
 
@@ -380,7 +380,7 @@ The following fields require extra processing:
 |`EmploymentDate`|Parse it to `DateTime` or null.|
 |`ApplicationDeadlineDate`|Parse it to `DateTime`.|
 
-## GetJobPostingExtended: extracting Bullet Points via XPath
+## GetJobPostingExtended - Extracting Bullet Points via XPath
 
 This approach works on both `Purpose` (internal URLs) and `Response` (external URLs). 
 
@@ -479,7 +479,7 @@ As last resort, a generic one is also available:
 |---|---|---|
 |n/a|generic|`//ul/li`|
 
-## GetJobPostingExtended: extracting Bullet Points via regex (TBD)
+## GetJobPostingExtended - Extracting Bullet Points via regex
 
 This is mainly intended for the `Purpose` field:
 
@@ -487,8 +487,9 @@ This is mainly intended for the `Purpose` field:
 |---|---|
 |`(?<=-\\t)[\w ]{1,}(?=-\\t)`|The latest bullet point migth lost.|
 
+...
 
-## Appendix: the TotalResultCount value via XPath
+## Appendix - The TotalResultCount value via XPath
 
 ```html
 ...
