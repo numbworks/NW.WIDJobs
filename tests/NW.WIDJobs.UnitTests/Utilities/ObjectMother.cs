@@ -3944,12 +3944,12 @@ namespace NW.WIDJobs.UnitTests
                     applicationDeadlineDate: null,
                     bulletPoints: new HashSet<string>()
                     {
-                        "The most important in this job is your personality. We\\n weigh discretion highly and the importance of our customers\\n getting a professional service when they are welcomed by you\\n at our receptions.",
-                        "We are an active part of the security setup and it will\\n be an advantage if you have worked as an Security\\n Receptionist before.",
-                        "As you will have colleagues from very different\\n backgrounds, it will require tolerance and understanding to\\n positively gain from the differences.",
-                        "You will need a good deal of curiosity and have the\\n ability to work very thorough with your tasks.",
-                        "You have a solid language background, speak and write\\n Danish and English at a high level. It will be an advantage\\n if you master another foreign language. You have the ability\\n to absorb and handle large amounts of information and in\\n depth organisational knowledge.",
-                        "You are used to working in a large company and handling\\n many different stakeholders. You are a super user in regards\\n to the Office-package, are used to working with data and Key\\n Performance Indicators (KPIs) and you have technical insight\\n into SAP and IT systems including maintenance hereof."
+                        "The most important in this job is your personality. We\n weigh discretion highly and the importance of our customers\n getting a professional service when they are welcomed by you\n at our receptions.",
+                        "We are an active part of the security setup and it will\n be an advantage if you have worked as an Security\n Receptionist before.",
+                        "As you will have colleagues from very different\n backgrounds, it will require tolerance and understanding to\n positively gain from the differences.",
+                        "You will need a good deal of curiosity and have the\n ability to work very thorough with your tasks.",
+                        "You have a solid language background, speak and write\n Danish and English at a high level. It will be an advantage\n if you master another foreign language. You have the ability\n to absorb and handle large amounts of information and in\n depth organisational knowledge.",
+                        "You are used to working in a large company and handling\n many different stakeholders. You are a super user in regards\n to the Office-package, are used to working with data and Key\n Performance Indicators (KPIs) and you have technical insight\n into SAP and IT systems including maintenance hereof."
                     },
                     bulletPointScenario: "novonordisk.dk"
                 );
@@ -4008,7 +4008,7 @@ namespace NW.WIDJobs.UnitTests
                         "Nyheder og presse",
                         "Kontakt os"
                     },
-                    bulletPointScenario: "novonordisk.dk"
+                    bulletPointScenario: "generic"
                 );
 
         internal static JobPosting Shared_JobPage02_JobPosting12
@@ -4271,7 +4271,7 @@ namespace NW.WIDJobs.UnitTests
                         "Campusområder",
                         "For Pressen",
                         "For alumni",
-                        "Genveje \\n \\n Nyheder \\n Arrangementer \\n Kontakt og find rundt \\n Campusområder \\n For Pressen \\n For alumni",
+                        "Genveje \n \n Nyheder \n Arrangementer \n Kontakt og find rundt \n Campusområder \n For Pressen \n For alumni",
                         "aau uddannelse",
                         "aau forskning",
                         "aau samarbejde",

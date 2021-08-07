@@ -144,6 +144,126 @@ namespace NW.WIDJobs.UnitTests
                     ObjectMother.Shared_JobPage01_JobPostingExtended20
                 ).SetArgDisplayNames($"{nameof(jobPostingExtendedDeserializerTestCases)}_20"),
 
+            new TestCaseData(
+                    ObjectMother.Shared_JobPage02_JobPosting01,
+                    ObjectMother.Shared_JobPage02_JobPostingExtended01_Content,
+                    ObjectMother.Shared_JobPage02_JobPostingExtended01
+                ).SetArgDisplayNames($"{nameof(jobPostingExtendedDeserializerTestCases)}_21"),
+
+            new TestCaseData(
+                    ObjectMother.Shared_JobPage02_JobPosting02,
+                    ObjectMother.Shared_JobPage02_JobPostingExtended02_Content,
+                    ObjectMother.Shared_JobPage02_JobPostingExtended02
+                ).SetArgDisplayNames($"{nameof(jobPostingExtendedDeserializerTestCases)}_22"),
+
+            new TestCaseData(
+                    ObjectMother.Shared_JobPage02_JobPosting03,
+                    ObjectMother.Shared_JobPage02_JobPostingExtended03_Content,
+                    ObjectMother.Shared_JobPage02_JobPostingExtended03
+                ).SetArgDisplayNames($"{nameof(jobPostingExtendedDeserializerTestCases)}_23"),
+
+            new TestCaseData(
+                    ObjectMother.Shared_JobPage02_JobPosting04,
+                    ObjectMother.Shared_JobPage02_JobPostingExtended04_Content,
+                    ObjectMother.Shared_JobPage02_JobPostingExtended04
+                ).SetArgDisplayNames($"{nameof(jobPostingExtendedDeserializerTestCases)}_24"),
+
+            new TestCaseData(
+                    ObjectMother.Shared_JobPage02_JobPosting05,
+                    ObjectMother.Shared_JobPage02_JobPostingExtended05_Content,
+                    ObjectMother.Shared_JobPage02_JobPostingExtended05
+                ).SetArgDisplayNames($"{nameof(jobPostingExtendedDeserializerTestCases)}_25"),
+
+            new TestCaseData(
+                    ObjectMother.Shared_JobPage02_JobPosting06,
+                    ObjectMother.Shared_JobPage02_JobPostingExtended06_Content,
+                    ObjectMother.Shared_JobPage02_JobPostingExtended06
+                ).SetArgDisplayNames($"{nameof(jobPostingExtendedDeserializerTestCases)}_26"),
+
+            new TestCaseData(
+                    ObjectMother.Shared_JobPage02_JobPosting07,
+                    ObjectMother.Shared_JobPage02_JobPostingExtended07_Content,
+                    ObjectMother.Shared_JobPage02_JobPostingExtended07
+                ).SetArgDisplayNames($"{nameof(jobPostingExtendedDeserializerTestCases)}_27"),
+
+            new TestCaseData(
+                    ObjectMother.Shared_JobPage02_JobPosting08,
+                    ObjectMother.Shared_JobPage02_JobPostingExtended08_Content,
+                    ObjectMother.Shared_JobPage02_JobPostingExtended08
+                ).SetArgDisplayNames($"{nameof(jobPostingExtendedDeserializerTestCases)}_28"),
+
+            new TestCaseData(
+                    ObjectMother.Shared_JobPage02_JobPosting09,
+                    ObjectMother.Shared_JobPage02_JobPostingExtended09_Content,
+                    ObjectMother.Shared_JobPage02_JobPostingExtended09
+                ).SetArgDisplayNames($"{nameof(jobPostingExtendedDeserializerTestCases)}_29"),
+
+            new TestCaseData(
+                    ObjectMother.Shared_JobPage02_JobPosting10,
+                    ObjectMother.Shared_JobPage02_JobPostingExtended10_Content,
+                    ObjectMother.Shared_JobPage02_JobPostingExtended10
+                ).SetArgDisplayNames($"{nameof(jobPostingExtendedDeserializerTestCases)}_30"),
+
+            new TestCaseData(
+                    ObjectMother.Shared_JobPage02_JobPosting11,
+                    ObjectMother.Shared_JobPage02_JobPostingExtended11_Content,
+                    ObjectMother.Shared_JobPage02_JobPostingExtended11
+                ).SetArgDisplayNames($"{nameof(jobPostingExtendedDeserializerTestCases)}_31"),
+
+            new TestCaseData(
+                    ObjectMother.Shared_JobPage02_JobPosting12,
+                    ObjectMother.Shared_JobPage02_JobPostingExtended12_Content,
+                    ObjectMother.Shared_JobPage02_JobPostingExtended12
+                ).SetArgDisplayNames($"{nameof(jobPostingExtendedDeserializerTestCases)}_32"),
+
+            new TestCaseData(
+                    ObjectMother.Shared_JobPage02_JobPosting13,
+                    ObjectMother.Shared_JobPage02_JobPostingExtended13_Content,
+                    ObjectMother.Shared_JobPage02_JobPostingExtended13
+                ).SetArgDisplayNames($"{nameof(jobPostingExtendedDeserializerTestCases)}_33"),
+
+            new TestCaseData(
+                    ObjectMother.Shared_JobPage02_JobPosting14,
+                    ObjectMother.Shared_JobPage02_JobPostingExtended14_Content,
+                    ObjectMother.Shared_JobPage02_JobPostingExtended14
+                ).SetArgDisplayNames($"{nameof(jobPostingExtendedDeserializerTestCases)}_34"),
+
+            new TestCaseData(
+                    ObjectMother.Shared_JobPage02_JobPosting15,
+                    ObjectMother.Shared_JobPage02_JobPostingExtended15_Content,
+                    ObjectMother.Shared_JobPage02_JobPostingExtended15
+                ).SetArgDisplayNames($"{nameof(jobPostingExtendedDeserializerTestCases)}_35"),
+
+            new TestCaseData(
+                    ObjectMother.Shared_JobPage02_JobPosting16,
+                    ObjectMother.Shared_JobPage02_JobPostingExtended16_Content,
+                    ObjectMother.Shared_JobPage02_JobPostingExtended16
+                ).SetArgDisplayNames($"{nameof(jobPostingExtendedDeserializerTestCases)}_36"),
+
+            new TestCaseData(
+                    ObjectMother.Shared_JobPage02_JobPosting17,
+                    ObjectMother.Shared_JobPage02_JobPostingExtended17_Content,
+                    ObjectMother.Shared_JobPage02_JobPostingExtended17
+                ).SetArgDisplayNames($"{nameof(jobPostingExtendedDeserializerTestCases)}_37"),
+
+            new TestCaseData(
+                    ObjectMother.Shared_JobPage02_JobPosting18,
+                    ObjectMother.Shared_JobPage02_JobPostingExtended18_Content,
+                    ObjectMother.Shared_JobPage02_JobPostingExtended18
+                ).SetArgDisplayNames($"{nameof(jobPostingExtendedDeserializerTestCases)}_38"),
+
+            new TestCaseData(
+                    ObjectMother.Shared_JobPage02_JobPosting19,
+                    ObjectMother.Shared_JobPage02_JobPostingExtended19_Content,
+                    ObjectMother.Shared_JobPage02_JobPostingExtended19
+                ).SetArgDisplayNames($"{nameof(jobPostingExtendedDeserializerTestCases)}_39"),
+
+            new TestCaseData(
+                    ObjectMother.Shared_JobPage02_JobPosting20,
+                    ObjectMother.Shared_JobPage02_JobPostingExtended20_Content,
+                    ObjectMother.Shared_JobPage02_JobPostingExtended20
+                ).SetArgDisplayNames($"{nameof(jobPostingExtendedDeserializerTestCases)}_40"),
+
         };
 
         #endregion
