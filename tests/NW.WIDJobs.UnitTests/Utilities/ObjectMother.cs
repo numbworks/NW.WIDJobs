@@ -2138,9 +2138,9 @@ namespace NW.WIDJobs.UnitTests
                     applicationDeadlineDate: new DateTime(2021, 08, 27),
                     bulletPoints: new HashSet<string>()
                     {
-                        "-\\u00A0\\u00A0\\u00A0\\u00A0\\u00A0\\u00A0\\u00A0Performance troubleshooting - if a service is not performing as expected, troubleshooting the process interactions on a live server in order to identify the root cause and propose a remedy, possibly in collaboration with the development team.",
-                        "-\\u00A0\\u00A0\\u00A0\\u00A0\\u00A0\\u00A0\\u00A0Planning, testing, and executing Postgres database cluster migration from an older version to a newer version with little or no user-visible interruptions.",
-                        "-\\u00A0\\u00A0\\u00A0\\u00A0\\u00A0\\u00A0\\u00A0Designing the next iteration of our network infrastructure for high-performance multi-site communication, and planning and executing the transition from the previous iteration with no customer visible downtime.\\u00A0"
+                        "Performance troubleshooting - if a service is not performing as expected, troubleshooting the process interactions on a live server in order to identify the root cause and propose a remedy, possibly in collaboration with the development team.",
+                        "Planning, testing, and executing Postgres database cluster migration from an older version to a newer version with little or no user-visible interruptions.",
+                        "Designing the next iteration of our network infrastructure for high-performance multi-site communication, and planning and executing the transition from the previous iteration with no customer visible downtime."
                     },
                     bulletPointScenario: "keepit.com"
                 );
@@ -2545,15 +2545,15 @@ namespace NW.WIDJobs.UnitTests
                         applicationDeadlineDate: new DateTime(2021, 08, 27),
                         bulletPoints: new HashSet<string>()
                         {
-                            "As a Vice President, we expect a truly transparent and inclusive leadership style, empowering your team to perform at their maximum abilities.\\u00A0\\u00A0",
-                            "Facilitate outstanding collaborations between the product marketing team and the full brand & marketing team as well as\\u00A0internal core stakeholders such as product\\u00A0management\\u00A0and sales\\u00A0",
-                            "Help us\\u00A0articulate\\u00A0and implement\\u00A0a\\u00A0global product marketing\\u00A0strategy\\u00A0·Serve as an evangelist for our products through thought leadership\\u00A0\\u00A0",
-                            "Keep the company up-to-date with market trends and competition\\u00A0\\u00A0",
-                            "Product Marketing Strategy:\\u00A0We are looking for a profile that can help us define the right strategies that will\\u00A0fuel our continued growth.\\u00A0Having experience with making product marketing strategies for SaaS products\\u00A0is a requirement.\\u00A0",
-                            "Product Marketing:\\u00A0The right candidate has\\u00A0a\\u00A0solid\\u00A0product marketing skill-set\\u00A0with an entrepreneurial spirit.\\u00A0You\\u00A0know how to\\u00A0deliver\\u00A0sales\\u00A0enablement content\\u00A0and can execute marketing initiatives, including aligning and getting buy-in from stakeholders across the organization (including marketing, product, and sales).\\u00A0",
-                            "Leadership Style:\\u00A0We believe that the right candidate\\u00A0has the ability to\\u00A0inspire\\u00A0the\\u00A0team\\u00A0with an including and transparent leadership style.\\u00A0",
-                            "Language:\\u00A0We use English as our preferred language, and being fluent in English, both written and spoken, is essential for this role.\\u00A0",
-                            "Entrepreneurial spirit:\\u00A0We are passionate about winning in the market. However, we are also passionate about our workplace, and we know that a good work environment and great collaboration across our organization are crucial to achieving our ambitious goals. Therefore, we are searching for team leaders who, like us, are being motivated by building a fair and fun work environment at Keepit."
+                            "As a Vice President, we expect a truly transparent and inclusive leadership style, empowering your team to perform at their maximum abilities.",
+                            "Facilitate outstanding collaborations between the product marketing team and the full brand & marketing team as well as internal core stakeholders such as product management and sales",
+                            "Help us articulate and implement a global product marketing strategy ·Serve as an evangelist for our products through thought leadership",
+                            "Keep the company up-to-date with market trends and competition",
+                            "Product Marketing Strategy: We are looking for a profile that can help us define the right strategies that will fuel our continued growth. Having experience with making product marketing strategies for SaaS products is a requirement.",
+                            "Product Marketing: The right candidate has a solid product marketing skill-set with an entrepreneurial spirit. You know how to deliver sales enablement content and can execute marketing initiatives, including aligning and getting buy-in from stakeholders across the organization (including marketing, product, and sales).",
+                            "Leadership Style: We believe that the right candidate has the ability to inspire the team with an including and transparent leadership style.",
+                            "Language: We use English as our preferred language, and being fluent in English, both written and spoken, is essential for this role.",
+                            "Entrepreneurial spirit: We are passionate about winning in the market. However, we are also passionate about our workplace, and we know that a good work environment and great collaboration across our organization are crucial to achieving our ambitious goals. Therefore, we are searching for team leaders who, like us, are being motivated by building a fair and fun work environment at Keepit."
                         },
                         bulletPointScenario: "generic"
                     );
@@ -2968,7 +2968,7 @@ namespace NW.WIDJobs.UnitTests
                     publicationStartDate: new DateTime(2021, 07, 02),
                     publicationEndDate: new DateTime(2021, 08, 27),
                     purpose: Shared_FakePurpose,                        // Ignored
-                    numberToFill: null,
+                    numberToFill: 1,
                     contactEmail: null,
                     contactPersonName: "Majken Lorentzen",
                     employmentDate: null,
@@ -3203,27 +3203,27 @@ namespace NW.WIDJobs.UnitTests
                     applicationDeadlineDate: new DateTime(2021, 08, 27),
                     bulletPoints: new HashSet<string>()
                     {
-                        "- Picking/packing tasks",
-                        "- Loading/unloading tasks",
-                        "- Receipt of goods",
-                        "- Truck driving, most often reach truck",
-                        "- Scanner operation",
-                        "- Various warehouse tasks",
+                        "Picking/packing tasks",
+                        "Loading/unloading tasks",
+                        "Receipt of goods",
+                        "Truck driving, most often reach truck",
+                        "Scanner operation",
+                        "Various warehouse tasks",
                         "You will of course receive a thorough training in the work tasks, so you will have the best conditions for success.",
                         "The company generally has an informal work environment with the opportunity to take responsibility for work tasks and planning.",
-                        "- Are ready to take on evening work",
-                        "- Have experience from working at a warehouse",
-                        "- Have a truck certificate",
-                        "- Are ready to taking up the challenge when it comes to new tasks and flexible working days",
-                        "- Are able to perform a good job",
-                        "- Can represent Randstad as an external employee in a positive way at the customer’s premises",
-                        "- Danish- and English-speaking at a reasonable level",
-                        "- Basic salary according to qualifications and in addition to this, cf. collective agreement, pension scheme and holiday",
-                        "- A generally informal work environment with the opportunity to take responsibility for work tasks and planning",
+                        "Are ready to take on evening work",
+                        "Have experience from working at a warehouse",
+                        "Have a truck certificate",
+                        "Are ready to taking up the challenge when it comes to new tasks and flexible working days",
+                        "Are able to perform a good job",
+                        "Can represent Randstad as an external employee in a positive way at the customer’s premises",
+                        "Danish- and English-speaking at a reasonable level",
+                        "Basic salary according to qualifications and in addition to this, cf. collective agreement, pension scheme and holiday",
+                        "A generally informal work environment with the opportunity to take responsibility for work tasks and planning",
                         "Start-up: As soon as possible, please send your CV",
                         "All inquiries are treated confidentially. Interviews will take place on an ongoing basis."
                     },
-                    bulletPointScenario: "keepit.com"
+                    bulletPointScenario: "randstad"
                 );
 
         internal static JobPosting Shared_JobPage01_JobPosting20
@@ -4676,8 +4676,6 @@ namespace NW.WIDJobs.UnitTests
             return true;
 
         }
-        internal static bool AreEqual(HashSet<string> hashset1, HashSet<string> hashset2)
-            => AreEqual(new List<string>(hashset1), new List<string>(hashset2));
         internal static bool AreEqual(List<string> list1, List<string> list2)
         {
 
@@ -4828,6 +4826,8 @@ namespace NW.WIDJobs.UnitTests
 
         /* -------------------------------------------- */
 
+        internal static bool AreEqual(HashSet<string> hashset1, HashSet<string> hashset2)
+            => AreEqual(new List<string>(hashset1), new List<string>(hashset2));
         internal static bool AreEqual(JobPosting jobPosting1, JobPosting jobPosting2)
         {
 
@@ -4885,11 +4885,24 @@ namespace NW.WIDJobs.UnitTests
                     && string.Equals(jobPage1.RunId, jobPage2.RunId, StringComparison.InvariantCulture);
 
         }
-        internal static bool AreEqual(JobPostingExtended jobPostingExtended1, JobPostingExtended jobPostingExtended2)
+        internal static bool AreEqual(JobPostingExtended jobPostingExtended1, JobPostingExtended jobPostingExtended2, bool ignorePurposeResponse = true)
         {
 
+            if (ignorePurposeResponse)
+                return (jobPostingExtended1.ApplicationDeadlineDate == jobPostingExtended2.ApplicationDeadlineDate)
+                            && AreEqual(jobPostingExtended1.BulletPoints, jobPostingExtended2.BulletPoints)
+                            && string.Equals(jobPostingExtended1.BulletPointScenario, jobPostingExtended2.BulletPointScenario, StringComparison.InvariantCulture)
+                            && string.Equals(jobPostingExtended1.ContactEmail, jobPostingExtended2.ContactEmail, StringComparison.InvariantCulture)
+                            && string.Equals(jobPostingExtended1.ContactPersonName, jobPostingExtended2.ContactPersonName, StringComparison.InvariantCulture)
+                            && (jobPostingExtended1.EmploymentDate == jobPostingExtended2.EmploymentDate)
+                            && string.Equals(jobPostingExtended1.HiringOrgDescription, jobPostingExtended2.HiringOrgDescription, StringComparison.InvariantCulture)
+                            && AreEqual(jobPostingExtended1.JobPosting, jobPostingExtended2.JobPosting)
+                            && (jobPostingExtended1.NumberToFill == jobPostingExtended2.NumberToFill)
+                            && (jobPostingExtended1.PublicationStartDate == jobPostingExtended2.PublicationStartDate)
+                            && (jobPostingExtended1.PublicationEndDate == jobPostingExtended2.PublicationEndDate);
+
             return (jobPostingExtended1.ApplicationDeadlineDate == jobPostingExtended2.ApplicationDeadlineDate)
-                        && (jobPostingExtended1.BulletPoints == jobPostingExtended2.BulletPoints)
+                        && AreEqual(jobPostingExtended1.BulletPoints, jobPostingExtended2.BulletPoints)
                         && string.Equals(jobPostingExtended1.BulletPointScenario, jobPostingExtended2.BulletPointScenario, StringComparison.InvariantCulture)
                         && string.Equals(jobPostingExtended1.ContactEmail, jobPostingExtended2.ContactEmail, StringComparison.InvariantCulture)
                         && string.Equals(jobPostingExtended1.ContactPersonName, jobPostingExtended2.ContactPersonName, StringComparison.InvariantCulture)
@@ -4903,7 +4916,7 @@ namespace NW.WIDJobs.UnitTests
                         && string.Equals(jobPostingExtended1.Response, jobPostingExtended2.Response, StringComparison.InvariantCulture);
 
         }
-        internal static bool AreEqual(List<JobPostingExtended> list1, List<JobPostingExtended> list2)
+        internal static bool AreEqual(List<JobPostingExtended> list1, List<JobPostingExtended> list2, bool ignorePurposeResponse = true)
         {
 
             if (list1 == null && list2 == null)
@@ -4916,7 +4929,7 @@ namespace NW.WIDJobs.UnitTests
                 return false;
 
             for (int i = 0; i < list1.Count; i++)
-                if (AreEqual(list1[i], list2[i]) == false)
+                if (AreEqual(list1[i], list2[i], ignorePurposeResponse) == false)
                     return false;
 
             return true;
