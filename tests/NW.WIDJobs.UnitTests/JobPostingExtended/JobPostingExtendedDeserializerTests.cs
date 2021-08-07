@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using System;
+using System.Collections.Generic;
 
 namespace NW.WIDJobs.UnitTests
 {
@@ -265,6 +266,28 @@ namespace NW.WIDJobs.UnitTests
                 ).SetArgDisplayNames($"{nameof(jobPostingExtendedDeserializerTestCases)}_40"),
 
         };
+        private static TestCaseData[] doExceptionTestCases =
+        {
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new JobPostingExtendedDeserializer()
+                            .Do(null, ObjectMother.Shared_JobPage01_JobPostingExtended01_Content)
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("jobPosting").Message
+            ).SetArgDisplayNames($"{nameof(doExceptionTestCases)}_01"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new JobPostingExtendedDeserializer()
+                            .Do(ObjectMother.Shared_JobPage01_JobPosting01, null)
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("response").Message
+            ).SetArgDisplayNames($"{nameof(doExceptionTestCases)}_02")
+
+        };
 
         #endregion
 
@@ -279,7 +302,6 @@ namespace NW.WIDJobs.UnitTests
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
-
         [TestCaseSource(nameof(jobPostingExtendedDeserializerTestCases))]
         public void Do_ShouldReturnTheExpectedJobPostingExtended_WhenInvoked
             (JobPosting jobPosting, string response, JobPostingExtended expected)
@@ -292,6 +314,46 @@ namespace NW.WIDJobs.UnitTests
             // Assert
             Assert.IsTrue(
                     ObjectMother.AreEqual(expected, actual)
+                );
+
+        }
+
+        [TestCaseSource(nameof(doExceptionTestCases))]
+        public void Do_ShouldThrowACertainException_WhenUnproperArguments
+            (TestDelegate del, Type expectedType, string expectedMessage)
+                => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
+
+        [Test]
+        public void Do_ShouldReturnAnEmptyJobPostingExtendedObject_WhenUnproperResponse()
+        {
+
+            // Arrange
+            string unproperResponse = "{ }";
+            JobPostingExtended expected
+                    = new JobPostingExtended(
+                            jobPosting: ObjectMother.Shared_JobPage01_JobPosting01,
+                            response: unproperResponse,
+                            hiringOrgDescription: null,
+                            publicationStartDate: null,
+                            publicationEndDate: null,
+                            purpose: null,
+                            numberToFill: null,
+                            contactEmail: null,
+                            contactPersonName: null,
+                            employmentDate: null,
+                            applicationDeadlineDate: null,
+                            bulletPoints: new HashSet<string>(),
+                            bulletPointScenario: "regex"
+                        );
+
+            // Act
+            JobPostingExtended actual
+                    = new JobPostingExtendedDeserializer()
+                            .Do(ObjectMother.Shared_JobPage01_JobPosting01, unproperResponse);
+
+            // Assert
+            Assert.IsTrue(
+                    ObjectMother.AreEqual(expected, actual, false)
                 );
 
         }

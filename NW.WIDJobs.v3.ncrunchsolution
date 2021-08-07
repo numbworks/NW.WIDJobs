@@ -1,6 +1,6 @@
 ﻿<SolutionConfiguration>
   <Settings>
-    <AllowParallelTestExecution>True</AllowParallelTestExecution>
+    <AllowParallelTestExecution>False</AllowParallelTestExecution>
     <MetricsExclusionList>
       <Value>tests\NW.WIDJobs.UnitTests\NW.WIDJobs.UnitTests.csproj</Value>
       <Value>src\NW.WIDJobsClient\NW.WIDJobsClient.csproj</Value>

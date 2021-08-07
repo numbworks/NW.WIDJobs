@@ -181,10 +181,11 @@ namespace NW.WIDJobs
         private string ExtractPurpose(JsonElement jsonElement)
         {
 
-            string purpose =  jsonElement
-                            .GetProperty("JobPositionInformation")
-                            .GetProperty("Purpose")
-                            .GetString();
+            string purpose 
+                =  jsonElement
+                        .GetProperty("JobPositionInformation")
+                        .GetProperty("Purpose")
+                        .GetString();
 
             purpose = TryHtmlDecode(purpose);
 
@@ -352,6 +353,7 @@ namespace NW.WIDJobs
                 return string.Join(" ", str.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries));
 
             return str;
+
         }
         private string RemoveInitialHyphen(string str)
         {
