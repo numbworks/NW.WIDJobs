@@ -9,6 +9,7 @@ namespace NW.WIDJobs
         #region Fields
 
         private IGetRequestManagerFactory _getRequestManagerFactory;
+        private IJobPostingExtendedDeserializer _jobPostingExtendedDeserializer;
 
         #endregion
 
@@ -19,18 +20,21 @@ namespace NW.WIDJobs
 
         /// <summary>Initializes a <see cref="JobPostingExtendedManager"/> instance.</summary>
         /// <exception cref="ArgumentNullException"/>
-        public JobPostingExtendedManager(IGetRequestManagerFactory getRequestManagerFactory)
+        public JobPostingExtendedManager
+            (IGetRequestManagerFactory getRequestManagerFactory, IJobPostingExtendedDeserializer jobPostingExtendedDeserializer)
         {
 
             Validator.ValidateObject(getRequestManagerFactory, nameof(getRequestManagerFactory));
+            Validator.ValidateObject(jobPostingExtendedDeserializer, nameof(jobPostingExtendedDeserializer));
 
             _getRequestManagerFactory = getRequestManagerFactory;
+            _jobPostingExtendedDeserializer = jobPostingExtendedDeserializer;
 
         }
 
         /// <summary>Initializes a <see cref="JobPostingExtendedManager"/> instance using default parameters.</summary>
         public JobPostingExtendedManager()
-            : this(new GetRequestManagerFactory()) { }
+            : this(new GetRequestManagerFactory(), new JobPostingExtendedDeserializer()) { }
 
         #endregion
 
@@ -42,8 +46,9 @@ namespace NW.WIDJobs
             Validator.ValidateObject(jobPosting, nameof(jobPosting));
 
             string response = SendGetRequest(jobPosting);
+            JobPostingExtended jobPostingExtended = _jobPostingExtendedDeserializer.Do(jobPosting, response);
 
-            throw new NotImplementedException();
+            return jobPostingExtended;
 
         }
         public string SendGetRequest(JobPosting jobPosting)
@@ -65,5 +70,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 01.07.2021
+    Last Update: 07.08.2021
 */
