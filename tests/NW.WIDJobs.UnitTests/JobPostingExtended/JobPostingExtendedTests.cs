@@ -71,6 +71,33 @@ namespace NW.WIDJobs.UnitTests
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
+        [Test]
+        public void JobPostingExtended_ShouldInitializeSuccessfully_WhenProperParameters()
+        {
+
+            // Arrange
+            // Act
+            JobPostingExtended actual 
+                = new JobPostingExtended(
+                    ObjectMother.Shared_JobPage01_JobPosting01,
+                    ObjectMother.Shared_FakeResponse,
+                    ObjectMother.Shared_JobPage01_JobPostingExtended01.HiringOrgDescription,
+                    ObjectMother.Shared_JobPage01_JobPostingExtended01.PublicationStartDate,
+                    ObjectMother.Shared_JobPage01_JobPostingExtended01.PublicationEndDate,
+                    ObjectMother.Shared_FakePurpose,
+                    ObjectMother.Shared_JobPage01_JobPostingExtended01.NumberToFill,
+                    ObjectMother.Shared_JobPage01_JobPostingExtended01.ContactEmail,
+                    ObjectMother.Shared_JobPage01_JobPostingExtended01.ContactPersonName,
+                    ObjectMother.Shared_JobPage01_JobPostingExtended01.EmploymentDate,
+                    ObjectMother.Shared_JobPage01_JobPostingExtended01.ApplicationDeadlineDate,
+                    ObjectMother.Shared_JobPage01_JobPostingExtended01.BulletPoints,
+                    ObjectMother.Shared_JobPage01_JobPostingExtended01.BulletPointScenario
+                    );
+
+            // Assert
+
+        }
+
         #endregion
 
         #region TearDown

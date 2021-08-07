@@ -4858,7 +4858,7 @@ namespace NW.WIDJobs.UnitTests
                         && (jobPosting1.WorkPlacePostalCode == jobPosting2.WorkPlacePostalCode);
 
         }
-        internal static bool AreEqual<T>(List<T> list1, List<T> list2) where T : JobPosting
+        internal static bool AreEqual(List<JobPosting> list1, List<JobPosting> list2)
         {
 
             if (list1 == null && list2 == null)
@@ -4883,6 +4883,43 @@ namespace NW.WIDJobs.UnitTests
             return (jobPage1.PageNumber == jobPage2.PageNumber)
                     && string.Equals(jobPage1.Response, jobPage2.Response, StringComparison.InvariantCulture)
                     && string.Equals(jobPage1.RunId, jobPage2.RunId, StringComparison.InvariantCulture);
+
+        }
+        internal static bool AreEqual(JobPostingExtended jobPostingExtended1, JobPostingExtended jobPostingExtended2)
+        {
+
+            return (jobPostingExtended1.ApplicationDeadlineDate == jobPostingExtended2.ApplicationDeadlineDate)
+                        && (jobPostingExtended1.BulletPoints == jobPostingExtended2.BulletPoints)
+                        && string.Equals(jobPostingExtended1.BulletPointScenario, jobPostingExtended2.BulletPointScenario, StringComparison.InvariantCulture)
+                        && string.Equals(jobPostingExtended1.ContactEmail, jobPostingExtended2.ContactEmail, StringComparison.InvariantCulture)
+                        && string.Equals(jobPostingExtended1.ContactPersonName, jobPostingExtended2.ContactPersonName, StringComparison.InvariantCulture)
+                        && (jobPostingExtended1.EmploymentDate == jobPostingExtended2.EmploymentDate)
+                        && string.Equals(jobPostingExtended1.HiringOrgDescription, jobPostingExtended2.HiringOrgDescription, StringComparison.InvariantCulture)
+                        && AreEqual(jobPostingExtended1.JobPosting, jobPostingExtended2.JobPosting)
+                        && (jobPostingExtended1.NumberToFill == jobPostingExtended2.NumberToFill)
+                        && (jobPostingExtended1.PublicationStartDate == jobPostingExtended2.PublicationStartDate)
+                        && (jobPostingExtended1.PublicationEndDate == jobPostingExtended2.PublicationEndDate)
+                        && string.Equals(jobPostingExtended1.Purpose, jobPostingExtended2.Purpose, StringComparison.InvariantCulture)
+                        && string.Equals(jobPostingExtended1.Response, jobPostingExtended2.Response, StringComparison.InvariantCulture);
+
+        }
+        internal static bool AreEqual(List<JobPostingExtended> list1, List<JobPostingExtended> list2)
+        {
+
+            if (list1 == null && list2 == null)
+                return true;
+
+            if (list1 == null || list2 == null)
+                return false;
+
+            if (list1.Count != list2.Count)
+                return false;
+
+            for (int i = 0; i < list1.Count; i++)
+                if (AreEqual(list1[i], list2[i]) == false)
+                    return false;
+
+            return true;
 
         }
 
