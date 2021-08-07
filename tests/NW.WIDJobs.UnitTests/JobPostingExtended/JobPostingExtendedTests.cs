@@ -95,6 +95,9 @@ namespace NW.WIDJobs.UnitTests
                     );
 
             // Assert
+            Assert.IsTrue(
+                    ObjectMother.AreEqual(ObjectMother.Shared_JobPage01_JobPostingExtended01, actual)
+                );
 
         }
 
