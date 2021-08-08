@@ -18,7 +18,7 @@ namespace NW.WIDJobs.UnitTests
                     () => ObjectMother
                             .DbSetExtensionMethods_InMemoryDatabaseContext
                                 .JobPostings
-                                    .AddOrUpdate((IEnumerable<PageItemEntity>)null)
+                                    .AddOrUpdate((IEnumerable<JobPostingEntity>)null)
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("entities").Message
@@ -29,7 +29,7 @@ namespace NW.WIDJobs.UnitTests
                     () => ObjectMother
                             .DbSetExtensionMethods_InMemoryDatabaseContext
                                 .JobPostings
-                                    .AddOrUpdate((PageItemEntity)null)
+                                    .AddOrUpdate((JobPostingEntity)null)
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("entity").Message
@@ -41,7 +41,7 @@ namespace NW.WIDJobs.UnitTests
                             .DbSetExtensionMethods_InMemoryDatabaseContext
                                 .JobPostings
                                     .AddOrUpdate(
-                                        (IEnumerable<PageItemEntity>)null, 
+                                        (IEnumerable<JobPostingEntity>)null, 
                                         ref ObjectMother.DbSetExtensionMethods_NotExistingPageItemEntities)
                 ),
                 typeof(ArgumentNullException),
@@ -54,7 +54,7 @@ namespace NW.WIDJobs.UnitTests
                             .DbSetExtensionMethods_InMemoryDatabaseContext
                                 .JobPostings
                                     .AddOrUpdate(
-                                        (PageItemEntity)null,
+                                        (JobPostingEntity)null,
                                         ref ObjectMother.DbSetExtensionMethods_NotExistingPageItemEntities)
                 ),
                 typeof(ArgumentNullException),
@@ -71,7 +71,7 @@ namespace NW.WIDJobs.UnitTests
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
         [Test]
-        public void AddOrUpdate_ShouldAddOnePageItemEntity_WhenInvoked()
+        public void AddOrUpdate_ShouldAddOneJobPostingEntity_WhenInvoked()
         {
 
             // Arrange
@@ -79,7 +79,7 @@ namespace NW.WIDJobs.UnitTests
             int rowsBefore = databaseContext.JobPostings.Count();
 
             // Act
-            databaseContext.JobPostings.AddOrUpdate(ObjectMother.Shared_Page01_PageItemEntity01);
+            databaseContext.JobPostings.AddOrUpdate(ObjectMother.Shared_JobPage01_JobPostingEntity01);
             databaseContext.SaveChanges();
             int rowsAfter = databaseContext.JobPostings.Count();
             databaseContext.Dispose();
@@ -91,7 +91,7 @@ namespace NW.WIDJobs.UnitTests
 
         }
         [Test]
-        public void AddOrUpdate_ShouldAddPageItemEntities_WhenInvoked()
+        public void AddOrUpdate_ShouldAddJobPostingEntities_WhenInvoked()
         {
 
             // Arrange
@@ -99,38 +99,38 @@ namespace NW.WIDJobs.UnitTests
             int rowsBefore = databaseContext.JobPostings.Count();
 
             // Act
-            databaseContext.JobPostings.AddOrUpdate(ObjectMother.Shared_Page01_PageItemEntities);
+            databaseContext.JobPostings.AddOrUpdate(ObjectMother.Shared_JobPage01_JobPostingEntities);
             databaseContext.SaveChanges();
             int rowsAfter = databaseContext.JobPostings.Count();
             databaseContext.Dispose();
 
             // Assert
             Assert.AreEqual(0, rowsBefore);
-            Assert.AreEqual(ObjectMother.Shared_Page01_PageItemEntities.Count, rowsAfter);
+            Assert.AreEqual(ObjectMother.Shared_JobPage01_JobPostingEntities.Count, rowsAfter);
 
 
         }
         [Test]
-        public void AddOrUpdate_ShouldUpdateTwoAndAddTwo_WhenFourPageItemEntities()
+        public void AddOrUpdate_ShouldUpdateTwoAndAddTwo_WhenFourJobPostingEntities()
         {
 
             // Arrange
             DatabaseContext databaseContext = ObjectMother.CreateInMemoryContext();
 
             // Act
-            List<PageItemEntity> addedStep1 = new List<PageItemEntity>();
-            databaseContext.JobPostings.AddOrUpdate(ObjectMother.Shared_Page01_PageItemEntity01, ref addedStep1);
+            List<JobPostingEntity> addedStep1 = new List<JobPostingEntity>();
+            databaseContext.JobPostings.AddOrUpdate(ObjectMother.Shared_JobPage01_JobPostingEntity01, ref addedStep1);
             databaseContext.SaveChanges(); // Add the first one, database is empty, added = 1
 
-            List<PageItemEntity> addedStep2 = new List<PageItemEntity>();
-            databaseContext.JobPostings.AddOrUpdate(ObjectMother.Shared_Page01_PageItemEntity01, ref addedStep2);
+            List<JobPostingEntity> addedStep2 = new List<JobPostingEntity>();
+            databaseContext.JobPostings.AddOrUpdate(ObjectMother.Shared_JobPage01_JobPostingEntity01, ref addedStep2);
             databaseContext.SaveChanges(); // Add the second one, same as the pre-exiting one, added = 0
 
-            List<PageItemEntity> addedStep3 = new List<PageItemEntity>();
+            List<JobPostingEntity> addedStep3 = new List<JobPostingEntity>();
             databaseContext.JobPostings.AddOrUpdate(ObjectMother.Shared_Page01Alternate_PageItemEntity01, ref addedStep3);
             databaseContext.SaveChanges(); // Add the third one, update the CreatedDate for the pre-exiting one, added = 0
 
-            List<PageItemEntity> addedStep4 = new List<PageItemEntity>();
+            List<JobPostingEntity> addedStep4 = new List<JobPostingEntity>();
             databaseContext.JobPostings.AddOrUpdate(ObjectMother.Shared_Page01Alternate_PageItemEntity02, ref addedStep4);
             databaseContext.SaveChanges(); // Add the fourth one, differs from the pre-existing one, added = 1
             databaseContext.Dispose();
@@ -143,19 +143,19 @@ namespace NW.WIDJobs.UnitTests
 
         }
         [Test]
-        public void AddOrUpdate_ShouldUpdateTwentyPageItemEntities_WhenTwentyPageItemEntities()
+        public void AddOrUpdate_ShouldUpdateTwentyJobPostingEntities_WhenTwentyJobPostingEntities()
         {
 
             // Arrange
             DatabaseContext databaseContext = ObjectMother.CreateInMemoryContext();
 
             // Act
-            List<PageItemEntity> addedStep1 = new List<PageItemEntity>();
-            databaseContext.JobPostings.AddOrUpdate(ObjectMother.Shared_Page01_PageItemEntities, ref addedStep1);
+            List<JobPostingEntity> addedStep1 = new List<JobPostingEntity>();
+            databaseContext.JobPostings.AddOrUpdate(ObjectMother.Shared_JobPage01_JobPostingEntities, ref addedStep1);
             databaseContext.SaveChanges();
 
-            List<PageItemEntity> addedStep2 = new List<PageItemEntity>();
-            databaseContext.JobPostings.AddOrUpdate(ObjectMother.Shared_Page01_PageItemEntities, ref addedStep2);
+            List<JobPostingEntity> addedStep2 = new List<JobPostingEntity>();
+            databaseContext.JobPostings.AddOrUpdate(ObjectMother.Shared_JobPage01_JobPostingEntities, ref addedStep2);
             databaseContext.SaveChanges();
             databaseContext.Dispose();
 
@@ -166,7 +166,7 @@ namespace NW.WIDJobs.UnitTests
         }
 
         [Test]
-        public void AddOrUpdate_ShouldAddOnePageItemExtendedEntity_WhenInvoked()
+        public void AddOrUpdate_ShouldAddOneJobPostingExtendedEntity_WhenInvoked()
         {
 
             // Arrange
@@ -185,7 +185,7 @@ namespace NW.WIDJobs.UnitTests
 
         }
         [Test]
-        public void AddOrUpdate_ShouldAddPageItemExtendedEntities_WhenInvoked()
+        public void AddOrUpdate_ShouldAddJobPostingExtendedEntities_WhenInvoked()
         {
 
             // Arrange
@@ -250,5 +250,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 19.06.2021
+    Last Update: 08.08.2021
 */

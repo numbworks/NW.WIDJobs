@@ -444,34 +444,6 @@ namespace NW.WIDJobs.UnitTests
                 Shared_Page01_PageItemExtended14
             };
 
-        internal static PageItemEntity Shared_Page01_PageItemEntity01
-            = new PageItemEntity(Shared_Page01_PageItem01);
-        internal static List<PageItemEntity> Shared_Page01_PageItemEntities = new List<PageItemEntity>()
-        {
-
-            new PageItemEntity(Shared_Page01_PageItem01),
-            new PageItemEntity(Shared_Page01_PageItem02),
-            new PageItemEntity(Shared_Page01_PageItem03),
-            new PageItemEntity(Shared_Page01_PageItem04),
-            new PageItemEntity(Shared_Page01_PageItem05),
-            new PageItemEntity(Shared_Page01_PageItem06),
-            new PageItemEntity(Shared_Page01_PageItem07),
-            new PageItemEntity(Shared_Page01_PageItem08),
-            new PageItemEntity(Shared_Page01_PageItem09),
-            new PageItemEntity(Shared_Page01_PageItem10),
-            new PageItemEntity(Shared_Page01_PageItem11),
-            new PageItemEntity(Shared_Page01_PageItem12),
-            new PageItemEntity(Shared_Page01_PageItem13),
-            new PageItemEntity(Shared_Page01_PageItem14),
-            new PageItemEntity(Shared_Page01_PageItem15),
-            new PageItemEntity(Shared_Page01_PageItem16),
-            new PageItemEntity(Shared_Page01_PageItem17),
-            new PageItemEntity(Shared_Page01_PageItem18),
-            new PageItemEntity(Shared_Page01_PageItem19),
-            new PageItemEntity(Shared_Page01_PageItem20)
-
-        };
-
         internal static PageItemExtendedEntity Shared_Page01_PageItemExtendedEntity01
             = new PageItemExtendedEntity(Shared_Page01_PageItemExtended01);
         internal static List<PageItemExtendedEntity> Shared_Page01_PageItemExtendedEntities
@@ -4545,8 +4517,39 @@ namespace NW.WIDJobs.UnitTests
 
         #endregion
 
-        #region some
+        #region Shared_JobPage01_Entities
 
+        internal static JobPostingEntity Shared_JobPage01_JobPostingEntity01
+            = new JobPostingEntity(Shared_JobPage01_JobPosting01);
+        internal static List<JobPostingEntity> Shared_JobPage01_JobPostingEntities = new List<JobPostingEntity>()
+        {
+
+            new JobPostingEntity(Shared_JobPage01_JobPosting01),
+            new JobPostingEntity(Shared_JobPage01_JobPosting02),
+            new JobPostingEntity(Shared_JobPage01_JobPosting03),
+            new JobPostingEntity(Shared_JobPage01_JobPosting04),
+            new JobPostingEntity(Shared_JobPage01_JobPosting05),
+            new JobPostingEntity(Shared_JobPage01_JobPosting06),
+            new JobPostingEntity(Shared_JobPage01_JobPosting07),
+            new JobPostingEntity(Shared_JobPage01_JobPosting08),
+            new JobPostingEntity(Shared_JobPage01_JobPosting09),
+            new JobPostingEntity(Shared_JobPage01_JobPosting10),
+            new JobPostingEntity(Shared_JobPage01_JobPosting11),
+            new JobPostingEntity(Shared_JobPage01_JobPosting12),
+            new JobPostingEntity(Shared_JobPage01_JobPosting13),
+            new JobPostingEntity(Shared_JobPage01_JobPosting14),
+            new JobPostingEntity(Shared_JobPage01_JobPosting15),
+            new JobPostingEntity(Shared_JobPage01_JobPosting16),
+            new JobPostingEntity(Shared_JobPage01_JobPosting17),
+            new JobPostingEntity(Shared_JobPage01_JobPosting18),
+            new JobPostingEntity(Shared_JobPage01_JobPosting19),
+            new JobPostingEntity(Shared_JobPage01_JobPosting20)
+
+        };
+
+        #endregion
+
+        #region Shared_JobPage02_Entities
 
         #endregion
 
@@ -4556,7 +4559,7 @@ namespace NW.WIDJobs.UnitTests
 
         internal static DatabaseContext DbSetExtensionMethods_InMemoryDatabaseContext
             = CreateInMemoryContext();
-        internal static List<PageItemEntity> DbSetExtensionMethods_NotExistingPageItemEntities;
+        internal static List<JobPostingEntity> DbSetExtensionMethods_NotExistingPageItemEntities;
 
         #endregion
 
@@ -4574,108 +4577,6 @@ namespace NW.WIDJobs.UnitTests
 
         }
         
-        internal static bool AreEqual(Page page1, Page page2)
-        {
-
-            return string.Equals(page1.RunId, page2.RunId, StringComparison.InvariantCulture)
-                        && (page1.PageNumber == page2.PageNumber)
-                        && string.Equals(page1.Content, page2.Content, StringComparison.InvariantCulture);
-
-        }
-        internal static bool AreEqual(PageItem pageItem1, PageItem pageItem2)
-        {
-
-            return (pageItem1.ApplicationDate == pageItem2.ApplicationDate)
-                        && (pageItem1.CreateDate == pageItem2.CreateDate)
-                        && (pageItem1.JobId == pageItem2.JobId)
-                        && string.Equals(pageItem1.JobType, pageItem2.JobType, StringComparison.InvariantCulture)
-                        && string.Equals(pageItem1.PageItemId, pageItem2.PageItemId, StringComparison.InvariantCulture)
-                        && (pageItem1.PageItemNumber == pageItem2.PageItemNumber)
-                        && (pageItem1.PageNumber == pageItem2.PageNumber)
-                        && string.Equals(pageItem1.RunId, pageItem2.RunId, StringComparison.InvariantCulture)
-                        && string.Equals(pageItem1.Title, pageItem2.Title, StringComparison.InvariantCulture)
-                        && string.Equals(pageItem1.Url, pageItem2.Url, StringComparison.InvariantCulture)
-                        && string.Equals(pageItem1.WorkArea, pageItem2.WorkArea, StringComparison.InvariantCulture)
-                        && string.Equals(pageItem1.WorkAreaWithoutZone, pageItem2.WorkAreaWithoutZone, StringComparison.InvariantCulture)
-                        && string.Equals(pageItem1.WorkingHours, pageItem2.WorkingHours, StringComparison.InvariantCulture);
-
-        }
-        internal static bool AreEqual(PageItemExtended pageItemExtended1, PageItemExtended pageItemExtended2)
-        {
-
-            return (pageItemExtended1.AdvertisementPublishDate == pageItemExtended2.AdvertisementPublishDate)
-                        && (pageItemExtended1.ApplicationDeadline == pageItemExtended2.ApplicationDeadline)
-                        && string.Equals(pageItemExtended1.Contact, pageItemExtended2.Contact, StringComparison.InvariantCulture)
-                        && string.Equals(pageItemExtended1.Description, pageItemExtended2.Description, StringComparison.InvariantCulture)
-                        && AreEqual(pageItemExtended1.DescriptionBulletPoints, pageItemExtended2.DescriptionBulletPoints)
-                        && string.Equals(pageItemExtended1.DescriptionSeeCompleteTextAt, pageItemExtended2.DescriptionSeeCompleteTextAt, StringComparison.InvariantCulture)
-                        && string.Equals(pageItemExtended1.EmployerAddress, pageItemExtended2.EmployerAddress, StringComparison.InvariantCulture)
-                        && string.Equals(pageItemExtended1.EmployerName, pageItemExtended2.EmployerName, StringComparison.InvariantCulture)
-                        && string.Equals(pageItemExtended1.HowToApply, pageItemExtended2.HowToApply, StringComparison.InvariantCulture)
-                        && (pageItemExtended1.NumberOfOpenings == pageItemExtended2.NumberOfOpenings)
-                        && AreEqual(pageItemExtended1.PageItem, pageItemExtended2.PageItem)
-                        && string.Equals(pageItemExtended1.Position, pageItemExtended2.Position, StringComparison.InvariantCulture)
-                        && string.Equals(pageItemExtended1.Reference, pageItemExtended2.Reference, StringComparison.InvariantCulture)
-                        && string.Equals(pageItemExtended1.StartDateOfEmployment, pageItemExtended2.StartDateOfEmployment, StringComparison.InvariantCulture);
-        
-        }
-        internal static bool AreEqual(List<Page> list1, List<Page> list2)
-        {
-
-            if (list1 == null && list2 == null)
-                return true;
-
-            if (list1 == null || list2 == null)
-                return false;
-
-            if (list1.Count != list2.Count)
-                return false;
-
-            for (int i = 0; i < list1.Count; i++)
-                if (AreEqual(list1[i], list2[i]) == false)
-                    return false;
-
-            return true;
-
-        }
-        internal static bool AreEqual(List<PageItem> list1, List<PageItem> list2)
-        {
-
-            if (list1 == null && list2 == null)
-                return true;
-
-            if (list1 == null || list2 == null)
-                return false;
-
-            if (list1.Count != list2.Count)
-                return false;
-
-            for (int i = 0; i < list1.Count; i++)
-                if (AreEqual(list1[i], list2[i]) == false)
-                    return false;
-
-            return true;
-
-        }
-        internal static bool AreEqual(List<PageItemExtended> list1, List<PageItemExtended> list2)
-        {
-
-            if (list1 == null && list2 == null)
-                return true;
-
-            if (list1 == null || list2 == null)
-                return false;
-
-            if (list1.Count != list2.Count)
-                return false;
-
-            for (int i = 0; i < list1.Count; i++)
-                if (AreEqual(list1[i], list2[i]) == false)
-                    return false;
-
-            return true;
-
-        }
         internal static bool AreEqual(List<string> list1, List<string> list2)
         {
 
@@ -4744,86 +4645,7 @@ namespace NW.WIDJobs.UnitTests
                         && (metrics1.TotalBulletPoints == metrics2.TotalBulletPoints);
 
         }
-        internal static bool AreEqual(PageItem pageItem, PageItemEntity pageItemEntity)
-        {
-
-            return (pageItem.ApplicationDate == pageItemEntity.ApplicationDate)
-                        && (pageItem.CreateDate == pageItemEntity.CreateDate)
-                        && (pageItem.JobId == pageItemEntity.JobId)
-                        && string.Equals(pageItem.JobType, pageItemEntity.JobType, StringComparison.InvariantCulture)
-                        && string.Equals(pageItem.PageItemId, pageItemEntity.PageItemId, StringComparison.InvariantCulture)
-                        && (pageItem.PageItemNumber == pageItemEntity.PageItemNumber)
-                        && (pageItem.PageNumber == pageItemEntity.PageNumber)
-                        && string.Equals(pageItem.RunId, pageItemEntity.RunId, StringComparison.InvariantCulture)
-                        && string.Equals(pageItem.Title, pageItemEntity.Title, StringComparison.InvariantCulture)
-                        && string.Equals(pageItem.Url, pageItemEntity.Url, StringComparison.InvariantCulture)
-                        && string.Equals(pageItem.WorkArea, pageItemEntity.WorkArea, StringComparison.InvariantCulture)
-                        && string.Equals(pageItem.WorkAreaWithoutZone, pageItemEntity.WorkAreaWithoutZone, StringComparison.InvariantCulture)
-                        && string.Equals(pageItem.WorkingHours, pageItemEntity.WorkingHours, StringComparison.InvariantCulture)
-                        && (pageItemEntity.RowId == default(uint))
-                        && (pageItemEntity.RowCreatedOn == default(DateTime))
-                        && (pageItemEntity.RowModifiedOn == default(DateTime));
-
-        }
-        internal static bool AreEqual(PageItemExtended pageItemExtended, PageItemExtendedEntity pageItemExtendedEntity)
-        {
-
-            return string.Equals(pageItemExtended.PageItem.PageItemId, pageItemExtendedEntity.PageItemId, StringComparison.InvariantCulture)
-                        && string.Equals(pageItemExtended.Description, pageItemExtendedEntity.Description, StringComparison.InvariantCulture)
-                        && string.Equals(pageItemExtended.DescriptionSeeCompleteTextAt, pageItemExtendedEntity.SeeCompleteTextAt, StringComparison.InvariantCulture)
-                        && string.Equals(pageItemExtended.EmployerName, pageItemExtendedEntity.EmployerName, StringComparison.InvariantCulture)
-                        && (pageItemExtended.NumberOfOpenings == pageItemExtendedEntity.NumberOfOpenings)
-                        && (pageItemExtended.AdvertisementPublishDate == pageItemExtendedEntity.AdvertisementPublishDate)
-                        && (pageItemExtended.ApplicationDeadline == pageItemExtendedEntity.ApplicationDeadline)
-                        && string.Equals(pageItemExtended.StartDateOfEmployment, pageItemExtendedEntity.StartDateOfEmployment, StringComparison.InvariantCulture)
-                        && string.Equals(pageItemExtended.Reference, pageItemExtendedEntity.Reference, StringComparison.InvariantCulture)
-                        && string.Equals(pageItemExtended.Position, pageItemExtendedEntity.Position, StringComparison.InvariantCulture)
-                        && string.Equals(pageItemExtended.TypeOfEmployment, pageItemExtendedEntity.TypeOfEmployment, StringComparison.InvariantCulture)
-                        && string.Equals(pageItemExtended.Contact, pageItemExtendedEntity.Contact, StringComparison.InvariantCulture)                                               
-                        && string.Equals(pageItemExtended.EmployerAddress, pageItemExtendedEntity.EmployerAddress, StringComparison.InvariantCulture)                      
-                        && string.Equals(pageItemExtended.HowToApply, pageItemExtendedEntity.HowToApply, StringComparison.InvariantCulture)
-                        && (pageItemExtendedEntity.RowId == default(uint))
-                        && (pageItemExtendedEntity.RowCreatedOn == default(DateTime))
-                        && (pageItemExtendedEntity.RowModifiedOn == default(DateTime));
-
-        }
-        internal static bool AreEqual(BulletPointEntity bulletPointEntity1, BulletPointEntity bulletPointEntity2)
-        {
-
-            return (bulletPointEntity1.RowId == bulletPointEntity2.RowId)
-                    && string.Equals(bulletPointEntity1.PageItemId, bulletPointEntity2.PageItemId, StringComparison.InvariantCulture)
-                    && string.Equals(bulletPointEntity1.BulletPoint, bulletPointEntity2.BulletPoint, StringComparison.InvariantCulture)
-                    && (bulletPointEntity1.RowCreatedOn == bulletPointEntity2.RowCreatedOn)
-                    && (bulletPointEntity1.RowModifiedOn == bulletPointEntity2.RowModifiedOn);
-
-        }
-        internal static bool AreEqual(BulletPoint bulletPoint1, BulletPoint bulletPoint2)
-        {
-
-            return string.Equals(bulletPoint1.Label, bulletPoint2.Label, StringComparison.InvariantCulture)
-                    && string.Equals(bulletPoint1.Text, bulletPoint2.Text, StringComparison.InvariantCulture);
-
-        }
-        internal static bool AreEqual(List<BulletPoint> list1, List<BulletPoint> list2)
-        {
-
-            if (list1 == null && list2 == null)
-                return true;
-
-            if (list1 == null || list2 == null)
-                return false;
-
-            if (list1.Count != list2.Count)
-                return false;
-
-            for (int i = 0; i < list1.Count; i++)
-                if (AreEqual(list1[i], list2[i]) == false)
-                    return false;
-
-            return true;
-
-        }
-
+        
         /* -------------------------------------------- */
 
         internal static bool AreEqual(HashSet<string> hashset1, HashSet<string> hashset2)
@@ -4838,6 +4660,14 @@ namespace NW.WIDJobs.UnitTests
             return AreEqual(new List<string>(hashset1), new List<string>(hashset2));
 
         }
+        internal static bool AreEqual(JobPage jobPage1, JobPage jobPage2)
+        {
+
+            return (jobPage1.PageNumber == jobPage2.PageNumber)
+                    && string.Equals(jobPage1.Response, jobPage2.Response, StringComparison.InvariantCulture)
+                    && string.Equals(jobPage1.RunId, jobPage2.RunId, StringComparison.InvariantCulture);
+
+        }
         internal static bool AreEqual(JobPosting jobPosting1, JobPosting jobPosting2)
         {
 
@@ -4849,12 +4679,12 @@ namespace NW.WIDJobs.UnitTests
                         && string.Equals(jobPosting1.JobPostingId, jobPosting2.JobPostingId, StringComparison.InvariantCulture)
                         && (jobPosting1.JobPostingNumber == jobPosting2.JobPostingNumber)
                         && (jobPosting1.LastDateApplication == jobPosting2.LastDateApplication)
-                        && string.Equals(jobPosting1.Municipality, jobPosting2.Municipality, StringComparison.InvariantCulture)                  
+                        && string.Equals(jobPosting1.Municipality, jobPosting2.Municipality, StringComparison.InvariantCulture)
                         && string.Equals(jobPosting1.Occupation, jobPosting2.Occupation, StringComparison.InvariantCulture)
                         && (jobPosting1.OrganisationId == jobPosting2.OrganisationId)
                         && (jobPosting1.PageNumber == jobPosting2.PageNumber)
                         && (jobPosting1.PostingCreated == jobPosting2.PostingCreated)
-                        && string.Equals(jobPosting1.Presentation, jobPosting2.Presentation, StringComparison.InvariantCulture)                        
+                        && string.Equals(jobPosting1.Presentation, jobPosting2.Presentation, StringComparison.InvariantCulture)
                         && string.Equals(jobPosting1.Region, jobPosting2.Region, StringComparison.InvariantCulture)
                         && string.Equals(jobPosting1.Response, jobPosting2.Response, StringComparison.InvariantCulture)
                         && string.Equals(jobPosting1.RunId, jobPosting2.RunId, StringComparison.InvariantCulture)
@@ -4885,14 +4715,6 @@ namespace NW.WIDJobs.UnitTests
                     return false;
 
             return true;
-
-        }
-        internal static bool AreEqual(JobPage jobPage1, JobPage jobPage2)
-        {
-
-            return (jobPage1.PageNumber == jobPage2.PageNumber)
-                    && string.Equals(jobPage1.Response, jobPage2.Response, StringComparison.InvariantCulture)
-                    && string.Equals(jobPage1.RunId, jobPage2.RunId, StringComparison.InvariantCulture);
 
         }
         internal static bool AreEqual(JobPostingExtended jobPostingExtended1, JobPostingExtended jobPostingExtended2, bool ignorePurposeResponse = true)
@@ -4940,6 +4762,111 @@ namespace NW.WIDJobs.UnitTests
 
             for (int i = 0; i < list1.Count; i++)
                 if (AreEqual(list1[i], list2[i], ignorePurposeResponse) == false)
+                    return false;
+
+            return true;
+
+        }
+
+        internal static bool AreEqual(JobPosting jobPosting, JobPostingEntity jobPostingEntity)
+        {
+
+            return string.Equals(jobPosting.Country, jobPostingEntity.Country, StringComparison.InvariantCulture)
+                        && string.Equals(jobPosting.EmploymentType, jobPostingEntity.EmploymentType, StringComparison.InvariantCulture)
+                        && (jobPosting.HiringOrgCVR == jobPostingEntity.HiringOrgCVR)
+                        && string.Equals(jobPosting.HiringOrgName, jobPostingEntity.HiringOrgName, StringComparison.InvariantCulture)
+                        && (jobPosting.Id == jobPostingEntity.Id)
+                        && string.Equals(jobPosting.JobPostingId, jobPostingEntity.JobPostingId, StringComparison.InvariantCulture)
+                        && (jobPosting.JobPostingNumber == jobPostingEntity.JobPostingNumber)
+                        && (jobPosting.LastDateApplication == jobPostingEntity.LastDateApplication)
+                        && string.Equals(jobPosting.Municipality, jobPostingEntity.Municipality, StringComparison.InvariantCulture)
+                        && string.Equals(jobPosting.Occupation, jobPostingEntity.Occupation, StringComparison.InvariantCulture)
+                        && (jobPosting.OrganisationId == jobPostingEntity.OrganisationId)
+                        && (jobPosting.PageNumber == jobPostingEntity.PageNumber)
+                        && (jobPosting.PostingCreated == jobPostingEntity.PostingCreated)
+                        && string.Equals(jobPosting.Presentation, jobPostingEntity.Presentation, StringComparison.InvariantCulture)
+                        && string.Equals(jobPosting.Region, jobPostingEntity.Region, StringComparison.InvariantCulture)
+                        && string.Equals(jobPosting.Response, jobPostingEntity.Response, StringComparison.InvariantCulture)
+                        && string.Equals(jobPosting.RunId, jobPostingEntity.RunId, StringComparison.InvariantCulture)
+                        && string.Equals(jobPosting.Title, jobPostingEntity.Title, StringComparison.InvariantCulture)
+                        && string.Equals(jobPosting.Url, jobPostingEntity.Url, StringComparison.InvariantCulture)
+                        && string.Equals(jobPosting.WorkHours, jobPostingEntity.WorkHours, StringComparison.InvariantCulture)
+                        && string.Equals(jobPosting.WorkPlaceAddress, jobPostingEntity.WorkPlaceAddress, StringComparison.InvariantCulture)
+                        && string.Equals(jobPosting.WorkPlaceCity, jobPostingEntity.WorkPlaceCity, StringComparison.InvariantCulture)
+                        && string.Equals(jobPosting.WorkPlaceCityWithoutZone, jobPostingEntity.WorkPlaceCityWithoutZone, StringComparison.InvariantCulture)
+                        && (jobPosting.WorkplaceId == jobPostingEntity.WorkplaceId)
+                        && (jobPosting.WorkPlacePostalCode == jobPostingEntity.WorkPlacePostalCode)
+                        && (jobPostingEntity.RowId == default(uint))
+                        && (jobPostingEntity.RowCreatedOn == default(DateTime))
+                        && (jobPostingEntity.RowModifiedOn == default(DateTime));
+
+        }
+        internal static bool AreEqual(JobPostingExtended jobPostingExtended, JobPostingExtendedEntity jobPostingExtendedEntity, bool ignorePurposeResponse = true)
+        {
+
+            if (ignorePurposeResponse)
+                return (jobPostingExtended.ApplicationDeadlineDate == jobPostingExtendedEntity.ApplicationDeadlineDate)
+                            && string.Equals(jobPostingExtended.BulletPointScenario, jobPostingExtendedEntity.BulletPointScenario, StringComparison.InvariantCulture)
+                            && string.Equals(jobPostingExtended.ContactEmail, jobPostingExtendedEntity.ContactEmail, StringComparison.InvariantCulture)
+                            && string.Equals(jobPostingExtended.ContactPersonName, jobPostingExtendedEntity.ContactPersonName, StringComparison.InvariantCulture)
+                            && (jobPostingExtended.EmploymentDate == jobPostingExtendedEntity.EmploymentDate)
+                            && string.Equals(jobPostingExtended.HiringOrgDescription, jobPostingExtendedEntity.HiringOrgDescription, StringComparison.InvariantCulture)
+                            && string.Equals(jobPostingExtended.JobPosting.JobPostingId, jobPostingExtendedEntity.JobPostingId, StringComparison.InvariantCulture)
+                            && (jobPostingExtended.NumberToFill == jobPostingExtendedEntity.NumberToFill)
+                            && (jobPostingExtended.PublicationStartDate == jobPostingExtendedEntity.PublicationStartDate)
+                            && (jobPostingExtended.PublicationEndDate == jobPostingExtendedEntity.PublicationEndDate)
+                            && (jobPostingExtendedEntity.RowId == default(uint))
+                            && (jobPostingExtendedEntity.RowCreatedOn == default(DateTime))
+                            && (jobPostingExtendedEntity.RowModifiedOn == default(DateTime));
+
+            return (jobPostingExtended.ApplicationDeadlineDate == jobPostingExtendedEntity.ApplicationDeadlineDate)
+                        && string.Equals(jobPostingExtended.BulletPointScenario, jobPostingExtendedEntity.BulletPointScenario, StringComparison.InvariantCulture)
+                        && string.Equals(jobPostingExtended.ContactEmail, jobPostingExtendedEntity.ContactEmail, StringComparison.InvariantCulture)
+                        && string.Equals(jobPostingExtended.ContactPersonName, jobPostingExtendedEntity.ContactPersonName, StringComparison.InvariantCulture)
+                        && (jobPostingExtended.EmploymentDate == jobPostingExtendedEntity.EmploymentDate)
+                        && string.Equals(jobPostingExtended.HiringOrgDescription, jobPostingExtendedEntity.HiringOrgDescription, StringComparison.InvariantCulture)
+                        && string.Equals(jobPostingExtended.JobPosting.JobPostingId, jobPostingExtendedEntity.JobPostingId, StringComparison.InvariantCulture)
+                        && (jobPostingExtended.NumberToFill == jobPostingExtendedEntity.NumberToFill)
+                        && (jobPostingExtended.PublicationStartDate == jobPostingExtendedEntity.PublicationStartDate)
+                        && (jobPostingExtended.PublicationEndDate == jobPostingExtendedEntity.PublicationEndDate)
+                        && string.Equals(jobPostingExtended.Purpose, jobPostingExtendedEntity.Purpose, StringComparison.InvariantCulture)
+                        && string.Equals(jobPostingExtended.Response, jobPostingExtendedEntity.Response, StringComparison.InvariantCulture)
+                        && (jobPostingExtendedEntity.RowId == default(uint))
+                        && (jobPostingExtendedEntity.RowCreatedOn == default(DateTime))
+                        && (jobPostingExtendedEntity.RowModifiedOn == default(DateTime));
+
+        }
+        internal static bool AreEqual(BulletPointEntity bulletPointEntity1, BulletPointEntity bulletPointEntity2)
+        {
+
+            return (bulletPointEntity1.RowId == bulletPointEntity2.RowId)
+                    && string.Equals(bulletPointEntity1.JobPostingId, bulletPointEntity2.JobPostingId, StringComparison.InvariantCulture)
+                    && string.Equals(bulletPointEntity1.BulletPoint, bulletPointEntity2.BulletPoint, StringComparison.InvariantCulture)
+                    && (bulletPointEntity1.RowCreatedOn == bulletPointEntity2.RowCreatedOn)
+                    && (bulletPointEntity1.RowModifiedOn == bulletPointEntity2.RowModifiedOn);
+
+        }
+        internal static bool AreEqual(BulletPoint bulletPoint1, BulletPoint bulletPoint2)
+        {
+
+            return string.Equals(bulletPoint1.Label, bulletPoint2.Label, StringComparison.InvariantCulture)
+                    && string.Equals(bulletPoint1.Text, bulletPoint2.Text, StringComparison.InvariantCulture);
+
+        }
+        internal static bool AreEqual(List<BulletPoint> list1, List<BulletPoint> list2)
+        {
+
+            if (list1 == null && list2 == null)
+                return true;
+
+            if (list1 == null || list2 == null)
+                return false;
+
+            if (list1.Count != list2.Count)
+                return false;
+
+            for (int i = 0; i < list1.Count; i++)
+                if (AreEqual(list1[i], list2[i]) == false)
                     return false;
 
             return true;
