@@ -4571,8 +4571,6 @@ namespace NW.WIDJobs.UnitTests
 
         #endregion
 
-        /* -------------------------------------------- */
-
         #region DbSetExtensionMethodsTests
 
         internal static DatabaseContext DbSetExtensionMethods_InMemoryDatabaseContext
@@ -4580,6 +4578,8 @@ namespace NW.WIDJobs.UnitTests
         internal static List<JobPostingEntity> DbSetExtensionMethods_NotExistingPageItemEntities;
 
         #endregion
+
+        /* -------------------------------------------- */
 
         #region Methods
 
@@ -4594,7 +4594,7 @@ namespace NW.WIDJobs.UnitTests
             Assert.AreEqual(expectedMessage, actual.Message);
 
         }
-        
+
         internal static bool AreEqual(List<string> list1, List<string> list2)
         {
 
@@ -4614,58 +4614,6 @@ namespace NW.WIDJobs.UnitTests
             return true;
 
         }
-        internal static bool AreEqual(WIDExploration exploration1, WIDExploration exploration2)
-        {
-
-            return string.Equals(exploration1.RunId, exploration2.RunId, StringComparison.InvariantCulture)
-                        && (exploration1.TotalResults == exploration2.TotalResults)
-                        && (exploration1.TotalEstimatedPages == exploration2.TotalEstimatedPages)
-                        && (exploration1.Category == exploration2.Category)
-                        && (exploration1.Stage == exploration2.Stage)
-                        && (exploration1.IsCompleted == exploration2.IsCompleted)
-                        && AreEqual(exploration1.Pages, exploration2.Pages)
-                        && AreEqual(exploration1.PageItems, exploration2.PageItems)
-                        && AreEqual(exploration1.PageItemsExtended, exploration2.PageItemsExtended);
-
-        }
-        internal static bool AreEqual<TKey, TValue>(Dictionary<TKey, TValue> dict1, Dictionary<TKey, TValue> dict2)
-        {
-
-            IEqualityComparer<TValue> valueComparer = EqualityComparer<TValue>.Default;
-
-            return dict1.Count == dict2.Count
-                    && dict1.Keys.All(key => dict2.ContainsKey(key)
-                    && valueComparer.Equals(dict1[key], dict2[key]));
-
-        }
-        internal static bool AreEqual(WIDMetrics metrics1, WIDMetrics metrics2)
-        {
-
-            return string.Equals(metrics1.RunId, metrics2.RunId, StringComparison.InvariantCulture)
-                        && (metrics1.TotalPages == metrics2.TotalPages)
-                        && (metrics1.TotalItems == metrics2.TotalItems)
-                        && AreEqual(metrics1.ItemsByWorkAreaWithoutZone, metrics2.ItemsByWorkAreaWithoutZone)
-                        && AreEqual(metrics1.ItemsByCreateDate, metrics2.ItemsByCreateDate)
-                        && AreEqual(metrics1.ItemsByApplicationDate, metrics2.ItemsByApplicationDate)
-                        && AreEqual(metrics1.ItemsByEmployerName, metrics2.ItemsByEmployerName)
-                        && AreEqual(metrics1.ItemsByNumberOfOpenings, metrics2.ItemsByNumberOfOpenings)
-                        && AreEqual(metrics1.ItemsByAdvertisementPublishDate, metrics2.ItemsByAdvertisementPublishDate)
-                        && AreEqual(metrics1.ItemsByApplicationDeadline, metrics2.ItemsByApplicationDeadline)
-                        && AreEqual(metrics1.ItemsByStartDateOfEmployment, metrics2.ItemsByStartDateOfEmployment)
-                        && AreEqual(metrics1.ItemsByReference, metrics2.ItemsByReference)
-                        && AreEqual(metrics1.ItemsByPosition, metrics2.ItemsByPosition)
-                        && AreEqual(metrics1.ItemsByTypeOfEmployment, metrics2.ItemsByTypeOfEmployment)
-                        && AreEqual(metrics1.ItemsByContact, metrics2.ItemsByContact)
-                        && AreEqual(metrics1.ItemsByEmployerAddress, metrics2.ItemsByEmployerAddress)
-                        && AreEqual(metrics1.ItemsByHowToApply, metrics2.ItemsByHowToApply)
-                        && AreEqual(metrics1.DescriptionLengthByPageItemId, metrics2.DescriptionLengthByPageItemId)
-                        && AreEqual(metrics1.BulletPointsByPageItemId, metrics2.BulletPointsByPageItemId)
-                        && (metrics1.TotalBulletPoints == metrics2.TotalBulletPoints);
-
-        }
-        
-        /* -------------------------------------------- */
-
         internal static bool AreEqual(HashSet<string> hashset1, HashSet<string> hashset2)
         {
 
@@ -4678,6 +4626,17 @@ namespace NW.WIDJobs.UnitTests
             return AreEqual(new List<string>(hashset1), new List<string>(hashset2));
 
         }
+        internal static bool AreEqual<TKey, TValue>(Dictionary<TKey, TValue> dict1, Dictionary<TKey, TValue> dict2)
+        {
+
+            IEqualityComparer<TValue> valueComparer = EqualityComparer<TValue>.Default;
+
+            return dict1.Count == dict2.Count
+                    && dict1.Keys.All(key => dict2.ContainsKey(key)
+                    && valueComparer.Equals(dict1[key], dict2[key]));
+
+        }
+
         internal static bool AreEqual(JobPage jobPage1, JobPage jobPage2)
         {
 
@@ -4892,6 +4851,46 @@ namespace NW.WIDJobs.UnitTests
         }
 
         /* -------------------------------------------- */
+
+        internal static bool AreEqual(WIDExploration exploration1, WIDExploration exploration2)
+        {
+
+            return string.Equals(exploration1.RunId, exploration2.RunId, StringComparison.InvariantCulture)
+                        && (exploration1.TotalResults == exploration2.TotalResults)
+                        && (exploration1.TotalEstimatedPages == exploration2.TotalEstimatedPages)
+                        && (exploration1.Category == exploration2.Category)
+                        && (exploration1.Stage == exploration2.Stage)
+                        && (exploration1.IsCompleted == exploration2.IsCompleted)
+                        && AreEqual(exploration1.Pages, exploration2.Pages)
+                        && AreEqual(exploration1.PageItems, exploration2.PageItems)
+                        && AreEqual(exploration1.PageItemsExtended, exploration2.PageItemsExtended);
+
+        }
+        internal static bool AreEqual(WIDMetrics metrics1, WIDMetrics metrics2)
+        {
+
+            return string.Equals(metrics1.RunId, metrics2.RunId, StringComparison.InvariantCulture)
+                        && (metrics1.TotalPages == metrics2.TotalPages)
+                        && (metrics1.TotalItems == metrics2.TotalItems)
+                        && AreEqual(metrics1.ItemsByWorkAreaWithoutZone, metrics2.ItemsByWorkAreaWithoutZone)
+                        && AreEqual(metrics1.ItemsByCreateDate, metrics2.ItemsByCreateDate)
+                        && AreEqual(metrics1.ItemsByApplicationDate, metrics2.ItemsByApplicationDate)
+                        && AreEqual(metrics1.ItemsByEmployerName, metrics2.ItemsByEmployerName)
+                        && AreEqual(metrics1.ItemsByNumberOfOpenings, metrics2.ItemsByNumberOfOpenings)
+                        && AreEqual(metrics1.ItemsByAdvertisementPublishDate, metrics2.ItemsByAdvertisementPublishDate)
+                        && AreEqual(metrics1.ItemsByApplicationDeadline, metrics2.ItemsByApplicationDeadline)
+                        && AreEqual(metrics1.ItemsByStartDateOfEmployment, metrics2.ItemsByStartDateOfEmployment)
+                        && AreEqual(metrics1.ItemsByReference, metrics2.ItemsByReference)
+                        && AreEqual(metrics1.ItemsByPosition, metrics2.ItemsByPosition)
+                        && AreEqual(metrics1.ItemsByTypeOfEmployment, metrics2.ItemsByTypeOfEmployment)
+                        && AreEqual(metrics1.ItemsByContact, metrics2.ItemsByContact)
+                        && AreEqual(metrics1.ItemsByEmployerAddress, metrics2.ItemsByEmployerAddress)
+                        && AreEqual(metrics1.ItemsByHowToApply, metrics2.ItemsByHowToApply)
+                        && AreEqual(metrics1.DescriptionLengthByPageItemId, metrics2.DescriptionLengthByPageItemId)
+                        && AreEqual(metrics1.BulletPointsByPageItemId, metrics2.BulletPointsByPageItemId)
+                        && (metrics1.TotalBulletPoints == metrics2.TotalBulletPoints);
+
+        }
 
         internal static PageItem SwapCreateDate(PageItem pageItem, DateTime createDate)
         {
