@@ -13,8 +13,8 @@ namespace NW.WIDJobs
         #region Properties
 
         public JobPosting JobPosting { get; }
-        public string Response { get; }
 
+        public string Response { get; }
         public string HiringOrgDescription { get; }
         public DateTime? PublicationStartDate { get; }
         public DateTime? PublicationEndDate { get; }

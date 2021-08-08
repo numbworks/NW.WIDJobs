@@ -368,17 +368,18 @@ The following fields are derivative:
 |Field|Description|
 |---|---|
 |`BulletPoints`|If the `Response` is in JSON format, these are tentatively extracted from the `Purpose` field. If the `Response` is in HTML format instead, the `Response` itself is used.|
+|`BulletPointScenario`|A label that specifies how the `BulletPoints` have been extracted.|
 
 The following fields require extra processing:
 
 |Field|Action|
 |---|---|
-|`PublicationStartDate`|Parse it to `DateTime`.|
-|`PublicationEndDate`|Parse it to `DateTime`.|
+|`PublicationStartDate`|Parse it to `DateTime` or `null`.|
+|`PublicationEndDate`|Parse it to `DateTime` or `null`.|
 |`Purpose`|Run it thru Html decoding.|
-|`NumberToFill`|Parse it to `uint16`.|
-|`EmploymentDate`|Parse it to `DateTime` or null.|
-|`ApplicationDeadlineDate`|Parse it to `DateTime`.|
+|`NumberToFill`|Parse it to `uint16` or `null`.|
+|`EmploymentDate`|Parse it to `DateTime` or `null`.|
+|`ApplicationDeadlineDate`|Parse it to `DateTime` or `null`.|
 
 ## GetJobPostingExtended - Extracting Bullet Points via XPath
 
