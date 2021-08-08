@@ -46,12 +46,12 @@ namespace NW.WIDJobs.UnitTests
         // Tests
         [TestCaseSource(nameof(bulletPointEntityTestCases))]
         public void BulletPointEntity_ShouldInstantiateObject_WhenPropertArguments
-            (string pageItemId, string bulletPoint, BulletPointEntity expected)
+            (string jobPostingId, string bulletPoint, BulletPointEntity expected)
         {
 
             // Arrange
             // Act
-            BulletPointEntity actual = new BulletPointEntity(pageItemId, bulletPoint);
+            BulletPointEntity actual = new BulletPointEntity(jobPostingId, bulletPoint);
 
             // Assert
             Assert.IsTrue(
