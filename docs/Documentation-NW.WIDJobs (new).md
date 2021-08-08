@@ -509,6 +509,14 @@ The following self-explanatory cleaning actions are applied on the extracted bul
 |`BulletPoints`|`RemoveInitialHyphen()`.|
 |`BulletPoints`|`FixNonBreakingSpaceCharacters()`.|
 
+## The data model
+
+`WIDExplorer` allows to export data into a SQLite database thru the `ToSQLite()` method. 
+
+The data model of this database is the following one:
+
+![Diagram-WIDJobsDataModel](Diagrams/Diagram-WIDJobsDataModel.png)
+
 ## Appendix - The TotalResultCount value via XPath
 
 ```html
