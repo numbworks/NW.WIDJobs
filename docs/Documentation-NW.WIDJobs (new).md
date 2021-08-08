@@ -387,9 +387,9 @@ This approach works on both `Purpose` (internal URLs) and `Response` (external U
 
 Considering that the external URLs could have endless different layouts, we do provide one XPath pattern for each of the most recurrent scenarios:
 
-|Url|Scenario|Pattern|
+|#|Scenario|Pattern|
 |---|---|---|
-|External|novonordisk.dk|`//ul/li/span/span/span/span`|
+|1|novonordisk|`//ul/li/span/span/span/span`|
 
 ```html
 ...
@@ -411,9 +411,9 @@ Considering that the external URLs could have endless different layouts, we do p
 ...
 ```
 
-|Url|Scenario|Pattern|
+|#|Scenario|Pattern|
 |---|---|---|
-|External|jobportal.ku.dk|`//div[@class='vacancy_details_area']/ul/li`|
+|2|jobportal|`//div[@class='vacancy_details_area']/ul/li`|
 
 ```html
 ...
@@ -428,9 +428,9 @@ Considering that the external URLs could have endless different layouts, we do p
 ...
 ```
 
-|Url|Scenario|Pattern|
+|#|Scenario|Pattern|
 |---|---|---|
-|External|easycruit.com|`//div[@class='jd-description']/ul/li`|
+|3|easycruit|`//div[@class='jd-description']/ul/li`|
 
 ```html
 ...
@@ -441,9 +441,9 @@ Considering that the external URLs could have endless different layouts, we do p
 ...
 ```
 
-|Url|Scenario|Pattern|
+|#|Scenario|Pattern|
 |---|---|---|
-|External|coloplast.com|`//span[@class='jobdescription']/ul/li`|
+|4|coloplast|`//span[@class='jobdescription']/ul/li`|
 
 ```html
 ...
@@ -458,9 +458,20 @@ Considering that the external URLs could have endless different layouts, we do p
 ...
 ```
 
-|Url|Scenario|Pattern|
+|#|Scenario|Pattern|
 |---|---|---|
-|Internal|keepit.com|`//p[starts-with(., '-')]`|
+|5|randstad|`//p[starts-with(., '-') and .//br]/text()`|
+
+```html
+...
+<p>- Picking/packing tasks<br />- Loading/unloading tasks<br />- Receipt of goods<br />-
+    Truck driving, most often reach truck<br />- Scanner operation<br />- Various warehouse tasks<br /><br />
+...
+```
+
+|#|Scenario|Pattern|
+|---|---|---|
+|6|keepit|`//p[starts-with(., '-')]`|
 
 ```html
 ...
@@ -473,12 +484,11 @@ Considering that the external URLs could have endless different layouts, we do p
 ...
 ```
 
-
 As last resort, a generic one is also available:
 
-|Url|Scenario|Pattern|
+|#|Scenario|Pattern|
 |---|---|---|
-|n/a|generic|`//ul/li`|
+|7|generic|`//ul/li|//ol/li`|
 
 ## GetJobPostingExtended - Extracting Bullet Points via regex
 
@@ -488,7 +498,16 @@ This is mainly intended for the `Purpose` field:
 |---|---|
 |`(?<=-\\t)[\w ]{1,}(?=-\\t)`|The latest bullet point migth lost.|
 
-...
+## GetJobPostingExtended - Cleaning extracted Bullet Points
+
+The following self-explanatory cleaning actions are applied on the extracted bullet points:
+
+|Field|Action|
+|---|---|
+|`BulletPoints`|`RemoveNewLines()`.|
+|`BulletPoints`|`RemoveExtraWhiteSpaces()`.|
+|`BulletPoints`|`RemoveInitialHyphen()`.|
+|`BulletPoints`|`FixNonBreakingSpaceCharacters()`.|
 
 ## Appendix - The TotalResultCount value via XPath
 

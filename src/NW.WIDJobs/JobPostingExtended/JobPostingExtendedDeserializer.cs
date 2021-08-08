@@ -22,12 +22,12 @@ namespace NW.WIDJobs
         public static List<(string scenario, string pattern)> XPathPatterns
             = new List<(string scenario, string pattern)>()
             {
-                ("novonordisk.dk", "//ul/li/span/span/span/span"),
-                ("jobportal.ku.dk", "//div[@class='vacancy_details_area']/ul/li"),
-                ("easycruit.com", "//div[@class='jd-description']/ul/li"),
-                ("coloplast.com", "//span[@class='jobdescription']/ul/li"),
+                ("novonordisk", "//ul/li/span/span/span/span"),
+                ("jobportal", "//div[@class='vacancy_details_area']/ul/li"),
+                ("easycruit", "//div[@class='jd-description']/ul/li"),
+                ("coloplast", "//span[@class='jobdescription']/ul/li"),
                 ("randstad", "//p[starts-with(., '-') and .//br]/text()"),
-                ("keepit.com", "//p[starts-with(., '-')]"),
+                ("keepit", "//p[starts-with(., '-')]"),
                 ("generic", "//ul/li|//ol/li")
             };
 

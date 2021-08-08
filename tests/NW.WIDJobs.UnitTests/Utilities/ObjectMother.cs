@@ -2142,7 +2142,7 @@ namespace NW.WIDJobs.UnitTests
                         "Planning, testing, and executing Postgres database cluster migration from an older version to a newer version with little or no user-visible interruptions.",
                         "Designing the next iteration of our network infrastructure for high-performance multi-site communication, and planning and executing the transition from the previous iteration with no customer visible downtime."
                     },
-                    bulletPointScenario: "keepit.com"
+                    bulletPointScenario: "keepit"
                 );
 
         internal static JobPosting Shared_JobPage01_JobPosting02
@@ -3951,7 +3951,7 @@ namespace NW.WIDJobs.UnitTests
                         "You have a solid language background, speak and write\n Danish and English at a high level. It will be an advantage\n if you master another foreign language. You have the ability\n to absorb and handle large amounts of information and in\n depth organisational knowledge.",
                         "You are used to working in a large company and handling\n many different stakeholders. You are a super user in regards\n to the Office-package, are used to working with data and Key\n Performance Indicators (KPIs) and you have technical insight\n into SAP and IT systems including maintenance hereof."
                     },
-                    bulletPointScenario: "novonordisk.dk"
+                    bulletPointScenario: "novonordisk"
                 );
 
         internal static JobPosting Shared_JobPage02_JobPosting11
@@ -4066,7 +4066,7 @@ namespace NW.WIDJobs.UnitTests
                         "Separate reprints of 3 particularly relevant papers",
                         "Two letters of recommendation."
                     },
-                    bulletPointScenario: "jobportal.ku.dk"
+                    bulletPointScenario: "jobportal"
                 );
 
         internal static JobPosting Shared_JobPage02_JobPosting13
@@ -4120,7 +4120,7 @@ namespace NW.WIDJobs.UnitTests
                         "Strong IT flair – documented through previous experience, either professional or private.",
                         "Prior experience with clinical disclosure will be an advantage."
                     },
-                    bulletPointScenario: "easycruit.com"
+                    bulletPointScenario: "easycruit"
                 );
 
         internal static JobPosting Shared_JobPage02_JobPosting14
@@ -4465,7 +4465,7 @@ namespace NW.WIDJobs.UnitTests
                         "Have impactful PowerPoint presentation skills and the ability to conduct meetings and workshops",
                         "Are fluent in English – any other languages are a plus"
                     },
-                    bulletPointScenario: "coloplast.com"
+                    bulletPointScenario: "coloplast"
                 );
 
         internal static JobPosting Shared_JobPage02_JobPosting20
