@@ -342,8 +342,8 @@ namespace NW.WIDJobs.UnitTests
                             contactPersonName: null,
                             employmentDate: null,
                             applicationDeadlineDate: null,
-                            bulletPoints: new HashSet<string>(),
-                            bulletPointScenario: "regex"
+                            bulletPoints: null,
+                            bulletPointScenario: null
                         );
 
             // Act

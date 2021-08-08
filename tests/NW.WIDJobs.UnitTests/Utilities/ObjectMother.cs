@@ -2973,8 +2973,8 @@ namespace NW.WIDJobs.UnitTests
                     contactPersonName: "Majken Lorentzen",
                     employmentDate: null,
                     applicationDeadlineDate: new DateTime(2021, 08, 27),
-                    bulletPoints: new HashSet<string>() { },
-                    bulletPointScenario: "regex"
+                    bulletPoints: null,
+                    bulletPointScenario: null
                 );
 
         internal static JobPosting Shared_JobPage01_JobPosting16
@@ -3492,8 +3492,8 @@ namespace NW.WIDJobs.UnitTests
                     contactPersonName: "Emil Bertelsen",
                     employmentDate: null,
                     applicationDeadlineDate: new DateTime(2021, 08, 27),
-                    bulletPoints: new HashSet<string>() { },
-                    bulletPointScenario: "regex"
+                    bulletPoints: null,
+                    bulletPointScenario: null
                 );
 
         internal static JobPosting Shared_JobPage02_JobPosting03
@@ -3836,8 +3836,8 @@ namespace NW.WIDJobs.UnitTests
                     contactPersonName: "Bettina Bonde Thygesen",
                     employmentDate: null,
                     applicationDeadlineDate: new DateTime(2021, 08, 05),
-                    bulletPoints: new HashSet<string>() { },
-                    bulletPointScenario: "regex"
+                    bulletPoints: null,
+                    bulletPointScenario: null
                 );
 
         internal static JobPosting Shared_JobPage02_JobPosting09
@@ -4164,8 +4164,8 @@ namespace NW.WIDJobs.UnitTests
                     contactPersonName: null,
                     employmentDate: null,
                     applicationDeadlineDate: null,
-                    bulletPoints: new HashSet<string>() { },
-                    bulletPointScenario: "regex"
+                    bulletPoints: null,
+                    bulletPointScenario: null
                 );
 
         internal static JobPosting Shared_JobPage02_JobPosting15
@@ -4509,8 +4509,8 @@ namespace NW.WIDJobs.UnitTests
                     contactPersonName: null,
                     employmentDate: null,
                     applicationDeadlineDate: null,
-                    bulletPoints: new HashSet<string>() { },
-                    bulletPointScenario: "regex"
+                    bulletPoints: null,
+                    bulletPointScenario: null
                 );
 
         internal static List<JobPosting> Shared_JobPage02_JobPostings
@@ -4827,7 +4827,17 @@ namespace NW.WIDJobs.UnitTests
         /* -------------------------------------------- */
 
         internal static bool AreEqual(HashSet<string> hashset1, HashSet<string> hashset2)
-            => AreEqual(new List<string>(hashset1), new List<string>(hashset2));
+        {
+
+            if (hashset1 == null && hashset2 == null)
+                return true;
+
+            if (hashset1 == null || hashset2 == null)
+                return false;
+
+            return AreEqual(new List<string>(hashset1), new List<string>(hashset2));
+
+        }
         internal static bool AreEqual(JobPosting jobPosting1, JobPosting jobPosting2)
         {
 

@@ -263,6 +263,10 @@ namespace NW.WIDJobs
 
             bulletPoints = CleanBulletPoints(bulletPoints);
 
+            (HashSet<string>, string) bulletPointValues = FinalizeBulletPointValues(bulletPoints, bulletPointScenario);
+            bulletPoints = bulletPointValues.Item1;
+            bulletPointScenario = bulletPointValues.Item2;
+
             return bulletPoints;
 
         }
@@ -393,7 +397,34 @@ namespace NW.WIDJobs
 
             return str;
 
-        } 
+        }
+
+        private (HashSet<string>, string) FinalizeBulletPointValues(HashSet<string> bulletPoints, string bulletPointScenario)
+        {
+
+            /*
+                By default, if any of the available methods will be able to extract the bullet points, 
+                the two bulletPoint* values will look as following:
+
+                    ...
+                    bulletPoints: new HashSet<string>() { },
+                    bulletPointScenario: "regex"
+                    ...
+
+                This may obviously be confusing, therefore in these cases we set both equal to null:
+
+                    ...
+                    bulletPoints: null,
+                    bulletPointScenario: null
+                    ...	
+            */
+
+            if (bulletPoints.Count == 0)
+                return (null, null);
+
+            return (bulletPoints, bulletPointScenario);
+
+        }
 
         #endregion
 
@@ -402,5 +433,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 02.07.2021
+    Last Update: 08.08.2021
 */
