@@ -237,22 +237,22 @@ The following fields will be extracted from the response:
 |---|---|---|
 |`Mandatory`|`Response`|In JSON format.|
 |`Mandatory`|`Title`|"Demolition"|
-|`Mandatory`|`Presentation`|"Xterna is looking for..."|
+|`Optional`|`Presentation`|"Xterna is looking for..."|
 |`Mandatory`|`HiringOrgName`|"Xterna A/S"|
 |`Optional`|`WorkPlaceAddress`|"Fabriksparken 13" or ""|
-|`Mandatory`|`WorkPlacePostalCode`|"9230"|
-|`Mandatory`|`WorkPlaceCity`|"Svenstrup J"|
+|`Optional`|`WorkPlacePostalCode`|"9230"|
+|`Optional`|`WorkPlaceCity`|"Svenstrup J"|
 |`Mandatory`|`PostingCreated`|"2021-06-22T00:00:00"|
 |`Mandatory`|`LastDateApplication`|"2021-06-25T00:00:00"|
 |`Mandatory`|`Url`|"https://job.jobnet.dk/CV/FindWork/Details/5374939" or "https://jobs.danfoss.com/job//730219002/"|
-|`Mandatory`|`Region`|"Nordjylland"|
-|`Mandatory`|`Municipality`|"Aalborg"|
-|`Mandatory`|`Country`|"Danmark"|
+|`Optional`|`Region`|"Nordjylland"|
+|`Optional`|`Municipality`|"Aalborg"|
+|`Optional`|`Country`|"Danmark"|
 |`Optional`|`EmploymentType`|"Fastansættelse" or ""|
 |`Mandatory`|`WorkHours`|"Fuldtid" or "Deltid"|
-|`Mandatory`|`Occupation`|"Specialarbejder, byggeri"|
+|`Optional`|`Occupation`|"Specialarbejder, byggeri"|
 |`Mandatory`|`WorkplaceID`|119356|
-|`Mandatory`|`OrganisationId`|"105966"|
+|`Optional`|`OrganisationId`|"105966"|
 |`Mandatory`|`HiringOrgCVR`|37800902|
 |`Mandatory`|`ID`|"5374939" or "E8232793"|Remove "E" when needed and parse to integer.|
 
@@ -268,11 +268,11 @@ The following fields require extra processing:
 
 |Field|Action|
 |---|---|
-|`WorkPlacePostalCode`|Parse it to `uint16`.|
+|`WorkPlacePostalCode`|Parse it to `uint16` or `null`.|
 |`PostingCreated`|Parse it to `DateTime`.|
 |`LastDateApplication`|Parse it to `DateTime`.|
 |`WorkplaceID`|Parse it to `uint64`.|
-|`OrganisationId`|Parse it to `uint64`.|
+|`OrganisationId`|Parse it to `uint64` or `null`.|
 |`HiringOrgCVR`|Parse it to `uint64`.|
 |`ID`|Remove "E" (when required) and parse it to `uint64`.|
 

@@ -13,6 +13,7 @@ namespace NW.WIDJobs
 
         public string RunId { get; }
         public ushort PageNumber { get; }
+
         public string Response { get; }
         public string Title { get; }
         public string Presentation { get; }
