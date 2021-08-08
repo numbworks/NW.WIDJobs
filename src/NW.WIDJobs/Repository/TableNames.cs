@@ -6,12 +6,16 @@
 
         PageItems,
         PageItemsExtended,
-        PageItemsExtendedBulletPoints
+        PageItemsExtendedBulletPoints,
+
+        JobPostings,
+        JobPostingsExtended,
+        JobPostingsExtendedBulletPoints
 
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 02.06.2021
+    Last Update: 08.08.2021
 */
