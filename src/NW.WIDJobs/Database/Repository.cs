@@ -54,56 +54,56 @@ namespace NW.WIDJobs
 
         #region Methods_public
 
-        public int ConditionallyInsert(PageItem pageItem)
+        public int ConditionallyInsert(JobPosting jobPosting)
         {
 
-            Validator.ValidateObject(pageItem, nameof(pageItem));
+            Validator.ValidateObject(jobPosting, nameof(jobPosting));
 
-            PageItemEntity pageItemEntity = new PageItemEntity(pageItem);
-            DatabaseContext.JobPostings.AddOrUpdate(pageItemEntity);
+            JobPostingEntity jobPostingEntity = new JobPostingEntity(jobPosting);
+            DatabaseContext.JobPostings.AddOrUpdate(jobPostingEntity);
 
             return DatabaseContext.SaveChanges();
 
         }
-        public int ConditionallyInsert(List<PageItem> pageItems)
+        public int ConditionallyInsert(List<JobPosting> jobPostings)
         {
 
-            Validator.ValidateList(pageItems, nameof(pageItems));
+            Validator.ValidateList(jobPostings, nameof(jobPostings));
 
-            List<PageItemEntity> pageItemEntities = ExtractPageItemEntities(pageItems);
-            DatabaseContext.JobPostings.AddOrUpdate(pageItemEntities);
+            List<JobPostingEntity> jobPostingEntities = ExtractJobPostingEntities(jobPostings);
+            DatabaseContext.JobPostings.AddOrUpdate(jobPostingEntities);
 
             return DatabaseContext.SaveChanges();
 
         }
 
-        public int ConditionallyInsert(PageItemExtended pageItemExtended)
+        public int ConditionallyInsert(JobPostingExtended jobPostingExtended)
         {
 
-            Validator.ValidateObject(pageItemExtended, nameof(pageItemExtended));
+            Validator.ValidateObject(jobPostingExtended, nameof(jobPostingExtended));
 
-            PageItemEntity pageItemEntity = ExtractPageItemEntity(pageItemExtended);
-            PageItemExtendedEntity pageItemExtendedEntity = ExtractPageItemExtendedEntity(pageItemExtended);
-            List<BulletPointEntity> bulletPointEntities = ExtractBulletPointEntities(pageItemExtended);
+            JobPostingEntity jobPostingEntity = ExtractJobPostingEntity(jobPostingExtended);
+            JobPostingExtendedEntity jobPostingExtendedEntity = ExtractJobPostingExtendedEntity(jobPostingExtended);
+            List<BulletPointEntity> bulletPointEntities = ExtractBulletPointEntities(jobPostingExtended);
 
-            DatabaseContext.JobPostings.AddOrUpdate(pageItemEntity);
-            DatabaseContext.JobPostingsExtended.AddOrUpdate(pageItemExtendedEntity);
+            DatabaseContext.JobPostings.AddOrUpdate(jobPostingEntity);
+            DatabaseContext.JobPostingsExtended.AddOrUpdate(jobPostingExtendedEntity);
             DatabaseContext.BulletPoints.AddOrUpdate(bulletPointEntities);
 
             return DatabaseContext.SaveChanges();
 
         }
-        public int ConditionallyInsert(List<PageItemExtended> pageItemsExtended)
+        public int ConditionallyInsert(List<JobPostingExtended> jobPostingsExtended)
         {
 
-            Validator.ValidateList(pageItemsExtended, nameof(pageItemsExtended));
+            Validator.ValidateList(jobPostingsExtended, nameof(jobPostingsExtended));
 
-            List<PageItemEntity> pageItemEntities = ExtractPageItemEntities(pageItemsExtended);
-            List<PageItemExtendedEntity> pageItemExtendedEntities = ExtractPageItemExtendedEntities(pageItemsExtended);
-            List<BulletPointEntity> bulletPointEntities = ExtractBulletPointEntities(pageItemsExtended);
+            List<JobPostingEntity> jobPostingEntities = ExtractJobPostingEntities(jobPostingsExtended);
+            List<JobPostingExtendedEntity> jobPostingExtendedEntities = ExtractJobPostingExtendedEntities(jobPostingsExtended);
+            List<BulletPointEntity> bulletPointEntities = ExtractBulletPointEntities(jobPostingsExtended);
 
-            DatabaseContext.JobPostings.AddOrUpdate(pageItemEntities);
-            DatabaseContext.JobPostingsExtended.AddOrUpdate(pageItemExtendedEntities);
+            DatabaseContext.JobPostings.AddOrUpdate(jobPostingEntities);
+            DatabaseContext.JobPostingsExtended.AddOrUpdate(jobPostingExtendedEntities);
             DatabaseContext.BulletPoints.AddOrUpdate(bulletPointEntities);
 
             return DatabaseContext.SaveChanges();
@@ -114,77 +114,77 @@ namespace NW.WIDJobs
 
         #region Methods_private
 
-        private List<PageItemEntity> ExtractPageItemEntities(List<PageItem> pageItems)
+        private List<JobPostingEntity> ExtractJobPostingEntities(List<JobPosting> jobPostings)
         {
 
-            List<PageItemEntity> pageItemEntities = new List<PageItemEntity>();
-            foreach (PageItem pageItem in pageItems)
+            List<JobPostingEntity> jobPostingEntities = new List<JobPostingEntity>();
+            foreach (JobPosting jobPosting in jobPostings)
             {
 
-                PageItemEntity current = new PageItemEntity(pageItem);
-                pageItemEntities.Add(current);
+                JobPostingEntity current = new JobPostingEntity(jobPosting);
+                jobPostingEntities.Add(current);
 
             }
 
-            return pageItemEntities;
+            return jobPostingEntities;
 
         }
-        private List<PageItemEntity> ExtractPageItemEntities(List<PageItemExtended> pageItemsExtended)
+        private List<JobPostingEntity> ExtractJobPostingEntities(List<JobPostingExtended> jobPostingsExtended)
         {
 
-            List<PageItemEntity> pageItemEntities = new List<PageItemEntity>();
-            foreach (PageItemExtended pageItemExtended in pageItemsExtended)
+            List<JobPostingEntity> jobPostingEntities = new List<JobPostingEntity>();
+            foreach (JobPostingExtended jobPostingExtended in jobPostingsExtended)
             {
 
-                PageItemEntity current = ExtractPageItemEntity(pageItemExtended);
-                pageItemEntities.Add(current);
+                JobPostingEntity current = ExtractJobPostingEntity(jobPostingExtended);
+                jobPostingEntities.Add(current);
 
             }
 
-            return pageItemEntities;
+            return jobPostingEntities;
 
         }
-        private PageItemEntity ExtractPageItemEntity(PageItemExtended pageItemExtended)
-            => new PageItemEntity(pageItemExtended.PageItem);
+        private JobPostingEntity ExtractJobPostingEntity(JobPostingExtended jobPostingExtended)
+            => new JobPostingEntity(jobPostingExtended.JobPosting);
 
-        private List<PageItemExtendedEntity> ExtractPageItemExtendedEntities(List<PageItemExtended> pageItemsExtended)
+        private List<JobPostingExtendedEntity> ExtractJobPostingExtendedEntities(List<JobPostingExtended> jobPostingsExtended)
         {
 
-            List<PageItemExtendedEntity> pageItemExtendedEntities = new List<PageItemExtendedEntity>();
-            foreach (PageItemExtended pageItemExtended in pageItemsExtended)
+            List<JobPostingExtendedEntity> jobPostingExtendedEntities = new List<JobPostingExtendedEntity>();
+            foreach (JobPostingExtended jobPostingExtended in jobPostingsExtended)
             {
 
-                PageItemExtendedEntity current = ExtractPageItemExtendedEntity(pageItemExtended);
-                pageItemExtendedEntities.Add(current);
+                JobPostingExtendedEntity current = ExtractJobPostingExtendedEntity(jobPostingExtended);
+                jobPostingExtendedEntities.Add(current);
 
             }
 
-            return pageItemExtendedEntities;
+            return jobPostingExtendedEntities;
 
         }
-        private PageItemExtendedEntity ExtractPageItemExtendedEntity(PageItemExtended pageItemExtended)
-            => new PageItemExtendedEntity(pageItemExtended);
+        private JobPostingExtendedEntity ExtractJobPostingExtendedEntity(JobPostingExtended jobPostingExtended)
+            => new JobPostingExtendedEntity(jobPostingExtended);
 
-        private List<BulletPointEntity> ExtractBulletPointEntities(PageItemExtended pageItemExtended)
+        private List<BulletPointEntity> ExtractBulletPointEntities(JobPostingExtended jobPostingExtended)
         {
 
             List<BulletPointEntity> bulletPointEntities
-                = pageItemExtended
-                    .DescriptionBulletPoints
-                    .Select(bulletPoint => new BulletPointEntity(pageItemExtended.PageItem.PageItemId, bulletPoint))
+                = jobPostingExtended
+                    .BulletPoints
+                    .Select(bulletPoint => new BulletPointEntity(jobPostingExtended.JobPosting.JobPostingId, bulletPoint))
                     .ToList();
 
             return bulletPointEntities;
 
         }
-        private List<BulletPointEntity> ExtractBulletPointEntities(List<PageItemExtended> pageItemsExtended)
+        private List<BulletPointEntity> ExtractBulletPointEntities(List<JobPostingExtended> jobPostingsExtended)
         {
 
             List<BulletPointEntity> bulletPointEntities = new List<BulletPointEntity>();
-            foreach (PageItemExtended pageItemExtended in pageItemsExtended)
+            foreach (JobPostingExtended jobPostingExtended in jobPostingsExtended)
             {
 
-                List<BulletPointEntity> current = ExtractBulletPointEntities(pageItemExtended);
+                List<BulletPointEntity> current = ExtractBulletPointEntities(jobPostingExtended);
                 bulletPointEntities.AddRange(current);
 
             }
@@ -200,5 +200,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update:19.06.2021
+    Last Update: 08.08.2021
 */

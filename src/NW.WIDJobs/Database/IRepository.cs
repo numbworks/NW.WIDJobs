@@ -8,33 +8,33 @@ namespace NW.WIDJobs
     {
 
         /// <summary>
-        /// Conditionally insert <paramref name="pageItem"/> into the database and returns affected rows.
+        /// Conditionally insert <paramref name="jobPosting"/> into the database and returns affected rows.
         /// </summary>
         /// <exception cref="ArgumentNullException"></exception>
-        int ConditionallyInsert(PageItem pageItem);
+        int ConditionallyInsert(JobPosting jobPosting);
 
         /// <summary>
-        /// Conditionally insert <paramref name="pageItems"/> into the database and returns affected rows.
+        /// Conditionally insert <paramref name="jobPostings"/> into the database and returns affected rows.
         /// </summary>
         /// <exception cref="ArgumentNullException"></exception>
-        int ConditionallyInsert(List<PageItem> pageItems);
+        int ConditionallyInsert(List<JobPosting> jobPostings);
 
         /// <summary>
-        /// Conditionally insert <paramref name="pageItemExtended"/> into the database and returns affected rows.
+        /// Conditionally insert <paramref name="jobPostingExtended"/> into the database and returns affected rows.
         /// </summary>
         /// <exception cref="ArgumentNullException"></exception>
-        int ConditionallyInsert(PageItemExtended pageItemExtended);
+        int ConditionallyInsert(JobPostingExtended jobPostingExtended);
 
         /// <summary>
-        /// Conditionally insert <paramref name="pageItemsExtended"/> into the database and returns affected rows.
+        /// Conditionally insert <paramref name="jobPostingsExtended"/> into the database and returns affected rows.
         /// </summary>
         /// <exception cref="ArgumentNullException"></exception>
-        int ConditionallyInsert(List<PageItemExtended> pageItemsExtended);
+        int ConditionallyInsert(List<JobPostingExtended> jobPostingsExtended);
 
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 19.06.2021
+    Last Update: 08.08.2021
 */
