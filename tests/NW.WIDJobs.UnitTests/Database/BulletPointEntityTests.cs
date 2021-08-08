@@ -29,7 +29,7 @@ namespace NW.WIDJobs.UnitTests
                     () => new BulletPointEntity(null, "Some bullet point")
 				),
                 typeof(ArgumentNullException),
-                new ArgumentNullException("pageItemId").Message
+                new ArgumentNullException("jobPostingId").Message
             ).SetArgDisplayNames($"{nameof(bulletPointEntityExceptionTestCases)}_01"),
 
             new TestCaseData(
@@ -85,5 +85,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 09.06.2021
+    Last Update: 08.08.2021
 */

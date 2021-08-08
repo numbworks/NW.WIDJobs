@@ -1,15 +1,15 @@
 ﻿namespace NW.WIDJobs
 {
-    /// <summary>An entity trackable by a <see cref="PageItemId"/>.</summary>
+    /// <summary>An entity trackable by a <see cref="JobPostingId"/>.</summary>
     public interface ITrackableEntity
     {
         
-        string PageItemId { get; }
+        string JobPostingId { get; }
 
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 09.06.2021
+    Last Update: 08.08.2021
 */

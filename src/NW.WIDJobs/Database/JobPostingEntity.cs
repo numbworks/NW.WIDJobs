@@ -6,7 +6,7 @@ namespace NW.WIDJobs
 {
     /// <summary>A database entity for <see cref="JobPosting"/>.</summary>
     [Table(nameof(TableNames.JobPostings))]
-    public class JobPostingEntity
+    public class JobPostingEntity : ITrackableEntity
     {
 
         #region Fields

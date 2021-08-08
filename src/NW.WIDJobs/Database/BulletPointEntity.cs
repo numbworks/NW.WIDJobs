@@ -4,8 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NW.WIDJobs
 {
-    /// <summary>A database entity for <see cref="PageItemExtended.DescriptionBulletPoints"/>.</summary>
-    [Table(nameof(TableNames.PageItemsExtendedBulletPoints))]
+    /// <summary>A database entity for <see cref="JobPostingExtended.BulletPoints"/>.</summary>
+    [Table(nameof(TableNames.JobPostingsExtendedBulletPoints))]
     public class BulletPointEntity : ITrackableEntity
     {
 
@@ -22,7 +22,7 @@ namespace NW.WIDJobs
         [Required]
         [MaxLength(250)]
         [DataType("varchar(250)")]
-        public string PageItemId { get; }
+        public string JobPostingId { get; }
 
         [Required]
         [MaxLength(250)]
@@ -46,15 +46,15 @@ namespace NW.WIDJobs
         ///<summary>Initializes a <see cref="BulletPointEntity"/> instance.</summary>
         public BulletPointEntity() { }
 
-        ///<summary>Initializes a <see cref="BulletPointEntity"/> instance out of <paramref name="pageItemId"/> and <paramref name="bulletPoint"/>.</summary>
+        ///<summary>Initializes a <see cref="BulletPointEntity"/> instance out of <paramref name="jobPostingId"/> and <paramref name="bulletPoint"/>.</summary>
         /// <exception cref="ArgumentNullException"/>
-        public BulletPointEntity(string pageItemId, string bulletPoint)
+        public BulletPointEntity(string jobPostingId, string bulletPoint)
         {
 
-            Validator.ValidateObject(pageItemId, nameof(pageItemId));
+            Validator.ValidateObject(jobPostingId, nameof(jobPostingId));
             Validator.ValidateObject(bulletPoint, nameof(bulletPoint));
 
-            PageItemId = pageItemId;
+            JobPostingId = jobPostingId;
             BulletPoint = bulletPoint;
 
         }
@@ -69,5 +69,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 02.06.2021
+    Last Update: 08.08.2021
 */
