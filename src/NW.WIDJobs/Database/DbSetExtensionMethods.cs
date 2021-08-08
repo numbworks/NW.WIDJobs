@@ -41,7 +41,7 @@ namespace NW.WIDJobs
 
             Validator.ValidateObject(entity, nameof(entity));
 
-            bool doesExist = dbSet.AsNoTracking().Any(x => x.PageItemId == entity.PageItemId);
+            bool doesExist = dbSet.AsNoTracking().Any(x => x.JobPostingId == entity.JobPostingId);
             if (doesExist)
                 dbSet.Update(entity);
             else
@@ -72,7 +72,7 @@ namespace NW.WIDJobs
 
             Validator.ValidateObject(entity, nameof(entity));
 
-            bool doesExist = dbSet.AsNoTracking().Any(x => x.PageItemId == entity.PageItemId);
+            bool doesExist = dbSet.AsNoTracking().Any(x => x.JobPostingId == entity.JobPostingId);
             if (doesExist)
                 dbSet.Update(entity);
             else
@@ -92,5 +92,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 19.06.2021
+    Last Update: 08.08.2021
 */
