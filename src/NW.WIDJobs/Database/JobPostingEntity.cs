@@ -111,6 +111,7 @@ namespace NW.WIDJobs
         [DataType("bigint")]
         public ulong Id { get; }
 
+        [MaxLength(250)]
         [DataType("varchar(250)")]
         public string WorkPlaceCityWithoutZone { get; }
 
@@ -119,6 +120,7 @@ namespace NW.WIDJobs
         public ushort JobPostingNumber { get; }
 
         [Required]
+        [MaxLength(250)]
         [DataType("varchar(250)")]
         public string JobPostingId { get; }
 
