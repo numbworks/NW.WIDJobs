@@ -67,6 +67,7 @@ namespace NW.WIDJobs
         [DataType("datetime")]
         public DateTime LastDateApplication { get; }
 
+        [Required]
         [MaxLength(250)]
         [DataType("varchar(250)")]
         public string Url { get; }

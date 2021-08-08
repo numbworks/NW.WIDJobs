@@ -60,7 +60,7 @@ namespace NW.WIDJobs
             Validator.ValidateObject(pageItem, nameof(pageItem));
 
             PageItemEntity pageItemEntity = new PageItemEntity(pageItem);
-            DatabaseContext.PageItems.AddOrUpdate(pageItemEntity);
+            DatabaseContext.JobPostings.AddOrUpdate(pageItemEntity);
 
             return DatabaseContext.SaveChanges();
 
@@ -71,7 +71,7 @@ namespace NW.WIDJobs
             Validator.ValidateList(pageItems, nameof(pageItems));
 
             List<PageItemEntity> pageItemEntities = ExtractPageItemEntities(pageItems);
-            DatabaseContext.PageItems.AddOrUpdate(pageItemEntities);
+            DatabaseContext.JobPostings.AddOrUpdate(pageItemEntities);
 
             return DatabaseContext.SaveChanges();
 
@@ -86,8 +86,8 @@ namespace NW.WIDJobs
             PageItemExtendedEntity pageItemExtendedEntity = ExtractPageItemExtendedEntity(pageItemExtended);
             List<BulletPointEntity> bulletPointEntities = ExtractBulletPointEntities(pageItemExtended);
 
-            DatabaseContext.PageItems.AddOrUpdate(pageItemEntity);
-            DatabaseContext.PageItemsExtended.AddOrUpdate(pageItemExtendedEntity);
+            DatabaseContext.JobPostings.AddOrUpdate(pageItemEntity);
+            DatabaseContext.JobPostingsExtended.AddOrUpdate(pageItemExtendedEntity);
             DatabaseContext.BulletPoints.AddOrUpdate(bulletPointEntities);
 
             return DatabaseContext.SaveChanges();
@@ -102,8 +102,8 @@ namespace NW.WIDJobs
             List<PageItemExtendedEntity> pageItemExtendedEntities = ExtractPageItemExtendedEntities(pageItemsExtended);
             List<BulletPointEntity> bulletPointEntities = ExtractBulletPointEntities(pageItemsExtended);
 
-            DatabaseContext.PageItems.AddOrUpdate(pageItemEntities);
-            DatabaseContext.PageItemsExtended.AddOrUpdate(pageItemExtendedEntities);
+            DatabaseContext.JobPostings.AddOrUpdate(pageItemEntities);
+            DatabaseContext.JobPostingsExtended.AddOrUpdate(pageItemExtendedEntities);
             DatabaseContext.BulletPoints.AddOrUpdate(bulletPointEntities);
 
             return DatabaseContext.SaveChanges();

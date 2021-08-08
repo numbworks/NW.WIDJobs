@@ -17,7 +17,7 @@ namespace NW.WIDJobs.UnitTests
                 new TestDelegate(
                     () => ObjectMother
                             .DbSetExtensionMethods_InMemoryDatabaseContext
-                                .PageItems
+                                .JobPostings
                                     .AddOrUpdate((IEnumerable<PageItemEntity>)null)
                 ),
                 typeof(ArgumentNullException),
@@ -28,7 +28,7 @@ namespace NW.WIDJobs.UnitTests
                 new TestDelegate(
                     () => ObjectMother
                             .DbSetExtensionMethods_InMemoryDatabaseContext
-                                .PageItems
+                                .JobPostings
                                     .AddOrUpdate((PageItemEntity)null)
                 ),
                 typeof(ArgumentNullException),
@@ -39,7 +39,7 @@ namespace NW.WIDJobs.UnitTests
                 new TestDelegate(
                     () => ObjectMother
                             .DbSetExtensionMethods_InMemoryDatabaseContext
-                                .PageItems
+                                .JobPostings
                                     .AddOrUpdate(
                                         (IEnumerable<PageItemEntity>)null, 
                                         ref ObjectMother.DbSetExtensionMethods_NotExistingPageItemEntities)
@@ -52,7 +52,7 @@ namespace NW.WIDJobs.UnitTests
                 new TestDelegate(
                     () => ObjectMother
                             .DbSetExtensionMethods_InMemoryDatabaseContext
-                                .PageItems
+                                .JobPostings
                                     .AddOrUpdate(
                                         (PageItemEntity)null,
                                         ref ObjectMother.DbSetExtensionMethods_NotExistingPageItemEntities)
@@ -76,12 +76,12 @@ namespace NW.WIDJobs.UnitTests
 
             // Arrange
             DatabaseContext databaseContext = ObjectMother.CreateInMemoryContext();
-            int rowsBefore = databaseContext.PageItems.Count();
+            int rowsBefore = databaseContext.JobPostings.Count();
 
             // Act
-            databaseContext.PageItems.AddOrUpdate(ObjectMother.Shared_Page01_PageItemEntity01);
+            databaseContext.JobPostings.AddOrUpdate(ObjectMother.Shared_Page01_PageItemEntity01);
             databaseContext.SaveChanges();
-            int rowsAfter = databaseContext.PageItems.Count();
+            int rowsAfter = databaseContext.JobPostings.Count();
             databaseContext.Dispose();
 
             // Assert
@@ -96,12 +96,12 @@ namespace NW.WIDJobs.UnitTests
 
             // Arrange
             DatabaseContext databaseContext = ObjectMother.CreateInMemoryContext();
-            int rowsBefore = databaseContext.PageItems.Count();
+            int rowsBefore = databaseContext.JobPostings.Count();
 
             // Act
-            databaseContext.PageItems.AddOrUpdate(ObjectMother.Shared_Page01_PageItemEntities);
+            databaseContext.JobPostings.AddOrUpdate(ObjectMother.Shared_Page01_PageItemEntities);
             databaseContext.SaveChanges();
-            int rowsAfter = databaseContext.PageItems.Count();
+            int rowsAfter = databaseContext.JobPostings.Count();
             databaseContext.Dispose();
 
             // Assert
@@ -119,19 +119,19 @@ namespace NW.WIDJobs.UnitTests
 
             // Act
             List<PageItemEntity> addedStep1 = new List<PageItemEntity>();
-            databaseContext.PageItems.AddOrUpdate(ObjectMother.Shared_Page01_PageItemEntity01, ref addedStep1);
+            databaseContext.JobPostings.AddOrUpdate(ObjectMother.Shared_Page01_PageItemEntity01, ref addedStep1);
             databaseContext.SaveChanges(); // Add the first one, database is empty, added = 1
 
             List<PageItemEntity> addedStep2 = new List<PageItemEntity>();
-            databaseContext.PageItems.AddOrUpdate(ObjectMother.Shared_Page01_PageItemEntity01, ref addedStep2);
+            databaseContext.JobPostings.AddOrUpdate(ObjectMother.Shared_Page01_PageItemEntity01, ref addedStep2);
             databaseContext.SaveChanges(); // Add the second one, same as the pre-exiting one, added = 0
 
             List<PageItemEntity> addedStep3 = new List<PageItemEntity>();
-            databaseContext.PageItems.AddOrUpdate(ObjectMother.Shared_Page01Alternate_PageItemEntity01, ref addedStep3);
+            databaseContext.JobPostings.AddOrUpdate(ObjectMother.Shared_Page01Alternate_PageItemEntity01, ref addedStep3);
             databaseContext.SaveChanges(); // Add the third one, update the CreatedDate for the pre-exiting one, added = 0
 
             List<PageItemEntity> addedStep4 = new List<PageItemEntity>();
-            databaseContext.PageItems.AddOrUpdate(ObjectMother.Shared_Page01Alternate_PageItemEntity02, ref addedStep4);
+            databaseContext.JobPostings.AddOrUpdate(ObjectMother.Shared_Page01Alternate_PageItemEntity02, ref addedStep4);
             databaseContext.SaveChanges(); // Add the fourth one, differs from the pre-existing one, added = 1
             databaseContext.Dispose();
 
@@ -151,11 +151,11 @@ namespace NW.WIDJobs.UnitTests
 
             // Act
             List<PageItemEntity> addedStep1 = new List<PageItemEntity>();
-            databaseContext.PageItems.AddOrUpdate(ObjectMother.Shared_Page01_PageItemEntities, ref addedStep1);
+            databaseContext.JobPostings.AddOrUpdate(ObjectMother.Shared_Page01_PageItemEntities, ref addedStep1);
             databaseContext.SaveChanges();
 
             List<PageItemEntity> addedStep2 = new List<PageItemEntity>();
-            databaseContext.PageItems.AddOrUpdate(ObjectMother.Shared_Page01_PageItemEntities, ref addedStep2);
+            databaseContext.JobPostings.AddOrUpdate(ObjectMother.Shared_Page01_PageItemEntities, ref addedStep2);
             databaseContext.SaveChanges();
             databaseContext.Dispose();
 
@@ -171,12 +171,12 @@ namespace NW.WIDJobs.UnitTests
 
             // Arrange
             DatabaseContext databaseContext = ObjectMother.CreateInMemoryContext();
-            int rowsBefore = databaseContext.PageItemsExtended.Count();
+            int rowsBefore = databaseContext.JobPostingsExtended.Count();
 
             // Act
-            databaseContext.PageItemsExtended.AddOrUpdate(ObjectMother.Shared_Page01_PageItemExtendedEntity01);
+            databaseContext.JobPostingsExtended.AddOrUpdate(ObjectMother.Shared_Page01_PageItemExtendedEntity01);
             databaseContext.SaveChanges();
-            int rowsAfter = databaseContext.PageItemsExtended.Count();
+            int rowsAfter = databaseContext.JobPostingsExtended.Count();
             databaseContext.Dispose();
 
             // Assert
@@ -190,12 +190,12 @@ namespace NW.WIDJobs.UnitTests
 
             // Arrange
             DatabaseContext databaseContext = ObjectMother.CreateInMemoryContext();
-            int rowsBefore = databaseContext.PageItemsExtended.Count();
+            int rowsBefore = databaseContext.JobPostingsExtended.Count();
 
             // Act
-            databaseContext.PageItemsExtended.AddOrUpdate(ObjectMother.Shared_Page01_PageItemExtendedEntities);
+            databaseContext.JobPostingsExtended.AddOrUpdate(ObjectMother.Shared_Page01_PageItemExtendedEntities);
             databaseContext.SaveChanges();
-            int rowsAfter = databaseContext.PageItemsExtended.Count();
+            int rowsAfter = databaseContext.JobPostingsExtended.Count();
             databaseContext.Dispose();
 
             // Assert

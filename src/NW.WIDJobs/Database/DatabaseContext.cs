@@ -20,8 +20,8 @@ namespace NW.WIDJobs
             = (fileName) => $"Data Source={fileName};";
 
         public string ConnectionString { get; private set; }
-        public DbSet<PageItemEntity> PageItems { get; set; }
-        public DbSet<PageItemExtendedEntity> PageItemsExtended { get; set; }
+        public DbSet<JobPostingEntity> JobPostings { get; set; }
+        public DbSet<JobPostingExtendedEntity> JobPostingsExtended { get; set; }
         public DbSet<BulletPointEntity> BulletPoints { get; set; }
 
         #endregion
@@ -49,8 +49,8 @@ namespace NW.WIDJobs
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
-            CreatePageItemsTable(modelBuilder);
-            CreatePageItemsExtendedTable(modelBuilder);
+            CreateJobPostingsTable(modelBuilder);
+            CreateJobPostingsExtendedTable(modelBuilder);
             CreateBulletPointsTable(modelBuilder);
 
         }
@@ -84,156 +84,196 @@ namespace NW.WIDJobs
 
         }
 
-        private void CreatePageItemsTable(ModelBuilder modelBuilder)
+        private void CreateJobPostingsTable(ModelBuilder modelBuilder)
         {
 
-            modelBuilder.Entity<PageItemEntity>()
+            modelBuilder.Entity<JobPostingEntity>()
                 .HasKey(entity => entity.RowId);
-            modelBuilder.Entity<PageItemEntity>()
+            modelBuilder.Entity<JobPostingEntity>()
                 .Property(entity => entity.RowId)
-                .HasColumnType("integer")
+                .HasColumnType("bigint")
                 .IsRequired(true)
                 .ValueGeneratedOnAdd();
 
-            modelBuilder.Entity<PageItemEntity>()
+            modelBuilder.Entity<JobPostingEntity>()
                 .Property(entity => entity.RunId)
                 .HasColumnType("varchar(250)")
                 .IsRequired(true);
-            modelBuilder.Entity<PageItemEntity>()
+            modelBuilder.Entity<JobPostingEntity>()
                 .Property(entity => entity.PageNumber)
                 .HasColumnType("smallint")
                 .IsRequired(true);
-            modelBuilder.Entity<PageItemEntity>()
-                .Property(entity => entity.Url)
-                .HasColumnType("varchar(250)")
+            modelBuilder.Entity<JobPostingEntity>()
+                .Property(entity => entity.Response)
+                .HasColumnType("varchar(4000)")
                 .IsRequired(true);
-            modelBuilder.Entity<PageItemEntity>()
+            modelBuilder.Entity<JobPostingEntity>()
                 .Property(entity => entity.Title)
                 .HasColumnType("varchar(250)")
                 .IsRequired(true);
-            modelBuilder.Entity<PageItemEntity>()
-                .Property(entity => entity.CreateDate)
-                .HasColumnType("datetime")
-                .IsRequired(true);
-            modelBuilder.Entity<PageItemEntity>()
-                .Property(entity => entity.ApplicationDate)
-                .HasColumnType("datetime")
+            modelBuilder.Entity<JobPostingEntity>()
+                .Property(entity => entity.Presentation)
+                .HasColumnType("varchar(250)")
                 .IsRequired(false);
-            modelBuilder.Entity<PageItemEntity>()
-                .Property(entity => entity.WorkArea)
+            modelBuilder.Entity<JobPostingEntity>()
+                .Property(entity => entity.HiringOrgName)
+                .HasColumnType("varchar(250)")
+                .IsRequired(false);
+            modelBuilder.Entity<JobPostingEntity>()
+                .Property(entity => entity.WorkPlaceAddress)
+                .HasColumnType("varchar(250)")
+                .IsRequired(false);
+            modelBuilder.Entity<JobPostingEntity>()
+                .Property(entity => entity.WorkPlacePostalCode)
+                .HasColumnType("smallint")
+                .IsRequired(false);
+            modelBuilder.Entity<JobPostingEntity>()
+                .Property(entity => entity.WorkPlaceCity)
+                .HasColumnType("varchar(250)")
+                .IsRequired(false);
+            modelBuilder.Entity<JobPostingEntity>()
+                .Property(entity => entity.PostingCreated)
+                .HasColumnType("datetime")
+                .IsRequired(true);
+            modelBuilder.Entity<JobPostingEntity>()
+                .Property(entity => entity.LastDateApplication)
+                .HasColumnType("datetime")
+                .IsRequired(true);
+            modelBuilder.Entity<JobPostingEntity>()
+                .Property(entity => entity.Url)
                 .HasColumnType("varchar(250)")
                 .IsRequired(true);
-            modelBuilder.Entity<PageItemEntity>()
-                .Property(entity => entity.WorkAreaWithoutZone)
+            modelBuilder.Entity<JobPostingEntity>()
+                .Property(entity => entity.Region)
+                .HasColumnType("varchar(250)")
+                .IsRequired(false);
+            modelBuilder.Entity<JobPostingEntity>()
+                .Property(entity => entity.Municipality)
+                .HasColumnType("varchar(250)")
+                .IsRequired(false);
+            modelBuilder.Entity<JobPostingEntity>()
+                .Property(entity => entity.Country)
+                .HasColumnType("varchar(250)")
+                .IsRequired(false);
+            modelBuilder.Entity<JobPostingEntity>()
+                .Property(entity => entity.EmploymentType)
+                .HasColumnType("varchar(250)")
+                .IsRequired(false);
+            modelBuilder.Entity<JobPostingEntity>()
+                .Property(entity => entity.WorkHours)
                 .HasColumnType("varchar(250)")
                 .IsRequired(true);
-            modelBuilder.Entity<PageItemEntity>()
-                .Property(entity => entity.WorkingHours)
+            modelBuilder.Entity<JobPostingEntity>()
+                .Property(entity => entity.Occupation)
                 .HasColumnType("varchar(250)")
-                .IsRequired(true);
-            modelBuilder.Entity<PageItemEntity>()
-                .Property(entity => entity.JobType)
-                .HasColumnType("varchar(250)")
-                .IsRequired(true);
-            modelBuilder.Entity<PageItemEntity>()
-                .Property(entity => entity.JobId)
+                .IsRequired(false);
+            modelBuilder.Entity<JobPostingEntity>()
+                .Property(entity => entity.WorkplaceId)
                 .HasColumnType("bigint")
                 .IsRequired(true);
-            modelBuilder.Entity<PageItemEntity>()
-                .Property(entity => entity.PageItemNumber)
+            modelBuilder.Entity<JobPostingEntity>()
+                .Property(entity => entity.OrganisationId)
+                .HasColumnType("bigint")
+                .IsRequired(false);
+            modelBuilder.Entity<JobPostingEntity>()
+                .Property(entity => entity.HiringOrgCVR)
+                .HasColumnType("bigint")
+                .IsRequired(true);
+            modelBuilder.Entity<JobPostingEntity>()
+                .Property(entity => entity.Id)
+                .HasColumnType("bigint")
+                .IsRequired(true);
+            modelBuilder.Entity<JobPostingEntity>()
+                .Property(entity => entity.WorkPlaceCityWithoutZone)
+                .HasColumnType("varchar(250)")
+                .IsRequired(false);
+            modelBuilder.Entity<JobPostingEntity>()
+                .Property(entity => entity.JobPostingNumber)
                 .HasColumnType("smallint")
                 .IsRequired(true);
-            modelBuilder.Entity<PageItemEntity>()
-                .Property(entity => entity.PageItemId)
+            modelBuilder.Entity<JobPostingEntity>()
+                .Property(entity => entity.JobPostingId)
                 .HasColumnType("varchar(250)")
                 .IsRequired(true);
 
-            modelBuilder.Entity<PageItemEntity>()
+            modelBuilder.Entity<JobPostingEntity>()
                 .Property(entity => entity.RowCreatedOn)
                 .HasColumnType("datetime")
                 .IsRequired(true)
                 .HasDefaultValueSql("datetime('now')");
-            modelBuilder.Entity<PageItemEntity>()
+            modelBuilder.Entity<JobPostingEntity>()
                 .Property(entity => entity.RowModifiedOn)
                 .HasColumnType("datetime")
                 .IsRequired(true)
                 .HasDefaultValueSql("datetime('now')");
 
         }
-        private void CreatePageItemsExtendedTable(ModelBuilder modelBuilder)
+        private void CreateJobPostingsExtendedTable(ModelBuilder modelBuilder)
         {
 
-            modelBuilder.Entity<PageItemExtendedEntity>()
+            modelBuilder.Entity<JobPostingExtendedEntity>()
                 .HasKey(entity => entity.RowId);
-            modelBuilder.Entity<PageItemExtendedEntity>()
+            modelBuilder.Entity<JobPostingExtendedEntity>()
                 .Property(entity => entity.RowId)
-                .HasColumnType("integer")
+                .HasColumnType("bigint")
                 .IsRequired(true)
                 .ValueGeneratedOnAdd();
 
-            modelBuilder.Entity<PageItemExtendedEntity>()
-                .Property(entity => entity.PageItemId)
+            modelBuilder.Entity<JobPostingExtendedEntity>()
+                .Property(entity => entity.JobPostingId)
                 .HasColumnType("varchar(250)")
                 .IsRequired(true);
-            modelBuilder.Entity<PageItemExtendedEntity>()
-                .Property(entity => entity.Description)
-                .HasColumnType("text")
+            modelBuilder.Entity<JobPostingExtendedEntity>()
+                .Property(entity => entity.Response)
+                .HasColumnType("varchar(8000)")
                 .IsRequired(true);
-            modelBuilder.Entity<PageItemExtendedEntity>()
-                .Property(entity => entity.SeeCompleteTextAt)
+            modelBuilder.Entity<JobPostingExtendedEntity>()
+                .Property(entity => entity.HiringOrgDescription)
                 .HasColumnType("varchar(250)")
+                .IsRequired(true);
+            modelBuilder.Entity<JobPostingExtendedEntity>()
+                .Property(entity => entity.PublicationStartDate)
+                .HasColumnType("datetime")
                 .IsRequired(false);
-            modelBuilder.Entity<PageItemExtendedEntity>()
-                .Property(entity => entity.EmployerName)
-                .HasColumnType("varchar(250)")
+            modelBuilder.Entity<JobPostingExtendedEntity>()
+                .Property(entity => entity.PublicationEndDate)
+                .HasColumnType("datetime")
                 .IsRequired(false);
-            modelBuilder.Entity<PageItemExtendedEntity>()
-                .Property(entity => entity.NumberOfOpenings)
+            modelBuilder.Entity<JobPostingExtendedEntity>()
+                .Property(entity => entity.Purpose)
+                .HasColumnType("varchar(8000)")
+                .IsRequired(false);
+            modelBuilder.Entity<JobPostingExtendedEntity>()
+                .Property(entity => entity.NumberToFill)
                 .HasColumnType("smallint")
                 .IsRequired(false);
-            modelBuilder.Entity<PageItemExtendedEntity>()
-                .Property(entity => entity.AdvertisementPublishDate)
+            modelBuilder.Entity<JobPostingExtendedEntity>()
+                .Property(entity => entity.ContactEmail)
+                .HasColumnType("varchar(250)")
+                .IsRequired(false);
+            modelBuilder.Entity<JobPostingExtendedEntity>()
+                .Property(entity => entity.ContactPersonName)
+                .HasColumnType("varchar(250)")
+                .IsRequired(false);
+            modelBuilder.Entity<JobPostingExtendedEntity>()
+                .Property(entity => entity.EmploymentDate)
                 .HasColumnType("datetime")
                 .IsRequired(false);
-            modelBuilder.Entity<PageItemExtendedEntity>()
-                .Property(entity => entity.ApplicationDeadline)
+            modelBuilder.Entity<JobPostingExtendedEntity>()
+                .Property(entity => entity.ApplicationDeadlineDate)
                 .HasColumnType("datetime")
                 .IsRequired(false);
-            modelBuilder.Entity<PageItemExtendedEntity>()
-                .Property(entity => entity.StartDateOfEmployment)
-                .HasColumnType("varchar(250)")
-                .IsRequired(false);
-            modelBuilder.Entity<PageItemExtendedEntity>()
-                .Property(entity => entity.Reference)
-                .HasColumnType("varchar(250)")
-                .IsRequired(false);
-            modelBuilder.Entity<PageItemExtendedEntity>()
-                .Property(entity => entity.Position)
-                .HasColumnType("varchar(250)")
-                .IsRequired(false);
-            modelBuilder.Entity<PageItemExtendedEntity>()
-                .Property(entity => entity.TypeOfEmployment)
-                .HasColumnType("varchar(250)")
-                .IsRequired(false);
-            modelBuilder.Entity<PageItemExtendedEntity>()
-                .Property(entity => entity.Contact)
-                .HasColumnType("varchar(250)")
-                .IsRequired(false);
-            modelBuilder.Entity<PageItemExtendedEntity>()
-                .Property(entity => entity.EmployerAddress)
-                .HasColumnType("varchar(250)")
-                .IsRequired(false);
-            modelBuilder.Entity<PageItemExtendedEntity>()
-                .Property(entity => entity.HowToApply)
+            modelBuilder.Entity<JobPostingExtendedEntity>()
+                .Property(entity => entity.BulletPointScenario)
                 .HasColumnType("varchar(250)")
                 .IsRequired(false);
 
-            modelBuilder.Entity<PageItemExtendedEntity>()
+            modelBuilder.Entity<JobPostingExtendedEntity>()
                 .Property(entity => entity.RowCreatedOn)
                 .HasColumnType("datetime")
                 .IsRequired(true)
                 .HasDefaultValueSql("datetime('now')");
-            modelBuilder.Entity<PageItemExtendedEntity>()
+            modelBuilder.Entity<JobPostingExtendedEntity>()
                 .Property(entity => entity.RowModifiedOn)
                 .HasColumnType("datetime")
                 .IsRequired(true)
@@ -247,12 +287,12 @@ namespace NW.WIDJobs
                 .HasKey(entity => entity.RowId);
             modelBuilder.Entity<BulletPointEntity>()
                 .Property(entity => entity.RowId)
-                .HasColumnType("integer")
+                .HasColumnType("bigint")
                 .IsRequired(true)
                 .ValueGeneratedOnAdd();
 
             modelBuilder.Entity<BulletPointEntity>()
-                .Property(entity => entity.PageItemId)
+                .Property(entity => entity.JobPostingId)
                 .HasColumnType("varchar(250)")
                 .IsRequired(true);
             modelBuilder.Entity<BulletPointEntity>()
@@ -280,5 +320,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 19.06.2021
+    Last Update: 08.08.2021
 */
