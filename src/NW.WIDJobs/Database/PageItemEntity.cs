@@ -5,8 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace NW.WIDJobs
 {
     /// <summary>A database entity for <see cref="PageItem"/>.</summary>
-    [Table(nameof(TableNames.PageItems))]
-    public class PageItemEntity : ITrackableEntity
+    public class PageItemEntity
     {
 
         #region Fields

@@ -4,10 +4,6 @@
     public enum TableNames
     {
 
-        PageItems,
-        PageItemsExtended,
-        PageItemsExtendedBulletPoints,
-
         JobPostings,
         JobPostingsExtended,
         JobPostingsExtendedBulletPoints
