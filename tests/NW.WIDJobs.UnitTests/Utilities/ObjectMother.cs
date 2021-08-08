@@ -444,25 +444,6 @@ namespace NW.WIDJobs.UnitTests
                 Shared_Page01_PageItemExtended14
             };
 
-        internal static PageItemExtendedEntity Shared_Page01_PageItemExtendedEntity01
-            = new PageItemExtendedEntity(Shared_Page01_PageItemExtended01);
-        internal static List<PageItemExtendedEntity> Shared_Page01_PageItemExtendedEntities
-            = new List<PageItemExtendedEntity>()
-            {
-                new PageItemExtendedEntity(Shared_Page01_PageItemExtended01),
-                new PageItemExtendedEntity(Shared_Page01_PageItemExtended14)
-            };
-
-        internal static BulletPointEntity Shared_Page01_PageItemExtended01BulletPointEntity01
-            = new BulletPointEntity(
-                    Shared_Page01_PageItemExtended01.PageItem.PageItemId,
-                    Shared_Page01_PageItemExtended01.DescriptionBulletPoints.ToList()[0]);
-        internal static List<BulletPointEntity> Shared_Page01_PageItemExtended01BulletPointEntities
-            = Shared_Page01_PageItemExtended01
-                .DescriptionBulletPoints
-                .Select(bulletPoint => new BulletPointEntity(Shared_Page01_PageItemExtended01.PageItem.PageItemId, bulletPoint))
-                .ToList();
-
         #endregion
 
         #region Shared_Page02
@@ -4546,6 +4527,43 @@ namespace NW.WIDJobs.UnitTests
             new JobPostingEntity(Shared_JobPage01_JobPosting20)
 
         };
+
+        internal static JobPostingExtendedEntity Shared_JobPage01_JobPostingExtendedEntity01
+            = new JobPostingExtendedEntity(Shared_JobPage01_JobPostingExtended01);
+        internal static List<JobPostingExtendedEntity> Shared_JobPage01_JobPostingExtendedEntities
+            = new List<JobPostingExtendedEntity>()
+            {
+                new JobPostingExtendedEntity(Shared_JobPage01_JobPostingExtended01),
+                new JobPostingExtendedEntity(Shared_JobPage01_JobPostingExtended02),
+                new JobPostingExtendedEntity(Shared_JobPage01_JobPostingExtended03),
+                new JobPostingExtendedEntity(Shared_JobPage01_JobPostingExtended04),
+                new JobPostingExtendedEntity(Shared_JobPage01_JobPostingExtended05),
+                new JobPostingExtendedEntity(Shared_JobPage01_JobPostingExtended06),
+                new JobPostingExtendedEntity(Shared_JobPage01_JobPostingExtended07),
+                new JobPostingExtendedEntity(Shared_JobPage01_JobPostingExtended08),
+                new JobPostingExtendedEntity(Shared_JobPage01_JobPostingExtended09),
+                new JobPostingExtendedEntity(Shared_JobPage01_JobPostingExtended10),
+                new JobPostingExtendedEntity(Shared_JobPage01_JobPostingExtended11),
+                new JobPostingExtendedEntity(Shared_JobPage01_JobPostingExtended12),
+                new JobPostingExtendedEntity(Shared_JobPage01_JobPostingExtended13),
+                new JobPostingExtendedEntity(Shared_JobPage01_JobPostingExtended14),
+                new JobPostingExtendedEntity(Shared_JobPage01_JobPostingExtended15),
+                new JobPostingExtendedEntity(Shared_JobPage01_JobPostingExtended16),
+                new JobPostingExtendedEntity(Shared_JobPage01_JobPostingExtended17),
+                new JobPostingExtendedEntity(Shared_JobPage01_JobPostingExtended18),
+                new JobPostingExtendedEntity(Shared_JobPage01_JobPostingExtended19),
+                new JobPostingExtendedEntity(Shared_JobPage01_JobPostingExtended20)
+            };
+
+        internal static BulletPointEntity Shared_JobPage01_JobPostingExtended01BulletPointEntity01
+            = new BulletPointEntity(
+                    Shared_JobPage01_JobPostingExtended01.JobPosting.JobPostingId,
+                    Shared_JobPage01_JobPostingExtended01.BulletPoints.ToList()[0]);
+        internal static List<BulletPointEntity> Shared_JobPage01_JobPostingExtended01BulletPointEntities
+            = Shared_JobPage01_JobPostingExtended01
+                .BulletPoints
+                .Select(bulletPoint => new BulletPointEntity(Shared_JobPage01_JobPostingExtended01.JobPosting.JobPostingId, bulletPoint))
+                .ToList();
 
         #endregion
 

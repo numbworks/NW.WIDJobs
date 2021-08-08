@@ -174,7 +174,7 @@ namespace NW.WIDJobs.UnitTests
             int rowsBefore = databaseContext.JobPostingsExtended.Count();
 
             // Act
-            databaseContext.JobPostingsExtended.AddOrUpdate(ObjectMother.Shared_Page01_PageItemExtendedEntity01);
+            databaseContext.JobPostingsExtended.AddOrUpdate(ObjectMother.Shared_JobPage01_JobPostingExtendedEntity01);
             databaseContext.SaveChanges();
             int rowsAfter = databaseContext.JobPostingsExtended.Count();
             databaseContext.Dispose();
@@ -193,14 +193,14 @@ namespace NW.WIDJobs.UnitTests
             int rowsBefore = databaseContext.JobPostingsExtended.Count();
 
             // Act
-            databaseContext.JobPostingsExtended.AddOrUpdate(ObjectMother.Shared_Page01_PageItemExtendedEntities);
+            databaseContext.JobPostingsExtended.AddOrUpdate(ObjectMother.Shared_JobPage01_JobPostingExtendedEntities);
             databaseContext.SaveChanges();
             int rowsAfter = databaseContext.JobPostingsExtended.Count();
             databaseContext.Dispose();
 
             // Assert
             Assert.AreEqual(0, rowsBefore);
-            Assert.AreEqual(ObjectMother.Shared_Page01_PageItemExtendedEntities.Count, rowsAfter);
+            Assert.AreEqual(ObjectMother.Shared_JobPage01_JobPostingExtendedEntities.Count, rowsAfter);
 
         }
 
@@ -213,7 +213,7 @@ namespace NW.WIDJobs.UnitTests
             int rowsBefore = databaseContext.BulletPoints.Count();
 
             // Act
-            databaseContext.BulletPoints.AddOrUpdate(ObjectMother.Shared_Page01_PageItemExtended01BulletPointEntity01);
+            databaseContext.BulletPoints.AddOrUpdate(ObjectMother.Shared_JobPage01_JobPostingExtended01BulletPointEntity01);
             databaseContext.SaveChanges();
             int rowsAfter = databaseContext.BulletPoints.Count();
             databaseContext.Dispose();
@@ -232,14 +232,14 @@ namespace NW.WIDJobs.UnitTests
             int rowsBefore = databaseContext.BulletPoints.Count();
 
             // Act
-            databaseContext.BulletPoints.AddOrUpdate(ObjectMother.Shared_Page01_PageItemExtended01BulletPointEntities);
+            databaseContext.BulletPoints.AddOrUpdate(ObjectMother.Shared_JobPage01_JobPostingExtended01BulletPointEntities);
             databaseContext.SaveChanges();
             int rowsAfter = databaseContext.BulletPoints.Count();
             databaseContext.Dispose();
 
             // Assert
             Assert.AreEqual(0, rowsBefore);
-            Assert.AreEqual(ObjectMother.Shared_Page01_PageItemExtended01BulletPointEntities.Count, rowsAfter);
+            Assert.AreEqual(ObjectMother.Shared_JobPage01_JobPostingExtended01BulletPointEntities.Count, rowsAfter);
 
         }
 
