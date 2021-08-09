@@ -273,7 +273,7 @@ namespace NW.WIDJobs
                         JobPostings = groups.Count()
                     };
 
-            results = results.OrderByDescending(result => result.PostingCreated);
+            results = results.OrderByDescending(result => result.JobPostings);
 
             Dictionary<string, uint> grouped
                 = results.ToDictionary(
@@ -301,7 +301,7 @@ namespace NW.WIDJobs
                         JobPostings = groups.Count()
                     };
 
-            results = results.OrderByDescending(result => result.LastDateApplication);
+            results = results.OrderByDescending(result => result.JobPostings);
 
             Dictionary<string, uint> grouped
                 = results.ToDictionary(
@@ -598,10 +598,7 @@ namespace NW.WIDJobs
 
         }
 
-
-
-
-        private Dictionary<string, uint> GroupItemsByApplicationDate(List<PageItem> pageItems)
+        private Dictionary<string, uint> GroupJobPostingsByPublicationStartDate(List<JobPostingExtended> jobPostingsExtended)
         {
 
             /*
@@ -612,81 +609,25 @@ namespace NW.WIDJobs
             */
 
             var results =
-                    from item in pageItems
-                    group item by item.ApplicationDate into groups
+                    from jobPosting in jobPostingsExtended
+                    group jobPosting by jobPosting.PublicationStartDate into groups
                     select new
                     {
-                        ApplicationDate = groups.Key?.ToString(FormatDate) ?? FormatNull,
-                        Items = groups.Count()
+                        PublicationStartDate = groups.Key?.ToString(FormatDate) ?? FormatNull,
+                        JobPostings = groups.Count()
                     };
 
-            results = results.OrderByDescending(result => result.ApplicationDate);
+            results = results.OrderByDescending(result => result.JobPostings);
 
             Dictionary<string, uint> grouped
                 = results.ToDictionary(
-                                result => result.ApplicationDate,
-                                result => (uint)result.Items);
+                                result => result.PublicationStartDate,
+                                result => (uint)result.JobPostings);
 
             return grouped;
 
         }
-        private Dictionary<string, uint> GroupItemsByEmployerName(List<PageItemExtended> pageItemsExtended)
-        {
-
-            /*
-			    - ("MU.ST ApS", 1)
-                - ("null", 4)
-			    - ...
-            */
-
-            var results =
-                    from item in pageItemsExtended
-                    group item by item.EmployerName into groups
-                    select new
-                    {
-                        EmployerName = groups.Key ?? FormatNull,
-                        Items = groups.Count()
-                    };
-
-            results = results.OrderByDescending(result => result.Items);
-
-            Dictionary<string, uint> grouped
-                = results.ToDictionary(
-                                result => result.EmployerName,
-                                result => (uint)result.Items);
-
-            return grouped;
-
-        }
-        private Dictionary<string, uint> GroupItemsByNumberOfOpenings(List<PageItemExtended> pageItemsExtended)
-        {
-
-            /*
-			    - ("1", 1)
-                - ("null", 4)
-			    - ...
-            */
-
-            var results =
-                    from item in pageItemsExtended
-                    group item by item.NumberOfOpenings into groups
-                    select new
-                    {
-                        NumberOfOpenings = groups.Key?.ToString() ?? FormatNull,
-                        Items = groups.Count()
-                    };
-
-            results = results.OrderByDescending(result => result.Items);
-
-            Dictionary<string, uint> grouped
-                = results.ToDictionary(
-                                result => result.NumberOfOpenings,
-                                result => (uint)result.Items);
-
-            return grouped;
-
-        }
-        private Dictionary<string, uint> GroupItemsByAdvertisementPublishDate(List<PageItemExtended> pageItemsExtended)
+        private Dictionary<string, uint> GroupJobPostingsByPublicationEndDate(List<JobPostingExtended> jobPostingsExtended)
         {
 
             /*
@@ -697,25 +638,103 @@ namespace NW.WIDJobs
             */
 
             var results =
-                    from item in pageItemsExtended
-                    group item by item.AdvertisementPublishDate into groups
+                    from jobPosting in jobPostingsExtended
+                    group jobPosting by jobPosting.PublicationEndDate into groups
                     select new
                     {
-                        AdvertisementPublishDate = groups.Key?.ToString(FormatDate) ?? FormatNull,
-                        Items = groups.Count()
+                        PublicationEndDate = groups.Key?.ToString(FormatDate) ?? FormatNull,
+                        JobPostings = groups.Count()
                     };
 
-            results = results.OrderByDescending(result => result.AdvertisementPublishDate);
+            results = results.OrderByDescending(result => result.JobPostings);
 
             Dictionary<string, uint> grouped
                 = results.ToDictionary(
-                                result => result.AdvertisementPublishDate,
-                                result => (uint)result.Items);
+                                result => result.PublicationEndDate,
+                                result => (uint)result.JobPostings);
 
             return grouped;
 
         }
-        private Dictionary<string, uint> GroupItemsByApplicationDeadline(List<PageItemExtended> pageItemsExtended)
+        private Dictionary<string, uint> GroupJobPostingsByNumberToFill(List<JobPostingExtended> jobPostingsExtended)
+        {
+
+            /*
+			    - ...
+            */
+
+            var results =
+                    from jobPosting in jobPostingsExtended
+                    group jobPosting by jobPosting.NumberToFill into groups
+                    select new
+                    {
+                        NumberToFill = groups.Key?.ToString() ?? FormatNull,
+                        JobPostings = groups.Count()
+                    };
+
+            results = results.OrderByDescending(result => result.JobPostings);
+
+            Dictionary<string, uint> grouped
+                = results.ToDictionary(
+                                result => result.NumberToFill,
+                                result => (uint)result.JobPostings);
+
+            return grouped;
+
+        }
+        private Dictionary<string, uint> GroupJobPostingsByContactEmail(List<JobPostingExtended> jobPostingsExtended)
+        {
+
+            /*
+			    - ...
+            */
+
+            var results =
+                    from jobPosting in jobPostingsExtended
+                    group jobPosting by jobPosting.ContactEmail into groups
+                    select new
+                    {
+                        ContactEmail = groups.Key ?? FormatNull,
+                        JobPostings = groups.Count()
+                    };
+
+            results = results.OrderByDescending(result => result.JobPostings);
+
+            Dictionary<string, uint> grouped
+                = results.ToDictionary(
+                                result => result.ContactEmail,
+                                result => (uint)result.JobPostings);
+
+            return grouped;
+
+        }
+        private Dictionary<string, uint> GroupJobPostingsByContactPersonName(List<JobPostingExtended> jobPostingsExtended)
+        {
+
+            /*
+			    - ...
+            */
+
+            var results =
+                    from jobPosting in jobPostingsExtended
+                    group jobPosting by jobPosting.ContactPersonName into groups
+                    select new
+                    {
+                        ContactPersonName = groups.Key ?? FormatNull,
+                        JobPostings = groups.Count()
+                    };
+
+            results = results.OrderByDescending(result => result.JobPostings);
+
+            Dictionary<string, uint> grouped
+                = results.ToDictionary(
+                                result => result.ContactPersonName,
+                                result => (uint)result.JobPostings);
+
+            return grouped;
+
+        }
+        private Dictionary<string, uint> GroupJobPostingsByEmploymentDate(List<JobPostingExtended> jobPostingsExtended)
         {
 
             /*
@@ -726,25 +745,25 @@ namespace NW.WIDJobs
             */
 
             var results =
-                    from item in pageItemsExtended
-                    group item by item.ApplicationDeadline into groups
+                    from jobPosting in jobPostingsExtended
+                    group jobPosting by jobPosting.EmploymentDate into groups
                     select new
                     {
-                        ApplicationDeadline = groups.Key?.ToString(FormatDate) ?? FormatNull,
-                        Items = groups.Count()
+                        EmploymentDate = groups.Key?.ToString(FormatDate) ?? FormatNull,
+                        JobPostings = groups.Count()
                     };
 
-            results = results.OrderByDescending(result => result.ApplicationDeadline);
+            results = results.OrderByDescending(result => result.JobPostings);
 
             Dictionary<string, uint> grouped
                 = results.ToDictionary(
-                                result => result.ApplicationDeadline,
-                                result => (uint)result.Items);
+                                result => result.EmploymentDate,
+                                result => (uint)result.JobPostings);
 
             return grouped;
 
         }
-        private Dictionary<string, uint> GroupItemsByStartDateOfEmployment(List<PageItemExtended> pageItemsExtended)
+        private Dictionary<string, uint> GroupJobPostingsByApplicationDeadlineDate(List<JobPostingExtended> jobPostingsExtended)
         {
 
             /*
@@ -755,156 +774,52 @@ namespace NW.WIDJobs
             */
 
             var results =
-                    from item in pageItemsExtended
-                    group item by item.StartDateOfEmployment into groups
+                    from jobPosting in jobPostingsExtended
+                    group jobPosting by jobPosting.ApplicationDeadlineDate into groups
                     select new
                     {
-                        StartDateOfEmployment = groups.Key ?? FormatNull,
-                        Items = groups.Count()
+                        ApplicationDeadlineDate = groups.Key?.ToString(FormatDate) ?? FormatNull,
+                        JobPostings = groups.Count()
                     };
 
-            results = results.OrderByDescending(result => result.StartDateOfEmployment);
+            results = results.OrderByDescending(result => result.JobPostings);
 
             Dictionary<string, uint> grouped
                 = results.ToDictionary(
-                                result => result.StartDateOfEmployment,
-                                result => (uint)result.Items);
+                                result => result.ApplicationDeadlineDate,
+                                result => (uint)result.JobPostings);
 
             return grouped;
 
         }
-        private Dictionary<string, uint> GroupItemsByReference(List<PageItemExtended> pageItemsExtended)
+        private Dictionary<string, uint> GroupJobPostingsByBulletPointScenario(List<JobPostingExtended> jobPostingsExtended)
         {
 
+            /*
+			    - ...
+            */
+
             var results =
-                    from item in pageItemsExtended
-                    group item by item.Reference into groups
+                    from jobPosting in jobPostingsExtended
+                    group jobPosting by jobPosting.BulletPointScenario into groups
                     select new
                     {
-                        Reference = groups.Key ?? FormatNull,
-                        Items = groups.Count()
+                        BulletPointScenario = groups.Key ?? FormatNull,
+                        JobPostings = groups.Count()
                     };
 
-            results = results.OrderByDescending(result => result.Items);
+            results = results.OrderByDescending(result => result.JobPostings);
 
             Dictionary<string, uint> grouped
                 = results.ToDictionary(
-                                result => result.Reference,
-                                result => (uint)result.Items);
+                                result => result.BulletPointScenario,
+                                result => (uint)result.JobPostings);
 
             return grouped;
 
         }
-        private Dictionary<string, uint> GroupItemsByPosition(List<PageItemExtended> pageItemsExtended)
-        {
 
-            var results =
-                    from item in pageItemsExtended
-                    group item by item.Position into groups
-                    select new
-                    {
-                        Position = groups.Key ?? FormatNull,
-                        Items = groups.Count()
-                    };
 
-            results = results.OrderByDescending(result => result.Items);
-
-            Dictionary<string, uint> grouped
-                = results.ToDictionary(
-                                result => result.Position,
-                                result => (uint)result.Items);
-
-            return grouped;
-
-        }
-        private Dictionary<string, uint> GroupItemsByTypeOfEmployment(List<PageItemExtended> pageItemsExtended)
-        {
-
-            var results =
-                    from item in pageItemsExtended
-                    group item by item.TypeOfEmployment into groups
-                    select new
-                    {
-                        TypeOfEmployment = groups.Key ?? FormatNull,
-                        Items = groups.Count()
-                    };
-
-            results = results.OrderByDescending(result => result.Items);
-
-            Dictionary<string, uint> grouped
-                = results.ToDictionary(
-                                result => result.TypeOfEmployment,
-                                result => (uint)result.Items);
-
-            return grouped;
-
-        }
-        private Dictionary<string, uint> GroupItemsByContact(List<PageItemExtended> pageItemsExtended)
-        {
-
-            var results =
-                    from item in pageItemsExtended
-                    group item by item.Contact into groups
-                    select new
-                    {
-                        Contact = groups.Key ?? FormatNull,
-                        Items = groups.Count()
-                    };
-
-            results = results.OrderByDescending(result => result.Items);
-
-            Dictionary<string, uint> grouped
-                = results.ToDictionary(
-                                result => result.Contact,
-                                result => (uint)result.Items);
-
-            return grouped;
-
-        }
-        private Dictionary<string, uint> GroupItemsByEmployerAddress(List<PageItemExtended> pageItemsExtended)
-        {
-
-            var results =
-                    from item in pageItemsExtended
-                    group item by item.EmployerAddress into groups
-                    select new
-                    {
-                        EmployerAddress = groups.Key ?? FormatNull,
-                        Items = groups.Count()
-                    };
-
-            results = results.OrderByDescending(result => result.Items);
-
-            Dictionary<string, uint> grouped
-                = results.ToDictionary(
-                                result => result.EmployerAddress,
-                                result => (uint)result.Items);
-
-            return grouped;
-
-        }
-        private Dictionary<string, uint> GroupItemsByHowToApply(List<PageItemExtended> pageItemsExtended)
-        {
-
-            var results =
-                    from item in pageItemsExtended
-                    group item by item.HowToApply into groups
-                    select new
-                    {
-                        HowToApply = groups.Key ?? FormatNull,
-                        Items = groups.Count()
-                    };
-
-            results = results.OrderByDescending(result => result.Items);
-
-            Dictionary<string, uint> grouped
-                = results.ToDictionary(
-                                result => result.HowToApply,
-                                result => (uint)result.Items);
-
-            return grouped;
-
-        }
         private Dictionary<string, uint> SumDescriptionLengthByPageItemId(List<PageItemExtended> pageItemsExtended)
         {
 
