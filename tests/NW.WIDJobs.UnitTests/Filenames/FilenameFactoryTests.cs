@@ -4,7 +4,7 @@ using System;
 namespace NW.WIDJobs.UnitTests
 {
     [TestFixture]
-    public class FilenamesFactoryTests
+    public class FilenameFactoryTests
     {
 
         // Fields
