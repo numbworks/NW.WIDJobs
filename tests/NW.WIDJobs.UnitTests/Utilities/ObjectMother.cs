@@ -232,126 +232,30 @@ namespace NW.WIDJobs.UnitTests
 
         #region MetricCollectionManager
 
-        internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByWorkAreaWithoutZone
-            = new Dictionary<string, uint>()
-            {
-                { "København", 9 },
-                { "Århus", 3 },
-                { "Lem", 3 },
-                { "Ikast", 2 },
-                { "Nordborg", 1 },
-                { "Vejle", 1 },
-                { "Odense", 1 }
-            };
-        internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByCreateDate
-            = new Dictionary<string, uint>()
-            {
-                { "2021-05-07", 20}
-            };
-        internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByApplicationDate
-            = new Dictionary<string, uint>()
-            {
-                { "null", 16 },
-                { "2021-11-30", 1 },
-                { "2021-06-03", 1 },
-                { "2021-05-25", 1 },
-                { "2021-05-16", 1 }
-            };
-        internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByEmployerName
-            = new Dictionary<string, uint>()
-            {
-                { "null", 2 }
-            };
-        internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByNumberOfOpenings
-            = new Dictionary<string, uint>()
-            {
-                { "null", 2 }
-            };
-        internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByAdvertisementPublishDate
-            = new Dictionary<string, uint>()
-            {
-                { "null", 2 }
-            };
-        internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByApplicationDeadline
-            = new Dictionary<string, uint>()
-            {
-                { "null", 2 }
-            };
-        internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByStartDateOfEmployment
-            = new Dictionary<string, uint>()
-            {
-                { "null", 2 }
-            };
-        internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByReference
-            = new Dictionary<string, uint>()
-            {
-                { "null", 2 }
-            };
-        internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByPosition
-            = new Dictionary<string, uint>()
-            {
-                { "null", 2 }
-            };
-        internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByTypeOfEmployment
-            = new Dictionary<string, uint>()
-            {
-                { "null", 2 }
-            };
-        internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByContact
-            = new Dictionary<string, uint>()
-            {
-                { "null", 2 }
-            };
-        internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByEmployerAddress
-            = new Dictionary<string, uint>()
-            {
-                { "null", 2 }
-            };
-        internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByHowToApply
-            = new Dictionary<string, uint>()
-            {
-                { "null", 2 }
-            };
-        internal static Dictionary<string, uint> WIDMetrics_Page01_DescriptionLengthByPageItemId
-            = new Dictionary<string, uint>()
-            {
-                { "8144071leanprofessional", 992 },
-                { "8144115learningsalesfulltimestudentposition", 988 }
-            };
-        internal static Dictionary<string, uint> WIDMetrics_Page01_BulletPointsByPageItemId
-            = new Dictionary<string, uint>()
-            {
-                { "8144115learningsalesfulltimestudentposition", 2 },
-                { "8144071leanprofessional", 0 }
-            };
-        internal static uint WIDMetrics_Page01_TotalBulletPoints = 2;
-
-        internal static Exploration WIDMetricsManager_ExplorationWithNullPageItems
-            = new WIDExploration(
-                    Shared_FakeRunId,
-                    Shared_Page01_TotalResults,
-                    Shared_Page01_TotalEstimatedPages,
-                    WIDCategories.AllCategories,
-                    Stages.Stage3_UpToAllJobPostingsExtended,
-                    true,
-                    Shared_Pages_Page01,
+        internal static Exploration Shared_Exploration02WithNullJobPostings
+            = new Exploration(
+                    Shared_Exploration02_RunId,
+                    Shared_Exploration02_TotalResultCount,
+                    Shared_Exploration02_TotalJobPages,
+                    Shared_Exploration02_Stage,
+                    Shared_Exploration02_IsCompleted,
+                    Shared_Exploration02_JobPages,
                     null,
-                    Shared_Page01_PageItemsExtended
+                    Shared_Exploration02_JobPostingsExtended
                 );
-        internal static Exploration WIDMetricsManager_ExplorationWithNullPageItemsExtended
-            = new WIDExploration(
-                    Shared_FakeRunId,
-                    Shared_Page01_TotalResults,
-                    Shared_Page01_TotalEstimatedPages,
-                    WIDCategories.AllCategories,
-                    Stages.Stage3_UpToAllJobPostingsExtended,
-                    true,
-                    Shared_Pages_Page01,
-                    Shared_Page01_PageItems,
+        internal static Exploration Shared_Exploration02WithNullJobPostingsExtended
+            = new Exploration(
+                    Shared_Exploration02_RunId,
+                    Shared_Exploration02_TotalResultCount,
+                    Shared_Exploration02_TotalJobPages,
+                    Shared_Exploration02_Stage,
+                    Shared_Exploration02_IsCompleted,
+                    Shared_Exploration02_JobPages,
+                    Shared_Exploration02_JobPostings,
                     null
                 );
 
-        internal static Dictionary<string, uint> WIDMetricsManager_WorkAreas = new Dictionary<string, uint>()
+        internal static Dictionary<string, uint> MetricCollectionManager_WorkPlaceCityWithoutZones = new Dictionary<string, uint>()
             {
 
                 { "København", 45 },
@@ -359,7 +263,7 @@ namespace NW.WIDJobs.UnitTests
                 { "Vejen", 4 }
 
             };
-        internal static Dictionary<string, string> WIDMetricsManager_WorkAreasAsPercentages = new Dictionary<string, string>()
+        internal static Dictionary<string, string> MetricCollectionManager_WorkPlaceCityWithoutZonesAsPercentages = new Dictionary<string, string>()
             {
 
                 { "København", $"{MetricCollectionManager.FormatPercentage(73.77)}" },

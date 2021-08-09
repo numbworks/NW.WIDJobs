@@ -23,18 +23,18 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new MetricCollectionManager().Calculate(ObjectMother.WIDMetricsManager_ExplorationWithNullPageItems)
+                    () => new MetricCollectionManager().Calculate(ObjectMother.Shared_Exploration02WithNullJobPostings)
                 ),
                 typeof(ArgumentNullException),
-                new ArgumentNullException("PageItems").Message
+                new ArgumentNullException("JobPostings").Message
             ).SetArgDisplayNames($"{nameof(calculateExceptionTestCases)}_02"),
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new MetricCollectionManager().Calculate(ObjectMother.WIDMetricsManager_ExplorationWithNullPageItemsExtended)
+                    () => new MetricCollectionManager().Calculate(ObjectMother.Shared_Exploration02WithNullJobPostingsExtended)
                 ),
                 typeof(ArgumentNullException),
-                new ArgumentNullException("PageItemsExtended").Message
+                new ArgumentNullException("JobPostingsExtended").Message
             ).SetArgDisplayNames($"{nameof(calculateExceptionTestCases)}_03")
 
         };
@@ -82,6 +82,39 @@ namespace NW.WIDJobs.UnitTests
 
         // SetUp
         // Tests
+        [Test]
+        public void FormatPercentage_ShouldReturnExpectedString_WhenInvoked()
+        {
+
+            // Arrange
+            double value = 73.67;
+            CultureInfo culture = CultureInfo.CreateSpecificCulture("en-US");
+            string expected = $"{value.ToString(culture)}%";
+
+            // Act
+            string actual = MetricCollectionManager.FormatPercentage(value);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+
+        }
+
+        [Test]
+        public void ConvertToPercentages_ShouldReturnExpectedPercentages_WhenInvoked()
+        {
+
+            // Arrange
+            // Act
+            Dictionary<string, string> actual
+                = new MetricCollectionManager().ConvertToPercentages(ObjectMother.MetricCollectionManager_WorkPlaceCityWithoutZones);
+
+            // Assert
+            Assert.IsTrue(
+                ObjectMother.AreEqual(ObjectMother.MetricCollectionManager_WorkPlaceCityWithoutZonesAsPercentages, actual)
+                );
+
+        }
+
         [TestCaseSource(nameof(calculateExceptionTestCases))]
         public void Calculate_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
@@ -106,6 +139,8 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
+
+
         [Test]
         public void Calculate_ShouldReturnExpectedMetrics_WhenInvoked()
         {
@@ -121,43 +156,10 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
-        [Test]
-        public void ConvertToPercentages_ShouldReturnExpectedPercentages_WhenInvoked()
-        {
-
-            // Arrange
-            // Act
-            Dictionary<string, string> actual 
-                = new MetricCollectionManager().ConvertToPercentages(ObjectMother.WIDMetricsManager_WorkAreas);
-
-            // Assert
-            Assert.IsTrue(
-                ObjectMother.AreEqual(ObjectMother.WIDMetricsManager_WorkAreasAsPercentages, actual)
-                );
-
-        }
-
-        [Test]
-        public void FormatPercentage_ShouldReturnExpectedString_WhenInvoked()
-        {
-
-            // Arrange
-            double value = 73.67;
-            CultureInfo culture = CultureInfo.CreateSpecificCulture("en-US");
-            string expected = $"{value.ToString(culture)}%";
-
-            // Act
-            string actual = MetricCollectionManager.FormatPercentage(value);
-
-            // Assert
-            Assert.AreEqual(expected, actual);
-
-        }
-
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 12.06.2021
+    Last Update: 09.08.2021
 */
