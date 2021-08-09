@@ -55,38 +55,38 @@ namespace NW.WIDJobs
             Validator.ValidateList(exploration.JobPostings, nameof(exploration.JobPostings));
             Validator.ValidateList(exploration.JobPostingsExtended, nameof(exploration.JobPostingsExtended));
 
-            Dictionary<string, uint> itemsByWorkAreaWithoutZone
-                = GroupItemsByWorkAreaWithoutZone(exploration.JobPostings);
-            Dictionary<string, uint> itemsByCreateDate
-                = GroupJobPostingsByPostingCreated(exploration.JobPostings);
-            Dictionary<string, uint> itemsByApplicationDate
-                = GroupItemsByApplicationDate(exploration.JobPostings);
-            Dictionary<string, uint> itemsByEmployerName
-                = GroupItemsByEmployerName(exploration.JobPostingsExtended);
-            Dictionary<string, uint> itemsByNumberOfOpenings
-                = GroupItemsByNumberOfOpenings(exploration.JobPostingsExtended);
-            Dictionary<string, uint> itemsByAdvertisementPublishDate
-                = GroupItemsByAdvertisementPublishDate(exploration.JobPostingsExtended);
-            Dictionary<string, uint> itemsByApplicationDeadline
-                = GroupItemsByApplicationDeadline(exploration.JobPostingsExtended);
-            Dictionary<string, uint> itemsByStartDateOfEmployment
-                = GroupItemsByStartDateOfEmployment(exploration.JobPostingsExtended);
-            Dictionary<string, uint> itemsByReference
-                = GroupItemsByReference(exploration.JobPostingsExtended);
-            Dictionary<string, uint> itemsByPosition
-                = GroupItemsByPosition(exploration.JobPostingsExtended);
-            Dictionary<string, uint> itemsByTypeOfEmployment
-                = GroupItemsByTypeOfEmployment(exploration.JobPostingsExtended);
-            Dictionary<string, uint> itemsByContact
-                = GroupItemsByContact(exploration.JobPostingsExtended);
-            Dictionary<string, uint> itemsByEmployerAddress
-                = GroupItemsByEmployerAddress(exploration.JobPostingsExtended);
-            Dictionary<string, uint> itemsByHowToApply
-                = GroupItemsByHowToApply(exploration.JobPostingsExtended);
-            Dictionary<string, uint> descriptionLengthByPageItemId
-                = SumDescriptionLengthByPageItemId(exploration.JobPostingsExtended);
-            Dictionary<string, uint> bulletPointsByPageItemId
-                = SumBulletPointsByJobPostingId(exploration.JobPostingsExtended);
+            Dictionary<string, uint> jobPostingsByHiringOrgName = GroupJobPostingsByHiringOrgName(exploration.JobPostings);
+            Dictionary< string, uint> jobPostingsByWorkPlaceAddress = GroupJobPostingsByWorkPlaceAddress(exploration.JobPostings);
+            Dictionary<string, uint> jobPostingsByWorkPlacePostalCode = GroupJobPostingsByWorkPlacePostalCode(exploration.JobPostings);
+            Dictionary< string, uint> jobPostingsByWorkPlaceCity = GroupJobPostingsByWorkPlaceCity(exploration.JobPostings);
+            Dictionary<string, uint> jobPostingsByPostingCreated = GroupJobPostingsByPostingCreated(exploration.JobPostings);
+            Dictionary< string, uint> jobPostingsByLastDateApplication = GroupJobPostingsByLastDateApplication(exploration.JobPostings);
+            Dictionary<string, uint> jobPostingsByRegion = GroupJobPostingsByRegion(exploration.JobPostings);
+            Dictionary< string, uint> jobPostingsByMunicipality = GroupJobPostingsByMunicipality(exploration.JobPostings);
+            Dictionary<string, uint> jobPostingsByCountry = GroupJobPostingsByCountry(exploration.JobPostings);
+            Dictionary< string, uint> jobPostingsByEmploymentType = GroupJobPostingsByEmploymentType(exploration.JobPostings);
+            Dictionary<string, uint> jobPostingsByWorkHours = GroupJobPostingsByWorkHours(exploration.JobPostings);
+            Dictionary< string, uint> jobPostingsByOccupation = GroupJobPostingsByOccupation(exploration.JobPostings);
+            Dictionary<string, uint> jobPostingsByWorkplaceId = GroupJobPostingsByWorkplaceId(exploration.JobPostings);
+            Dictionary< string, uint> jobPostingsByOrganisationId = GroupJobPostingsByOrganisationId(exploration.JobPostings);
+            Dictionary<string, uint> jobPostingsByHiringOrgCVR = GroupJobPostingsByHiringOrgCVR(exploration.JobPostings);
+            Dictionary< string, uint> jobPostingsByWorkPlaceCityWithoutZone = GroupJobPostingsByWorkPlaceCityWithoutZone(exploration.JobPostings);
+
+            Dictionary<string, uint> jobPostingsByPublicationStartDate = GroupJobPostingsByPublicationStartDate(exploration.JobPostingsExtended);
+            Dictionary< string, uint> jobPostingsByPublicationEndDate = GroupJobPostingsByPublicationEndDate(exploration.JobPostingsExtended);
+            Dictionary<string, uint> jobPostingsByNumberToFill = GroupJobPostingsByNumberToFill(exploration.JobPostingsExtended);
+            Dictionary< string, uint> jobPostingsByContactEmail = GroupJobPostingsByContactEmail(exploration.JobPostingsExtended);
+            Dictionary<string, uint> jobPostingsByContactPersonName = GroupJobPostingsByContactPersonName(exploration.JobPostingsExtended);
+            Dictionary< string, uint> jobPostingsByEmploymentDate = GroupJobPostingsByEmploymentDate(exploration.JobPostingsExtended);
+            Dictionary<string, uint> jobPostingsByApplicationDeadlineDate = GroupJobPostingsByApplicationDeadlineDate(exploration.JobPostingsExtended);
+            Dictionary< string, uint> jobPostingsByBulletPointScenario = GroupJobPostingsByBulletPointScenario(exploration.JobPostingsExtended);
+
+            Dictionary<string, uint> responseLengthByJobPostingId = SumResponseLengthByJobPostingId(exploration.JobPostings);
+            Dictionary< string, uint> presentationLengthByJobPostingId = SumPresentationLengthByJobPostingId(exploration.JobPostings);
+            Dictionary<string, uint> extendedResponseLengthByJobPostingId = SumExtendedResponseLengthByJobPostingId(exploration.JobPostingsExtended);
+            Dictionary< string, uint> hiringOrgDescriptionLengthByJobPostingId = SumHiringOrgDescriptionLengthByJobPostingId(exploration.JobPostingsExtended);
+            Dictionary<string, uint> purposeLengthByJobPostingId = SumPurposeLengthByJobPostingId(exploration.JobPostingsExtended);
+            Dictionary< string, uint> bulletPointsByJobPostingId = SumBulletPointsByJobPostingId(exploration.JobPostingsExtended);
 
             uint totalBulletPoints = SumBulletPoints(exploration.JobPostingsExtended);
 
@@ -94,22 +94,36 @@ namespace NW.WIDJobs
                 runId: exploration.RunId,
                 totalJobPages: (uint)exploration.JobPages.Count,
                 totalJobPostings: (uint)exploration.JobPostings.Count,
-                itemsByWorkAreaWithoutZone: itemsByWorkAreaWithoutZone,
-                itemsByCreateDate: itemsByCreateDate,
-                itemsByApplicationDate: itemsByApplicationDate,
-                itemsByEmployerName: itemsByEmployerName,
-                itemsByNumberOfOpenings: itemsByNumberOfOpenings,
-                itemsByAdvertisementPublishDate: itemsByAdvertisementPublishDate,
-                itemsByApplicationDeadline: itemsByApplicationDeadline,
-                itemsByStartDateOfEmployment: itemsByStartDateOfEmployment,
-                itemsByReference: itemsByReference,
-                itemsByPosition: itemsByPosition,
-                itemsByTypeOfEmployment: itemsByTypeOfEmployment,
-                itemsByContact: itemsByContact,
-                itemsByEmployerAddress: itemsByEmployerAddress,
-                itemsByHowToApply: itemsByHowToApply,
-                descriptionLengthByPageItemId: descriptionLengthByPageItemId,
-                bulletPointsByPageItemId: bulletPointsByPageItemId,
+                jobPostingsByHiringOrgName: jobPostingsByHiringOrgName,
+                jobPostingsByWorkPlaceAddress: jobPostingsByWorkPlaceAddress,
+                jobPostingsByWorkPlacePostalCode: jobPostingsByWorkPlacePostalCode,
+                jobPostingsByWorkPlaceCity: jobPostingsByWorkPlaceCity,
+                jobPostingsByPostingCreated: jobPostingsByPostingCreated,
+                jobPostingsByLastDateApplication: jobPostingsByLastDateApplication,
+                jobPostingsByRegion: jobPostingsByRegion,
+                jobPostingsByMunicipality: jobPostingsByMunicipality,
+                jobPostingsByCountry: jobPostingsByCountry,
+                jobPostingsByEmploymentType: jobPostingsByEmploymentType,
+                jobPostingsByWorkHours: jobPostingsByWorkHours,
+                jobPostingsByOccupation: jobPostingsByOccupation,
+                jobPostingsByWorkplaceId: jobPostingsByWorkplaceId,
+                jobPostingsByOrganisationId: jobPostingsByOrganisationId,
+                jobPostingsByHiringOrgCVR: jobPostingsByHiringOrgCVR,
+                jobPostingsByWorkPlaceCityWithoutZone: jobPostingsByWorkPlaceCityWithoutZone,
+                jobPostingsByPublicationStartDate: jobPostingsByPublicationStartDate,
+                jobPostingsByPublicationEndDate: jobPostingsByPublicationEndDate,
+                jobPostingsByNumberToFill: jobPostingsByNumberToFill,
+                jobPostingsByContactEmail: jobPostingsByContactEmail,
+                jobPostingsByContactPersonName: jobPostingsByContactPersonName,
+                jobPostingsByEmploymentDate: jobPostingsByEmploymentDate,
+                jobPostingsByApplicationDeadlineDate: jobPostingsByApplicationDeadlineDate,
+                jobPostingsByBulletPointScenario: jobPostingsByBulletPointScenario,
+                responseLengthByJobPostingId: responseLengthByJobPostingId,
+                presentationLengthByJobPostingId: presentationLengthByJobPostingId,
+                extendedResponseLengthByJobPostingId: extendedResponseLengthByJobPostingId,
+                hiringOrgDescriptionLengthByJobPostingId: hiringOrgDescriptionLengthByJobPostingId,
+                purposeLengthByJobPostingId: purposeLengthByJobPostingId,
+                bulletPointsByJobPostingId: bulletPointsByJobPostingId,
                 totalBulletPoints: totalBulletPoints
                 );
 
@@ -306,32 +320,6 @@ namespace NW.WIDJobs
             Dictionary<string, uint> grouped
                 = results.ToDictionary(
                                 result => result.LastDateApplication,
-                                result => (uint)result.JobPostings);
-
-            return grouped;
-
-        }
-        private Dictionary<string, uint> GroupJobPostingsByUrl(List<JobPosting> jobPostings)
-        {
-
-            /*
-                - ...
-            */
-
-            var results =
-                    from jobPosting in jobPostings
-                    group jobPosting by jobPosting.Url into groups
-                    select new
-                    {
-                        Url = groups.Key, // This is never null, so we don't handle that case.
-                        JobPostings = groups.Count()
-                    };
-
-            results = results.OrderByDescending(result => result.JobPostings);
-
-            Dictionary<string, uint> grouped
-                = results.ToDictionary(
-                                result => result.Url,
                                 result => (uint)result.JobPostings);
 
             return grouped;
