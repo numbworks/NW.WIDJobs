@@ -58,7 +58,7 @@ namespace NW.WIDJobs
             Dictionary<string, uint> itemsByWorkAreaWithoutZone
                 = GroupItemsByWorkAreaWithoutZone(exploration.JobPostings);
             Dictionary<string, uint> itemsByCreateDate
-                = GroupItemsByCreateDate(exploration.JobPostings);
+                = GroupJobPostingsByPostingCreated(exploration.JobPostings);
             Dictionary<string, uint> itemsByApplicationDate
                 = GroupItemsByApplicationDate(exploration.JobPostings);
             Dictionary<string, uint> itemsByEmployerName
@@ -151,36 +151,111 @@ namespace NW.WIDJobs
 
         #region Methods_private
 
-        private Dictionary<string, uint> GroupItemsByWorkAreaWithoutZone(List<PageItem> pageItems)
+        private Dictionary<string, uint> GroupJobPostingsByHiringOrgName(List<JobPosting> jobPostings)
         {
 
             /*
-    			- ("København", 45)
-	    		- ("Nordborg", 12)
-		    	- ("Vejen", 4)
                 - ...
             */
 
             var results =
-                    from item in pageItems
-                    group item by item.WorkAreaWithoutZone into groups
+                    from jobPosting in jobPostings
+                    group jobPosting by jobPosting.HiringOrgName into groups
                     select new
                     {
-                        WorkAreaWithoutZone = groups.Key, // This is never null, so we don't handle that case.
-                        Items = groups.Count()
+                        HiringOrgName = groups.Key ?? FormatNull, 
+                        JobPostings = groups.Count()
                     };
 
-            results = results.OrderByDescending(result => result.Items);
+            results = results.OrderByDescending(result => result.JobPostings);
 
             Dictionary<string, uint> grouped
                 = results.ToDictionary(
-                                result => result.WorkAreaWithoutZone,
-                                result => (uint)result.Items);
+                                result => result.HiringOrgName,
+                                result => (uint)result.JobPostings);
 
             return grouped;
 
         }
-        private Dictionary<string, uint> GroupItemsByCreateDate(List<PageItem> pageItems)
+        private Dictionary<string, uint> GroupJobPostingsByWorkPlaceAddress(List<JobPosting> jobPostings)
+        {
+
+            /*
+                - ...
+            */
+
+            var results =
+                    from jobPosting in jobPostings
+                    group jobPosting by jobPosting.WorkPlaceAddress into groups
+                    select new
+                    {
+                        WorkPlaceAddress = groups.Key ?? FormatNull,
+                        JobPostings = groups.Count()
+                    };
+
+            results = results.OrderByDescending(result => result.JobPostings);
+
+            Dictionary<string, uint> grouped
+                = results.ToDictionary(
+                                result => result.WorkPlaceAddress,
+                                result => (uint)result.JobPostings);
+
+            return grouped;
+
+        }
+        private Dictionary<string, uint> GroupJobPostingsByWorkPlacePostalCode(List<JobPosting> jobPostings)
+        {
+
+            /*
+                - ...
+            */
+
+            var results =
+                    from jobPosting in jobPostings
+                    group jobPosting by jobPosting.WorkPlacePostalCode into groups
+                    select new
+                    {
+                        WorkPlacePostalCode = groups.Key?.ToString() ?? FormatNull,
+                        JobPostings = groups.Count()
+                    };
+
+            results = results.OrderByDescending(result => result.JobPostings);
+
+            Dictionary<string, uint> grouped
+                = results.ToDictionary(
+                                result => result.WorkPlacePostalCode,
+                                result => (uint)result.JobPostings);
+
+            return grouped;
+
+        }
+        private Dictionary<string, uint> GroupJobPostingsByWorkPlaceCity(List<JobPosting> jobPostings)
+        {
+
+            /*
+                - ...
+            */
+
+            var results =
+                    from jobPosting in jobPostings
+                    group jobPosting by jobPosting.WorkPlaceCity into groups
+                    select new
+                    {
+                        WorkPlaceCity = groups.Key ?? FormatNull,
+                        JobPostings = groups.Count()
+                    };
+
+            results = results.OrderByDescending(result => result.JobPostings);
+
+            Dictionary<string, uint> grouped
+                = results.ToDictionary(
+                                result => result.WorkPlaceCity,
+                                result => (uint)result.JobPostings);
+
+            return grouped;
+
+        }
+        private Dictionary<string, uint> GroupJobPostingsByPostingCreated(List<JobPosting> jobPostings)
         {
 
             /*
@@ -190,24 +265,342 @@ namespace NW.WIDJobs
             */
 
             var results =
-                    from item in pageItems
-                    group item by item.CreateDate into groups
+                    from jobPosting in jobPostings
+                    group jobPosting by jobPosting.PostingCreated into groups
                     select new
                     {
-                        CreateDate = groups.Key.ToString(FormatDate), // This is never null, so we don't handle that case.
-                        Items = groups.Count()
+                        PostingCreated = groups.Key.ToString(FormatDate), // This is never null, so we don't handle that case.
+                        JobPostings = groups.Count()
                     };
 
-            results = results.OrderByDescending(result => result.CreateDate);
+            results = results.OrderByDescending(result => result.PostingCreated);
 
             Dictionary<string, uint> grouped
                 = results.ToDictionary(
-                                result => result.CreateDate,
-                                result => (uint)result.Items);
+                                result => result.PostingCreated,
+                                result => (uint)result.JobPostings);
 
             return grouped;
 
         }
+        private Dictionary<string, uint> GroupJobPostingsByLastDateApplication(List<JobPosting> jobPostings)
+        {
+
+            /*
+    			- ("2021-05-21", 57)
+			    - ("2021-05-10", 23)
+			    - ...
+            */
+
+            var results =
+                    from jobPosting in jobPostings
+                    group jobPosting by jobPosting.LastDateApplication into groups
+                    select new
+                    {
+                        LastDateApplication = groups.Key.ToString(FormatDate), // This is never null, so we don't handle that case.
+                        JobPostings = groups.Count()
+                    };
+
+            results = results.OrderByDescending(result => result.LastDateApplication);
+
+            Dictionary<string, uint> grouped
+                = results.ToDictionary(
+                                result => result.LastDateApplication,
+                                result => (uint)result.JobPostings);
+
+            return grouped;
+
+        }
+        private Dictionary<string, uint> GroupJobPostingsByUrl(List<JobPosting> jobPostings)
+        {
+
+            /*
+                - ...
+            */
+
+            var results =
+                    from jobPosting in jobPostings
+                    group jobPosting by jobPosting.Url into groups
+                    select new
+                    {
+                        Url = groups.Key, // This is never null, so we don't handle that case.
+                        JobPostings = groups.Count()
+                    };
+
+            results = results.OrderByDescending(result => result.JobPostings);
+
+            Dictionary<string, uint> grouped
+                = results.ToDictionary(
+                                result => result.Url,
+                                result => (uint)result.JobPostings);
+
+            return grouped;
+
+        }
+        private Dictionary<string, uint> GroupJobPostingsByRegion(List<JobPosting> jobPostings)
+        {
+
+            /*
+                - ...
+            */
+
+            var results =
+                    from jobPosting in jobPostings
+                    group jobPosting by jobPosting.Region into groups
+                    select new
+                    {
+                        Region = groups.Key ?? FormatNull,
+                        JobPostings = groups.Count()
+                    };
+
+            results = results.OrderByDescending(result => result.JobPostings);
+
+            Dictionary<string, uint> grouped
+                = results.ToDictionary(
+                                result => result.Region,
+                                result => (uint)result.JobPostings);
+
+            return grouped;
+
+        }
+        private Dictionary<string, uint> GroupJobPostingsByMunicipality(List<JobPosting> jobPostings)
+        {
+
+            /*
+                - ...
+            */
+
+            var results =
+                    from jobPosting in jobPostings
+                    group jobPosting by jobPosting.Municipality into groups
+                    select new
+                    {
+                        Municipality = groups.Key ?? FormatNull,
+                        JobPostings = groups.Count()
+                    };
+
+            results = results.OrderByDescending(result => result.JobPostings);
+
+            Dictionary<string, uint> grouped
+                = results.ToDictionary(
+                                result => result.Municipality,
+                                result => (uint)result.JobPostings);
+
+            return grouped;
+
+        }
+        private Dictionary<string, uint> GroupJobPostingsByCountry(List<JobPosting> jobPostings)
+        {
+
+            /*
+                - ...
+            */
+
+            var results =
+                    from jobPosting in jobPostings
+                    group jobPosting by jobPosting.Country into groups
+                    select new
+                    {
+                        Country = groups.Key ?? FormatNull,
+                        JobPostings = groups.Count()
+                    };
+
+            results = results.OrderByDescending(result => result.JobPostings);
+
+            Dictionary<string, uint> grouped
+                = results.ToDictionary(
+                                result => result.Country,
+                                result => (uint)result.JobPostings);
+
+            return grouped;
+
+        }
+        private Dictionary<string, uint> GroupJobPostingsByEmploymentType(List<JobPosting> jobPostings)
+        {
+
+            /*
+                - ...
+            */
+
+            var results =
+                    from jobPosting in jobPostings
+                    group jobPosting by jobPosting.EmploymentType into groups
+                    select new
+                    {
+                        EmploymentType = groups.Key ?? FormatNull,
+                        JobPostings = groups.Count()
+                    };
+
+            results = results.OrderByDescending(result => result.JobPostings);
+
+            Dictionary<string, uint> grouped
+                = results.ToDictionary(
+                                result => result.EmploymentType,
+                                result => (uint)result.JobPostings);
+
+            return grouped;
+
+        }
+        private Dictionary<string, uint> GroupJobPostingsByWorkHours(List<JobPosting> jobPostings)
+        {
+
+            /*
+                - ...
+            */
+
+            var results =
+                    from jobPosting in jobPostings
+                    group jobPosting by jobPosting.WorkHours into groups
+                    select new
+                    {
+                        WorkHours = groups.Key ?? FormatNull,
+                        JobPostings = groups.Count()
+                    };
+
+            results = results.OrderByDescending(result => result.JobPostings);
+
+            Dictionary<string, uint> grouped
+                = results.ToDictionary(
+                                result => result.WorkHours,
+                                result => (uint)result.JobPostings);
+
+            return grouped;
+
+        }
+        private Dictionary<string, uint> GroupJobPostingsByOccupation(List<JobPosting> jobPostings)
+        {
+
+            /*
+                - ...
+            */
+
+            var results =
+                    from jobPosting in jobPostings
+                    group jobPosting by jobPosting.Occupation into groups
+                    select new
+                    {
+                        Occupation = groups.Key ?? FormatNull,
+                        JobPostings = groups.Count()
+                    };
+
+            results = results.OrderByDescending(result => result.JobPostings);
+
+            Dictionary<string, uint> grouped
+                = results.ToDictionary(
+                                result => result.Occupation,
+                                result => (uint)result.JobPostings);
+
+            return grouped;
+
+        }
+        private Dictionary<string, uint> GroupJobPostingsByWorkplaceId(List<JobPosting> jobPostings)
+        {
+
+            /*
+                - ...
+            */
+
+            var results =
+                    from jobPosting in jobPostings
+                    group jobPosting by jobPosting.WorkplaceId into groups
+                    select new
+                    {
+                        WorkplaceId = groups.Key.ToString(), // This is never null, so we don't handle that case.
+                        JobPostings = groups.Count()
+                    };
+
+            results = results.OrderByDescending(result => result.JobPostings);
+
+            Dictionary<string, uint> grouped
+                = results.ToDictionary(
+                                result => result.WorkplaceId,
+                                result => (uint)result.JobPostings);
+
+            return grouped;
+
+        }
+        private Dictionary<string, uint> GroupJobPostingsByOrganisationId(List<JobPosting> jobPostings)
+        {
+
+            /*
+                - ...
+            */
+
+            var results =
+                    from jobPosting in jobPostings
+                    group jobPosting by jobPosting.OrganisationId into groups
+                    select new
+                    {
+                        OrganisationId = groups.Key?.ToString() ?? FormatNull,
+                        JobPostings = groups.Count()
+                    };
+
+            results = results.OrderByDescending(result => result.JobPostings);
+
+            Dictionary<string, uint> grouped
+                = results.ToDictionary(
+                                result => result.OrganisationId,
+                                result => (uint)result.JobPostings);
+
+            return grouped;
+
+        }
+        private Dictionary<string, uint> GroupJobPostingsByHiringOrgCVR(List<JobPosting> jobPostings)
+        {
+
+            /*
+                - ...
+            */
+
+            var results =
+                    from jobPosting in jobPostings
+                    group jobPosting by jobPosting.HiringOrgCVR into groups
+                    select new
+                    {
+                        HiringOrgCVR = groups.Key.ToString(), // This is never null, so we don't handle that case.
+                        JobPostings = groups.Count()
+                    };
+
+            results = results.OrderByDescending(result => result.JobPostings);
+
+            Dictionary<string, uint> grouped
+                = results.ToDictionary(
+                                result => result.HiringOrgCVR,
+                                result => (uint)result.JobPostings);
+
+            return grouped;
+
+        }
+        private Dictionary<string, uint> GroupJobPostingsByWorkPlaceCityWithoutZone(List<JobPosting> jobPostings)
+        {
+
+            /*
+                - ...
+            */
+
+            var results =
+                    from jobPosting in jobPostings
+                    group jobPosting by jobPosting.WorkPlaceCityWithoutZone into groups
+                    select new
+                    {
+                        WorkPlaceCityWithoutZone = groups.Key?.ToString() ?? FormatNull,
+                        JobPostings = groups.Count()
+                    };
+
+            results = results.OrderByDescending(result => result.JobPostings);
+
+            Dictionary<string, uint> grouped
+                = results.ToDictionary(
+                                result => result.WorkPlaceCityWithoutZone,
+                                result => (uint)result.JobPostings);
+
+            return grouped;
+
+        }
+
+
+
+
         private Dictionary<string, uint> GroupItemsByApplicationDate(List<PageItem> pageItems)
         {
 
