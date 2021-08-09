@@ -507,41 +507,41 @@ namespace NW.WIDJobs
             dynamic dyn = new ExpandoObject();
 
             dyn.RunId = metrics.RunId;
-            dyn.TotalPages = metrics.TotalPages;
-            dyn.TotalItems = metrics.TotalItems;
+            dyn.TotalPages = metrics.TotalJobPages;
+            dyn.TotalItems = metrics.TotalJobPostings;
 
             dyn.ItemsByWorkAreaWithoutZone =
-                _components.MetricsManager.ConvertToPercentages(metrics.ItemsByWorkAreaWithoutZone);
+                _components.MetricsManager.ConvertToPercentages(metrics.JobPostingsByWorkPlaceCityWithoutZone);
             dyn.ItemsByCreateDate =
-                _components.MetricsManager.ConvertToPercentages(metrics.ItemsByCreateDate);
+                _components.MetricsManager.ConvertToPercentages(metrics.JobPostingsByPostingCreated);
             dyn.ItemsByApplicationDate =
-                _components.MetricsManager.ConvertToPercentages(metrics.ItemsByApplicationDate);
+                _components.MetricsManager.ConvertToPercentages(metrics.JobPostingsByLastDateApplication);
             dyn.ItemsByEmployerName =
-                _components.MetricsManager.ConvertToPercentages(metrics.ItemsByEmployerName);
+                _components.MetricsManager.ConvertToPercentages(metrics.JobPostingsByHiringOrgName);
             dyn.ItemsByNumberOfOpenings =
-                _components.MetricsManager.ConvertToPercentages(metrics.ItemsByNumberOfOpenings);
+                _components.MetricsManager.ConvertToPercentages(metrics.JobPostingsByRegion);
             dyn.ItemsByAdvertisementPublishDate =
-                _components.MetricsManager.ConvertToPercentages(metrics.ItemsByAdvertisementPublishDate);
+                _components.MetricsManager.ConvertToPercentages(metrics.JobPostingsByMunicipality);
             dyn.ItemsByApplicationDeadline =
-                _components.MetricsManager.ConvertToPercentages(metrics.ItemsByApplicationDeadline);
+                _components.MetricsManager.ConvertToPercentages(metrics.JobPostingsByCountry);
             dyn.ItemsByStartDateOfEmployment =
-                _components.MetricsManager.ConvertToPercentages(metrics.ItemsByStartDateOfEmployment);
+                _components.MetricsManager.ConvertToPercentages(metrics.JobPostingsByEmploymentType);
             dyn.ItemsByReference =
-                _components.MetricsManager.ConvertToPercentages(metrics.ItemsByReference);
+                _components.MetricsManager.ConvertToPercentages(metrics.JobPostingsByWorkHours);
             dyn.ItemsByPosition =
-                _components.MetricsManager.ConvertToPercentages(metrics.ItemsByPosition);
+                _components.MetricsManager.ConvertToPercentages(metrics.JobPostingsByOccupation);
             dyn.ItemsByTypeOfEmployment =
-                _components.MetricsManager.ConvertToPercentages(metrics.ItemsByTypeOfEmployment);
+                _components.MetricsManager.ConvertToPercentages(metrics.JobPostingsByOrganisationId);
             dyn.ItemsByContact =
-                _components.MetricsManager.ConvertToPercentages(metrics.ItemsByContact);
+                _components.MetricsManager.ConvertToPercentages(metrics.JobPostingsByHiringOrgCVR);
             dyn.ItemsByEmployerAddress =
-                _components.MetricsManager.ConvertToPercentages(metrics.ItemsByEmployerAddress);
+                _components.MetricsManager.ConvertToPercentages(metrics.JobPostingsByWorkplaceId );
             dyn.ItemsByHowToApply =
-                _components.MetricsManager.ConvertToPercentages(metrics.ItemsByHowToApply);
+                _components.MetricsManager.ConvertToPercentages(metrics.HiringOrgDescriptionLengthByJobPostingId);
             dyn.DescriptionLengthByPageItemId =
-                _components.MetricsManager.ConvertToPercentages(metrics.DescriptionLengthByPageItemId);
+                _components.MetricsManager.ConvertToPercentages(metrics.ExtendedResponseLengthByJobPostingId);
             dyn.BulletPointsByPageItemId =
-                _components.MetricsManager.ConvertToPercentages(metrics.BulletPointsByPageItemId);
+                _components.MetricsManager.ConvertToPercentages(metrics.BulletPointsByJobPostingId);
 
             dyn.TotalBulletPoints = metrics.TotalBulletPoints;
 

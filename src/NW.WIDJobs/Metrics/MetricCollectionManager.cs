@@ -92,8 +92,8 @@ namespace NW.WIDJobs
 
             MetricCollection metrics = new MetricCollection(
                 runId: exploration.RunId,
-                totalPages: (uint)exploration.JobPages.Count,
-                totalItems: (uint)exploration.JobPostings.Count,
+                totalJobPages: (uint)exploration.JobPages.Count,
+                totalJobPostings: (uint)exploration.JobPostings.Count,
                 itemsByWorkAreaWithoutZone: itemsByWorkAreaWithoutZone,
                 itemsByCreateDate: itemsByCreateDate,
                 itemsByApplicationDate: itemsByApplicationDate,

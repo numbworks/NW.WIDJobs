@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace NW.WIDJobs
 {
-    /// <summary>The metrics of an exploration on <see href="http://www.workindenmark.dk">WorkInDenmark</see>.</summary>
+    /// <summary>The metrics of an <see cref="Exploration"/>.</summary>
     public class MetricCollection
     {
 
@@ -14,24 +14,42 @@ namespace NW.WIDJobs
         #region Properties
 
         public string RunId { get; }
-        public uint TotalPages { get; }
-        public uint TotalItems { get; }
-        public Dictionary<string, uint> ItemsByWorkAreaWithoutZone { get; }
-        public Dictionary<string, uint> ItemsByCreateDate { get; }
-        public Dictionary<string, uint> ItemsByApplicationDate { get; }
-        public Dictionary<string, uint> ItemsByEmployerName { get; }
-        public Dictionary<string, uint> ItemsByNumberOfOpenings { get; }
-        public Dictionary<string, uint> ItemsByAdvertisementPublishDate { get; }
-        public Dictionary<string, uint> ItemsByApplicationDeadline { get; }
-        public Dictionary<string, uint> ItemsByStartDateOfEmployment { get; }
-        public Dictionary<string, uint> ItemsByReference { get; }
-        public Dictionary<string, uint> ItemsByPosition { get; }
-        public Dictionary<string, uint> ItemsByTypeOfEmployment { get; }
-        public Dictionary<string, uint> ItemsByContact { get; }
-        public Dictionary<string, uint> ItemsByEmployerAddress { get; }
-        public Dictionary<string, uint> ItemsByHowToApply { get; }
-        public Dictionary<string, uint> DescriptionLengthByPageItemId { get; }
-        public Dictionary<string, uint> BulletPointsByPageItemId { get; }
+        public uint TotalJobPages { get; }
+        public uint TotalJobPostings { get; }
+
+        public Dictionary<string, uint> JobPostingsByHiringOrgName { get; }
+        public Dictionary<string, uint> JobPostingsByWorkPlaceAddress { get; }
+        public Dictionary<string, uint> JobPostingsByWorkPlacePostalCode { get; }
+        public Dictionary<string, uint> JobPostingsByWorkPlaceCity { get; }
+        public Dictionary<string, uint> JobPostingsByPostingCreated { get; }
+        public Dictionary<string, uint> JobPostingsByLastDateApplication { get; }
+        public Dictionary<string, uint> JobPostingsByRegion { get; }
+        public Dictionary<string, uint> JobPostingsByMunicipality { get; }
+        public Dictionary<string, uint> JobPostingsByCountry { get; }
+        public Dictionary<string, uint> JobPostingsByEmploymentType { get; }
+        public Dictionary<string, uint> JobPostingsByWorkHours { get; }
+        public Dictionary<string, uint> JobPostingsByOccupation { get; }
+        public Dictionary<string, uint> JobPostingsByWorkplaceId { get; }
+        public Dictionary<string, uint> JobPostingsByOrganisationId { get; }
+        public Dictionary<string, uint> JobPostingsByHiringOrgCVR { get; }
+        public Dictionary<string, uint> JobPostingsByWorkPlaceCityWithoutZone { get; }
+
+        public Dictionary<string, uint> JobPostingsByPublicationStartDate { get; }
+        public Dictionary<string, uint> JobPostingsByPublicationEndDate { get; }
+        public Dictionary<string, uint> JobPostingsByNumberToFill { get; }
+        public Dictionary<string, uint> JobPostingsByContactEmail { get; }
+        public Dictionary<string, uint> JobPostingsByContactPersonName { get; }
+        public Dictionary<string, uint> JobPostingsByEmploymentDate { get; }
+        public Dictionary<string, uint> JobPostingsByApplicationDeadlineDate { get; }
+        public Dictionary<string, uint> JobPostingsByBulletPointScenario { get; }
+
+        public Dictionary<string, uint> ResponseLengthByJobPostingId { get; }
+        public Dictionary<string, uint> PresentationLengthByJobPostingId { get; }
+        public Dictionary<string, uint> ExtendedResponseLengthByJobPostingId { get; }
+        public Dictionary<string, uint> HiringOrgDescriptionLengthByJobPostingId { get; }
+        public Dictionary<string, uint> PurposeLengthByJobPostingId { get; }
+        public Dictionary<string, uint> BulletPointsByJobPostingId { get; }
+
         public uint TotalBulletPoints { get; }
 
         #endregion
@@ -41,68 +59,115 @@ namespace NW.WIDJobs
         ///<summary>Initializes a <see cref="MetricCollection"/> instance.</summary>
         public MetricCollection(
             string runId,
-            uint totalPages,
-            uint totalItems,
-            Dictionary<string, uint> itemsByWorkAreaWithoutZone,
-            Dictionary<string, uint> itemsByCreateDate,
-            Dictionary<string, uint> itemsByApplicationDate,
-            Dictionary<string, uint> itemsByEmployerName,
-            Dictionary<string, uint> itemsByNumberOfOpenings,
-            Dictionary<string, uint> itemsByAdvertisementPublishDate,
-            Dictionary<string, uint> itemsByApplicationDeadline,
-            Dictionary<string, uint> itemsByStartDateOfEmployment,
-            Dictionary<string, uint> itemsByReference,
-            Dictionary<string, uint> itemsByPosition,
-            Dictionary<string, uint> itemsByTypeOfEmployment,
-            Dictionary<string, uint> itemsByContact,
-            Dictionary<string, uint> itemsByEmployerAddress,
-            Dictionary<string, uint> itemsByHowToApply,
-            Dictionary<string, uint> descriptionLengthByPageItemId,
-            Dictionary<string, uint> bulletPointsByPageItemId,
+            uint totalJobPages,
+            uint totalJobPostings,
+            Dictionary<string, uint> jobPostingsByHiringOrgName,
+            Dictionary<string, uint> jobPostingsByWorkPlaceAddress,
+            Dictionary<string, uint> jobPostingsByWorkPlacePostalCode,
+            Dictionary<string, uint> jobPostingsByWorkPlaceCity,
+            Dictionary<string, uint> jobPostingsByPostingCreated,
+            Dictionary<string, uint> jobPostingsByLastDateApplication,
+            Dictionary<string, uint> jobPostingsByRegion,
+            Dictionary<string, uint> jobPostingsByMunicipality,
+            Dictionary<string, uint> jobPostingsByCountry,
+            Dictionary<string, uint> jobPostingsByEmploymentType,
+            Dictionary<string, uint> jobPostingsByWorkHours,
+            Dictionary<string, uint> jobPostingsByOccupation,
+            Dictionary<string, uint> jobPostingsByWorkplaceId,
+            Dictionary<string, uint> jobPostingsByOrganisationId,
+            Dictionary<string, uint> jobPostingsByHiringOrgCVR,
+            Dictionary<string, uint> jobPostingsByWorkPlaceCityWithoutZone,
+            Dictionary<string, uint> jobPostingsByPublicationStartDate,
+            Dictionary<string, uint> jobPostingsByPublicationEndDate,
+            Dictionary<string, uint> jobPostingsByNumberToFill,
+            Dictionary<string, uint> jobPostingsByContactEmail,
+            Dictionary<string, uint> jobPostingsByContactPersonName,
+            Dictionary<string, uint> jobPostingsByEmploymentDate,
+            Dictionary<string, uint> jobPostingsByApplicationDeadlineDate,
+            Dictionary<string, uint> jobPostingsByBulletPointScenario,
+            Dictionary<string, uint> responseLengthByJobPostingId,
+            Dictionary<string, uint> presentationLengthByJobPostingId,
+            Dictionary<string, uint> extendedResponseLengthByJobPostingId,
+            Dictionary<string, uint> hiringOrgDescriptionLengthByJobPostingId,
+            Dictionary<string, uint> purposeLengthByJobPostingId,
+            Dictionary<string, uint> bulletPointsByJobPostingId,
             uint totalBulletPoints
             ) 
         {
 
             Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
-            Validator.ThrowIfLessThanOne(totalPages, nameof(totalPages));
-            Validator.ThrowIfLessThanOne(totalItems, nameof(totalItems));
-            Validator.ValidateList(itemsByWorkAreaWithoutZone?.ToList(), nameof(itemsByWorkAreaWithoutZone));
-            Validator.ValidateList(itemsByCreateDate?.ToList(), nameof(itemsByCreateDate));
-            Validator.ValidateList(itemsByApplicationDate?.ToList(), nameof(itemsByApplicationDate));
-            Validator.ValidateList(itemsByEmployerName?.ToList(), nameof(itemsByEmployerName));
-            Validator.ValidateList(itemsByNumberOfOpenings?.ToList(), nameof(itemsByNumberOfOpenings));
-            Validator.ValidateList(itemsByAdvertisementPublishDate?.ToList(), nameof(itemsByAdvertisementPublishDate));
-            Validator.ValidateList(itemsByApplicationDeadline?.ToList(), nameof(itemsByApplicationDeadline));
-            Validator.ValidateList(itemsByStartDateOfEmployment?.ToList(), nameof(itemsByStartDateOfEmployment));
-            Validator.ValidateList(itemsByReference?.ToList(), nameof(itemsByReference));
-            Validator.ValidateList(itemsByPosition?.ToList(), nameof(itemsByPosition));
-            Validator.ValidateList(itemsByTypeOfEmployment?.ToList(), nameof(itemsByTypeOfEmployment));
-            Validator.ValidateList(itemsByContact?.ToList(), nameof(itemsByContact));
-            Validator.ValidateList(itemsByEmployerAddress?.ToList(), nameof(itemsByEmployerAddress));
-            Validator.ValidateList(itemsByHowToApply?.ToList(), nameof(itemsByHowToApply));
-            Validator.ValidateList(descriptionLengthByPageItemId?.ToList(), nameof(descriptionLengthByPageItemId));
-            Validator.ValidateList(bulletPointsByPageItemId?.ToList(), nameof(bulletPointsByPageItemId));
+            Validator.ThrowIfLessThanOne(totalJobPages, nameof(totalJobPages));
+            Validator.ThrowIfLessThanOne(totalJobPostings, nameof(totalJobPostings));
+
+            Validator.ValidateList(jobPostingsByHiringOrgName?.ToList(), nameof(jobPostingsByHiringOrgName));
+            Validator.ValidateList(jobPostingsByWorkPlaceAddress?.ToList(), nameof(jobPostingsByWorkPlaceAddress));
+            Validator.ValidateList(jobPostingsByWorkPlacePostalCode?.ToList(), nameof(jobPostingsByWorkPlacePostalCode));
+            Validator.ValidateList(jobPostingsByWorkPlaceCity?.ToList(), nameof(jobPostingsByWorkPlaceCity));
+            Validator.ValidateList(jobPostingsByPostingCreated?.ToList(), nameof(jobPostingsByPostingCreated));
+            Validator.ValidateList(jobPostingsByLastDateApplication?.ToList(), nameof(jobPostingsByLastDateApplication));
+            Validator.ValidateList(jobPostingsByRegion?.ToList(), nameof(jobPostingsByRegion));
+            Validator.ValidateList(jobPostingsByMunicipality?.ToList(), nameof(jobPostingsByMunicipality));
+            Validator.ValidateList(jobPostingsByCountry?.ToList(), nameof(jobPostingsByCountry));
+            Validator.ValidateList(jobPostingsByEmploymentType?.ToList(), nameof(jobPostingsByEmploymentType));
+            Validator.ValidateList(jobPostingsByWorkHours?.ToList(), nameof(jobPostingsByWorkHours));
+            Validator.ValidateList(jobPostingsByOccupation?.ToList(), nameof(jobPostingsByOccupation));
+            Validator.ValidateList(jobPostingsByWorkplaceId?.ToList(), nameof(jobPostingsByWorkplaceId));
+            Validator.ValidateList(jobPostingsByOrganisationId?.ToList(), nameof(jobPostingsByOrganisationId));
+            Validator.ValidateList(jobPostingsByHiringOrgCVR?.ToList(), nameof(jobPostingsByHiringOrgCVR));
+            Validator.ValidateList(jobPostingsByWorkPlaceCityWithoutZone?.ToList(), nameof(jobPostingsByWorkPlaceCityWithoutZone));
+
+            Validator.ValidateList(jobPostingsByPublicationStartDate?.ToList(), nameof(jobPostingsByPublicationStartDate));
+            Validator.ValidateList(jobPostingsByPublicationEndDate?.ToList(), nameof(jobPostingsByPublicationEndDate));
+            Validator.ValidateList(jobPostingsByNumberToFill?.ToList(), nameof(jobPostingsByNumberToFill));
+            Validator.ValidateList(jobPostingsByContactEmail?.ToList(), nameof(jobPostingsByContactEmail));
+            Validator.ValidateList(jobPostingsByContactPersonName?.ToList(), nameof(jobPostingsByContactPersonName));
+            Validator.ValidateList(jobPostingsByEmploymentDate?.ToList(), nameof(jobPostingsByEmploymentDate));
+            Validator.ValidateList(jobPostingsByApplicationDeadlineDate?.ToList(), nameof(jobPostingsByApplicationDeadlineDate));
+            Validator.ValidateList(jobPostingsByBulletPointScenario?.ToList(), nameof(jobPostingsByBulletPointScenario));
+
+            Validator.ValidateList(responseLengthByJobPostingId?.ToList(), nameof(responseLengthByJobPostingId));
+            Validator.ValidateList(presentationLengthByJobPostingId?.ToList(), nameof(presentationLengthByJobPostingId));
+            Validator.ValidateList(extendedResponseLengthByJobPostingId?.ToList(), nameof(extendedResponseLengthByJobPostingId));
+            Validator.ValidateList(hiringOrgDescriptionLengthByJobPostingId?.ToList(), nameof(hiringOrgDescriptionLengthByJobPostingId));
+            Validator.ValidateList(purposeLengthByJobPostingId?.ToList(), nameof(purposeLengthByJobPostingId));
+            Validator.ValidateList(bulletPointsByJobPostingId?.ToList(), nameof(bulletPointsByJobPostingId));
 
             RunId = runId;
-            TotalPages = totalPages;
-            TotalItems = totalItems;
+            TotalJobPages = totalJobPages;
+            TotalJobPostings = totalJobPostings;
 
-            ItemsByWorkAreaWithoutZone = itemsByWorkAreaWithoutZone;
-            ItemsByCreateDate = itemsByCreateDate;
-            ItemsByApplicationDate = itemsByApplicationDate;
-            ItemsByEmployerName = itemsByEmployerName;
-            ItemsByNumberOfOpenings = itemsByNumberOfOpenings;
-            ItemsByAdvertisementPublishDate = itemsByAdvertisementPublishDate;
-            ItemsByApplicationDeadline = itemsByApplicationDeadline;
-            ItemsByStartDateOfEmployment = itemsByStartDateOfEmployment;
-            ItemsByReference = itemsByReference;
-            ItemsByPosition = itemsByPosition;
-            ItemsByTypeOfEmployment = itemsByTypeOfEmployment;
-            ItemsByContact = itemsByContact;
-            ItemsByEmployerAddress = itemsByEmployerAddress;
-            ItemsByHowToApply = itemsByHowToApply;
-            DescriptionLengthByPageItemId = descriptionLengthByPageItemId;
-            BulletPointsByPageItemId = bulletPointsByPageItemId;
+            JobPostingsByHiringOrgName = jobPostingsByHiringOrgName;
+            JobPostingsByWorkPlaceAddress = jobPostingsByWorkPlaceAddress;
+            JobPostingsByWorkPlacePostalCode = jobPostingsByWorkPlacePostalCode;
+            JobPostingsByWorkPlaceCity = jobPostingsByWorkPlaceCity;
+            JobPostingsByPostingCreated = jobPostingsByPostingCreated;
+            JobPostingsByLastDateApplication = jobPostingsByLastDateApplication;
+            JobPostingsByRegion = jobPostingsByRegion;
+            JobPostingsByMunicipality = jobPostingsByMunicipality;
+            JobPostingsByCountry = jobPostingsByCountry;
+            JobPostingsByEmploymentType = jobPostingsByEmploymentType;
+            JobPostingsByWorkHours = jobPostingsByWorkHours;
+            JobPostingsByOccupation = jobPostingsByOccupation;
+            JobPostingsByWorkplaceId = jobPostingsByWorkplaceId;
+            JobPostingsByOrganisationId = jobPostingsByOrganisationId;
+            JobPostingsByHiringOrgCVR = jobPostingsByHiringOrgCVR;
+            JobPostingsByWorkPlaceCityWithoutZone = jobPostingsByWorkPlaceCityWithoutZone;
+
+            JobPostingsByPublicationStartDate = jobPostingsByPublicationStartDate;
+            JobPostingsByPublicationEndDate = jobPostingsByPublicationEndDate;
+            JobPostingsByNumberToFill = jobPostingsByNumberToFill;
+            JobPostingsByContactEmail = jobPostingsByContactEmail;
+            JobPostingsByContactPersonName = jobPostingsByContactPersonName;
+            JobPostingsByEmploymentDate = jobPostingsByEmploymentDate;
+            JobPostingsByApplicationDeadlineDate = jobPostingsByApplicationDeadlineDate;
+            JobPostingsByBulletPointScenario = jobPostingsByBulletPointScenario;
+
+            ResponseLengthByJobPostingId = responseLengthByJobPostingId;
+            PresentationLengthByJobPostingId = presentationLengthByJobPostingId;
+            ExtendedResponseLengthByJobPostingId = extendedResponseLengthByJobPostingId;
+            HiringOrgDescriptionLengthByJobPostingId = hiringOrgDescriptionLengthByJobPostingId;
+            PurposeLengthByJobPostingId = purposeLengthByJobPostingId;
+            BulletPointsByJobPostingId = bulletPointsByJobPostingId;
 
             TotalBulletPoints = totalBulletPoints;
 
@@ -118,5 +183,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 28.05.2021
+    Last Update: 08.08.2021
 */
