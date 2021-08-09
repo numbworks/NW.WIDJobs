@@ -39,7 +39,7 @@ namespace NW.WIDJobs.UnitTests
                                 null, 
                                 2, 
                                 WIDCategories.AllCategories, 
-                                WIDStages.Stage1_OnlyMetrics
+                                Stages.Stage1_OnlyMetrics
                         )),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("runId").Message
@@ -52,7 +52,7 @@ namespace NW.WIDJobs.UnitTests
                                 ObjectMother.Shared_FakeRunId, 
                                 0, 
                                 WIDCategories.AllCategories, 
-                                WIDStages.Stage1_OnlyMetrics
+                                Stages.Stage1_OnlyMetrics
                         )),
                 typeof(ArgumentException),
                 MessageCollection.Validator_VariableCantBeLessThanOne.Invoke("finalPageNumber")
@@ -65,7 +65,7 @@ namespace NW.WIDJobs.UnitTests
                                 null, 
                                 ObjectMother.WIDExplorer_FakeNow,
                                 WIDCategories.AllCategories, 
-                                WIDStages.Stage1_OnlyMetrics
+                                Stages.Stage1_OnlyMetrics
                         )),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("runId").Message
@@ -122,7 +122,7 @@ namespace NW.WIDJobs.UnitTests
                             .ExploreAll(
                                 null,
                                 WIDCategories.AllCategories,
-                                WIDStages.Stage1_OnlyMetrics
+                                Stages.Stage1_OnlyMetrics
                         )),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("runId").Message
@@ -377,25 +377,25 @@ namespace NW.WIDJobs.UnitTests
 
             };
 
-            WIDExploration expected
+            Exploration expected
                 = new WIDExploration(
                         ObjectMother.Shared_FakeRunId,
                         ObjectMother.Shared_Page01_TotalResults,
                         ObjectMother.Shared_Page01_TotalEstimatedPages,
                         WIDCategories.AllCategories,
-                        WIDStages.Stage2_UpToAllJobPostings,
+                        Stages.Stage2_UpToAllJobPostings,
                         true,
                         pages,
                         ObjectMother.Shared_Page02Alternate_GetPageItemsSubset.Invoke(expectedPageItemsIndex)
                         );
 
             // Act
-            WIDExploration actual
+            Exploration actual
                 = explorer.Explore(
                             ObjectMother.Shared_FakeRunId,
                             thresholdDate,
                             WIDCategories.AllCategories,
-                            WIDStages.Stage2_UpToAllJobPostings);
+                            Stages.Stage2_UpToAllJobPostings);
 
             // Assert
             Assert.IsTrue(
@@ -456,13 +456,13 @@ namespace NW.WIDJobs.UnitTests
 
             };
 
-            WIDExploration expected
+            Exploration expected
                 = new WIDExploration(
                         ObjectMother.Shared_FakeRunId,
                         ObjectMother.Shared_Page01_TotalResults,
                         ObjectMother.Shared_Page01_TotalEstimatedPages,
                         WIDCategories.AllCategories,
-                        WIDStages.Stage3_UpToAllJobPostingsExtended,
+                        Stages.Stage3_UpToAllJobPostingsExtended,
                         true,
                         pages,
                         ObjectMother.Shared_Page02Alternate_GetPageItemsSubset.Invoke(expectedPageItemsIndex),
@@ -470,12 +470,12 @@ namespace NW.WIDJobs.UnitTests
                         );
 
             // Act
-            WIDExploration actual
+            Exploration actual
                 = explorer.Explore(
                             ObjectMother.Shared_FakeRunId,
                             thresholdDate,
                             WIDCategories.AllCategories,
-                            WIDStages.Stage3_UpToAllJobPostingsExtended);
+                            Stages.Stage3_UpToAllJobPostingsExtended);
 
             // Assert
             Assert.IsTrue(
@@ -538,19 +538,19 @@ namespace NW.WIDJobs.UnitTests
                     )
 
             };
-            WIDExploration expected
+            Exploration expected
                 = new WIDExploration(
                         runIdFakeNow,
                         ObjectMother.Shared_Page01_TotalResults,
                         ObjectMother.Shared_Page01_TotalEstimatedPages,
                         WIDCategories.AllCategories,
-                        WIDStages.Stage1_OnlyMetrics,
+                        Stages.Stage1_OnlyMetrics,
                         true,
                         pages
                         );
 
             // Act
-            WIDExploration actual = explorer.Explore(2, WIDCategories.AllCategories, WIDStages.Stage1_OnlyMetrics);
+            Exploration actual = explorer.Explore(2, WIDCategories.AllCategories, Stages.Stage1_OnlyMetrics);
 
             // Assert
             Assert.IsTrue(
@@ -612,25 +612,25 @@ namespace NW.WIDJobs.UnitTests
             List<PageItem> pageItems = new List<PageItem>() { };
             pageItems.AddRange(ObjectMother.Shared_Page01Alternate_PageItems);
             pageItems.AddRange(ObjectMother.Shared_Page02Alternate_PageItems);
-            WIDExploration expected
+            Exploration expected
                 = new WIDExploration(
                         ObjectMother.Shared_FakeRunId,
                         ObjectMother.Shared_Page01_TotalResults,
                         ObjectMother.Shared_Page01_TotalEstimatedPages,
                         WIDCategories.AllCategories,
-                        WIDStages.Stage2_UpToAllJobPostings,
+                        Stages.Stage2_UpToAllJobPostings,
                         true,
                         pages,
                         pageItems
                         );
 
             // Act
-            WIDExploration actual
+            Exploration actual
                 = explorer.Explore(
                             ObjectMother.Shared_FakeRunId,
                             2,
                             WIDCategories.AllCategories,
-                            WIDStages.Stage2_UpToAllJobPostings);
+                            Stages.Stage2_UpToAllJobPostings);
 
             // Assert
             Assert.IsTrue(
@@ -692,13 +692,13 @@ namespace NW.WIDJobs.UnitTests
             List<PageItem> pageItems = new List<PageItem>() { };
             pageItems.AddRange(ObjectMother.Shared_Page01Alternate_PageItems);
             pageItems.AddRange(ObjectMother.Shared_Page02Alternate_PageItems);
-            WIDExploration expected
+            Exploration expected
                 = new WIDExploration(
                         ObjectMother.Shared_FakeRunId,
                         ObjectMother.Shared_Page01_TotalResults,
                         ObjectMother.Shared_Page01_TotalEstimatedPages,
                         WIDCategories.AllCategories,
-                        WIDStages.Stage3_UpToAllJobPostingsExtended,
+                        Stages.Stage3_UpToAllJobPostingsExtended,
                         true,
                         pages,
                         pageItems,
@@ -706,12 +706,12 @@ namespace NW.WIDJobs.UnitTests
                         );
 
             // Act
-            WIDExploration actual
+            Exploration actual
                 = explorer.Explore(
                             ObjectMother.Shared_FakeRunId,
                             2,
                             WIDCategories.AllCategories,
-                            WIDStages.Stage3_UpToAllJobPostingsExtended);
+                            Stages.Stage3_UpToAllJobPostingsExtended);
 
             // Assert
             Assert.IsTrue(
@@ -774,23 +774,23 @@ namespace NW.WIDJobs.UnitTests
                     )
 
             };
-            WIDExploration expected
+            Exploration expected
                 = new WIDExploration(
                         runIdFakeNow,
                         ObjectMother.Shared_Page01_TotalResults,
                         ObjectMother.Shared_Page01_TotalEstimatedPages,
                         WIDCategories.AllCategories,
-                        WIDStages.Stage1_OnlyMetrics,
+                        Stages.Stage1_OnlyMetrics,
                         true,
                         pages
                         );
 
             // Act
-            WIDExploration actual
+            Exploration actual
                 = explorer.Explore(
                             ObjectMother.Shared_Page02Alternate_ThresholdDate01,
                             WIDCategories.AllCategories,
-                            WIDStages.Stage1_OnlyMetrics);
+                            Stages.Stage1_OnlyMetrics);
 
             // Assert
             Assert.IsTrue(

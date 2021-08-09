@@ -69,9 +69,9 @@ namespace NW.WIDJobs
             = (thresholdDate) => $"ThresholdDate:'{thresholdDate.ToString(WIDExplorer.DefaultFormatDate)}'.";
         public static Func<WIDCategories, string> WIDExplorer_CategoryIs
             = (category) => $"Category:'{category}'.";
-        public static Func<WIDStages, string> WIDExplorer_StageIs
+        public static Func<Stages, string> WIDExplorer_StageIs
             = (stage) => $"Stage:'{stage}'.";
-        public static Func<WIDStages, string> WIDExplorer_ExecutionStageStarted
+        public static Func<Stages, string> WIDExplorer_ExecutionStageStarted
             = (stage) => $"The execution of the '{stage}' has been started.";
         public static string WIDExplorer_UrlCreated = "Url has been created for the provided parameters.";
         public static Func<string, string> WIDExplorer_UrlIs
@@ -147,11 +147,11 @@ namespace NW.WIDJobs
             = $"The provided {nameof(PageItemExtended)} objects have been successfully saved as SQLite database.";
 
         public static string WIDExplorer_SavingExplorationAsJson
-            = $"Saving the provided {nameof(WIDExploration)} object as JSON file...";
+            = $"Saving the provided {nameof(Exploration)} object as JSON file...";
         public static Func<IFileInfoAdapter, string> WIDExplorer_JSONFileIs
             = (jsonFile) => $"JSONFile: '{jsonFile}'.";
         public static string WIDExplorer_ExplorationSavedAsJson
-            = $"The provided {nameof(WIDExploration)} object has been successfully saved as JSON file.";
+            = $"The provided {nameof(Exploration)} object has been successfully saved as JSON file.";
 
         public static string WIDExplorer_SavingMetricsAsJson
             = $"Saving the provided {nameof(WIDMetrics)} object as JSON file...";
@@ -170,20 +170,20 @@ namespace NW.WIDJobs
             = (now) => $"Now:'{now.ToString(WIDExplorer.DefaultFormatDate)}'.";
 
         public static string WIDExplorer_ConvertingExplorationToMetrics
-            = $"Converting the provided {nameof(WIDExploration)} object to a {nameof(WIDMetrics)} object...";  
+            = $"Converting the provided {nameof(Exploration)} object to a {nameof(WIDMetrics)} object...";  
         public static string WIDExplorer_ExplorationConvertedToMetrics
-            = $"The provided {nameof(WIDExploration)} object has been successfully converted to a {nameof(WIDMetrics)} object.";
+            = $"The provided {nameof(Exploration)} object has been successfully converted to a {nameof(WIDMetrics)} object.";
 
         public static string WIDExplorer_ConvertingExplorationToJsonString
-            = $"Converting the provided {nameof(WIDExploration)} object to a JSON string...";
+            = $"Converting the provided {nameof(Exploration)} object to a JSON string...";
         public static Func<string, string> WIDExplorer_SerializationOptionIs
             = (serializationOption) => $"SerializationOption: '{serializationOption}'.";
         public static string WIDExplorer_SerializationOptionPageContent 
             = "Page content is not serialized.";
         public static string WIDExplorer_SerializationOptionPageItems 
-            = $"If {nameof(WIDStages.Stage3_UpToAllJobPostingsExtended)}, {nameof(PageItem)} objects are not serialized.";
+            = $"If {nameof(Stages.Stage3_UpToAllJobPostingsExtended)}, {nameof(PageItem)} objects are not serialized.";
         public static string WIDExplorer_ExplorationConvertedToJsonString
-            = $"The provided {nameof(WIDExploration)} object has been successfully converted to a JSON string.";
+            = $"The provided {nameof(Exploration)} object has been successfully converted to a JSON string.";
 
         public static string WIDExplorer_ConvertingMetricsToJsonString
             = $"Converting the provided {nameof(WIDMetrics)} object to a JSON string...";

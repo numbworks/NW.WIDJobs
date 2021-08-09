@@ -59,8 +59,8 @@ namespace NW.WIDJobs
 
         #region Methods_public
 
-        public WIDExploration Explore
-            (string runId, ushort finalPageNumber, WIDCategories category, WIDStages stage)
+        public Exploration Explore
+            (string runId, ushort finalPageNumber, WIDCategories category, Stages stage)
         {
 
             Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
@@ -68,7 +68,7 @@ namespace NW.WIDJobs
 
             LogInitializationMessage(runId, finalPageNumber, category, stage);
 
-            WIDExploration exploration = ProcessStage1(runId, DefaultInitialPageNumber, category, stage);
+            Exploration exploration = ProcessStage1(runId, DefaultInitialPageNumber, category, stage);
             if (exploration.IsCompleted)
                 return LogCompletionMessageAndReturn(exploration);
 
@@ -83,8 +83,8 @@ namespace NW.WIDJobs
             return LogCompletionMessageAndReturn(exploration);
 
         }
-        public WIDExploration Explore
-            (ushort finalPageNumber, WIDCategories category, WIDStages stage)
+        public Exploration Explore
+            (ushort finalPageNumber, WIDCategories category, Stages stage)
         {
 
             DateTime now = NowFunction.Invoke();
@@ -96,15 +96,15 @@ namespace NW.WIDJobs
 
         }
 
-        public WIDExploration Explore
-            (string runId, DateTime thresholdDate, WIDCategories category, WIDStages stage)
+        public Exploration Explore
+            (string runId, DateTime thresholdDate, WIDCategories category, Stages stage)
         {
 
             Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
 
             LogInitializationMessage(runId, thresholdDate, category, stage);
 
-            WIDExploration exploration = ProcessStage1(runId, DefaultInitialPageNumber, category, stage);
+            Exploration exploration = ProcessStage1(runId, DefaultInitialPageNumber, category, stage);
             if (exploration.IsCompleted)
                 return LogCompletionMessageAndReturn(exploration);
 
@@ -117,8 +117,8 @@ namespace NW.WIDJobs
             return LogCompletionMessageAndReturn(exploration);
 
         }
-        public WIDExploration Explore
-            (DateTime thresholdDate, WIDCategories category, WIDStages stage)
+        public Exploration Explore
+            (DateTime thresholdDate, WIDCategories category, Stages stage)
         {
 
             DateTime now = NowFunction.Invoke();
@@ -129,15 +129,15 @@ namespace NW.WIDJobs
 
         }
 
-        public WIDExploration ExploreAll
-            (string runId, WIDCategories category, WIDStages stage)
+        public Exploration ExploreAll
+            (string runId, WIDCategories category, Stages stage)
         {
 
             Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
 
             LogInitializationMessage(runId, category, stage);
 
-            WIDExploration exploration = ProcessStage1(runId, DefaultInitialPageNumber, category, stage);
+            Exploration exploration = ProcessStage1(runId, DefaultInitialPageNumber, category, stage);
             if (exploration.IsCompleted)
                 return LogCompletionMessageAndReturn(exploration);
 
@@ -152,8 +152,8 @@ namespace NW.WIDJobs
             return LogCompletionMessageAndReturn(exploration);
 
         }
-        public WIDExploration ExploreAll
-            (WIDCategories category, WIDStages stage)
+        public Exploration ExploreAll
+            (WIDCategories category, Stages stage)
         {
 
             DateTime now = NowFunction.Invoke();
@@ -269,7 +269,7 @@ namespace NW.WIDJobs
 
         }
 
-        public IFileInfoAdapter SaveAsJson(WIDExploration exploration, IFileInfoAdapter jsonFile)
+        public IFileInfoAdapter SaveAsJson(Exploration exploration, IFileInfoAdapter jsonFile)
         {
 
             Validator.ValidateObject(exploration, nameof(exploration));
@@ -287,7 +287,7 @@ namespace NW.WIDJobs
             return jsonFile;
 
         }
-        public IFileInfoAdapter SaveAsJson(WIDExploration exploration)
+        public IFileInfoAdapter SaveAsJson(Exploration exploration)
         {
 
             DateTime now = NowFunction.Invoke();
@@ -340,7 +340,7 @@ namespace NW.WIDJobs
 
         }
 
-        public string ConvertToJson(WIDExploration exploration)
+        public string ConvertToJson(Exploration exploration)
         {
 
             Validator.ValidateObject(exploration, nameof(exploration));
@@ -386,7 +386,7 @@ namespace NW.WIDJobs
             return JsonSerializer.Serialize(dyn, options);
 
         }
-        public WIDMetrics ConvertToMetrics(WIDExploration exploration)
+        public WIDMetrics ConvertToMetrics(Exploration exploration)
         {
 
             Validator.ValidateObject(exploration, nameof(exploration));
@@ -434,7 +434,7 @@ namespace NW.WIDJobs
 
         }
         private void LogInitializationMessage
-            (string runId, ushort finalPageNumber, WIDCategories category, WIDStages stage)
+            (string runId, ushort finalPageNumber, WIDCategories category, Stages stage)
         {
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationStarted);
@@ -446,7 +446,7 @@ namespace NW.WIDJobs
 
         }
         private void LogInitializationMessage
-            (string runId, DateTime thresholdDate, WIDCategories category, WIDStages stage)
+            (string runId, DateTime thresholdDate, WIDCategories category, Stages stage)
         {
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationStarted);
@@ -458,7 +458,7 @@ namespace NW.WIDJobs
 
         }
         private void LogInitializationMessage
-            (string runId, WIDCategories category, WIDStages stage)
+            (string runId, WIDCategories category, Stages stage)
         {
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationStarted);
@@ -469,7 +469,7 @@ namespace NW.WIDJobs
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_StageIs(stage));
 
         }
-        private WIDExploration LogCompletionMessageAndReturn(WIDExploration exploration)
+        private Exploration LogCompletionMessageAndReturn(Exploration exploration)
         {
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationCompleted);
@@ -477,7 +477,7 @@ namespace NW.WIDJobs
             return exploration;
 
         }
-        private dynamic OptimizeForSerialization(WIDExploration exploration)
+        private dynamic OptimizeForSerialization(Exploration exploration)
         {
 
             dynamic dyn = new ExpandoObject();
@@ -493,7 +493,7 @@ namespace NW.WIDJobs
                 exploration
                     .JobPages?.Select(page => new Page(page.RunId, page.PageNumber, DefaultNotSerialized)).ToList();
 
-            if (exploration.Stage == WIDStages.Stage3_UpToAllJobPostingsExtended)
+            if (exploration.Stage == Stages.Stage3_UpToAllJobPostingsExtended)
                 dyn.PageItems = DefaultNotSerialized;
 
             dyn.PageItemsExtended = exploration.JobPostingsExtended;
@@ -549,8 +549,8 @@ namespace NW.WIDJobs
 
         }
 
-        private WIDExploration ProcessStage1
-            (string runId, ushort initialPageNumber, WIDCategories category, WIDStages stage)
+        private Exploration ProcessStage1
+            (string runId, ushort initialPageNumber, WIDCategories category, Stages stage)
         {
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(stage));
@@ -570,7 +570,7 @@ namespace NW.WIDJobs
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_TotalEstimatedPagesAre(totalEstimatedPages));
 
             bool isCompleted = false;
-            if (stage == WIDStages.Stage1_OnlyMetrics)
+            if (stage == Stages.Stage1_OnlyMetrics)
                 isCompleted = true;
 
             Page page = new Page(runId, initialPageNumber, content);
@@ -604,8 +604,8 @@ namespace NW.WIDJobs
             return finalPageNumber;
 
         }
-        private WIDExploration ProcessStage2
-            (WIDExploration exploration, ushort finalPageNumber, WIDStages stage)
+        private Exploration ProcessStage2
+            (Exploration exploration, ushort finalPageNumber, Stages stage)
         {
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(stage));
@@ -636,7 +636,7 @@ namespace NW.WIDJobs
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemObjectsScrapedTotal(pageItems));
 
             bool isCompleted = false;
-            if (stage == WIDStages.Stage2_UpToAllJobPostings)
+            if (stage == Stages.Stage2_UpToAllJobPostings)
                 isCompleted = true;
 
             return
@@ -651,8 +651,8 @@ namespace NW.WIDJobs
                         pageItems);
 
         }
-        private WIDExploration ProcessStage2WhenThresholdDate
-            (WIDExploration exploration, WIDStages stage, DateTime thresholdDate)
+        private Exploration ProcessStage2WhenThresholdDate
+            (Exploration exploration, Stages stage, DateTime thresholdDate)
         {
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(stage));
@@ -715,7 +715,7 @@ namespace NW.WIDJobs
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FinalPageNumberThresholdDate(finalPageNumber));
 
             bool isCompleted = false;
-            if (stage == WIDStages.Stage2_UpToAllJobPostings)
+            if (stage == Stages.Stage2_UpToAllJobPostings)
                 isCompleted = true;
 
             return
@@ -730,8 +730,8 @@ namespace NW.WIDJobs
                         stage2PageItems);
 
         }
-        private WIDExploration ProcessStage3
-            (WIDExploration exploration, WIDStages stage)
+        private Exploration ProcessStage3
+            (Exploration exploration, Stages stage)
         {
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(stage));

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace NW.WIDJobs
 {
     /// <summary>The result of an exploration on <see href="http://www.workindenmark.dk">WorkInDenmark</see>.</summary>
-    public class WIDExploration
+    public class Exploration
     {
 
         #region Fields
@@ -15,7 +15,7 @@ namespace NW.WIDJobs
         public string RunId { get; }
         public ushort TotalResultCount { get; }
         public ushort TotalJobPages { get; }
-        public WIDStages Stage { get; }
+        public Stages Stage { get; }
         public bool IsCompleted { get; }
         public List<JobPage> JobPages { get; }
         public List<JobPosting> JobPostings { get; }
@@ -25,12 +25,13 @@ namespace NW.WIDJobs
 
         #region Constructors
 
-        /// <summary>Initializes a <see cref="WIDExploration"/> instance.</summary>
+        /// <summary>Initializes a <see cref="Exploration"/> instance.</summary>
         /// <exception cref="ArgumentNullException"/>
-        public WIDExploration(
+        public Exploration(
             string runId,
             ushort totalResultCount,
             ushort totalJobPages,
+            Stages stage,
             bool isCompleted,
             List<JobPage> jobPages = null,
             List<JobPosting> jobPostings = null,
@@ -43,6 +44,7 @@ namespace NW.WIDJobs
             RunId = runId;
             TotalResultCount = totalResultCount;
             TotalJobPages = totalJobPages;
+            Stage = stage;
             IsCompleted = isCompleted;
             JobPages = jobPages;
             JobPostings = jobPostings;
@@ -62,6 +64,7 @@ namespace NW.WIDJobs
                 $"'{nameof(RunId)}':'{RunId}', ",
                 $"'{nameof(TotalResultCount)}':'{TotalResultCount}', ",
                 $"'{nameof(TotalJobPages)}':'{TotalJobPages}', ",
+                $"'{nameof(Stage)}':'{Stage}', ",
                 $"'{nameof(IsCompleted)}':'{IsCompleted}', ",
                 $"'{nameof(JobPages)}':'{JobPages?.Count.ToString() ?? "null"}', ",
                 $"'{nameof(JobPostings)}':'{JobPostings?.Count.ToString() ?? "null"}', ",

@@ -52,49 +52,53 @@ namespace NW.WIDJobs.UnitTests
 
         #endregion
 
-        #region WIDExplorationTests
+        #region ExplorationTests
 
-        internal static string WIDExploration_Exploration01_RunId = RunIdManager_RunId_Now;
-        internal static ushort WIDExploration_Exploration01_TotalResultCount = Shared_JobPage01_TotalResultCount;
-        internal static ushort WIDExploration_Exploration01_TotalJobPages = Shared_JobPage01_TotalJobPages;
-        internal static bool WIDExploration_Exploration01_IsCompleted = true;
-        internal static List<JobPage> WIDExploration_Exploration01_JobPages = null;
-        internal static List<JobPosting> WIDExploration_Exploration01_JobPostings = null;
-        internal static List<JobPostingExtended> WIDExploration_Exploration01_JobPostingsExtended = null;
-        internal static WIDExploration WIDExploration_Exploration01
-            = new WIDExploration(
-                    WIDExploration_Exploration01_RunId,
-                    WIDExploration_Exploration01_TotalResultCount,
-                    WIDExploration_Exploration01_TotalJobPages,
-                    WIDExploration_Exploration01_IsCompleted,
-                    WIDExploration_Exploration01_JobPages,
-                    WIDExploration_Exploration01_JobPostings,
-                    WIDExploration_Exploration01_JobPostingsExtended
+        internal static string Exploration01_RunId = RunIdManager_RunId_Now;
+        internal static ushort Exploration01_TotalResultCount = Shared_JobPage01_TotalResultCount;
+        internal static ushort Exploration01_TotalJobPages = Shared_JobPage01_TotalJobPages;
+        internal static Stages Exploration01_Stage = Stages.Stage1_OnlyMetrics;
+        internal static bool Exploration01_IsCompleted = true;
+        internal static List<JobPage> Exploration01_JobPages = null;
+        internal static List<JobPosting> Exploration01_JobPostings = null;
+        internal static List<JobPostingExtended> Exploration01_JobPostingsExtended = null;
+        internal static Exploration Exploration01
+            = new Exploration(
+                    Exploration01_RunId,
+                    Exploration01_TotalResultCount,
+                    Exploration01_TotalJobPages,
+                    Stages.Stage1_OnlyMetrics,
+                    Exploration01_IsCompleted,
+                    Exploration01_JobPages,
+                    Exploration01_JobPostings,
+                    Exploration01_JobPostingsExtended
                     );
-        internal static string WIDExploration_Exploration01_ToString
+        internal static string Exploration01_AsString
             = string.Concat(
                 "{ ",
-                $"'{nameof(WIDExploration.RunId)}':'{WIDExploration_Exploration01_RunId}', ",
-                $"'{nameof(WIDExploration.TotalResultCount)}':'{WIDExploration_Exploration01_TotalResultCount}', ",
-                $"'{nameof(WIDExploration.TotalJobPages)}':'{WIDExploration_Exploration01_TotalJobPages}', ",
-                $"'{nameof(WIDExploration.IsCompleted)}':'{WIDExploration_Exploration01_IsCompleted}', ",
-                $"'{nameof(WIDExploration.JobPages)}':'null', ",
-                $"'{nameof(WIDExploration.JobPostings)}':'null', ",
-                $"'{nameof(WIDExploration.JobPostingsExtended)}':'null'",
+                $"'{nameof(Exploration.RunId)}':'{Exploration01_RunId}', ",
+                $"'{nameof(Exploration.TotalResultCount)}':'{Exploration01_TotalResultCount}', ",
+                $"'{nameof(Exploration.TotalJobPages)}':'{Exploration01_TotalJobPages}', ",
+                $"'{nameof(Exploration.Stage)}':'{Exploration01_Stage}', ",
+                $"'{nameof(Exploration.IsCompleted)}':'{Exploration01_IsCompleted}', ",
+                $"'{nameof(Exploration.JobPages)}':'null', ",
+                $"'{nameof(Exploration.JobPostings)}':'null', ",
+                $"'{nameof(Exploration.JobPostingsExtended)}':'null'",
                 " }"
                 );
 
-        internal static string WIDExploration_Exploration02_RunId = RunIdManager_RunId_Now;
-        internal static ushort WIDExploration_Exploration02_TotalResultCount = Shared_JobPage01_TotalResultCount;
-        internal static ushort WIDExploration_Exploration02_TotalJobPages = Shared_JobPage01_TotalJobPages;
-        internal static bool WIDExploration_Exploration02_IsCompleted = true;
-        internal static List<JobPage> WIDExploration_Exploration02_JobPages
+        internal static string Exploration02_RunId = RunIdManager_RunId_Now;
+        internal static ushort Exploration02_TotalResultCount = Shared_JobPage01_TotalResultCount;
+        internal static ushort Exploration02_TotalJobPages = Shared_JobPage01_TotalJobPages;
+        internal static Stages Exploration02_Stage = Stages.Stage3_UpToAllJobPostingsExtended;
+        internal static bool Exploration02_IsCompleted = true;
+        internal static List<JobPage> Exploration02_JobPages
             = new List<JobPage>() 
             {
                 Shared_JobPage01_Object,
                 Shared_JobPage02_Object
             };
-        internal static List<JobPosting> WIDExploration_Exploration02_JobPostings 
+        internal static List<JobPosting> Exploration02_JobPostings 
             = new List<JobPosting>()
             {
                 Shared_JobPage01_JobPosting01,
@@ -138,7 +142,7 @@ namespace NW.WIDJobs.UnitTests
                 Shared_JobPage02_JobPosting19,
                 Shared_JobPage02_JobPosting20
             };
-        internal static List<JobPostingExtended> WIDExploration_Exploration02_JobPostingsExtended
+        internal static List<JobPostingExtended> Exploration02_JobPostingsExtended
             = new List<JobPostingExtended>()
             {
                 Shared_JobPage01_JobPostingExtended01,
@@ -182,26 +186,28 @@ namespace NW.WIDJobs.UnitTests
                 Shared_JobPage02_JobPostingExtended19,
                 Shared_JobPage02_JobPostingExtended20
             };
-        internal static WIDExploration WIDExploration_Exploration02
-            = new WIDExploration(
-                    WIDExploration_Exploration01_RunId,
-                    WIDExploration_Exploration01_TotalResultCount,
-                    WIDExploration_Exploration01_TotalJobPages,
-                    WIDExploration_Exploration01_IsCompleted,
-                    WIDExploration_Exploration02_JobPages,
-                    WIDExploration_Exploration02_JobPostings,
-                    WIDExploration_Exploration02_JobPostingsExtended
+        internal static Exploration Exploration02
+            = new Exploration(
+                    Exploration01_RunId,
+                    Exploration01_TotalResultCount,
+                    Exploration01_TotalJobPages,
+                    Exploration02_Stage,
+                    Exploration01_IsCompleted,
+                    Exploration02_JobPages,
+                    Exploration02_JobPostings,
+                    Exploration02_JobPostingsExtended
                     );
-        internal static string WIDExploration_Exploration02_ToString
+        internal static string Exploration02_AsString
             = string.Concat(
                 "{ ",
-                $"'{nameof(WIDExploration.RunId)}':'{WIDExploration_Exploration01_RunId}', ",
-                $"'{nameof(WIDExploration.TotalResultCount)}':'{WIDExploration_Exploration01_TotalResultCount}', ",
-                $"'{nameof(WIDExploration.TotalJobPages)}':'{WIDExploration_Exploration01_TotalJobPages}', ",
-                $"'{nameof(WIDExploration.IsCompleted)}':'{WIDExploration_Exploration01_IsCompleted}', ",
-                $"'{nameof(WIDExploration.JobPages)}':'{WIDExploration_Exploration02_JobPages.Count}', ",
-                $"'{nameof(WIDExploration.JobPostings)}':'{WIDExploration_Exploration02_JobPostings.Count}', ",
-                $"'{nameof(WIDExploration.JobPostingsExtended)}':'{WIDExploration_Exploration02_JobPostingsExtended.Count}'",
+                $"'{nameof(Exploration.RunId)}':'{Exploration02_RunId}', ",
+                $"'{nameof(Exploration.TotalResultCount)}':'{Exploration02_TotalResultCount}', ",
+                $"'{nameof(Exploration.TotalJobPages)}':'{Exploration02_TotalJobPages}', ",
+                $"'{nameof(Exploration.Stage)}':'{Exploration02_Stage}', ",
+                $"'{nameof(Exploration.IsCompleted)}':'{Exploration02_IsCompleted}', ",
+                $"'{nameof(Exploration.JobPages)}':'{Exploration02_JobPages.Count}', ",
+                $"'{nameof(Exploration.JobPostings)}':'{Exploration02_JobPostings.Count}', ",
+                $"'{nameof(Exploration.JobPostingsExtended)}':'{Exploration02_JobPostingsExtended.Count}'",
                 " }"
                 );
 
@@ -327,13 +333,13 @@ namespace NW.WIDJobs.UnitTests
 
             };
 
-        internal static WIDExploration WIDExplorer_ExplorationPage01
+        internal static Exploration WIDExplorer_ExplorationPage01
             = new WIDExploration(
                         Shared_FakeRunId,
                         Shared_Page01_TotalResults,
                         Shared_Page01_TotalEstimatedPages,
                         WIDCategories.AllCategories,
-                        WIDStages.Stage3_UpToAllJobPostingsExtended,
+                        Stages.Stage3_UpToAllJobPostingsExtended,
                         true,
                         Shared_Pages_Page01,
                         Shared_Page01_PageItems,
@@ -442,25 +448,25 @@ namespace NW.WIDJobs.UnitTests
 
         #region WIDMetricsManager
 
-        internal static WIDExploration WIDMetricsManager_ExplorationWithNullPageItems
+        internal static Exploration WIDMetricsManager_ExplorationWithNullPageItems
             = new WIDExploration(
                     Shared_FakeRunId,
                     Shared_Page01_TotalResults,
                     Shared_Page01_TotalEstimatedPages,
                     WIDCategories.AllCategories,
-                    WIDStages.Stage3_UpToAllJobPostingsExtended,
+                    Stages.Stage3_UpToAllJobPostingsExtended,
                     true,
                     Shared_Pages_Page01,
                     null,
                     Shared_Page01_PageItemsExtended
                 );
-        internal static WIDExploration WIDMetricsManager_ExplorationWithNullPageItemsExtended
+        internal static Exploration WIDMetricsManager_ExplorationWithNullPageItemsExtended
             = new WIDExploration(
                     Shared_FakeRunId,
                     Shared_Page01_TotalResults,
                     Shared_Page01_TotalEstimatedPages,
                     WIDCategories.AllCategories,
-                    WIDStages.Stage3_UpToAllJobPostingsExtended,
+                    Stages.Stage3_UpToAllJobPostingsExtended,
                     true,
                     Shared_Pages_Page01,
                     Shared_Page01_PageItems,
@@ -486,7 +492,7 @@ namespace NW.WIDJobs.UnitTests
 
         internal static WIDMetrics WIDMetrics_Exploration02_Metrics =
             new WIDMetrics(
-                    WIDExploration_Exploration01_RunId,
+                    Exploration01_RunId,
                     (uint)Shared_Pages_Page01.Count,
                     (uint)Shared_Page01_PageItems.Count,
                     WIDMetrics_Page01_ItemsByWorkAreaWithoutZone,
@@ -3633,7 +3639,7 @@ namespace NW.WIDJobs.UnitTests
 
         /* -------------------------------------------- */
 
-        internal static bool AreEqual(WIDExploration exploration1, WIDExploration exploration2)
+        internal static bool AreEqual(Exploration exploration1, Exploration exploration2)
         {
 
             return string.Equals(exploration1.RunId, exploration2.RunId, StringComparison.InvariantCulture)

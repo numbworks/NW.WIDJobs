@@ -9,11 +9,11 @@ namespace NW.WIDJobs
 
         /// <summary>
         /// Calculates <see cref="WIDMetrics"/> out of <paramref name="exploration"/>.
-        /// <para>Only explorations on <see cref="WIDStages.Stage3_UpToAllJobPostingsExtended"/> are supported.</para>
+        /// <para>Only explorations on <see cref="Stages.Stage3_UpToAllJobPostingsExtended"/> are supported.</para>
         /// </summary>
         /// <exception cref="ArgumentNullException"/>
         /// <exception cref="ArgumentException"/> 
-        WIDMetrics Calculate(WIDExploration exploration);
+        WIDMetrics Calculate(Exploration exploration);
 
         /// <summary>
         /// Convert each value in <paramref name="dict"/> to the corresponding percentage.

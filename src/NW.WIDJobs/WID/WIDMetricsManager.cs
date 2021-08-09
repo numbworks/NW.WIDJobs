@@ -48,7 +48,7 @@ namespace NW.WIDJobs
 
         #region Methods_public
 
-        public WIDMetrics Calculate(WIDExploration exploration)
+        public WIDMetrics Calculate(Exploration exploration)
         {
 
             Validator.ValidateObject(exploration, nameof(exploration));

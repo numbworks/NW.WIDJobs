@@ -112,7 +112,7 @@ namespace NW.WIDJobs.UnitTests
 
             // Arrange
             // Act        
-            WIDMetrics actual = new WIDMetricsManager().Calculate(ObjectMother.WIDExploration_Exploration02);
+            WIDMetrics actual = new WIDMetricsManager().Calculate(ObjectMother.Exploration02);
 
             // Assert
             Assert.IsTrue(
