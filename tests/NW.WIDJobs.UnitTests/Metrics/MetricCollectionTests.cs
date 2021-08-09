@@ -14,640 +14,45 @@ namespace NW.WIDJobs.UnitTests
             new TestCaseData(
                 new TestDelegate(
                     () => new MetricCollection(
-                                null,
-                                2,
-                                (uint)ObjectMother.Shared_Page01_PageItems.Count,
-                                ObjectMother.WIDMetrics_Page01_ItemsByWorkAreaWithoutZone,
-                                ObjectMother.WIDMetrics_Page01_ItemsByCreateDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerName,
-                                ObjectMother.WIDMetrics_Page01_ItemsByNumberOfOpenings,
-                                ObjectMother.WIDMetrics_Page01_ItemsByAdvertisementPublishDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDeadline,
-                                ObjectMother.WIDMetrics_Page01_ItemsByStartDateOfEmployment,
-                                ObjectMother.WIDMetrics_Page01_ItemsByReference,
-                                ObjectMother.WIDMetrics_Page01_ItemsByPosition,
-                                ObjectMother.WIDMetrics_Page01_ItemsByTypeOfEmployment,
-                                ObjectMother.WIDMetrics_Page01_ItemsByContact,
-                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerAddress,
-                                ObjectMother.WIDMetrics_Page01_ItemsByHowToApply,
-                                ObjectMother.WIDMetrics_Page01_DescriptionLengthByPageItemId,
-                                ObjectMother.WIDMetrics_Page01_BulletPointsByPageItemId,
-                                ObjectMother.WIDMetrics_Page01_TotalBulletPoints
+                                runId: ObjectMother.MetricCollectionForJobPage01_RunId,
+                                totalJobPages: ObjectMother.MetricCollectionForJobPage01_TotalJobPages,
+                                totalJobPostings: ObjectMother.MetricCollectionForJobPage01_TotalJobPostings,
+                                jobPostingsByHiringOrgName: ObjectMother.MetricCollectionForJobPage01_JobPostingsByHiringOrgName,
+                                jobPostingsByWorkPlaceAddress: ObjectMother.MetricCollectionForJobPage01_JobPostingsByWorkPlaceAddress,
+                                jobPostingsByWorkPlacePostalCode: ObjectMother.MetricCollectionForJobPage01_JobPostingsByWorkPlacePostalCode,
+                                jobPostingsByWorkPlaceCity: ObjectMother.MetricCollectionForJobPage01_JobPostingsByWorkPlaceCity,
+                                jobPostingsByPostingCreated: ObjectMother.MetricCollectionForJobPage01_JobPostingsByPostingCreated,
+                                jobPostingsByLastDateApplication: ObjectMother.MetricCollectionForJobPage01_JobPostingsByLastDateApplication,
+                                jobPostingsByRegion: ObjectMother.MetricCollectionForJobPage01_JobPostingsByRegion,
+                                jobPostingsByMunicipality: ObjectMother.MetricCollectionForJobPage01_JobPostingsByMunicipality,
+                                jobPostingsByCountry: ObjectMother.MetricCollectionForJobPage01_JobPostingsByCountry,
+                                jobPostingsByEmploymentType: ObjectMother.MetricCollectionForJobPage01_JobPostingsByEmploymentType,
+                                jobPostingsByWorkHours: ObjectMother.MetricCollectionForJobPage01_JobPostingsByWorkHours,
+                                jobPostingsByOccupation: ObjectMother.MetricCollectionForJobPage01_JobPostingsByOccupation,
+                                jobPostingsByWorkplaceId: ObjectMother.MetricCollectionForJobPage01_JobPostingsByWorkplaceId,
+                                jobPostingsByOrganisationId: ObjectMother.MetricCollectionForJobPage01_JobPostingsByOrganisationId,
+                                jobPostingsByHiringOrgCVR: ObjectMother.MetricCollectionForJobPage01_JobPostingsByHiringOrgCVR,
+                                jobPostingsByWorkPlaceCityWithoutZone: ObjectMother.MetricCollectionForJobPage01_JobPostingsByWorkPlaceCityWithoutZone,
+                                jobPostingsByPublicationStartDate: ObjectMother.MetricCollectionForJobPage01_JobPostingsByPublicationStartDate,
+                                jobPostingsByPublicationEndDate: ObjectMother.MetricCollectionForJobPage01_JobPostingsByPublicationEndDate,
+                                jobPostingsByNumberToFill: ObjectMother.MetricCollectionForJobPage01_JobPostingsByNumberToFill,
+                                jobPostingsByContactEmail: ObjectMother.MetricCollectionForJobPage01_JobPostingsByContactEmail,
+                                jobPostingsByContactPersonName: ObjectMother.MetricCollectionForJobPage01_JobPostingsByContactPersonName,
+                                jobPostingsByEmploymentDate: ObjectMother.MetricCollectionForJobPage01_JobPostingsByEmploymentDate,
+                                jobPostingsByApplicationDeadlineDate: ObjectMother.MetricCollectionForJobPage01_JobPostingsByApplicationDeadlineDate,
+                                jobPostingsByBulletPointScenario: ObjectMother.MetricCollectionForJobPage01_JobPostingsByBulletPointScenario,
+                                responseLengthByJobPostingId: ObjectMother.MetricCollectionForJobPage01_ResponseLengthByJobPostingId,
+                                presentationLengthByJobPostingId: ObjectMother.MetricCollectionForJobPage01_PresentationLengthByJobPostingId,
+                                extendedResponseLengthByJobPostingId: ObjectMother.MetricCollectionForJobPage01_ExtendedResponseLengthByJobPostingId,
+                                hiringOrgDescriptionLengthByJobPostingId: ObjectMother.MetricCollectionForJobPage01_HiringOrgDescriptionLengthByJobPostingId,
+                                purposeLengthByJobPostingId: ObjectMother.MetricCollectionForJobPage01_PurposeLengthByJobPostingId,
+                                bulletPointsByJobPostingId: ObjectMother.MetricCollectionForJobPage01_BulletPointsByJobPostingId,
+                                totalBulletPoints: ObjectMother.MetricCollectionForJobPage01_TotalBulletPoints
                             )
 				),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("runId").Message
-            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_01"),
-
-            new TestCaseData(
-                new TestDelegate(
-                    () => new MetricCollection(
-                                ObjectMother.Shared_FakeRunId,
-                                0,
-                                (uint)ObjectMother.Shared_Page01_PageItems.Count,
-                                ObjectMother.WIDMetrics_Page01_ItemsByWorkAreaWithoutZone,
-                                ObjectMother.WIDMetrics_Page01_ItemsByCreateDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerName,
-                                ObjectMother.WIDMetrics_Page01_ItemsByNumberOfOpenings,
-                                ObjectMother.WIDMetrics_Page01_ItemsByAdvertisementPublishDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDeadline,
-                                ObjectMother.WIDMetrics_Page01_ItemsByStartDateOfEmployment,
-                                ObjectMother.WIDMetrics_Page01_ItemsByReference,
-                                ObjectMother.WIDMetrics_Page01_ItemsByPosition,
-                                ObjectMother.WIDMetrics_Page01_ItemsByTypeOfEmployment,
-                                ObjectMother.WIDMetrics_Page01_ItemsByContact,
-                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerAddress,
-                                ObjectMother.WIDMetrics_Page01_ItemsByHowToApply,
-                                ObjectMother.WIDMetrics_Page01_DescriptionLengthByPageItemId,
-                                ObjectMother.WIDMetrics_Page01_BulletPointsByPageItemId,
-                                ObjectMother.WIDMetrics_Page01_TotalBulletPoints
-                            )
-                ),
-                typeof(ArgumentException),
-                MessageCollection.Validator_VariableCantBeLessThanOne.Invoke("totalPages")
-            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_02"),
-
-            new TestCaseData(
-                new TestDelegate(
-                    () => new MetricCollection(
-                                ObjectMother.Shared_FakeRunId,
-                                2,
-                                0,
-                                ObjectMother.WIDMetrics_Page01_ItemsByWorkAreaWithoutZone,
-                                ObjectMother.WIDMetrics_Page01_ItemsByCreateDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerName,
-                                ObjectMother.WIDMetrics_Page01_ItemsByNumberOfOpenings,
-                                ObjectMother.WIDMetrics_Page01_ItemsByAdvertisementPublishDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDeadline,
-                                ObjectMother.WIDMetrics_Page01_ItemsByStartDateOfEmployment,
-                                ObjectMother.WIDMetrics_Page01_ItemsByReference,
-                                ObjectMother.WIDMetrics_Page01_ItemsByPosition,
-                                ObjectMother.WIDMetrics_Page01_ItemsByTypeOfEmployment,
-                                ObjectMother.WIDMetrics_Page01_ItemsByContact,
-                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerAddress,
-                                ObjectMother.WIDMetrics_Page01_ItemsByHowToApply,
-                                ObjectMother.WIDMetrics_Page01_DescriptionLengthByPageItemId,
-                                ObjectMother.WIDMetrics_Page01_BulletPointsByPageItemId,
-                                ObjectMother.WIDMetrics_Page01_TotalBulletPoints
-                            )
-                ),
-                typeof(ArgumentException),
-                MessageCollection.Validator_VariableCantBeLessThanOne.Invoke("totalItems")
-            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_03"),
-
-            new TestCaseData(
-                new TestDelegate(
-                    () => new MetricCollection(
-                                ObjectMother.Shared_FakeRunId,
-                                2,
-                                (uint)ObjectMother.Shared_Page01_PageItems.Count,
-                                null,
-                                ObjectMother.WIDMetrics_Page01_ItemsByCreateDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerName,
-                                ObjectMother.WIDMetrics_Page01_ItemsByNumberOfOpenings,
-                                ObjectMother.WIDMetrics_Page01_ItemsByAdvertisementPublishDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDeadline,
-                                ObjectMother.WIDMetrics_Page01_ItemsByStartDateOfEmployment,
-                                ObjectMother.WIDMetrics_Page01_ItemsByReference,
-                                ObjectMother.WIDMetrics_Page01_ItemsByPosition,
-                                ObjectMother.WIDMetrics_Page01_ItemsByTypeOfEmployment,
-                                ObjectMother.WIDMetrics_Page01_ItemsByContact,
-                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerAddress,
-                                ObjectMother.WIDMetrics_Page01_ItemsByHowToApply,
-                                ObjectMother.WIDMetrics_Page01_DescriptionLengthByPageItemId,
-                                ObjectMother.WIDMetrics_Page01_BulletPointsByPageItemId,
-                                ObjectMother.WIDMetrics_Page01_TotalBulletPoints
-                            )
-                ),
-                typeof(ArgumentNullException),
-                new ArgumentNullException("itemsByWorkAreaWithoutZone").Message
-            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_04"),
-
-            new TestCaseData(
-                new TestDelegate(
-                    () => new MetricCollection(
-                                ObjectMother.Shared_FakeRunId,
-                                2,
-                                (uint)ObjectMother.Shared_Page01_PageItems.Count,
-                                ObjectMother.WIDMetrics_Page01_ItemsByWorkAreaWithoutZone,
-                                null,
-                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerName,
-                                ObjectMother.WIDMetrics_Page01_ItemsByNumberOfOpenings,
-                                ObjectMother.WIDMetrics_Page01_ItemsByAdvertisementPublishDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDeadline,
-                                ObjectMother.WIDMetrics_Page01_ItemsByStartDateOfEmployment,
-                                ObjectMother.WIDMetrics_Page01_ItemsByReference,
-                                ObjectMother.WIDMetrics_Page01_ItemsByPosition,
-                                ObjectMother.WIDMetrics_Page01_ItemsByTypeOfEmployment,
-                                ObjectMother.WIDMetrics_Page01_ItemsByContact,
-                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerAddress,
-                                ObjectMother.WIDMetrics_Page01_ItemsByHowToApply,
-                                ObjectMother.WIDMetrics_Page01_DescriptionLengthByPageItemId,
-                                ObjectMother.WIDMetrics_Page01_BulletPointsByPageItemId,
-                                ObjectMother.WIDMetrics_Page01_TotalBulletPoints
-                            )
-                ),
-                typeof(ArgumentNullException),
-                new ArgumentNullException("itemsByCreateDate").Message
-            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_05"),
-
-            new TestCaseData(
-                new TestDelegate(
-                    () => new MetricCollection(
-                                ObjectMother.Shared_FakeRunId,
-                                2,
-                                (uint)ObjectMother.Shared_Page01_PageItems.Count,
-                                ObjectMother.WIDMetrics_Page01_ItemsByWorkAreaWithoutZone,
-                                ObjectMother.WIDMetrics_Page01_ItemsByCreateDate,
-                                null,
-                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerName,
-                                ObjectMother.WIDMetrics_Page01_ItemsByNumberOfOpenings,
-                                ObjectMother.WIDMetrics_Page01_ItemsByAdvertisementPublishDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDeadline,
-                                ObjectMother.WIDMetrics_Page01_ItemsByStartDateOfEmployment,
-                                ObjectMother.WIDMetrics_Page01_ItemsByReference,
-                                ObjectMother.WIDMetrics_Page01_ItemsByPosition,
-                                ObjectMother.WIDMetrics_Page01_ItemsByTypeOfEmployment,
-                                ObjectMother.WIDMetrics_Page01_ItemsByContact,
-                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerAddress,
-                                ObjectMother.WIDMetrics_Page01_ItemsByHowToApply,
-                                ObjectMother.WIDMetrics_Page01_DescriptionLengthByPageItemId,
-                                ObjectMother.WIDMetrics_Page01_BulletPointsByPageItemId,
-                                ObjectMother.WIDMetrics_Page01_TotalBulletPoints
-                            )
-                ),
-                typeof(ArgumentNullException),
-                new ArgumentNullException("itemsByApplicationDate").Message
-            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_06"),
-
-            new TestCaseData(
-                new TestDelegate(
-                    () => new MetricCollection(
-                                ObjectMother.Shared_FakeRunId,
-                                2,
-                                (uint)ObjectMother.Shared_Page01_PageItems.Count,
-                                ObjectMother.WIDMetrics_Page01_ItemsByWorkAreaWithoutZone,
-                                ObjectMother.WIDMetrics_Page01_ItemsByCreateDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDate,
-                                null,
-                                ObjectMother.WIDMetrics_Page01_ItemsByNumberOfOpenings,
-                                ObjectMother.WIDMetrics_Page01_ItemsByAdvertisementPublishDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDeadline,
-                                ObjectMother.WIDMetrics_Page01_ItemsByStartDateOfEmployment,
-                                ObjectMother.WIDMetrics_Page01_ItemsByReference,
-                                ObjectMother.WIDMetrics_Page01_ItemsByPosition,
-                                ObjectMother.WIDMetrics_Page01_ItemsByTypeOfEmployment,
-                                ObjectMother.WIDMetrics_Page01_ItemsByContact,
-                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerAddress,
-                                ObjectMother.WIDMetrics_Page01_ItemsByHowToApply,
-                                ObjectMother.WIDMetrics_Page01_DescriptionLengthByPageItemId,
-                                ObjectMother.WIDMetrics_Page01_BulletPointsByPageItemId,
-                                ObjectMother.WIDMetrics_Page01_TotalBulletPoints
-                            )
-                ),
-                typeof(ArgumentNullException),
-                new ArgumentNullException("itemsByEmployerName").Message
-            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_07"),
-
-            new TestCaseData(
-                new TestDelegate(
-                    () => new MetricCollection(
-                                ObjectMother.Shared_FakeRunId,
-                                2,
-                                (uint)ObjectMother.Shared_Page01_PageItems.Count,
-                                ObjectMother.WIDMetrics_Page01_ItemsByWorkAreaWithoutZone,
-                                ObjectMother.WIDMetrics_Page01_ItemsByCreateDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDate,
-                                null,
-                                ObjectMother.WIDMetrics_Page01_ItemsByNumberOfOpenings,
-                                ObjectMother.WIDMetrics_Page01_ItemsByAdvertisementPublishDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDeadline,
-                                ObjectMother.WIDMetrics_Page01_ItemsByStartDateOfEmployment,
-                                ObjectMother.WIDMetrics_Page01_ItemsByReference,
-                                ObjectMother.WIDMetrics_Page01_ItemsByPosition,
-                                ObjectMother.WIDMetrics_Page01_ItemsByTypeOfEmployment,
-                                ObjectMother.WIDMetrics_Page01_ItemsByContact,
-                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerAddress,
-                                ObjectMother.WIDMetrics_Page01_ItemsByHowToApply,
-                                ObjectMother.WIDMetrics_Page01_DescriptionLengthByPageItemId,
-                                ObjectMother.WIDMetrics_Page01_BulletPointsByPageItemId,
-                                ObjectMother.WIDMetrics_Page01_TotalBulletPoints
-                            )
-                ),
-                typeof(ArgumentNullException),
-                new ArgumentNullException("itemsByEmployerName").Message
-            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_08"),
-
-            new TestCaseData(
-                new TestDelegate(
-                    () => new MetricCollection(
-                                ObjectMother.Shared_FakeRunId,
-                                2,
-                                (uint)ObjectMother.Shared_Page01_PageItems.Count,
-                                ObjectMother.WIDMetrics_Page01_ItemsByWorkAreaWithoutZone,
-                                ObjectMother.WIDMetrics_Page01_ItemsByCreateDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerName,
-                                null,
-                                ObjectMother.WIDMetrics_Page01_ItemsByAdvertisementPublishDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDeadline,
-                                ObjectMother.WIDMetrics_Page01_ItemsByStartDateOfEmployment,
-                                ObjectMother.WIDMetrics_Page01_ItemsByReference,
-                                ObjectMother.WIDMetrics_Page01_ItemsByPosition,
-                                ObjectMother.WIDMetrics_Page01_ItemsByTypeOfEmployment,
-                                ObjectMother.WIDMetrics_Page01_ItemsByContact,
-                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerAddress,
-                                ObjectMother.WIDMetrics_Page01_ItemsByHowToApply,
-                                ObjectMother.WIDMetrics_Page01_DescriptionLengthByPageItemId,
-                                ObjectMother.WIDMetrics_Page01_BulletPointsByPageItemId,
-                                ObjectMother.WIDMetrics_Page01_TotalBulletPoints
-                            )
-                ),
-                typeof(ArgumentNullException),
-                new ArgumentNullException("itemsByNumberOfOpenings").Message
-            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_09"),
-
-            new TestCaseData(
-                new TestDelegate(
-                    () => new MetricCollection(
-                                ObjectMother.Shared_FakeRunId,
-                                2,
-                                (uint)ObjectMother.Shared_Page01_PageItems.Count,
-                                ObjectMother.WIDMetrics_Page01_ItemsByWorkAreaWithoutZone,
-                                ObjectMother.WIDMetrics_Page01_ItemsByCreateDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerName,
-                                ObjectMother.WIDMetrics_Page01_ItemsByNumberOfOpenings,
-                                null,
-                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDeadline,
-                                ObjectMother.WIDMetrics_Page01_ItemsByStartDateOfEmployment,
-                                ObjectMother.WIDMetrics_Page01_ItemsByReference,
-                                ObjectMother.WIDMetrics_Page01_ItemsByPosition,
-                                ObjectMother.WIDMetrics_Page01_ItemsByTypeOfEmployment,
-                                ObjectMother.WIDMetrics_Page01_ItemsByContact,
-                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerAddress,
-                                ObjectMother.WIDMetrics_Page01_ItemsByHowToApply,
-                                ObjectMother.WIDMetrics_Page01_DescriptionLengthByPageItemId,
-                                ObjectMother.WIDMetrics_Page01_BulletPointsByPageItemId,
-                                ObjectMother.WIDMetrics_Page01_TotalBulletPoints
-                            )
-                ),
-                typeof(ArgumentNullException),
-                new ArgumentNullException("itemsByAdvertisementPublishDate").Message
-            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_10"),
-
-            new TestCaseData(
-                new TestDelegate(
-                    () => new MetricCollection(
-                                ObjectMother.Shared_FakeRunId,
-                                2,
-                                (uint)ObjectMother.Shared_Page01_PageItems.Count,
-                                ObjectMother.WIDMetrics_Page01_ItemsByWorkAreaWithoutZone,
-                                ObjectMother.WIDMetrics_Page01_ItemsByCreateDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerName,
-                                ObjectMother.WIDMetrics_Page01_ItemsByNumberOfOpenings,
-                                null,
-                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDeadline,
-                                ObjectMother.WIDMetrics_Page01_ItemsByStartDateOfEmployment,
-                                ObjectMother.WIDMetrics_Page01_ItemsByReference,
-                                ObjectMother.WIDMetrics_Page01_ItemsByPosition,
-                                ObjectMother.WIDMetrics_Page01_ItemsByTypeOfEmployment,
-                                ObjectMother.WIDMetrics_Page01_ItemsByContact,
-                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerAddress,
-                                ObjectMother.WIDMetrics_Page01_ItemsByHowToApply,
-                                ObjectMother.WIDMetrics_Page01_DescriptionLengthByPageItemId,
-                                ObjectMother.WIDMetrics_Page01_BulletPointsByPageItemId,
-                                ObjectMother.WIDMetrics_Page01_TotalBulletPoints
-                            )
-                ),
-                typeof(ArgumentNullException),
-                new ArgumentNullException("itemsByAdvertisementPublishDate").Message
-            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_11"),
-
-            new TestCaseData(
-                new TestDelegate(
-                    () => new MetricCollection(
-                                ObjectMother.Shared_FakeRunId,
-                                2,
-                                (uint)ObjectMother.Shared_Page01_PageItems.Count,
-                                ObjectMother.WIDMetrics_Page01_ItemsByWorkAreaWithoutZone,
-                                ObjectMother.WIDMetrics_Page01_ItemsByCreateDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerName,
-                                ObjectMother.WIDMetrics_Page01_ItemsByNumberOfOpenings,
-                                ObjectMother.WIDMetrics_Page01_ItemsByAdvertisementPublishDate,
-                                null,
-                                ObjectMother.WIDMetrics_Page01_ItemsByStartDateOfEmployment,
-                                ObjectMother.WIDMetrics_Page01_ItemsByReference,
-                                ObjectMother.WIDMetrics_Page01_ItemsByPosition,
-                                ObjectMother.WIDMetrics_Page01_ItemsByTypeOfEmployment,
-                                ObjectMother.WIDMetrics_Page01_ItemsByContact,
-                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerAddress,
-                                ObjectMother.WIDMetrics_Page01_ItemsByHowToApply,
-                                ObjectMother.WIDMetrics_Page01_DescriptionLengthByPageItemId,
-                                ObjectMother.WIDMetrics_Page01_BulletPointsByPageItemId,
-                                ObjectMother.WIDMetrics_Page01_TotalBulletPoints
-                            )
-                ),
-                typeof(ArgumentNullException),
-                new ArgumentNullException("itemsByApplicationDeadline").Message
-            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_12"),
-
-            new TestCaseData(
-                new TestDelegate(
-                    () => new MetricCollection(
-                                ObjectMother.Shared_FakeRunId,
-                                2,
-                                (uint)ObjectMother.Shared_Page01_PageItems.Count,
-                                ObjectMother.WIDMetrics_Page01_ItemsByWorkAreaWithoutZone,
-                                ObjectMother.WIDMetrics_Page01_ItemsByCreateDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerName,
-                                ObjectMother.WIDMetrics_Page01_ItemsByNumberOfOpenings,
-                                ObjectMother.WIDMetrics_Page01_ItemsByAdvertisementPublishDate,
-                                null,
-                                ObjectMother.WIDMetrics_Page01_ItemsByStartDateOfEmployment,
-                                ObjectMother.WIDMetrics_Page01_ItemsByReference,
-                                ObjectMother.WIDMetrics_Page01_ItemsByPosition,
-                                ObjectMother.WIDMetrics_Page01_ItemsByTypeOfEmployment,
-                                ObjectMother.WIDMetrics_Page01_ItemsByContact,
-                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerAddress,
-                                ObjectMother.WIDMetrics_Page01_ItemsByHowToApply,
-                                ObjectMother.WIDMetrics_Page01_DescriptionLengthByPageItemId,
-                                ObjectMother.WIDMetrics_Page01_BulletPointsByPageItemId,
-                                ObjectMother.WIDMetrics_Page01_TotalBulletPoints
-                            )
-                ),
-                typeof(ArgumentNullException),
-                new ArgumentNullException("itemsByApplicationDeadline").Message
-            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_13"),
-
-            new TestCaseData(
-                new TestDelegate(
-                    () => new MetricCollection(
-                                ObjectMother.Shared_FakeRunId,
-                                2,
-                                (uint)ObjectMother.Shared_Page01_PageItems.Count,
-                                ObjectMother.WIDMetrics_Page01_ItemsByWorkAreaWithoutZone,
-                                ObjectMother.WIDMetrics_Page01_ItemsByCreateDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerName,
-                                ObjectMother.WIDMetrics_Page01_ItemsByNumberOfOpenings,
-                                ObjectMother.WIDMetrics_Page01_ItemsByAdvertisementPublishDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDeadline,
-                                null,
-                                ObjectMother.WIDMetrics_Page01_ItemsByReference,
-                                ObjectMother.WIDMetrics_Page01_ItemsByPosition,
-                                ObjectMother.WIDMetrics_Page01_ItemsByTypeOfEmployment,
-                                ObjectMother.WIDMetrics_Page01_ItemsByContact,
-                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerAddress,
-                                ObjectMother.WIDMetrics_Page01_ItemsByHowToApply,
-                                ObjectMother.WIDMetrics_Page01_DescriptionLengthByPageItemId,
-                                ObjectMother.WIDMetrics_Page01_BulletPointsByPageItemId,
-                                ObjectMother.WIDMetrics_Page01_TotalBulletPoints
-                            )
-                ),
-                typeof(ArgumentNullException),
-                new ArgumentNullException("itemsByStartDateOfEmployment").Message
-            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_14"),
-
-            new TestCaseData(
-                new TestDelegate(
-                    () => new MetricCollection(
-                                ObjectMother.Shared_FakeRunId,
-                                2,
-                                (uint)ObjectMother.Shared_Page01_PageItems.Count,
-                                ObjectMother.WIDMetrics_Page01_ItemsByWorkAreaWithoutZone,
-                                ObjectMother.WIDMetrics_Page01_ItemsByCreateDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerName,
-                                ObjectMother.WIDMetrics_Page01_ItemsByNumberOfOpenings,
-                                ObjectMother.WIDMetrics_Page01_ItemsByAdvertisementPublishDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDeadline,
-                                ObjectMother.WIDMetrics_Page01_ItemsByStartDateOfEmployment,
-                                null,
-                                ObjectMother.WIDMetrics_Page01_ItemsByPosition,
-                                ObjectMother.WIDMetrics_Page01_ItemsByTypeOfEmployment,
-                                ObjectMother.WIDMetrics_Page01_ItemsByContact,
-                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerAddress,
-                                ObjectMother.WIDMetrics_Page01_ItemsByHowToApply,
-                                ObjectMother.WIDMetrics_Page01_DescriptionLengthByPageItemId,
-                                ObjectMother.WIDMetrics_Page01_BulletPointsByPageItemId,
-                                ObjectMother.WIDMetrics_Page01_TotalBulletPoints
-                            )
-                ),
-                typeof(ArgumentNullException),
-                new ArgumentNullException("itemsByReference").Message
-            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_15"),
-
-            new TestCaseData(
-                new TestDelegate(
-                    () => new MetricCollection(
-                                ObjectMother.Shared_FakeRunId,
-                                2,
-                                (uint)ObjectMother.Shared_Page01_PageItems.Count,
-                                ObjectMother.WIDMetrics_Page01_ItemsByWorkAreaWithoutZone,
-                                ObjectMother.WIDMetrics_Page01_ItemsByCreateDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerName,
-                                ObjectMother.WIDMetrics_Page01_ItemsByNumberOfOpenings,
-                                ObjectMother.WIDMetrics_Page01_ItemsByAdvertisementPublishDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDeadline,
-                                ObjectMother.WIDMetrics_Page01_ItemsByStartDateOfEmployment,
-                                ObjectMother.WIDMetrics_Page01_ItemsByReference,
-                                null,
-                                ObjectMother.WIDMetrics_Page01_ItemsByTypeOfEmployment,
-                                ObjectMother.WIDMetrics_Page01_ItemsByContact,
-                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerAddress,
-                                ObjectMother.WIDMetrics_Page01_ItemsByHowToApply,
-                                ObjectMother.WIDMetrics_Page01_DescriptionLengthByPageItemId,
-                                ObjectMother.WIDMetrics_Page01_BulletPointsByPageItemId,
-                                ObjectMother.WIDMetrics_Page01_TotalBulletPoints
-                            )
-                ),
-                typeof(ArgumentNullException),
-                new ArgumentNullException("itemsByPosition").Message
-            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_16"),
-
-            new TestCaseData(
-                new TestDelegate(
-                    () => new MetricCollection(
-                                ObjectMother.Shared_FakeRunId,
-                                2,
-                                (uint)ObjectMother.Shared_Page01_PageItems.Count,
-                                ObjectMother.WIDMetrics_Page01_ItemsByWorkAreaWithoutZone,
-                                ObjectMother.WIDMetrics_Page01_ItemsByCreateDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerName,
-                                ObjectMother.WIDMetrics_Page01_ItemsByNumberOfOpenings,
-                                ObjectMother.WIDMetrics_Page01_ItemsByAdvertisementPublishDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDeadline,
-                                ObjectMother.WIDMetrics_Page01_ItemsByStartDateOfEmployment,
-                                ObjectMother.WIDMetrics_Page01_ItemsByReference,
-                                ObjectMother.WIDMetrics_Page01_ItemsByPosition,
-                                null,
-                                ObjectMother.WIDMetrics_Page01_ItemsByContact,
-                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerAddress,
-                                ObjectMother.WIDMetrics_Page01_ItemsByHowToApply,
-                                ObjectMother.WIDMetrics_Page01_DescriptionLengthByPageItemId,
-                                ObjectMother.WIDMetrics_Page01_BulletPointsByPageItemId,
-                                ObjectMother.WIDMetrics_Page01_TotalBulletPoints
-                            )
-                ),
-                typeof(ArgumentNullException),
-                new ArgumentNullException("itemsByTypeOfEmployment").Message
-            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_17"),
-
-            new TestCaseData(
-                new TestDelegate(
-                    () => new MetricCollection(
-                                ObjectMother.Shared_FakeRunId,
-                                2,
-                                (uint)ObjectMother.Shared_Page01_PageItems.Count,
-                                ObjectMother.WIDMetrics_Page01_ItemsByWorkAreaWithoutZone,
-                                ObjectMother.WIDMetrics_Page01_ItemsByCreateDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerName,
-                                ObjectMother.WIDMetrics_Page01_ItemsByNumberOfOpenings,
-                                ObjectMother.WIDMetrics_Page01_ItemsByAdvertisementPublishDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDeadline,
-                                ObjectMother.WIDMetrics_Page01_ItemsByStartDateOfEmployment,
-                                ObjectMother.WIDMetrics_Page01_ItemsByReference,
-                                ObjectMother.WIDMetrics_Page01_ItemsByPosition,
-                                ObjectMother.WIDMetrics_Page01_ItemsByTypeOfEmployment,
-                                null,
-                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerAddress,
-                                ObjectMother.WIDMetrics_Page01_ItemsByHowToApply,
-                                ObjectMother.WIDMetrics_Page01_DescriptionLengthByPageItemId,
-                                ObjectMother.WIDMetrics_Page01_BulletPointsByPageItemId,
-                                ObjectMother.WIDMetrics_Page01_TotalBulletPoints
-                            )
-                ),
-                typeof(ArgumentNullException),
-                new ArgumentNullException("itemsByContact").Message
-            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_18"),
-
-            new TestCaseData(
-                new TestDelegate(
-                    () => new MetricCollection(
-                                ObjectMother.Shared_FakeRunId,
-                                2,
-                                (uint)ObjectMother.Shared_Page01_PageItems.Count,
-                                ObjectMother.WIDMetrics_Page01_ItemsByWorkAreaWithoutZone,
-                                ObjectMother.WIDMetrics_Page01_ItemsByCreateDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerName,
-                                ObjectMother.WIDMetrics_Page01_ItemsByNumberOfOpenings,
-                                ObjectMother.WIDMetrics_Page01_ItemsByAdvertisementPublishDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDeadline,
-                                ObjectMother.WIDMetrics_Page01_ItemsByStartDateOfEmployment,
-                                ObjectMother.WIDMetrics_Page01_ItemsByReference,
-                                ObjectMother.WIDMetrics_Page01_ItemsByPosition,
-                                ObjectMother.WIDMetrics_Page01_ItemsByTypeOfEmployment,
-                                ObjectMother.WIDMetrics_Page01_ItemsByContact,
-                                null,
-                                ObjectMother.WIDMetrics_Page01_ItemsByHowToApply,
-                                ObjectMother.WIDMetrics_Page01_DescriptionLengthByPageItemId,
-                                ObjectMother.WIDMetrics_Page01_BulletPointsByPageItemId,
-                                ObjectMother.WIDMetrics_Page01_TotalBulletPoints
-                            )
-                ),
-                typeof(ArgumentNullException),
-                new ArgumentNullException("itemsByEmployerAddress").Message
-            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_19"),
-
-            new TestCaseData(
-                new TestDelegate(
-                    () => new MetricCollection(
-                                ObjectMother.Shared_FakeRunId,
-                                2,
-                                (uint)ObjectMother.Shared_Page01_PageItems.Count,
-                                ObjectMother.WIDMetrics_Page01_ItemsByWorkAreaWithoutZone,
-                                ObjectMother.WIDMetrics_Page01_ItemsByCreateDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerName,
-                                ObjectMother.WIDMetrics_Page01_ItemsByNumberOfOpenings,
-                                ObjectMother.WIDMetrics_Page01_ItemsByAdvertisementPublishDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDeadline,
-                                ObjectMother.WIDMetrics_Page01_ItemsByStartDateOfEmployment,
-                                ObjectMother.WIDMetrics_Page01_ItemsByReference,
-                                ObjectMother.WIDMetrics_Page01_ItemsByPosition,
-                                ObjectMother.WIDMetrics_Page01_ItemsByTypeOfEmployment,
-                                ObjectMother.WIDMetrics_Page01_ItemsByContact,
-                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerAddress,
-                                null,
-                                ObjectMother.WIDMetrics_Page01_DescriptionLengthByPageItemId,
-                                ObjectMother.WIDMetrics_Page01_BulletPointsByPageItemId,
-                                ObjectMother.WIDMetrics_Page01_TotalBulletPoints
-                            )
-                ),
-                typeof(ArgumentNullException),
-                new ArgumentNullException("itemsByHowToApply").Message
-            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_20"),
-
-            new TestCaseData(
-                new TestDelegate(
-                    () => new MetricCollection(
-                                ObjectMother.Shared_FakeRunId,
-                                2,
-                                (uint)ObjectMother.Shared_Page01_PageItems.Count,
-                                ObjectMother.WIDMetrics_Page01_ItemsByWorkAreaWithoutZone,
-                                ObjectMother.WIDMetrics_Page01_ItemsByCreateDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerName,
-                                ObjectMother.WIDMetrics_Page01_ItemsByNumberOfOpenings,
-                                ObjectMother.WIDMetrics_Page01_ItemsByAdvertisementPublishDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDeadline,
-                                ObjectMother.WIDMetrics_Page01_ItemsByStartDateOfEmployment,
-                                ObjectMother.WIDMetrics_Page01_ItemsByReference,
-                                ObjectMother.WIDMetrics_Page01_ItemsByPosition,
-                                ObjectMother.WIDMetrics_Page01_ItemsByTypeOfEmployment,
-                                ObjectMother.WIDMetrics_Page01_ItemsByContact,
-                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerAddress,
-                                ObjectMother.WIDMetrics_Page01_ItemsByHowToApply,
-                                null,
-                                ObjectMother.WIDMetrics_Page01_BulletPointsByPageItemId,
-                                ObjectMother.WIDMetrics_Page01_TotalBulletPoints
-                            )
-                ),
-                typeof(ArgumentNullException),
-                new ArgumentNullException("descriptionLengthByPageItemId").Message
-            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_21"),
-
-            new TestCaseData(
-                new TestDelegate(
-                    () => new MetricCollection(
-                                ObjectMother.Shared_FakeRunId,
-                                2,
-                                (uint)ObjectMother.Shared_Page01_PageItems.Count,
-                                ObjectMother.WIDMetrics_Page01_ItemsByWorkAreaWithoutZone,
-                                ObjectMother.WIDMetrics_Page01_ItemsByCreateDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerName,
-                                ObjectMother.WIDMetrics_Page01_ItemsByNumberOfOpenings,
-                                ObjectMother.WIDMetrics_Page01_ItemsByAdvertisementPublishDate,
-                                ObjectMother.WIDMetrics_Page01_ItemsByApplicationDeadline,
-                                ObjectMother.WIDMetrics_Page01_ItemsByStartDateOfEmployment,
-                                ObjectMother.WIDMetrics_Page01_ItemsByReference,
-                                ObjectMother.WIDMetrics_Page01_ItemsByPosition,
-                                ObjectMother.WIDMetrics_Page01_ItemsByTypeOfEmployment,
-                                ObjectMother.WIDMetrics_Page01_ItemsByContact,
-                                ObjectMother.WIDMetrics_Page01_ItemsByEmployerAddress,
-                                ObjectMother.WIDMetrics_Page01_ItemsByHowToApply,
-                                ObjectMother.WIDMetrics_Page01_DescriptionLengthByPageItemId,
-                                null,
-                                ObjectMother.WIDMetrics_Page01_TotalBulletPoints
-                            )
-                ),
-                typeof(ArgumentNullException),
-                new ArgumentNullException("bulletPointsByPageItemId").Message
-            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_22")
+            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_01")
 
         };
 
@@ -665,51 +70,79 @@ namespace NW.WIDJobs.UnitTests
             // Arrange
             MetricCollection expected =
                 new MetricCollection(
-                        ObjectMother.Shared_FakeRunId,
-                        2,
-                        (uint)ObjectMother.Shared_Page01_PageItems.Count,
-                        ObjectMother.WIDMetrics_Page01_ItemsByWorkAreaWithoutZone,
-                        ObjectMother.WIDMetrics_Page01_ItemsByCreateDate,
-                        ObjectMother.WIDMetrics_Page01_ItemsByApplicationDate,
-                        ObjectMother.WIDMetrics_Page01_ItemsByEmployerName,
-                        ObjectMother.WIDMetrics_Page01_ItemsByNumberOfOpenings,
-                        ObjectMother.WIDMetrics_Page01_ItemsByAdvertisementPublishDate,
-                        ObjectMother.WIDMetrics_Page01_ItemsByApplicationDeadline,
-                        ObjectMother.WIDMetrics_Page01_ItemsByStartDateOfEmployment,
-                        ObjectMother.WIDMetrics_Page01_ItemsByReference,
-                        ObjectMother.WIDMetrics_Page01_ItemsByPosition,
-                        ObjectMother.WIDMetrics_Page01_ItemsByTypeOfEmployment,
-                        ObjectMother.WIDMetrics_Page01_ItemsByContact,
-                        ObjectMother.WIDMetrics_Page01_ItemsByEmployerAddress,
-                        ObjectMother.WIDMetrics_Page01_ItemsByHowToApply,
-                        ObjectMother.WIDMetrics_Page01_DescriptionLengthByPageItemId,
-                        ObjectMother.WIDMetrics_Page01_BulletPointsByPageItemId,
-                        ObjectMother.WIDMetrics_Page01_TotalBulletPoints
+                        runId: ObjectMother.MetricCollectionForJobPage01_RunId,
+                        totalJobPages: ObjectMother.MetricCollectionForJobPage01_TotalJobPages,
+                        totalJobPostings: ObjectMother.MetricCollectionForJobPage01_TotalJobPostings,
+                        jobPostingsByHiringOrgName: ObjectMother.MetricCollectionForJobPage01_JobPostingsByHiringOrgName,
+                        jobPostingsByWorkPlaceAddress: ObjectMother.MetricCollectionForJobPage01_JobPostingsByWorkPlaceAddress,
+                        jobPostingsByWorkPlacePostalCode: ObjectMother.MetricCollectionForJobPage01_JobPostingsByWorkPlacePostalCode,
+                        jobPostingsByWorkPlaceCity: ObjectMother.MetricCollectionForJobPage01_JobPostingsByWorkPlaceCity,
+                        jobPostingsByPostingCreated: ObjectMother.MetricCollectionForJobPage01_JobPostingsByPostingCreated,
+                        jobPostingsByLastDateApplication: ObjectMother.MetricCollectionForJobPage01_JobPostingsByLastDateApplication,
+                        jobPostingsByRegion: ObjectMother.MetricCollectionForJobPage01_JobPostingsByRegion,
+                        jobPostingsByMunicipality: ObjectMother.MetricCollectionForJobPage01_JobPostingsByMunicipality,
+                        jobPostingsByCountry: ObjectMother.MetricCollectionForJobPage01_JobPostingsByCountry,
+                        jobPostingsByEmploymentType: ObjectMother.MetricCollectionForJobPage01_JobPostingsByEmploymentType,
+                        jobPostingsByWorkHours: ObjectMother.MetricCollectionForJobPage01_JobPostingsByWorkHours,
+                        jobPostingsByOccupation: ObjectMother.MetricCollectionForJobPage01_JobPostingsByOccupation,
+                        jobPostingsByWorkplaceId: ObjectMother.MetricCollectionForJobPage01_JobPostingsByWorkplaceId,
+                        jobPostingsByOrganisationId: ObjectMother.MetricCollectionForJobPage01_JobPostingsByOrganisationId,
+                        jobPostingsByHiringOrgCVR: ObjectMother.MetricCollectionForJobPage01_JobPostingsByHiringOrgCVR,
+                        jobPostingsByWorkPlaceCityWithoutZone: ObjectMother.MetricCollectionForJobPage01_JobPostingsByWorkPlaceCityWithoutZone,
+                        jobPostingsByPublicationStartDate: ObjectMother.MetricCollectionForJobPage01_JobPostingsByPublicationStartDate,
+                        jobPostingsByPublicationEndDate: ObjectMother.MetricCollectionForJobPage01_JobPostingsByPublicationEndDate,
+                        jobPostingsByNumberToFill: ObjectMother.MetricCollectionForJobPage01_JobPostingsByNumberToFill,
+                        jobPostingsByContactEmail: ObjectMother.MetricCollectionForJobPage01_JobPostingsByContactEmail,
+                        jobPostingsByContactPersonName: ObjectMother.MetricCollectionForJobPage01_JobPostingsByContactPersonName,
+                        jobPostingsByEmploymentDate: ObjectMother.MetricCollectionForJobPage01_JobPostingsByEmploymentDate,
+                        jobPostingsByApplicationDeadlineDate: ObjectMother.MetricCollectionForJobPage01_JobPostingsByApplicationDeadlineDate,
+                        jobPostingsByBulletPointScenario: ObjectMother.MetricCollectionForJobPage01_JobPostingsByBulletPointScenario,
+                        responseLengthByJobPostingId: ObjectMother.MetricCollectionForJobPage01_ResponseLengthByJobPostingId,
+                        presentationLengthByJobPostingId: ObjectMother.MetricCollectionForJobPage01_PresentationLengthByJobPostingId,
+                        extendedResponseLengthByJobPostingId: ObjectMother.MetricCollectionForJobPage01_ExtendedResponseLengthByJobPostingId,
+                        hiringOrgDescriptionLengthByJobPostingId: ObjectMother.MetricCollectionForJobPage01_HiringOrgDescriptionLengthByJobPostingId,
+                        purposeLengthByJobPostingId: ObjectMother.MetricCollectionForJobPage01_PurposeLengthByJobPostingId,
+                        bulletPointsByJobPostingId: ObjectMother.MetricCollectionForJobPage01_BulletPointsByJobPostingId,
+                        totalBulletPoints: ObjectMother.MetricCollectionForJobPage01_TotalBulletPoints
                     );
 
             // Act
             MetricCollection actual =
                 new MetricCollection(
-                        ObjectMother.Shared_FakeRunId,
-                        2,
-                        (uint)ObjectMother.Shared_Page01_PageItems.Count,
-                        ObjectMother.WIDMetrics_Page01_ItemsByWorkAreaWithoutZone,
-                        ObjectMother.WIDMetrics_Page01_ItemsByCreateDate,
-                        ObjectMother.WIDMetrics_Page01_ItemsByApplicationDate,
-                        ObjectMother.WIDMetrics_Page01_ItemsByEmployerName,
-                        ObjectMother.WIDMetrics_Page01_ItemsByNumberOfOpenings,
-                        ObjectMother.WIDMetrics_Page01_ItemsByAdvertisementPublishDate,
-                        ObjectMother.WIDMetrics_Page01_ItemsByApplicationDeadline,
-                        ObjectMother.WIDMetrics_Page01_ItemsByStartDateOfEmployment,
-                        ObjectMother.WIDMetrics_Page01_ItemsByReference,
-                        ObjectMother.WIDMetrics_Page01_ItemsByPosition,
-                        ObjectMother.WIDMetrics_Page01_ItemsByTypeOfEmployment,
-                        ObjectMother.WIDMetrics_Page01_ItemsByContact,
-                        ObjectMother.WIDMetrics_Page01_ItemsByEmployerAddress,
-                        ObjectMother.WIDMetrics_Page01_ItemsByHowToApply,
-                        ObjectMother.WIDMetrics_Page01_DescriptionLengthByPageItemId,
-                        ObjectMother.WIDMetrics_Page01_BulletPointsByPageItemId,
-                        ObjectMother.WIDMetrics_Page01_TotalBulletPoints
+                        runId: ObjectMother.MetricCollectionForJobPage01_RunId,
+                        totalJobPages: ObjectMother.MetricCollectionForJobPage01_TotalJobPages,
+                        totalJobPostings: ObjectMother.MetricCollectionForJobPage01_TotalJobPostings,
+                        jobPostingsByHiringOrgName: ObjectMother.MetricCollectionForJobPage01_JobPostingsByHiringOrgName,
+                        jobPostingsByWorkPlaceAddress: ObjectMother.MetricCollectionForJobPage01_JobPostingsByWorkPlaceAddress,
+                        jobPostingsByWorkPlacePostalCode: ObjectMother.MetricCollectionForJobPage01_JobPostingsByWorkPlacePostalCode,
+                        jobPostingsByWorkPlaceCity: ObjectMother.MetricCollectionForJobPage01_JobPostingsByWorkPlaceCity,
+                        jobPostingsByPostingCreated: ObjectMother.MetricCollectionForJobPage01_JobPostingsByPostingCreated,
+                        jobPostingsByLastDateApplication: ObjectMother.MetricCollectionForJobPage01_JobPostingsByLastDateApplication,
+                        jobPostingsByRegion: ObjectMother.MetricCollectionForJobPage01_JobPostingsByRegion,
+                        jobPostingsByMunicipality: ObjectMother.MetricCollectionForJobPage01_JobPostingsByMunicipality,
+                        jobPostingsByCountry: ObjectMother.MetricCollectionForJobPage01_JobPostingsByCountry,
+                        jobPostingsByEmploymentType: ObjectMother.MetricCollectionForJobPage01_JobPostingsByEmploymentType,
+                        jobPostingsByWorkHours: ObjectMother.MetricCollectionForJobPage01_JobPostingsByWorkHours,
+                        jobPostingsByOccupation: ObjectMother.MetricCollectionForJobPage01_JobPostingsByOccupation,
+                        jobPostingsByWorkplaceId: ObjectMother.MetricCollectionForJobPage01_JobPostingsByWorkplaceId,
+                        jobPostingsByOrganisationId: ObjectMother.MetricCollectionForJobPage01_JobPostingsByOrganisationId,
+                        jobPostingsByHiringOrgCVR: ObjectMother.MetricCollectionForJobPage01_JobPostingsByHiringOrgCVR,
+                        jobPostingsByWorkPlaceCityWithoutZone: ObjectMother.MetricCollectionForJobPage01_JobPostingsByWorkPlaceCityWithoutZone,
+                        jobPostingsByPublicationStartDate: ObjectMother.MetricCollectionForJobPage01_JobPostingsByPublicationStartDate,
+                        jobPostingsByPublicationEndDate: ObjectMother.MetricCollectionForJobPage01_JobPostingsByPublicationEndDate,
+                        jobPostingsByNumberToFill: ObjectMother.MetricCollectionForJobPage01_JobPostingsByNumberToFill,
+                        jobPostingsByContactEmail: ObjectMother.MetricCollectionForJobPage01_JobPostingsByContactEmail,
+                        jobPostingsByContactPersonName: ObjectMother.MetricCollectionForJobPage01_JobPostingsByContactPersonName,
+                        jobPostingsByEmploymentDate: ObjectMother.MetricCollectionForJobPage01_JobPostingsByEmploymentDate,
+                        jobPostingsByApplicationDeadlineDate: ObjectMother.MetricCollectionForJobPage01_JobPostingsByApplicationDeadlineDate,
+                        jobPostingsByBulletPointScenario: ObjectMother.MetricCollectionForJobPage01_JobPostingsByBulletPointScenario,
+                        responseLengthByJobPostingId: ObjectMother.MetricCollectionForJobPage01_ResponseLengthByJobPostingId,
+                        presentationLengthByJobPostingId: ObjectMother.MetricCollectionForJobPage01_PresentationLengthByJobPostingId,
+                        extendedResponseLengthByJobPostingId: ObjectMother.MetricCollectionForJobPage01_ExtendedResponseLengthByJobPostingId,
+                        hiringOrgDescriptionLengthByJobPostingId: ObjectMother.MetricCollectionForJobPage01_HiringOrgDescriptionLengthByJobPostingId,
+                        purposeLengthByJobPostingId: ObjectMother.MetricCollectionForJobPage01_PurposeLengthByJobPostingId,
+                        bulletPointsByJobPostingId: ObjectMother.MetricCollectionForJobPage01_BulletPointsByJobPostingId,
+                        totalBulletPoints: ObjectMother.MetricCollectionForJobPage01_TotalBulletPoints
                     );
 
             // Assert
@@ -724,5 +157,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 30.05.2021
+    Last Update: 09.08.2021
 */

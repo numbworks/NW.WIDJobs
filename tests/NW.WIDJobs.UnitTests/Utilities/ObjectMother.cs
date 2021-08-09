@@ -187,7 +187,50 @@ namespace NW.WIDJobs.UnitTests
 
         #endregion
 
-        #region WIDMetrics
+        #region MetricCollection
+
+        internal static string MetricCollectionForJobPage01_RunId = Shared_FakeRunId;
+        internal static uint MetricCollectionForJobPage01_TotalJobPages = 1;
+        internal static uint MetricCollectionForJobPage01_TotalJobPostings = 20;
+
+        internal static Dictionary<string, uint> MetricCollectionForJobPage01_JobPostingsByHiringOrgName = new Dictionary<string, uint>() { }; // { "København", 9 }
+        internal static Dictionary<string, uint> MetricCollectionForJobPage01_JobPostingsByWorkPlaceAddress = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollectionForJobPage01_JobPostingsByWorkPlacePostalCode = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollectionForJobPage01_JobPostingsByWorkPlaceCity = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollectionForJobPage01_JobPostingsByPostingCreated = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollectionForJobPage01_JobPostingsByLastDateApplication = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollectionForJobPage01_JobPostingsByRegion = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollectionForJobPage01_JobPostingsByMunicipality = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollectionForJobPage01_JobPostingsByCountry = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollectionForJobPage01_JobPostingsByEmploymentType = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollectionForJobPage01_JobPostingsByWorkHours = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollectionForJobPage01_JobPostingsByOccupation = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollectionForJobPage01_JobPostingsByWorkplaceId = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollectionForJobPage01_JobPostingsByOrganisationId = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollectionForJobPage01_JobPostingsByHiringOrgCVR = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollectionForJobPage01_JobPostingsByWorkPlaceCityWithoutZone = new Dictionary<string, uint>() { };
+
+        internal static Dictionary<string, uint> MetricCollectionForJobPage01_JobPostingsByPublicationStartDate = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollectionForJobPage01_JobPostingsByPublicationEndDate = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollectionForJobPage01_JobPostingsByNumberToFill = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollectionForJobPage01_JobPostingsByContactEmail = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollectionForJobPage01_JobPostingsByContactPersonName = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollectionForJobPage01_JobPostingsByEmploymentDate = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollectionForJobPage01_JobPostingsByApplicationDeadlineDate = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollectionForJobPage01_JobPostingsByBulletPointScenario = new Dictionary<string, uint>() { };
+
+        internal static Dictionary<string, uint> MetricCollectionForJobPage01_ResponseLengthByJobPostingId = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollectionForJobPage01_PresentationLengthByJobPostingId = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollectionForJobPage01_ExtendedResponseLengthByJobPostingId = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollectionForJobPage01_HiringOrgDescriptionLengthByJobPostingId = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollectionForJobPage01_PurposeLengthByJobPostingId = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollectionForJobPage01_BulletPointsByJobPostingId = new Dictionary<string, uint>() { };
+
+        internal static uint MetricCollectionForJobPage01_TotalBulletPoints = 20;
+
+        #endregion
+
+        #region MetricCollectionManager
 
         internal static Dictionary<string, uint> WIDMetrics_Page01_ItemsByWorkAreaWithoutZone
             = new Dictionary<string, uint>()
@@ -282,10 +325,6 @@ namespace NW.WIDJobs.UnitTests
                 { "8144071leanprofessional", 0 }
             };
         internal static uint WIDMetrics_Page01_TotalBulletPoints = 2;
-
-        #endregion
-
-        #region WIDMetricsManager
 
         internal static Exploration WIDMetricsManager_ExplorationWithNullPageItems
             = new WIDExploration(
