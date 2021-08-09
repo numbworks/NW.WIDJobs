@@ -3,8 +3,8 @@ using System.IO;
 
 namespace NW.WIDJobs
 {
-    /// <inheritdoc cref="IWIDFileNameFactory"/>
-    public class WIDFileNameFactory : IWIDFileNameFactory
+    /// <inheritdoc cref="IFilenameFactory"/>
+    public class FilenameFactory : IFilenameFactory
     {
 
         #region Fields
@@ -26,8 +26,8 @@ namespace NW.WIDJobs
 
         #region Constructors
 
-        ///<summary>Initializes a <see cref="WIDFileNameFactory"/> instance.</summary>
-        public WIDFileNameFactory() { }
+        ///<summary>Initializes a <see cref="FilenameFactory"/> instance.</summary>
+        public FilenameFactory() { }
 
         #endregion
 

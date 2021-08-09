@@ -4,7 +4,7 @@ using System;
 namespace NW.WIDJobs.UnitTests
 {
     [TestFixture]
-    public class WIDFileNameFactoryTests
+    public class FilenamesFactoryTests
     {
 
         // Fields
@@ -13,7 +13,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                     new Func<string>( 
-                            () => new WIDFileNameFactory()
+                            () => new FilenameFactory()
                                         .CreateForDatabase(
                                             ObjectMother.WIDFileNameFactory_FakeFilePath) 
                         ),
@@ -22,7 +22,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                     new Func<string>(
-                            () => new WIDFileNameFactory()
+                            () => new FilenameFactory()
                                         .CreateForDatabase(
                                             ObjectMother.WIDFileNameFactory_FakeFilePath,
                                             ObjectMother.WIDFileNameFactory_FakeDatabaseFileName)
@@ -32,7 +32,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                     new Func<string>(
-                            () => new WIDFileNameFactory()
+                            () => new FilenameFactory()
                                         .CreateForDatabase(
                                             ObjectMother.WIDFileNameFactory_FakeFilePath,
                                             ObjectMother.WIDFileNameFactory_FakeToken,
@@ -43,7 +43,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                     new Func<string>(
-                            () => new WIDFileNameFactory()
+                            () => new FilenameFactory()
                                         .CreateForDatabase(
                                             ObjectMother.WIDFileNameFactory_FakeFilePath,
                                             ObjectMother.WIDFileNameFactory_FakeNow)
@@ -57,7 +57,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new WIDFileNameFactory()
+                    () => new FilenameFactory()
                                 .CreateForDatabase(null)
 				),
                 typeof(ArgumentNullException),
@@ -66,7 +66,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new WIDFileNameFactory()
+                    () => new FilenameFactory()
                                 .CreateForDatabase(
                                     ObjectMother.WIDFileNameFactory_FakeFilePath,
                                     null)
@@ -77,7 +77,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new WIDFileNameFactory()
+                    () => new FilenameFactory()
                                 .CreateForDatabase(
                                     ObjectMother.WIDFileNameFactory_FakeFilePath,
                                     null,
@@ -93,7 +93,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                     new Func<string>(
-                            () => new WIDFileNameFactory()
+                            () => new FilenameFactory()
                                         .CreateForMetricsJson(
                                             ObjectMother.WIDFileNameFactory_FakeFilePath,
                                             ObjectMother.WIDFileNameFactory_FakeNow,
@@ -104,7 +104,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                     new Func<string>(
-                            () => new WIDFileNameFactory()
+                            () => new FilenameFactory()
                                         .CreateForMetricsJson(
                                             ObjectMother.WIDFileNameFactory_FakeFilePath,
                                             ObjectMother.WIDFileNameFactory_FakeNow,
@@ -119,7 +119,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new WIDFileNameFactory()
+                    () => new FilenameFactory()
                                 .CreateForMetricsJson(
                                     null,
                                     ObjectMother.WIDFileNameFactory_FakeNow,
@@ -131,7 +131,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new WIDFileNameFactory()
+                    () => new FilenameFactory()
                                 .CreateForMetricsJson(
                                     ObjectMother.WIDFileNameFactory_FakeFilePath,
                                     null,
@@ -149,7 +149,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                     new Func<string>(
-                            () => new WIDFileNameFactory()
+                            () => new FilenameFactory()
                                         .CreateForExplorationJson(
                                             ObjectMother.WIDFileNameFactory_FakeFilePath,
                                             ObjectMother.WIDFileNameFactory_FakeNow)
@@ -159,7 +159,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                     new Func<string>(
-                            () => new WIDFileNameFactory()
+                            () => new FilenameFactory()
                                         .CreateForExplorationJson(
                                             ObjectMother.WIDFileNameFactory_FakeFilePath,
                                             ObjectMother.WIDFileNameFactory_FakeToken,
@@ -174,7 +174,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new WIDFileNameFactory()
+                    () => new FilenameFactory()
                                 .CreateForExplorationJson(
                                     null,
                                     ObjectMother.WIDFileNameFactory_FakeNow)
@@ -185,7 +185,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new WIDFileNameFactory()
+                    () => new FilenameFactory()
                                 .CreateForExplorationJson(
                                     ObjectMother.WIDFileNameFactory_FakeFilePath,
                                     null,

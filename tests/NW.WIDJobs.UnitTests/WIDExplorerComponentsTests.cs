@@ -28,7 +28,7 @@ namespace NW.WIDJobs.UnitTests
                                 new FileManager(),
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
-                                new WIDFileNameFactory(),
+                                new FilenameFactory(),
                                 new BulletPointManager()
                         )
                 ),
@@ -53,7 +53,7 @@ namespace NW.WIDJobs.UnitTests
                                 new FileManager(),
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
-                                new WIDFileNameFactory(),
+                                new FilenameFactory(),
                                 new BulletPointManager()
                         )
                 ),
@@ -78,7 +78,7 @@ namespace NW.WIDJobs.UnitTests
                                 new FileManager(),
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
-                                new WIDFileNameFactory(),
+                                new FilenameFactory(),
                                 new BulletPointManager()
                         )
                 ),
@@ -103,7 +103,7 @@ namespace NW.WIDJobs.UnitTests
                                 new FileManager(),
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
-                                new WIDFileNameFactory(),
+                                new FilenameFactory(),
                                 new BulletPointManager()
                         )
                 ),
@@ -128,7 +128,7 @@ namespace NW.WIDJobs.UnitTests
                                 new FileManager(),
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
-                                new WIDFileNameFactory(),
+                                new FilenameFactory(),
                                 new BulletPointManager()
                         )
                 ),
@@ -153,7 +153,7 @@ namespace NW.WIDJobs.UnitTests
                                 new FileManager(),
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
-                                new WIDFileNameFactory(),
+                                new FilenameFactory(),
                                 new BulletPointManager()
                         )
                 ),
@@ -178,7 +178,7 @@ namespace NW.WIDJobs.UnitTests
                                 new FileManager(),
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
-                                new WIDFileNameFactory(),
+                                new FilenameFactory(),
                                 new BulletPointManager()
                         )
                 ),
@@ -203,7 +203,7 @@ namespace NW.WIDJobs.UnitTests
                                 new FileManager(),
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
-                                new WIDFileNameFactory(),
+                                new FilenameFactory(),
                                 new BulletPointManager()
                         )
                 ),
@@ -228,7 +228,7 @@ namespace NW.WIDJobs.UnitTests
                                 new FileManager(),
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
-                                new WIDFileNameFactory(),
+                                new FilenameFactory(),
                                 new BulletPointManager()
                         )
                 ),
@@ -253,7 +253,7 @@ namespace NW.WIDJobs.UnitTests
                                 new FileManager(),
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
-                                new WIDFileNameFactory(),
+                                new FilenameFactory(),
                                 new BulletPointManager()
                         )
                 ),
@@ -278,7 +278,7 @@ namespace NW.WIDJobs.UnitTests
                                 new FileManager(),
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
-                                new WIDFileNameFactory(),
+                                new FilenameFactory(),
                                 new BulletPointManager()
                         )
                 ),
@@ -303,7 +303,7 @@ namespace NW.WIDJobs.UnitTests
                                 null,
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
-                                new WIDFileNameFactory(),
+                                new FilenameFactory(),
                                 new BulletPointManager()
                         )
                 ),
@@ -328,7 +328,7 @@ namespace NW.WIDJobs.UnitTests
                                 new FileManager(),
                                 null,
                                 new AsciiBannerManager(),
-                                new WIDFileNameFactory(),
+                                new FilenameFactory(),
                                 new BulletPointManager()
                         )
                 ),
@@ -353,7 +353,7 @@ namespace NW.WIDJobs.UnitTests
                                 new FileManager(),
                                 new RepositoryFactory(),
                                 null,
-                                new WIDFileNameFactory(),
+                                new FilenameFactory(),
                                 new BulletPointManager()
                         )
                 ),
@@ -403,7 +403,7 @@ namespace NW.WIDJobs.UnitTests
                                 new FileManager(),
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
-                                new WIDFileNameFactory(),
+                                new FilenameFactory(),
                                 null
                         )
                 ),
@@ -437,7 +437,7 @@ namespace NW.WIDJobs.UnitTests
                             new FileManager(),
                             new RepositoryFactory(),
                             new AsciiBannerManager(),
-                            new WIDFileNameFactory(),
+                            new FilenameFactory(),
                             new BulletPointManager()
                         );
 
@@ -457,7 +457,7 @@ namespace NW.WIDJobs.UnitTests
             Assert.IsInstanceOf<FileManager>(actual.FileManager);
             Assert.IsInstanceOf<RepositoryFactory>(actual.RepositoryFactory);
             Assert.IsInstanceOf<AsciiBannerManager>(actual.AsciiBannerManager);
-            Assert.IsInstanceOf<WIDFileNameFactory>(actual.FileNameFactory);
+            Assert.IsInstanceOf<FilenameFactory>(actual.FileNameFactory);
             Assert.IsInstanceOf<BulletPointManager>(actual.BulletPointManager);
 
         }
@@ -486,7 +486,7 @@ namespace NW.WIDJobs.UnitTests
             Assert.IsInstanceOf<FileManager>(actual.FileManager);
             Assert.IsInstanceOf<RepositoryFactory>(actual.RepositoryFactory);
             Assert.IsInstanceOf<AsciiBannerManager>(actual.AsciiBannerManager);
-            Assert.IsInstanceOf<WIDFileNameFactory>(actual.FileNameFactory);
+            Assert.IsInstanceOf<FilenameFactory>(actual.FileNameFactory);
             Assert.IsInstanceOf<BulletPointManager>(actual.BulletPointManager);
 
         }

@@ -3,17 +3,17 @@
 namespace NW.WIDJobs
 {
     /// <summary>Collects all the methods related to create filenames for <see cref="WIDExplorer"/>.</summary>
-    public interface IWIDFileNameFactory
+    public interface IFilenameFactory
     {
 
         /// <summary>
-        /// Returns an undated filename based on <paramref name="filePath"/> and <see cref="WIDFileNameFactory.DefaultDatabaseToken"/>.
+        /// Returns an undated filename based on <paramref name="filePath"/> and <see cref="FilenameFactory.DefaultDatabaseToken"/>.
         /// </summary>
         /// <exception cref="ArgumentNullException"/>
         string CreateForDatabase(string filePath);
 
         /// <summary>
-        /// Returns a dated filename based on <paramref name="filePath"/> and <see cref="WIDFileNameFactory.DefaultDatabaseToken"/>.
+        /// Returns a dated filename based on <paramref name="filePath"/> and <see cref="FilenameFactory.DefaultDatabaseToken"/>.
         /// </summary>
         /// <exception cref="ArgumentNullException"/>
         string CreateForDatabase(string filePath, DateTime now);
@@ -31,7 +31,7 @@ namespace NW.WIDJobs
         string CreateForDatabase(string filePath, string token, DateTime now);
 
         /// <summary>
-        /// Returns a dated filename based on <paramref name="filePath"/> and <see cref="WIDFileNameFactory.DefaultMetricsJsonToken"/> (or <see cref="WIDFileNameFactory.DefaultMetricsPctJsonToken"/>).
+        /// Returns a dated filename based on <paramref name="filePath"/> and <see cref="FilenameFactory.DefaultMetricsJsonToken"/> (or <see cref="FilenameFactory.DefaultMetricsPctJsonToken"/>).
         /// </summary>
         /// <exception cref="ArgumentNullException"/>
         string CreateForMetricsJson(string filePath, DateTime now, bool numbersAsPercentages);
@@ -43,7 +43,7 @@ namespace NW.WIDJobs
         string CreateForMetricsJson(string filePath, string token, DateTime now);
 
         /// <summary>
-        /// Returns a dated filename based on <paramref name="filePath"/> and <see cref="WIDFileNameFactory.DefaultExplorationJsonToken"/>.
+        /// Returns a dated filename based on <paramref name="filePath"/> and <see cref="FilenameFactory.DefaultExplorationJsonToken"/>.
         /// </summary>
         /// <exception cref="ArgumentNullException"/>
         string CreateForExplorationJson(string filePath, DateTime now);

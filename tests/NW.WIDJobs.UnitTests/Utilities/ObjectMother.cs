@@ -3270,16 +3270,16 @@ namespace NW.WIDJobs.UnitTests
         internal static string WIDFileNameFactory_FakeToken = "fake";
         internal static DateTime WIDFileNameFactory_FakeNow = new DateTime(2021, 05, 01);
         internal static string WIDFileNameFactory_FakeNowString
-            = WIDFileNameFactory_FakeNow.ToString(WIDFileNameFactory.DefaultFormatNow);
+            = WIDFileNameFactory_FakeNow.ToString(FilenameFactory.DefaultFormatNow);
 
         internal static string WIDFileNameFactory_FakeDatabaseFileName = "fakedb.db";
 
         internal static string WIDFileNameFactory_DatabaseNameIfFilePath
             = string.Concat(
                         WIDFileNameFactory_FakeFilePath,
-                        WIDFileNameFactory.DefaultDatabaseToken,
+                        FilenameFactory.DefaultDatabaseToken,
                         ".",
-                        WIDFileNameFactory.DefaultDatabaseExtension
+                        FilenameFactory.DefaultDatabaseExtension
                         );
         internal static string WIDFileNameFactory_DatabaseNameIfFilePathFileName
             = string.Concat(
@@ -3293,45 +3293,45 @@ namespace NW.WIDJobs.UnitTests
                         "_",
                         WIDFileNameFactory_FakeNowString,
                         ".",
-                        WIDFileNameFactory.DefaultDatabaseExtension
+                        FilenameFactory.DefaultDatabaseExtension
                         );
         internal static string WIDFileNameFactory_DatabaseNameIfFilePathNow
             = string.Concat(
                         WIDFileNameFactory_FakeFilePath,
-                        WIDFileNameFactory.DefaultDatabaseToken,
+                        FilenameFactory.DefaultDatabaseToken,
                         "_",
                         WIDFileNameFactory_FakeNowString,
                         ".",
-                        WIDFileNameFactory.DefaultDatabaseExtension
+                        FilenameFactory.DefaultDatabaseExtension
                         );
 
         internal static string WIDFileNameFactory_MetricsJsonIfTrue
             = string.Concat(
                         WIDFileNameFactory_FakeFilePath,
-                        WIDFileNameFactory.DefaultMetricsPctJsonToken,
+                        FilenameFactory.DefaultMetricsPctJsonToken,
                         "_",
                         WIDFileNameFactory_FakeNowString,
                         ".",
-                        WIDFileNameFactory.DefaultJsonExtension
+                        FilenameFactory.DefaultJsonExtension
                         );
         internal static string WIDFileNameFactory_MetricsJsonIfFalse
             = string.Concat(
                         WIDFileNameFactory_FakeFilePath,
-                        WIDFileNameFactory.DefaultMetricsJsonToken,
+                        FilenameFactory.DefaultMetricsJsonToken,
                         "_",
                         WIDFileNameFactory_FakeNowString,
                         ".",
-                        WIDFileNameFactory.DefaultJsonExtension
+                        FilenameFactory.DefaultJsonExtension
                         );
 
         internal static string WIDFileNameFactory_ExplorationJsonIfFilePathNow
             = string.Concat(
                         WIDFileNameFactory_FakeFilePath,
-                        WIDFileNameFactory.DefaultExplorationJsonToken,
+                        FilenameFactory.DefaultExplorationJsonToken,
                         "_",
                         WIDFileNameFactory_FakeNowString,
                         ".",
-                        WIDFileNameFactory.DefaultJsonExtension
+                        FilenameFactory.DefaultJsonExtension
                         );
         internal static string WIDFileNameFactory_ExplorationJsonIfFilePathTokenNow
             = string.Concat(
@@ -3340,7 +3340,7 @@ namespace NW.WIDJobs.UnitTests
                         "_",
                         WIDFileNameFactory_FakeNowString,
                         ".",
-                        WIDFileNameFactory.DefaultJsonExtension
+                        FilenameFactory.DefaultJsonExtension
                         );
 
         #endregion
