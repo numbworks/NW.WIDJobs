@@ -86,7 +86,7 @@ namespace NW.WIDJobs
             Dictionary<string, uint> descriptionLengthByPageItemId
                 = SumDescriptionLengthByPageItemId(exploration.JobPostingsExtended);
             Dictionary<string, uint> bulletPointsByPageItemId
-                = SumBulletPointsByPageItemId(exploration.JobPostingsExtended);
+                = SumBulletPointsByJobPostingId(exploration.JobPostingsExtended);
 
             uint totalBulletPoints = SumBulletPoints(exploration.JobPostingsExtended);
 
@@ -819,52 +819,173 @@ namespace NW.WIDJobs
 
         }
 
-
-        private Dictionary<string, uint> SumDescriptionLengthByPageItemId(List<PageItemExtended> pageItemsExtended)
+        private Dictionary<string, uint> SumResponseLengthByJobPostingId(List<JobPosting> jobPostings)
         {
 
             /*
-                - ("8144099sitereliabilityengineer, 985)
-                - ("8144114unpaidinternshipsales, 992)
-                - ("8144115learningsalesfulltimestudentposition, 1003)
+                - ("8144099sitereliabilityengineer", 985)
+                - ("8144114unpaidinternshipsales", 992)
+                - ("8144115learningsalesfulltimestudentposition", 1003)
                 - ...
             */
 
             var results =
-                    from item in pageItemsExtended
-                    group item.Description.Length by item.PageItem.PageItemId into groups
+                    from jobPosting in jobPostings
+                    group jobPosting.Response.Length by jobPosting.JobPostingId into groups
                     select new
                     {
-                        PageItemId = groups.Key, // This is never null, so we don't handle that case.
-                        DescriptionLength = groups.Sum()
+                        JobPostingId = groups.Key, // This is never null, so we don't handle that case.
+                        ResponseLength = groups.Sum()
                     };
 
-            results = results.OrderByDescending(result => result.DescriptionLength);
+            results = results.OrderByDescending(result => result.ResponseLength);
 
             Dictionary<string, uint> grouped
                 = results.ToDictionary(
-                                result => result.PageItemId,
-                                result => (uint)result.DescriptionLength);
+                                result => result.JobPostingId,
+                                result => (uint)result.ResponseLength);
 
             return grouped;
 
         }
-        private Dictionary<string, uint> SumBulletPointsByPageItemId(List<PageItemExtended> pageItemsExtended)
+        private Dictionary<string, uint> SumPresentationLengthByJobPostingId(List<JobPosting> jobPostings)
         {
 
             /*
-                - ("8144099sitereliabilityengineer, 10)
-                - ("8144114unpaidinternshipsales, 6)
-                - ("8144115learningsalesfulltimestudentposition, 0)
+                - ("8144099sitereliabilityengineer", 985)
+                - ("8144114unpaidinternshipsales", 992)
+                - ("8144115learningsalesfulltimestudentposition", 1003)
+                - ("null", 4)
                 - ...
             */
 
             var results =
-                    from item in pageItemsExtended
-                    group item.DescriptionBulletPoints.Count by item.PageItem.PageItemId into groups
+                    from jobPosting in jobPostings
+                    group jobPosting.Presentation.Length by jobPosting.JobPostingId into groups
                     select new
                     {
-                        PageItemId = groups.Key, // This is never null, so we don't handle that case.
+                        JobPostingId = groups.Key ?? FormatNull,
+                        PresentationLength = groups.Sum()
+                    };
+
+            results = results.OrderByDescending(result => result.PresentationLength);
+
+            Dictionary<string, uint> grouped
+                = results.ToDictionary(
+                                result => result.JobPostingId,
+                                result => (uint)result.PresentationLength);
+
+            return grouped;
+
+        }
+        private Dictionary<string, uint> SumExtendedResponseLengthByJobPostingId(List<JobPostingExtended> jobPostingsExtended)
+        {
+
+            /*
+                - ("8144099sitereliabilityengineer", 985)
+                - ("8144114unpaidinternshipsales", 992)
+                - ("8144115learningsalesfulltimestudentposition", 1003)
+                - ("null", 4)
+                - ...
+            */
+
+            var results =
+                    from jobPostingExtended in jobPostingsExtended
+                    group jobPostingExtended.Response.Length by jobPostingExtended.JobPosting.JobPostingId into groups
+                    select new
+                    {
+                        JobPostingId = groups.Key ?? FormatNull,
+                        ExtendedResponseLength = groups.Sum()
+                    };
+
+            results = results.OrderByDescending(result => result.ExtendedResponseLength);
+
+            Dictionary<string, uint> grouped
+                = results.ToDictionary(
+                                result => result.JobPostingId,
+                                result => (uint)result.ExtendedResponseLength);
+
+            return grouped;
+
+        }
+        private Dictionary<string, uint> SumHiringOrgDescriptionLengthByJobPostingId(List<JobPostingExtended> jobPostingsExtended)
+        {
+
+            /*
+                - ("8144099sitereliabilityengineer", 985)
+                - ("8144114unpaidinternshipsales", 992)
+                - ("8144115learningsalesfulltimestudentposition", 1003)
+                - ("null", 4)
+                - ...
+            */
+
+            var results =
+                    from jobPostingExtended in jobPostingsExtended
+                    group jobPostingExtended.HiringOrgDescription.Length by jobPostingExtended.JobPosting.JobPostingId into groups
+                    select new
+                    {
+                        JobPostingId = groups.Key ?? FormatNull,
+                        HiringOrgDescriptionLength = groups.Sum()
+                    };
+
+            results = results.OrderByDescending(result => result.HiringOrgDescriptionLength);
+
+            Dictionary<string, uint> grouped
+                = results.ToDictionary(
+                                result => result.JobPostingId,
+                                result => (uint)result.HiringOrgDescriptionLength);
+
+            return grouped;
+
+        }
+        private Dictionary<string, uint> SumPurposeLengthByJobPostingId(List<JobPostingExtended> jobPostingsExtended)
+        {
+
+            /*
+                - ("8144099sitereliabilityengineer", 985)
+                - ("8144114unpaidinternshipsales", 992)
+                - ("8144115learningsalesfulltimestudentposition", 1003)
+                - ("null", 4)
+                - ...
+            */
+
+            var results =
+                    from jobPostingExtended in jobPostingsExtended
+                    group jobPostingExtended.Purpose.Length by jobPostingExtended.JobPosting.JobPostingId into groups
+                    select new
+                    {
+                        JobPostingId = groups.Key ?? FormatNull,
+                        PurposeLength = groups.Sum()
+                    };
+
+            results = results.OrderByDescending(result => result.PurposeLength);
+
+            Dictionary<string, uint> grouped
+                = results.ToDictionary(
+                                result => result.JobPostingId,
+                                result => (uint)result.PurposeLength);
+
+            return grouped;
+
+        }
+
+        private Dictionary<string, uint> SumBulletPointsByJobPostingId(List<JobPostingExtended> jobPostingsExtended)
+        {
+
+            /*
+                - ("8144099sitereliabilityengineer", 10)
+                - ("8144114unpaidinternshipsales", 6)
+                - ("8144115learningsalesfulltimestudentposition", 0)
+                - ("null", 4)
+                - ...
+            */
+
+            var results =
+                    from jobPostingExtended in jobPostingsExtended
+                    group jobPostingExtended.BulletPoints.Count by jobPostingExtended.JobPosting.JobPostingId into groups
+                    select new
+                    {
+                        JobPostingId = groups.Key ?? FormatNull,
                         BulletPoints = groups.Sum()
                     };
 
@@ -872,19 +993,19 @@ namespace NW.WIDJobs
 
             Dictionary<string, uint> grouped
                 = results.ToDictionary(
-                                result => result.PageItemId,
+                                result => result.JobPostingId,
                                 result => (uint)result.BulletPoints);
 
             return grouped;
 
         }
-        private uint SumBulletPoints(List<PageItemExtended> pageItemsExtended)
+        private uint SumBulletPoints(List<JobPostingExtended> jobPostingsExtended)
         {
 
             uint totalBulletPoints = 0;
-            foreach (PageItemExtended pageItemExtended in pageItemsExtended)
+            foreach (JobPostingExtended jobPostingExtended in jobPostingsExtended)
                 // This is never null, so we don't handle that case.
-                totalBulletPoints += (uint)pageItemExtended.DescriptionBulletPoints.Count; 
+                totalBulletPoints += (uint)jobPostingExtended.BulletPoints.Count; 
 
             return totalBulletPoints;
 
