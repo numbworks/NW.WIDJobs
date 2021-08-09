@@ -493,7 +493,7 @@ namespace NW.WIDJobs
                 exploration
                     .JobPages?.Select(page => new Page(page.RunId, page.PageNumber, DefaultNotSerialized)).ToList();
 
-            if (exploration.Stage == WIDStages.Stage3_UpToAllPageItemsExtended)
+            if (exploration.Stage == WIDStages.Stage3_UpToAllJobPostingsExtended)
                 dyn.PageItems = DefaultNotSerialized;
 
             dyn.PageItemsExtended = exploration.JobPostingsExtended;
@@ -636,7 +636,7 @@ namespace NW.WIDJobs
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemObjectsScrapedTotal(pageItems));
 
             bool isCompleted = false;
-            if (stage == WIDStages.Stage2_UpToAllPageItems)
+            if (stage == WIDStages.Stage2_UpToAllJobPostings)
                 isCompleted = true;
 
             return
@@ -715,7 +715,7 @@ namespace NW.WIDJobs
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FinalPageNumberThresholdDate(finalPageNumber));
 
             bool isCompleted = false;
-            if (stage == WIDStages.Stage2_UpToAllPageItems)
+            if (stage == WIDStages.Stage2_UpToAllJobPostings)
                 isCompleted = true;
 
             return

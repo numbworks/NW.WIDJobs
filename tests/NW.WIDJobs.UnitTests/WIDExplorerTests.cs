@@ -383,7 +383,7 @@ namespace NW.WIDJobs.UnitTests
                         ObjectMother.Shared_Page01_TotalResults,
                         ObjectMother.Shared_Page01_TotalEstimatedPages,
                         WIDCategories.AllCategories,
-                        WIDStages.Stage2_UpToAllPageItems,
+                        WIDStages.Stage2_UpToAllJobPostings,
                         true,
                         pages,
                         ObjectMother.Shared_Page02Alternate_GetPageItemsSubset.Invoke(expectedPageItemsIndex)
@@ -395,7 +395,7 @@ namespace NW.WIDJobs.UnitTests
                             ObjectMother.Shared_FakeRunId,
                             thresholdDate,
                             WIDCategories.AllCategories,
-                            WIDStages.Stage2_UpToAllPageItems);
+                            WIDStages.Stage2_UpToAllJobPostings);
 
             // Assert
             Assert.IsTrue(
@@ -462,7 +462,7 @@ namespace NW.WIDJobs.UnitTests
                         ObjectMother.Shared_Page01_TotalResults,
                         ObjectMother.Shared_Page01_TotalEstimatedPages,
                         WIDCategories.AllCategories,
-                        WIDStages.Stage3_UpToAllPageItemsExtended,
+                        WIDStages.Stage3_UpToAllJobPostingsExtended,
                         true,
                         pages,
                         ObjectMother.Shared_Page02Alternate_GetPageItemsSubset.Invoke(expectedPageItemsIndex),
@@ -475,7 +475,7 @@ namespace NW.WIDJobs.UnitTests
                             ObjectMother.Shared_FakeRunId,
                             thresholdDate,
                             WIDCategories.AllCategories,
-                            WIDStages.Stage3_UpToAllPageItemsExtended);
+                            WIDStages.Stage3_UpToAllJobPostingsExtended);
 
             // Assert
             Assert.IsTrue(
@@ -618,7 +618,7 @@ namespace NW.WIDJobs.UnitTests
                         ObjectMother.Shared_Page01_TotalResults,
                         ObjectMother.Shared_Page01_TotalEstimatedPages,
                         WIDCategories.AllCategories,
-                        WIDStages.Stage2_UpToAllPageItems,
+                        WIDStages.Stage2_UpToAllJobPostings,
                         true,
                         pages,
                         pageItems
@@ -630,7 +630,7 @@ namespace NW.WIDJobs.UnitTests
                             ObjectMother.Shared_FakeRunId,
                             2,
                             WIDCategories.AllCategories,
-                            WIDStages.Stage2_UpToAllPageItems);
+                            WIDStages.Stage2_UpToAllJobPostings);
 
             // Assert
             Assert.IsTrue(
@@ -698,7 +698,7 @@ namespace NW.WIDJobs.UnitTests
                         ObjectMother.Shared_Page01_TotalResults,
                         ObjectMother.Shared_Page01_TotalEstimatedPages,
                         WIDCategories.AllCategories,
-                        WIDStages.Stage3_UpToAllPageItemsExtended,
+                        WIDStages.Stage3_UpToAllJobPostingsExtended,
                         true,
                         pages,
                         pageItems,
@@ -711,7 +711,7 @@ namespace NW.WIDJobs.UnitTests
                             ObjectMother.Shared_FakeRunId,
                             2,
                             WIDCategories.AllCategories,
-                            WIDStages.Stage3_UpToAllPageItemsExtended);
+                            WIDStages.Stage3_UpToAllJobPostingsExtended);
 
             // Assert
             Assert.IsTrue(

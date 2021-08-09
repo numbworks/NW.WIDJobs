@@ -181,7 +181,7 @@ namespace NW.WIDJobs
         public static string WIDExplorer_SerializationOptionPageContent 
             = "Page content is not serialized.";
         public static string WIDExplorer_SerializationOptionPageItems 
-            = $"If {nameof(WIDStages.Stage3_UpToAllPageItemsExtended)}, {nameof(PageItem)} objects are not serialized.";
+            = $"If {nameof(WIDStages.Stage3_UpToAllJobPostingsExtended)}, {nameof(PageItem)} objects are not serialized.";
         public static string WIDExplorer_ExplorationConvertedToJsonString
             = $"The provided {nameof(WIDExploration)} object has been successfully converted to a JSON string.";
 

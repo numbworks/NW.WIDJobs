@@ -73,7 +73,7 @@ namespace NW.WIDJobsClient
             explorer.LogAsciiBanner();
 
             WIDExploration exploration
-                = explorer.Explore(1, WIDCategories.AllCategories, WIDStages.Stage3_UpToAllPageItemsExtended);
+                = explorer.Explore(1, WIDCategories.AllCategories, WIDStages.Stage3_UpToAllJobPostingsExtended);
             WIDMetrics metrics = explorer.ConvertToMetrics(exploration);
 
             explorer.SaveAsJson(exploration);
@@ -89,7 +89,7 @@ namespace NW.WIDJobsClient
             explorer.LogAsciiBanner();
 
             WIDExploration exploration
-                = explorer.ExploreAll(WIDCategories.ItTech, WIDStages.Stage3_UpToAllPageItemsExtended);
+                = explorer.ExploreAll(WIDCategories.ItTech, WIDStages.Stage3_UpToAllJobPostingsExtended);
             WIDMetrics metrics = explorer.ConvertToMetrics(exploration);
 
             explorer.SaveAsJson(exploration);

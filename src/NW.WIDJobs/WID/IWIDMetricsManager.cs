@@ -9,7 +9,7 @@ namespace NW.WIDJobs
 
         /// <summary>
         /// Calculates <see cref="WIDMetrics"/> out of <paramref name="exploration"/>.
-        /// <para>Only explorations on <see cref="WIDStages.Stage3_UpToAllPageItemsExtended"/> are supported.</para>
+        /// <para>Only explorations on <see cref="WIDStages.Stage3_UpToAllJobPostingsExtended"/> are supported.</para>
         /// </summary>
         /// <exception cref="ArgumentNullException"/>
         /// <exception cref="ArgumentException"/> 
