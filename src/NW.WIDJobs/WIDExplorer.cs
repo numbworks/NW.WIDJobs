@@ -72,7 +72,7 @@ namespace NW.WIDJobs
             if (exploration.IsCompleted)
                 return LogCompletionMessageAndReturn(exploration);
 
-            finalPageNumber = EstablishFinalPageNumber(finalPageNumber, exploration.TotalEstimatedPages);
+            finalPageNumber = EstablishFinalPageNumber(finalPageNumber, exploration.TotalJobPages);
 
             exploration = ProcessStage2(exploration, finalPageNumber, stage);
             if (exploration.IsCompleted)
@@ -141,7 +141,7 @@ namespace NW.WIDJobs
             if (exploration.IsCompleted)
                 return LogCompletionMessageAndReturn(exploration);
 
-            ushort finalPageNumber = exploration.TotalEstimatedPages;
+            ushort finalPageNumber = exploration.TotalJobPages;
 
             exploration = ProcessStage2(exploration, finalPageNumber, stage);
             if (exploration.IsCompleted)
@@ -390,8 +390,8 @@ namespace NW.WIDJobs
         {
 
             Validator.ValidateObject(exploration, nameof(exploration));
-            Validator.ValidateList(exploration.PageItems, nameof(exploration.PageItems));
-            Validator.ValidateList(exploration.PageItemsExtended, nameof(exploration.PageItemsExtended));
+            Validator.ValidateList(exploration.JobPostings, nameof(exploration.JobPostings));
+            Validator.ValidateList(exploration.JobPostingsExtended, nameof(exploration.JobPostingsExtended));
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ConvertingExplorationToMetrics);
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs.Invoke(exploration.RunId));
@@ -483,20 +483,20 @@ namespace NW.WIDJobs
             dynamic dyn = new ExpandoObject();
 
             dyn.RunId = exploration.RunId;
-            dyn.TotalResults = exploration.TotalResults;
-            dyn.TotalEstimatedPages = exploration.TotalEstimatedPages;
+            dyn.TotalResults = exploration.TotalResultCount;
+            dyn.TotalEstimatedPages = exploration.TotalJobPages;
             dyn.Category = exploration.Category;
             dyn.Stage = exploration.Stage;
             dyn.IsCompleted = exploration.IsCompleted;
 
             dyn.Pages =
                 exploration
-                    .Pages?.Select(page => new Page(page.RunId, page.PageNumber, DefaultNotSerialized)).ToList();
+                    .JobPages?.Select(page => new Page(page.RunId, page.PageNumber, DefaultNotSerialized)).ToList();
 
             if (exploration.Stage == WIDStages.Stage3_UpToAllPageItemsExtended)
                 dyn.PageItems = DefaultNotSerialized;
 
-            dyn.PageItemsExtended = exploration.PageItemsExtended;
+            dyn.PageItemsExtended = exploration.JobPostingsExtended;
 
             return dyn;
 
@@ -610,14 +610,14 @@ namespace NW.WIDJobs
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(stage));
 
-            List<PageItem> pageItems = _components.PageItemScraper.Do(exploration.Pages[0]);
+            List<PageItem> pageItems = _components.PageItemScraper.Do(exploration.JobPages[0]);
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemScrapedInitial(pageItems));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_AntiFloodingStrategy);
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ParallelRequestsAre(_settings.ParallelRequests));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PauseBetweenRequestsIs(_settings.PauseBetweenRequestsMs));
 
-            List<Page> stage2Pages = new List<Page>(exploration.Pages);
+            List<Page> stage2Pages = new List<Page>(exploration.JobPages);
             for (ushort i = 2; i <= finalPageNumber; i++)
             {
 
@@ -642,8 +642,8 @@ namespace NW.WIDJobs
             return
                 new WIDExploration(
                         exploration.RunId,
-                        exploration.TotalResults,
-                        exploration.TotalEstimatedPages,
+                        exploration.TotalResultCount,
+                        exploration.TotalJobPages,
                         exploration.Category,
                         stage,
                         isCompleted,
@@ -657,15 +657,15 @@ namespace NW.WIDJobs
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(stage));
 
-            List<Page> stage2Pages = new List<Page>() { exploration.Pages[0] };
+            List<Page> stage2Pages = new List<Page>() { exploration.JobPages[0] };
             List<PageItem> stage2PageItems = new List<PageItem>();
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_AntiFloodingStrategy);
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ParallelRequestsAre(_settings.ParallelRequests));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PauseBetweenRequestsIs(_settings.PauseBetweenRequestsMs));
 
-            ushort finalPageNumber = exploration.TotalEstimatedPages;
-            for (ushort i = 1; i <= exploration.TotalEstimatedPages; i++)
+            ushort finalPageNumber = exploration.TotalJobPages;
+            for (ushort i = 1; i <= exploration.TotalJobPages; i++)
             {
 
                 List<PageItem> currentPageItems = new List<PageItem>();
@@ -673,7 +673,7 @@ namespace NW.WIDJobs
                 if (i == 1)
                 {
 
-                    currentPageItems = _components.PageItemScraper.Do(exploration.Pages[0]);
+                    currentPageItems = _components.PageItemScraper.Do(exploration.JobPages[0]);
                     _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemScrapedInitial(currentPageItems));
 
                 }
@@ -721,8 +721,8 @@ namespace NW.WIDJobs
             return
                 new WIDExploration(
                         exploration.RunId,
-                        exploration.TotalResults,
-                        exploration.TotalEstimatedPages,
+                        exploration.TotalResultCount,
+                        exploration.TotalJobPages,
                         exploration.Category,
                         exploration.Stage,
                         isCompleted,
@@ -737,7 +737,7 @@ namespace NW.WIDJobs
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(stage));
 
             List<PageItemExtended> pageItemsExtended = new List<PageItemExtended>();
-            foreach (PageItem pageItem in exploration.PageItems)
+            foreach (PageItem pageItem in exploration.JobPostings)
             {
 
                 PageItemExtended current = _components.PageItemExtendedManager.Get(pageItem);
@@ -756,13 +756,13 @@ namespace NW.WIDJobs
             return
                 new WIDExploration(
                         exploration.RunId,
-                        exploration.TotalResults,
-                        exploration.TotalEstimatedPages,
+                        exploration.TotalResultCount,
+                        exploration.TotalJobPages,
                         exploration.Category,
                         stage,
                         isCompleted,
-                        exploration.Pages,
-                        exploration.PageItems,
+                        exploration.JobPages,
+                        exploration.JobPostings,
                         pageItemsExtended);
 
         }

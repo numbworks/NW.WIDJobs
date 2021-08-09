@@ -55,64 +55,153 @@ namespace NW.WIDJobs.UnitTests
         #region WIDExplorationTests
 
         internal static string WIDExploration_Exploration01_RunId = RunIdManager_RunId_Now;
-        internal static uint WIDExploration_Exploration01_TotalResults = Shared_Page01_TotalResults;
-        internal static ushort WIDExploration_Exploration01_TotalEstimatedPages = 102;
-        internal static WIDCategories WIDExploration_Exploration01_Category = WIDCategories.AllCategories;
-        internal static WIDStages WIDExploration_Exploration01_Stage = WIDStages.Stage1_OnlyMetrics;
+        internal static ushort WIDExploration_Exploration01_TotalResultCount = Shared_JobPage01_TotalResultCount;
+        internal static ushort WIDExploration_Exploration01_TotalJobPages = Shared_JobPage01_TotalJobPages;
         internal static bool WIDExploration_Exploration01_IsCompleted = true;
-        internal static List<Page> WIDExploration_Exploration01_Pages = null;
-        internal static List<PageItem> WIDExploration_Exploration01_PageItems = null;
-        internal static List<PageItemExtended> WIDExploration_Exploration01_PageItemsExtended = null;
+        internal static List<JobPage> WIDExploration_Exploration01_JobPages = null;
+        internal static List<JobPosting> WIDExploration_Exploration01_JobPostings = null;
+        internal static List<JobPostingExtended> WIDExploration_Exploration01_JobPostingsExtended = null;
         internal static WIDExploration WIDExploration_Exploration01
             = new WIDExploration(
                     WIDExploration_Exploration01_RunId,
-                    WIDExploration_Exploration01_TotalResults,
-                    WIDExploration_Exploration01_TotalEstimatedPages,
-                    WIDExploration_Exploration01_Category,
-                    WIDExploration_Exploration01_Stage,
+                    WIDExploration_Exploration01_TotalResultCount,
+                    WIDExploration_Exploration01_TotalJobPages,
                     WIDExploration_Exploration01_IsCompleted,
-                    WIDExploration_Exploration01_Pages,
-                    WIDExploration_Exploration01_PageItems,
-                    WIDExploration_Exploration01_PageItemsExtended
+                    WIDExploration_Exploration01_JobPages,
+                    WIDExploration_Exploration01_JobPostings,
+                    WIDExploration_Exploration01_JobPostingsExtended
                     );
         internal static string WIDExploration_Exploration01_ToString
             = string.Concat(
                 "{ ",
                 $"'{nameof(WIDExploration.RunId)}':'{WIDExploration_Exploration01_RunId}', ",
-                $"'{nameof(WIDExploration.TotalResults)}':'{WIDExploration_Exploration01_TotalResults}', ",
-                $"'{nameof(WIDExploration.TotalEstimatedPages)}':'{WIDExploration_Exploration01_TotalEstimatedPages}', ",
-                $"'{nameof(WIDExploration.Category)}':'{WIDExploration_Exploration01_Category}', ",
-                $"'{nameof(WIDExploration.Stage)}':'{WIDExploration_Exploration01_Stage}', ",
+                $"'{nameof(WIDExploration.TotalResultCount)}':'{WIDExploration_Exploration01_TotalResultCount}', ",
+                $"'{nameof(WIDExploration.TotalJobPages)}':'{WIDExploration_Exploration01_TotalJobPages}', ",
                 $"'{nameof(WIDExploration.IsCompleted)}':'{WIDExploration_Exploration01_IsCompleted}', ",
-                $"'{nameof(WIDExploration.Pages)}':'null', ",
-                $"'{nameof(WIDExploration.PageItems)}':'null', ",
-                $"'{nameof(WIDExploration.PageItemsExtended)}':'null'",
+                $"'{nameof(WIDExploration.JobPages)}':'null', ",
+                $"'{nameof(WIDExploration.JobPostings)}':'null', ",
+                $"'{nameof(WIDExploration.JobPostingsExtended)}':'null'",
                 " }"
                 );
+
+        internal static string WIDExploration_Exploration02_RunId = RunIdManager_RunId_Now;
+        internal static ushort WIDExploration_Exploration02_TotalResultCount = Shared_JobPage01_TotalResultCount;
+        internal static ushort WIDExploration_Exploration02_TotalJobPages = Shared_JobPage01_TotalJobPages;
+        internal static bool WIDExploration_Exploration02_IsCompleted = true;
+        internal static List<JobPage> WIDExploration_Exploration02_JobPages
+            = new List<JobPage>() 
+            {
+                Shared_JobPage01_Object,
+                Shared_JobPage02_Object
+            };
+        internal static List<JobPosting> WIDExploration_Exploration02_JobPostings 
+            = new List<JobPosting>()
+            {
+                Shared_JobPage01_JobPosting01,
+                Shared_JobPage01_JobPosting02,
+                Shared_JobPage01_JobPosting03,
+                Shared_JobPage01_JobPosting04,
+                Shared_JobPage01_JobPosting05,
+                Shared_JobPage01_JobPosting06,
+                Shared_JobPage01_JobPosting07,
+                Shared_JobPage01_JobPosting08,
+                Shared_JobPage01_JobPosting09,
+                Shared_JobPage01_JobPosting10,
+                Shared_JobPage01_JobPosting11,
+                Shared_JobPage01_JobPosting12,
+                Shared_JobPage01_JobPosting13,
+                Shared_JobPage01_JobPosting14,
+                Shared_JobPage01_JobPosting15,
+                Shared_JobPage01_JobPosting16,
+                Shared_JobPage01_JobPosting17,
+                Shared_JobPage01_JobPosting18,
+                Shared_JobPage01_JobPosting19,
+                Shared_JobPage01_JobPosting20,
+                Shared_JobPage02_JobPosting01,
+                Shared_JobPage02_JobPosting02,
+                Shared_JobPage02_JobPosting03,
+                Shared_JobPage02_JobPosting04,
+                Shared_JobPage02_JobPosting05,
+                Shared_JobPage02_JobPosting06,
+                Shared_JobPage02_JobPosting07,
+                Shared_JobPage02_JobPosting08,
+                Shared_JobPage02_JobPosting09,
+                Shared_JobPage02_JobPosting10,
+                Shared_JobPage02_JobPosting11,
+                Shared_JobPage02_JobPosting12,
+                Shared_JobPage02_JobPosting13,
+                Shared_JobPage02_JobPosting14,
+                Shared_JobPage02_JobPosting15,
+                Shared_JobPage02_JobPosting16,
+                Shared_JobPage02_JobPosting17,
+                Shared_JobPage02_JobPosting18,
+                Shared_JobPage02_JobPosting19,
+                Shared_JobPage02_JobPosting20
+            };
+        internal static List<JobPostingExtended> WIDExploration_Exploration02_JobPostingsExtended
+            = new List<JobPostingExtended>()
+            {
+                Shared_JobPage01_JobPostingExtended01,
+                Shared_JobPage01_JobPostingExtended02,
+                Shared_JobPage01_JobPostingExtended03,
+                Shared_JobPage01_JobPostingExtended04,
+                Shared_JobPage01_JobPostingExtended05,
+                Shared_JobPage01_JobPostingExtended06,
+                Shared_JobPage01_JobPostingExtended07,
+                Shared_JobPage01_JobPostingExtended08,
+                Shared_JobPage01_JobPostingExtended09,
+                Shared_JobPage01_JobPostingExtended10,
+                Shared_JobPage01_JobPostingExtended11,
+                Shared_JobPage01_JobPostingExtended12,
+                Shared_JobPage01_JobPostingExtended13,
+                Shared_JobPage01_JobPostingExtended14,
+                Shared_JobPage01_JobPostingExtended15,
+                Shared_JobPage01_JobPostingExtended16,
+                Shared_JobPage01_JobPostingExtended17,
+                Shared_JobPage01_JobPostingExtended18,
+                Shared_JobPage01_JobPostingExtended19,
+                Shared_JobPage01_JobPostingExtended20,
+                Shared_JobPage02_JobPostingExtended01,
+                Shared_JobPage02_JobPostingExtended02,
+                Shared_JobPage02_JobPostingExtended03,
+                Shared_JobPage02_JobPostingExtended04,
+                Shared_JobPage02_JobPostingExtended05,
+                Shared_JobPage02_JobPostingExtended06,
+                Shared_JobPage02_JobPostingExtended07,
+                Shared_JobPage02_JobPostingExtended08,
+                Shared_JobPage02_JobPostingExtended09,
+                Shared_JobPage02_JobPostingExtended10,
+                Shared_JobPage02_JobPostingExtended11,
+                Shared_JobPage02_JobPostingExtended12,
+                Shared_JobPage02_JobPostingExtended13,
+                Shared_JobPage02_JobPostingExtended14,
+                Shared_JobPage02_JobPostingExtended15,
+                Shared_JobPage02_JobPostingExtended16,
+                Shared_JobPage02_JobPostingExtended17,
+                Shared_JobPage02_JobPostingExtended18,
+                Shared_JobPage02_JobPostingExtended19,
+                Shared_JobPage02_JobPostingExtended20
+            };
         internal static WIDExploration WIDExploration_Exploration02
             = new WIDExploration(
                     WIDExploration_Exploration01_RunId,
-                    WIDExploration_Exploration01_TotalResults,
-                    WIDExploration_Exploration01_TotalEstimatedPages,
-                    WIDExploration_Exploration01_Category,
-                    WIDExploration_Exploration01_Stage,
+                    WIDExploration_Exploration01_TotalResultCount,
+                    WIDExploration_Exploration01_TotalJobPages,
                     WIDExploration_Exploration01_IsCompleted,
-                    Shared_Pages_Page01,
-                    Shared_Page01_PageItems,
-                    Shared_Page01_PageItemsExtended
+                    WIDExploration_Exploration02_JobPages,
+                    WIDExploration_Exploration02_JobPostings,
+                    WIDExploration_Exploration02_JobPostingsExtended
                     );
         internal static string WIDExploration_Exploration02_ToString
             = string.Concat(
                 "{ ",
                 $"'{nameof(WIDExploration.RunId)}':'{WIDExploration_Exploration01_RunId}', ",
-                $"'{nameof(WIDExploration.TotalResults)}':'{WIDExploration_Exploration01_TotalResults}', ",
-                $"'{nameof(WIDExploration.TotalEstimatedPages)}':'{WIDExploration_Exploration01_TotalEstimatedPages}', ",
-                $"'{nameof(WIDExploration.Category)}':'{WIDExploration_Exploration01_Category}', ",
-                $"'{nameof(WIDExploration.Stage)}':'{WIDExploration_Exploration01_Stage}', ",
+                $"'{nameof(WIDExploration.TotalResultCount)}':'{WIDExploration_Exploration01_TotalResultCount}', ",
+                $"'{nameof(WIDExploration.TotalJobPages)}':'{WIDExploration_Exploration01_TotalJobPages}', ",
                 $"'{nameof(WIDExploration.IsCompleted)}':'{WIDExploration_Exploration01_IsCompleted}', ",
-                $"'{nameof(WIDExploration.Pages)}':'{Shared_Pages_Page01.Count}', ",
-                $"'{nameof(WIDExploration.PageItems)}':'{Shared_Page01_PageItems.Count}', ",
-                $"'{nameof(WIDExploration.PageItemsExtended)}':'{Shared_Page01_PageItemsExtended.Count}'",
+                $"'{nameof(WIDExploration.JobPages)}':'{WIDExploration_Exploration02_JobPages.Count}', ",
+                $"'{nameof(WIDExploration.JobPostings)}':'{WIDExploration_Exploration02_JobPostings.Count}', ",
+                $"'{nameof(WIDExploration.JobPostingsExtended)}':'{WIDExploration_Exploration02_JobPostingsExtended.Count}'",
                 " }"
                 );
 
@@ -1697,6 +1786,7 @@ namespace NW.WIDJobs.UnitTests
             = new JobPage(Shared_FakeRunId, 1, "{ }");
 
         internal static ushort Shared_JobPage01_TotalResultCount = 2177;
+        internal static ushort Shared_JobPage01_TotalJobPages = 109;
 
         #endregion
 
@@ -3547,14 +3637,14 @@ namespace NW.WIDJobs.UnitTests
         {
 
             return string.Equals(exploration1.RunId, exploration2.RunId, StringComparison.InvariantCulture)
-                        && (exploration1.TotalResults == exploration2.TotalResults)
-                        && (exploration1.TotalEstimatedPages == exploration2.TotalEstimatedPages)
+                        && (exploration1.TotalResultCount == exploration2.TotalResultCount)
+                        && (exploration1.TotalJobPages == exploration2.TotalJobPages)
                         && (exploration1.Category == exploration2.Category)
                         && (exploration1.Stage == exploration2.Stage)
                         && (exploration1.IsCompleted == exploration2.IsCompleted)
-                        && AreEqual(exploration1.Pages, exploration2.Pages)
-                        && AreEqual(exploration1.PageItems, exploration2.PageItems)
-                        && AreEqual(exploration1.PageItemsExtended, exploration2.PageItemsExtended);
+                        && AreEqual(exploration1.JobPages, exploration2.JobPages)
+                        && AreEqual(exploration1.JobPostings, exploration2.JobPostings)
+                        && AreEqual(exploration1.JobPostingsExtended, exploration2.JobPostingsExtended);
 
         }
         internal static bool AreEqual(WIDMetrics metrics1, WIDMetrics metrics2)

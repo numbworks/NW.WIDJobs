@@ -77,7 +77,7 @@ namespace NW.WIDJobsClient
             WIDMetrics metrics = explorer.ConvertToMetrics(exploration);
 
             explorer.SaveAsJson(exploration);
-            explorer.SaveAsSQLite(exploration.PageItemsExtended);
+            explorer.SaveAsSQLite(exploration.JobPostingsExtended);
             explorer.SaveAsJson(metrics, false);
             explorer.SaveAsJson(metrics, true);
 
@@ -93,7 +93,7 @@ namespace NW.WIDJobsClient
             WIDMetrics metrics = explorer.ConvertToMetrics(exploration);
 
             explorer.SaveAsJson(exploration);
-            explorer.SaveAsSQLite(exploration.PageItemsExtended);
+            explorer.SaveAsSQLite(exploration.JobPostingsExtended);
             explorer.SaveAsJson(metrics, false);
             explorer.SaveAsJson(metrics, true);
 

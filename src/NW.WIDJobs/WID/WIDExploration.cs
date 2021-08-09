@@ -13,14 +13,13 @@ namespace NW.WIDJobs
         #region Properties
 
         public string RunId { get; }
-        public uint TotalResults { get; }
-        public ushort TotalEstimatedPages { get; }
-        public WIDCategories Category { get; }
+        public ushort TotalResultCount { get; }
+        public ushort TotalJobPages { get; }
         public WIDStages Stage { get; }
         public bool IsCompleted { get; }
-        public List<Page> Pages { get; }
-        public List<PageItem> PageItems { get; }
-        public List<PageItemExtended> PageItemsExtended { get; }
+        public List<JobPage> JobPages { get; }
+        public List<JobPosting> JobPostings { get; }
+        public List<JobPostingExtended> JobPostingsExtended { get; }
 
         #endregion
 
@@ -30,29 +29,24 @@ namespace NW.WIDJobs
         /// <exception cref="ArgumentNullException"/>
         public WIDExploration(
             string runId,
-            uint totalResults,
-            ushort totalEstimatedPages,
-            WIDCategories category,
-            WIDStages stage,
+            ushort totalResultCount,
+            ushort totalJobPages,
             bool isCompleted,
-            List<Page> pages = null,
-            List<PageItem> pageItems = null,
-            List<PageItemExtended> pageItemsExtended = null
+            List<JobPage> jobPages = null,
+            List<JobPosting> jobPostings = null,
+            List<JobPostingExtended> jobPostingsExtended = null
             )
         {
 
             Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
 
             RunId = runId;
-            TotalResults = totalResults;
-            TotalEstimatedPages = totalEstimatedPages;
-            Category = category;
-            Stage = stage;
+            TotalResultCount = totalResultCount;
+            TotalJobPages = totalJobPages;
             IsCompleted = isCompleted;
-
-            Pages = pages;
-            PageItems = pageItems;
-            PageItemsExtended = pageItemsExtended;
+            JobPages = jobPages;
+            JobPostings = jobPostings;
+            JobPostingsExtended = jobPostingsExtended;
 
         }
 
@@ -66,14 +60,12 @@ namespace NW.WIDJobs
             return string.Concat(
                 "{ ",
                 $"'{nameof(RunId)}':'{RunId}', ",
-                $"'{nameof(TotalResults)}':'{TotalResults}', ",
-                $"'{nameof(TotalEstimatedPages)}':'{TotalEstimatedPages}', ",
-                $"'{nameof(Category)}':'{Category}', ",
-                $"'{nameof(Stage)}':'{Stage}', ",
+                $"'{nameof(TotalResultCount)}':'{TotalResultCount}', ",
+                $"'{nameof(TotalJobPages)}':'{TotalJobPages}', ",
                 $"'{nameof(IsCompleted)}':'{IsCompleted}', ",
-                $"'{nameof(Pages)}':'{Pages?.Count.ToString() ?? "null"}', ",
-                $"'{nameof(PageItems)}':'{PageItems?.Count.ToString() ?? "null"}', ",
-                $"'{nameof(PageItemsExtended)}':'{PageItemsExtended?.Count.ToString() ?? "null"}'",
+                $"'{nameof(JobPages)}':'{JobPages?.Count.ToString() ?? "null"}', ",
+                $"'{nameof(JobPostings)}':'{JobPostings?.Count.ToString() ?? "null"}', ",
+                $"'{nameof(JobPostingsExtended)}':'{JobPostingsExtended?.Count.ToString() ?? "null"}'",
                 " }"
                 );
 
@@ -86,5 +78,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 19.05.2021
+    Last Update: 08.08.2021
 */

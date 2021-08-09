@@ -15,14 +15,12 @@ namespace NW.WIDJobs.UnitTests
                 new TestDelegate(
                     () => new WIDExploration(
                                 null,
-                                ObjectMother.WIDExploration_Exploration01_TotalResults,
-                                ObjectMother.WIDExploration_Exploration01_TotalEstimatedPages,
-                                ObjectMother.WIDExploration_Exploration01_Category,
-                                ObjectMother.WIDExploration_Exploration01_Stage,
+                                ObjectMother.WIDExploration_Exploration01_TotalResultCount,
+                                ObjectMother.WIDExploration_Exploration01_TotalJobPages,
                                 ObjectMother.WIDExploration_Exploration01_IsCompleted,
-                                ObjectMother.WIDExploration_Exploration01_Pages,
-                                ObjectMother.WIDExploration_Exploration01_PageItems,
-                                ObjectMother.WIDExploration_Exploration01_PageItemsExtended
+                                ObjectMother.WIDExploration_Exploration01_JobPages,
+                                ObjectMother.WIDExploration_Exploration01_JobPostings,
+                                ObjectMother.WIDExploration_Exploration01_JobPostingsExtended
                             )
                 ),
                 typeof(ArgumentNullException),
@@ -75,10 +73,8 @@ namespace NW.WIDJobs.UnitTests
             WIDExploration actual =
                 new WIDExploration(
                     ObjectMother.WIDExploration_Exploration01_RunId,
-                    ObjectMother.WIDExploration_Exploration01_TotalResults,
-                    ObjectMother.WIDExploration_Exploration01_TotalEstimatedPages,
-                    ObjectMother.WIDExploration_Exploration01_Category,
-                    ObjectMother.WIDExploration_Exploration01_Stage,
+                    ObjectMother.WIDExploration_Exploration01_TotalResultCount,
+                    ObjectMother.WIDExploration_Exploration01_TotalJobPages,
                     ObjectMother.WIDExploration_Exploration01_IsCompleted,
                     ObjectMother.Shared_Pages_Page01,
                     ObjectMother.Shared_Page01_PageItems,

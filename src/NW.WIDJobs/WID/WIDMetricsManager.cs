@@ -52,48 +52,48 @@ namespace NW.WIDJobs
         {
 
             Validator.ValidateObject(exploration, nameof(exploration));
-            Validator.ValidateList(exploration.PageItems, nameof(exploration.PageItems));
-            Validator.ValidateList(exploration.PageItemsExtended, nameof(exploration.PageItemsExtended));
+            Validator.ValidateList(exploration.JobPostings, nameof(exploration.JobPostings));
+            Validator.ValidateList(exploration.JobPostingsExtended, nameof(exploration.JobPostingsExtended));
 
             Dictionary<string, uint> itemsByWorkAreaWithoutZone
-                = GroupItemsByWorkAreaWithoutZone(exploration.PageItems);
+                = GroupItemsByWorkAreaWithoutZone(exploration.JobPostings);
             Dictionary<string, uint> itemsByCreateDate
-                = GroupItemsByCreateDate(exploration.PageItems);
+                = GroupItemsByCreateDate(exploration.JobPostings);
             Dictionary<string, uint> itemsByApplicationDate
-                = GroupItemsByApplicationDate(exploration.PageItems);
+                = GroupItemsByApplicationDate(exploration.JobPostings);
             Dictionary<string, uint> itemsByEmployerName
-                = GroupItemsByEmployerName(exploration.PageItemsExtended);
+                = GroupItemsByEmployerName(exploration.JobPostingsExtended);
             Dictionary<string, uint> itemsByNumberOfOpenings
-                = GroupItemsByNumberOfOpenings(exploration.PageItemsExtended);
+                = GroupItemsByNumberOfOpenings(exploration.JobPostingsExtended);
             Dictionary<string, uint> itemsByAdvertisementPublishDate
-                = GroupItemsByAdvertisementPublishDate(exploration.PageItemsExtended);
+                = GroupItemsByAdvertisementPublishDate(exploration.JobPostingsExtended);
             Dictionary<string, uint> itemsByApplicationDeadline
-                = GroupItemsByApplicationDeadline(exploration.PageItemsExtended);
+                = GroupItemsByApplicationDeadline(exploration.JobPostingsExtended);
             Dictionary<string, uint> itemsByStartDateOfEmployment
-                = GroupItemsByStartDateOfEmployment(exploration.PageItemsExtended);
+                = GroupItemsByStartDateOfEmployment(exploration.JobPostingsExtended);
             Dictionary<string, uint> itemsByReference
-                = GroupItemsByReference(exploration.PageItemsExtended);
+                = GroupItemsByReference(exploration.JobPostingsExtended);
             Dictionary<string, uint> itemsByPosition
-                = GroupItemsByPosition(exploration.PageItemsExtended);
+                = GroupItemsByPosition(exploration.JobPostingsExtended);
             Dictionary<string, uint> itemsByTypeOfEmployment
-                = GroupItemsByTypeOfEmployment(exploration.PageItemsExtended);
+                = GroupItemsByTypeOfEmployment(exploration.JobPostingsExtended);
             Dictionary<string, uint> itemsByContact
-                = GroupItemsByContact(exploration.PageItemsExtended);
+                = GroupItemsByContact(exploration.JobPostingsExtended);
             Dictionary<string, uint> itemsByEmployerAddress
-                = GroupItemsByEmployerAddress(exploration.PageItemsExtended);
+                = GroupItemsByEmployerAddress(exploration.JobPostingsExtended);
             Dictionary<string, uint> itemsByHowToApply
-                = GroupItemsByHowToApply(exploration.PageItemsExtended);
+                = GroupItemsByHowToApply(exploration.JobPostingsExtended);
             Dictionary<string, uint> descriptionLengthByPageItemId
-                = SumDescriptionLengthByPageItemId(exploration.PageItemsExtended);
+                = SumDescriptionLengthByPageItemId(exploration.JobPostingsExtended);
             Dictionary<string, uint> bulletPointsByPageItemId
-                = SumBulletPointsByPageItemId(exploration.PageItemsExtended);
+                = SumBulletPointsByPageItemId(exploration.JobPostingsExtended);
 
-            uint totalBulletPoints = SumBulletPoints(exploration.PageItemsExtended);
+            uint totalBulletPoints = SumBulletPoints(exploration.JobPostingsExtended);
 
             WIDMetrics metrics = new WIDMetrics(
                 runId: exploration.RunId,
-                totalPages: (uint)exploration.Pages.Count,
-                totalItems: (uint)exploration.PageItems.Count,
+                totalPages: (uint)exploration.JobPages.Count,
+                totalItems: (uint)exploration.JobPostings.Count,
                 itemsByWorkAreaWithoutZone: itemsByWorkAreaWithoutZone,
                 itemsByCreateDate: itemsByCreateDate,
                 itemsByApplicationDate: itemsByApplicationDate,
