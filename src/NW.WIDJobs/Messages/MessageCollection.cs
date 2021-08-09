@@ -154,11 +154,11 @@ namespace NW.WIDJobs
             = $"The provided {nameof(Exploration)} object has been successfully saved as JSON file.";
 
         public static string WIDExplorer_SavingMetricsAsJson
-            = $"Saving the provided {nameof(WIDMetrics)} object as JSON file...";
+            = $"Saving the provided {nameof(MetricCollection)} object as JSON file...";
         public static Func<bool, string> WIDExplorer_NumbersAsPercentagesIs
             = (numbersAsPercentages) => $"NumbersAsPercentages: '{numbersAsPercentages}'.";
         public static string WIDExplorer_MetricsSavedAsJson
-            = $"The provided {nameof(WIDMetrics)} object has been successfully saved as JSON file.";
+            = $"The provided {nameof(MetricCollection)} object has been successfully saved as JSON file.";
 
         public static Func<string, string> WIDExplorer_MethodCalledWithoutIFileInfoAdapter
             = (methodName) => $"'{methodName}' has been called without providing a '{nameof(IFileInfoAdapter)}' parameter.";
@@ -170,9 +170,9 @@ namespace NW.WIDJobs
             = (now) => $"Now:'{now.ToString(WIDExplorer.DefaultFormatDate)}'.";
 
         public static string WIDExplorer_ConvertingExplorationToMetrics
-            = $"Converting the provided {nameof(Exploration)} object to a {nameof(WIDMetrics)} object...";  
+            = $"Converting the provided {nameof(Exploration)} object to a {nameof(MetricCollection)} object...";  
         public static string WIDExplorer_ExplorationConvertedToMetrics
-            = $"The provided {nameof(Exploration)} object has been successfully converted to a {nameof(WIDMetrics)} object.";
+            = $"The provided {nameof(Exploration)} object has been successfully converted to a {nameof(MetricCollection)} object.";
 
         public static string WIDExplorer_ConvertingExplorationToJsonString
             = $"Converting the provided {nameof(Exploration)} object to a JSON string...";
@@ -186,9 +186,9 @@ namespace NW.WIDJobs
             = $"The provided {nameof(Exploration)} object has been successfully converted to a JSON string.";
 
         public static string WIDExplorer_ConvertingMetricsToJsonString
-            = $"Converting the provided {nameof(WIDMetrics)} object to a JSON string...";
+            = $"Converting the provided {nameof(MetricCollection)} object to a JSON string...";
         public static string WIDExplorer_ExplorationMetricsToJsonString
-            = $"The provided {nameof(WIDMetrics)} object has been successfully converted to a JSON string.";
+            = $"The provided {nameof(MetricCollection)} object has been successfully converted to a JSON string.";
 
         public static string WIDExplorer_RetrievingPreLabeledBulletPoints
             = $"Retrieving pre-labeled {nameof(BulletPoint)} objects...";

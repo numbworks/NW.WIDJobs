@@ -323,14 +323,14 @@ namespace NW.WIDJobs.UnitTests
         internal static Dictionary<string, string> WIDMetricsManager_WorkAreasAsPercentages = new Dictionary<string, string>()
             {
 
-                { "København", $"{WIDMetricsManager.FormatPercentage(73.77)}" },
-                { "Nordborg", $"{WIDMetricsManager.FormatPercentage(19.67)}" },
-                { "Vejen", $"{WIDMetricsManager.FormatPercentage(6.56)}" }
+                { "København", $"{MetricCollectionManager.FormatPercentage(73.77)}" },
+                { "Nordborg", $"{MetricCollectionManager.FormatPercentage(19.67)}" },
+                { "Vejen", $"{MetricCollectionManager.FormatPercentage(6.56)}" }
 
             };
 
-        internal static WIDMetrics WIDMetrics_Exploration02_Metrics =
-            new WIDMetrics(
+        internal static MetricCollection WIDMetrics_Exploration02_Metrics =
+            new MetricCollection(
                     Shared_Exploration01_RunId,
                     (uint)Shared_Pages_Page01.Count,
                     (uint)Shared_Page01_PageItems.Count,
@@ -3653,7 +3653,7 @@ namespace NW.WIDJobs.UnitTests
                         && AreEqual(exploration1.JobPostingsExtended, exploration2.JobPostingsExtended);
 
         }
-        internal static bool AreEqual(WIDMetrics metrics1, WIDMetrics metrics2)
+        internal static bool AreEqual(MetricCollection metrics1, MetricCollection metrics2)
         {
 
             return string.Equals(metrics1.RunId, metrics2.RunId, StringComparison.InvariantCulture)

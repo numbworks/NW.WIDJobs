@@ -4,16 +4,16 @@ using System;
 namespace NW.WIDJobs.UnitTests
 {
     [TestFixture]
-    public class WIDMetricsTests
+    public class MetricCollectionTests
     {
 
         // Fields
-        private static TestCaseData[] widMetricsExceptionTestCases =
+        private static TestCaseData[] metricCollectionExceptionTestCases =
         {
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new WIDMetrics(
+                    () => new MetricCollection(
                                 null,
                                 2,
                                 (uint)ObjectMother.Shared_Page01_PageItems.Count,
@@ -38,11 +38,11 @@ namespace NW.WIDJobs.UnitTests
 				),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("runId").Message
-            ).SetArgDisplayNames($"{nameof(widMetricsExceptionTestCases)}_01"),
+            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_01"),
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new WIDMetrics(
+                    () => new MetricCollection(
                                 ObjectMother.Shared_FakeRunId,
                                 0,
                                 (uint)ObjectMother.Shared_Page01_PageItems.Count,
@@ -67,11 +67,11 @@ namespace NW.WIDJobs.UnitTests
                 ),
                 typeof(ArgumentException),
                 MessageCollection.Validator_VariableCantBeLessThanOne.Invoke("totalPages")
-            ).SetArgDisplayNames($"{nameof(widMetricsExceptionTestCases)}_02"),
+            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_02"),
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new WIDMetrics(
+                    () => new MetricCollection(
                                 ObjectMother.Shared_FakeRunId,
                                 2,
                                 0,
@@ -96,11 +96,11 @@ namespace NW.WIDJobs.UnitTests
                 ),
                 typeof(ArgumentException),
                 MessageCollection.Validator_VariableCantBeLessThanOne.Invoke("totalItems")
-            ).SetArgDisplayNames($"{nameof(widMetricsExceptionTestCases)}_03"),
+            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_03"),
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new WIDMetrics(
+                    () => new MetricCollection(
                                 ObjectMother.Shared_FakeRunId,
                                 2,
                                 (uint)ObjectMother.Shared_Page01_PageItems.Count,
@@ -125,11 +125,11 @@ namespace NW.WIDJobs.UnitTests
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("itemsByWorkAreaWithoutZone").Message
-            ).SetArgDisplayNames($"{nameof(widMetricsExceptionTestCases)}_04"),
+            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_04"),
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new WIDMetrics(
+                    () => new MetricCollection(
                                 ObjectMother.Shared_FakeRunId,
                                 2,
                                 (uint)ObjectMother.Shared_Page01_PageItems.Count,
@@ -154,11 +154,11 @@ namespace NW.WIDJobs.UnitTests
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("itemsByCreateDate").Message
-            ).SetArgDisplayNames($"{nameof(widMetricsExceptionTestCases)}_05"),
+            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_05"),
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new WIDMetrics(
+                    () => new MetricCollection(
                                 ObjectMother.Shared_FakeRunId,
                                 2,
                                 (uint)ObjectMother.Shared_Page01_PageItems.Count,
@@ -183,11 +183,11 @@ namespace NW.WIDJobs.UnitTests
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("itemsByApplicationDate").Message
-            ).SetArgDisplayNames($"{nameof(widMetricsExceptionTestCases)}_06"),
+            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_06"),
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new WIDMetrics(
+                    () => new MetricCollection(
                                 ObjectMother.Shared_FakeRunId,
                                 2,
                                 (uint)ObjectMother.Shared_Page01_PageItems.Count,
@@ -212,11 +212,11 @@ namespace NW.WIDJobs.UnitTests
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("itemsByEmployerName").Message
-            ).SetArgDisplayNames($"{nameof(widMetricsExceptionTestCases)}_07"),
+            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_07"),
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new WIDMetrics(
+                    () => new MetricCollection(
                                 ObjectMother.Shared_FakeRunId,
                                 2,
                                 (uint)ObjectMother.Shared_Page01_PageItems.Count,
@@ -241,11 +241,11 @@ namespace NW.WIDJobs.UnitTests
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("itemsByEmployerName").Message
-            ).SetArgDisplayNames($"{nameof(widMetricsExceptionTestCases)}_08"),
+            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_08"),
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new WIDMetrics(
+                    () => new MetricCollection(
                                 ObjectMother.Shared_FakeRunId,
                                 2,
                                 (uint)ObjectMother.Shared_Page01_PageItems.Count,
@@ -270,11 +270,11 @@ namespace NW.WIDJobs.UnitTests
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("itemsByNumberOfOpenings").Message
-            ).SetArgDisplayNames($"{nameof(widMetricsExceptionTestCases)}_09"),
+            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_09"),
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new WIDMetrics(
+                    () => new MetricCollection(
                                 ObjectMother.Shared_FakeRunId,
                                 2,
                                 (uint)ObjectMother.Shared_Page01_PageItems.Count,
@@ -299,11 +299,11 @@ namespace NW.WIDJobs.UnitTests
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("itemsByAdvertisementPublishDate").Message
-            ).SetArgDisplayNames($"{nameof(widMetricsExceptionTestCases)}_10"),
+            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_10"),
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new WIDMetrics(
+                    () => new MetricCollection(
                                 ObjectMother.Shared_FakeRunId,
                                 2,
                                 (uint)ObjectMother.Shared_Page01_PageItems.Count,
@@ -328,11 +328,11 @@ namespace NW.WIDJobs.UnitTests
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("itemsByAdvertisementPublishDate").Message
-            ).SetArgDisplayNames($"{nameof(widMetricsExceptionTestCases)}_11"),
+            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_11"),
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new WIDMetrics(
+                    () => new MetricCollection(
                                 ObjectMother.Shared_FakeRunId,
                                 2,
                                 (uint)ObjectMother.Shared_Page01_PageItems.Count,
@@ -357,11 +357,11 @@ namespace NW.WIDJobs.UnitTests
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("itemsByApplicationDeadline").Message
-            ).SetArgDisplayNames($"{nameof(widMetricsExceptionTestCases)}_12"),
+            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_12"),
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new WIDMetrics(
+                    () => new MetricCollection(
                                 ObjectMother.Shared_FakeRunId,
                                 2,
                                 (uint)ObjectMother.Shared_Page01_PageItems.Count,
@@ -386,11 +386,11 @@ namespace NW.WIDJobs.UnitTests
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("itemsByApplicationDeadline").Message
-            ).SetArgDisplayNames($"{nameof(widMetricsExceptionTestCases)}_13"),
+            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_13"),
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new WIDMetrics(
+                    () => new MetricCollection(
                                 ObjectMother.Shared_FakeRunId,
                                 2,
                                 (uint)ObjectMother.Shared_Page01_PageItems.Count,
@@ -415,11 +415,11 @@ namespace NW.WIDJobs.UnitTests
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("itemsByStartDateOfEmployment").Message
-            ).SetArgDisplayNames($"{nameof(widMetricsExceptionTestCases)}_14"),
+            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_14"),
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new WIDMetrics(
+                    () => new MetricCollection(
                                 ObjectMother.Shared_FakeRunId,
                                 2,
                                 (uint)ObjectMother.Shared_Page01_PageItems.Count,
@@ -444,11 +444,11 @@ namespace NW.WIDJobs.UnitTests
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("itemsByReference").Message
-            ).SetArgDisplayNames($"{nameof(widMetricsExceptionTestCases)}_15"),
+            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_15"),
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new WIDMetrics(
+                    () => new MetricCollection(
                                 ObjectMother.Shared_FakeRunId,
                                 2,
                                 (uint)ObjectMother.Shared_Page01_PageItems.Count,
@@ -473,11 +473,11 @@ namespace NW.WIDJobs.UnitTests
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("itemsByPosition").Message
-            ).SetArgDisplayNames($"{nameof(widMetricsExceptionTestCases)}_16"),
+            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_16"),
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new WIDMetrics(
+                    () => new MetricCollection(
                                 ObjectMother.Shared_FakeRunId,
                                 2,
                                 (uint)ObjectMother.Shared_Page01_PageItems.Count,
@@ -502,11 +502,11 @@ namespace NW.WIDJobs.UnitTests
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("itemsByTypeOfEmployment").Message
-            ).SetArgDisplayNames($"{nameof(widMetricsExceptionTestCases)}_17"),
+            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_17"),
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new WIDMetrics(
+                    () => new MetricCollection(
                                 ObjectMother.Shared_FakeRunId,
                                 2,
                                 (uint)ObjectMother.Shared_Page01_PageItems.Count,
@@ -531,11 +531,11 @@ namespace NW.WIDJobs.UnitTests
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("itemsByContact").Message
-            ).SetArgDisplayNames($"{nameof(widMetricsExceptionTestCases)}_18"),
+            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_18"),
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new WIDMetrics(
+                    () => new MetricCollection(
                                 ObjectMother.Shared_FakeRunId,
                                 2,
                                 (uint)ObjectMother.Shared_Page01_PageItems.Count,
@@ -560,11 +560,11 @@ namespace NW.WIDJobs.UnitTests
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("itemsByEmployerAddress").Message
-            ).SetArgDisplayNames($"{nameof(widMetricsExceptionTestCases)}_19"),
+            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_19"),
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new WIDMetrics(
+                    () => new MetricCollection(
                                 ObjectMother.Shared_FakeRunId,
                                 2,
                                 (uint)ObjectMother.Shared_Page01_PageItems.Count,
@@ -589,11 +589,11 @@ namespace NW.WIDJobs.UnitTests
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("itemsByHowToApply").Message
-            ).SetArgDisplayNames($"{nameof(widMetricsExceptionTestCases)}_20"),
+            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_20"),
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new WIDMetrics(
+                    () => new MetricCollection(
                                 ObjectMother.Shared_FakeRunId,
                                 2,
                                 (uint)ObjectMother.Shared_Page01_PageItems.Count,
@@ -618,11 +618,11 @@ namespace NW.WIDJobs.UnitTests
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("descriptionLengthByPageItemId").Message
-            ).SetArgDisplayNames($"{nameof(widMetricsExceptionTestCases)}_21"),
+            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_21"),
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new WIDMetrics(
+                    () => new MetricCollection(
                                 ObjectMother.Shared_FakeRunId,
                                 2,
                                 (uint)ObjectMother.Shared_Page01_PageItems.Count,
@@ -647,24 +647,24 @@ namespace NW.WIDJobs.UnitTests
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("bulletPointsByPageItemId").Message
-            ).SetArgDisplayNames($"{nameof(widMetricsExceptionTestCases)}_22")
+            ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_22")
 
         };
 
         // SetUp
         // Tests
-        [TestCaseSource(nameof(widMetricsExceptionTestCases))]
-        public void WIDMetrics_ShouldThrowACertainException_WhenUnproperArguments
+        [TestCaseSource(nameof(metricCollectionExceptionTestCases))]
+        public void MetricCollection_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
         [Test]
-        public void WIDMetrics_ShouldInitializeANewWIDMetricsObject_WhenProperArguments()
+        public void MetricCollection_ShouldInitializeANewMetricCollectionObject_WhenProperArguments()
         {
 
             // Arrange
-            WIDMetrics expected =
-                new WIDMetrics(
+            MetricCollection expected =
+                new MetricCollection(
                         ObjectMother.Shared_FakeRunId,
                         2,
                         (uint)ObjectMother.Shared_Page01_PageItems.Count,
@@ -688,8 +688,8 @@ namespace NW.WIDJobs.UnitTests
                     );
 
             // Act
-            WIDMetrics actual =
-                new WIDMetrics(
+            MetricCollection actual =
+                new MetricCollection(
                         ObjectMother.Shared_FakeRunId,
                         2,
                         (uint)ObjectMother.Shared_Page01_PageItems.Count,

@@ -3,21 +3,21 @@ using System.Collections.Generic;
 
 namespace NW.WIDJobs
 {
-    /// <summary>Collects all the helper methods related to <see cref="WIDMetrics"/>.</summary>
-    public interface IWIDMetricsManager
+    /// <summary>Collects all the helper methods related to <see cref="MetricCollection"/>.</summary>
+    public interface IMetricCollectionManager
     {
 
         /// <summary>
-        /// Calculates <see cref="WIDMetrics"/> out of <paramref name="exploration"/>.
+        /// Calculates <see cref="MetricCollection"/> out of <paramref name="exploration"/>.
         /// <para>Only explorations on <see cref="Stages.Stage3_UpToAllJobPostingsExtended"/> are supported.</para>
         /// </summary>
         /// <exception cref="ArgumentNullException"/>
         /// <exception cref="ArgumentException"/> 
-        WIDMetrics Calculate(Exploration exploration);
+        MetricCollection Calculate(Exploration exploration);
 
         /// <summary>
         /// Convert each value in <paramref name="dict"/> to the corresponding percentage.
-        /// <para>Intended to be executed against <see cref="WIDMetrics"/> dictionaries.</para>
+        /// <para>Intended to be executed against <see cref="MetricCollection"/> dictionaries.</para>
         /// </summary>
         /// <exception cref="ArgumentNullException"/>
         Dictionary<string, string> ConvertToPercentages(Dictionary<string, uint> dict);

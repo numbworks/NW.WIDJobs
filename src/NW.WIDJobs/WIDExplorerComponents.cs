@@ -26,7 +26,7 @@ namespace NW.WIDJobs
         public IPageItemExtendedManager PageItemExtendedManager { get; }
         public IPageItemExtendedScraper PageItemExtendedScraper { get; }
         public IRunIdManager RunIdManager { get; }
-        public IWIDMetricsManager MetricsManager { get; }
+        public IMetricCollectionManager MetricsManager { get; }
         public IFileManager FileManager { get; }
         public IRepositoryFactory RepositoryFactory { get; }
         public IAsciiBannerManager AsciiBannerManager { get; }
@@ -50,7 +50,7 @@ namespace NW.WIDJobs
             IPageItemExtendedManager pageItemExtendedManager,
             IPageItemExtendedScraper pageItemExtendedScraper,
             IRunIdManager runIdManager,
-            IWIDMetricsManager metricsManager,
+            IMetricCollectionManager metricsManager,
             IFileManager fileManager,
             IRepositoryFactory repositoryFactory,
             IAsciiBannerManager asciiBannerManager,
@@ -108,7 +108,7 @@ namespace NW.WIDJobs
                   new PageItemExtendedManager(),
                   new PageItemExtendedScraper(),
                   new RunIdManager(),
-                  new WIDMetricsManager(),
+                  new MetricCollectionManager(),
                   new FileManager(),
                   new RepositoryFactory(),
                   new AsciiBannerManager(),

@@ -304,7 +304,7 @@ namespace NW.WIDJobs
         }
 
         public IFileInfoAdapter SaveAsJson
-            (WIDMetrics metrics, bool numbersAsPercentages, IFileInfoAdapter jsonFile)
+            (MetricCollection metrics, bool numbersAsPercentages, IFileInfoAdapter jsonFile)
         {
 
             Validator.ValidateObject(metrics, nameof(metrics));
@@ -324,7 +324,7 @@ namespace NW.WIDJobs
 
         }
         public IFileInfoAdapter SaveAsJson
-            (WIDMetrics metrics, bool numbersAsPercentages)
+            (MetricCollection metrics, bool numbersAsPercentages)
         {
 
             DateTime now = NowFunction.Invoke();           
@@ -363,7 +363,7 @@ namespace NW.WIDJobs
             return json;
 
         }
-        public string ConvertToJson(WIDMetrics metrics, bool numbersAsPercentages)
+        public string ConvertToJson(MetricCollection metrics, bool numbersAsPercentages)
         {
 
             Validator.ValidateObject(metrics, nameof(metrics));
@@ -386,7 +386,7 @@ namespace NW.WIDJobs
             return JsonSerializer.Serialize(dyn, options);
 
         }
-        public WIDMetrics ConvertToMetrics(Exploration exploration)
+        public MetricCollection ConvertToMetrics(Exploration exploration)
         {
 
             Validator.ValidateObject(exploration, nameof(exploration));
@@ -396,7 +396,7 @@ namespace NW.WIDJobs
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ConvertingExplorationToMetrics);
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs.Invoke(exploration.RunId));
 
-            WIDMetrics metrics = _components.MetricsManager.Calculate(exploration);
+            MetricCollection metrics = _components.MetricsManager.Calculate(exploration);
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationConvertedToMetrics);
 
@@ -501,7 +501,7 @@ namespace NW.WIDJobs
             return dyn;
 
         }
-        private dynamic ConvertNumbersToPercentages(WIDMetrics metrics)
+        private dynamic ConvertNumbersToPercentages(MetricCollection metrics)
         {
 
             dynamic dyn = new ExpandoObject();

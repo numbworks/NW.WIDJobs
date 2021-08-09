@@ -5,8 +5,8 @@ using System.Linq;
 
 namespace NW.WIDJobs
 {
-    /// <inheritdoc cref="IWIDMetricsManager"/>
-    public class WIDMetricsManager : IWIDMetricsManager
+    /// <inheritdoc cref="IMetricCollectionManager"/>
+    public class MetricCollectionManager : IMetricCollectionManager
     {
 
         #region Fields
@@ -41,14 +41,14 @@ namespace NW.WIDJobs
 
         #region Constructors
 
-        /// <summary>Initializes a <see cref="WIDMetricsManager"/> instance.</summary>
-        public WIDMetricsManager() { }
+        /// <summary>Initializes a <see cref="MetricCollectionManager"/> instance.</summary>
+        public MetricCollectionManager() { }
 
         #endregion
 
         #region Methods_public
 
-        public WIDMetrics Calculate(Exploration exploration)
+        public MetricCollection Calculate(Exploration exploration)
         {
 
             Validator.ValidateObject(exploration, nameof(exploration));
@@ -90,7 +90,7 @@ namespace NW.WIDJobs
 
             uint totalBulletPoints = SumBulletPoints(exploration.JobPostingsExtended);
 
-            WIDMetrics metrics = new WIDMetrics(
+            MetricCollection metrics = new MetricCollection(
                 runId: exploration.RunId,
                 totalPages: (uint)exploration.JobPages.Count,
                 totalItems: (uint)exploration.JobPostings.Count,

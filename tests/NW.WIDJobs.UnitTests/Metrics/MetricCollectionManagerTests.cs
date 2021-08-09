@@ -6,7 +6,7 @@ using System.Globalization;
 namespace NW.WIDJobs.UnitTests
 {
     [TestFixture]
-    public class WIDMetricsManagerTests
+    public class MetricCollectionManagerTests
     {
 
         // Fields
@@ -15,7 +15,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new WIDMetricsManager().Calculate(null)
+                    () => new MetricCollectionManager().Calculate(null)
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("exploration").Message
@@ -23,7 +23,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new WIDMetricsManager().Calculate(ObjectMother.WIDMetricsManager_ExplorationWithNullPageItems)
+                    () => new MetricCollectionManager().Calculate(ObjectMother.WIDMetricsManager_ExplorationWithNullPageItems)
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("PageItems").Message
@@ -31,7 +31,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new WIDMetricsManager().Calculate(ObjectMother.WIDMetricsManager_ExplorationWithNullPageItemsExtended)
+                    () => new MetricCollectionManager().Calculate(ObjectMother.WIDMetricsManager_ExplorationWithNullPageItemsExtended)
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("PageItemsExtended").Message
@@ -44,7 +44,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new WIDMetricsManager().ConvertToPercentages(null)
+                    () => new MetricCollectionManager().ConvertToPercentages(null)
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("dict").Message
@@ -99,7 +99,7 @@ namespace NW.WIDJobs.UnitTests
 
             // Arrange
             // Act        
-            double? actual = WIDMetricsManager.CalculatePercentage(value, totalValue);
+            double? actual = MetricCollectionManager.CalculatePercentage(value, totalValue);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -112,7 +112,7 @@ namespace NW.WIDJobs.UnitTests
 
             // Arrange
             // Act        
-            WIDMetrics actual = new WIDMetricsManager().Calculate(ObjectMother.Shared_Exploration02);
+            MetricCollection actual = new MetricCollectionManager().Calculate(ObjectMother.Shared_Exploration02);
 
             // Assert
             Assert.IsTrue(
@@ -128,7 +128,7 @@ namespace NW.WIDJobs.UnitTests
             // Arrange
             // Act
             Dictionary<string, string> actual 
-                = new WIDMetricsManager().ConvertToPercentages(ObjectMother.WIDMetricsManager_WorkAreas);
+                = new MetricCollectionManager().ConvertToPercentages(ObjectMother.WIDMetricsManager_WorkAreas);
 
             // Assert
             Assert.IsTrue(
@@ -147,7 +147,7 @@ namespace NW.WIDJobs.UnitTests
             string expected = $"{value.ToString(culture)}%";
 
             // Act
-            string actual = WIDMetricsManager.FormatPercentage(value);
+            string actual = MetricCollectionManager.FormatPercentage(value);
 
             // Assert
             Assert.AreEqual(expected, actual);

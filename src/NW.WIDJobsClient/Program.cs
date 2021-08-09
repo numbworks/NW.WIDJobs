@@ -74,7 +74,7 @@ namespace NW.WIDJobsClient
 
             Exploration exploration
                 = explorer.Explore(1, WIDCategories.AllCategories, Stages.Stage3_UpToAllJobPostingsExtended);
-            WIDMetrics metrics = explorer.ConvertToMetrics(exploration);
+            MetricCollection metrics = explorer.ConvertToMetrics(exploration);
 
             explorer.SaveAsJson(exploration);
             explorer.SaveAsSQLite(exploration.JobPostingsExtended);
@@ -90,7 +90,7 @@ namespace NW.WIDJobsClient
 
             Exploration exploration
                 = explorer.ExploreAll(WIDCategories.ItTech, Stages.Stage3_UpToAllJobPostingsExtended);
-            WIDMetrics metrics = explorer.ConvertToMetrics(exploration);
+            MetricCollection metrics = explorer.ConvertToMetrics(exploration);
 
             explorer.SaveAsJson(exploration);
             explorer.SaveAsSQLite(exploration.JobPostingsExtended);

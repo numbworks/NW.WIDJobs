@@ -24,7 +24,7 @@ namespace NW.WIDJobs.UnitTests
                                 new PageItemExtendedManager(),
                                 new PageItemExtendedScraper(),
                                 new RunIdManager(),
-                                new WIDMetricsManager(),
+                                new MetricCollectionManager(),
                                 new FileManager(),
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
@@ -49,7 +49,7 @@ namespace NW.WIDJobs.UnitTests
                                 new PageItemExtendedManager(),
                                 new PageItemExtendedScraper(),
                                 new RunIdManager(),
-                                new WIDMetricsManager(),
+                                new MetricCollectionManager(),
                                 new FileManager(),
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
@@ -74,7 +74,7 @@ namespace NW.WIDJobs.UnitTests
                                 new PageItemExtendedManager(),
                                 new PageItemExtendedScraper(),
                                 new RunIdManager(),
-                                new WIDMetricsManager(),
+                                new MetricCollectionManager(),
                                 new FileManager(),
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
@@ -99,7 +99,7 @@ namespace NW.WIDJobs.UnitTests
                                 new PageItemExtendedManager(),
                                 new PageItemExtendedScraper(),
                                 new RunIdManager(),
-                                new WIDMetricsManager(),
+                                new MetricCollectionManager(),
                                 new FileManager(),
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
@@ -124,7 +124,7 @@ namespace NW.WIDJobs.UnitTests
                                 new PageItemExtendedManager(),
                                 new PageItemExtendedScraper(),
                                 new RunIdManager(),
-                                new WIDMetricsManager(),
+                                new MetricCollectionManager(),
                                 new FileManager(),
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
@@ -149,7 +149,7 @@ namespace NW.WIDJobs.UnitTests
                                 new PageItemExtendedManager(),
                                 new PageItemExtendedScraper(),
                                 new RunIdManager(),
-                                new WIDMetricsManager(),
+                                new MetricCollectionManager(),
                                 new FileManager(),
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
@@ -174,7 +174,7 @@ namespace NW.WIDJobs.UnitTests
                                 new PageItemExtendedManager(),
                                 new PageItemExtendedScraper(),
                                 new RunIdManager(),
-                                new WIDMetricsManager(),
+                                new MetricCollectionManager(),
                                 new FileManager(),
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
@@ -199,7 +199,7 @@ namespace NW.WIDJobs.UnitTests
                                 null,
                                 new PageItemExtendedScraper(),
                                 new RunIdManager(),
-                                new WIDMetricsManager(),
+                                new MetricCollectionManager(),
                                 new FileManager(),
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
@@ -224,7 +224,7 @@ namespace NW.WIDJobs.UnitTests
                                 new PageItemExtendedManager(),
                                 null,
                                 new RunIdManager(),
-                                new WIDMetricsManager(),
+                                new MetricCollectionManager(),
                                 new FileManager(),
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
@@ -249,7 +249,7 @@ namespace NW.WIDJobs.UnitTests
                                 new PageItemExtendedManager(),
                                 new PageItemExtendedScraper(),
                                 null,
-                                new WIDMetricsManager(),
+                                new MetricCollectionManager(),
                                 new FileManager(),
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
@@ -299,7 +299,7 @@ namespace NW.WIDJobs.UnitTests
                                 new PageItemExtendedManager(),
                                 new PageItemExtendedScraper(),
                                 new RunIdManager(),
-                                new WIDMetricsManager(),
+                                new MetricCollectionManager(),
                                 null,
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
@@ -324,7 +324,7 @@ namespace NW.WIDJobs.UnitTests
                                 new PageItemExtendedManager(),
                                 new PageItemExtendedScraper(),
                                 new RunIdManager(),
-                                new WIDMetricsManager(),
+                                new MetricCollectionManager(),
                                 new FileManager(),
                                 null,
                                 new AsciiBannerManager(),
@@ -349,7 +349,7 @@ namespace NW.WIDJobs.UnitTests
                                 new PageItemExtendedManager(),
                                 new PageItemExtendedScraper(),
                                 new RunIdManager(),
-                                new WIDMetricsManager(),
+                                new MetricCollectionManager(),
                                 new FileManager(),
                                 new RepositoryFactory(),
                                 null,
@@ -374,7 +374,7 @@ namespace NW.WIDJobs.UnitTests
                                 new PageItemExtendedManager(),
                                 new PageItemExtendedScraper(),
                                 new RunIdManager(),
-                                new WIDMetricsManager(),
+                                new MetricCollectionManager(),
                                 new FileManager(),
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
@@ -399,7 +399,7 @@ namespace NW.WIDJobs.UnitTests
                                 new PageItemExtendedManager(),
                                 new PageItemExtendedScraper(),
                                 new RunIdManager(),
-                                new WIDMetricsManager(),
+                                new MetricCollectionManager(),
                                 new FileManager(),
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
@@ -433,7 +433,7 @@ namespace NW.WIDJobs.UnitTests
                             new PageItemExtendedManager(),
                             new PageItemExtendedScraper(),
                             new RunIdManager(),
-                            new WIDMetricsManager(),
+                            new MetricCollectionManager(),
                             new FileManager(),
                             new RepositoryFactory(),
                             new AsciiBannerManager(),
@@ -453,7 +453,7 @@ namespace NW.WIDJobs.UnitTests
             Assert.IsInstanceOf<PageItemExtendedManager>(actual.PageItemExtendedManager);
             Assert.IsInstanceOf<PageItemExtendedScraper>(actual.PageItemExtendedScraper);
             Assert.IsInstanceOf<RunIdManager>(actual.RunIdManager);
-            Assert.IsInstanceOf<WIDMetricsManager>(actual.MetricsManager);
+            Assert.IsInstanceOf<MetricCollectionManager>(actual.MetricsManager);
             Assert.IsInstanceOf<FileManager>(actual.FileManager);
             Assert.IsInstanceOf<RepositoryFactory>(actual.RepositoryFactory);
             Assert.IsInstanceOf<AsciiBannerManager>(actual.AsciiBannerManager);
@@ -482,7 +482,7 @@ namespace NW.WIDJobs.UnitTests
             Assert.IsInstanceOf<PageItemExtendedManager>(actual.PageItemExtendedManager);
             Assert.IsInstanceOf<PageItemExtendedScraper>(actual.PageItemExtendedScraper);
             Assert.IsInstanceOf<RunIdManager>(actual.RunIdManager);
-            Assert.IsInstanceOf<WIDMetricsManager>(actual.MetricsManager);
+            Assert.IsInstanceOf<MetricCollectionManager>(actual.MetricsManager);
             Assert.IsInstanceOf<FileManager>(actual.FileManager);
             Assert.IsInstanceOf<RepositoryFactory>(actual.RepositoryFactory);
             Assert.IsInstanceOf<AsciiBannerManager>(actual.AsciiBannerManager);

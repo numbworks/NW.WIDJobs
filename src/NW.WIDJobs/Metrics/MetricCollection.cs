@@ -5,7 +5,7 @@ using System.Linq;
 namespace NW.WIDJobs
 {
     /// <summary>The metrics of an exploration on <see href="http://www.workindenmark.dk">WorkInDenmark</see>.</summary>
-    public class WIDMetrics
+    public class MetricCollection
     {
 
         #region Fields
@@ -38,8 +38,8 @@ namespace NW.WIDJobs
 
         #region Constructors
 
-        ///<summary>Initializes a <see cref="WIDMetrics"/> instance.</summary>
-        public WIDMetrics(
+        ///<summary>Initializes a <see cref="MetricCollection"/> instance.</summary>
+        public MetricCollection(
             string runId,
             uint totalPages,
             uint totalItems,
