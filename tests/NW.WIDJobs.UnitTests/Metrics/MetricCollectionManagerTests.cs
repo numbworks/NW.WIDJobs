@@ -23,7 +23,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new MetricCollectionManager().Calculate(ObjectMother.Shared_Exploration02WithNullJobPostings)
+                    () => new MetricCollectionManager().Calculate(ObjectMother.Shared_ExplorationStage3WithNullJobPostings)
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("JobPostings").Message
@@ -31,7 +31,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new MetricCollectionManager().Calculate(ObjectMother.Shared_Exploration02WithNullJobPostingsExtended)
+                    () => new MetricCollectionManager().Calculate(ObjectMother.Shared_ExplorationStage3WithNullJobPostingsExtended)
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("JobPostingsExtended").Message

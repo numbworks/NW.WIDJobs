@@ -295,7 +295,7 @@ namespace NW.WIDJobs.UnitTests
                 new TestDelegate(
                     () => new WIDExplorer()
                             .ConvertToMetrics
-                                (ObjectMother.Shared_Exploration02WithNullJobPostings)
+                                (ObjectMother.Shared_ExplorationStage3WithNullJobPostings)
                     ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("PageItems").Message
@@ -305,7 +305,7 @@ namespace NW.WIDJobs.UnitTests
                 new TestDelegate(
                     () => new WIDExplorer()
                             .ConvertToMetrics
-                                (ObjectMother.Shared_Exploration02WithNullJobPostingsExtended)
+                                (ObjectMother.Shared_ExplorationStage3WithNullJobPostingsExtended)
                     ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("PageItemsExtended").Message
