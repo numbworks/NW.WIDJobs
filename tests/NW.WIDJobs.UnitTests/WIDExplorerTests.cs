@@ -254,7 +254,7 @@ namespace NW.WIDJobs.UnitTests
                 new TestDelegate(
                     () => new WIDExplorer()
                                 .SaveAsJson(
-                                    ObjectMother.WIDMetrics_Exploration02_Metrics,
+                                    ObjectMother.MetricCollection_ExplorationStage3,
                                     true,
                                     null
                         )),

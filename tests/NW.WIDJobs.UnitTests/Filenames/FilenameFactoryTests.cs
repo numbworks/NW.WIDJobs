@@ -15,40 +15,40 @@ namespace NW.WIDJobs.UnitTests
                     new Func<string>( 
                             () => new FilenameFactory()
                                         .CreateForDatabase(
-                                            ObjectMother.WIDFileNameFactory_FakeFilePath) 
+                                            ObjectMother.FileNameFactory_FakeFilePath) 
                         ),
-                    ObjectMother.WIDFileNameFactory_DatabaseNameIfFilePath
+                    ObjectMother.FileNameFactory_DatabaseNameIfFilePath
                 ).SetArgDisplayNames($"{nameof(createForDatabaseTestCases)}_01"),
 
             new TestCaseData(
                     new Func<string>(
                             () => new FilenameFactory()
                                         .CreateForDatabase(
-                                            ObjectMother.WIDFileNameFactory_FakeFilePath,
-                                            ObjectMother.WIDFileNameFactory_FakeDatabaseFileName)
+                                            ObjectMother.FileNameFactory_FakeFilePath,
+                                            ObjectMother.FileNameFactory_FakeDatabaseFileName)
                         ),
-                    ObjectMother.WIDFileNameFactory_DatabaseNameIfFilePathFileName
+                    ObjectMother.FileNameFactory_DatabaseNameIfFilePathFileName
                 ).SetArgDisplayNames($"{nameof(createForDatabaseTestCases)}_02"),
 
             new TestCaseData(
                     new Func<string>(
                             () => new FilenameFactory()
                                         .CreateForDatabase(
-                                            ObjectMother.WIDFileNameFactory_FakeFilePath,
-                                            ObjectMother.WIDFileNameFactory_FakeToken,
-                                            ObjectMother.WIDFileNameFactory_FakeNow)
+                                            ObjectMother.FileNameFactory_FakeFilePath,
+                                            ObjectMother.FileNameFactory_FakeToken,
+                                            ObjectMother.FileNameFactory_FakeNow)
                         ),
-                    ObjectMother.WIDFileNameFactory_DatabaseNameIfFilePathTokenNow
+                    ObjectMother.FileNameFactory_DatabaseNameIfFilePathTokenNow
                 ).SetArgDisplayNames($"{nameof(createForDatabaseTestCases)}_03"),
 
             new TestCaseData(
                     new Func<string>(
                             () => new FilenameFactory()
                                         .CreateForDatabase(
-                                            ObjectMother.WIDFileNameFactory_FakeFilePath,
-                                            ObjectMother.WIDFileNameFactory_FakeNow)
+                                            ObjectMother.FileNameFactory_FakeFilePath,
+                                            ObjectMother.FileNameFactory_FakeNow)
                         ),
-                    ObjectMother.WIDFileNameFactory_DatabaseNameIfFilePathNow
+                    ObjectMother.FileNameFactory_DatabaseNameIfFilePathNow
                 ).SetArgDisplayNames($"{nameof(createForDatabaseTestCases)}_04")
 
         };
@@ -68,7 +68,7 @@ namespace NW.WIDJobs.UnitTests
                 new TestDelegate(
                     () => new FilenameFactory()
                                 .CreateForDatabase(
-                                    ObjectMother.WIDFileNameFactory_FakeFilePath,
+                                    ObjectMother.FileNameFactory_FakeFilePath,
                                     null)
                 ),
                 typeof(ArgumentNullException),
@@ -79,9 +79,9 @@ namespace NW.WIDJobs.UnitTests
                 new TestDelegate(
                     () => new FilenameFactory()
                                 .CreateForDatabase(
-                                    ObjectMother.WIDFileNameFactory_FakeFilePath,
+                                    ObjectMother.FileNameFactory_FakeFilePath,
                                     null,
-                                    ObjectMother.WIDFileNameFactory_FakeNow)
+                                    ObjectMother.FileNameFactory_FakeNow)
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("token").Message
@@ -95,22 +95,22 @@ namespace NW.WIDJobs.UnitTests
                     new Func<string>(
                             () => new FilenameFactory()
                                         .CreateForMetricsJson(
-                                            ObjectMother.WIDFileNameFactory_FakeFilePath,
-                                            ObjectMother.WIDFileNameFactory_FakeNow,
+                                            ObjectMother.FileNameFactory_FakeFilePath,
+                                            ObjectMother.FileNameFactory_FakeNow,
                                             true)
                         ),
-                    ObjectMother.WIDFileNameFactory_MetricsJsonIfTrue
+                    ObjectMother.FileNameFactory_MetricsJsonIfTrue
                 ).SetArgDisplayNames($"{nameof(createForMetricsJsonTestCases)}_01"),
 
             new TestCaseData(
                     new Func<string>(
                             () => new FilenameFactory()
                                         .CreateForMetricsJson(
-                                            ObjectMother.WIDFileNameFactory_FakeFilePath,
-                                            ObjectMother.WIDFileNameFactory_FakeNow,
+                                            ObjectMother.FileNameFactory_FakeFilePath,
+                                            ObjectMother.FileNameFactory_FakeNow,
                                             false)
                         ),
-                    ObjectMother.WIDFileNameFactory_MetricsJsonIfFalse
+                    ObjectMother.FileNameFactory_MetricsJsonIfFalse
                 ).SetArgDisplayNames($"{nameof(createForMetricsJsonTestCases)}_02")
 
         };
@@ -122,7 +122,7 @@ namespace NW.WIDJobs.UnitTests
                     () => new FilenameFactory()
                                 .CreateForMetricsJson(
                                     null,
-                                    ObjectMother.WIDFileNameFactory_FakeNow,
+                                    ObjectMother.FileNameFactory_FakeNow,
                                     true)
                 ),
                 typeof(ArgumentNullException),
@@ -133,9 +133,9 @@ namespace NW.WIDJobs.UnitTests
                 new TestDelegate(
                     () => new FilenameFactory()
                                 .CreateForMetricsJson(
-                                    ObjectMother.WIDFileNameFactory_FakeFilePath,
+                                    ObjectMother.FileNameFactory_FakeFilePath,
                                     null,
-                                    ObjectMother.WIDFileNameFactory_FakeNow
+                                    ObjectMother.FileNameFactory_FakeNow
                                     )
                 ),
                 typeof(ArgumentNullException),
@@ -151,21 +151,21 @@ namespace NW.WIDJobs.UnitTests
                     new Func<string>(
                             () => new FilenameFactory()
                                         .CreateForExplorationJson(
-                                            ObjectMother.WIDFileNameFactory_FakeFilePath,
-                                            ObjectMother.WIDFileNameFactory_FakeNow)
+                                            ObjectMother.FileNameFactory_FakeFilePath,
+                                            ObjectMother.FileNameFactory_FakeNow)
                         ),
-                    ObjectMother.WIDFileNameFactory_ExplorationJsonIfFilePathNow
+                    ObjectMother.FileNameFactory_ExplorationJsonIfFilePathNow
                 ).SetArgDisplayNames($"{nameof(createForMetricsJsonTestCases)}_01"),
 
             new TestCaseData(
                     new Func<string>(
                             () => new FilenameFactory()
                                         .CreateForExplorationJson(
-                                            ObjectMother.WIDFileNameFactory_FakeFilePath,
-                                            ObjectMother.WIDFileNameFactory_FakeToken,
-                                            ObjectMother.WIDFileNameFactory_FakeNow)
+                                            ObjectMother.FileNameFactory_FakeFilePath,
+                                            ObjectMother.FileNameFactory_FakeToken,
+                                            ObjectMother.FileNameFactory_FakeNow)
                         ),
-                    ObjectMother.WIDFileNameFactory_ExplorationJsonIfFilePathTokenNow
+                    ObjectMother.FileNameFactory_ExplorationJsonIfFilePathTokenNow
                 ).SetArgDisplayNames($"{nameof(createForMetricsJsonTestCases)}_02")
 
         };
@@ -177,7 +177,7 @@ namespace NW.WIDJobs.UnitTests
                     () => new FilenameFactory()
                                 .CreateForExplorationJson(
                                     null,
-                                    ObjectMother.WIDFileNameFactory_FakeNow)
+                                    ObjectMother.FileNameFactory_FakeNow)
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("filePath").Message
@@ -187,9 +187,9 @@ namespace NW.WIDJobs.UnitTests
                 new TestDelegate(
                     () => new FilenameFactory()
                                 .CreateForExplorationJson(
-                                    ObjectMother.WIDFileNameFactory_FakeFilePath,
+                                    ObjectMother.FileNameFactory_FakeFilePath,
                                     null,
-                                    ObjectMother.WIDFileNameFactory_FakeNow
+                                    ObjectMother.FileNameFactory_FakeNow
                                     )
                 ),
                 typeof(ArgumentNullException),

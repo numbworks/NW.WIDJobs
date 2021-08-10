@@ -139,8 +139,6 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
-
-
         [Test]
         public void Calculate_ShouldReturnExpectedMetrics_WhenInvoked()
         {
@@ -151,7 +149,7 @@ namespace NW.WIDJobs.UnitTests
 
             // Assert
             Assert.IsTrue(
-                ObjectMother.AreEqual(ObjectMother.WIDMetrics_Exploration02_Metrics, actual)
+                ObjectMother.AreEqual(ObjectMother.MetricCollection_ExplorationStage3, actual)
                 );
 
         }

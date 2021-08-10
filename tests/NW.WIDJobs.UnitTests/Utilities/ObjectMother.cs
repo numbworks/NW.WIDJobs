@@ -258,9 +258,47 @@ namespace NW.WIDJobs.UnitTests
 
         internal static uint MetricCollection_ExplorationStage3_TotalBulletPoints = 20;
 
+        internal static MetricCollection MetricCollection_ExplorationStage3 =
+            new MetricCollection(
+                    runId: MetricCollection_ExplorationStage3_RunId,
+                    totalJobPages: MetricCollection_ExplorationStage3_TotalJobPages,
+                    totalJobPostings: MetricCollection_ExplorationStage3_TotalJobPostings,
+                    jobPostingsByHiringOrgName: MetricCollection_ExplorationStage3_JobPostingsByHiringOrgName,
+                    jobPostingsByWorkPlaceAddress: MetricCollection_ExplorationStage3_JobPostingsByWorkPlaceAddress,
+                    jobPostingsByWorkPlacePostalCode: MetricCollection_ExplorationStage3_JobPostingsByWorkPlacePostalCode,
+                    jobPostingsByWorkPlaceCity: MetricCollection_ExplorationStage3_JobPostingsByWorkPlaceCity,
+                    jobPostingsByPostingCreated: MetricCollection_ExplorationStage3_JobPostingsByPostingCreated,
+                    jobPostingsByLastDateApplication: MetricCollection_ExplorationStage3_JobPostingsByLastDateApplication,
+                    jobPostingsByRegion: MetricCollection_ExplorationStage3_JobPostingsByRegion,
+                    jobPostingsByMunicipality: MetricCollection_ExplorationStage3_JobPostingsByMunicipality,
+                    jobPostingsByCountry: MetricCollection_ExplorationStage3_JobPostingsByCountry,
+                    jobPostingsByEmploymentType: MetricCollection_ExplorationStage3_JobPostingsByEmploymentType,
+                    jobPostingsByWorkHours: MetricCollection_ExplorationStage3_JobPostingsByWorkHours,
+                    jobPostingsByOccupation: MetricCollection_ExplorationStage3_JobPostingsByOccupation,
+                    jobPostingsByWorkplaceId: MetricCollection_ExplorationStage3_JobPostingsByWorkplaceId,
+                    jobPostingsByOrganisationId: MetricCollection_ExplorationStage3_JobPostingsByOrganisationId,
+                    jobPostingsByHiringOrgCVR: MetricCollection_ExplorationStage3_JobPostingsByHiringOrgCVR,
+                    jobPostingsByWorkPlaceCityWithoutZone: MetricCollection_ExplorationStage3_JobPostingsByWorkPlaceCityWithoutZone,
+                    jobPostingsByPublicationStartDate: MetricCollection_ExplorationStage3_JobPostingsByPublicationStartDate,
+                    jobPostingsByPublicationEndDate: MetricCollection_ExplorationStage3_JobPostingsByPublicationEndDate,
+                    jobPostingsByNumberToFill: MetricCollection_ExplorationStage3_JobPostingsByNumberToFill,
+                    jobPostingsByContactEmail: MetricCollection_ExplorationStage3_JobPostingsByContactEmail,
+                    jobPostingsByContactPersonName: MetricCollection_ExplorationStage3_JobPostingsByContactPersonName,
+                    jobPostingsByEmploymentDate: MetricCollection_ExplorationStage3_JobPostingsByEmploymentDate,
+                    jobPostingsByApplicationDeadlineDate: MetricCollection_ExplorationStage3_JobPostingsByApplicationDeadlineDate,
+                    jobPostingsByBulletPointScenario: MetricCollection_ExplorationStage3_JobPostingsByBulletPointScenario,
+                    responseLengthByJobPostingId: MetricCollection_ExplorationStage3_ResponseLengthByJobPostingId,
+                    presentationLengthByJobPostingId: MetricCollection_ExplorationStage3_PresentationLengthByJobPostingId,
+                    extendedResponseLengthByJobPostingId: MetricCollection_ExplorationStage3_ExtendedResponseLengthByJobPostingId,
+                    hiringOrgDescriptionLengthByJobPostingId: MetricCollection_ExplorationStage3_HiringOrgDescriptionLengthByJobPostingId,
+                    purposeLengthByJobPostingId: MetricCollection_ExplorationStage3_PurposeLengthByJobPostingId,
+                    bulletPointsByJobPostingId: MetricCollection_ExplorationStage3_BulletPointsByJobPostingId,
+                    totalBulletPoints: MetricCollection_ExplorationStage3_TotalBulletPoints
+                );
+
         #endregion
 
-        #region MetricCollectionManager
+        #region MetricCollectionManagerTests
 
         internal static Exploration Shared_ExplorationStage3WithNullJobPostings
             = new Exploration(
@@ -301,30 +339,6 @@ namespace NW.WIDJobs.UnitTests
                 { "Vejen", $"{MetricCollectionManager.FormatPercentage(6.56)}" }
 
             };
-
-        internal static MetricCollection WIDMetrics_Exploration02_Metrics =
-            new MetricCollection(
-                    Shared_ExplorationStage1_RunId,
-                    (uint)Shared_Pages_Page01.Count,
-                    (uint)Shared_Page01_PageItems.Count,
-                    WIDMetrics_Page01_ItemsByWorkAreaWithoutZone,
-                    WIDMetrics_Page01_ItemsByCreateDate,
-                    WIDMetrics_Page01_ItemsByApplicationDate,
-                    WIDMetrics_Page01_ItemsByEmployerName,
-                    WIDMetrics_Page01_ItemsByNumberOfOpenings,
-                    WIDMetrics_Page01_ItemsByAdvertisementPublishDate,
-                    WIDMetrics_Page01_ItemsByApplicationDeadline,
-                    WIDMetrics_Page01_ItemsByStartDateOfEmployment,
-                    WIDMetrics_Page01_ItemsByReference,
-                    WIDMetrics_Page01_ItemsByPosition,
-                    WIDMetrics_Page01_ItemsByTypeOfEmployment,
-                    WIDMetrics_Page01_ItemsByContact,
-                    WIDMetrics_Page01_ItemsByEmployerAddress,
-                    WIDMetrics_Page01_ItemsByHowToApply,
-                    WIDMetrics_Page01_DescriptionLengthByPageItemId,
-                    WIDMetrics_Page01_BulletPointsByPageItemId,
-                    WIDMetrics_Page01_TotalBulletPoints
-                );
 
         #endregion
 
@@ -1470,7 +1484,7 @@ namespace NW.WIDJobs.UnitTests
                     workPlaceCityWithoutZone: "Horsens",
                     jobPostingNumber: 19,
                     jobPostingId: "5382781warehouseemployee"
-                ;
+                );
         internal static JobPostingExtended Shared_JobPage01_JobPostingExtended19
             = new JobPostingExtended(
                     jobPosting: Shared_JobPage01_JobPosting19,
@@ -3115,6 +3129,87 @@ namespace NW.WIDJobs.UnitTests
 
         #endregion
 
+        #region FileNameFactoryTests
+
+        internal static string FileNameFactory_FakeFilePath = @"C:\";
+        internal static string FileNameFactory_FakeToken = "fake";
+        internal static DateTime FileNameFactory_FakeNow = new DateTime(2021, 05, 01);
+        internal static string FileNameFactory_FakeNowString
+            = FileNameFactory_FakeNow.ToString(FilenameFactory.DefaultFormatNow);
+
+        internal static string FileNameFactory_FakeDatabaseFileName = "fakedb.db";
+
+        internal static string FileNameFactory_DatabaseNameIfFilePath
+            = string.Concat(
+                        FileNameFactory_FakeFilePath,
+                        FilenameFactory.DefaultDatabaseToken,
+                        ".",
+                        FilenameFactory.DefaultDatabaseExtension
+                        );
+        internal static string FileNameFactory_DatabaseNameIfFilePathFileName
+            = string.Concat(
+                        FileNameFactory_FakeFilePath,
+                        FileNameFactory_FakeDatabaseFileName
+                        );
+        internal static string FileNameFactory_DatabaseNameIfFilePathTokenNow
+            = string.Concat(
+                        FileNameFactory_FakeFilePath,
+                        FileNameFactory_FakeToken,
+                        "_",
+                        FileNameFactory_FakeNowString,
+                        ".",
+                        FilenameFactory.DefaultDatabaseExtension
+                        );
+        internal static string FileNameFactory_DatabaseNameIfFilePathNow
+            = string.Concat(
+                        FileNameFactory_FakeFilePath,
+                        FilenameFactory.DefaultDatabaseToken,
+                        "_",
+                        FileNameFactory_FakeNowString,
+                        ".",
+                        FilenameFactory.DefaultDatabaseExtension
+                        );
+
+        internal static string FileNameFactory_MetricsJsonIfTrue
+            = string.Concat(
+                        FileNameFactory_FakeFilePath,
+                        FilenameFactory.DefaultMetricsPctJsonToken,
+                        "_",
+                        FileNameFactory_FakeNowString,
+                        ".",
+                        FilenameFactory.DefaultJsonExtension
+                        );
+        internal static string FileNameFactory_MetricsJsonIfFalse
+            = string.Concat(
+                        FileNameFactory_FakeFilePath,
+                        FilenameFactory.DefaultMetricsJsonToken,
+                        "_",
+                        FileNameFactory_FakeNowString,
+                        ".",
+                        FilenameFactory.DefaultJsonExtension
+                        );
+
+        internal static string FileNameFactory_ExplorationJsonIfFilePathNow
+            = string.Concat(
+                        FileNameFactory_FakeFilePath,
+                        FilenameFactory.DefaultExplorationJsonToken,
+                        "_",
+                        FileNameFactory_FakeNowString,
+                        ".",
+                        FilenameFactory.DefaultJsonExtension
+                        );
+        internal static string FileNameFactory_ExplorationJsonIfFilePathTokenNow
+            = string.Concat(
+                        FileNameFactory_FakeFilePath,
+                        FileNameFactory_FakeToken,
+                        "_",
+                        FileNameFactory_FakeNowString,
+                        ".",
+                        FilenameFactory.DefaultJsonExtension
+                        );
+
+        #endregion
+
         #region RunIdManagerTests
 
         internal static DateTime RunIdManager_Now = new DateTime(2020, 01, 01, 19, 25, 40, 980);
@@ -3234,87 +3329,6 @@ namespace NW.WIDJobs.UnitTests
             };
         internal static string XPathManager_TryGetInnerText_XPath = "//div";
         internal static string XPathManager_TryGetFirstAttributeValue_XPath = "//div/@class";
-
-        #endregion
-
-        #region WIDFileNameFactory
-
-        internal static string WIDFileNameFactory_FakeFilePath = @"C:\";
-        internal static string WIDFileNameFactory_FakeToken = "fake";
-        internal static DateTime WIDFileNameFactory_FakeNow = new DateTime(2021, 05, 01);
-        internal static string WIDFileNameFactory_FakeNowString
-            = WIDFileNameFactory_FakeNow.ToString(FilenameFactory.DefaultFormatNow);
-
-        internal static string WIDFileNameFactory_FakeDatabaseFileName = "fakedb.db";
-
-        internal static string WIDFileNameFactory_DatabaseNameIfFilePath
-            = string.Concat(
-                        WIDFileNameFactory_FakeFilePath,
-                        FilenameFactory.DefaultDatabaseToken,
-                        ".",
-                        FilenameFactory.DefaultDatabaseExtension
-                        );
-        internal static string WIDFileNameFactory_DatabaseNameIfFilePathFileName
-            = string.Concat(
-                        WIDFileNameFactory_FakeFilePath,
-                        WIDFileNameFactory_FakeDatabaseFileName
-                        );
-        internal static string WIDFileNameFactory_DatabaseNameIfFilePathTokenNow
-            = string.Concat(
-                        WIDFileNameFactory_FakeFilePath,
-                        WIDFileNameFactory_FakeToken,
-                        "_",
-                        WIDFileNameFactory_FakeNowString,
-                        ".",
-                        FilenameFactory.DefaultDatabaseExtension
-                        );
-        internal static string WIDFileNameFactory_DatabaseNameIfFilePathNow
-            = string.Concat(
-                        WIDFileNameFactory_FakeFilePath,
-                        FilenameFactory.DefaultDatabaseToken,
-                        "_",
-                        WIDFileNameFactory_FakeNowString,
-                        ".",
-                        FilenameFactory.DefaultDatabaseExtension
-                        );
-
-        internal static string WIDFileNameFactory_MetricsJsonIfTrue
-            = string.Concat(
-                        WIDFileNameFactory_FakeFilePath,
-                        FilenameFactory.DefaultMetricsPctJsonToken,
-                        "_",
-                        WIDFileNameFactory_FakeNowString,
-                        ".",
-                        FilenameFactory.DefaultJsonExtension
-                        );
-        internal static string WIDFileNameFactory_MetricsJsonIfFalse
-            = string.Concat(
-                        WIDFileNameFactory_FakeFilePath,
-                        FilenameFactory.DefaultMetricsJsonToken,
-                        "_",
-                        WIDFileNameFactory_FakeNowString,
-                        ".",
-                        FilenameFactory.DefaultJsonExtension
-                        );
-
-        internal static string WIDFileNameFactory_ExplorationJsonIfFilePathNow
-            = string.Concat(
-                        WIDFileNameFactory_FakeFilePath,
-                        FilenameFactory.DefaultExplorationJsonToken,
-                        "_",
-                        WIDFileNameFactory_FakeNowString,
-                        ".",
-                        FilenameFactory.DefaultJsonExtension
-                        );
-        internal static string WIDFileNameFactory_ExplorationJsonIfFilePathTokenNow
-            = string.Concat(
-                        WIDFileNameFactory_FakeFilePath,
-                        WIDFileNameFactory_FakeToken,
-                        "_",
-                        WIDFileNameFactory_FakeNowString,
-                        ".",
-                        FilenameFactory.DefaultJsonExtension
-                        );
 
         #endregion
 
@@ -3618,7 +3632,6 @@ namespace NW.WIDJobs.UnitTests
             return string.Equals(exploration1.RunId, exploration2.RunId, StringComparison.InvariantCulture)
                         && (exploration1.TotalResultCount == exploration2.TotalResultCount)
                         && (exploration1.TotalJobPages == exploration2.TotalJobPages)
-                        && (exploration1.Category == exploration2.Category)
                         && (exploration1.Stage == exploration2.Stage)
                         && (exploration1.IsCompleted == exploration2.IsCompleted)
                         && AreEqual(exploration1.JobPages, exploration2.JobPages)

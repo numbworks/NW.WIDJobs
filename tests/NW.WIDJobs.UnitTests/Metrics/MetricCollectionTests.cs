@@ -58,7 +58,7 @@ namespace NW.WIDJobs.UnitTests
                 new TestDelegate(
                     () => new MetricCollection(
                                 runId: ObjectMother.MetricCollection_ExplorationStage3_RunId,
-                                totalJobPages: null,
+                                totalJobPages: 0,
                                 totalJobPostings: ObjectMother.MetricCollection_ExplorationStage3_TotalJobPostings,
                                 jobPostingsByHiringOrgName: ObjectMother.MetricCollection_ExplorationStage3_JobPostingsByHiringOrgName,
                                 jobPostingsByWorkPlaceAddress: ObjectMother.MetricCollection_ExplorationStage3_JobPostingsByWorkPlaceAddress,
@@ -102,7 +102,7 @@ namespace NW.WIDJobs.UnitTests
                     () => new MetricCollection(
                                 runId: ObjectMother.MetricCollection_ExplorationStage3_RunId,
                                 totalJobPages: ObjectMother.MetricCollection_ExplorationStage3_TotalJobPages,
-                                totalJobPostings: null,
+                                totalJobPostings: 0,
                                 jobPostingsByHiringOrgName: ObjectMother.MetricCollection_ExplorationStage3_JobPostingsByHiringOrgName,
                                 jobPostingsByWorkPlaceAddress: ObjectMother.MetricCollection_ExplorationStage3_JobPostingsByWorkPlaceAddress,
                                 jobPostingsByWorkPlacePostalCode: ObjectMother.MetricCollection_ExplorationStage3_JobPostingsByWorkPlacePostalCode,
