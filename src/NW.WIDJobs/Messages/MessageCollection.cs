@@ -67,8 +67,6 @@ namespace NW.WIDJobs
             = "FinalPageNumber: The last available page on the website.";
         public static Func<DateTime, string> WIDExplorer_ThresholdDateIs
             = (thresholdDate) => $"ThresholdDate:'{thresholdDate.ToString(WIDExplorer.DefaultFormatDate)}'.";
-        public static Func<WIDCategories, string> WIDExplorer_CategoryIs
-            = (category) => $"Category:'{category}'.";
         public static Func<Stages, string> WIDExplorer_StageIs
             = (stage) => $"Stage:'{stage}'.";
         public static Func<Stages, string> WIDExplorer_ExecutionStageStarted
@@ -111,12 +109,12 @@ namespace NW.WIDJobs
         public static Func<ushort, string> WIDExplorer_FinalPageNumberThresholdDate
             = (finalPageNumber) => $"The 'FinalPageNumber' for the provided 'ThresholdDate' is '{finalPageNumber}'.";
 
-        public static string WIDExplorer_ExtractPageItemsFromHTML
-            = $"Extracting {nameof(PageItem)} objects from the provided HTML file...";
+        public static string WIDExplorer_ExtractJobPostingsFromJson
+            = $"Extracting {nameof(JobPosting)} objects from the provided Json file...";
+        public static Func<List<JobPosting>, string> WIDExplorer_JobPostingsExtractedFromJson
+            = (jobPostings) => $"'{jobPostings.Count}' {nameof(JobPosting)} objects have been successfully extracted from the provided Json file.";
         public static string WIDExplorer_SomeDefaultValuesUsedFromHTML
             = $"Some default values need to be used in order to perform this extraction directly out of a HTML file.";
-        public static Func<List<PageItem>, string> WIDExplorer_PageItemsExtractedFromHTML
-            = (pageItems) => $"'{pageItems.Count}' {nameof(PageItem)} objects have been successfully extracted from the provided HTML file.";
 
         public static string WIDExplorer_ExtractPageItemExtendedFromHTML
             =  $"Extracting a {nameof(PageItemExtended)} object from the provided HTML file...";
@@ -153,7 +151,7 @@ namespace NW.WIDJobs
         public static string WIDExplorer_ExplorationSavedAsJson
             = $"The provided {nameof(Exploration)} object has been successfully saved as JSON file.";
 
-        public static string WIDExplorer_SavingMetricsAsJson
+        public static string WIDExplorer_SavingMetricCollectionAsJson
             = $"Saving the provided {nameof(MetricCollection)} object as JSON file...";
         public static Func<bool, string> WIDExplorer_NumbersAsPercentagesIs
             = (numbersAsPercentages) => $"NumbersAsPercentages: '{numbersAsPercentages}'.";
@@ -182,12 +180,12 @@ namespace NW.WIDJobs
             = "Page content is not serialized.";
         public static string WIDExplorer_SerializationOptionPageItems 
             = $"If {nameof(Stages.Stage3_UpToAllJobPostingsExtended)}, {nameof(PageItem)} objects are not serialized.";
-        public static string WIDExplorer_ExplorationConvertedToJsonString
+        public static string WIDExplorer_ConvertedExplorationToJsonString
             = $"The provided {nameof(Exploration)} object has been successfully converted to a JSON string.";
 
-        public static string WIDExplorer_ConvertingMetricsToJsonString
+        public static string WIDExplorer_ConvertingMetricCollectionToJsonString
             = $"Converting the provided {nameof(MetricCollection)} object to a JSON string...";
-        public static string WIDExplorer_ExplorationMetricsToJsonString
+        public static string WIDExplorer_ConvertedMetricsCollectionToJsonString
             = $"The provided {nameof(MetricCollection)} object has been successfully converted to a JSON string.";
 
         public static string WIDExplorer_RetrievingPreLabeledBulletPoints

@@ -59,16 +59,15 @@ namespace NW.WIDJobs
 
         #region Methods_public
 
-        public Exploration Explore
-            (string runId, ushort finalPageNumber, WIDCategories category, Stages stage)
+        public Exploration Explore(string runId, ushort finalPageNumber, Stages stage)
         {
 
             Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
             Validator.ThrowIfLessThanOne(finalPageNumber, nameof(finalPageNumber));
 
-            LogInitializationMessage(runId, finalPageNumber, category, stage);
+            LogInitializationMessage(runId, finalPageNumber, stage);
 
-            Exploration exploration = ProcessStage1(runId, DefaultInitialPageNumber, category, stage);
+            Exploration exploration = ProcessStage1(runId, DefaultInitialPageNumber, stage);
             if (exploration.IsCompleted)
                 return LogCompletionMessageAndReturn(exploration);
 
@@ -83,8 +82,7 @@ namespace NW.WIDJobs
             return LogCompletionMessageAndReturn(exploration);
 
         }
-        public Exploration Explore
-            (ushort finalPageNumber, WIDCategories category, Stages stage)
+        public Exploration Explore(ushort finalPageNumber, Stages stage)
         {
 
             DateTime now = NowFunction.Invoke();
@@ -92,19 +90,18 @@ namespace NW.WIDJobs
 
             string runId = _components.RunIdManager.Create(now, initialPageNumber, finalPageNumber);
 
-            return Explore(runId, finalPageNumber, category, stage);
+            return Explore(runId, finalPageNumber, stage);
 
         }
 
-        public Exploration Explore
-            (string runId, DateTime thresholdDate, WIDCategories category, Stages stage)
+        public Exploration Explore(string runId, DateTime thresholdDate, Stages stage)
         {
 
             Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
 
-            LogInitializationMessage(runId, thresholdDate, category, stage);
+            LogInitializationMessage(runId, thresholdDate, stage);
 
-            Exploration exploration = ProcessStage1(runId, DefaultInitialPageNumber, category, stage);
+            Exploration exploration = ProcessStage1(runId, DefaultInitialPageNumber, stage);
             if (exploration.IsCompleted)
                 return LogCompletionMessageAndReturn(exploration);
 
@@ -117,27 +114,25 @@ namespace NW.WIDJobs
             return LogCompletionMessageAndReturn(exploration);
 
         }
-        public Exploration Explore
-            (DateTime thresholdDate, WIDCategories category, Stages stage)
+        public Exploration Explore(DateTime thresholdDate, Stages stage)
         {
 
             DateTime now = NowFunction.Invoke();
 
             string runId = _components.RunIdManager.Create(now, thresholdDate);
 
-            return Explore(runId, thresholdDate, category, stage);
+            return Explore(runId, thresholdDate, stage);
 
         }
 
-        public Exploration ExploreAll
-            (string runId, WIDCategories category, Stages stage)
+        public Exploration ExploreAll(string runId, Stages stage)
         {
 
             Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
 
-            LogInitializationMessage(runId, category, stage);
+            LogInitializationMessage(runId, stage);
 
-            Exploration exploration = ProcessStage1(runId, DefaultInitialPageNumber, category, stage);
+            Exploration exploration = ProcessStage1(runId, DefaultInitialPageNumber, stage);
             if (exploration.IsCompleted)
                 return LogCompletionMessageAndReturn(exploration);
 
@@ -152,24 +147,23 @@ namespace NW.WIDJobs
             return LogCompletionMessageAndReturn(exploration);
 
         }
-        public Exploration ExploreAll
-            (WIDCategories category, Stages stage)
+        public Exploration ExploreAll(Stages stage)
         {
 
             DateTime now = NowFunction.Invoke();
             string runId = _components.RunIdManager.Create(now);
 
-            return ExploreAll(runId, category, stage);
+            return ExploreAll(runId, stage);
 
         }
 
-        public List<PageItem> ExtractFromHtml(IFileInfoAdapter htmlFile)
+        public List<JobPosting> ExtractFromJson(IFileInfoAdapter jsonFile)
         {
 
-            Validator.ValidateObject(htmlFile, nameof(htmlFile));
-            Validator.ValidateFileExistance(htmlFile);
+            Validator.ValidateObject(jsonFile, nameof(jsonFile));
+            Validator.ValidateFileExistance(jsonFile);
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExtractPageItemsFromHTML);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExtractJobPostingsFromJson);
 
             DateTime now = NowFunction.Invoke();
             string runId = _components.RunIdManager.Create(now);
@@ -179,17 +173,17 @@ namespace NW.WIDJobs
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs.Invoke(runId));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageNumberIs.Invoke(pageNumber));
 
-            string content = _components.FileManager.ReadAllText(htmlFile);
-            Page page = new Page(runId, pageNumber, content);
-            List<PageItem> pageItems = _components.JobPostingDeserializer.Do(page);
+            string content = _components.FileManager.ReadAllText(jsonFile);
+            JobPage jobPage = new JobPage(runId, pageNumber, content);
+            List<JobPosting> jobPostings = _components.JobPostingDeserializer.Do(jobPage);
             
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemsExtractedFromHTML.Invoke(pageItems));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingsExtractedFromJson.Invoke(jobPostings));
 
-            return pageItems;
+            return jobPostings;
 
         }
-        public List<PageItem> ExtractFromHtml(string filePath)
-            => ExtractFromHtml(_components.FileManager.Create(filePath));
+        public List<JobPosting> ExtractFromJson(string filePath)
+            => ExtractFromJson(_components.FileManager.Create(filePath));
 
         public PageItemExtended TryExtractFromHtml(IFileInfoAdapter htmlFile)
         {
@@ -303,19 +297,18 @@ namespace NW.WIDJobs
 
         }
 
-        public IFileInfoAdapter SaveAsJson
-            (MetricCollection metrics, bool numbersAsPercentages, IFileInfoAdapter jsonFile)
+        public IFileInfoAdapter SaveAsJson(MetricCollection metricCollection, bool numbersAsPercentages, IFileInfoAdapter jsonFile)
         {
 
-            Validator.ValidateObject(metrics, nameof(metrics));
+            Validator.ValidateObject(metricCollection, nameof(metricCollection));
             Validator.ValidateObject(jsonFile, nameof(jsonFile));
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SavingMetricsAsJson);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs.Invoke(metrics.RunId));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SavingMetricCollectionAsJson);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs.Invoke(metricCollection.RunId));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_NumbersAsPercentagesIs.Invoke(numbersAsPercentages));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JSONFileIs.Invoke(jsonFile));
 
-            string json = ConvertToJson(metrics, numbersAsPercentages);
+            string json = ConvertToJson(metricCollection, numbersAsPercentages);
             _components.FileManager.WriteAllText(jsonFile, json);
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_MetricsSavedAsJson);
@@ -323,8 +316,7 @@ namespace NW.WIDJobs
             return jsonFile;
 
         }
-        public IFileInfoAdapter SaveAsJson
-            (MetricCollection metrics, bool numbersAsPercentages)
+        public IFileInfoAdapter SaveAsJson(MetricCollection metricCollection, bool numbersAsPercentages)
         {
 
             DateTime now = NowFunction.Invoke();           
@@ -336,7 +328,7 @@ namespace NW.WIDJobs
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FolderPathIs.Invoke(_settings.FolderPath));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_NowIs.Invoke(now));
 
-            return SaveAsJson(metrics, numbersAsPercentages, jsonFile);
+            return SaveAsJson(metricCollection, numbersAsPercentages, jsonFile);
 
         }
 
@@ -358,17 +350,17 @@ namespace NW.WIDJobs
             dynamic dyn = OptimizeForSerialization(exploration);
             string json = JsonSerializer.Serialize(dyn, options);
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationConvertedToJsonString);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ConvertedExplorationToJsonString);
 
             return json;
 
         }
-        public string ConvertToJson(MetricCollection metrics, bool numbersAsPercentages)
+        public string ConvertToJson(MetricCollection metricCollection, bool numbersAsPercentages)
         {
 
-            Validator.ValidateObject(metrics, nameof(metrics));
+            Validator.ValidateObject(metricCollection, nameof(metricCollection));
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ConvertingMetricsToJsonString);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ConvertingMetricCollectionToJsonString);
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_NumbersAsPercentagesIs.Invoke(numbersAsPercentages));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)));
@@ -377,16 +369,16 @@ namespace NW.WIDJobs
             options.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
             options.Converters.Add(new DateTimeToDateConverter());
 
-            dynamic dyn = metrics;
+            dynamic dyn = metricCollection;
             if (numbersAsPercentages)
-                dyn = ConvertNumbersToPercentages(metrics);
+                dyn = ConvertNumbersToPercentages(metricCollection);
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationMetricsToJsonString);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ConvertedMetricsCollectionToJsonString);
 
             return JsonSerializer.Serialize(dyn, options);
 
         }
-        public MetricCollection ConvertToMetrics(Exploration exploration)
+        public MetricCollection ConvertToMetricCollection(Exploration exploration)
         {
 
             Validator.ValidateObject(exploration, nameof(exploration));
@@ -423,8 +415,7 @@ namespace NW.WIDJobs
 
         #region Methods_private
 
-        private void ConditionallySleep
-            (ushort i, ushort parallelRequests, uint pauseBetweenRequestsMs)
+        private void ConditionallySleep(ushort i, ushort parallelRequests, uint pauseBetweenRequestsMs)
         {
 
             // Do a pause of x each y requests
@@ -433,39 +424,33 @@ namespace NW.WIDJobs
                 Thread.Sleep((int)pauseBetweenRequestsMs);
 
         }
-        private void LogInitializationMessage
-            (string runId, ushort finalPageNumber, WIDCategories category, Stages stage)
+        private void LogInitializationMessage(string runId, ushort finalPageNumber, Stages stage)
         {
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationStarted);
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs(runId));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DefaultInitialPageNumberIs(DefaultInitialPageNumber));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FinalPageNumberIs(finalPageNumber));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_CategoryIs(category));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_StageIs(stage));
 
         }
-        private void LogInitializationMessage
-            (string runId, DateTime thresholdDate, WIDCategories category, Stages stage)
+        private void LogInitializationMessage(string runId, DateTime thresholdDate, Stages stage)
         {
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationStarted);
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs(runId));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DefaultInitialPageNumberIs(DefaultInitialPageNumber));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ThresholdDateIs(thresholdDate));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_CategoryIs(category));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_StageIs(stage));
 
         }
-        private void LogInitializationMessage
-            (string runId, WIDCategories category, Stages stage)
+        private void LogInitializationMessage(string runId, Stages stage)
         {
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationStarted);
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs(runId));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DefaultInitialPageNumberIs(DefaultInitialPageNumber));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FinalPageNumberIsLastPage);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_CategoryIs(category));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_StageIs(stage));
 
         }
@@ -483,74 +468,72 @@ namespace NW.WIDJobs
             dynamic dyn = new ExpandoObject();
 
             dyn.RunId = exploration.RunId;
-            dyn.TotalResults = exploration.TotalResultCount;
-            dyn.TotalEstimatedPages = exploration.TotalJobPages;
-            dyn.Category = exploration.Category;
+            dyn.TotalResultCount = exploration.TotalResultCount;
+            dyn.TotalJobPages = exploration.TotalJobPages;
             dyn.Stage = exploration.Stage;
             dyn.IsCompleted = exploration.IsCompleted;
 
-            dyn.Pages =
-                exploration
-                    .JobPages?.Select(page => new Page(page.RunId, page.PageNumber, DefaultNotSerialized)).ToList();
+            dyn.JobPages =
+                exploration.JobPages?.Select(jobPage => new JobPage(jobPage.RunId, jobPage.PageNumber, DefaultNotSerialized)).ToList();
 
             if (exploration.Stage == Stages.Stage3_UpToAllJobPostingsExtended)
-                dyn.PageItems = DefaultNotSerialized;
+                dyn.JobPostings = DefaultNotSerialized;
 
-            dyn.PageItemsExtended = exploration.JobPostingsExtended;
+            dyn.JobPostingsExtended = exploration.JobPostingsExtended;
 
             return dyn;
 
         }
-        private dynamic ConvertNumbersToPercentages(MetricCollection metrics)
+        private dynamic ConvertNumbersToPercentages(MetricCollection metricCollection)
         {
 
             dynamic dyn = new ExpandoObject();
 
-            dyn.RunId = metrics.RunId;
-            dyn.TotalPages = metrics.TotalJobPages;
-            dyn.TotalItems = metrics.TotalJobPostings;
+            dyn.RunId = metricCollection.RunId;
+            dyn.TotalJobPages = metricCollection.TotalJobPages;
+            dyn.TotalJobPostings = metricCollection.TotalJobPostings;
 
-            dyn.ItemsByWorkAreaWithoutZone =
-                _components.MetricCollectionManager.ConvertToPercentages(metrics.JobPostingsByWorkPlaceCityWithoutZone);
-            dyn.ItemsByCreateDate =
-                _components.MetricCollectionManager.ConvertToPercentages(metrics.JobPostingsByPostingCreated);
-            dyn.ItemsByApplicationDate =
-                _components.MetricCollectionManager.ConvertToPercentages(metrics.JobPostingsByLastDateApplication);
-            dyn.ItemsByEmployerName =
-                _components.MetricCollectionManager.ConvertToPercentages(metrics.JobPostingsByHiringOrgName);
-            dyn.ItemsByNumberOfOpenings =
-                _components.MetricCollectionManager.ConvertToPercentages(metrics.JobPostingsByRegion);
-            dyn.ItemsByAdvertisementPublishDate =
-                _components.MetricCollectionManager.ConvertToPercentages(metrics.JobPostingsByMunicipality);
-            dyn.ItemsByApplicationDeadline =
-                _components.MetricCollectionManager.ConvertToPercentages(metrics.JobPostingsByCountry);
-            dyn.ItemsByStartDateOfEmployment =
-                _components.MetricCollectionManager.ConvertToPercentages(metrics.JobPostingsByEmploymentType);
-            dyn.ItemsByReference =
-                _components.MetricCollectionManager.ConvertToPercentages(metrics.JobPostingsByWorkHours);
-            dyn.ItemsByPosition =
-                _components.MetricCollectionManager.ConvertToPercentages(metrics.JobPostingsByOccupation);
-            dyn.ItemsByTypeOfEmployment =
-                _components.MetricCollectionManager.ConvertToPercentages(metrics.JobPostingsByOrganisationId);
-            dyn.ItemsByContact =
-                _components.MetricCollectionManager.ConvertToPercentages(metrics.JobPostingsByHiringOrgCVR);
-            dyn.ItemsByEmployerAddress =
-                _components.MetricCollectionManager.ConvertToPercentages(metrics.JobPostingsByWorkplaceId );
-            dyn.ItemsByHowToApply =
-                _components.MetricCollectionManager.ConvertToPercentages(metrics.HiringOrgDescriptionLengthByJobPostingId);
-            dyn.DescriptionLengthByPageItemId =
-                _components.MetricCollectionManager.ConvertToPercentages(metrics.ExtendedResponseLengthByJobPostingId);
-            dyn.BulletPointsByPageItemId =
-                _components.MetricCollectionManager.ConvertToPercentages(metrics.BulletPointsByJobPostingId);
+            dyn.JobPostingsByHiringOrgName = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.JobPostingsByHiringOrgName);
+            dyn.JobPostingsByWorkPlaceAddress = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.JobPostingsByWorkPlaceAddress);
+            dyn.JobPostingsByWorkPlacePostalCode = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.JobPostingsByWorkPlacePostalCode);
+            dyn.JobPostingsByWorkPlaceCity = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.JobPostingsByWorkPlaceCity);
+            dyn.JobPostingsByPostingCreated = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.JobPostingsByPostingCreated);
+            dyn.JobPostingsByLastDateApplication = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.JobPostingsByLastDateApplication);
+            dyn.JobPostingsByRegion = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.JobPostingsByRegion);
+            dyn.JobPostingsByMunicipality = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.JobPostingsByMunicipality);
+            dyn.JobPostingsByCountry = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.JobPostingsByCountry);
+            dyn.JobPostingsByEmploymentType = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.JobPostingsByEmploymentType);
+            dyn.JobPostingsByWorkHours = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.JobPostingsByWorkHours);
+            dyn.JobPostingsByOccupation = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.JobPostingsByOccupation);
+            dyn.JobPostingsByWorkplaceId = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.JobPostingsByWorkplaceId);
+            dyn.JobPostingsByOrganisationId = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.JobPostingsByOrganisationId);
+            dyn.JobPostingsByHiringOrgCVR = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.JobPostingsByHiringOrgCVR);
+            dyn.JobPostingsByWorkPlaceCityWithoutZone = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.JobPostingsByWorkPlaceCityWithoutZone);
 
-            dyn.TotalBulletPoints = metrics.TotalBulletPoints;
+            dyn.JobPostingsByPublicationStartDate = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.JobPostingsByPublicationStartDate);
+            dyn.JobPostingsByPublicationEndDate = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.JobPostingsByPublicationEndDate);
+            dyn.JobPostingsByNumberToFill = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.JobPostingsByNumberToFill);
+            dyn.JobPostingsByContactEmail = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.JobPostingsByContactEmail);
+            dyn.JobPostingsByContactPersonName = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.JobPostingsByContactPersonName);
+            dyn.JobPostingsByEmploymentDate = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.JobPostingsByEmploymentDate);
+            dyn.JobPostingsByApplicationDeadlineDate = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.JobPostingsByApplicationDeadlineDate);
+            dyn.JobPostingsByBulletPointScenario = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.JobPostingsByBulletPointScenario);
+
+            dyn.ResponseLengthByJobPostingId = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.ResponseLengthByJobPostingId);
+            dyn.PresentationLengthByJobPostingId = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.PresentationLengthByJobPostingId);
+            dyn.ExtendedResponseLengthByJobPostingId = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.ExtendedResponseLengthByJobPostingId);
+            dyn.HiringOrgDescriptionLengthByJobPostingId = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.HiringOrgDescriptionLengthByJobPostingId);
+            dyn.PurposeLengthByJobPostingId = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.PurposeLengthByJobPostingId);
+            dyn.BulletPointsByJobPostingId = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.BulletPointsByJobPostingId);
+
+            dyn.TotalBulletPoints = metricCollection.TotalBulletPoints;
 
             return dyn;
 
         }
 
         private Exploration ProcessStage1
-            (string runId, ushort initialPageNumber, WIDCategories category, Stages stage)
+            (string runId, ushort initialPageNumber, Stages stage)
         {
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(stage));

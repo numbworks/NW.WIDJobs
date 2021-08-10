@@ -134,7 +134,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                        () => new WIDExplorer().ExtractFromHtml((IFileInfoAdapter)null)
+                        () => new WIDExplorer().ExtractFromJson((IFileInfoAdapter)null)
                     ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("htmlFile").Message
@@ -142,7 +142,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                        () => new WIDExplorer().ExtractFromHtml(ObjectMother.FileManager_FileInfoAdapterDoesntExist)
+                        () => new WIDExplorer().ExtractFromJson(ObjectMother.FileManager_FileInfoAdapterDoesntExist)
                     ),
                 typeof(ArgumentException),
                 MessageCollection.Validator_ProvidedPathDoesntExist.Invoke(ObjectMother.FileManager_FileInfoAdapterDoesntExist)
@@ -150,7 +150,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                        () => new WIDExplorer().ExtractFromHtml((string)null)
+                        () => new WIDExplorer().ExtractFromJson((string)null)
                     ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("filePath").Message
@@ -286,7 +286,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new WIDExplorer().ConvertToMetrics(null)),
+                    () => new WIDExplorer().ConvertToMetricCollection(null)),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("exploration").Message
             ).SetArgDisplayNames($"{nameof(convertToMetricsExceptionTestCases)}_01"),
@@ -294,7 +294,7 @@ namespace NW.WIDJobs.UnitTests
             new TestCaseData(
                 new TestDelegate(
                     () => new WIDExplorer()
-                            .ConvertToMetrics
+                            .ConvertToMetricCollection
                                 (ObjectMother.Shared_ExplorationStage3WithNullJobPostings)
                     ),
                 typeof(ArgumentNullException),
@@ -304,7 +304,7 @@ namespace NW.WIDJobs.UnitTests
             new TestCaseData(
                 new TestDelegate(
                     () => new WIDExplorer()
-                            .ConvertToMetrics
+                            .ConvertToMetricCollection
                                 (ObjectMother.Shared_ExplorationStage3WithNullJobPostingsExtended)
                     ),
                 typeof(ArgumentNullException),
