@@ -234,24 +234,24 @@ namespace NW.WIDJobs.UnitTests
 
         internal static Exploration Shared_Exploration02WithNullJobPostings
             = new Exploration(
-                    Shared_Exploration02_RunId,
-                    Shared_Exploration02_TotalResultCount,
-                    Shared_Exploration02_TotalJobPages,
-                    Shared_Exploration02_Stage,
-                    Shared_Exploration02_IsCompleted,
-                    Shared_Exploration02_JobPages,
+                    Shared_ExplorationStage3_RunId,
+                    Shared_ExplorationStage3_TotalResultCount,
+                    Shared_ExplorationStage3_TotalJobPages,
+                    Shared_ExplorationStage3_Stage,
+                    Shared_ExplorationStage3_IsCompleted,
+                    Shared_ExplorationStage3_JobPages,
                     null,
-                    Shared_Exploration02_JobPostingsExtended
+                    Shared_ExplorationStage3_JobPostingsExtended
                 );
         internal static Exploration Shared_Exploration02WithNullJobPostingsExtended
             = new Exploration(
-                    Shared_Exploration02_RunId,
-                    Shared_Exploration02_TotalResultCount,
-                    Shared_Exploration02_TotalJobPages,
-                    Shared_Exploration02_Stage,
-                    Shared_Exploration02_IsCompleted,
-                    Shared_Exploration02_JobPages,
-                    Shared_Exploration02_JobPostings,
+                    Shared_ExplorationStage3_RunId,
+                    Shared_ExplorationStage3_TotalResultCount,
+                    Shared_ExplorationStage3_TotalJobPages,
+                    Shared_ExplorationStage3_Stage,
+                    Shared_ExplorationStage3_IsCompleted,
+                    Shared_ExplorationStage3_JobPages,
+                    Shared_ExplorationStage3_JobPostings,
                     null
                 );
 
@@ -274,7 +274,7 @@ namespace NW.WIDJobs.UnitTests
 
         internal static MetricCollection WIDMetrics_Exploration02_Metrics =
             new MetricCollection(
-                    Shared_Exploration01_RunId,
+                    Shared_ExplorationStage1_RunId,
                     (uint)Shared_Pages_Page01.Count,
                     (uint)Shared_Page01_PageItems.Count,
                     WIDMetrics_Page01_ItemsByWorkAreaWithoutZone,
@@ -1440,7 +1440,7 @@ namespace NW.WIDJobs.UnitTests
                     workPlaceCityWithoutZone: "Horsens",
                     jobPostingNumber: 19,
                     jobPostingId: "5382781warehouseemployee"
-                );
+                ;
         internal static JobPostingExtended Shared_JobPage01_JobPostingExtended19
             = new JobPostingExtended(
                     jobPosting: Shared_JobPage01_JobPosting19,
@@ -2874,51 +2874,51 @@ namespace NW.WIDJobs.UnitTests
 
         #region Shared_Exploration
 
-        internal static string Shared_Exploration01_RunId = RunIdManager_RunId_Now;
-        internal static ushort Shared_Exploration01_TotalResultCount = Shared_JobPage01_TotalResultCount;
-        internal static ushort Shared_Exploration01_TotalJobPages = Shared_JobPage01_TotalJobPages;
-        internal static Stages Shared_Exploration01_Stage = Stages.Stage1_OnlyMetrics;
-        internal static bool Shared_Exploration01_IsCompleted = true;
-        internal static List<JobPage> Shared_Exploration01_JobPages = null;
-        internal static List<JobPosting> Shared_Exploration01_JobPostings = null;
-        internal static List<JobPostingExtended> Shared_Exploration01_JobPostingsExtended = null;
-        internal static Exploration Shared_Exploration01
+        internal static string Shared_ExplorationStage1_RunId = RunIdManager_RunId_Now;
+        internal static ushort Shared_ExplorationStage1_TotalResultCount = Shared_JobPage01_TotalResultCount;
+        internal static ushort Shared_ExplorationStage1_TotalJobPages = Shared_JobPage01_TotalJobPages;
+        internal static Stages Shared_ExplorationStage1_Stage = Stages.Stage1_OnlyMetrics;
+        internal static bool Shared_ExplorationStage1_IsCompleted = true;
+        internal static List<JobPage> Shared_ExplorationStage1_JobPages = null;
+        internal static List<JobPosting> Shared_ExplorationStage1_JobPostings = null;
+        internal static List<JobPostingExtended> Shared_ExplorationStage1_JobPostingsExtended = null;
+        internal static Exploration Shared_ExplorationStage1
             = new Exploration(
-                    Shared_Exploration01_RunId,
-                    Shared_Exploration01_TotalResultCount,
-                    Shared_Exploration01_TotalJobPages,
+                    Shared_ExplorationStage1_RunId,
+                    Shared_ExplorationStage1_TotalResultCount,
+                    Shared_ExplorationStage1_TotalJobPages,
                     Stages.Stage1_OnlyMetrics,
-                    Shared_Exploration01_IsCompleted,
-                    Shared_Exploration01_JobPages,
-                    Shared_Exploration01_JobPostings,
-                    Shared_Exploration01_JobPostingsExtended
+                    Shared_ExplorationStage1_IsCompleted,
+                    Shared_ExplorationStage1_JobPages,
+                    Shared_ExplorationStage1_JobPostings,
+                    Shared_ExplorationStage1_JobPostingsExtended
                     );
-        internal static string Shared_Exploration01_AsString
+        internal static string Shared_ExplorationStage1_AsString
             = string.Concat(
                 "{ ",
-                $"'{nameof(Exploration.RunId)}':'{Shared_Exploration01_RunId}', ",
-                $"'{nameof(Exploration.TotalResultCount)}':'{Shared_Exploration01_TotalResultCount}', ",
-                $"'{nameof(Exploration.TotalJobPages)}':'{Shared_Exploration01_TotalJobPages}', ",
-                $"'{nameof(Exploration.Stage)}':'{Shared_Exploration01_Stage}', ",
-                $"'{nameof(Exploration.IsCompleted)}':'{Shared_Exploration01_IsCompleted}', ",
+                $"'{nameof(Exploration.RunId)}':'{Shared_ExplorationStage1_RunId}', ",
+                $"'{nameof(Exploration.TotalResultCount)}':'{Shared_ExplorationStage1_TotalResultCount}', ",
+                $"'{nameof(Exploration.TotalJobPages)}':'{Shared_ExplorationStage1_TotalJobPages}', ",
+                $"'{nameof(Exploration.Stage)}':'{Shared_ExplorationStage1_Stage}', ",
+                $"'{nameof(Exploration.IsCompleted)}':'{Shared_ExplorationStage1_IsCompleted}', ",
                 $"'{nameof(Exploration.JobPages)}':'null', ",
                 $"'{nameof(Exploration.JobPostings)}':'null', ",
                 $"'{nameof(Exploration.JobPostingsExtended)}':'null'",
                 " }"
                 );
 
-        internal static string Shared_Exploration02_RunId = RunIdManager_RunId_Now;
-        internal static ushort Shared_Exploration02_TotalResultCount = Shared_JobPage01_TotalResultCount;
-        internal static ushort Shared_Exploration02_TotalJobPages = Shared_JobPage01_TotalJobPages;
-        internal static Stages Shared_Exploration02_Stage = Stages.Stage3_UpToAllJobPostingsExtended;
-        internal static bool Shared_Exploration02_IsCompleted = true;
-        internal static List<JobPage> Shared_Exploration02_JobPages
+        internal static string Shared_ExplorationStage3_RunId = RunIdManager_RunId_Now;
+        internal static ushort Shared_ExplorationStage3_TotalResultCount = Shared_JobPage01_TotalResultCount;
+        internal static ushort Shared_ExplorationStage3_TotalJobPages = Shared_JobPage01_TotalJobPages;
+        internal static Stages Shared_ExplorationStage3_Stage = Stages.Stage3_UpToAllJobPostingsExtended;
+        internal static bool Shared_ExplorationStage3_IsCompleted = true;
+        internal static List<JobPage> Shared_ExplorationStage3_JobPages
             = new List<JobPage>()
             {
                 Shared_JobPage01_Object,
                 Shared_JobPage02_Object
             };
-        internal static List<JobPosting> Shared_Exploration02_JobPostings
+        internal static List<JobPosting> Shared_ExplorationStage3_JobPostings
             = new List<JobPosting>()
             {
                 Shared_JobPage01_JobPosting01,
@@ -2962,7 +2962,7 @@ namespace NW.WIDJobs.UnitTests
                 Shared_JobPage02_JobPosting19,
                 Shared_JobPage02_JobPosting20
             };
-        internal static List<JobPostingExtended> Shared_Exploration02_JobPostingsExtended
+        internal static List<JobPostingExtended> Shared_ExplorationStage3_JobPostingsExtended
             = new List<JobPostingExtended>()
             {
                 Shared_JobPage01_JobPostingExtended01,
@@ -3006,28 +3006,28 @@ namespace NW.WIDJobs.UnitTests
                 Shared_JobPage02_JobPostingExtended19,
                 Shared_JobPage02_JobPostingExtended20
             };
-        internal static Exploration Shared_Exploration02
+        internal static Exploration Shared_ExplorationStage3
             = new Exploration(
-                    Shared_Exploration01_RunId,
-                    Shared_Exploration01_TotalResultCount,
-                    Shared_Exploration01_TotalJobPages,
-                    Shared_Exploration02_Stage,
-                    Shared_Exploration01_IsCompleted,
-                    Shared_Exploration02_JobPages,
-                    Shared_Exploration02_JobPostings,
-                    Shared_Exploration02_JobPostingsExtended
+                    Shared_ExplorationStage3_RunId,
+                    Shared_ExplorationStage3_TotalResultCount,
+                    Shared_ExplorationStage3_TotalJobPages,
+                    Shared_ExplorationStage3_Stage,
+                    Shared_ExplorationStage3_IsCompleted,
+                    Shared_ExplorationStage3_JobPages,
+                    Shared_ExplorationStage3_JobPostings,
+                    Shared_ExplorationStage3_JobPostingsExtended
                     );
-        internal static string Shared_Exploration02_AsString
+        internal static string Shared_ExplorationStage3_AsString
             = string.Concat(
                 "{ ",
-                $"'{nameof(Exploration.RunId)}':'{Shared_Exploration02_RunId}', ",
-                $"'{nameof(Exploration.TotalResultCount)}':'{Shared_Exploration02_TotalResultCount}', ",
-                $"'{nameof(Exploration.TotalJobPages)}':'{Shared_Exploration02_TotalJobPages}', ",
-                $"'{nameof(Exploration.Stage)}':'{Shared_Exploration02_Stage}', ",
-                $"'{nameof(Exploration.IsCompleted)}':'{Shared_Exploration02_IsCompleted}', ",
-                $"'{nameof(Exploration.JobPages)}':'{Shared_Exploration02_JobPages.Count}', ",
-                $"'{nameof(Exploration.JobPostings)}':'{Shared_Exploration02_JobPostings.Count}', ",
-                $"'{nameof(Exploration.JobPostingsExtended)}':'{Shared_Exploration02_JobPostingsExtended.Count}'",
+                $"'{nameof(Exploration.RunId)}':'{Shared_ExplorationStage3_RunId}', ",
+                $"'{nameof(Exploration.TotalResultCount)}':'{Shared_ExplorationStage3_TotalResultCount}', ",
+                $"'{nameof(Exploration.TotalJobPages)}':'{Shared_ExplorationStage3_TotalJobPages}', ",
+                $"'{nameof(Exploration.Stage)}':'{Shared_ExplorationStage3_Stage}', ",
+                $"'{nameof(Exploration.IsCompleted)}':'{Shared_ExplorationStage3_IsCompleted}', ",
+                $"'{nameof(Exploration.JobPages)}':'{Shared_ExplorationStage3_JobPages.Count}', ",
+                $"'{nameof(Exploration.JobPostings)}':'{Shared_ExplorationStage3_JobPostings.Count}', ",
+                $"'{nameof(Exploration.JobPostingsExtended)}':'{Shared_ExplorationStage3_JobPostingsExtended.Count}'",
                 " }"
                 );
 

@@ -147,7 +147,7 @@ namespace NW.WIDJobs.UnitTests
 
             // Arrange
             // Act        
-            MetricCollection actual = new MetricCollectionManager().Calculate(ObjectMother.Shared_Exploration02);
+            MetricCollection actual = new MetricCollectionManager().Calculate(ObjectMother.Shared_ExplorationStage3);
 
             // Assert
             Assert.IsTrue(

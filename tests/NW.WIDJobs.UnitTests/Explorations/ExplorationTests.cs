@@ -15,13 +15,13 @@ namespace NW.WIDJobs.UnitTests
                 new TestDelegate(
                     () => new Exploration(
                                 null,
-                                ObjectMother.Shared_Exploration01_TotalResultCount,
-                                ObjectMother.Shared_Exploration01_TotalJobPages,
-                                ObjectMother.Shared_Exploration01_Stage,
-                                ObjectMother.Shared_Exploration01_IsCompleted,
-                                ObjectMother.Shared_Exploration01_JobPages,
-                                ObjectMother.Shared_Exploration01_JobPostings,
-                                ObjectMother.Shared_Exploration01_JobPostingsExtended
+                                ObjectMother.Shared_ExplorationStage1_TotalResultCount,
+                                ObjectMother.Shared_ExplorationStage1_TotalJobPages,
+                                ObjectMother.Shared_ExplorationStage1_Stage,
+                                ObjectMother.Shared_ExplorationStage1_IsCompleted,
+                                ObjectMother.Shared_ExplorationStage1_JobPages,
+                                ObjectMother.Shared_ExplorationStage1_JobPostings,
+                                ObjectMother.Shared_ExplorationStage1_JobPostingsExtended
                             )
                 ),
                 typeof(ArgumentNullException),
@@ -33,13 +33,13 @@ namespace NW.WIDJobs.UnitTests
         {
 
             new TestCaseData(
-                    ObjectMother.Shared_Exploration01,
-                    ObjectMother.Shared_Exploration01_AsString
+                    ObjectMother.Shared_ExplorationStage1,
+                    ObjectMother.Shared_ExplorationStage1_AsString
                 ).SetArgDisplayNames($"{nameof(toStringTestCases)}_01"),
 
             new TestCaseData(
-                    ObjectMother.Shared_Exploration02,
-                    ObjectMother.Shared_Exploration02_AsString
+                    ObjectMother.Shared_ExplorationStage3,
+                    ObjectMother.Shared_ExplorationStage3_AsString
                 ).SetArgDisplayNames($"{nameof(toStringTestCases)}_02")
 
         };
@@ -73,14 +73,14 @@ namespace NW.WIDJobs.UnitTests
             // Act
             Exploration actual =
                 new Exploration(
-                    ObjectMother.Shared_Exploration01_RunId,
-                    ObjectMother.Shared_Exploration01_TotalResultCount,
-                    ObjectMother.Shared_Exploration01_TotalJobPages,
-                    ObjectMother.Shared_Exploration01_Stage,
-                    ObjectMother.Shared_Exploration01_IsCompleted,
-                    ObjectMother.Shared_Exploration01_JobPages,
-                    ObjectMother.Shared_Exploration01_JobPostings,
-                    ObjectMother.Shared_Exploration01_JobPostingsExtended
+                    ObjectMother.Shared_ExplorationStage1_RunId,
+                    ObjectMother.Shared_ExplorationStage1_TotalResultCount,
+                    ObjectMother.Shared_ExplorationStage1_TotalJobPages,
+                    ObjectMother.Shared_ExplorationStage1_Stage,
+                    ObjectMother.Shared_ExplorationStage1_IsCompleted,
+                    ObjectMother.Shared_ExplorationStage1_JobPages,
+                    ObjectMother.Shared_ExplorationStage1_JobPostings,
+                    ObjectMother.Shared_ExplorationStage1_JobPostingsExtended
                     );
 
             // Assert
