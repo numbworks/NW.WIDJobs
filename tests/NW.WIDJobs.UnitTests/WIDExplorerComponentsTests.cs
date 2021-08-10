@@ -18,11 +18,11 @@ namespace NW.WIDJobs.UnitTests
                                 WIDExplorerComponents.DefaultLoggingActionAsciiBanner,
                                 new XPathManager(),
                                 new GetRequestManager(),
-                                new PageManager(),
-                                new PageScraper(),
-                                new PageItemScraper(),
-                                new PageItemExtendedManager(),
-                                new PageItemExtendedScraper(),
+                                new JobPageManager(),
+                                new JobPageDeserializer(),
+                                new JobPostingDeserializer(),
+                                new JobPostingExtendedManager(),
+                                new JobPostingExtendedDeserializer(),
                                 new RunIdManager(),
                                 new MetricCollectionManager(),
                                 new FileManager(),
@@ -43,11 +43,11 @@ namespace NW.WIDJobs.UnitTests
                                 null,
                                 new XPathManager(),
                                 new GetRequestManager(),
-                                new PageManager(),
-                                new PageScraper(),
-                                new PageItemScraper(),
-                                new PageItemExtendedManager(),
-                                new PageItemExtendedScraper(),
+                                new JobPageManager(),
+                                new JobPageDeserializer(),
+                                new JobPostingDeserializer(),
+                                new JobPostingExtendedManager(),
+                                new JobPostingExtendedDeserializer(),
                                 new RunIdManager(),
                                 new MetricCollectionManager(),
                                 new FileManager(),
@@ -68,11 +68,11 @@ namespace NW.WIDJobs.UnitTests
                                 WIDExplorerComponents.DefaultLoggingActionAsciiBanner,
                                 null,
                                 new GetRequestManager(),
-                                new PageManager(),
-                                new PageScraper(),
-                                new PageItemScraper(),
-                                new PageItemExtendedManager(),
-                                new PageItemExtendedScraper(),
+                                new JobPageManager(),
+                                new JobPageDeserializer(),
+                                new JobPostingDeserializer(),
+                                new JobPostingExtendedManager(),
+                                new JobPostingExtendedDeserializer(),
                                 new RunIdManager(),
                                 new MetricCollectionManager(),
                                 new FileManager(),
@@ -93,11 +93,11 @@ namespace NW.WIDJobs.UnitTests
                                 WIDExplorerComponents.DefaultLoggingActionAsciiBanner,
                                 new XPathManager(),
                                 null,
-                                new PageManager(),
-                                new PageScraper(),
-                                new PageItemScraper(),
-                                new PageItemExtendedManager(),
-                                new PageItemExtendedScraper(),
+                                new JobPageManager(),
+                                new JobPageDeserializer(),
+                                new JobPostingDeserializer(),
+                                new JobPostingExtendedManager(),
+                                new JobPostingExtendedDeserializer(),
                                 new RunIdManager(),
                                 new MetricCollectionManager(),
                                 new FileManager(),
@@ -119,10 +119,10 @@ namespace NW.WIDJobs.UnitTests
                                 new XPathManager(),
                                 new GetRequestManager(),
                                 null,
-                                new PageScraper(),
-                                new PageItemScraper(),
-                                new PageItemExtendedManager(),
-                                new PageItemExtendedScraper(),
+                                new JobPageDeserializer(),
+                                new JobPostingDeserializer(),
+                                new JobPostingExtendedManager(),
+                                new JobPostingExtendedDeserializer(),
                                 new RunIdManager(),
                                 new MetricCollectionManager(),
                                 new FileManager(),
@@ -133,7 +133,7 @@ namespace NW.WIDJobs.UnitTests
                         )
                 ),
                 typeof(ArgumentNullException),
-                new ArgumentNullException("pageManager").Message
+                new ArgumentNullException("jobPageManager").Message
             ).SetArgDisplayNames($"{nameof(widExplorerComponentsExceptionTestCases)}_05"),
 
             new TestCaseData(
@@ -143,11 +143,11 @@ namespace NW.WIDJobs.UnitTests
                                 WIDExplorerComponents.DefaultLoggingActionAsciiBanner,
                                 new XPathManager(),
                                 new GetRequestManager(),
-                                new PageManager(),
+                                new JobPageManager(),
                                 null,
-                                new PageItemScraper(),
-                                new PageItemExtendedManager(),
-                                new PageItemExtendedScraper(),
+                                new JobPostingDeserializer(),
+                                new JobPostingExtendedManager(),
+                                new JobPostingExtendedDeserializer(),
                                 new RunIdManager(),
                                 new MetricCollectionManager(),
                                 new FileManager(),
@@ -158,7 +158,7 @@ namespace NW.WIDJobs.UnitTests
                         )
                 ),
                 typeof(ArgumentNullException),
-                new ArgumentNullException("pageScraper").Message
+                new ArgumentNullException("jobPageDeserializer").Message
             ).SetArgDisplayNames($"{nameof(widExplorerComponentsExceptionTestCases)}_06"),
 
             new TestCaseData(
@@ -168,11 +168,11 @@ namespace NW.WIDJobs.UnitTests
                                 WIDExplorerComponents.DefaultLoggingActionAsciiBanner,
                                 new XPathManager(),
                                 new GetRequestManager(),
-                                new PageManager(),
-                                new PageScraper(),
+                                new JobPageManager(),
+                                new JobPageDeserializer(),
                                 null,
-                                new PageItemExtendedManager(),
-                                new PageItemExtendedScraper(),
+                                new JobPostingExtendedManager(),
+                                new JobPostingExtendedDeserializer(),
                                 new RunIdManager(),
                                 new MetricCollectionManager(),
                                 new FileManager(),
@@ -183,7 +183,7 @@ namespace NW.WIDJobs.UnitTests
                         )
                 ),
                 typeof(ArgumentNullException),
-                new ArgumentNullException("pageItemScraper").Message
+                new ArgumentNullException("jobPostingDeserializer").Message
             ).SetArgDisplayNames($"{nameof(widExplorerComponentsExceptionTestCases)}_07"),
 
             new TestCaseData(
@@ -193,11 +193,11 @@ namespace NW.WIDJobs.UnitTests
                                 WIDExplorerComponents.DefaultLoggingActionAsciiBanner,
                                 new XPathManager(),
                                 new GetRequestManager(),
-                                new PageManager(),
-                                new PageScraper(),
-                                new PageItemScraper(),
+                                new JobPageManager(),
+                                new JobPageDeserializer(),
+                                new JobPostingDeserializer(),
                                 null,
-                                new PageItemExtendedScraper(),
+                                new JobPostingExtendedDeserializer(),
                                 new RunIdManager(),
                                 new MetricCollectionManager(),
                                 new FileManager(),
@@ -208,7 +208,7 @@ namespace NW.WIDJobs.UnitTests
                         )
                 ),
                 typeof(ArgumentNullException),
-                new ArgumentNullException("pageItemExtendedManager").Message
+                new ArgumentNullException("jobPostingExtendedManager").Message
             ).SetArgDisplayNames($"{nameof(widExplorerComponentsExceptionTestCases)}_08"),
 
             new TestCaseData(
@@ -218,10 +218,10 @@ namespace NW.WIDJobs.UnitTests
                                 WIDExplorerComponents.DefaultLoggingActionAsciiBanner,
                                 new XPathManager(),
                                 new GetRequestManager(),
-                                new PageManager(),
-                                new PageScraper(),
-                                new PageItemScraper(),
-                                new PageItemExtendedManager(),
+                                new JobPageManager(),
+                                new JobPageDeserializer(),
+                                new JobPostingDeserializer(),
+                                new JobPostingExtendedManager(),
                                 null,
                                 new RunIdManager(),
                                 new MetricCollectionManager(),
@@ -233,7 +233,7 @@ namespace NW.WIDJobs.UnitTests
                         )
                 ),
                 typeof(ArgumentNullException),
-                new ArgumentNullException("pageItemExtendedScraper").Message
+                new ArgumentNullException("jobPostingExtendedDeserializer").Message
             ).SetArgDisplayNames($"{nameof(widExplorerComponentsExceptionTestCases)}_09"),
 
             new TestCaseData(
@@ -243,11 +243,11 @@ namespace NW.WIDJobs.UnitTests
                                 WIDExplorerComponents.DefaultLoggingActionAsciiBanner,
                                 new XPathManager(),
                                 new GetRequestManager(),
-                                new PageManager(),
-                                new PageScraper(),
-                                new PageItemScraper(),
-                                new PageItemExtendedManager(),
-                                new PageItemExtendedScraper(),
+                                new JobPageManager(),
+                                new JobPageDeserializer(),
+                                new JobPostingDeserializer(),
+                                new JobPostingExtendedManager(),
+                                new JobPostingExtendedDeserializer(),
                                 null,
                                 new MetricCollectionManager(),
                                 new FileManager(),
@@ -268,11 +268,11 @@ namespace NW.WIDJobs.UnitTests
                                 WIDExplorerComponents.DefaultLoggingActionAsciiBanner,
                                 new XPathManager(),
                                 new GetRequestManager(),
-                                new PageManager(),
-                                new PageScraper(),
-                                new PageItemScraper(),
-                                new PageItemExtendedManager(),
-                                new PageItemExtendedScraper(),
+                                new JobPageManager(),
+                                new JobPageDeserializer(),
+                                new JobPostingDeserializer(),
+                                new JobPostingExtendedManager(),
+                                new JobPostingExtendedDeserializer(),
                                 new RunIdManager(),
                                 null,
                                 new FileManager(),
@@ -293,11 +293,11 @@ namespace NW.WIDJobs.UnitTests
                                 WIDExplorerComponents.DefaultLoggingActionAsciiBanner,
                                 new XPathManager(),
                                 new GetRequestManager(),
-                                new PageManager(),
-                                new PageScraper(),
-                                new PageItemScraper(),
-                                new PageItemExtendedManager(),
-                                new PageItemExtendedScraper(),
+                                new JobPageManager(),
+                                new JobPageDeserializer(),
+                                new JobPostingDeserializer(),
+                                new JobPostingExtendedManager(),
+                                new JobPostingExtendedDeserializer(),
                                 new RunIdManager(),
                                 new MetricCollectionManager(),
                                 null,
@@ -318,11 +318,11 @@ namespace NW.WIDJobs.UnitTests
                                 WIDExplorerComponents.DefaultLoggingActionAsciiBanner,
                                 new XPathManager(),
                                 new GetRequestManager(),
-                                new PageManager(),
-                                new PageScraper(),
-                                new PageItemScraper(),
-                                new PageItemExtendedManager(),
-                                new PageItemExtendedScraper(),
+                                new JobPageManager(),
+                                new JobPageDeserializer(),
+                                new JobPostingDeserializer(),
+                                new JobPostingExtendedManager(),
+                                new JobPostingExtendedDeserializer(),
                                 new RunIdManager(),
                                 new MetricCollectionManager(),
                                 new FileManager(),
@@ -343,11 +343,11 @@ namespace NW.WIDJobs.UnitTests
                                 WIDExplorerComponents.DefaultLoggingActionAsciiBanner,
                                 new XPathManager(),
                                 new GetRequestManager(),
-                                new PageManager(),
-                                new PageScraper(),
-                                new PageItemScraper(),
-                                new PageItemExtendedManager(),
-                                new PageItemExtendedScraper(),
+                                new JobPageManager(),
+                                new JobPageDeserializer(),
+                                new JobPostingDeserializer(),
+                                new JobPostingExtendedManager(),
+                                new JobPostingExtendedDeserializer(),
                                 new RunIdManager(),
                                 new MetricCollectionManager(),
                                 new FileManager(),
@@ -368,11 +368,11 @@ namespace NW.WIDJobs.UnitTests
                                 WIDExplorerComponents.DefaultLoggingActionAsciiBanner,
                                 new XPathManager(),
                                 new GetRequestManager(),
-                                new PageManager(),
-                                new PageScraper(),
-                                new PageItemScraper(),
-                                new PageItemExtendedManager(),
-                                new PageItemExtendedScraper(),
+                                new JobPageManager(),
+                                new JobPageDeserializer(),
+                                new JobPostingDeserializer(),
+                                new JobPostingExtendedManager(),
+                                new JobPostingExtendedDeserializer(),
                                 new RunIdManager(),
                                 new MetricCollectionManager(),
                                 new FileManager(),
@@ -393,11 +393,11 @@ namespace NW.WIDJobs.UnitTests
                                 WIDExplorerComponents.DefaultLoggingActionAsciiBanner,
                                 new XPathManager(),
                                 new GetRequestManager(),
-                                new PageManager(),
-                                new PageScraper(),
-                                new PageItemScraper(),
-                                new PageItemExtendedManager(),
-                                new PageItemExtendedScraper(),
+                                new JobPageManager(),
+                                new JobPageDeserializer(),
+                                new JobPostingDeserializer(),
+                                new JobPostingExtendedManager(),
+                                new JobPostingExtendedDeserializer(),
                                 new RunIdManager(),
                                 new MetricCollectionManager(),
                                 new FileManager(),
@@ -427,11 +427,11 @@ namespace NW.WIDJobs.UnitTests
                             WIDExplorerComponents.DefaultLoggingActionAsciiBanner,
                             new XPathManager(),
                             new GetRequestManager(),
-                            new PageManager(),
-                            new PageScraper(),
-                            new PageItemScraper(),
-                            new PageItemExtendedManager(),
-                            new PageItemExtendedScraper(),
+                            new JobPageManager(),
+                            new JobPageDeserializer(),
+                            new JobPostingDeserializer(),
+                            new JobPostingExtendedManager(),
+                            new JobPostingExtendedDeserializer(),
                             new RunIdManager(),
                             new MetricCollectionManager(),
                             new FileManager(),
@@ -447,11 +447,11 @@ namespace NW.WIDJobs.UnitTests
             Assert.IsInstanceOf<Action<string>>(actual.LoggingActionAsciiBanner);
             Assert.IsInstanceOf<XPathManager>(actual.XPathManager);
             Assert.IsInstanceOf<GetRequestManager>(actual.GetRequestManager);
-            Assert.IsInstanceOf<PageManager>(actual.JobPageManager);
-            Assert.IsInstanceOf<PageScraper>(actual.JobPageDeserializer);
-            Assert.IsInstanceOf<PageItemScraper>(actual.JobPostingDeserializer);
-            Assert.IsInstanceOf<PageItemExtendedManager>(actual.JobPostingExtendedManager);
-            Assert.IsInstanceOf<PageItemExtendedScraper>(actual.JobPostingExtendedDeserializer);
+            Assert.IsInstanceOf<JobPageManager>(actual.JobPageManager);
+            Assert.IsInstanceOf<JobPageDeserializer>(actual.JobPageDeserializer);
+            Assert.IsInstanceOf<JobPostingDeserializer>(actual.JobPostingDeserializer);
+            Assert.IsInstanceOf<JobPostingExtendedManager>(actual.JobPostingExtendedManager);
+            Assert.IsInstanceOf<JobPostingExtendedDeserializer>(actual.JobPostingExtendedDeserializer);
             Assert.IsInstanceOf<RunIdManager>(actual.RunIdManager);
             Assert.IsInstanceOf<MetricCollectionManager>(actual.MetricCollectionManager);
             Assert.IsInstanceOf<FileManager>(actual.FileManager);
@@ -476,11 +476,11 @@ namespace NW.WIDJobs.UnitTests
             Assert.IsInstanceOf<Action<string>>(actual.LoggingActionAsciiBanner);
             Assert.IsInstanceOf<XPathManager>(actual.XPathManager);
             Assert.IsInstanceOf<GetRequestManager>(actual.GetRequestManager);
-            Assert.IsInstanceOf<PageManager>(actual.JobPageManager);
-            Assert.IsInstanceOf<PageScraper>(actual.JobPageDeserializer);
-            Assert.IsInstanceOf<PageItemScraper>(actual.JobPostingDeserializer);
-            Assert.IsInstanceOf<PageItemExtendedManager>(actual.JobPostingExtendedManager);
-            Assert.IsInstanceOf<PageItemExtendedScraper>(actual.JobPostingExtendedDeserializer);
+            Assert.IsInstanceOf<JobPageManager>(actual.JobPageManager);
+            Assert.IsInstanceOf<JobPageDeserializer>(actual.JobPageDeserializer);
+            Assert.IsInstanceOf<JobPostingDeserializer>(actual.JobPostingDeserializer);
+            Assert.IsInstanceOf<JobPostingExtendedManager>(actual.JobPostingExtendedManager);
+            Assert.IsInstanceOf<JobPostingExtendedDeserializer>(actual.JobPostingExtendedDeserializer);
             Assert.IsInstanceOf<RunIdManager>(actual.RunIdManager);
             Assert.IsInstanceOf<MetricCollectionManager>(actual.MetricCollectionManager);
             Assert.IsInstanceOf<FileManager>(actual.FileManager);
