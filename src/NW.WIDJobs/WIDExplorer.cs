@@ -181,7 +181,7 @@ namespace NW.WIDJobs
 
             string content = _components.FileManager.ReadAllText(htmlFile);
             Page page = new Page(runId, pageNumber, content);
-            List<PageItem> pageItems = _components.PageItemScraper.Do(page);
+            List<PageItem> pageItems = _components.JobPostingDeserializer.Do(page);
             
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemsExtractedFromHTML.Invoke(pageItems));
 
@@ -211,14 +211,14 @@ namespace NW.WIDJobs
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemNumberIs.Invoke(pageItemNumber));
 
             string content = _components.FileManager.ReadAllText(htmlFile);
-            PageItem pageItem = _components.PageItemExtendedScraper.TryExtractPageItem(runId, pageNumber, pageItemNumber, content);
+            PageItem pageItem = _components.JobPostingExtendedDeserializer.TryExtractPageItem(runId, pageNumber, pageItemNumber, content);
             if (pageItem == null)
             {
                 _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ItHasNotBeenPossibleFromHTML);               
                 return null;      
             }
             
-            PageItemExtended pageItemExtended = _components.PageItemExtendedScraper.Do(pageItem, content);
+            PageItemExtended pageItemExtended = _components.JobPostingExtendedDeserializer.Do(pageItem, content);
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemExtendedIs.Invoke(pageItemExtended));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemExtendedExtractedFromHTML);
@@ -257,7 +257,7 @@ namespace NW.WIDJobs
         {
 
             DateTime now = NowFunction.Invoke();
-            string fullName = _components.FileNameFactory.CreateForDatabase(_settings.FolderPath, now);
+            string fullName = _components.FilenameFactory.CreateForDatabase(_settings.FolderPath, now);
             IFileInfoAdapter databaseFile = new FileInfoAdapter(fullName);
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_MethodCalledWithoutIFileInfoAdapter.Invoke(nameof(SaveAsJson)));
@@ -291,7 +291,7 @@ namespace NW.WIDJobs
         {
 
             DateTime now = NowFunction.Invoke();
-            string fullName = _components.FileNameFactory.CreateForExplorationJson(_settings.FolderPath, now);
+            string fullName = _components.FilenameFactory.CreateForExplorationJson(_settings.FolderPath, now);
             IFileInfoAdapter jsonFile = new FileInfoAdapter(fullName);
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_MethodCalledWithoutIFileInfoAdapter.Invoke(nameof(SaveAsJson)));
@@ -328,7 +328,7 @@ namespace NW.WIDJobs
         {
 
             DateTime now = NowFunction.Invoke();           
-            string fullName = _components.FileNameFactory.CreateForMetricsJson(_settings.FolderPath, now, numbersAsPercentages);       
+            string fullName = _components.FilenameFactory.CreateForMetricsJson(_settings.FolderPath, now, numbersAsPercentages);       
             IFileInfoAdapter jsonFile = new FileInfoAdapter(fullName);
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_MethodCalledWithoutIFileInfoAdapter.Invoke(nameof(SaveAsJson)));
@@ -396,7 +396,7 @@ namespace NW.WIDJobs
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ConvertingExplorationToMetrics);
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs.Invoke(exploration.RunId));
 
-            MetricCollection metrics = _components.MetricsManager.Calculate(exploration);
+            MetricCollection metrics = _components.MetricCollectionManager.Calculate(exploration);
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationConvertedToMetrics);
 
@@ -511,37 +511,37 @@ namespace NW.WIDJobs
             dyn.TotalItems = metrics.TotalJobPostings;
 
             dyn.ItemsByWorkAreaWithoutZone =
-                _components.MetricsManager.ConvertToPercentages(metrics.JobPostingsByWorkPlaceCityWithoutZone);
+                _components.MetricCollectionManager.ConvertToPercentages(metrics.JobPostingsByWorkPlaceCityWithoutZone);
             dyn.ItemsByCreateDate =
-                _components.MetricsManager.ConvertToPercentages(metrics.JobPostingsByPostingCreated);
+                _components.MetricCollectionManager.ConvertToPercentages(metrics.JobPostingsByPostingCreated);
             dyn.ItemsByApplicationDate =
-                _components.MetricsManager.ConvertToPercentages(metrics.JobPostingsByLastDateApplication);
+                _components.MetricCollectionManager.ConvertToPercentages(metrics.JobPostingsByLastDateApplication);
             dyn.ItemsByEmployerName =
-                _components.MetricsManager.ConvertToPercentages(metrics.JobPostingsByHiringOrgName);
+                _components.MetricCollectionManager.ConvertToPercentages(metrics.JobPostingsByHiringOrgName);
             dyn.ItemsByNumberOfOpenings =
-                _components.MetricsManager.ConvertToPercentages(metrics.JobPostingsByRegion);
+                _components.MetricCollectionManager.ConvertToPercentages(metrics.JobPostingsByRegion);
             dyn.ItemsByAdvertisementPublishDate =
-                _components.MetricsManager.ConvertToPercentages(metrics.JobPostingsByMunicipality);
+                _components.MetricCollectionManager.ConvertToPercentages(metrics.JobPostingsByMunicipality);
             dyn.ItemsByApplicationDeadline =
-                _components.MetricsManager.ConvertToPercentages(metrics.JobPostingsByCountry);
+                _components.MetricCollectionManager.ConvertToPercentages(metrics.JobPostingsByCountry);
             dyn.ItemsByStartDateOfEmployment =
-                _components.MetricsManager.ConvertToPercentages(metrics.JobPostingsByEmploymentType);
+                _components.MetricCollectionManager.ConvertToPercentages(metrics.JobPostingsByEmploymentType);
             dyn.ItemsByReference =
-                _components.MetricsManager.ConvertToPercentages(metrics.JobPostingsByWorkHours);
+                _components.MetricCollectionManager.ConvertToPercentages(metrics.JobPostingsByWorkHours);
             dyn.ItemsByPosition =
-                _components.MetricsManager.ConvertToPercentages(metrics.JobPostingsByOccupation);
+                _components.MetricCollectionManager.ConvertToPercentages(metrics.JobPostingsByOccupation);
             dyn.ItemsByTypeOfEmployment =
-                _components.MetricsManager.ConvertToPercentages(metrics.JobPostingsByOrganisationId);
+                _components.MetricCollectionManager.ConvertToPercentages(metrics.JobPostingsByOrganisationId);
             dyn.ItemsByContact =
-                _components.MetricsManager.ConvertToPercentages(metrics.JobPostingsByHiringOrgCVR);
+                _components.MetricCollectionManager.ConvertToPercentages(metrics.JobPostingsByHiringOrgCVR);
             dyn.ItemsByEmployerAddress =
-                _components.MetricsManager.ConvertToPercentages(metrics.JobPostingsByWorkplaceId );
+                _components.MetricCollectionManager.ConvertToPercentages(metrics.JobPostingsByWorkplaceId );
             dyn.ItemsByHowToApply =
-                _components.MetricsManager.ConvertToPercentages(metrics.HiringOrgDescriptionLengthByJobPostingId);
+                _components.MetricCollectionManager.ConvertToPercentages(metrics.HiringOrgDescriptionLengthByJobPostingId);
             dyn.DescriptionLengthByPageItemId =
-                _components.MetricsManager.ConvertToPercentages(metrics.ExtendedResponseLengthByJobPostingId);
+                _components.MetricCollectionManager.ConvertToPercentages(metrics.ExtendedResponseLengthByJobPostingId);
             dyn.BulletPointsByPageItemId =
-                _components.MetricsManager.ConvertToPercentages(metrics.BulletPointsByJobPostingId);
+                _components.MetricCollectionManager.ConvertToPercentages(metrics.BulletPointsByJobPostingId);
 
             dyn.TotalBulletPoints = metrics.TotalBulletPoints;
 
@@ -555,18 +555,18 @@ namespace NW.WIDJobs
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(stage));
 
-            string url = _components.PageManager.CreateUrl(initialPageNumber, category);
+            string url = _components.JobPageManager.CreateUrl(initialPageNumber, category);
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_UrlCreated);
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_UrlIs(url));
 
-            string content = _components.PageManager.GetContent(url);
+            string content = _components.JobPageManager.GetContent(url);
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ContentSuccessfullyRetrieved);
 
-            uint totalResults = _components.PageScraper.GetTotalResults(content);
+            uint totalResults = _components.JobPageDeserializer.GetTotalResults(content);
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_TotalResultsAre(totalResults));
 
-            ushort totalEstimatedPages = _components.PageManager.GetTotalEstimatedPages(totalResults);
+            ushort totalEstimatedPages = _components.JobPageManager.GetTotalEstimatedPages(totalResults);
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_TotalEstimatedPagesAre(totalEstimatedPages));
 
             bool isCompleted = false;
@@ -610,7 +610,7 @@ namespace NW.WIDJobs
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(stage));
 
-            List<PageItem> pageItems = _components.PageItemScraper.Do(exploration.JobPages[0]);
+            List<PageItem> pageItems = _components.JobPostingDeserializer.Do(exploration.JobPages[0]);
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemScrapedInitial(pageItems));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_AntiFloodingStrategy);
@@ -621,8 +621,8 @@ namespace NW.WIDJobs
             for (ushort i = 2; i <= finalPageNumber; i++)
             {
 
-                Page currentPage = _components.PageManager.GetPage(exploration.RunId, i, exploration.Category);
-                List<PageItem> currentPageItems = _components.PageItemScraper.Do(currentPage);
+                Page currentPage = _components.JobPageManager.GetPage(exploration.RunId, i, exploration.Category);
+                List<PageItem> currentPageItems = _components.JobPostingDeserializer.Do(currentPage);
 
                 stage2Pages.Add(currentPage);
                 pageItems.AddRange(currentPageItems);
@@ -673,15 +673,15 @@ namespace NW.WIDJobs
                 if (i == 1)
                 {
 
-                    currentPageItems = _components.PageItemScraper.Do(exploration.JobPages[0]);
+                    currentPageItems = _components.JobPostingDeserializer.Do(exploration.JobPages[0]);
                     _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemScrapedInitial(currentPageItems));
 
                 }
                 else
                 {
 
-                    Page currentPage = _components.PageManager.GetPage(exploration.RunId, i, exploration.Category);
-                    currentPageItems = _components.PageItemScraper.Do(currentPage);
+                    Page currentPage = _components.JobPageManager.GetPage(exploration.RunId, i, exploration.Category);
+                    currentPageItems = _components.JobPostingDeserializer.Do(currentPage);
 
                     stage2Pages.Add(currentPage);
                     _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemObjectsScraped(i, currentPageItems));
@@ -689,14 +689,14 @@ namespace NW.WIDJobs
                 }
 
                 List<DateTime> createDates = currentPageItems.Select(pageItem => pageItem.CreateDate).ToList();
-                bool isThresholdConditionMet = _components.PageItemScraper.IsThresholdConditionMet(thresholdDate, createDates);
+                bool isThresholdConditionMet = _components.JobPostingDeserializer.IsThresholdConditionMet(thresholdDate, createDates);
 
                 if (isThresholdConditionMet)
                 {
 
                     _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ThresholdDateFoundPageNr(thresholdDate, i));
 
-                    currentPageItems = _components.PageItemScraper.RemoveUnsuitable(thresholdDate, currentPageItems);
+                    currentPageItems = _components.JobPostingDeserializer.RemoveUnsuitable(thresholdDate, currentPageItems);
                     _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_XPageItemsRemovedPageNr(currentPageItems, i));
 
                     stage2PageItems.AddRange(currentPageItems);
@@ -740,7 +740,7 @@ namespace NW.WIDJobs
             foreach (PageItem pageItem in exploration.JobPostings)
             {
 
-                PageItemExtended current = _components.PageItemExtendedManager.Get(pageItem);
+                PageItemExtended current = _components.JobPostingExtendedManager.Get(pageItem);
                 pageItemsExtended.Add(current);
 
                 _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemExtendedScraped(pageItem));

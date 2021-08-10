@@ -20,17 +20,17 @@ namespace NW.WIDJobs
         public Action<string> LoggingActionAsciiBanner { get; }
         public IXPathManager XPathManager { get; }
         public IGetRequestManager GetRequestManager { get; }
-        public IPageManager PageManager { get; }
-        public IPageScraper PageScraper { get; }
-        public IPageItemScraper PageItemScraper { get; }
-        public IPageItemExtendedManager PageItemExtendedManager { get; }
-        public IPageItemExtendedScraper PageItemExtendedScraper { get; }
+        public IJobPageManager JobPageManager { get; }
+        public IJobPageDeserializer JobPageDeserializer { get; }
+        public IJobPostingDeserializer JobPostingDeserializer { get; }
+        public IJobPostingExtendedManager JobPostingExtendedManager { get; }
+        public IJobPostingExtendedDeserializer JobPostingExtendedDeserializer { get; }
         public IRunIdManager RunIdManager { get; }
-        public IMetricCollectionManager MetricsManager { get; }
+        public IMetricCollectionManager MetricCollectionManager { get; }
         public IFileManager FileManager { get; }
         public IRepositoryFactory RepositoryFactory { get; }
         public IAsciiBannerManager AsciiBannerManager { get; }
-        public IFilenameFactory FileNameFactory { get; }
+        public IFilenameFactory FilenameFactory { get; }
         public IBulletPointManager BulletPointManager { get; }
 
         #endregion
@@ -44,17 +44,17 @@ namespace NW.WIDJobs
             Action<string> loggingActionAsciiBanner,
             IXPathManager xpathManager,
             IGetRequestManager getRequestManager,
-            IPageManager pageManager,
-            IPageScraper pageScraper,
-            IPageItemScraper pageItemScraper,
-            IPageItemExtendedManager pageItemExtendedManager,
-            IPageItemExtendedScraper pageItemExtendedScraper,
+            IJobPageManager jobPageManager,
+            IJobPageDeserializer jobPageDeserializer,
+            IJobPostingDeserializer jobPostingDeserializer,
+            IJobPostingExtendedManager jobPostingExtendedManager,
+            IJobPostingExtendedDeserializer jobPostingExtendedDeserializer,
             IRunIdManager runIdManager,
-            IMetricCollectionManager metricsManager,
+            IMetricCollectionManager metricCollectionManager,
             IFileManager fileManager,
             IRepositoryFactory repositoryFactory,
             IAsciiBannerManager asciiBannerManager,
-            IFilenameFactory fileNameFactory,
+            IFilenameFactory filenameFactory,
             IBulletPointManager bulletPointManager
             )
         {
@@ -63,34 +63,34 @@ namespace NW.WIDJobs
             Validator.ValidateObject(loggingActionAsciiBanner, nameof(loggingActionAsciiBanner));
             Validator.ValidateObject(xpathManager, nameof(xpathManager));
             Validator.ValidateObject(getRequestManager, nameof(getRequestManager));
-            Validator.ValidateObject(pageManager, nameof(pageManager));
-            Validator.ValidateObject(pageScraper, nameof(pageScraper));
-            Validator.ValidateObject(pageItemScraper, nameof(pageItemScraper));
-            Validator.ValidateObject(pageItemExtendedManager, nameof(pageItemExtendedManager));
-            Validator.ValidateObject(pageItemExtendedScraper, nameof(pageItemExtendedScraper));
+            Validator.ValidateObject(jobPageManager, nameof(jobPageManager));
+            Validator.ValidateObject(jobPageDeserializer, nameof(jobPageDeserializer));
+            Validator.ValidateObject(jobPostingDeserializer, nameof(jobPostingDeserializer));
+            Validator.ValidateObject(jobPostingExtendedManager, nameof(jobPostingExtendedManager));
+            Validator.ValidateObject(jobPostingExtendedDeserializer, nameof(jobPostingExtendedDeserializer));
             Validator.ValidateObject(runIdManager, nameof(runIdManager));
-            Validator.ValidateObject(metricsManager, nameof(metricsManager));
+            Validator.ValidateObject(metricCollectionManager, nameof(metricCollectionManager));
             Validator.ValidateObject(fileManager, nameof(fileManager));
             Validator.ValidateObject(repositoryFactory, nameof(repositoryFactory));
             Validator.ValidateObject(asciiBannerManager, nameof(asciiBannerManager));
-            Validator.ValidateObject(fileNameFactory, nameof(fileNameFactory));
+            Validator.ValidateObject(filenameFactory, nameof(filenameFactory));
             Validator.ValidateObject(bulletPointManager, nameof(bulletPointManager));
 
             LoggingAction = loggingAction;
             LoggingActionAsciiBanner = loggingActionAsciiBanner;
             XPathManager = xpathManager;
             GetRequestManager = getRequestManager;
-            PageManager = pageManager;
-            PageScraper = pageScraper;
-            PageItemScraper = pageItemScraper;
-            PageItemExtendedManager = pageItemExtendedManager;
-            PageItemExtendedScraper = pageItemExtendedScraper;
+            JobPageManager = jobPageManager;
+            JobPageDeserializer = jobPageDeserializer;
+            JobPostingDeserializer = jobPostingDeserializer;
+            JobPostingExtendedManager = jobPostingExtendedManager;
+            JobPostingExtendedDeserializer = jobPostingExtendedDeserializer;
             RunIdManager = runIdManager;
-            MetricsManager = metricsManager;
+            MetricCollectionManager = metricCollectionManager;
             FileManager = fileManager;
             RepositoryFactory = repositoryFactory;
             AsciiBannerManager = asciiBannerManager;
-            FileNameFactory = fileNameFactory;
+            FilenameFactory = filenameFactory;
             BulletPointManager = bulletPointManager;
 
         }
@@ -102,11 +102,11 @@ namespace NW.WIDJobs
                   DefaultLoggingActionAsciiBanner,
                   new XPathManager(),
                   new GetRequestManager(),
-                  new PageManager(),
-                  new PageScraper(),
-                  new PageItemScraper(),
-                  new PageItemExtendedManager(),
-                  new PageItemExtendedScraper(),
+                  new JobPageManager(),
+                  new JobPageDeserializer(),
+                  new JobPostingDeserializer(),
+                  new JobPostingExtendedManager(),
+                  new JobPostingExtendedDeserializer(),
                   new RunIdManager(),
                   new MetricCollectionManager(),
                   new FileManager(),
@@ -127,5 +127,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 28.05.2021
+    Last Update: 10.08.2021
 */

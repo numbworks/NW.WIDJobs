@@ -447,17 +447,17 @@ namespace NW.WIDJobs.UnitTests
             Assert.IsInstanceOf<Action<string>>(actual.LoggingActionAsciiBanner);
             Assert.IsInstanceOf<XPathManager>(actual.XPathManager);
             Assert.IsInstanceOf<GetRequestManager>(actual.GetRequestManager);
-            Assert.IsInstanceOf<PageManager>(actual.PageManager);
-            Assert.IsInstanceOf<PageScraper>(actual.PageScraper);
-            Assert.IsInstanceOf<PageItemScraper>(actual.PageItemScraper);
-            Assert.IsInstanceOf<PageItemExtendedManager>(actual.PageItemExtendedManager);
-            Assert.IsInstanceOf<PageItemExtendedScraper>(actual.PageItemExtendedScraper);
+            Assert.IsInstanceOf<PageManager>(actual.JobPageManager);
+            Assert.IsInstanceOf<PageScraper>(actual.JobPageDeserializer);
+            Assert.IsInstanceOf<PageItemScraper>(actual.JobPostingDeserializer);
+            Assert.IsInstanceOf<PageItemExtendedManager>(actual.JobPostingExtendedManager);
+            Assert.IsInstanceOf<PageItemExtendedScraper>(actual.JobPostingExtendedDeserializer);
             Assert.IsInstanceOf<RunIdManager>(actual.RunIdManager);
-            Assert.IsInstanceOf<MetricCollectionManager>(actual.MetricsManager);
+            Assert.IsInstanceOf<MetricCollectionManager>(actual.MetricCollectionManager);
             Assert.IsInstanceOf<FileManager>(actual.FileManager);
             Assert.IsInstanceOf<RepositoryFactory>(actual.RepositoryFactory);
             Assert.IsInstanceOf<AsciiBannerManager>(actual.AsciiBannerManager);
-            Assert.IsInstanceOf<FilenameFactory>(actual.FileNameFactory);
+            Assert.IsInstanceOf<FilenameFactory>(actual.FilenameFactory);
             Assert.IsInstanceOf<BulletPointManager>(actual.BulletPointManager);
 
         }
@@ -476,17 +476,17 @@ namespace NW.WIDJobs.UnitTests
             Assert.IsInstanceOf<Action<string>>(actual.LoggingActionAsciiBanner);
             Assert.IsInstanceOf<XPathManager>(actual.XPathManager);
             Assert.IsInstanceOf<GetRequestManager>(actual.GetRequestManager);
-            Assert.IsInstanceOf<PageManager>(actual.PageManager);
-            Assert.IsInstanceOf<PageScraper>(actual.PageScraper);
-            Assert.IsInstanceOf<PageItemScraper>(actual.PageItemScraper);
-            Assert.IsInstanceOf<PageItemExtendedManager>(actual.PageItemExtendedManager);
-            Assert.IsInstanceOf<PageItemExtendedScraper>(actual.PageItemExtendedScraper);
+            Assert.IsInstanceOf<PageManager>(actual.JobPageManager);
+            Assert.IsInstanceOf<PageScraper>(actual.JobPageDeserializer);
+            Assert.IsInstanceOf<PageItemScraper>(actual.JobPostingDeserializer);
+            Assert.IsInstanceOf<PageItemExtendedManager>(actual.JobPostingExtendedManager);
+            Assert.IsInstanceOf<PageItemExtendedScraper>(actual.JobPostingExtendedDeserializer);
             Assert.IsInstanceOf<RunIdManager>(actual.RunIdManager);
-            Assert.IsInstanceOf<MetricCollectionManager>(actual.MetricsManager);
+            Assert.IsInstanceOf<MetricCollectionManager>(actual.MetricCollectionManager);
             Assert.IsInstanceOf<FileManager>(actual.FileManager);
             Assert.IsInstanceOf<RepositoryFactory>(actual.RepositoryFactory);
             Assert.IsInstanceOf<AsciiBannerManager>(actual.AsciiBannerManager);
-            Assert.IsInstanceOf<FilenameFactory>(actual.FileNameFactory);
+            Assert.IsInstanceOf<FilenameFactory>(actual.FilenameFactory);
             Assert.IsInstanceOf<BulletPointManager>(actual.BulletPointManager);
 
         }
