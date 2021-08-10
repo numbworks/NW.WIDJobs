@@ -3656,33 +3656,44 @@ namespace NW.WIDJobs.UnitTests
                         && AreEqual(exploration1.JobPostingsExtended, exploration2.JobPostingsExtended);
 
         }
-
-        /* -------------------------------------------- */
-
-
-        internal static bool AreEqual(MetricCollection metrics1, MetricCollection metrics2)
+        internal static bool AreEqual(MetricCollection metricCollection1, MetricCollection metricCollection2)
         {
 
-            return string.Equals(metrics1.RunId, metrics2.RunId, StringComparison.InvariantCulture)
-                        && (metrics1.TotalJobPages == metrics2.TotalJobPages)
-                        && (metrics1.TotalJobPostings == metrics2.TotalJobPostings)
-                        && AreEqual(metrics1.JobPostingsByWorkPlaceCityWithoutZone, metrics2.JobPostingsByWorkPlaceCityWithoutZone)
-                        && AreEqual(metrics1.JobPostingsByPostingCreated, metrics2.JobPostingsByPostingCreated)
-                        && AreEqual(metrics1.JobPostingsByLastDateApplication, metrics2.JobPostingsByLastDateApplication)
-                        && AreEqual(metrics1.JobPostingsByHiringOrgName, metrics2.JobPostingsByHiringOrgName)
-                        && AreEqual(metrics1.JobPostingsByRegion, metrics2.JobPostingsByRegion)
-                        && AreEqual(metrics1.JobPostingsByMunicipality, metrics2.JobPostingsByMunicipality)
-                        && AreEqual(metrics1.JobPostingsByCountry, metrics2.JobPostingsByCountry)
-                        && AreEqual(metrics1.JobPostingsByEmploymentType, metrics2.JobPostingsByEmploymentType)
-                        && AreEqual(metrics1.JobPostingsByWorkHours, metrics2.JobPostingsByWorkHours)
-                        && AreEqual(metrics1.JobPostingsByOccupation, metrics2.JobPostingsByOccupation)
-                        && AreEqual(metrics1.JobPostingsByOrganisationId, metrics2.JobPostingsByOrganisationId)
-                        && AreEqual(metrics1.JobPostingsByHiringOrgCVR, metrics2.JobPostingsByHiringOrgCVR)
-                        && AreEqual(metrics1.JobPostingsByWorkplaceId , metrics2.JobPostingsByWorkplaceId )
-                        && AreEqual(metrics1.HiringOrgDescriptionLengthByJobPostingId, metrics2.HiringOrgDescriptionLengthByJobPostingId)
-                        && AreEqual(metrics1.ExtendedResponseLengthByJobPostingId, metrics2.ExtendedResponseLengthByJobPostingId)
-                        && AreEqual(metrics1.BulletPointsByJobPostingId, metrics2.BulletPointsByJobPostingId)
-                        && (metrics1.TotalBulletPoints == metrics2.TotalBulletPoints);
+            return string.Equals(metricCollection1.RunId, metricCollection2.RunId, StringComparison.InvariantCulture)
+                        && (metricCollection1.TotalJobPages == metricCollection2.TotalJobPages)
+                        && (metricCollection1.TotalJobPostings == metricCollection2.TotalJobPostings)
+                        && AreEqual(metricCollection1.JobPostingsByHiringOrgName, metricCollection2.JobPostingsByHiringOrgName)
+                        && AreEqual(metricCollection1.JobPostingsByWorkPlaceAddress, metricCollection2.JobPostingsByWorkPlaceAddress)
+                        && AreEqual(metricCollection1.JobPostingsByWorkPlacePostalCode, metricCollection2.JobPostingsByWorkPlacePostalCode)
+                        && AreEqual(metricCollection1.JobPostingsByWorkPlaceCity, metricCollection2.JobPostingsByWorkPlaceCity)
+                        && AreEqual(metricCollection1.JobPostingsByPostingCreated, metricCollection2.JobPostingsByPostingCreated)
+                        && AreEqual(metricCollection1.JobPostingsByLastDateApplication, metricCollection2.JobPostingsByLastDateApplication)
+                        && AreEqual(metricCollection1.JobPostingsByRegion, metricCollection2.JobPostingsByRegion)
+                        && AreEqual(metricCollection1.JobPostingsByMunicipality, metricCollection2.JobPostingsByMunicipality)
+                        && AreEqual(metricCollection1.JobPostingsByCountry, metricCollection2.JobPostingsByCountry)
+                        && AreEqual(metricCollection1.JobPostingsByEmploymentType, metricCollection2.JobPostingsByEmploymentType)
+                        && AreEqual(metricCollection1.JobPostingsByWorkHours, metricCollection2.JobPostingsByWorkHours)
+                        && AreEqual(metricCollection1.JobPostingsByOccupation, metricCollection2.JobPostingsByOccupation)
+                        && AreEqual(metricCollection1.JobPostingsByWorkplaceId, metricCollection2.JobPostingsByWorkplaceId)
+                        && AreEqual(metricCollection1.JobPostingsByOrganisationId, metricCollection2.JobPostingsByOrganisationId)
+                        && AreEqual(metricCollection1.JobPostingsByHiringOrgCVR, metricCollection2.JobPostingsByHiringOrgCVR)
+                        && AreEqual(metricCollection1.JobPostingsByWorkPlaceCityWithoutZone, metricCollection2.JobPostingsByWorkPlaceCityWithoutZone)
+                        && AreEqual(metricCollection1.JobPostingsByPublicationStartDate, metricCollection2.JobPostingsByPublicationStartDate)
+                        && AreEqual(metricCollection1.JobPostingsByPublicationEndDate, metricCollection2.JobPostingsByPublicationEndDate)
+                        && AreEqual(metricCollection1.JobPostingsByNumberToFill, metricCollection2.JobPostingsByNumberToFill)
+                        && AreEqual(metricCollection1.JobPostingsByContactEmail, metricCollection2.JobPostingsByContactEmail)
+                        && AreEqual(metricCollection1.JobPostingsByContactPersonName, metricCollection2.JobPostingsByContactPersonName)
+                        && AreEqual(metricCollection1.JobPostingsByEmploymentDate, metricCollection2.JobPostingsByEmploymentDate)
+                        && AreEqual(metricCollection1.JobPostingsByApplicationDeadlineDate, metricCollection2.JobPostingsByApplicationDeadlineDate)
+                        && AreEqual(metricCollection1.JobPostingsByBulletPointScenario, metricCollection2.JobPostingsByBulletPointScenario)
+                        && AreEqual(metricCollection1.ResponseLengthByJobPostingId, metricCollection2.ResponseLengthByJobPostingId)
+                        && AreEqual(metricCollection1.PresentationLengthByJobPostingId, metricCollection2.PresentationLengthByJobPostingId)
+                        && AreEqual(metricCollection1.ExtendedResponseLengthByJobPostingId, metricCollection2.ExtendedResponseLengthByJobPostingId)
+                        && AreEqual(metricCollection1.HiringOrgDescriptionLengthByJobPostingId, metricCollection2.HiringOrgDescriptionLengthByJobPostingId)
+                        && AreEqual(metricCollection1.PurposeLengthByJobPostingId, metricCollection2.PurposeLengthByJobPostingId)
+                        && AreEqual(metricCollection1.BulletPointsByJobPostingId, metricCollection2.BulletPointsByJobPostingId)
+                        && AreEqual(metricCollection1.BulletPointsByJobPostingId, metricCollection2.BulletPointsByJobPostingId)
+                        && (metricCollection1.TotalBulletPoints == metricCollection2.TotalBulletPoints);
 
         }
 
