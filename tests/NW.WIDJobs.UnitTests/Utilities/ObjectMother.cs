@@ -3419,6 +3419,25 @@ namespace NW.WIDJobs.UnitTests
                     && string.Equals(jobPage1.RunId, jobPage2.RunId, StringComparison.InvariantCulture);
 
         }
+        internal static bool AreEqual(List<JobPage> list1, List<JobPage> list2)
+        {
+
+            if (list1 == null && list2 == null)
+                return true;
+
+            if (list1 == null || list2 == null)
+                return false;
+
+            if (list1.Count != list2.Count)
+                return false;
+
+            for (int i = 0; i < list1.Count; i++)
+                if (AreEqual(list1[i], list2[i]) == false)
+                    return false;
+
+            return true;
+
+        }
         internal static bool AreEqual(JobPosting jobPosting1, JobPosting jobPosting2)
         {
 
@@ -3624,8 +3643,6 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
-        /* -------------------------------------------- */
-
         internal static bool AreEqual(Exploration exploration1, Exploration exploration2)
         {
 
@@ -3639,6 +3656,10 @@ namespace NW.WIDJobs.UnitTests
                         && AreEqual(exploration1.JobPostingsExtended, exploration2.JobPostingsExtended);
 
         }
+
+        /* -------------------------------------------- */
+
+
         internal static bool AreEqual(MetricCollection metrics1, MetricCollection metrics2)
         {
 
