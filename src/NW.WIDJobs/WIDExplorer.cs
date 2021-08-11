@@ -541,61 +541,58 @@ namespace NW.WIDJobs
             return finalPageNumber;
 
         }
-        private Exploration ProcessStage2
-            (Exploration exploration, ushort finalPageNumber, Stages stage)
+        private Exploration ProcessStage2(Exploration exploration, ushort finalPageNumber, Stages stage)
         {
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(stage));
 
-            List<PageItem> pageItems = _components.JobPostingDeserializer.Do(exploration.JobPages[0]);
+            List<JobPosting> jobPostings = _components.JobPostingDeserializer.Do(exploration.JobPages[0]);
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingScrapedInitial(pageItems));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingScrapedInitial(jobPostings));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_AntiFloodingStrategy);
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ParallelRequestsAre(_settings.ParallelRequests));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PauseBetweenRequestsIs(_settings.PauseBetweenRequestsMs));
 
-            List<Page> stage2Pages = new List<Page>(exploration.JobPages);
+            List<JobPage> stage2JobPages = new List<JobPage>(exploration.JobPages);
             for (ushort i = 2; i <= finalPageNumber; i++)
             {
 
-                Page currentPage = _components.JobPageManager.GetPage(exploration.RunId, i, exploration.Category);
-                List<PageItem> currentPageItems = _components.JobPostingDeserializer.Do(currentPage);
+                JobPage currentJobPage = _components.JobPageManager.GetJobPage(exploration.RunId, i);
+                List<JobPosting> currentJobPostings = _components.JobPostingDeserializer.Do(currentJobPage);
 
-                stage2Pages.Add(currentPage);
-                pageItems.AddRange(currentPageItems);
+                stage2JobPages.Add(currentJobPage);
+                jobPostings.AddRange(currentJobPostings);
 
-                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingObjectsScraped(i, currentPageItems));
+                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingObjectsScraped(i, currentJobPostings));
 
                 ConditionallySleep(i, _settings.ParallelRequests, _settings.PauseBetweenRequestsMs);
 
             }
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingObjectsScrapedTotal(pageItems));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingObjectsScrapedTotal(jobPostings));
 
             bool isCompleted = false;
             if (stage == Stages.Stage2_UpToAllJobPostings)
                 isCompleted = true;
 
             return
-                new WIDExploration(
+                new Exploration(
                         exploration.RunId,
                         exploration.TotalResultCount,
                         exploration.TotalJobPages,
-                        exploration.Category,
                         stage,
                         isCompleted,
-                        stage2Pages,
-                        pageItems);
+                        stage2JobPages,
+                        jobPostings);
 
         }
-        private Exploration ProcessStage2WhenThresholdDate
-            (Exploration exploration, Stages stage, DateTime thresholdDate)
+        private Exploration ProcessStage2WhenThresholdDate(Exploration exploration, Stages stage, DateTime thresholdDate)
         {
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(stage));
 
-            List<Page> stage2Pages = new List<Page>() { exploration.JobPages[0] };
-            List<PageItem> stage2PageItems = new List<PageItem>();
+            List<JobPage> stage2JobPages = new List<JobPage>() { exploration.JobPages[0] };
+            List<JobPosting> stage2JobPostings = new List<JobPosting>();
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_AntiFloodingStrategy);
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ParallelRequestsAre(_settings.ParallelRequests));
@@ -605,45 +602,45 @@ namespace NW.WIDJobs
             for (ushort i = 1; i <= exploration.TotalJobPages; i++)
             {
 
-                List<PageItem> currentPageItems = new List<PageItem>();
+                List<JobPosting> currentJobPostings = new List<JobPosting>();
 
                 if (i == 1)
                 {
 
-                    currentPageItems = _components.JobPostingDeserializer.Do(exploration.JobPages[0]);
-                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingScrapedInitial(currentPageItems));
+                    currentJobPostings = _components.JobPostingDeserializer.Do(exploration.JobPages[0]);
+                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingScrapedInitial(currentJobPostings));
 
                 }
                 else
                 {
 
-                    Page currentPage = _components.JobPageManager.GetPage(exploration.RunId, i, exploration.Category);
-                    currentPageItems = _components.JobPostingDeserializer.Do(currentPage);
+                    JobPage currentJobPage = _components.JobPageManager.GetJobPage(exploration.RunId, i);
+                    currentJobPostings = _components.JobPostingDeserializer.Do(currentJobPage);
 
-                    stage2Pages.Add(currentPage);
-                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingObjectsScraped(i, currentPageItems));
+                    stage2JobPages.Add(currentJobPage);
+                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingObjectsScraped(i, currentJobPostings));
 
                 }
 
-                List<DateTime> createDates = currentPageItems.Select(pageItem => pageItem.CreateDate).ToList();
-                bool isThresholdConditionMet = _components.JobPostingDeserializer.IsThresholdConditionMet(thresholdDate, createDates);
+                List<DateTime> postingCreatedCollection = currentJobPostings.Select(jobPosting => jobPosting.PostingCreated).ToList();
+                bool isThresholdConditionMet = _components.JobPostingDeserializer.IsThresholdConditionMet(thresholdDate, postingCreatedCollection);
 
                 if (isThresholdConditionMet)
                 {
 
                     _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ThresholdDateFoundPageNr(thresholdDate, i));
 
-                    currentPageItems = _components.JobPostingDeserializer.RemoveUnsuitable(thresholdDate, currentPageItems);
-                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_XPageItemsRemovedPageNr(currentPageItems, i));
+                    currentJobPostings = _components.JobPostingDeserializer.RemoveUnsuitable(thresholdDate, currentJobPostings);
+                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_XPageItemsRemovedPageNr(currentJobPostings, i));
 
-                    stage2PageItems.AddRange(currentPageItems);
+                    stage2JobPostings.AddRange(currentJobPostings);
                     finalPageNumber = i;
 
                     break;
 
                 }
                 else
-                    stage2PageItems.AddRange(currentPageItems);
+                    stage2JobPostings.AddRange(currentJobPostings);
 
                 ConditionallySleep(i, _settings.ParallelRequests, _settings.PauseBetweenRequestsMs);
 
@@ -656,15 +653,14 @@ namespace NW.WIDJobs
                 isCompleted = true;
 
             return
-                new WIDExploration(
+                new Exploration(
                         exploration.RunId,
                         exploration.TotalResultCount,
                         exploration.TotalJobPages,
-                        exploration.Category,
                         exploration.Stage,
                         isCompleted,
-                        stage2Pages,
-                        stage2PageItems);
+                        stage2JobPages,
+                        stage2JobPostings);
 
         }
         private Exploration ProcessStage3
