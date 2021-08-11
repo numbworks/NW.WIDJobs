@@ -185,53 +185,15 @@ namespace NW.WIDJobs
         public List<JobPosting> ExtractFromJson(string filePath)
             => ExtractFromJson(_components.FileManager.Create(filePath));
 
-        public PageItemExtended TryExtractFromHtml(IFileInfoAdapter htmlFile)
-        {
-
-            Validator.ValidateObject(htmlFile, nameof(htmlFile));
-            Validator.ValidateFileExistance(htmlFile);
-
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExtractPageItemExtendedFromHTML);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_HTMLFileIs.Invoke(htmlFile));
-
-            DateTime now = NowFunction.Invoke();
-            string runId = _components.RunIdManager.Create(now);
-            ushort pageNumber = PageItemExtendedScraper.DummyPageNumber;
-            ushort pageItemNumber = PageItemExtendedScraper.DummyPageItemNumber;
-
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SomeDefaultValuesUsedFromHTML);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs.Invoke(runId));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageNumberIs.Invoke(pageNumber));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemNumberIs.Invoke(pageItemNumber));
-
-            string content = _components.FileManager.ReadAllText(htmlFile);
-            PageItem pageItem = _components.JobPostingExtendedDeserializer.TryExtractPageItem(runId, pageNumber, pageItemNumber, content);
-            if (pageItem == null)
-            {
-                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ItHasNotBeenPossibleFromHTML);               
-                return null;      
-            }
-            
-            PageItemExtended pageItemExtended = _components.JobPostingExtendedDeserializer.Do(pageItem, content);
-
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemExtendedIs.Invoke(pageItemExtended));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemExtendedExtractedFromHTML);
-
-            return pageItemExtended;
-
-        }
-        public PageItemExtended TryExtractFromHtml(string filePath)
-            => TryExtractFromHtml(_components.FileManager.Create(filePath));
-
         public IFileInfoAdapter SaveAsSQLite
-            (List<PageItemExtended> pageItemsExtended, IFileInfoAdapter databaseFile, bool deleteAndRecreateDatabase)
+            (List<JobPostingExtended> jobPostingsExtended, IFileInfoAdapter databaseFile, bool deleteAndRecreateDatabase)
         {
 
-            Validator.ValidateList(pageItemsExtended, nameof(pageItemsExtended));
+            Validator.ValidateList(jobPostingsExtended, nameof(jobPostingsExtended));
             Validator.ValidateObject(databaseFile, nameof(databaseFile));
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SavingPageItemsExtendedAsSQLite);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemsExtendedAre.Invoke(pageItemsExtended));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SavingJobPostingsExtendedAsSQLite);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingsExtendedAre.Invoke(jobPostingsExtended));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DatabaseFileIs.Invoke(databaseFile.FullName));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DeleteAndRecreateDatabaseIs.Invoke(deleteAndRecreateDatabase));
 
@@ -239,9 +201,9 @@ namespace NW.WIDJobs
                 _components.RepositoryFactory
                     .Create(databaseFile.DirectoryName, databaseFile.Name, _settings.DeleteAndRecreateDatabase);
 
-            // int affectedRows = repository.ConditionallyInsert(pageItemsExtended);
+            int affectedRows = repository.ConditionallyInsert(jobPostingsExtended);
 
-            // _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_AffectedRowsAre.Invoke(affectedRows));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_AffectedRowsAre.Invoke(affectedRows));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationSavedAsSQLite);
 
             return databaseFile;
@@ -311,7 +273,7 @@ namespace NW.WIDJobs
             string json = ConvertToJson(metricCollection, numbersAsPercentages);
             _components.FileManager.WriteAllText(jsonFile, json);
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_MetricsSavedAsJson);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_MetricCollectionSavedAsJson);
 
             return jsonFile;
 
@@ -595,7 +557,7 @@ namespace NW.WIDJobs
 
             List<PageItem> pageItems = _components.JobPostingDeserializer.Do(exploration.JobPages[0]);
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemScrapedInitial(pageItems));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingScrapedInitial(pageItems));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_AntiFloodingStrategy);
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ParallelRequestsAre(_settings.ParallelRequests));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PauseBetweenRequestsIs(_settings.PauseBetweenRequestsMs));
@@ -610,13 +572,13 @@ namespace NW.WIDJobs
                 stage2Pages.Add(currentPage);
                 pageItems.AddRange(currentPageItems);
 
-                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemObjectsScraped(i, currentPageItems));
+                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingObjectsScraped(i, currentPageItems));
 
                 ConditionallySleep(i, _settings.ParallelRequests, _settings.PauseBetweenRequestsMs);
 
             }
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemObjectsScrapedTotal(pageItems));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingObjectsScrapedTotal(pageItems));
 
             bool isCompleted = false;
             if (stage == Stages.Stage2_UpToAllJobPostings)
@@ -657,7 +619,7 @@ namespace NW.WIDJobs
                 {
 
                     currentPageItems = _components.JobPostingDeserializer.Do(exploration.JobPages[0]);
-                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemScrapedInitial(currentPageItems));
+                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingScrapedInitial(currentPageItems));
 
                 }
                 else
@@ -667,7 +629,7 @@ namespace NW.WIDJobs
                     currentPageItems = _components.JobPostingDeserializer.Do(currentPage);
 
                     stage2Pages.Add(currentPage);
-                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemObjectsScraped(i, currentPageItems));
+                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingObjectsScraped(i, currentPageItems));
 
                 }
 
@@ -726,13 +688,13 @@ namespace NW.WIDJobs
                 PageItemExtended current = _components.JobPostingExtendedManager.Get(pageItem);
                 pageItemsExtended.Add(current);
 
-                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemExtendedScraped(pageItem));
+                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingExtendedScraped(pageItem));
 
                 ConditionallySleep(pageItem.PageItemNumber, _settings.ParallelRequests, _settings.PauseBetweenRequestsMs);
 
             }
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageItemExtendedScrapedTotal(pageItemsExtended));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingExtendedScrapedTotal(pageItemsExtended));
 
             bool isCompleted = true;
 

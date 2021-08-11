@@ -80,8 +80,8 @@ namespace NW.WIDJobs
             = (totalResults) => $"TotalResults:'{totalResults}'.";
         public static Func<ushort, string> WIDExplorer_TotalEstimatedPagesAre
             = (totalEstimatedPages) => $"TotalEstimatedPages:'{totalEstimatedPages}'.";
-        public static Func<List<PageItem>, string> WIDExplorer_PageItemScrapedInitial
-            = (pageItems) => $"'{pageItems.Count}' '{nameof(PageItem)}' objects have been scraped out of the initial page.";
+        public static Func<List<JobPosting>, string> WIDExplorer_JobPostingScrapedInitial
+            = (jobPostings) => $"'{jobPostings.Count}' '{nameof(JobPosting)}' objects have been scraped out of the initial page.";
         public static Func<ushort, ushort, string> WIDExplorer_FinalPageNumberIsHigher
             = (finalPageNumber, totalEstimatedPages) => $"'FinalPageNumber' ('{finalPageNumber}') is higher than 'TotalEstimatedPages' ('{totalEstimatedPages}').";
         public static Func<ushort, string> WIDExplorer_FinalPageNumberWillBeNow
@@ -92,20 +92,20 @@ namespace NW.WIDJobs
             = (parallelRequests) => $"ParallelRequests:'{parallelRequests}'.";
         public static Func<uint, string> WIDExplorer_PauseBetweenRequestsIs
             = (pauseBetweenRequestsMs) => $"PauseBetweenRequestsMs:'{pauseBetweenRequestsMs}'.";
-        public static Func<ushort, List<PageItem>, string> WIDExplorer_PageItemObjectsScraped
-            = (i, currentPageItems) => $"Page '{i}' - '{currentPageItems.Count}' '{nameof(PageItem)}' objects have been scraped.";
-        public static Func<List<PageItem>, string> WIDExplorer_PageItemObjectsScrapedTotal
-            = (pageItems) => $"'{pageItems.Count}' '{nameof(PageItem)}' objects have been scraped in total.";
-        public static Func<PageItem, string> WIDExplorer_PageItemExtendedScraped
-            = (pageItem) => $"Page '{pageItem.PageNumber}', PageItem '{pageItem.PageItemNumber}' - A '{nameof(PageItemExtended)}' object has been scraped.";
-        public static Func<List<PageItemExtended>, string> WIDExplorer_PageItemExtendedScrapedTotal
-            = (pageItemsExtended) => $"'{pageItemsExtended.Count}' '{nameof(PageItemExtended)}' objects have been scraped in total.";
+        public static Func<ushort, List<JobPosting>, string> WIDExplorer_JobPostingObjectsScraped
+            = (i, currentJobPostings) => $"Page '{i}' - '{currentJobPostings.Count}' '{nameof(JobPosting)}' objects have been scraped.";
+        public static Func<List<JobPosting>, string> WIDExplorer_JobPostingObjectsScrapedTotal
+            = (jobPostings) => $"'{jobPostings.Count}' '{nameof(JobPosting)}' objects have been scraped in total.";
+        public static Func<JobPosting, string> WIDExplorer_JobPostingExtendedScraped
+            = (jobPosting) => $"JobPage '{jobPosting.PageNumber}', PageItem '{jobPosting.JobPostingNumber}' - A '{nameof(JobPostingExtended)}' object has been scraped.";
+        public static Func<List<JobPostingExtended>, string> WIDExplorer_JobPostingExtendedScrapedTotal
+            = (jobPostingExtended) => $"'{jobPostingExtended.Count}' '{nameof(JobPostingExtended)}' objects have been scraped in total.";
         public static string WIDExplorer_ExplorationCompleted
             = "The exploration has been completed.";
         public static Func<DateTime, ushort, string> WIDExplorer_ThresholdDateFoundPageNr 
             = (thresholdDate, i) => $"'{thresholdDate}' has been found in page nr. '{i}'.";
-        public static Func<List<PageItem>, ushort, string> WIDExplorer_XPageItemsRemovedPageNr
-            = (pageItems, i) => $"'{20 - pageItems.Count}' has been removed from page nr. '{i}'.";
+        public static Func<List<JobPosting>, ushort, string> WIDExplorer_XPageItemsRemovedPageNr
+            = (jobPostings, i) => $"'{20 - jobPostings.Count}' has been removed from page nr. '{i}'.";
         public static Func<ushort, string> WIDExplorer_FinalPageNumberThresholdDate
             = (finalPageNumber) => $"The 'FinalPageNumber' for the provided 'ThresholdDate' is '{finalPageNumber}'.";
 
@@ -116,25 +116,19 @@ namespace NW.WIDJobs
         public static string WIDExplorer_SomeDefaultValuesUsedFromHTML
             = $"Some default values need to be used in order to perform this extraction directly out of a HTML file.";
 
-        public static string WIDExplorer_ExtractPageItemExtendedFromHTML
-            =  $"Extracting a {nameof(PageItemExtended)} object from the provided HTML file...";
         public static Func<IFileInfoAdapter, string> WIDExplorer_HTMLFileIs
             = (htmlFile) => $"HTMLFile: '{htmlFile}'.";
         public static Func<ushort, string> WIDExplorer_PageNumberIs
             = (pageNumber) => $"PageNumber:'{pageNumber}'.";
-        public static Func<ushort, string> WIDExplorer_PageItemNumberIs
-            = (pageItemNumber) => $"PageItemNumber:'{pageItemNumber}'.";
-        public static Func<PageItemExtended, string> WIDExplorer_PageItemExtendedIs
-            = (pageItemExtended) => $"PageItemExtended:'{pageItemExtended}'.";
-        public static string WIDExplorer_ItHasNotBeenPossibleFromHTML
-            = $"It has not been possible to extract a {nameof(PageItemExtended)} object from the provided HTML file. The {nameof(PageItem)} object is null.";        
-        public static string WIDExplorer_PageItemExtendedExtractedFromHTML
-            = $"A {nameof(PageItemExtended)} object has been successfully extracted from the provided HTML file.";
-        
-        public static string WIDExplorer_SavingPageItemsExtendedAsSQLite
-            =  $"Saving the provided {nameof(PageItemExtended)} objects as SQLite database...";
-        public static Func<List<PageItemExtended>, string> WIDExplorer_PageItemsExtendedAre
-            = (pageItemsExtended) => $"PageItemsExtended: '{pageItemsExtended.Count}'.";
+        public static Func<ushort, string> WIDExplorer_JobPostingNumberIs
+            = (jobPostingNumber) => $"PageItemNumber:'{jobPostingNumber}'.";
+        public static Func<JobPostingExtended, string> WIDExplorer_JobPostingExtendedIs
+            = (jobPostingExtended) => $"PageItemExtended:'{jobPostingExtended}'.";
+
+        public static string WIDExplorer_SavingJobPostingsExtendedAsSQLite
+            =  $"Saving the provided {nameof(JobPostingExtended)} objects as SQLite database...";
+        public static Func<List<JobPostingExtended>, string> WIDExplorer_JobPostingsExtendedAre
+            = (jobPostingsExtended) => $"PJobPostingsExtended: '{jobPostingsExtended.Count}'.";
         public static Func<string, string> WIDExplorer_DatabaseFileIs
             = (databaseFile) => $"DatabaseFile: '{databaseFile}'.";
         public static Func<bool, string> WIDExplorer_DeleteAndRecreateDatabaseIs
@@ -142,7 +136,7 @@ namespace NW.WIDJobs
         public static Func<int, string> WIDExplorer_AffectedRowsAre
             = (affectedRows) => $"AffectedRows: '{affectedRows}'.";
         public static string WIDExplorer_ExplorationSavedAsSQLite
-            = $"The provided {nameof(PageItemExtended)} objects have been successfully saved as SQLite database.";
+            = $"The provided {nameof(JobPostingExtended)} objects have been successfully saved as SQLite database.";
 
         public static string WIDExplorer_SavingExplorationAsJson
             = $"Saving the provided {nameof(Exploration)} object as JSON file...";
@@ -155,7 +149,7 @@ namespace NW.WIDJobs
             = $"Saving the provided {nameof(MetricCollection)} object as JSON file...";
         public static Func<bool, string> WIDExplorer_NumbersAsPercentagesIs
             = (numbersAsPercentages) => $"NumbersAsPercentages: '{numbersAsPercentages}'.";
-        public static string WIDExplorer_MetricsSavedAsJson
+        public static string WIDExplorer_MetricCollectionSavedAsJson
             = $"The provided {nameof(MetricCollection)} object has been successfully saved as JSON file.";
 
         public static Func<string, string> WIDExplorer_MethodCalledWithoutIFileInfoAdapter
@@ -179,7 +173,7 @@ namespace NW.WIDJobs
         public static string WIDExplorer_SerializationOptionPageContent 
             = "Page content is not serialized.";
         public static string WIDExplorer_SerializationOptionPageItems 
-            = $"If {nameof(Stages.Stage3_UpToAllJobPostingsExtended)}, {nameof(PageItem)} objects are not serialized.";
+            = $"If {nameof(Stages.Stage3_UpToAllJobPostingsExtended)}, {nameof(JobPosting)} objects are not serialized.";
         public static string WIDExplorer_ConvertedExplorationToJsonString
             = $"The provided {nameof(Exploration)} object has been successfully converted to a JSON string.";
 
@@ -235,6 +229,6 @@ namespace NW.WIDJobs
 /*
 
     Author: numbworks@gmail.com
-    Last Update: 18.05.2021
+    Last Update: 11.08.2021
 
 */

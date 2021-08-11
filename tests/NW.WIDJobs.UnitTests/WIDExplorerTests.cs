@@ -162,7 +162,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                        () => new WIDExplorer().TryExtractFromHtml((IFileInfoAdapter)null)
+                        () => new WIDExplorer().TryExtractFromJson((IFileInfoAdapter)null)
                     ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("htmlFile").Message
@@ -170,7 +170,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                        () => new WIDExplorer().TryExtractFromHtml(ObjectMother.FileManager_FileInfoAdapterDoesntExist)
+                        () => new WIDExplorer().TryExtractFromJson(ObjectMother.FileManager_FileInfoAdapterDoesntExist)
                     ),
                 typeof(ArgumentException),
                 MessageCollection.Validator_ProvidedPathDoesntExist.Invoke(ObjectMother.FileManager_FileInfoAdapterDoesntExist)
