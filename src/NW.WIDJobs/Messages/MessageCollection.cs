@@ -94,7 +94,7 @@ namespace NW.WIDJobs
             = "The exploration has been completed.";
         public static Func<DateTime, ushort, string> WIDExplorer_ThresholdDateFoundPageNr 
             = (thresholdDate, i) => $"'{thresholdDate}' has been found in page nr. '{i}'.";
-        public static Func<List<JobPosting>, ushort, string> WIDExplorer_XPageItemsRemovedPageNr
+        public static Func<List<JobPosting>, ushort, string> WIDExplorer_XJobPostingsRemovedPageNr
             = (jobPostings, i) => $"'{20 - jobPostings.Count}' has been removed from page nr. '{i}'.";
         public static Func<ushort, string> WIDExplorer_FinalPageNumberThresholdDate
             = (finalPageNumber) => $"The 'FinalPageNumber' for the provided 'ThresholdDate' is '{finalPageNumber}'.";

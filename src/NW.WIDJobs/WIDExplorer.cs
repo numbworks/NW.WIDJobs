@@ -623,15 +623,15 @@ namespace NW.WIDJobs
                 }
 
                 List<DateTime> postingCreatedCollection = currentJobPostings.Select(jobPosting => jobPosting.PostingCreated).ToList();
-                bool isThresholdConditionMet = _components.JobPostingDeserializer.IsThresholdConditionMet(thresholdDate, postingCreatedCollection);
+                bool isThresholdConditionMet = _components.JobPostingManager.IsThresholdConditionMet(thresholdDate, postingCreatedCollection);
 
                 if (isThresholdConditionMet)
                 {
 
                     _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ThresholdDateFoundPageNr(thresholdDate, i));
 
-                    currentJobPostings = _components.JobPostingDeserializer.RemoveUnsuitable(thresholdDate, currentJobPostings);
-                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_XPageItemsRemovedPageNr(currentJobPostings, i));
+                    currentJobPostings = _components.JobPostingManager.RemoveUnsuitable(thresholdDate, currentJobPostings);
+                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_XJobPostingsRemovedPageNr(currentJobPostings, i));
 
                     stage2JobPostings.AddRange(currentJobPostings);
                     finalPageNumber = i;
@@ -663,22 +663,21 @@ namespace NW.WIDJobs
                         stage2JobPostings);
 
         }
-        private Exploration ProcessStage3
-            (Exploration exploration, Stages stage)
+        private Exploration ProcessStage3(Exploration exploration, Stages stage)
         {
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(stage));
 
-            List<PageItemExtended> pageItemsExtended = new List<PageItemExtended>();
-            foreach (PageItem pageItem in exploration.JobPostings)
+            List<JobPostingExtended> pageItemsExtended = new List<JobPostingExtended>();
+            foreach (JobPosting jobPosting in exploration.JobPostings)
             {
 
-                PageItemExtended current = _components.JobPostingExtendedManager.Get(pageItem);
+                JobPostingExtended current = _components.JobPostingExtendedManager.GetJobPostingExtended(jobPosting);
                 pageItemsExtended.Add(current);
 
-                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingExtendedScraped(pageItem));
+                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingExtendedScraped(jobPosting));
 
-                ConditionallySleep(pageItem.PageItemNumber, _settings.ParallelRequests, _settings.PauseBetweenRequestsMs);
+                ConditionallySleep(jobPosting.JobPostingNumber, _settings.ParallelRequests, _settings.PauseBetweenRequestsMs);
 
             }
 
@@ -687,11 +686,10 @@ namespace NW.WIDJobs
             bool isCompleted = true;
 
             return
-                new WIDExploration(
+                new Exploration(
                         exploration.RunId,
                         exploration.TotalResultCount,
                         exploration.TotalJobPages,
-                        exploration.Category,
                         stage,
                         isCompleted,
                         exploration.JobPages,
@@ -707,5 +705,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 10.06.2021
+    Last Update: 11.08.2021
 */
