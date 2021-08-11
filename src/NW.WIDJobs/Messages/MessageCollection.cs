@@ -47,13 +47,6 @@ namespace NW.WIDJobs
 
         #endregion
 
-        #region PageItemScraperHelper
-
-        public static Func<string, string, string> PageItemScraperHelper_NotPossibleToExtractJobId =
-            (url, pattern) => $"Not possible to extract {nameof(PageItem.JobId)} from '{url}' with pattern: '{pattern}'.";
-
-        #endregion
-
         #region WIDExplorer
 
         public static string WIDExplorer_ExplorationStarted = "The exploration has started...";
