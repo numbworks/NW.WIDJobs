@@ -20,11 +20,12 @@ namespace NW.WIDJobs
         public Action<string> LoggingActionAsciiBanner { get; }
         public IXPathManager XPathManager { get; }
         public IGetRequestManager GetRequestManager { get; }
-        public IJobPageManager JobPageManager { get; }
         public IJobPageDeserializer JobPageDeserializer { get; }
+        public IJobPageManager JobPageManager { get; }
         public IJobPostingDeserializer JobPostingDeserializer { get; }
-        public IJobPostingExtendedManager JobPostingExtendedManager { get; }
+        public IJobPostingManager JobPostingManager { get; }
         public IJobPostingExtendedDeserializer JobPostingExtendedDeserializer { get; }
+        public IJobPostingExtendedManager JobPostingExtendedManager { get; }
         public IRunIdManager RunIdManager { get; }
         public IMetricCollectionManager MetricCollectionManager { get; }
         public IFileManager FileManager { get; }
@@ -44,11 +45,12 @@ namespace NW.WIDJobs
             Action<string> loggingActionAsciiBanner,
             IXPathManager xpathManager,
             IGetRequestManager getRequestManager,
-            IJobPageManager jobPageManager,
             IJobPageDeserializer jobPageDeserializer,
+            IJobPageManager jobPageManager,
             IJobPostingDeserializer jobPostingDeserializer,
-            IJobPostingExtendedManager jobPostingExtendedManager,
+            IJobPostingManager jobPostingManager,
             IJobPostingExtendedDeserializer jobPostingExtendedDeserializer,
+            IJobPostingExtendedManager jobPostingExtendedManager,
             IRunIdManager runIdManager,
             IMetricCollectionManager metricCollectionManager,
             IFileManager fileManager,
@@ -63,11 +65,12 @@ namespace NW.WIDJobs
             Validator.ValidateObject(loggingActionAsciiBanner, nameof(loggingActionAsciiBanner));
             Validator.ValidateObject(xpathManager, nameof(xpathManager));
             Validator.ValidateObject(getRequestManager, nameof(getRequestManager));
-            Validator.ValidateObject(jobPageManager, nameof(jobPageManager));
             Validator.ValidateObject(jobPageDeserializer, nameof(jobPageDeserializer));
+            Validator.ValidateObject(jobPageManager, nameof(jobPageManager));
             Validator.ValidateObject(jobPostingDeserializer, nameof(jobPostingDeserializer));
-            Validator.ValidateObject(jobPostingExtendedManager, nameof(jobPostingExtendedManager));
+            Validator.ValidateObject(jobPostingManager, nameof(jobPostingManager));
             Validator.ValidateObject(jobPostingExtendedDeserializer, nameof(jobPostingExtendedDeserializer));
+            Validator.ValidateObject(jobPostingExtendedManager, nameof(jobPostingExtendedManager));
             Validator.ValidateObject(runIdManager, nameof(runIdManager));
             Validator.ValidateObject(metricCollectionManager, nameof(metricCollectionManager));
             Validator.ValidateObject(fileManager, nameof(fileManager));
@@ -80,11 +83,12 @@ namespace NW.WIDJobs
             LoggingActionAsciiBanner = loggingActionAsciiBanner;
             XPathManager = xpathManager;
             GetRequestManager = getRequestManager;
-            JobPageManager = jobPageManager;
             JobPageDeserializer = jobPageDeserializer;
+            JobPageManager = jobPageManager;
             JobPostingDeserializer = jobPostingDeserializer;
-            JobPostingExtendedManager = jobPostingExtendedManager;
+            JobPostingManager = jobPostingManager;
             JobPostingExtendedDeserializer = jobPostingExtendedDeserializer;
+            JobPostingExtendedManager = jobPostingExtendedManager;
             RunIdManager = runIdManager;
             MetricCollectionManager = metricCollectionManager;
             FileManager = fileManager;
@@ -102,11 +106,12 @@ namespace NW.WIDJobs
                   DefaultLoggingActionAsciiBanner,
                   new XPathManager(),
                   new GetRequestManager(),
-                  new JobPageManager(),
                   new JobPageDeserializer(),
+                  new JobPageManager(),
                   new JobPostingDeserializer(),
-                  new JobPostingExtendedManager(),
+                  new JobPostingManager(),
                   new JobPostingExtendedDeserializer(),
+                  new JobPostingExtendedManager(),
                   new RunIdManager(),
                   new MetricCollectionManager(),
                   new FileManager(),
@@ -127,5 +132,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 10.08.2021
+    Last Update: 11.08.2021
 */
