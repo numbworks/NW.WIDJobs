@@ -16,7 +16,7 @@ namespace NW.WIDJobs
         /// <summary>
         /// Calculates the total amount of pages on <see href="http://www.workindenmark.dk">WorkInDenmark</see> according to the provided <paramref name="totalJobPostings"/>.
         /// </summary>
-        ushort GetTotalPages(uint totalJobPostings);
+        ushort GetTotalJobPages(uint totalJobPostings);
 
         /// <summary>
         /// Creates urls for <see href="http://www.workindenmark.dk">WorkInDenmark</see> pages.

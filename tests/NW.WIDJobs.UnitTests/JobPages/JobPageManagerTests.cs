@@ -151,7 +151,7 @@ namespace NW.WIDJobs.UnitTests
 
             // Arrange
             // Act
-            ushort actual = new JobPageManager().GetTotalPages(totalJobPostings);
+            ushort actual = new JobPageManager().GetTotalJobPages(totalJobPostings);
 
             // Assert
             Assert.AreEqual(expected, actual);

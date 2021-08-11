@@ -209,7 +209,7 @@ namespace NW.WIDJobs
             return databaseFile;
 
         }
-        public IFileInfoAdapter SaveAsSQLite(List<PageItemExtended> pageItemsExtended)
+        public IFileInfoAdapter SaveAsSQLite(List<JobPostingExtended> jobPostingsExtended)
         {
 
             DateTime now = NowFunction.Invoke();
@@ -221,7 +221,7 @@ namespace NW.WIDJobs
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FolderPathIs.Invoke(_settings.FolderPath));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_NowIs.Invoke(now));
 
-            return SaveAsSQLite(pageItemsExtended, databaseFile, _settings.DeleteAndRecreateDatabase);
+            return SaveAsSQLite(jobPostingsExtended, databaseFile, _settings.DeleteAndRecreateDatabase);
 
         }
 
@@ -494,55 +494,47 @@ namespace NW.WIDJobs
 
         }
 
-        private Exploration ProcessStage1
-            (string runId, ushort initialPageNumber, Stages stage)
+        private Exploration ProcessStage1(string runId, ushort initialPageNumber, Stages stage)
         {
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(stage));
 
-            string url = _components.JobPageManager.CreateUrl(initialPageNumber, category);
+            JobPage jobPage = _components.JobPageManager.GetJobPage(runId, initialPageNumber);
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_UrlCreated);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_UrlIs(url));
+            // To-Do: "Page n.X retrieved" 
 
-            string content = _components.JobPageManager.GetContent(url);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ContentSuccessfullyRetrieved);
+            ushort totalResultCount = _components.JobPageDeserializer.GetTotalResultCount(jobPage.Response);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_TotalResultCountIs(totalResultCount));
 
-            uint totalResults = _components.JobPageDeserializer.GetTotalResults(content);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_TotalResultsAre(totalResults));
-
-            ushort totalEstimatedPages = _components.JobPageManager.GetTotalEstimatedPages(totalResults);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_TotalEstimatedPagesAre(totalEstimatedPages));
+            ushort totalJobPages = _components.JobPageManager.GetTotalJobPages(totalResultCount);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_TotalJobPagesIs(totalJobPages));
 
             bool isCompleted = false;
             if (stage == Stages.Stage1_OnlyMetrics)
                 isCompleted = true;
 
-            Page page = new Page(runId, initialPageNumber, content);
-            List<Page> pages = new List<Page>() { page };
+            List<JobPage> jobPages = new List<JobPage>() { jobPage };
 
             return
-                new WIDExploration(
+                new Exploration(
                         runId,
-                        totalResults,
-                        totalEstimatedPages,
-                        category,
+                        totalResultCount,
+                        totalJobPages,
                         stage,
                         isCompleted,
-                        pages);
+                        jobPages);
 
         }
-        private ushort EstablishFinalPageNumber
-            (ushort finalPageNumber, ushort totalEstimatedPages)
+        private ushort EstablishFinalPageNumber(ushort finalPageNumber, ushort totalJobPages)
         {
 
-            if (finalPageNumber > totalEstimatedPages)
+            if (finalPageNumber > totalJobPages)
             {
 
-                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FinalPageNumberIsHigher(finalPageNumber, totalEstimatedPages));
-                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FinalPageNumberWillBeNow(totalEstimatedPages));
+                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FinalPageNumberIsHigher(finalPageNumber, totalJobPages));
+                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FinalPageNumberWillBeNow(totalJobPages));
 
-                return totalEstimatedPages;
+                return totalJobPages;
 
             }
 

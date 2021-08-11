@@ -10,7 +10,7 @@ namespace NW.WIDJobs
         /// Extracts the total amount of job postings from a <see href="http://www.workindenmark.dk">WorkInDenmark</see>'s job page response.
         /// </summary>
         /// <exception cref="ArgumentNullException"/>
-        ushort GetTotalJobPostings(string response);
+        ushort GetTotalResultCount(string response);
     
     }
 }

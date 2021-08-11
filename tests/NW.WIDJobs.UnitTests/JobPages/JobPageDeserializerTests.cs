@@ -28,7 +28,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new JobPageDeserializer().GetTotalJobPostings(null)
+                    () => new JobPageDeserializer().GetTotalResultCount(null)
 				),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("response").Message
@@ -51,7 +51,7 @@ namespace NW.WIDJobs.UnitTests
 
             // Arrange
             // Act
-            ushort actual = new JobPageDeserializer().GetTotalJobPostings(response);
+            ushort actual = new JobPageDeserializer().GetTotalResultCount(response);
 
             // Assert
             Assert.AreEqual(expected, actual);

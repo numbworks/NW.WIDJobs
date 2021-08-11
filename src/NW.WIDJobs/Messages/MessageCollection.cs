@@ -64,15 +64,12 @@ namespace NW.WIDJobs
             = (stage) => $"Stage:'{stage}'.";
         public static Func<Stages, string> WIDExplorer_ExecutionStageStarted
             = (stage) => $"The execution of the '{stage}' has been started.";
-        public static string WIDExplorer_UrlCreated = "Url has been created for the provided parameters.";
-        public static Func<string, string> WIDExplorer_UrlIs
-            = (url) => $"Url:'{url}'.";
         public static string WIDExplorer_ContentSuccessfullyRetrieved
             = "Content has been successfully retrieved for the provided url.";
-        public static Func<uint, string> WIDExplorer_TotalResultsAre
-            = (totalResults) => $"TotalResults:'{totalResults}'.";
-        public static Func<ushort, string> WIDExplorer_TotalEstimatedPagesAre
-            = (totalEstimatedPages) => $"TotalEstimatedPages:'{totalEstimatedPages}'.";
+        public static Func<uint, string> WIDExplorer_TotalResultCountIs
+            = (totalResultCount) => $"TotalResultCount:'{totalResultCount}'.";
+        public static Func<ushort, string> WIDExplorer_TotalJobPagesIs
+            = (totalJobPages) => $"TotalJobPages:'{totalJobPages}'.";
         public static Func<List<JobPosting>, string> WIDExplorer_JobPostingScrapedInitial
             = (jobPostings) => $"'{jobPostings.Count}' '{nameof(JobPosting)}' objects have been scraped out of the initial page.";
         public static Func<ushort, ushort, string> WIDExplorer_FinalPageNumberIsHigher

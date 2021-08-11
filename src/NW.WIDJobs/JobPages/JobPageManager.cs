@@ -57,7 +57,7 @@ namespace NW.WIDJobs
             return jobPage;
 
         }
-        public ushort GetTotalPages(uint totalJobPostings)
+        public ushort GetTotalJobPages(uint totalResultCount)
         {
 
             /*
@@ -71,11 +71,11 @@ namespace NW.WIDJobs
              */
 
             int reminder;
-            int totalPages = Math.DivRem((int)totalJobPostings, JobPostingsPerPage, out reminder);
+            int totalJobPages = Math.DivRem((int)totalResultCount, JobPostingsPerPage, out reminder);
             if (reminder > 0)
-                totalPages++;
+                totalJobPages++;
 
-            return (ushort)totalPages;
+            return (ushort)totalJobPages;
 
         }
         public string CreateUrl(ushort pageNumber)

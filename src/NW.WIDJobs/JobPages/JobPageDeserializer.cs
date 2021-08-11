@@ -22,7 +22,7 @@ namespace NW.WIDJobs
 
         #region Methods_public
 
-        public ushort GetTotalJobPostings(string response)
+        public ushort GetTotalResultCount(string response)
         {
 
             /*             
@@ -35,9 +35,9 @@ namespace NW.WIDJobs
             Validator.ValidateStringNullOrWhiteSpace(response, nameof(response));
 
             using JsonDocument jsonRoot = JsonDocument.Parse(response);
-                ushort totalJobPostings = jsonRoot.RootElement.GetProperty("TotalResultCount").GetUInt16();
+                ushort totalResultCount = jsonRoot.RootElement.GetProperty("TotalResultCount").GetUInt16();
 
-            return totalJobPostings;
+            return totalResultCount;
 
         }
 
