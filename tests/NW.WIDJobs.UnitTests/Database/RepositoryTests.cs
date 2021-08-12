@@ -114,58 +114,58 @@ namespace NW.WIDJobs.UnitTests
             ).SetArgDisplayNames($"{nameof(conditionallyInsertJobPostingExtendedExceptionTestCases)}_03")
 
         };
-        private static TestCaseData[] conditionallyInsertPageItemsTestCases =
+        private static TestCaseData[] conditionallyInsertJoPostingsTestCases =
         {
 
             new TestCaseData(
                     new Func<int>(
                             () => ObjectMother
                                     .CreateInMemoryRepository()
-                                        .ConditionallyInsert(ObjectMother.Shared_Page01_PageItems)),
-                    ObjectMother.Shared_Page01_PageItems.Count
-                ).SetArgDisplayNames($"{nameof(conditionallyInsertPageItemsTestCases)}_01"),
+                                        .ConditionallyInsert(ObjectMother.Shared_JobPage01_JobPostings)),
+                    ObjectMother.Shared_JobPage01_JobPostings.Count
+                ).SetArgDisplayNames($"{nameof(conditionallyInsertJoPostingsTestCases)}_01"),
 
             new TestCaseData(
                     new Func<int>(
                             () => ObjectMother
                                     .CreateInMemoryRepository()
-                                        .ConditionallyInsert(ObjectMother.Shared_Page01_PageItem01)),
+                                        .ConditionallyInsert(ObjectMother.Shared_JobPage01_JobPosting01)),
                     1
-                ).SetArgDisplayNames($"{nameof(conditionallyInsertPageItemsTestCases)}_02"),
+                ).SetArgDisplayNames($"{nameof(conditionallyInsertJoPostingsTestCases)}_02"),
 
         };
-        private static TestCaseData[] conditionallyInsertPageItemsExceptionTestCases =
+        private static TestCaseData[] conditionallyInsertJobPostingsExceptionTestCases =
         {
 
             new TestCaseData(
                 new TestDelegate(
                     () => ObjectMother
                             .CreateInMemoryRepository()
-                                .ConditionallyInsert((PageItem)null)
+                                .ConditionallyInsert((JobPosting)null)
                 ),
                 typeof(ArgumentNullException),
-                new ArgumentNullException("pageItem").Message
-            ).SetArgDisplayNames($"{nameof(conditionallyInsertPageItemsExceptionTestCases)}_01"),
+                new ArgumentNullException("jobPosting").Message
+            ).SetArgDisplayNames($"{nameof(conditionallyInsertJobPostingsExceptionTestCases)}_01"),
 
             new TestCaseData(
                 new TestDelegate(
                     () => ObjectMother
                             .CreateInMemoryRepository()
-                                .ConditionallyInsert((List<PageItem>)null)
+                                .ConditionallyInsert((List<JobPosting>)null)
                 ),
                 typeof(ArgumentNullException),
-                new ArgumentNullException("pageItems").Message
-            ).SetArgDisplayNames($"{nameof(conditionallyInsertPageItemsExceptionTestCases)}_02"),
+                new ArgumentNullException("jobPostings").Message
+            ).SetArgDisplayNames($"{nameof(conditionallyInsertJobPostingsExceptionTestCases)}_02"),
 
             new TestCaseData(
                 new TestDelegate(
                     () => ObjectMother
                             .CreateInMemoryRepository()
-                                .ConditionallyInsert(new List<PageItem>())
+                                .ConditionallyInsert(new List<JobPosting>())
                 ),
                 typeof(ArgumentException),
-                MessageCollection.Validator_VariableContainsZeroItems.Invoke("pageItems")
-            ).SetArgDisplayNames($"{nameof(conditionallyInsertPageItemsExceptionTestCases)}_03")
+                MessageCollection.Validator_VariableContainsZeroItems.Invoke("jobPostings")
+            ).SetArgDisplayNames($"{nameof(conditionallyInsertJobPostingsExceptionTestCases)}_03")
 
         };
 
@@ -203,11 +203,11 @@ namespace NW.WIDJobs.UnitTests
 
         }
         [TestCaseSource(nameof(conditionallyInsertJobPostingExtendedExceptionTestCases))]
-        public void ConditionallyInsert_ShouldThrowACertainExceptionForPageItemExtended_WhenUnproperArguments
+        public void ConditionallyInsert_ShouldThrowACertainExceptionForJobPostingExtended_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
-        [TestCaseSource(nameof(conditionallyInsertPageItemsTestCases))]
+        [TestCaseSource(nameof(conditionallyInsertJoPostingsTestCases))]
         public void ConditionallyInsert_ShouldInsertTheExpectedNumberOfRows_WhenPageItem
             (Func<int> func, int expected)
         {
@@ -220,8 +220,8 @@ namespace NW.WIDJobs.UnitTests
             Assert.AreEqual(expected, actual);
 
         }
-        [TestCaseSource(nameof(conditionallyInsertPageItemsExceptionTestCases))]
-        public void ConditionallyInsert_ShouldThrowACertainExceptionForPageItem_WhenUnproperArguments
+        [TestCaseSource(nameof(conditionallyInsertJobPostingsExceptionTestCases))]
+        public void ConditionallyInsert_ShouldThrowACertainExceptionForJobPosting_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
@@ -232,5 +232,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 19.06.2021
+    Last Update: 12.08.2021
 */
