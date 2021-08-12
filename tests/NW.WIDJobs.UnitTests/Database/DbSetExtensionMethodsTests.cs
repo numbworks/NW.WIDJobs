@@ -127,11 +127,11 @@ namespace NW.WIDJobs.UnitTests
             databaseContext.SaveChanges(); // Add the second one, same as the pre-exiting one, added = 0
 
             List<JobPostingEntity> addedStep3 = new List<JobPostingEntity>();
-            databaseContext.JobPostings.AddOrUpdate(ObjectMother.Shared_Page01Alternate_PageItemEntity01, ref addedStep3);
-            databaseContext.SaveChanges(); // Add the third one, update the CreatedDate for the pre-exiting one, added = 0
+            databaseContext.JobPostings.AddOrUpdate(ObjectMother.Shared_JobPage01_JobPostingEntity01WithUpdatedPostingCreated, ref addedStep3);
+            databaseContext.SaveChanges(); // Add the third one, update the PostingCreated for the pre-exiting one, added = 0
 
             List<JobPostingEntity> addedStep4 = new List<JobPostingEntity>();
-            databaseContext.JobPostings.AddOrUpdate(ObjectMother.Shared_Page01Alternate_PageItemEntity02, ref addedStep4);
+            databaseContext.JobPostings.AddOrUpdate(ObjectMother.Shared_JobPage01_JobPostingEntity02, ref addedStep4);
             databaseContext.SaveChanges(); // Add the fourth one, differs from the pre-existing one, added = 1
             databaseContext.Dispose();
 
@@ -250,5 +250,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 08.08.2021
+    Last Update: 12.08.2021
 */

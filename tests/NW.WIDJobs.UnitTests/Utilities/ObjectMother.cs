@@ -2717,8 +2717,6 @@ namespace NW.WIDJobs.UnitTests
 
         #region Shared_JobPage01_Entities
 
-        internal static JobPostingEntity Shared_JobPage01_JobPostingEntity01
-            = new JobPostingEntity(Shared_JobPage01_JobPosting01);
         internal static List<JobPostingEntity> Shared_JobPage01_JobPostingEntities = new List<JobPostingEntity>()
         {
 
@@ -2744,6 +2742,15 @@ namespace NW.WIDJobs.UnitTests
             new JobPostingEntity(Shared_JobPage01_JobPosting20)
 
         };
+        internal static JobPostingEntity Shared_JobPage01_JobPostingEntity01
+            = Shared_JobPage01_JobPostingEntities[0];
+        internal static JobPostingEntity Shared_JobPage01_JobPostingEntity02
+            = Shared_JobPage01_JobPostingEntities[1];
+        internal static JobPostingEntity Shared_JobPage01_JobPostingEntity01WithUpdatedPostingCreated
+            = new JobPostingEntity(
+                    UpdatePostingCreated(
+                        Shared_JobPage01_JobPostings[0],
+                        Shared_JobPage01_JobPostingEntities[0].PostingCreated.AddDays(1)));
 
         internal static JobPostingExtendedEntity Shared_JobPage01_JobPostingExtendedEntity01
             = new JobPostingExtendedEntity(Shared_JobPage01_JobPostingExtended01);
@@ -3566,6 +3573,39 @@ namespace NW.WIDJobs.UnitTests
                         && AreEqual(metricCollection1.BulletPointsByJobPostingId, metricCollection2.BulletPointsByJobPostingId)
                         && AreEqual(metricCollection1.BulletPointsByJobPostingId, metricCollection2.BulletPointsByJobPostingId)
                         && (metricCollection1.TotalBulletPoints == metricCollection2.TotalBulletPoints);
+
+        }
+
+        internal static JobPosting UpdatePostingCreated(JobPosting jobPosting, DateTime postingCreated)
+        {
+
+            return new JobPosting(
+                runId: jobPosting.RunId,
+                pageNumber: jobPosting.PageNumber,
+                response: jobPosting.Response,
+                title: jobPosting.Title,
+                presentation: jobPosting.Presentation,
+                hiringOrgName: jobPosting.HiringOrgName,
+                workPlaceAddress: jobPosting.WorkPlaceAddress,
+                workPlacePostalCode: jobPosting.WorkPlacePostalCode,
+                workPlaceCity: jobPosting.WorkPlaceCity,
+                postingCreated: postingCreated,
+                lastDateApplication: jobPosting.LastDateApplication,
+                url: jobPosting.Url,
+                region: jobPosting.Region,
+                municipality: jobPosting.Municipality,
+                country: jobPosting.Country,
+                employmentType: jobPosting.EmploymentType,
+                workHours: jobPosting.WorkHours,
+                occupation: jobPosting.Occupation,
+                workplaceId: jobPosting.WorkplaceId,
+                organisationId: jobPosting.OrganisationId,
+                hiringOrgCVR: jobPosting.HiringOrgCVR,
+                id: jobPosting.Id,
+                workPlaceCityWithoutZone: jobPosting.WorkPlaceCityWithoutZone,
+                jobPostingNumber: jobPosting.JobPostingNumber,
+                jobPostingId: jobPosting.JobPostingId
+            );
 
         }
 
