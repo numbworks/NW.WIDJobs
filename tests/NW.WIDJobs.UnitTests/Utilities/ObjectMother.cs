@@ -1483,6 +1483,30 @@ namespace NW.WIDJobs.UnitTests
                 Shared_JobPage01_JobPosting19,
                 Shared_JobPage01_JobPosting20
             };
+        internal static List<JobPostingExtended> Shared_JobPage01_JobPostingsExtended
+            = new List<JobPostingExtended>()
+            {
+                Shared_JobPage01_JobPostingExtended01,
+                Shared_JobPage01_JobPostingExtended02,
+                Shared_JobPage01_JobPostingExtended03,
+                Shared_JobPage01_JobPostingExtended04,
+                Shared_JobPage01_JobPostingExtended05,
+                Shared_JobPage01_JobPostingExtended06,
+                Shared_JobPage01_JobPostingExtended07,
+                Shared_JobPage01_JobPostingExtended08,
+                Shared_JobPage01_JobPostingExtended09,
+                Shared_JobPage01_JobPostingExtended10,
+                Shared_JobPage01_JobPostingExtended11,
+                Shared_JobPage01_JobPostingExtended12,
+                Shared_JobPage01_JobPostingExtended13,
+                Shared_JobPage01_JobPostingExtended14,
+                Shared_JobPage01_JobPostingExtended15,
+                Shared_JobPage01_JobPostingExtended16,
+                Shared_JobPage01_JobPostingExtended17,
+                Shared_JobPage01_JobPostingExtended18,
+                Shared_JobPage01_JobPostingExtended19,
+                Shared_JobPage01_JobPostingExtended20
+            };
 
         internal static JobPage Shared_JobPage01_Object
             = new JobPage(Shared_FakeRunId, 1, Shared_JobPage01_Content);
@@ -2706,6 +2730,30 @@ namespace NW.WIDJobs.UnitTests
                 Shared_JobPage02_JobPosting18,
                 Shared_JobPage02_JobPosting19,
                 Shared_JobPage02_JobPosting20
+            };
+        internal static List<JobPostingExtended> Shared_JobPage02_JobPostingsExtended
+            = new List<JobPostingExtended>()
+            {
+                Shared_JobPage02_JobPostingExtended01,
+                Shared_JobPage02_JobPostingExtended02,
+                Shared_JobPage02_JobPostingExtended03,
+                Shared_JobPage02_JobPostingExtended04,
+                Shared_JobPage02_JobPostingExtended05,
+                Shared_JobPage02_JobPostingExtended06,
+                Shared_JobPage02_JobPostingExtended07,
+                Shared_JobPage02_JobPostingExtended08,
+                Shared_JobPage02_JobPostingExtended09,
+                Shared_JobPage02_JobPostingExtended10,
+                Shared_JobPage02_JobPostingExtended11,
+                Shared_JobPage02_JobPostingExtended12,
+                Shared_JobPage02_JobPostingExtended13,
+                Shared_JobPage02_JobPostingExtended14,
+                Shared_JobPage02_JobPostingExtended15,
+                Shared_JobPage02_JobPostingExtended16,
+                Shared_JobPage02_JobPostingExtended17,
+                Shared_JobPage02_JobPostingExtended18,
+                Shared_JobPage02_JobPostingExtended19,
+                Shared_JobPage02_JobPostingExtended20
             };
 
         internal static JobPage Shared_JobPage02_Object

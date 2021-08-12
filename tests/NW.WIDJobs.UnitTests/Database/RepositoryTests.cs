@@ -57,61 +57,61 @@ namespace NW.WIDJobs.UnitTests
             ).SetArgDisplayNames($"{nameof(repositoryExceptionTestCases)}_03")
 
         };
-        private static TestCaseData[] conditionallyInsertPageItemsExtendedTestCases =
+        private static TestCaseData[] conditionallyInsertJobPostingExtendedTestCases =
         {
 
             new TestCaseData(
                     new Func<int>(
                             () => ObjectMother
                                     .CreateInMemoryRepository()
-                                        .ConditionallyInsert(ObjectMother.Shared_Page01_PageItemsExtended)),
-                    (ObjectMother.Shared_Page01_PageItemsExtended.Count * 2)
-                        + ObjectMother.Shared_Page01_PageItemsExtended
-                            .Select(pageItemExtended => pageItemExtended.DescriptionBulletPoints)
+                                        .ConditionallyInsert(ObjectMother.Shared_JobPage01_JobPostingsExtended)),
+                    (ObjectMother.Shared_JobPage01_JobPostingsExtended.Count * 2)
+                        + ObjectMother.Shared_JobPage01_JobPostingsExtended
+                            .Select(jobPostingExtended => jobPostingExtended.BulletPoints)
                             .ToList().Count
-                ).SetArgDisplayNames($"{nameof(conditionallyInsertPageItemsExtendedTestCases)}_01"),
+                ).SetArgDisplayNames($"{nameof(conditionallyInsertJobPostingExtendedTestCases)}_01"),
 
             new TestCaseData(
                     new Func<int>(
                             () => ObjectMother
                                     .CreateInMemoryRepository()
-                                        .ConditionallyInsert(ObjectMother.Shared_Page01_PageItemExtended01)),
-                    (2) + ObjectMother.Shared_Page01_PageItemExtended01.DescriptionBulletPoints.Count
-                ).SetArgDisplayNames($"{nameof(conditionallyInsertPageItemsExtendedTestCases)}_02")
+                                        .ConditionallyInsert(ObjectMother.Shared_JobPage01_JobPostingsExtended)),
+                    (2) + ObjectMother.Shared_JobPage01_JobPostingExtended01.BulletPoints.Count
+                ).SetArgDisplayNames($"{nameof(conditionallyInsertJobPostingExtendedTestCases)}_02")
 
         };
-        private static TestCaseData[] conditionallyInsertPageItemsExtendedExceptionTestCases =
+        private static TestCaseData[] conditionallyInsertJobPostingExtendedExceptionTestCases =
         {
 
             new TestCaseData(
                 new TestDelegate(
                     () => ObjectMother
                             .CreateInMemoryRepository()
-                                .ConditionallyInsert((PageItemExtended)null)
+                                .ConditionallyInsert((JobPostingExtended)null)
                 ),
                 typeof(ArgumentNullException),
-                new ArgumentNullException("pageItemExtended").Message
-            ).SetArgDisplayNames($"{nameof(conditionallyInsertPageItemsExtendedExceptionTestCases)}_01"),
+                new ArgumentNullException("jobPostingExtended").Message
+            ).SetArgDisplayNames($"{nameof(conditionallyInsertJobPostingExtendedExceptionTestCases)}_01"),
 
             new TestCaseData(
                 new TestDelegate(
                     () => ObjectMother
                             .CreateInMemoryRepository()
-                                .ConditionallyInsert((List<PageItemExtended>)null)
+                                .ConditionallyInsert((List<JobPostingExtended>)null)
                 ),
                 typeof(ArgumentNullException),
-                new ArgumentNullException("pageItemsExtended").Message
-            ).SetArgDisplayNames($"{nameof(conditionallyInsertPageItemsExtendedExceptionTestCases)}_02"),
+                new ArgumentNullException("jobPostingsExtended").Message
+            ).SetArgDisplayNames($"{nameof(conditionallyInsertJobPostingExtendedExceptionTestCases)}_02"),
 
             new TestCaseData(
                 new TestDelegate(
                     () => ObjectMother
                             .CreateInMemoryRepository()
-                                .ConditionallyInsert(new List<PageItemExtended>())
+                                .ConditionallyInsert(new List<JobPostingExtended>())
                 ),
                 typeof(ArgumentException),
-                MessageCollection.Validator_VariableContainsZeroItems.Invoke("pageItemsExtended")
-            ).SetArgDisplayNames($"{nameof(conditionallyInsertPageItemsExtendedExceptionTestCases)}_03")
+                MessageCollection.Validator_VariableContainsZeroItems.Invoke("jobPostingsExtended")
+            ).SetArgDisplayNames($"{nameof(conditionallyInsertJobPostingExtendedExceptionTestCases)}_03")
 
         };
         private static TestCaseData[] conditionallyInsertPageItemsTestCases =
@@ -189,7 +189,7 @@ namespace NW.WIDJobs.UnitTests
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
-        [TestCaseSource(nameof(conditionallyInsertPageItemsExtendedTestCases))]
+        [TestCaseSource(nameof(conditionallyInsertJobPostingExtendedTestCases))]
         public void ConditionallyInsert_ShouldInsertTheExpectedNumberOfRows_WhenPageItemExtended
             (Func<int> func, int expected)
         {
@@ -202,7 +202,7 @@ namespace NW.WIDJobs.UnitTests
             Assert.AreEqual(expected, actual);
 
         }
-        [TestCaseSource(nameof(conditionallyInsertPageItemsExtendedExceptionTestCases))]
+        [TestCaseSource(nameof(conditionallyInsertJobPostingExtendedExceptionTestCases))]
         public void ConditionallyInsert_ShouldThrowACertainExceptionForPageItemExtended_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
