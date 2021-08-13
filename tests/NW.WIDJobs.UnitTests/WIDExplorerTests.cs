@@ -174,7 +174,7 @@ namespace NW.WIDJobs.UnitTests
                                     ObjectMother.FileManager_FileInfoAdapterDoesntExist
                         )),
                 typeof(ArgumentNullException),
-                new ArgumentNullException("metrics").Message
+                new ArgumentNullException("metricCollection").Message
             ).SetArgDisplayNames($"{nameof(saveAsJsonExceptionTestCases)}_03"),
 
             new TestCaseData(
@@ -204,7 +204,7 @@ namespace NW.WIDJobs.UnitTests
                 new TestDelegate(
                     () => new WIDExplorer().ConvertToJson(null, true)),
                 typeof(ArgumentNullException),
-                new ArgumentNullException("metrics").Message
+                new ArgumentNullException("metricCollection").Message
             ).SetArgDisplayNames($"{nameof(convertToJsonExceptionTestCases)}_02")
 
         };
