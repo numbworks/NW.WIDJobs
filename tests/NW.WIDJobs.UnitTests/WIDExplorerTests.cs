@@ -118,7 +118,6 @@ namespace NW.WIDJobs.UnitTests
                     () => new WIDExplorer()
                             .ExploreAll(
                                 null,
-                                WIDCategories.AllCategories,
                                 Stages.Stage1_OnlyMetrics
                         )),
                 typeof(ArgumentNullException),
@@ -126,7 +125,7 @@ namespace NW.WIDJobs.UnitTests
             ).SetArgDisplayNames($"{nameof(exploreAllExceptionTestCases)}_01")
 
         };        
-        private static TestCaseData[] extractFromHtmlExceptionTestCases =
+        private static TestCaseData[] extractFromJsonExceptionTestCases =
         {
 
             new TestCaseData(
@@ -134,8 +133,8 @@ namespace NW.WIDJobs.UnitTests
                         () => new WIDExplorer().ExtractFromJson((IFileInfoAdapter)null)
                     ),
                 typeof(ArgumentNullException),
-                new ArgumentNullException("htmlFile").Message
-            ).SetArgDisplayNames($"{nameof(extractFromHtmlExceptionTestCases)}_01"),
+                new ArgumentNullException("jsonFile").Message
+            ).SetArgDisplayNames($"{nameof(extractFromJsonExceptionTestCases)}_01"),
 
             new TestCaseData(
                 new TestDelegate(
@@ -143,7 +142,7 @@ namespace NW.WIDJobs.UnitTests
                     ),
                 typeof(ArgumentException),
                 MessageCollection.Validator_ProvidedPathDoesntExist.Invoke(ObjectMother.FileManager_FileInfoAdapterDoesntExist)
-            ).SetArgDisplayNames($"{nameof(extractFromHtmlExceptionTestCases)}_02"),           
+            ).SetArgDisplayNames($"{nameof(extractFromJsonExceptionTestCases)}_02"),           
 
             new TestCaseData(
                 new TestDelegate(
@@ -151,37 +150,9 @@ namespace NW.WIDJobs.UnitTests
                     ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("filePath").Message
-            ).SetArgDisplayNames($"{nameof(extractFromHtmlExceptionTestCases)}_03")
+            ).SetArgDisplayNames($"{nameof(extractFromJsonExceptionTestCases)}_03")
 
         };
-        private static TestCaseData[] tryExtractFromHtmlExceptionTestCases =
-        {
-
-            new TestCaseData(
-                new TestDelegate(
-                        () => new WIDExplorer().TryExtractFromJson((IFileInfoAdapter)null)
-                    ),
-                typeof(ArgumentNullException),
-                new ArgumentNullException("htmlFile").Message
-            ).SetArgDisplayNames($"{nameof(tryExtractFromHtmlExceptionTestCases)}_01"),
-
-            new TestCaseData(
-                new TestDelegate(
-                        () => new WIDExplorer().TryExtractFromJson(ObjectMother.FileManager_FileInfoAdapterDoesntExist)
-                    ),
-                typeof(ArgumentException),
-                MessageCollection.Validator_ProvidedPathDoesntExist.Invoke(ObjectMother.FileManager_FileInfoAdapterDoesntExist)
-            ).SetArgDisplayNames($"{nameof(tryExtractFromHtmlExceptionTestCases)}_02"),
-
-            new TestCaseData(
-                new TestDelegate(
-                        () => new WIDExplorer().TryExtractFromHtml((string)null)
-                    ),
-                typeof(ArgumentNullException),
-                new ArgumentNullException("filePath").Message
-            ).SetArgDisplayNames($"{nameof(tryExtractFromHtmlExceptionTestCases)}_03")
-
-        };        
         private static TestCaseData[] saveAsSQLiteExceptionTestCases =
         {
 
@@ -194,14 +165,14 @@ namespace NW.WIDJobs.UnitTests
                                     true
                         )),
                 typeof(ArgumentNullException),
-                new ArgumentNullException("pageItemsExtended").Message
+                new ArgumentNullException("jobPostingsExtended").Message
             ).SetArgDisplayNames($"{nameof(saveAsSQLiteExceptionTestCases)}_01"),
 
             new TestCaseData(
                 new TestDelegate(
                     () => new WIDExplorer()
                                 .SaveAsSQLite(
-                                    ObjectMother.Shared_Page01_PageItemsExtended,
+                                    ObjectMother.Shared_JobPage01_JobPostingsExtended,
                                     null,
                                     true
                         )),
@@ -228,7 +199,7 @@ namespace NW.WIDJobs.UnitTests
                 new TestDelegate(
                     () => new WIDExplorer()
                                 .SaveAsJson(
-                                    ObjectMother.WIDExplorer_ExplorationPage01,
+                                    ObjectMother.Shared_ExplorationStage3,
                                     null
                         )),
                 typeof(ArgumentNullException),
@@ -295,7 +266,7 @@ namespace NW.WIDJobs.UnitTests
                                 (ObjectMother.Shared_ExplorationStage3WithNullJobPostings)
                     ),
                 typeof(ArgumentNullException),
-                new ArgumentNullException("PageItems").Message
+                new ArgumentNullException("JobPostings").Message
             ).SetArgDisplayNames($"{nameof(convertToMetricsExceptionTestCases)}_02"),
 
             new TestCaseData(
@@ -305,7 +276,7 @@ namespace NW.WIDJobs.UnitTests
                                 (ObjectMother.Shared_ExplorationStage3WithNullJobPostingsExtended)
                     ),
                 typeof(ArgumentNullException),
-                new ArgumentNullException("PageItemsExtended").Message
+                new ArgumentNullException("JobPostingsExtended").Message
             ).SetArgDisplayNames($"{nameof(convertToMetricsExceptionTestCases)}_03")
 
         };
@@ -801,13 +772,8 @@ namespace NW.WIDJobs.UnitTests
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
-        [TestCaseSource(nameof(extractFromHtmlExceptionTestCases))]
+        [TestCaseSource(nameof(extractFromJsonExceptionTestCases))]
         public void ExploreFromHtml_ShouldThrowACertainException_WhenUnproperArguments
-            (TestDelegate del, Type expectedType, string expectedMessage)
-                => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
-
-        [TestCaseSource(nameof(tryExtractFromHtmlExceptionTestCases))]
-        public void TryExploreFromHtml_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
@@ -836,5 +802,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 19.06.2021
+    Last Update: 13.08.2021
 */
