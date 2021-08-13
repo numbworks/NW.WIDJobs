@@ -2990,7 +2990,7 @@ namespace NW.WIDJobs.UnitTests
                 { "Agro Food Park 48", 1 },
                 { "Tuborgvej 164", 1 },
                 { "Anker Engelunds Vej 101", 1 },
-                { "Amagerbrogade 44 }, 1. tv.", 1 },
+                { "Amagerbrogade 44, 1. tv.", 1 },
                 { "Egeskovvej 17", 1 },
                 { "Øster Voldgade 5-7", 1 },
                 { "Industriparken 55", 1 },
@@ -3141,11 +3141,11 @@ namespace NW.WIDJobs.UnitTests
                 { "Rengøringsassistent", 1 },
                 { "Marketingchef", 1 },
                 { "Adjunkt, naturvidenskab og teknik", 1 },
-                { "Forsker }, samfundsvidenskab", 1 },
+                { "Forsker, samfundsvidenskab", 1 },
                 { "Tømrer", 1 },
                 { "Kundeservicemedarbejder", 1 },
                 { "Miljøingeniør", 1 },
-                { "Rengøringsassistent }, hotel", 1 },
+                { "Rengøringsassistent, hotel", 1 },
                 { "Salgskonsulent", 1 },
                 { "Adjunkt, sundhedsvidenskab", 1 }
             };
