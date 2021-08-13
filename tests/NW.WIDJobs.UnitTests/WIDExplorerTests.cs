@@ -38,7 +38,6 @@ namespace NW.WIDJobs.UnitTests
                             .Explore(
                                 null, 
                                 2, 
-                                WIDCategories.AllCategories, 
                                 Stages.Stage1_OnlyMetrics
                         )),
                 typeof(ArgumentNullException),
@@ -51,7 +50,6 @@ namespace NW.WIDJobs.UnitTests
                             .Explore(
                                 ObjectMother.Shared_FakeRunId, 
                                 0, 
-                                WIDCategories.AllCategories, 
                                 Stages.Stage1_OnlyMetrics
                         )),
                 typeof(ArgumentException),
@@ -64,7 +62,6 @@ namespace NW.WIDJobs.UnitTests
                             .Explore(
                                 null, 
                                 ObjectMother.WIDExplorer_FakeNow,
-                                WIDCategories.AllCategories, 
                                 Stages.Stage1_OnlyMetrics
                         )),
                 typeof(ArgumentNullException),
