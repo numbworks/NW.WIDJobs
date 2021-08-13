@@ -93,8 +93,8 @@ namespace NW.WIDJobs.UnitTests
                                 totalBulletPoints: ObjectMother.MetricCollection_ExplorationStage3_TotalBulletPoints
                             )
                 ),
-                typeof(ArgumentNullException),
-                new ArgumentNullException("totalJobPages").Message
+                typeof(ArgumentException),
+                MessageCollection.Validator_VariableCantBeLessThanOne.Invoke("totalJobPages")
             ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_02"),
 
             new TestCaseData(
@@ -136,8 +136,8 @@ namespace NW.WIDJobs.UnitTests
                                 totalBulletPoints: ObjectMother.MetricCollection_ExplorationStage3_TotalBulletPoints
                             )
                 ),
-                typeof(ArgumentNullException),
-                new ArgumentNullException("totalJobPostings").Message
+                typeof(ArgumentException),
+                MessageCollection.Validator_VariableCantBeLessThanOne.Invoke("totalJobPostings")
             ).SetArgDisplayNames($"{nameof(metricCollectionExceptionTestCases)}_03"),
 
             new TestCaseData(
@@ -1493,5 +1493,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 09.08.2021
+    Last Update: 13.08.2021
 */
