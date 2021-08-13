@@ -64,11 +64,8 @@ namespace NW.WIDJobs.UnitTests
                     new Func<int>(
                             () => ObjectMother
                                     .CreateInMemoryRepository()
-                                        .ConditionallyInsert(ObjectMother.Shared_JobPage01_JobPostingsExtended)),
-                    (ObjectMother.Shared_JobPage01_JobPostingsExtended.Count * 2)
-                        + ObjectMother.Shared_JobPage01_JobPostingsExtended
-                            .Select(jobPostingExtended => jobPostingExtended.BulletPoints)
-                            .ToList().Count
+                                        .ConditionallyInsert(ObjectMother.Shared_JobPage01_JobPostingExtended01)),
+                    (2) + ObjectMother.Shared_JobPage01_JobPostingExtended01.BulletPoints.Count
                 ).SetArgDisplayNames($"{nameof(conditionallyInsertJobPostingExtendedTestCases)}_01"),
 
             new TestCaseData(
@@ -76,7 +73,8 @@ namespace NW.WIDJobs.UnitTests
                             () => ObjectMother
                                     .CreateInMemoryRepository()
                                         .ConditionallyInsert(ObjectMother.Shared_JobPage01_JobPostingsExtended)),
-                    (2) + ObjectMother.Shared_JobPage01_JobPostingExtended01.BulletPoints.Count
+                    (ObjectMother.Shared_JobPage01_JobPostingsExtended.Count * 2)
+                        + ObjectMother.Shared_JobPage01_JobPostingsExtended.Sum(jobPostingExtended => jobPostingExtended.BulletPoints?.ToList().Count ?? 0)
                 ).SetArgDisplayNames($"{nameof(conditionallyInsertJobPostingExtendedTestCases)}_02")
 
         };
@@ -232,5 +230,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 12.08.2021
+    Last Update: 13.08.2021
 */

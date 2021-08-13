@@ -168,6 +168,9 @@ namespace NW.WIDJobs
         private List<BulletPointEntity> ExtractBulletPointEntities(JobPostingExtended jobPostingExtended)
         {
 
+            if (jobPostingExtended.BulletPoints == null)
+                return null;
+
             List<BulletPointEntity> bulletPointEntities
                 = jobPostingExtended
                     .BulletPoints
@@ -182,12 +185,13 @@ namespace NW.WIDJobs
 
             List<BulletPointEntity> bulletPointEntities = new List<BulletPointEntity>();
             foreach (JobPostingExtended jobPostingExtended in jobPostingsExtended)
-            {
+                if (jobPostingExtended.BulletPoints != null)
+                {
 
-                List<BulletPointEntity> current = ExtractBulletPointEntities(jobPostingExtended);
-                bulletPointEntities.AddRange(current);
+                    List<BulletPointEntity> current = ExtractBulletPointEntities(jobPostingExtended);
+                    bulletPointEntities.AddRange(current);
 
-            }
+                }
 
             return bulletPointEntities;
 
