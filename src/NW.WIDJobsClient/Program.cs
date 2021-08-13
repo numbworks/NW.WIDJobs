@@ -66,30 +66,14 @@ namespace NW.WIDJobsClient
             return explorer;
 
         }
-        static void ExploreFirstPageAllCategories()
+        static void ExploreFirstJobPage()
         {
 
             WIDExplorer explorer = CreateExplorer();
             explorer.LogAsciiBanner();
 
             Exploration exploration
-                = explorer.Explore(1, WIDCategories.AllCategories, Stages.Stage3_UpToAllJobPostingsExtended);
-            MetricCollection metrics = explorer.ConvertToMetricCollection(exploration);
-
-            explorer.SaveAsJson(exploration);
-            explorer.SaveAsSQLite(exploration.JobPostingsExtended);
-            explorer.SaveAsJson(metrics, false);
-            explorer.SaveAsJson(metrics, true);
-
-        }
-        static void ExploreAllITTech()
-        {
-
-            WIDExplorer explorer = CreateExplorer();
-            explorer.LogAsciiBanner();
-
-            Exploration exploration
-                = explorer.ExploreAll(WIDCategories.ItTech, Stages.Stage3_UpToAllJobPostingsExtended);
+                = explorer.Explore(1, Stages.Stage3_UpToAllJobPostingsExtended);
             MetricCollection metrics = explorer.ConvertToMetricCollection(exploration);
 
             explorer.SaveAsJson(exploration);
@@ -105,5 +89,5 @@ namespace NW.WIDJobsClient
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 12.06.2021
+    Last Update: 13.08.2021
 */
