@@ -2651,7 +2651,7 @@ namespace NW.WIDJobs.UnitTests
 
         #region Shared_ExplorationTests
 
-        internal static string Shared_ExplorationStage1_RunId = RunIdManager_RunId_Now;
+        internal static string Shared_ExplorationStage1_RunId = Shared_FakeRunId;
         internal static ushort Shared_ExplorationStage1_TotalResultCount = Shared_JobPage01_TotalResultCount;
         internal static ushort Shared_ExplorationStage1_TotalJobPages = Shared_JobPage01_TotalJobPages;
         internal static Stages Shared_ExplorationStage1_Stage = Stages.Stage1_OnlyMetrics;
@@ -2684,7 +2684,7 @@ namespace NW.WIDJobs.UnitTests
                 " }"
                 );
 
-        internal static string Shared_ExplorationStage3_RunId = RunIdManager_RunId_Now;
+        internal static string Shared_ExplorationStage3_RunId = Shared_FakeRunId;
         internal static ushort Shared_ExplorationStage3_TotalResultCount = Shared_JobPage01_TotalResultCount;
         internal static ushort Shared_ExplorationStage3_TotalJobPages = Shared_JobPage01_TotalJobPages;
         internal static Stages Shared_ExplorationStage3_Stage = Stages.Stage3_UpToAllJobPostingsExtended;
@@ -2950,67 +2950,157 @@ namespace NW.WIDJobs.UnitTests
         internal static uint MetricCollection_ExplorationStage3_TotalJobPostings = 20;
 
         internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByHiringOrgName
-            = new Dictionary<string, uint>() { }; // { "København", 9 }
+            = new Dictionary<string, uint>() 
+            { 
+                { "FakeString", 9 } 
+            }; 
         internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByWorkPlaceAddress
-            = new Dictionary<string, uint>() { };
+            = new Dictionary<string, uint>()
+            {
+                { "FakeString", 9 }
+            };
         internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByWorkPlacePostalCode
-            = new Dictionary<string, uint>() { };
+            = new Dictionary<string, uint>()
+            {
+                { "FakeString", 9 }
+            };
         internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByWorkPlaceCity
-            = new Dictionary<string, uint>() { };
+            = new Dictionary<string, uint>()
+            {
+                { "FakeString", 9 }
+            };
         internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByPostingCreated
-            = new Dictionary<string, uint>() { };
+            = new Dictionary<string, uint>()
+            {
+                { "FakeString", 9 }
+            };
         internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByLastDateApplication
-            = new Dictionary<string, uint>() { };
+            = new Dictionary<string, uint>()
+            {
+                { "FakeString", 9 }
+            };
         internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByRegion
-            = new Dictionary<string, uint>() { };
+            = new Dictionary<string, uint>()
+            {
+                { "FakeString", 9 }
+            };
         internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByMunicipality
-            = new Dictionary<string, uint>() { };
+            = new Dictionary<string, uint>()
+            {
+                { "FakeString", 9 }
+            };
         internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByCountry
-            = new Dictionary<string, uint>() { };
+            = new Dictionary<string, uint>()
+            {
+                { "FakeString", 9 }
+            };
         internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByEmploymentType
-            = new Dictionary<string, uint>() { };
+            = new Dictionary<string, uint>()
+            {
+                { "FakeString", 9 }
+            };
         internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByWorkHours
-            = new Dictionary<string, uint>() { };
+            = new Dictionary<string, uint>()
+            {
+                { "FakeString", 9 }
+            };
         internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByOccupation
-            = new Dictionary<string, uint>() { };
+            = new Dictionary<string, uint>()
+            {
+                { "FakeString", 9 }
+            };
         internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByWorkplaceId
-            = new Dictionary<string, uint>() { };
+            = new Dictionary<string, uint>()
+            {
+                { "FakeString", 9 }
+            };
         internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByOrganisationId
-            = new Dictionary<string, uint>() { };
+            = new Dictionary<string, uint>()
+            {
+                { "FakeString", 9 }
+            };
         internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByHiringOrgCVR
-            = new Dictionary<string, uint>() { };
+            = new Dictionary<string, uint>()
+            {
+                { "FakeString", 9 }
+            };
         internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByWorkPlaceCityWithoutZone
-            = new Dictionary<string, uint>() { };
+            = new Dictionary<string, uint>()
+            {
+                { "FakeString", 9 }
+            };
 
         internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByPublicationStartDate
-            = new Dictionary<string, uint>() { };
+            = new Dictionary<string, uint>()
+            {
+                { "FakeString", 9 }
+            };
         internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByPublicationEndDate
-            = new Dictionary<string, uint>() { };
+            = new Dictionary<string, uint>()
+            {
+                { "FakeString", 9 }
+            };
         internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByNumberToFill
-            = new Dictionary<string, uint>() { };
+            = new Dictionary<string, uint>()
+            {
+                { "FakeString", 9 }
+            };
         internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByContactEmail
-            = new Dictionary<string, uint>() { };
+            = new Dictionary<string, uint>()
+            {
+                { "FakeString", 9 }
+            };
         internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByContactPersonName
-            = new Dictionary<string, uint>() { };
+            = new Dictionary<string, uint>()
+            {
+                { "FakeString", 9 }
+            };
         internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByEmploymentDate
-            = new Dictionary<string, uint>() { };
+            = new Dictionary<string, uint>()
+            {
+                { "FakeString", 9 }
+            };
         internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByApplicationDeadlineDate
-            = new Dictionary<string, uint>() { };
+            = new Dictionary<string, uint>()
+            {
+                { "FakeString", 9 }
+            };
         internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByBulletPointScenario
-            = new Dictionary<string, uint>() { };
+            = new Dictionary<string, uint>()
+            {
+                { "FakeString", 9 }
+            };
 
         internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_ResponseLengthByJobPostingId
-            = new Dictionary<string, uint>() { };
+            = new Dictionary<string, uint>()
+            {
+                { "FakeString", 9 }
+            };
         internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_PresentationLengthByJobPostingId
-            = new Dictionary<string, uint>() { };
+            = new Dictionary<string, uint>()
+            {
+                { "FakeString", 9 }
+            };
         internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_ExtendedResponseLengthByJobPostingId
-            = new Dictionary<string, uint>() { };
+            = new Dictionary<string, uint>()
+            {
+                { "FakeString", 9 }
+            };
         internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_HiringOrgDescriptionLengthByJobPostingId
-            = new Dictionary<string, uint>() { };
+            = new Dictionary<string, uint>()
+            {
+                { "FakeString", 9 }
+            };
         internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_PurposeLengthByJobPostingId
-            = new Dictionary<string, uint>() { };
+            = new Dictionary<string, uint>()
+            {
+                { "FakeString", 9 }
+            };
         internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_BulletPointsByJobPostingId
-            = new Dictionary<string, uint>() { };
+            = new Dictionary<string, uint>()
+            {
+                { "FakeString", 9 }
+            };
 
         internal static uint MetricCollection_ExplorationStage3_TotalBulletPoints = 20;
 
