@@ -322,7 +322,7 @@ namespace NW.WIDJobs.UnitTests
                         )
                 ),
                 typeof(ArgumentNullException),
-                new ArgumentNullException("metricsManager").Message
+                new ArgumentNullException("metricCollectionManager").Message
             ).SetArgDisplayNames($"{nameof(widExplorerComponentsExceptionTestCases)}_12"),
 
             new TestCaseData(
@@ -426,7 +426,7 @@ namespace NW.WIDJobs.UnitTests
                         )
                 ),
                 typeof(ArgumentNullException),
-                new ArgumentNullException("fileNameFactory").Message
+                new ArgumentNullException("filenameFactory").Message
             ).SetArgDisplayNames($"{nameof(widExplorerComponentsExceptionTestCases)}_16"),
 
             new TestCaseData(
@@ -550,5 +550,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 12.06.2021
+    Last Update: 13.08.2021
 */
