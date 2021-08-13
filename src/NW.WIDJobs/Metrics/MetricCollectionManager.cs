@@ -849,7 +849,7 @@ namespace NW.WIDJobs
 
             var results =
                     from jobPosting in jobPostings
-                    group jobPosting.Presentation.Length by jobPosting.JobPostingId into groups
+                    group jobPosting.Presentation?.Length ?? 0 by jobPosting.JobPostingId into groups // When null, then 0.
                     select new
                     {
                         JobPostingId = groups.Key ?? FormatNull,
@@ -909,7 +909,7 @@ namespace NW.WIDJobs
 
             var results =
                     from jobPostingExtended in jobPostingsExtended
-                    group jobPostingExtended.HiringOrgDescription.Length by jobPostingExtended.JobPosting.JobPostingId into groups
+                    group jobPostingExtended.HiringOrgDescription?.Length ?? 0 by jobPostingExtended.JobPosting.JobPostingId into groups // When null, then 0.
                     select new
                     {
                         JobPostingId = groups.Key ?? FormatNull,
@@ -939,7 +939,7 @@ namespace NW.WIDJobs
 
             var results =
                     from jobPostingExtended in jobPostingsExtended
-                    group jobPostingExtended.Purpose.Length by jobPostingExtended.JobPosting.JobPostingId into groups
+                    group jobPostingExtended.Purpose?.Length ?? 0 by jobPostingExtended.JobPosting.JobPostingId into groups // When null, then 0.
                     select new
                     {
                         JobPostingId = groups.Key ?? FormatNull,
@@ -970,7 +970,7 @@ namespace NW.WIDJobs
 
             var results =
                     from jobPostingExtended in jobPostingsExtended
-                    group jobPostingExtended.BulletPoints.Count by jobPostingExtended.JobPosting.JobPostingId into groups
+                    group jobPostingExtended.BulletPoints?.Count ?? 0 by jobPostingExtended.JobPosting.JobPostingId into groups // When null, then 0.
                     select new
                     {
                         JobPostingId = groups.Key ?? FormatNull,
@@ -992,8 +992,8 @@ namespace NW.WIDJobs
 
             uint totalBulletPoints = 0;
             foreach (JobPostingExtended jobPostingExtended in jobPostingsExtended)
-                // This is never null, so we don't handle that case.
-                totalBulletPoints += (uint)jobPostingExtended.BulletPoints.Count; 
+                if (jobPostingExtended.BulletPoints != null)
+                    totalBulletPoints += (uint)jobPostingExtended.BulletPoints.Count; 
 
             return totalBulletPoints;
 
@@ -1006,5 +1006,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 28.05.2021
+    Last Update: 13.08.2021
 */
