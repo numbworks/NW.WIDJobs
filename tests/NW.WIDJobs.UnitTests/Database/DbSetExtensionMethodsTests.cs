@@ -110,38 +110,7 @@ namespace NW.WIDJobs.UnitTests
 
 
         }
-        [Test]
-        public void AddOrUpdate_ShouldUpdateTwoAndAddTwo_WhenFourJobPostingEntities()
-        {
 
-            // Arrange
-            DatabaseContext databaseContext = ObjectMother.CreateInMemoryContext();
-
-            // Act
-            List<JobPostingEntity> addedStep1 = new List<JobPostingEntity>();
-            databaseContext.JobPostings.AddOrUpdate(ObjectMother.Shared_JobPage01_JobPostingEntity01, ref addedStep1);
-            databaseContext.SaveChanges(); // Add the first one, database is empty, added = 1
-
-            List<JobPostingEntity> addedStep2 = new List<JobPostingEntity>();
-            databaseContext.JobPostings.AddOrUpdate(ObjectMother.Shared_JobPage01_JobPostingEntity01, ref addedStep2);
-            databaseContext.SaveChanges(); // Add the second one, same as the pre-exiting one, added = 0
-
-            List<JobPostingEntity> addedStep3 = new List<JobPostingEntity>();
-            databaseContext.JobPostings.AddOrUpdate(ObjectMother.Shared_JobPage01_JobPostingEntity01WithUpdatedPostingCreated, ref addedStep3);
-            databaseContext.SaveChanges(); // Add the third one, update the PostingCreated for the pre-exiting one, added = 0
-
-            List<JobPostingEntity> addedStep4 = new List<JobPostingEntity>();
-            databaseContext.JobPostings.AddOrUpdate(ObjectMother.Shared_JobPage01_JobPostingEntity02, ref addedStep4);
-            databaseContext.SaveChanges(); // Add the fourth one, differs from the pre-existing one, added = 1
-            databaseContext.Dispose();
-
-            // Assert
-            Assert.AreEqual(1, addedStep1.Count);
-            Assert.AreEqual(0, addedStep2.Count);
-            Assert.AreEqual(0, addedStep3.Count);
-            Assert.AreEqual(1, addedStep4.Count);
-
-        }
         [Test]
         public void AddOrUpdate_ShouldUpdateTwentyJobPostingEntities_WhenTwentyJobPostingEntities()
         {
@@ -250,5 +219,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 12.08.2021
+    Last Update: 13.08.2021
 */
