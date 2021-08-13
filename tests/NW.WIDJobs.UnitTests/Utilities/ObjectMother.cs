@@ -16,210 +16,14 @@ namespace NW.WIDJobs.UnitTests
         #region Shared
 
         internal static string Shared_FakeRunId = "FakeRunId";
-        internal static Func<string, IGetRequestManager> Shared_FakeGetRequestManager
-            = (url) =>
-            {
-
-                List<(string url, string content)> tuples = new List<(string url, string content)>()
-                {
-
-                    (Shared_Page01_Url, Shared_Page01_Content),
-                    (Shared_Page02_Url, Shared_Page02_Content),
-
-                    (Shared_Page01_PageItemExtended01.PageItem.Url, Shared_Page01_PageItemExtended01_Content),
-                    (Shared_Page01_PageItemExtended14.PageItem.Url, Shared_Page01_PageItemExtended14_Content),
-                    (Shared_Page02_PageItemExtended18.PageItem.Url, Shared_Page02_PageItemExtended18_Content),
-                    (Shared_Page03_PageItemExtended01.PageItem.Url, Shared_Page03_PageItemExtended01_Content),
-                    (Shared_Page03_PageItemExtended02.PageItem.Url, Shared_Page03_PageItemExtended02_Content),
-                    (Shared_Page03_PageItemExtended03.PageItem.Url, Shared_Page03_PageItemExtended03_Content),
-                    (Shared_Page03_PageItemExtended04.PageItem.Url, Shared_Page03_PageItemExtended04_Content),
-
-                };
-
-                IGetRequestManager fakeGetRequestManager = Substitute.For<IGetRequestManager>();
-
-                foreach ((string url, string content) tuple in tuples)
-                    if (string.Equals(url, tuple.url, StringComparison.InvariantCulture))
-                    {
-                        fakeGetRequestManager.Send(tuple.url, Arg.Any<Encoding>()).Returns(tuple.content);
-                        break;
-                    };
-                // We don't consider the case in which we do provide an url that it's not among the ones in the list. 
-
-                return fakeGetRequestManager;
-
-            };
 
         #endregion
-
-        #region WIDExplorerTests
-
-        internal static DateTime WIDExplorer_FakeNow = new DateTime(2021, 05, 01);
-        internal static Func<DateTime> WIDExplorer_FakeNowFunction = () => WIDExplorer_FakeNow;
-
-        #endregion
-
-        #region MetricCollection
-
-        internal static string MetricCollection_ExplorationStage3_RunId = Shared_FakeRunId;
-        internal static uint MetricCollection_ExplorationStage3_TotalJobPages = 1;
-        internal static uint MetricCollection_ExplorationStage3_TotalJobPostings = 20;
-
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByHiringOrgName 
-            = new Dictionary<string, uint>() { }; // { "København", 9 }
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByWorkPlaceAddress 
-            = new Dictionary<string, uint>() { };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByWorkPlacePostalCode 
-            = new Dictionary<string, uint>() { };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByWorkPlaceCity 
-            = new Dictionary<string, uint>() { };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByPostingCreated 
-            = new Dictionary<string, uint>() { };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByLastDateApplication 
-            = new Dictionary<string, uint>() { };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByRegion 
-            = new Dictionary<string, uint>() { };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByMunicipality 
-            = new Dictionary<string, uint>() { };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByCountry 
-            = new Dictionary<string, uint>() { };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByEmploymentType 
-            = new Dictionary<string, uint>() { };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByWorkHours 
-            = new Dictionary<string, uint>() { };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByOccupation 
-            = new Dictionary<string, uint>() { };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByWorkplaceId 
-            = new Dictionary<string, uint>() { };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByOrganisationId 
-            = new Dictionary<string, uint>() { };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByHiringOrgCVR 
-            = new Dictionary<string, uint>() { };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByWorkPlaceCityWithoutZone 
-            = new Dictionary<string, uint>() { };
-
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByPublicationStartDate 
-            = new Dictionary<string, uint>() { };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByPublicationEndDate 
-            = new Dictionary<string, uint>() { };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByNumberToFill 
-            = new Dictionary<string, uint>() { };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByContactEmail 
-            = new Dictionary<string, uint>() { };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByContactPersonName 
-            = new Dictionary<string, uint>() { };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByEmploymentDate 
-            = new Dictionary<string, uint>() { };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByApplicationDeadlineDate 
-            = new Dictionary<string, uint>() { };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByBulletPointScenario 
-            = new Dictionary<string, uint>() { };
-
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_ResponseLengthByJobPostingId 
-            = new Dictionary<string, uint>() { };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_PresentationLengthByJobPostingId 
-            = new Dictionary<string, uint>() { };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_ExtendedResponseLengthByJobPostingId 
-            = new Dictionary<string, uint>() { };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_HiringOrgDescriptionLengthByJobPostingId 
-            = new Dictionary<string, uint>() { };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_PurposeLengthByJobPostingId 
-            = new Dictionary<string, uint>() { };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_BulletPointsByJobPostingId 
-            = new Dictionary<string, uint>() { };
-
-        internal static uint MetricCollection_ExplorationStage3_TotalBulletPoints = 20;
-
-        internal static MetricCollection MetricCollection_ExplorationStage3 =
-            new MetricCollection(
-                    runId: MetricCollection_ExplorationStage3_RunId,
-                    totalJobPages: MetricCollection_ExplorationStage3_TotalJobPages,
-                    totalJobPostings: MetricCollection_ExplorationStage3_TotalJobPostings,
-                    jobPostingsByHiringOrgName: MetricCollection_ExplorationStage3_JobPostingsByHiringOrgName,
-                    jobPostingsByWorkPlaceAddress: MetricCollection_ExplorationStage3_JobPostingsByWorkPlaceAddress,
-                    jobPostingsByWorkPlacePostalCode: MetricCollection_ExplorationStage3_JobPostingsByWorkPlacePostalCode,
-                    jobPostingsByWorkPlaceCity: MetricCollection_ExplorationStage3_JobPostingsByWorkPlaceCity,
-                    jobPostingsByPostingCreated: MetricCollection_ExplorationStage3_JobPostingsByPostingCreated,
-                    jobPostingsByLastDateApplication: MetricCollection_ExplorationStage3_JobPostingsByLastDateApplication,
-                    jobPostingsByRegion: MetricCollection_ExplorationStage3_JobPostingsByRegion,
-                    jobPostingsByMunicipality: MetricCollection_ExplorationStage3_JobPostingsByMunicipality,
-                    jobPostingsByCountry: MetricCollection_ExplorationStage3_JobPostingsByCountry,
-                    jobPostingsByEmploymentType: MetricCollection_ExplorationStage3_JobPostingsByEmploymentType,
-                    jobPostingsByWorkHours: MetricCollection_ExplorationStage3_JobPostingsByWorkHours,
-                    jobPostingsByOccupation: MetricCollection_ExplorationStage3_JobPostingsByOccupation,
-                    jobPostingsByWorkplaceId: MetricCollection_ExplorationStage3_JobPostingsByWorkplaceId,
-                    jobPostingsByOrganisationId: MetricCollection_ExplorationStage3_JobPostingsByOrganisationId,
-                    jobPostingsByHiringOrgCVR: MetricCollection_ExplorationStage3_JobPostingsByHiringOrgCVR,
-                    jobPostingsByWorkPlaceCityWithoutZone: MetricCollection_ExplorationStage3_JobPostingsByWorkPlaceCityWithoutZone,
-                    jobPostingsByPublicationStartDate: MetricCollection_ExplorationStage3_JobPostingsByPublicationStartDate,
-                    jobPostingsByPublicationEndDate: MetricCollection_ExplorationStage3_JobPostingsByPublicationEndDate,
-                    jobPostingsByNumberToFill: MetricCollection_ExplorationStage3_JobPostingsByNumberToFill,
-                    jobPostingsByContactEmail: MetricCollection_ExplorationStage3_JobPostingsByContactEmail,
-                    jobPostingsByContactPersonName: MetricCollection_ExplorationStage3_JobPostingsByContactPersonName,
-                    jobPostingsByEmploymentDate: MetricCollection_ExplorationStage3_JobPostingsByEmploymentDate,
-                    jobPostingsByApplicationDeadlineDate: MetricCollection_ExplorationStage3_JobPostingsByApplicationDeadlineDate,
-                    jobPostingsByBulletPointScenario: MetricCollection_ExplorationStage3_JobPostingsByBulletPointScenario,
-                    responseLengthByJobPostingId: MetricCollection_ExplorationStage3_ResponseLengthByJobPostingId,
-                    presentationLengthByJobPostingId: MetricCollection_ExplorationStage3_PresentationLengthByJobPostingId,
-                    extendedResponseLengthByJobPostingId: MetricCollection_ExplorationStage3_ExtendedResponseLengthByJobPostingId,
-                    hiringOrgDescriptionLengthByJobPostingId: MetricCollection_ExplorationStage3_HiringOrgDescriptionLengthByJobPostingId,
-                    purposeLengthByJobPostingId: MetricCollection_ExplorationStage3_PurposeLengthByJobPostingId,
-                    bulletPointsByJobPostingId: MetricCollection_ExplorationStage3_BulletPointsByJobPostingId,
-                    totalBulletPoints: MetricCollection_ExplorationStage3_TotalBulletPoints
-                );
-
-        #endregion
-
-        #region MetricCollectionManagerTests
-
-        internal static Exploration Shared_ExplorationStage3WithNullJobPostings
-            = new Exploration(
-                    Shared_ExplorationStage3_RunId,
-                    Shared_ExplorationStage3_TotalResultCount,
-                    Shared_ExplorationStage3_TotalJobPages,
-                    Shared_ExplorationStage3_Stage,
-                    Shared_ExplorationStage3_IsCompleted,
-                    Shared_ExplorationStage3_JobPages,
-                    null,
-                    Shared_ExplorationStage3_JobPostingsExtended
-                );
-        internal static Exploration Shared_ExplorationStage3WithNullJobPostingsExtended
-            = new Exploration(
-                    Shared_ExplorationStage3_RunId,
-                    Shared_ExplorationStage3_TotalResultCount,
-                    Shared_ExplorationStage3_TotalJobPages,
-                    Shared_ExplorationStage3_Stage,
-                    Shared_ExplorationStage3_IsCompleted,
-                    Shared_ExplorationStage3_JobPages,
-                    Shared_ExplorationStage3_JobPostings,
-                    null
-                );
-
-        internal static Dictionary<string, uint> MetricCollectionManager_WorkPlaceCityWithoutZones = new Dictionary<string, uint>()
-            {
-
-                { "København", 45 },
-                { "Nordborg", 12 },
-                { "Vejen", 4 }
-
-            };
-        internal static Dictionary<string, string> MetricCollectionManager_WorkPlaceCityWithoutZonesAsPercentages = new Dictionary<string, string>()
-            {
-
-                { "København", $"{MetricCollectionManager.FormatPercentage(73.77)}" },
-                { "Nordborg", $"{MetricCollectionManager.FormatPercentage(19.67)}" },
-                { "Vejen", $"{MetricCollectionManager.FormatPercentage(6.56)}" }
-
-            };
-
-        #endregion
-
-        /* -------------------------------------------- */
 
         #region Shared_JobPage01
 
         internal static string Shared_FakeResponse = "Fake response";
         internal static string Shared_FakePurpose = "Fake purpose";
+        internal static string Shared_JobPage01_Url = "https://job.jobnet.dk/CV/FindWork?Offset=0&SortValue=CreationDate&widk=true";
 
         internal static string Shared_JobPage01_Content 
             = Properties.Resources.JobPage01_json;
@@ -1519,6 +1323,8 @@ namespace NW.WIDJobs.UnitTests
         #endregion
 
         #region Shared_JobPage02
+
+        internal static string Shared_JobPage02_Url = "https://job.jobnet.dk/CV/FindWork?Offset=20&SortValue=CreationDate&widk=true";
 
         internal static string Shared_JobPage02_Content
             = Properties.Resources.JobPage02_json;
@@ -2843,7 +2649,7 @@ namespace NW.WIDJobs.UnitTests
 
         #endregion
 
-        #region Shared_Exploration
+        #region Shared_ExplorationTests
 
         internal static string Shared_ExplorationStage1_RunId = RunIdManager_RunId_Now;
         internal static ushort Shared_ExplorationStage1_TotalResultCount = Shared_JobPage01_TotalResultCount;
@@ -3137,6 +2943,161 @@ namespace NW.WIDJobs.UnitTests
 
         #endregion
 
+        #region MetricCollectionTests
+
+        internal static string MetricCollection_ExplorationStage3_RunId = Shared_FakeRunId;
+        internal static uint MetricCollection_ExplorationStage3_TotalJobPages = 1;
+        internal static uint MetricCollection_ExplorationStage3_TotalJobPostings = 20;
+
+        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByHiringOrgName
+            = new Dictionary<string, uint>() { }; // { "København", 9 }
+        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByWorkPlaceAddress
+            = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByWorkPlacePostalCode
+            = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByWorkPlaceCity
+            = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByPostingCreated
+            = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByLastDateApplication
+            = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByRegion
+            = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByMunicipality
+            = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByCountry
+            = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByEmploymentType
+            = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByWorkHours
+            = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByOccupation
+            = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByWorkplaceId
+            = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByOrganisationId
+            = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByHiringOrgCVR
+            = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByWorkPlaceCityWithoutZone
+            = new Dictionary<string, uint>() { };
+
+        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByPublicationStartDate
+            = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByPublicationEndDate
+            = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByNumberToFill
+            = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByContactEmail
+            = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByContactPersonName
+            = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByEmploymentDate
+            = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByApplicationDeadlineDate
+            = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByBulletPointScenario
+            = new Dictionary<string, uint>() { };
+
+        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_ResponseLengthByJobPostingId
+            = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_PresentationLengthByJobPostingId
+            = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_ExtendedResponseLengthByJobPostingId
+            = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_HiringOrgDescriptionLengthByJobPostingId
+            = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_PurposeLengthByJobPostingId
+            = new Dictionary<string, uint>() { };
+        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_BulletPointsByJobPostingId
+            = new Dictionary<string, uint>() { };
+
+        internal static uint MetricCollection_ExplorationStage3_TotalBulletPoints = 20;
+
+        internal static MetricCollection MetricCollection_ExplorationStage3 =
+            new MetricCollection(
+                    runId: MetricCollection_ExplorationStage3_RunId,
+                    totalJobPages: MetricCollection_ExplorationStage3_TotalJobPages,
+                    totalJobPostings: MetricCollection_ExplorationStage3_TotalJobPostings,
+                    jobPostingsByHiringOrgName: MetricCollection_ExplorationStage3_JobPostingsByHiringOrgName,
+                    jobPostingsByWorkPlaceAddress: MetricCollection_ExplorationStage3_JobPostingsByWorkPlaceAddress,
+                    jobPostingsByWorkPlacePostalCode: MetricCollection_ExplorationStage3_JobPostingsByWorkPlacePostalCode,
+                    jobPostingsByWorkPlaceCity: MetricCollection_ExplorationStage3_JobPostingsByWorkPlaceCity,
+                    jobPostingsByPostingCreated: MetricCollection_ExplorationStage3_JobPostingsByPostingCreated,
+                    jobPostingsByLastDateApplication: MetricCollection_ExplorationStage3_JobPostingsByLastDateApplication,
+                    jobPostingsByRegion: MetricCollection_ExplorationStage3_JobPostingsByRegion,
+                    jobPostingsByMunicipality: MetricCollection_ExplorationStage3_JobPostingsByMunicipality,
+                    jobPostingsByCountry: MetricCollection_ExplorationStage3_JobPostingsByCountry,
+                    jobPostingsByEmploymentType: MetricCollection_ExplorationStage3_JobPostingsByEmploymentType,
+                    jobPostingsByWorkHours: MetricCollection_ExplorationStage3_JobPostingsByWorkHours,
+                    jobPostingsByOccupation: MetricCollection_ExplorationStage3_JobPostingsByOccupation,
+                    jobPostingsByWorkplaceId: MetricCollection_ExplorationStage3_JobPostingsByWorkplaceId,
+                    jobPostingsByOrganisationId: MetricCollection_ExplorationStage3_JobPostingsByOrganisationId,
+                    jobPostingsByHiringOrgCVR: MetricCollection_ExplorationStage3_JobPostingsByHiringOrgCVR,
+                    jobPostingsByWorkPlaceCityWithoutZone: MetricCollection_ExplorationStage3_JobPostingsByWorkPlaceCityWithoutZone,
+                    jobPostingsByPublicationStartDate: MetricCollection_ExplorationStage3_JobPostingsByPublicationStartDate,
+                    jobPostingsByPublicationEndDate: MetricCollection_ExplorationStage3_JobPostingsByPublicationEndDate,
+                    jobPostingsByNumberToFill: MetricCollection_ExplorationStage3_JobPostingsByNumberToFill,
+                    jobPostingsByContactEmail: MetricCollection_ExplorationStage3_JobPostingsByContactEmail,
+                    jobPostingsByContactPersonName: MetricCollection_ExplorationStage3_JobPostingsByContactPersonName,
+                    jobPostingsByEmploymentDate: MetricCollection_ExplorationStage3_JobPostingsByEmploymentDate,
+                    jobPostingsByApplicationDeadlineDate: MetricCollection_ExplorationStage3_JobPostingsByApplicationDeadlineDate,
+                    jobPostingsByBulletPointScenario: MetricCollection_ExplorationStage3_JobPostingsByBulletPointScenario,
+                    responseLengthByJobPostingId: MetricCollection_ExplorationStage3_ResponseLengthByJobPostingId,
+                    presentationLengthByJobPostingId: MetricCollection_ExplorationStage3_PresentationLengthByJobPostingId,
+                    extendedResponseLengthByJobPostingId: MetricCollection_ExplorationStage3_ExtendedResponseLengthByJobPostingId,
+                    hiringOrgDescriptionLengthByJobPostingId: MetricCollection_ExplorationStage3_HiringOrgDescriptionLengthByJobPostingId,
+                    purposeLengthByJobPostingId: MetricCollection_ExplorationStage3_PurposeLengthByJobPostingId,
+                    bulletPointsByJobPostingId: MetricCollection_ExplorationStage3_BulletPointsByJobPostingId,
+                    totalBulletPoints: MetricCollection_ExplorationStage3_TotalBulletPoints
+                );
+
+        #endregion
+
+        #region MetricCollectionManagerTests
+
+        internal static Exploration Shared_ExplorationStage3WithNullJobPostings
+            = new Exploration(
+                    Shared_ExplorationStage3_RunId,
+                    Shared_ExplorationStage3_TotalResultCount,
+                    Shared_ExplorationStage3_TotalJobPages,
+                    Shared_ExplorationStage3_Stage,
+                    Shared_ExplorationStage3_IsCompleted,
+                    Shared_ExplorationStage3_JobPages,
+                    null,
+                    Shared_ExplorationStage3_JobPostingsExtended
+                );
+        internal static Exploration Shared_ExplorationStage3WithNullJobPostingsExtended
+            = new Exploration(
+                    Shared_ExplorationStage3_RunId,
+                    Shared_ExplorationStage3_TotalResultCount,
+                    Shared_ExplorationStage3_TotalJobPages,
+                    Shared_ExplorationStage3_Stage,
+                    Shared_ExplorationStage3_IsCompleted,
+                    Shared_ExplorationStage3_JobPages,
+                    Shared_ExplorationStage3_JobPostings,
+                    null
+                );
+
+        internal static Dictionary<string, uint> MetricCollectionManager_WorkPlaceCityWithoutZones = new Dictionary<string, uint>()
+            {
+
+                { "København", 45 },
+                { "Nordborg", 12 },
+                { "Vejen", 4 }
+
+            };
+        internal static Dictionary<string, string> MetricCollectionManager_WorkPlaceCityWithoutZonesAsPercentages = new Dictionary<string, string>()
+            {
+
+                { "København", $"{MetricCollectionManager.FormatPercentage(73.77)}" },
+                { "Nordborg", $"{MetricCollectionManager.FormatPercentage(19.67)}" },
+                { "Vejen", $"{MetricCollectionManager.FormatPercentage(6.56)}" }
+
+            };
+
+        #endregion
+
         #region RunIdManagerTests
 
         internal static DateTime RunIdManager_Now = new DateTime(2020, 01, 01, 19, 25, 40, 980);
@@ -3259,7 +3220,79 @@ namespace NW.WIDJobs.UnitTests
 
         #endregion
 
-        /* -------------------------------------------- */
+        #region WIDExplorerTests
+
+        internal static DateTime WIDExplorer_FakeNow = new DateTime(2021, 05, 01);
+        internal static Func<DateTime> WIDExplorer_FakeNowFunction = () => WIDExplorer_FakeNow;
+        internal static Func<string, IGetRequestManager> WIDExplorer_FakeGetRequestManager
+            = (url) =>
+            {
+
+                List<(string url, string content)> tuples = new List<(string url, string content)>()
+                {
+
+                    (Shared_JobPage01_Url, Shared_JobPage01_Content),
+                    (Shared_JobPage02_Url, Shared_JobPage02_Content),
+
+                    (Shared_JobPage01_JobPostingExtended01.JobPosting.Url, Shared_JobPage01_JobPostingExtended01_Content),
+                    (Shared_JobPage01_JobPostingExtended02.JobPosting.Url, Shared_JobPage01_JobPostingExtended02_Content),
+                    (Shared_JobPage01_JobPostingExtended03.JobPosting.Url, Shared_JobPage01_JobPostingExtended03_Content),
+                    (Shared_JobPage01_JobPostingExtended04.JobPosting.Url, Shared_JobPage01_JobPostingExtended04_Content),
+                    (Shared_JobPage01_JobPostingExtended05.JobPosting.Url, Shared_JobPage01_JobPostingExtended05_Content),
+                    (Shared_JobPage01_JobPostingExtended06.JobPosting.Url, Shared_JobPage01_JobPostingExtended06_Content),
+                    (Shared_JobPage01_JobPostingExtended07.JobPosting.Url, Shared_JobPage01_JobPostingExtended07_Content),
+                    (Shared_JobPage01_JobPostingExtended08.JobPosting.Url, Shared_JobPage01_JobPostingExtended08_Content),
+                    (Shared_JobPage01_JobPostingExtended09.JobPosting.Url, Shared_JobPage01_JobPostingExtended09_Content),
+                    (Shared_JobPage01_JobPostingExtended10.JobPosting.Url, Shared_JobPage01_JobPostingExtended10_Content),
+                    (Shared_JobPage01_JobPostingExtended11.JobPosting.Url, Shared_JobPage01_JobPostingExtended11_Content),
+                    (Shared_JobPage01_JobPostingExtended12.JobPosting.Url, Shared_JobPage01_JobPostingExtended12_Content),
+                    (Shared_JobPage01_JobPostingExtended13.JobPosting.Url, Shared_JobPage01_JobPostingExtended13_Content),
+                    (Shared_JobPage01_JobPostingExtended14.JobPosting.Url, Shared_JobPage01_JobPostingExtended14_Content),
+                    (Shared_JobPage01_JobPostingExtended15.JobPosting.Url, Shared_JobPage01_JobPostingExtended15_Content),
+                    (Shared_JobPage01_JobPostingExtended16.JobPosting.Url, Shared_JobPage01_JobPostingExtended16_Content),
+                    (Shared_JobPage01_JobPostingExtended17.JobPosting.Url, Shared_JobPage01_JobPostingExtended17_Content),
+                    (Shared_JobPage01_JobPostingExtended18.JobPosting.Url, Shared_JobPage01_JobPostingExtended18_Content),
+                    (Shared_JobPage01_JobPostingExtended19.JobPosting.Url, Shared_JobPage01_JobPostingExtended19_Content),
+                    (Shared_JobPage01_JobPostingExtended20.JobPosting.Url, Shared_JobPage01_JobPostingExtended20_Content),
+
+                    (Shared_JobPage02_JobPostingExtended01.JobPosting.Url, Shared_JobPage02_JobPostingExtended01_Content),
+                    (Shared_JobPage02_JobPostingExtended02.JobPosting.Url, Shared_JobPage02_JobPostingExtended02_Content),
+                    (Shared_JobPage02_JobPostingExtended03.JobPosting.Url, Shared_JobPage02_JobPostingExtended03_Content),
+                    (Shared_JobPage02_JobPostingExtended04.JobPosting.Url, Shared_JobPage02_JobPostingExtended04_Content),
+                    (Shared_JobPage02_JobPostingExtended05.JobPosting.Url, Shared_JobPage02_JobPostingExtended05_Content),
+                    (Shared_JobPage02_JobPostingExtended06.JobPosting.Url, Shared_JobPage02_JobPostingExtended06_Content),
+                    (Shared_JobPage02_JobPostingExtended07.JobPosting.Url, Shared_JobPage02_JobPostingExtended07_Content),
+                    (Shared_JobPage02_JobPostingExtended08.JobPosting.Url, Shared_JobPage02_JobPostingExtended08_Content),
+                    (Shared_JobPage02_JobPostingExtended09.JobPosting.Url, Shared_JobPage02_JobPostingExtended09_Content),
+                    (Shared_JobPage02_JobPostingExtended10.JobPosting.Url, Shared_JobPage02_JobPostingExtended10_Content),
+                    (Shared_JobPage02_JobPostingExtended11.JobPosting.Url, Shared_JobPage02_JobPostingExtended11_Content),
+                    (Shared_JobPage02_JobPostingExtended12.JobPosting.Url, Shared_JobPage02_JobPostingExtended12_Content),
+                    (Shared_JobPage02_JobPostingExtended13.JobPosting.Url, Shared_JobPage02_JobPostingExtended13_Content),
+                    (Shared_JobPage02_JobPostingExtended14.JobPosting.Url, Shared_JobPage02_JobPostingExtended14_Content),
+                    (Shared_JobPage02_JobPostingExtended15.JobPosting.Url, Shared_JobPage02_JobPostingExtended15_Content),
+                    (Shared_JobPage02_JobPostingExtended16.JobPosting.Url, Shared_JobPage02_JobPostingExtended16_Content),
+                    (Shared_JobPage02_JobPostingExtended17.JobPosting.Url, Shared_JobPage02_JobPostingExtended17_Content),
+                    (Shared_JobPage02_JobPostingExtended18.JobPosting.Url, Shared_JobPage02_JobPostingExtended18_Content),
+                    (Shared_JobPage02_JobPostingExtended19.JobPosting.Url, Shared_JobPage02_JobPostingExtended19_Content),
+                    (Shared_JobPage02_JobPostingExtended20.JobPosting.Url, Shared_JobPage02_JobPostingExtended20_Content),
+
+                };
+
+                IGetRequestManager fakeGetRequestManager = Substitute.For<IGetRequestManager>();
+
+                foreach ((string url, string content) tuple in tuples)
+                    if (string.Equals(url, tuple.url, StringComparison.InvariantCulture))
+                    {
+                        fakeGetRequestManager.Send(tuple.url, Arg.Any<Encoding>()).Returns(tuple.content);
+                        break;
+                    };
+                // We don't consider the case in which we do provide an url that it's not among the ones in the list. 
+
+                return fakeGetRequestManager;
+
+            };
+
+        #endregion
 
         #region Methods
 
@@ -3664,5 +3697,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 05.08.2021
+    Last Update: 13.08.2021
 */
