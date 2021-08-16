@@ -40,6 +40,16 @@ namespace NW.WIDJobs
             return false;
 
         }
+        public bool IsThresholdConditionMet(string jobPostingId, List<JobPosting> jobPostings)
+        {
+
+            Validator.ValidateStringNullOrWhiteSpace(jobPostingId, nameof(jobPostingId));
+            Validator.ValidateList(jobPostings, nameof(jobPostings));
+
+            return jobPostings.Any(jobPosting => jobPosting.JobPostingId == jobPostingId);
+
+        }
+
         public List<JobPosting> RemoveUnsuitable(DateTime thresholdDate, List<JobPosting> jobPostings)
         {
 
@@ -48,16 +58,6 @@ namespace NW.WIDJobs
             List<JobPosting> subset = jobPostings.Where(pageItem => pageItem.PostingCreated >= thresholdDate).ToList();
 
             return subset;
-
-        }
-
-        public bool IsThresholdConditionMet(string jobPostingId, List<JobPosting> jobPostings)
-        {
-
-            Validator.ValidateStringNullOrWhiteSpace(jobPostingId, nameof(jobPostingId));
-            Validator.ValidateList(jobPostings, nameof(jobPostings));
-
-            return jobPostings.Any(jobPosting => jobPosting.JobPostingId == jobPostingId);
 
         }
         public List<JobPosting> RemoveUnsuitable(string jobPostingId, List<JobPosting> jobPostings)

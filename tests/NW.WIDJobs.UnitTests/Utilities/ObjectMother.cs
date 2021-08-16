@@ -4262,6 +4262,16 @@ namespace NW.WIDJobs.UnitTests
 
         #endregion
 
+
+        #region JobPostingManagerTests
+
+        internal static DateTime JobPostingManager_JobPage01_PostingCreated
+            = Shared_JobPage01_JobPostings.Select(jobPosting => jobPosting.PostingCreated).FirstOrDefault();
+        internal static List<DateTime> JobPostingManager_JobPage01_PostingCreatedCollection
+            = Shared_JobPage01_JobPostings.Select(jobPosting => jobPosting.PostingCreated).ToList();
+
+        #endregion
+
     }
 }
 
