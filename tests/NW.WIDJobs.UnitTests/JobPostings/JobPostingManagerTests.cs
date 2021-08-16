@@ -158,6 +158,22 @@ namespace NW.WIDJobs.UnitTests
             ).SetArgDisplayNames($"{nameof(removeUnsuitableForThresholdDateTestCases)}_01"),
 
         };
+        private static TestCaseData[] removeUnsuitableForJobPostingIdTestCases =
+        {
+
+            new TestCaseData(
+                ObjectMother.JobPostingManager_UnexistantJobPostingId,
+                ObjectMother.JobPostingManager_JobPage01Alt_JobPostings,
+                ObjectMother.JobPostingManager_JobPage01Alt_JobPostings
+            ).SetArgDisplayNames($"{nameof(removeUnsuitableForJobPostingIdTestCases)}_01"),
+
+            new TestCaseData(
+                ObjectMother.JobPostingManager_JobPage01Alt_JobPostings[5].JobPostingId,
+                ObjectMother.JobPostingManager_JobPage01Alt_JobPostings,
+                ObjectMother.JobPostingManager_JobPage01Alt_JobPostings.Take(5).ToList()
+            ).SetArgDisplayNames($"{nameof(removeUnsuitableForJobPostingIdTestCases)}_02")
+
+        };
 
         #endregion
 
@@ -223,6 +239,22 @@ namespace NW.WIDJobs.UnitTests
             // Arrange
             // Act
             List<JobPosting> actual = new JobPostingManager().RemoveUnsuitable(thresholdDate, jobPostings);
+
+            // Assert
+            Assert.IsTrue(
+                    ObjectMother.AreEqual(expected, actual)
+                );
+
+        }
+
+        [TestCaseSource(nameof(removeUnsuitableForJobPostingIdTestCases))]
+        public void RemoveUnsuitable_ShouldReturnExpectedBoolean_WhenJobPostingId
+            (string jobPostingId, List<JobPosting> jobPostings, List<JobPosting> expected)
+        {
+
+            // Arrange
+            // Act
+            List<JobPosting> actual = new JobPostingManager().RemoveUnsuitable(jobPostingId, jobPostings);
 
             // Assert
             Assert.IsTrue(
