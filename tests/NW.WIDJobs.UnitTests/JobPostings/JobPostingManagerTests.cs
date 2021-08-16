@@ -132,8 +132,22 @@ namespace NW.WIDJobs.UnitTests
             ).SetArgDisplayNames($"{nameof(isThresholdConditionMetForThresholdDateTestCases)}_04")
 
         };
+        private static TestCaseData[] isThresholdConditionMetForJobPostingIdTestCases =
+        {
 
+            new TestCaseData(
+                ObjectMother.JobPostingManager_UnexistantJobPostingId,
+                ObjectMother.JobPostingManager_JobPage01Alt_JobPostings,
+                false
+            ).SetArgDisplayNames($"{nameof(isThresholdConditionMetForJobPostingIdTestCases)}_01"),
 
+            new TestCaseData(
+                ObjectMother.JobPostingManager_JobPage01Alt_JobPostings[0].JobPostingId,
+                ObjectMother.JobPostingManager_JobPage01Alt_JobPostings,
+                true
+            ).SetArgDisplayNames($"{nameof(isThresholdConditionMetForJobPostingIdTestCases)}_02")
+
+        };
 
         #endregion
 
@@ -177,7 +191,19 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
+        [TestCaseSource(nameof(isThresholdConditionMetForJobPostingIdTestCases))]
+        public void IsThresholdConditionMet_ShouldReturnExpectedBoolean_WhenJobPostingId
+            (string jobPostingId, List<JobPosting> jobPostings, bool expected)
+        {
 
+            // Arrange
+            // Act
+            bool actual = new JobPostingManager().IsThresholdConditionMet(jobPostingId, jobPostings);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+
+        }
 
 
         #endregion

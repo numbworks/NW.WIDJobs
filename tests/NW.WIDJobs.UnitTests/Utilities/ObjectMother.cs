@@ -4301,6 +4301,7 @@ namespace NW.WIDJobs.UnitTests
             = JobPostingManager_JobPage01Alt_JobPostings.OrderByDescending(jobPosting => jobPosting.PostingCreated).Reverse().First().PostingCreated;
         internal static DateTime JobPostingManager_JobPage01Alt_ThresholdDateLeastRecentPostingCreatedMinusOneDay
             = JobPostingManager_JobPage01Alt_ThresholdDateLeastRecentPostingCreated.AddDays(-1);
+        internal static string JobPostingManager_UnexistantJobPostingId = "0000000fakeid";
 
         #endregion
 
