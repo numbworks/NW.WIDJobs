@@ -148,6 +148,16 @@ namespace NW.WIDJobs.UnitTests
             ).SetArgDisplayNames($"{nameof(isThresholdConditionMetForJobPostingIdTestCases)}_02")
 
         };
+        private static TestCaseData[] removeUnsuitableForThresholdDateTestCases =
+        {
+
+            new TestCaseData(
+                   ObjectMother.JobPostingManager_JobPage01Alt_ThresholdDate01,
+                   ObjectMother.JobPostingManager_JobPage01Alt_JobPostings,
+                   ObjectMother.JobPostingManager_JobPage01Alt_RangeForThresholdDate01
+            ).SetArgDisplayNames($"{nameof(removeUnsuitableForThresholdDateTestCases)}_01"),
+
+        };
 
         #endregion
 
@@ -205,6 +215,21 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
+        [TestCaseSource(nameof(removeUnsuitableForThresholdDateTestCases))]
+        public void RemoveUnsuitable_ShouldReturnExpectedBoolean_WhenThresholdDate
+            (DateTime thresholdDate, List<JobPosting> jobPostings, List<JobPosting> expected)
+        {
+
+            // Arrange
+            // Act
+            List<JobPosting> actual = new JobPostingManager().RemoveUnsuitable(thresholdDate, jobPostings);
+
+            // Assert
+            Assert.IsTrue(
+                    ObjectMother.AreEqual(expected, actual)
+                );
+
+        }
 
         #endregion
 

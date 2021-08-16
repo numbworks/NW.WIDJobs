@@ -4289,6 +4289,7 @@ namespace NW.WIDJobs.UnitTests
                 UpdatePostingCreated(Shared_JobPage01_JobPosting19, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-4)),  // 2021-06-28
                 UpdatePostingCreated(Shared_JobPage01_JobPosting20, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-4)),  // 2021-06-28
             };
+        
         internal static List<DateTime> JobPostingManager_JobPage01Alt_PostingCreatedCollection
             = JobPostingManager_JobPage01Alt_JobPostings.Select(jobPosting => jobPosting.PostingCreated).ToList();
         internal static DateTime JobPostingManager_JobPage01Alt_ThresholdDateMostRecentPostingCreated
@@ -4301,7 +4302,13 @@ namespace NW.WIDJobs.UnitTests
             = JobPostingManager_JobPage01Alt_JobPostings.OrderByDescending(jobPosting => jobPosting.PostingCreated).Reverse().First().PostingCreated;
         internal static DateTime JobPostingManager_JobPage01Alt_ThresholdDateLeastRecentPostingCreatedMinusOneDay
             = JobPostingManager_JobPage01Alt_ThresholdDateLeastRecentPostingCreated.AddDays(-1);
+        
         internal static string JobPostingManager_UnexistantJobPostingId = "0000000fakeid";
+        internal static DateTime JobPostingManager_JobPage01Alt_ThresholdDate01
+            = JobPostingManager_JobPage01Alt_JobPostings[6].PostingCreated;                     // 2021-07-01
+        internal static List<JobPosting> JobPostingManager_JobPage01Alt_RangeForThresholdDate01
+            = JobPostingManager_JobPage01Alt_JobPostings.GetRange(0, 11);                        // 2021-07-02 ... (2021-06-30)
+
 
         #endregion
 
@@ -4310,5 +4317,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 13.08.2021
+    Last Update: 16.08.2021
 */
