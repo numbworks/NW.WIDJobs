@@ -4265,18 +4265,42 @@ namespace NW.WIDJobs.UnitTests
 
         #region JobPostingManagerTests
 
-        internal static List<DateTime> JobPostingManager_JobPage01_PostingCreatedCollection
-            = Shared_JobPage01_JobPostings.Select(jobPosting => jobPosting.PostingCreated).ToList();
-        internal static DateTime JobPostingManager_JobPage01_ThresholdDateMostRecentPostingCreated
-            = JobPostingManager_JobPage01_PostingCreatedCollection.First();
-        internal static DateTime JobPostingManager_JobPage01_ThresholdDateMostRecentPostingCreatedPlusOneDay
-            = JobPostingManager_JobPage01_ThresholdDateMostRecentPostingCreated.AddDays(1);
-        internal static DateTime JobPostingManager_JobPage01_ThresholdDateMostRecentPostingCreatedMinusOneDay
-            = JobPostingManager_JobPage01_ThresholdDateMostRecentPostingCreated.AddDays(-1);
-        internal static DateTime JobPostingManager_JobPage01_ThresholdDateLeastRecentPostingCreated
-            = Shared_JobPage01_JobPostings.OrderByDescending(jobPosting => jobPosting.PostingCreated).Reverse().First().PostingCreated;
-        internal static DateTime JobPostingManager_JobPage01_ThresholdDateLeastRecentPostingCreatedMinusOneDay
-            = JobPostingManager_JobPage01_ThresholdDateLeastRecentPostingCreated.AddDays(-1);
+        internal static List<JobPosting> JobPostingManager_JobPage01Alt_JobPostings
+            = new List<JobPosting>()
+            {
+                Shared_JobPage01_JobPosting01,                                                                                  // 2021-07-02
+                Shared_JobPage01_JobPosting02,                                                                                  // 2021-07-02
+                Shared_JobPage01_JobPosting03,                                                                                  // 2021-07-02
+                Shared_JobPage01_JobPosting04,                                                                                  // 2021-07-02
+                Shared_JobPage01_JobPosting05,                                                                                  // 2021-07-02
+                Shared_JobPage01_JobPosting06,                                                                                  // 2021-07-02
+                UpdatePostingCreated(Shared_JobPage01_JobPosting07, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-1)),  // 2021-07-01
+                UpdatePostingCreated(Shared_JobPage01_JobPosting08, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-1)),  // 2021-07-01
+                UpdatePostingCreated(Shared_JobPage01_JobPosting09, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-1)),  // 2021-07-01
+                UpdatePostingCreated(Shared_JobPage01_JobPosting10, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-1)),  // 2021-07-01
+                UpdatePostingCreated(Shared_JobPage01_JobPosting11, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-1)),  // 2021-07-01
+                UpdatePostingCreated(Shared_JobPage01_JobPosting12, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-2)),  // 2021-06-30
+                UpdatePostingCreated(Shared_JobPage01_JobPosting13, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-2)),  // 2021-06-30
+                UpdatePostingCreated(Shared_JobPage01_JobPosting14, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-2)),  // 2021-06-30
+                UpdatePostingCreated(Shared_JobPage01_JobPosting15, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-2)),  // 2021-06-30
+                UpdatePostingCreated(Shared_JobPage01_JobPosting16, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-3)),  // 2021-06-29
+                UpdatePostingCreated(Shared_JobPage01_JobPosting17, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-3)),  // 2021-06-29
+                UpdatePostingCreated(Shared_JobPage01_JobPosting18, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-3)),  // 2021-06-29
+                UpdatePostingCreated(Shared_JobPage01_JobPosting19, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-4)),  // 2021-06-28
+                UpdatePostingCreated(Shared_JobPage01_JobPosting20, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-4)),  // 2021-06-28
+            };
+        internal static List<DateTime> JobPostingManager_JobPage01Alt_PostingCreatedCollection
+            = JobPostingManager_JobPage01Alt_JobPostings.Select(jobPosting => jobPosting.PostingCreated).ToList();
+        internal static DateTime JobPostingManager_JobPage01Alt_ThresholdDateMostRecentPostingCreated
+            = JobPostingManager_JobPage01Alt_PostingCreatedCollection.First();
+        internal static DateTime JobPostingManager_JobPage01Alt_ThresholdDateMostRecentPostingCreatedPlusOneDay
+            = JobPostingManager_JobPage01Alt_ThresholdDateMostRecentPostingCreated.AddDays(1);
+        internal static DateTime JobPostingManager_JobPage01Alt_ThresholdDateMostRecentPostingCreatedMinusOneDay
+            = JobPostingManager_JobPage01Alt_ThresholdDateMostRecentPostingCreated.AddDays(-1);
+        internal static DateTime JobPostingManager_JobPage01Alt_ThresholdDateLeastRecentPostingCreated
+            = JobPostingManager_JobPage01Alt_JobPostings.OrderByDescending(jobPosting => jobPosting.PostingCreated).Reverse().First().PostingCreated;
+        internal static DateTime JobPostingManager_JobPage01Alt_ThresholdDateLeastRecentPostingCreatedMinusOneDay
+            = JobPostingManager_JobPage01Alt_ThresholdDateLeastRecentPostingCreated.AddDays(-1);
 
 
         #endregion

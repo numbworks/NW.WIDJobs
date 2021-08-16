@@ -19,7 +19,7 @@ namespace NW.WIDJobs.UnitTests
                 new TestDelegate(
                     () => new JobPostingManager()
                             .IsThresholdConditionMet(
-                                ObjectMother.JobPostingManager_JobPage01_ThresholdDateMostRecentPostingCreated,
+                                ObjectMother.JobPostingManager_JobPage01Alt_ThresholdDateMostRecentPostingCreated,
                                 null
                                 )
                 ),
@@ -63,7 +63,7 @@ namespace NW.WIDJobs.UnitTests
                 new TestDelegate(
                     () => new JobPostingManager()
                             .RemoveUnsuitable(
-                                ObjectMother.JobPostingManager_JobPage01_ThresholdDateMostRecentPostingCreated,
+                                ObjectMother.JobPostingManager_JobPage01Alt_ThresholdDateMostRecentPostingCreated,
                                 null
                                 )
                 ),
@@ -105,29 +105,29 @@ namespace NW.WIDJobs.UnitTests
 
             // ThresholdDate > MostRecent
             new TestCaseData(
-                   ObjectMother.JobPostingManager_JobPage01_ThresholdDateMostRecentPostingCreatedPlusOneDay,
-                   ObjectMother.JobPostingManager_JobPage01_PostingCreatedCollection,
+                   ObjectMother.JobPostingManager_JobPage01Alt_ThresholdDateMostRecentPostingCreatedPlusOneDay,
+                   ObjectMother.JobPostingManager_JobPage01Alt_PostingCreatedCollection,
                    false
             ).SetArgDisplayNames($"{nameof(isThresholdConditionMetForThresholdDateTestCases)}_01"),
 
             // ThresholdDate > LeastRecent && ThresholdDate <= MostRecent
             new TestCaseData(
-                   ObjectMother.JobPostingManager_JobPage01_ThresholdDateMostRecentPostingCreatedMinusOneDay,
-                   ObjectMother.JobPostingManager_JobPage01_PostingCreatedCollection,
+                   ObjectMother.JobPostingManager_JobPage01Alt_ThresholdDateMostRecentPostingCreatedMinusOneDay,
+                   ObjectMother.JobPostingManager_JobPage01Alt_PostingCreatedCollection,
                    true
             ).SetArgDisplayNames($"{nameof(isThresholdConditionMetForThresholdDateTestCases)}_02"),
 
             // ThresholdDate == LeastRecent
             new TestCaseData(
-                   ObjectMother.JobPostingManager_JobPage01_ThresholdDateLeastRecentPostingCreated,
-                   ObjectMother.JobPostingManager_JobPage01_PostingCreatedCollection,
+                   ObjectMother.JobPostingManager_JobPage01Alt_ThresholdDateLeastRecentPostingCreated,
+                   ObjectMother.JobPostingManager_JobPage01Alt_PostingCreatedCollection,
                    false
             ).SetArgDisplayNames($"{nameof(isThresholdConditionMetForThresholdDateTestCases)}_03"),
 
             // ThresholdDate < LeastRecent
             new TestCaseData(
-                   ObjectMother.JobPostingManager_JobPage01_ThresholdDateLeastRecentPostingCreatedMinusOneDay,
-                   ObjectMother.JobPostingManager_JobPage01_PostingCreatedCollection,
+                   ObjectMother.JobPostingManager_JobPage01Alt_ThresholdDateLeastRecentPostingCreatedMinusOneDay,
+                   ObjectMother.JobPostingManager_JobPage01Alt_PostingCreatedCollection,
                    false
             ).SetArgDisplayNames($"{nameof(isThresholdConditionMetForThresholdDateTestCases)}_04")
 
