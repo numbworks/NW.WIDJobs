@@ -509,6 +509,114 @@ The following self-explanatory cleaning actions are applied on the extracted bul
 |`BulletPoints`|`RemoveInitialHyphen()`.|
 |`BulletPoints`|`FixNonBreakingSpaceCharacters()`.|
 
+## JobPostingManager - The logic behind IsThresholdConditionMet()
+
+During an exploration and while evaluating the content of a `Page`, the `JobPostingManager.IsThresholdConditionMet()` method establishes if the `ThresholdDate` condition is met and the exploration should stop (`true` case), or if the exploration should continue (`false` case).
+
+Since the logic is a not immediate to understand, I'll show how it works by using an example.
+
+Given the the following `ThresholdDate` and `PostingCreatedCollection`, we can see which kind of case we are in on the rightmost column:
+
+|ThresholdDate|
+|---|
+|2021-04-28|
+
+|PostingCreated|DateType|Threshold|
+|---|---|---|
+|||Case 1|
+|2021-05-07|MostRecent|Case 2|
+|2021-05-07||Case 2|
+|2021-05-07||Case 2|
+|2021-05-05||Case 2|
+|2021-05-05||Case 2|
+|2021-05-05||Case 2|
+|2021-05-05||Case 2|
+|2021-05-01||Case 2|
+|2021-05-01||Case 2|
+|2021-05-01||Case 2|
+|2021-04-30||Case 2|
+|2021-04-30||Case 2|
+|2021-04-30||Case 2|
+|2021-04-30||Case 2|
+|2021-04-30||Case 2|
+|2021-04-30||Case 2|
+|2021-04-28||Case 3|
+|2021-04-28||Case 3|
+|2021-04-28||Case 3|
+|2021-04-28|LeastRecent|Case 3|
+|||Case 4|
+
+The case numbers above correspond to the following conditions and to the following `IsThresholdConditionMet()` returns:
+
+|Threshold|Condition|Return|
+|---|---|---|
+|Case 1|ThresholdDate > MostRecent|False|
+|Case 2|ThresholdDate > LeastRecent && ThresholdDate <= MostRecent|True|
+|Case 3|ThresholdDate == LeastRecent|False|
+|Case 4|ThresholdDate < LeastRecent|False|
+
+`Case 3` and `Case 3` are `False` because the next `Page` could contain other `PageItem` objects with the same date, therefore the exploration should continue.
+
+## JobPostingManager - The logic behind RemoveUnsuitable()
+
+If the `JobPostingManager.IsThresholdConditionMet()` method returns `True` for a given `JobPosting`, the exploration must stop and the unsuitable `JobPosting` objects must be removed.
+
+The `RemoveUnsuitable()` method is intended for the purpose above, and it works using the following logic:
+
+|ThresholdDate|
+|---|
+|2021-04-28|
+
+|PostingCreated|Action|
+|---|---|---|
+|2021-05-07|Keep|
+|2021-05-07|Keep|
+|2021-05-07|Keep|
+|2021-05-05|Keep|
+|2021-05-05|Keep|
+|2021-05-05|Keep|
+|2021-05-05|Keep|
+|2021-05-01|Keep|
+|2021-05-01|Keep|
+|2021-05-01|Keep|
+|2021-04-30|Keep|
+|2021-04-30|Keep|
+|2021-04-30|Keep|
+|2021-04-30|Keep|
+|2021-04-30|Keep|
+|2021-04-30|Keep|
+|2021-04-28|Remove|
+|2021-04-28|Remove|
+|2021-04-28|Remove|
+|2021-04-28|Remove|
+
+As alternative, `JobPostingId` can be used as criteria instead of `ThresholdDate`.
+
+Given the the following `JobPostingId` and `JobPostings`, we can see which kind of case we are in on the rightmost column and act accordingly.
+
+|TargetJobPostingId|
+|---|
+|8144090studentworker|
+
+|PostingCreated|JobPostingId|Case|
+|---|---|---|---|
+|2021-05-07|8144115learningsalesfulltimestudentposition|Case 1|
+|2021-05-07|8144114unpaidinternshipsales|Case 1|
+|2021-05-07|8144099sitereliabilityengineer|Case 1|
+|2021-05-05|8144098itarchitectconsultant|Case 1|
+|2021-05-05|8144090studentworker|Case 2|
+|2021-05-05|8144089businesssupportpricingmanager|||
+|...|...|...|...|
+
+The case numbers above correspond to the following conditions and actions:
+
+|Case|Condition|Action|
+|---|---|---|
+|Case 1|(JobPostingId == TargetJobPostingId) == False|Add to a new List and Continue|
+|Case 2|(JobPostingId == TargetJobPostingId) == True|Break Loop|
+
+The new list will basically contain only `Case 1` items.
+
 ## The data model
 
 `WIDExplorer` allows to export data into a SQLite database thru the `ToSQLite()` method. 

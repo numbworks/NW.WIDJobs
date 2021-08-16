@@ -4302,7 +4302,6 @@ namespace NW.WIDJobs.UnitTests
         internal static DateTime JobPostingManager_JobPage01Alt_ThresholdDateLeastRecentPostingCreatedMinusOneDay
             = JobPostingManager_JobPage01Alt_ThresholdDateLeastRecentPostingCreated.AddDays(-1);
 
-
         #endregion
 
     }
