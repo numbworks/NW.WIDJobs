@@ -4265,10 +4265,19 @@ namespace NW.WIDJobs.UnitTests
 
         #region JobPostingManagerTests
 
-        internal static DateTime JobPostingManager_JobPage01_PostingCreated
-            = Shared_JobPage01_JobPostings.Select(jobPosting => jobPosting.PostingCreated).FirstOrDefault();
         internal static List<DateTime> JobPostingManager_JobPage01_PostingCreatedCollection
             = Shared_JobPage01_JobPostings.Select(jobPosting => jobPosting.PostingCreated).ToList();
+        internal static DateTime JobPostingManager_JobPage01_ThresholdDateMostRecentPostingCreated
+            = JobPostingManager_JobPage01_PostingCreatedCollection.First();
+        internal static DateTime JobPostingManager_JobPage01_ThresholdDateMostRecentPostingCreatedPlusOneDay
+            = JobPostingManager_JobPage01_ThresholdDateMostRecentPostingCreated.AddDays(1);
+        internal static DateTime JobPostingManager_JobPage01_ThresholdDateMostRecentPostingCreatedMinusOneDay
+            = JobPostingManager_JobPage01_ThresholdDateMostRecentPostingCreated.AddDays(-1);
+        internal static DateTime JobPostingManager_JobPage01_ThresholdDateLeastRecentPostingCreated
+            = Shared_JobPage01_JobPostings.OrderByDescending(jobPosting => jobPosting.PostingCreated).Reverse().First().PostingCreated;
+        internal static DateTime JobPostingManager_JobPage01_ThresholdDateLeastRecentPostingCreatedMinusOneDay
+            = JobPostingManager_JobPage01_ThresholdDateLeastRecentPostingCreated.AddDays(-1);
+
 
         #endregion
 

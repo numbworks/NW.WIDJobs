@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace NW.WIDJobs.UnitTests
 {
@@ -18,7 +19,7 @@ namespace NW.WIDJobs.UnitTests
                 new TestDelegate(
                     () => new JobPostingManager()
                             .IsThresholdConditionMet(
-                                ObjectMother.JobPostingManager_JobPage01_PostingCreated,
+                                ObjectMother.JobPostingManager_JobPage01_ThresholdDateMostRecentPostingCreated,
                                 null
                                 )
                 ),
@@ -62,7 +63,7 @@ namespace NW.WIDJobs.UnitTests
                 new TestDelegate(
                     () => new JobPostingManager()
                             .RemoveUnsuitable(
-                                ObjectMother.JobPostingManager_JobPage01_PostingCreated,
+                                ObjectMother.JobPostingManager_JobPage01_ThresholdDateMostRecentPostingCreated,
                                 null
                                 )
                 ),
@@ -99,18 +100,40 @@ namespace NW.WIDJobs.UnitTests
             ).SetArgDisplayNames($"{nameof(isThresholdConditionMetForThresholdDateExceptionTestCases)}_02")
 
         };
-
-
-
-        private static TestCaseData[] someMethodTestCases =
+        private static TestCaseData[] isThresholdConditionMetForThresholdDateTestCases =
         {
 
+            // ThresholdDate > MostRecent
             new TestCaseData(
-                    "Some message",
-                    false
-                ).SetArgDisplayNames($"{nameof(someMethodTestCases)}_01")
+                   ObjectMother.JobPostingManager_JobPage01_ThresholdDateMostRecentPostingCreatedPlusOneDay,
+                   ObjectMother.JobPostingManager_JobPage01_PostingCreatedCollection,
+                   false
+            ).SetArgDisplayNames($"{nameof(isThresholdConditionMetForThresholdDateTestCases)}_01"),
+
+            // ThresholdDate > LeastRecent && ThresholdDate <= MostRecent
+            new TestCaseData(
+                   ObjectMother.JobPostingManager_JobPage01_ThresholdDateMostRecentPostingCreatedMinusOneDay,
+                   ObjectMother.JobPostingManager_JobPage01_PostingCreatedCollection,
+                   true
+            ).SetArgDisplayNames($"{nameof(isThresholdConditionMetForThresholdDateTestCases)}_02"),
+
+            // ThresholdDate == LeastRecent
+            new TestCaseData(
+                   ObjectMother.JobPostingManager_JobPage01_ThresholdDateLeastRecentPostingCreated,
+                   ObjectMother.JobPostingManager_JobPage01_PostingCreatedCollection,
+                   false
+            ).SetArgDisplayNames($"{nameof(isThresholdConditionMetForThresholdDateTestCases)}_03"),
+
+            // ThresholdDate < LeastRecent
+            new TestCaseData(
+                   ObjectMother.JobPostingManager_JobPage01_ThresholdDateLeastRecentPostingCreatedMinusOneDay,
+                   ObjectMother.JobPostingManager_JobPage01_PostingCreatedCollection,
+                   false
+            ).SetArgDisplayNames($"{nameof(isThresholdConditionMetForThresholdDateTestCases)}_04")
 
         };
+
+
 
         #endregion
 
@@ -140,28 +163,22 @@ namespace NW.WIDJobs.UnitTests
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
-
-
-        [TestCaseSource(nameof(someMethodTestCases))]
-        public void SomeMethod_Should_When
-            (string message, bool expected)
+        [TestCaseSource(nameof(isThresholdConditionMetForThresholdDateTestCases))]
+        public void IsThresholdConditionMet_ShouldReturnExpectedBoolean_WhenThresholdDate
+            (DateTime thresholdDate, List<DateTime> postingCreatedCollection, bool expected)
         {
 
             // Arrange
             // Act
+            bool actual = new JobPostingManager().IsThresholdConditionMet(thresholdDate, postingCreatedCollection);
+
             // Assert
+            Assert.AreEqual(expected, actual);
 
         }
 
-        [Test]
-        public void SomeMethod_Should_When()
-        {
 
-            // Arrange
-            // Act
-            // Assert
 
-        }
 
         #endregion
 
