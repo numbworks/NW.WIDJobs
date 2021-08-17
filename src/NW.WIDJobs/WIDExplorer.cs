@@ -14,6 +14,7 @@ using NW.WIDJobs.Files;
 using NW.WIDJobs.JobPages;
 using NW.WIDJobs.JobPostings;
 using NW.WIDJobs.JobPostingsExtended;
+using NW.WIDJobs.Messages;
 
 namespace NW.WIDJobs
 {

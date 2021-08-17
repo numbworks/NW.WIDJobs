@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using NW.WIDJobs.Database;
 using NW.WIDJobs.JobPostings;
 using NW.WIDJobs.JobPostingsExtended;
+using NW.WIDJobs.Messages;
 
 namespace NW.WIDJobs.UnitTests
 {

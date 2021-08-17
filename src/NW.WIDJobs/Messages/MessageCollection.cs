@@ -7,7 +7,7 @@ using NW.WIDJobs.Files;
 using NW.WIDJobs.JobPostings;
 using NW.WIDJobs.JobPostingsExtended;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.Messages
 {
     ///<summary>Collects all the messages used for logging and exceptions.</summary>
     public static class MessageCollection

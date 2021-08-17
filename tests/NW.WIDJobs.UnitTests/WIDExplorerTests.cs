@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using NW.WIDJobs.Explorations;
 using NW.WIDJobs.Files;
+using NW.WIDJobs.Messages;
 
 namespace NW.WIDJobs.UnitTests
 {

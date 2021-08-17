@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using System;
 using NW.WIDJobs.JobPages;
+using NW.WIDJobs.Messages;
 
 namespace NW.WIDJobs.UnitTests
 {

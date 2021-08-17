@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using NW.WIDJobs.HttpRequests;
+using NW.WIDJobs.Messages;
 
 namespace NW.WIDJobs.JobPages
 {
