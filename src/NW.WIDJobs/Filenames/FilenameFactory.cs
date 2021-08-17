@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.Filenames
 {
     /// <inheritdoc cref="IFilenameFactory"/>
     public class FilenameFactory : IFilenameFactory

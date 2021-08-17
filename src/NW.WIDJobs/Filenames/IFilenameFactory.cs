@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.Filenames
 {
     /// <summary>Collects all the methods related to create filenames for <see cref="WIDExplorer"/>.</summary>
     public interface IFilenameFactory
