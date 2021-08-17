@@ -2,6 +2,7 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using NW.WIDJobs.Database;
 
 namespace NW.WIDJobs.UnitTests
 {

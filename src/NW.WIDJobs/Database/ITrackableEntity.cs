@@ -1,4 +1,4 @@
-﻿namespace NW.WIDJobs
+﻿namespace NW.WIDJobs.Database
 {
     /// <summary>An entity trackable by a <see cref="JobPostingId"/>.</summary>
     public interface ITrackableEntity

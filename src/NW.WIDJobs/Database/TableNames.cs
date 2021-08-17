@@ -1,4 +1,4 @@
-﻿namespace NW.WIDJobs
+﻿namespace NW.WIDJobs.Database
 {
     /// <summary>Collects the names of the database tables.</summary>
     public enum TableNames

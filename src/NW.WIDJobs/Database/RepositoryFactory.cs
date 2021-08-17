@@ -1,4 +1,4 @@
-﻿namespace NW.WIDJobs
+﻿namespace NW.WIDJobs.Database
 {
     /// <summary><inheritdoc cref="IRepositoryFactory"/></summary>
     public class RepositoryFactory : IRepositoryFactory

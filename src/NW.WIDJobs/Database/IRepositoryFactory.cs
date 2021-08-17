@@ -1,4 +1,4 @@
-﻿namespace NW.WIDJobs
+﻿namespace NW.WIDJobs.Database
 {
     /// <summary>A factory for <see cref="IRepository"/>.</summary>
     public interface IRepositoryFactory

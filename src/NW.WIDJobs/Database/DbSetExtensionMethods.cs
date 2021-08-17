@@ -4,7 +4,7 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.Database
 {
     /// <summary>A collection of extension methods for <see cref="DbSet{TEntity}"/>.</summary>
     public static class DbSetExtensionMethods

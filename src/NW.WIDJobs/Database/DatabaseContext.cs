@@ -2,7 +2,7 @@
 using System.IO;
 using Microsoft.EntityFrameworkCore;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.Database
 {
     /// <summary><inheritdoc cref="DbContext"/></summary>
     public class DatabaseContext : DbContext

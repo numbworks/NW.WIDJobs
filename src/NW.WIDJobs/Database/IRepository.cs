@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.Database
 {
     /// <summary>Collects all the database-related methods.</summary>
     public interface IRepository

@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.Database
 {
     /// <summary>A database entity for <see cref="JobPosting"/>.</summary>
     [Table(nameof(TableNames.JobPostings))]

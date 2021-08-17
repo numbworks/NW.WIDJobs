@@ -8,6 +8,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using NW.WIDJobs.BulletPoints;
+using NW.WIDJobs.Database;
 
 namespace NW.WIDJobs.UnitTests
 {

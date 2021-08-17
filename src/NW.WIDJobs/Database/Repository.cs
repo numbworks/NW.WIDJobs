@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Collections.Generic;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.Database
 {
     /// <summary><inheritdoc cref="IRepository"/></summary>
     public class Repository : IRepository
