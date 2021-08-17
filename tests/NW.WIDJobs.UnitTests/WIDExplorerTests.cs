@@ -261,7 +261,7 @@ namespace NW.WIDJobs.UnitTests
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
         [TestCaseSource(nameof(extractFromJsonExceptionTestCases))]
-        public void ExploreFromHtml_ShouldThrowACertainException_WhenUnproperArguments
+        public void ExtractFromJson_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
@@ -281,7 +281,7 @@ namespace NW.WIDJobs.UnitTests
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
         [TestCaseSource(nameof(convertToMetricsExceptionTestCases))]
-        public void ConvertToMetrics_ShouldThrowACertainException_WhenUnproperArguments
+        public void ConvertToMetricCollection_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
