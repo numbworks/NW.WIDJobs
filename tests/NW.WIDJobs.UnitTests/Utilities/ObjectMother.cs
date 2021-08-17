@@ -9,6 +9,7 @@ using System.Reflection;
 using System.Text;
 using NW.WIDJobs.BulletPoints;
 using NW.WIDJobs.Database;
+using NW.WIDJobs.Explorations;
 
 namespace NW.WIDJobs.UnitTests
 {

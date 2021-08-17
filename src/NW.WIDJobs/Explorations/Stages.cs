@@ -1,4 +1,4 @@
-﻿namespace NW.WIDJobs
+﻿namespace NW.WIDJobs.Explorations
 {
     /// <summary>The depth of a <see cref="Exploration"/>.</summary>
     public enum Stages

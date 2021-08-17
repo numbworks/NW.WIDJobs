@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using NW.WIDJobs.Explorations;
 
 namespace NW.WIDJobs
 {

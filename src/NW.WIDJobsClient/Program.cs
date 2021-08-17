@@ -6,6 +6,7 @@ using NW.WIDJobs.UnitTests;
 using System.Text.Json;
 using System.Text.Encodings.Web;
 using System.Dynamic;
+using NW.WIDJobs.Explorations;
 
 namespace NW.WIDJobsClient
 {

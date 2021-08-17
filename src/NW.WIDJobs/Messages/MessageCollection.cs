@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using NW.WIDJobs.BulletPoints;
+using NW.WIDJobs.Explorations;
 
 namespace NW.WIDJobs
 {

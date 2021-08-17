@@ -1,5 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
+using NW.WIDJobs.Explorations;
 
 namespace NW.WIDJobs.UnitTests
 {
