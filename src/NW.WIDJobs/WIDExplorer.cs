@@ -77,12 +77,12 @@ namespace NW.WIDJobs
             Validator.ValidateList(exploration.JobPostings, nameof(exploration.JobPostings));
             Validator.ValidateList(exploration.JobPostingsExtended, nameof(exploration.JobPostingsExtended));
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ConvertingExplorationToMetrics);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ConvertingExplorationToMetricCollection);
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs.Invoke(exploration.RunId));
 
             MetricCollection metricCollection = _components.MetricCollectionManager.Calculate(exploration);
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationConvertedToMetrics);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationConvertedToMetricCollection);
 
             return metricCollection;
 

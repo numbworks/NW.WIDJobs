@@ -157,9 +157,9 @@ namespace NW.WIDJobs.Messages
         public static Func<DateTime, string> WIDExplorer_NowIs
             = (now) => $"Now:'{now.ToString(WIDExplorer.DefaultFormatDate)}'.";
 
-        public static string WIDExplorer_ConvertingExplorationToMetrics
+        public static string WIDExplorer_ConvertingExplorationToMetricCollection
             = $"Converting the provided {nameof(Exploration)} object to a {nameof(MetricCollection)} object...";  
-        public static string WIDExplorer_ExplorationConvertedToMetrics
+        public static string WIDExplorer_ExplorationConvertedToMetricCollection
             = $"The provided {nameof(Exploration)} object has been successfully converted to a {nameof(MetricCollection)} object.";
 
         public static string WIDExplorer_ConvertingExplorationToJsonString

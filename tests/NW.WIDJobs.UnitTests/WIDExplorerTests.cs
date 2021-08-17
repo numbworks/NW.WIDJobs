@@ -1,10 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using NUnit.Framework;
+using NW.WIDJobs.AsciiBanner;
+using NW.WIDJobs.BulletPoints;
+using NW.WIDJobs.Database;
 using NW.WIDJobs.Explorations;
+using NW.WIDJobs.Filenames;
 using NW.WIDJobs.Files;
+using NW.WIDJobs.HttpRequests;
+using NW.WIDJobs.JobPages;
+using NW.WIDJobs.JobPostings;
+using NW.WIDJobs.JobPostingsExtended;
 using NW.WIDJobs.Messages;
 using NW.WIDJobs.Metrics;
+using NW.WIDJobs.Runs;
+using NW.WIDJobs.XPath;
 
 namespace NW.WIDJobs.UnitTests
 {
@@ -287,17 +297,51 @@ namespace NW.WIDJobs.UnitTests
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
         [Test]
-        public void ConvertToMetricCollection_ShouldReturnExpectedMetricCollectionObject_WhenProperExploration()
+        public void ConvertToMetricCollection_ShouldReturnExpectedMetricCollectionObjectAndLogExpectedMessages_WhenProperExploration()
         {
 
             // Arrange
+            FakeLogger fakeLogger = new FakeLogger();
+            Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
+            FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
+            Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
+            WIDExplorerComponents components = new WIDExplorerComponents(
+                    loggingAction: fakeLoggingAction,
+                    loggingActionAsciiBanner: fakeLoggingActionAsciiBanner,
+                    xpathManager: new XPathManager(),
+                    getRequestManager: new GetRequestManager(),
+                    jobPageDeserializer: new JobPageDeserializer(),
+                    jobPageManager: new JobPageManager(),
+                    jobPostingDeserializer: new JobPostingDeserializer(),
+                    jobPostingManager: new JobPostingManager(),
+                    jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
+                    jobPostingExtendedManager: new JobPostingExtendedManager(),
+                    runIdManager: new RunIdManager(),
+                    metricCollectionManager: new MetricCollectionManager(),
+                    fileManager: new FileManager(),
+                    repositoryFactory: new RepositoryFactory(),
+                    asciiBannerManager: new AsciiBannerManager(),
+                    filenameFactory: new FilenameFactory(),
+                    bulletPointManager: new BulletPointManager()
+                  );
+            WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings(), WIDExplorer.DefaultNowFunction);
+            List<string> expectedLogMessages = new List<string>()
+            {
+
+                MessageCollection.WIDExplorer_ConvertingExplorationToMetricCollection,
+                MessageCollection.WIDExplorer_RunIdIs.Invoke(ObjectMother.Shared_ExplorationStage3.RunId),
+                MessageCollection.WIDExplorer_ExplorationConvertedToMetricCollection
+
+            };
+
             // Act
-            MetricCollection actual = new WIDExplorer().ConvertToMetricCollection(ObjectMother.Shared_ExplorationStage3);
+            MetricCollection actual = widExplorer.ConvertToMetricCollection(ObjectMother.Shared_ExplorationStage3);
 
             // Assert
             Assert.IsTrue(
                 ObjectMother.AreEqual(ObjectMother.MetricCollection_ExplorationStage3, actual)
                 );
+            Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
 
         }
 
