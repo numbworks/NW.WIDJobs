@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.BulletPoints
 {
     /// <inheritdoc cref="IBulletPointManager"/>
     public class BulletPointManager : IBulletPointManager

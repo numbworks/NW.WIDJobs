@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.BulletPoints
 {
     /// <summary>A labeled bullet point.</summary>
     public class BulletPoint

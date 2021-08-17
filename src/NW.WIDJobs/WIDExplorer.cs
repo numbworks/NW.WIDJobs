@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Threading;
+using NW.WIDJobs.BulletPoints;
 
 namespace NW.WIDJobs
 {

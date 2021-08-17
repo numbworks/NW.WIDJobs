@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using System.Collections.Generic;
+using NW.WIDJobs.BulletPoints;
 
 namespace NW.WIDJobs.UnitTests
 {

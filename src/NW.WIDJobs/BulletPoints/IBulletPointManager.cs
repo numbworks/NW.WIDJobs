@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.BulletPoints
 {
     /// <summary>Collects all the helper methods related to <see cref="BulletPoint"/>.</summary>
     public interface IBulletPointManager

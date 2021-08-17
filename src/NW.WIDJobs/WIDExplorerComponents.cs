@@ -1,5 +1,6 @@
 ﻿using System;
 using NW.WIDJobs.AsciiBanner;
+using NW.WIDJobs.BulletPoints;
 
 namespace NW.WIDJobs
 {

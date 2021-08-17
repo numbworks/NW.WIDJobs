@@ -1,4 +1,4 @@
-﻿namespace NW.WIDJobs
+﻿namespace NW.WIDJobs.BulletPoints
 {
     /// <summary>All the labels a <see cref="BulletPoint"/> provided by <see cref="BulletPointManager"/> can have.</summary>
     public enum BulletPointLabels
