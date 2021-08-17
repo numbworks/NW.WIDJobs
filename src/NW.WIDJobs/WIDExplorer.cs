@@ -101,6 +101,24 @@ namespace NW.WIDJobs
             return metricCollection;
 
         }
+        public string ConvertToJson(Exploration exploration)
+        {
+
+            Validator.ValidateObject(exploration, nameof(exploration));
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ConvertingExplorationToJsonString);
+            LogSharedSerializationOptions();
+            LogExplorationSerializationOptions();
+
+            dynamic dyn = OptimizeExplorationForSerialization(exploration);
+            string json = JsonSerializer.Serialize(dyn, CreateJsonSerializerOptions());
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ConvertedExplorationToJsonString);
+
+            return json;
+
+        }
+
 
         public Exploration Explore(string runId, ushort finalPageNumber, Stages stage)
         {
@@ -337,29 +355,6 @@ namespace NW.WIDJobs
 
         }
 
-        public string ConvertToJson(Exploration exploration)
-        {
-
-            Validator.ValidateObject(exploration, nameof(exploration));
-
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ConvertingExplorationToJsonString);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(MessageCollection.WIDExplorer_SerializationOptionPageContent));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(MessageCollection.WIDExplorer_SerializationOptionPageItems));
-
-            JsonSerializerOptions options = new JsonSerializerOptions();
-            options.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
-            options.Converters.Add(new DateTimeToDateConverter());
-
-            dynamic dyn = OptimizeForSerialization(exploration);
-            string json = JsonSerializer.Serialize(dyn, options);
-
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ConvertedExplorationToJsonString);
-
-            return json;
-
-        }
         public string ConvertToJson(MetricCollection metricCollection, bool numbersAsPercentages)
         {
 
@@ -367,12 +362,7 @@ namespace NW.WIDJobs
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ConvertingMetricCollectionToJsonString);
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_NumbersAsPercentagesIs.Invoke(numbersAsPercentages));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)));
-
-            JsonSerializerOptions options = new JsonSerializerOptions();
-            options.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
-            options.Converters.Add(new DateTimeToDateConverter());
+            LogSharedSerializationOptions();
 
             dynamic dyn = metricCollection;
             if (numbersAsPercentages)
@@ -380,7 +370,7 @@ namespace NW.WIDJobs
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ConvertedMetricsCollectionToJsonString);
 
-            return JsonSerializer.Serialize(dyn, options);
+            return JsonSerializer.Serialize(dyn, CreateJsonSerializerOptions());
 
         }
 
@@ -388,6 +378,17 @@ namespace NW.WIDJobs
 
         #region Methods_private
 
+        private JsonSerializerOptions CreateJsonSerializerOptions()
+        {
+
+            JsonSerializerOptions options = new JsonSerializerOptions();
+
+            options.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
+            options.Converters.Add(new DateTimeToDateConverter());
+
+            return options;
+
+        }
         private void ConditionallySleep(ushort i, ushort parallelRequests, uint pauseBetweenRequestsMs)
         {
 
@@ -395,66 +396,6 @@ namespace NW.WIDJobs
             // i != 0, because 0 % x = 0...
             if (i != 0 && i % parallelRequests == 0)
                 Thread.Sleep((int)pauseBetweenRequestsMs);
-
-        }
-        private void LogInitializationMessage(string runId, ushort finalPageNumber, Stages stage)
-        {
-
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationStarted);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs(runId));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DefaultInitialPageNumberIs(DefaultInitialPageNumber));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FinalPageNumberIs(finalPageNumber));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_StageIs(stage));
-
-        }
-        private void LogInitializationMessage(string runId, DateTime thresholdDate, Stages stage)
-        {
-
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationStarted);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs(runId));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DefaultInitialPageNumberIs(DefaultInitialPageNumber));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ThresholdDateIs(thresholdDate));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_StageIs(stage));
-
-        }
-        private void LogInitializationMessage(string runId, Stages stage)
-        {
-
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationStarted);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs(runId));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DefaultInitialPageNumberIs(DefaultInitialPageNumber));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FinalPageNumberIsLastPage);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_StageIs(stage));
-
-        }
-        private Exploration LogCompletionMessageAndReturn(Exploration exploration)
-        {
-
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationCompleted);
-
-            return exploration;
-
-        }
-        private dynamic OptimizeForSerialization(Exploration exploration)
-        {
-
-            dynamic dyn = new ExpandoObject();
-
-            dyn.RunId = exploration.RunId;
-            dyn.TotalResultCount = exploration.TotalResultCount;
-            dyn.TotalJobPages = exploration.TotalJobPages;
-            dyn.Stage = exploration.Stage;
-            dyn.IsCompleted = exploration.IsCompleted;
-
-            dyn.JobPages =
-                exploration.JobPages?.Select(jobPage => new JobPage(jobPage.RunId, jobPage.PageNumber, DefaultNotSerialized)).ToList();
-
-            if (exploration.Stage == Stages.Stage3_UpToAllJobPostingsExtended)
-                dyn.JobPostings = DefaultNotSerialized;
-
-            dyn.JobPostingsExtended = exploration.JobPostingsExtended;
-
-            return dyn;
 
         }
         private dynamic ConvertNumbersToPercentages(MetricCollection metricCollection)
@@ -500,6 +441,184 @@ namespace NW.WIDJobs
             dyn.BulletPointsByJobPostingId = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.BulletPointsByJobPostingId);
 
             dyn.TotalBulletPoints = metricCollection.TotalBulletPoints;
+
+            return dyn;
+
+        }
+
+        private void LogInitializationMessage(string runId, ushort finalPageNumber, Stages stage)
+        {
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationStarted);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs(runId));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DefaultInitialPageNumberIs(DefaultInitialPageNumber));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FinalPageNumberIs(finalPageNumber));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_StageIs(stage));
+
+        }
+        private void LogInitializationMessage(string runId, DateTime thresholdDate, Stages stage)
+        {
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationStarted);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs(runId));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DefaultInitialPageNumberIs(DefaultInitialPageNumber));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ThresholdDateIs(thresholdDate));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_StageIs(stage));
+
+        }
+        private void LogInitializationMessage(string runId, Stages stage)
+        {
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationStarted);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs(runId));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DefaultInitialPageNumberIs(DefaultInitialPageNumber));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FinalPageNumberIsLastPage);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_StageIs(stage));
+
+        }
+        private void LogSharedSerializationOptions()
+        {
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)));
+
+        }
+        private void LogExplorationSerializationOptions()
+        {
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(MessageCollection.WIDExplorer_NotSerializedJobPageContent));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(MessageCollection.WIDExplorer_NotSerializedJobPostings));
+
+        }
+        private Exploration LogCompletionMessageAndReturn(Exploration exploration)
+        {
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationCompleted);
+
+            return exploration;
+
+        }
+
+        private JobPage OptimizeJobPageForSerialization(JobPage jobPage)
+        {
+
+            JobPage optimized
+                = new JobPage(jobPage.RunId, jobPage.PageNumber, DefaultNotSerialized);
+
+            return optimized;
+        
+        }
+        private List<JobPage> OptimizeJobPagesForSerialization(List<JobPage> jobPages)
+        {
+
+            List<JobPage> optimized
+                = jobPages.Select(jobPage => OptimizeJobPageForSerialization(jobPage)).ToList();
+
+            return optimized;
+
+        }
+        private JobPosting OptimizeJobPostingForSerialization(JobPosting jobPosting)
+        {
+
+            JobPosting optimized 
+                =  new JobPosting(
+                        runId: jobPosting.RunId,
+                        pageNumber: jobPosting.PageNumber,
+                        response: DefaultNotSerialized,
+                        title: jobPosting.Title,
+                        presentation: jobPosting.Presentation,
+                        hiringOrgName: jobPosting.HiringOrgName,
+                        workPlaceAddress: jobPosting.WorkPlaceAddress,
+                        workPlacePostalCode: jobPosting.WorkPlacePostalCode,
+                        workPlaceCity: jobPosting.WorkPlaceCity,
+                        postingCreated: jobPosting.PostingCreated,
+                        lastDateApplication: jobPosting.LastDateApplication,
+                        url: jobPosting.Url,
+                        region: jobPosting.Region,
+                        municipality: jobPosting.Municipality,
+                        country: jobPosting.Country,
+                        employmentType: jobPosting.EmploymentType,
+                        workHours: jobPosting.WorkHours,
+                        occupation: jobPosting.Occupation,
+                        workplaceId: jobPosting.WorkplaceId,
+                        organisationId: jobPosting.OrganisationId,
+                        hiringOrgCVR: jobPosting.HiringOrgCVR,
+                        id: jobPosting.Id,
+                        workPlaceCityWithoutZone: jobPosting.WorkPlaceCityWithoutZone,
+                        jobPostingNumber: jobPosting.JobPostingNumber,
+                        jobPostingId: jobPosting.JobPostingId
+                    );
+
+            return optimized;
+
+        }
+        private List<JobPosting> OptimizeJobPostingsForSerialization(List<JobPosting> jobPostings)
+        {
+
+            List<JobPosting> optimized
+                = jobPostings.Select(jobPosting => OptimizeJobPostingForSerialization(jobPosting)).ToList();
+
+            return optimized;
+
+        }
+        private JobPostingExtended OptimizeJobPostingExtendedForSerialization(JobPostingExtended jobPostingExtended)
+        {
+
+            JobPostingExtended optimized
+                = new JobPostingExtended(
+                    jobPosting: OptimizeJobPostingForSerialization(jobPostingExtended.JobPosting),
+                    response: DefaultNotSerialized,
+                    hiringOrgDescription: jobPostingExtended.HiringOrgDescription,
+                    publicationStartDate: jobPostingExtended.PublicationStartDate,
+                    publicationEndDate: jobPostingExtended.PublicationEndDate,
+                    purpose: DefaultNotSerialized,
+                    numberToFill: jobPostingExtended.NumberToFill,
+                    contactEmail: jobPostingExtended.ContactEmail,
+                    contactPersonName: jobPostingExtended.ContactPersonName,
+                    employmentDate: jobPostingExtended.EmploymentDate,
+                    applicationDeadlineDate: jobPostingExtended.ApplicationDeadlineDate,
+                    bulletPoints: jobPostingExtended.BulletPoints,
+                    bulletPointScenario: jobPostingExtended.BulletPointScenario
+                    );
+
+            return optimized;
+
+        }
+        private List<JobPostingExtended> OptimizeJobPostingsExtendedForSerialization(List<JobPostingExtended> jobPostingsExtended)
+        {
+
+            List<JobPostingExtended> optimized
+                = jobPostingsExtended.Select(jobPostingExtended => OptimizeJobPostingExtendedForSerialization(jobPostingExtended)).ToList();
+
+            return optimized;
+
+        }
+        private dynamic OptimizeExplorationForSerialization(Exploration exploration)
+        {
+
+            dynamic dyn = new ExpandoObject();
+
+            dyn.RunId = exploration.RunId;
+            dyn.TotalResultCount = exploration.TotalResultCount;
+            dyn.TotalJobPages = exploration.TotalJobPages;
+            dyn.Stage = exploration.Stage;
+            dyn.IsCompleted = exploration.IsCompleted;
+
+            if (exploration.JobPages != null)
+                dyn.JobPages = OptimizeJobPagesForSerialization(exploration.JobPages);
+
+            if (exploration.JobPostings != null)
+                dyn.JobPostings = OptimizeJobPostingsForSerialization(exploration.JobPostings);
+
+            if (exploration.JobPostingsExtended != null)
+            {
+
+                dyn.JobPostingsExtended = OptimizeJobPostingsExtendedForSerialization(exploration.JobPostingsExtended);
+
+                if (exploration.Stage == Stages.Stage3_UpToAllJobPostingsExtended)
+                    dyn.JobPostings = DefaultNotSerialized;
+
+            }
 
             return dyn;
 
@@ -716,5 +835,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 11.08.2021
+    Last Update: 17.08.2021
 */
