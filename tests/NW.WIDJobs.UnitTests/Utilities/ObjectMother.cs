@@ -13,6 +13,7 @@ using NW.WIDJobs.Explorations;
 using NW.WIDJobs.Filenames;
 using NW.WIDJobs.Files;
 using NW.WIDJobs.HttpRequests;
+using NW.WIDJobs.JobPages;
 
 namespace NW.WIDJobs.UnitTests
 {

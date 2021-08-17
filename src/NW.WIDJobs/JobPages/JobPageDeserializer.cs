@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.Json;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.JobPages
 {
     /// <inheritdoc cref="IJobPageDeserializer"/>
     public class JobPageDeserializer : IJobPageDeserializer

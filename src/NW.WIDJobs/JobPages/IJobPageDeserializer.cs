@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.JobPages
 {
     /// <summary>A deserializer for <see href="http://www.workindenmark.dk">WorkInDenmark</see>'s job page responses.</summary>
     public interface IJobPageDeserializer

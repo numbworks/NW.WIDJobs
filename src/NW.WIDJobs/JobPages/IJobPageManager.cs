@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.JobPages
 {
     /// <summary>Collects all the helper methods related to <see cref="JobPage"/>.</summary>
     public interface IJobPageManager

@@ -11,6 +11,7 @@ using NW.WIDJobs.BulletPoints;
 using NW.WIDJobs.Database;
 using NW.WIDJobs.Explorations;
 using NW.WIDJobs.Files;
+using NW.WIDJobs.JobPages;
 
 namespace NW.WIDJobs
 {

@@ -2,7 +2,7 @@
 using System.Text.RegularExpressions;
 using NW.WIDJobs.HttpRequests;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.JobPages
 {
     /// <summary><inheritdoc cref="IJobPageManager"/></summary>
     public class JobPageManager : IJobPageManager

@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using NW.WIDJobs.JobPages;
 
 namespace NW.WIDJobs.UnitTests
 {
