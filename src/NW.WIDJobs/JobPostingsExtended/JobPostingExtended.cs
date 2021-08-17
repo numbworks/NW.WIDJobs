@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using NW.WIDJobs.JobPostings;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.JobPostingsExtended
 {
     /// <summary>A <see href="http://www.workindenmark.dk">WorkInDenmark</see>'s job posting extended.</summary>
     public class JobPostingExtended

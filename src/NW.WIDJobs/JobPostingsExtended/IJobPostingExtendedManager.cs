@@ -1,7 +1,7 @@
 ﻿using System;
 using NW.WIDJobs.JobPostings;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.JobPostingsExtended
 {
     /// <summary>Collects all the helper methods related to <see cref="JobPostingExtended"/>.</summary>
     public interface IJobPostingExtendedManager

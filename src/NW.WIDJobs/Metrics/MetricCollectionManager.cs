@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using NW.WIDJobs.Explorations;
 using NW.WIDJobs.JobPostings;
+using NW.WIDJobs.JobPostingsExtended;
 
 namespace NW.WIDJobs
 {

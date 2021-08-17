@@ -2,7 +2,7 @@
 using NW.WIDJobs.HttpRequests;
 using NW.WIDJobs.JobPostings;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.JobPostingsExtended
 {
     /// <summary><inheritdoc cref="IJobPostingExtendedManager"/></summary>
     public class JobPostingExtendedManager : IJobPostingExtendedManager

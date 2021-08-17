@@ -7,6 +7,7 @@ using System.Text.Json;
 using System.Text.Encodings.Web;
 using System.Dynamic;
 using NW.WIDJobs.Explorations;
+using NW.WIDJobs.JobPostingsExtended;
 
 namespace NW.WIDJobsClient
 {
