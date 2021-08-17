@@ -4,6 +4,7 @@ using NUnit.Framework;
 using NW.WIDJobs.Explorations;
 using NW.WIDJobs.Files;
 using NW.WIDJobs.Messages;
+using NW.WIDJobs.Metrics;
 
 namespace NW.WIDJobs.UnitTests
 {
@@ -211,7 +212,7 @@ namespace NW.WIDJobs.UnitTests
             ).SetArgDisplayNames($"{nameof(convertToJsonExceptionTestCases)}_02")
 
         };
-        private static TestCaseData[] convertToMetricsExceptionTestCases =
+        private static TestCaseData[] convertToMetricCollectionExceptionTestCases =
         {
 
             new TestCaseData(
@@ -219,7 +220,7 @@ namespace NW.WIDJobs.UnitTests
                     () => new WIDExplorer().ConvertToMetricCollection(null)),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("exploration").Message
-            ).SetArgDisplayNames($"{nameof(convertToMetricsExceptionTestCases)}_01"),
+            ).SetArgDisplayNames($"{nameof(convertToMetricCollectionExceptionTestCases)}_01"),
 
             new TestCaseData(
                 new TestDelegate(
@@ -229,7 +230,7 @@ namespace NW.WIDJobs.UnitTests
                     ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("JobPostings").Message
-            ).SetArgDisplayNames($"{nameof(convertToMetricsExceptionTestCases)}_02"),
+            ).SetArgDisplayNames($"{nameof(convertToMetricCollectionExceptionTestCases)}_02"),
 
             new TestCaseData(
                 new TestDelegate(
@@ -239,7 +240,7 @@ namespace NW.WIDJobs.UnitTests
                     ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("JobPostingsExtended").Message
-            ).SetArgDisplayNames($"{nameof(convertToMetricsExceptionTestCases)}_03")
+            ).SetArgDisplayNames($"{nameof(convertToMetricCollectionExceptionTestCases)}_03")
 
         };
 
@@ -280,15 +281,30 @@ namespace NW.WIDJobs.UnitTests
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
-        [TestCaseSource(nameof(convertToMetricsExceptionTestCases))]
+        [TestCaseSource(nameof(convertToMetricCollectionExceptionTestCases))]
         public void ConvertToMetricCollection_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
+
+        [Test]
+        public void ConvertToMetricCollection_ShouldReturnExpectedMetricCollectionObject_WhenProperExploration()
+        {
+
+            // Arrange
+            // Act
+            MetricCollection actual = new WIDExplorer().ConvertToMetricCollection(ObjectMother.Shared_ExplorationStage3);
+
+            // Assert
+            Assert.IsTrue(
+                ObjectMother.AreEqual(ObjectMother.MetricCollection_ExplorationStage3, actual)
+                );
+
+        }
 
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 13.08.2021
+    Last Update: 17.08.2021
 */

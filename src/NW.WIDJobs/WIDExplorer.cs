@@ -70,6 +70,24 @@ namespace NW.WIDJobs
 
         #region Methods_public
 
+        public MetricCollection ConvertToMetricCollection(Exploration exploration)
+        {
+
+            Validator.ValidateObject(exploration, nameof(exploration));
+            Validator.ValidateList(exploration.JobPostings, nameof(exploration.JobPostings));
+            Validator.ValidateList(exploration.JobPostingsExtended, nameof(exploration.JobPostingsExtended));
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ConvertingExplorationToMetrics);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs.Invoke(exploration.RunId));
+
+            MetricCollection metricCollection = _components.MetricCollectionManager.Calculate(exploration);
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationConvertedToMetrics);
+
+            return metricCollection;
+
+        }
+
         public Exploration Explore(string runId, ushort finalPageNumber, Stages stage)
         {
 
@@ -349,23 +367,6 @@ namespace NW.WIDJobs
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ConvertedMetricsCollectionToJsonString);
 
             return JsonSerializer.Serialize(dyn, options);
-
-        }
-        public MetricCollection ConvertToMetricCollection(Exploration exploration)
-        {
-
-            Validator.ValidateObject(exploration, nameof(exploration));
-            Validator.ValidateList(exploration.JobPostings, nameof(exploration.JobPostings));
-            Validator.ValidateList(exploration.JobPostingsExtended, nameof(exploration.JobPostingsExtended));
-
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ConvertingExplorationToMetrics);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs.Invoke(exploration.RunId));
-
-            MetricCollection metrics = _components.MetricCollectionManager.Calculate(exploration);
-
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationConvertedToMetrics);
-
-            return metrics;
 
         }
 
