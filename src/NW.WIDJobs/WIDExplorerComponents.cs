@@ -1,4 +1,5 @@
 ﻿using System;
+using NW.WIDJobs.AsciiBanner;
 
 namespace NW.WIDJobs
 {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.AsciiBanner
 {
     /// <summary><inheritdoc cref="IAsciiBannerManager"/></summary>
     public class AsciiBannerManager : IAsciiBannerManager

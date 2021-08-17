@@ -1,5 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
+using NW.WIDJobs.AsciiBanner;
 
 namespace NW.WIDJobs.UnitTests
 {

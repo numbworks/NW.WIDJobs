@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.AsciiBanner
 {
     /// <summary>Collects all the helper methods related to the library's ASCII banner.</summary>
     public interface IAsciiBannerManager
