@@ -2,7 +2,7 @@
 using System.IO;
 using System.Runtime.Serialization;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.Files
 {
     /// <inheritdoc cref="IFileInfoAdapter"/>
     public class FileInfoAdapter : IFileInfoAdapter

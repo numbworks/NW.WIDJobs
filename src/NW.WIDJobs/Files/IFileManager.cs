@@ -2,7 +2,7 @@
 using System.IO;
 using System;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.Files
 {
     /// <summary>Collects all the helper methods related to files' management.</summary>
     public interface IFileManager

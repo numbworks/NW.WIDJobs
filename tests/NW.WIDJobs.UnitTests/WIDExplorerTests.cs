@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using NUnit.Framework;
 using NW.WIDJobs.Explorations;
+using NW.WIDJobs.Files;
 
 namespace NW.WIDJobs.UnitTests
 {

@@ -2,7 +2,7 @@
 using System.IO;
 using System.Runtime.Serialization;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.Files
 {
     /// <summary>Adapter for <see cref="FileInfo"/>.</summary>
     public interface IFileInfoAdapter

@@ -10,6 +10,7 @@ using System.Text;
 using NW.WIDJobs.BulletPoints;
 using NW.WIDJobs.Database;
 using NW.WIDJobs.Explorations;
+using NW.WIDJobs.Files;
 
 namespace NW.WIDJobs.UnitTests
 {

@@ -3,6 +3,7 @@ using NUnit.Framework;
 using NW.WIDJobs.AsciiBanner;
 using NW.WIDJobs.BulletPoints;
 using NW.WIDJobs.Database;
+using NW.WIDJobs.Files;
 
 namespace NW.WIDJobs.UnitTests
 {

@@ -2,7 +2,7 @@
 using System.IO;
 using System.Collections.Generic;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.Files
 {
     /// <summary><inheritdoc cref="IFileManager"/></summary>
     public class FileManager : IFileManager

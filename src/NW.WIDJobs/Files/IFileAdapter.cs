@@ -2,7 +2,7 @@
 using System.Text;
 using System.IO;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.Files
 {
     /// <summary>Adapter for <see cref="File"/>.</summary>
     public interface IFileAdapter
