@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.HttpRequests
 {
     /// <inheritdoc cref="IHttpWebRequestFactory"/>
     public class HttpWebRequestFactory : IHttpWebRequestFactory

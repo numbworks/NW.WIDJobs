@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.HttpRequests
 {
     /// <summary>Wrapper for WebRequest.Create().</summary>
     public interface IHttpWebRequestFactory

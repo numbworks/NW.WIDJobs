@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.HttpRequests
 {
     /// <summary><inheritdoc cref="IGetRequestManagerFactory"/></summary>
     public class GetRequestManagerFactory : IGetRequestManagerFactory

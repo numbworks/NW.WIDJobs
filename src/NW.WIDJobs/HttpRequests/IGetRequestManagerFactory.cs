@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.HttpRequests
 {
     /// <summary>A factory for <see cref="IGetRequestManager"/>.</summary>
     public interface IGetRequestManagerFactory

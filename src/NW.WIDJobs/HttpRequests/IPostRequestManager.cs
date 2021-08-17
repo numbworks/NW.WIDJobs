@@ -2,7 +2,7 @@
 using System.Net;
 using System.Text;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.HttpRequests
 {
     /// <summary>Collects methods related to HTTP POST requests.</summary>
     public interface IPostRequestManager

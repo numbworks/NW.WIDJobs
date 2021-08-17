@@ -2,7 +2,7 @@
 using System.Net;
 using System.Text;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.HttpRequests
 {
     /// <summary>Collects methods related to HTTP GET requests.</summary>
     public interface IGetRequestManager

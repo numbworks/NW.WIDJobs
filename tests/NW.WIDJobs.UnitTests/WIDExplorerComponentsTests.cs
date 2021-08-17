@@ -5,6 +5,7 @@ using NW.WIDJobs.BulletPoints;
 using NW.WIDJobs.Database;
 using NW.WIDJobs.Filenames;
 using NW.WIDJobs.Files;
+using NW.WIDJobs.HttpRequests;
 
 namespace NW.WIDJobs.UnitTests
 {

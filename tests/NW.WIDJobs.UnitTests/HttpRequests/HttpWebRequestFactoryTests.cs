@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using System.Net;
+using NW.WIDJobs.HttpRequests;
 
 namespace NW.WIDJobs.UnitTests
 {

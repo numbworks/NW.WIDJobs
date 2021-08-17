@@ -3,7 +3,7 @@ using System.Net;
 using System.IO;
 using System.Text;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.HttpRequests
 {
     /// <summary><inheritdoc cref="IPostRequestManager"/></summary>
     public class PostRequestManager : IPostRequestManager

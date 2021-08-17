@@ -2,7 +2,7 @@
 using System.Net;
 using System.Text;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.HttpRequests
 {
     /// <summary>A factory for <see cref="IPostRequestManager"/>.</summary>
     public interface IPostRequestManagerFactory

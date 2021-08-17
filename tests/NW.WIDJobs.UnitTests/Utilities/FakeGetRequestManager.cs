@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net;
 using System.Text;
+using NW.WIDJobs.HttpRequests;
 
 namespace NW.WIDJobs.UnitTests
 {

@@ -1,4 +1,5 @@
 ﻿using System;
+using NW.WIDJobs.HttpRequests;
 
 namespace NW.WIDJobs
 {
