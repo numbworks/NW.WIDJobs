@@ -2,7 +2,7 @@
 using HtmlAgilityPack;
 using NW.WIDJobs.Validation;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.XPath
 {
     /// <inheritdoc cref="IXPathManager"/>
     public class XPathManager : IXPathManager

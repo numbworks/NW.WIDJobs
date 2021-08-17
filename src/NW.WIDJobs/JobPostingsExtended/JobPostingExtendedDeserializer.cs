@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using System.Web;
 using NW.WIDJobs.JobPostings;
 using NW.WIDJobs.Validation;
+using NW.WIDJobs.XPath;
 
 namespace NW.WIDJobs.JobPostingsExtended
 {

@@ -1,7 +1,7 @@
 ﻿using System; 
 using System.Collections.Generic;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.XPath
 {
     /// <summary>Extracts information from HTML content by using XPath strings.</summary>
     public interface IXPathManager

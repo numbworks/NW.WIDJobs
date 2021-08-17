@@ -11,6 +11,7 @@ using NW.WIDJobs.JobPostingsExtended;
 using NW.WIDJobs.Metrics;
 using NW.WIDJobs.Runs;
 using NW.WIDJobs.Validation;
+using NW.WIDJobs.XPath;
 
 namespace NW.WIDJobs
 {

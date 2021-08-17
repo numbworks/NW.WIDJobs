@@ -1,6 +1,6 @@
 ﻿using HtmlAgilityPack;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.XPath
 {
     /// <summary>Adapter for HtmlAgilityPack's <see cref="HtmlDocument"/>.</summary>
     public interface IHtmlDocumentAdapter

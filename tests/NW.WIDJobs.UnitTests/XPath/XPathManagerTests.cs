@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using NW.WIDJobs.XPath;
 
 namespace NW.WIDJobs.UnitTests
 {

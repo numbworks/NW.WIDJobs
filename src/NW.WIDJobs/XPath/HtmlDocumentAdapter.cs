@@ -1,6 +1,6 @@
 ﻿using HtmlAgilityPack;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.XPath
 {
     /// <inheritdoc cref="IHtmlDocumentAdapter"/>
     public class HtmlDocumentAdapter : IHtmlDocumentAdapter
