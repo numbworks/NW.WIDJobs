@@ -70,6 +70,8 @@ namespace NW.WIDJobs
 
         #region Methods_public
 
+        public void LogAsciiBanner()
+            => _components.LoggingActionAsciiBanner.Invoke(AsciiBanner);
         public List<BulletPoint> GetPreLabeledBulletPoints()
         {
 
@@ -381,9 +383,6 @@ namespace NW.WIDJobs
             return JsonSerializer.Serialize(dyn, options);
 
         }
-
-        public void LogAsciiBanner()
-            => _components.LoggingActionAsciiBanner.Invoke(AsciiBanner);
 
         #endregion
 
