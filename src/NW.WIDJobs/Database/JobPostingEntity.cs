@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using NW.WIDJobs.JobPostings;
 
 namespace NW.WIDJobs.Database
 {

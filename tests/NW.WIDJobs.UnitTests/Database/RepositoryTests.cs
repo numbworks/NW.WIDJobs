@@ -3,6 +3,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using NW.WIDJobs.Database;
+using NW.WIDJobs.JobPostings;
 
 namespace NW.WIDJobs.UnitTests
 {

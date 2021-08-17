@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using NW.WIDJobs.JobPages;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.JobPostings
 {
     /// <summary>A deserializer for <see href="http://www.workindenmark.dk">WorkInDenmark</see>'s job postings.</summary>
     public interface IJobPostingDeserializer

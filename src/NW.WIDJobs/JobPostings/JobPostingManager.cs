@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.JobPostings
 {
     /// <inheritdoc cref="IJobPostingManager"/>
     public class JobPostingManager : IJobPostingManager

@@ -12,6 +12,7 @@ using NW.WIDJobs.Database;
 using NW.WIDJobs.Explorations;
 using NW.WIDJobs.Files;
 using NW.WIDJobs.JobPages;
+using NW.WIDJobs.JobPostings;
 
 namespace NW.WIDJobs
 {

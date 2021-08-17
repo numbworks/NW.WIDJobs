@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text.Json;
 using NW.WIDJobs.JobPages;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.JobPostings
 {
     /// <inheritdoc cref="IJobPostingDeserializer"/>
     public class JobPostingDeserializer : IJobPostingDeserializer

@@ -14,6 +14,7 @@ using NW.WIDJobs.Filenames;
 using NW.WIDJobs.Files;
 using NW.WIDJobs.HttpRequests;
 using NW.WIDJobs.JobPages;
+using NW.WIDJobs.JobPostings;
 
 namespace NW.WIDJobs.UnitTests
 {

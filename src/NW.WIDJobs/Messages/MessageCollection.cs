@@ -4,6 +4,7 @@ using System.Linq;
 using NW.WIDJobs.BulletPoints;
 using NW.WIDJobs.Explorations;
 using NW.WIDJobs.Files;
+using NW.WIDJobs.JobPostings;
 
 namespace NW.WIDJobs
 {

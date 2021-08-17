@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.JobPostings
 {
     /// <summary>Collects all the helper methods related to <see cref="JobPosting"/>.</summary>
     public interface IJobPostingManager

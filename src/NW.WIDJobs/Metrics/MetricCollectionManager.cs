@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using NW.WIDJobs.Explorations;
+using NW.WIDJobs.JobPostings;
 
 namespace NW.WIDJobs
 {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.JobPostings
 {
     /// <summary>A <see href="http://www.workindenmark.dk">WorkInDenmark</see>'s job posting.</summary>
     public class JobPosting
