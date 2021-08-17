@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.Runs
 {
     /// <summary><inheritdoc cref="IRunIdManager"/></summary>
     public class RunIdManager : IRunIdManager

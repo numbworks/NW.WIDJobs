@@ -17,6 +17,7 @@ using NW.WIDJobs.JobPages;
 using NW.WIDJobs.JobPostings;
 using NW.WIDJobs.JobPostingsExtended;
 using NW.WIDJobs.Metrics;
+using NW.WIDJobs.Runs;
 
 namespace NW.WIDJobs.UnitTests
 {

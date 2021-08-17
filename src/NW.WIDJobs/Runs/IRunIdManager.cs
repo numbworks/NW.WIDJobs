@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.Runs
 {
     /// <summary>Collects all the helper methods related to a RunId.</summary>
     public interface IRunIdManager
