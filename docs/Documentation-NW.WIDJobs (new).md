@@ -617,6 +617,138 @@ The case numbers above correspond to the following conditions and actions:
 
 The new list will basically contain only `Case 1` items.
 
+## WIDExplorer - Explore by FinalPageNumber
+
+In order to avoid to call the server even one time more than needed, the exploration is performed in subsequent phases called `Stages`. 
+
+The standard scenario is the exploration by `FinalPageNumber`, which works like below:
+
+**Stage1**:
+
+|Type|Field|Result|
+|---|---|---|
+|Input|RunId|Value|
+|Input|InitialPageNumber|1|
+|Input|FinalPageNumber|x|
+|Input|Stage|Stage1 OR Stage2 OR Stage3|
+||||
+|Output|RunId|=|
+|Output|TotalResultCount|Value|
+|Output|TotalJobPages|Value|
+|Output|Stage|Stage1 OR Stage2 OR Stage3|
+|Output|IsCompleted|True OR False|
+|Output|JobPages|1 JobPages|
+|Output|JobPostings|Null|
+|Output|JobPostingsExtended|Null|
+
+**EstablishFinalPageNumber**:
+
+|Type|Field|Result|
+|---|---|---|
+|Input|FinalPageNumber|Value|
+|Input|TotalJobPages|Value|
+||||
+|Output|FinalPageNumber|Value|
+
+**Stage 2**:
+
+|Type|Field|Result|
+|---|---|---|
+|Input|Exploration|Value|
+|Input|FinalPageNumber|x|
+|Input|Stage|Stage2 OR Stage3|
+||||
+|Output|RunId|=|
+|Output|TotalResultCount|=|
+|Output|TotalJobPages|=|
+|Output|Stage|Stage2 OR Stage3|
+|Output|IsCompleted|True OR False|
+|Output|JobPages|x JobPages|
+|Output|JobPostings|(x * 20) JobPostings|
+|Output|JobPostingsExtended|Null|
+
+**Stage 3**:
+
+|Type|Field|Result|
+|---|---|---|
+|Input|Exploration|Value|
+|Input|Stage|Stage3|
+||||
+|Output|RunId|=|
+|Output|TotalResultCount|=|
+|Output|TotalJobPages|=|
+|Output|Category|=|
+|Output|Stage|Stage3|
+|Output|IsCompleted|True|
+|Output|JobPages|=|
+|Output|JobPostings|=|
+|Output|JobPostingsExtended|(x * 20) JobPostingsExtended|
+
+## WIDExplorer - Explore by ThresholdDate
+
+The "commodity" scenario is the exploration by `ThresholdDate`. 
+
+The only difference with the standard one is that there is no `FinalPageNumber`, therefore the library has to evaluate each  `JobPage` from `PageNumber` 1 to  `TotalJobPages` until the threshold condition is met. 
+
+Please give a look to the "flow" below (only the difference with the standard scenario is shown):
+
+**Stage 1**:
+
+|Type|Field|Result|
+|---|---|---|
+|...|...|...|
+|Input|FinalPageNumber|**?**|
+|...|...|...|
+||||
+|...|...|...|
+
+**Stage 2**:
+
+|Type|Field|Result|
+|---|---|---|
+|...|...|...|
+|Input|**ThresholdDate**|VALUE|
+|...|...|...|
+||||
+|...|...|...|
+|Output|JobPages|**x JobPages until threshold condtion is met**|
+|Output|JobPostings|**(x * 20 * JobPages) - y JobPostings not meeting the condition**|
+|...|...|...|
+
+**Stage 3**:
+
+|Type|Field|Result|
+|---|---|---|
+|...|...|...|
+
+## WIDExplorer - Pre-Labeled Examples
+
+Given the the following `BulletPointLabels`:
+
+|BulletPointLabels|
+|---|
+|JobDuty|
+|JobRequirement|
+|JobTechnology|
+|JobBenefit|
+|...|
+
+the `WIDExplorer.GetPreLabeledExamples()` method will return a pre-defined list of already-labeled `BulletPoint` objects which looks like:
+
+|Label|Text|
+|---|---|
+|JobDuty|Flexible working hours are occasionally required|
+|JobDuty|Create Interfaces to FPGA|
+|JobRequirement|Engineering degree within acoustics & vibration|
+|JobRequirement|Mechatronic experience is an advantage|
+|JobTechnology|Good level with MS Office package|
+|JobTechnology|Have a min 8/10experience with Photoshop|
+|JobBenefit|Competitive salary, plus share/stock options.|
+|JobBenefit|Excellent growth opportunities.|
+|...|...|
+
+This list can be fed into a categorization library (such as [NW.NGramTextClassification](https://github.com/numbworks/NW.NGramTextClassification)) and train it to correctly label new bullet point texts automatically.
+
 ## The data model
 
 `WIDExplorer` allows to export data into a SQLite database thru the `ToSQLite()` method. 
