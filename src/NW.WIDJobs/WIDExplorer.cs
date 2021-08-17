@@ -70,6 +70,18 @@ namespace NW.WIDJobs
 
         #region Methods_public
 
+        public List<BulletPoint> GetPreLabeledBulletPoints()
+        {
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RetrievingPreLabeledBulletPoints);
+
+            List<BulletPoint> bulletPoints = _components.BulletPointManager.GetPreLabeledExamples();
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PreLabeledBulletPointsRetrieved.Invoke(bulletPoints));
+
+            return bulletPoints;
+
+        }
         public MetricCollection ConvertToMetricCollection(Exploration exploration)
         {
 
@@ -370,18 +382,6 @@ namespace NW.WIDJobs
 
         }
 
-        public List<BulletPoint> GetPreLabeledBulletPoints()
-        {
-
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RetrievingPreLabeledBulletPoints);
-
-            List<BulletPoint> bulletPoints = _components.BulletPointManager.GetPreLabeledExamples();
-
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PreLabeledBulletPointsRetrieved.Invoke(bulletPoints));
-
-            return bulletPoints;
-
-        }
         public void LogAsciiBanner()
             => _components.LoggingActionAsciiBanner.Invoke(AsciiBanner);
 

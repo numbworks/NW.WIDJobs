@@ -297,6 +297,56 @@ namespace NW.WIDJobs.UnitTests
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
         [Test]
+        public void GetPreLabeledBulletPoints_ShouldReturnExpectedBulletPointsObjectAndLogExpectedMessages_WhenInvoked()
+        {
+
+            // Arrange
+            FakeLogger fakeLogger = new FakeLogger();
+            Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
+            FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
+            Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
+            WIDExplorerComponents components = new WIDExplorerComponents(
+                    loggingAction: fakeLoggingAction,
+                    loggingActionAsciiBanner: fakeLoggingActionAsciiBanner,
+                    xpathManager: new XPathManager(),
+                    getRequestManager: new GetRequestManager(),
+                    jobPageDeserializer: new JobPageDeserializer(),
+                    jobPageManager: new JobPageManager(),
+                    jobPostingDeserializer: new JobPostingDeserializer(),
+                    jobPostingManager: new JobPostingManager(),
+                    jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
+                    jobPostingExtendedManager: new JobPostingExtendedManager(),
+                    runIdManager: new RunIdManager(),
+                    metricCollectionManager: new MetricCollectionManager(),
+                    fileManager: new FileManager(),
+                    repositoryFactory: new RepositoryFactory(),
+                    asciiBannerManager: new AsciiBannerManager(),
+                    filenameFactory: new FilenameFactory(),
+                    bulletPointManager: new BulletPointManager()
+                  );
+            WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings(), WIDExplorer.DefaultNowFunction);
+
+            List<BulletPoint> expectedBulletPoints = new BulletPointManager().GetPreLabeledExamples();
+            List<string> expectedLogMessages = new List<string>()
+            {
+
+                MessageCollection.WIDExplorer_RetrievingPreLabeledBulletPoints,
+                MessageCollection.WIDExplorer_PreLabeledBulletPointsRetrieved.Invoke(expectedBulletPoints)
+
+            };
+
+            // Act
+            List<BulletPoint> actual = widExplorer.GetPreLabeledBulletPoints();
+
+            // Assert
+            Assert.IsTrue(
+                ObjectMother.AreEqual(expectedBulletPoints, actual)
+                );
+            Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
+
+        }
+
+        [Test]
         public void ConvertToMetricCollection_ShouldReturnExpectedMetricCollectionObjectAndLogExpectedMessages_WhenProperExploration()
         {
 
@@ -325,6 +375,7 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointManager: new BulletPointManager()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings(), WIDExplorer.DefaultNowFunction);
+            
             List<string> expectedLogMessages = new List<string>()
             {
 
