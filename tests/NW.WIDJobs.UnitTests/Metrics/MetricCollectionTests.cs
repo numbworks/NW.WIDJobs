@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using System;
 using NW.WIDJobs.Messages;
+using NW.WIDJobs.Metrics;
 
 namespace NW.WIDJobs.UnitTests
 {

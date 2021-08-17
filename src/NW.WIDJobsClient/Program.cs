@@ -8,6 +8,7 @@ using System.Text.Encodings.Web;
 using System.Dynamic;
 using NW.WIDJobs.Explorations;
 using NW.WIDJobs.JobPostingsExtended;
+using NW.WIDJobs.Metrics;
 
 namespace NW.WIDJobsClient
 {

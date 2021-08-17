@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using NW.WIDJobs.Explorations;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.Metrics
 {
     /// <summary>Collects all the helper methods related to <see cref="MetricCollection"/>.</summary>
     public interface IMetricCollectionManager

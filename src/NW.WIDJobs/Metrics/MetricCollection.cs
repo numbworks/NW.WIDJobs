@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.Metrics
 {
     /// <summary>The metrics of an <see cref="Exploration"/>.</summary>
     public class MetricCollection

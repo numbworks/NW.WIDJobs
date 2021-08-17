@@ -6,6 +6,7 @@ using NW.WIDJobs.Explorations;
 using NW.WIDJobs.Files;
 using NW.WIDJobs.JobPostings;
 using NW.WIDJobs.JobPostingsExtended;
+using NW.WIDJobs.Metrics;
 
 namespace NW.WIDJobs.Messages
 {

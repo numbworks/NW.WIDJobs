@@ -6,7 +6,7 @@ using NW.WIDJobs.Explorations;
 using NW.WIDJobs.JobPostings;
 using NW.WIDJobs.JobPostingsExtended;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.Metrics
 {
     /// <inheritdoc cref="IMetricCollectionManager"/>
     public class MetricCollectionManager : IMetricCollectionManager
