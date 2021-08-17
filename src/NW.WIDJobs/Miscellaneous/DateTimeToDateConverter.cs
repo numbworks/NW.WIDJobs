@@ -2,7 +2,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.Miscellaneous
 {
     /// <summary>A converter for <see cref="JsonSerializerOptions"/> to serialize <see cref="DateTime"/> to date.</summary>
     public class DateTimeToDateConverter : JsonConverter<DateTime>
