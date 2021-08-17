@@ -4,7 +4,7 @@ using System.Linq;
 using NW.WIDJobs.Files;
 using NW.WIDJobs.Messages;
 
-namespace NW.WIDJobs
+namespace NW.WIDJobs.Validation
 {
     /// <summary>Collects all the validation methods.</summary>
     public static class Validator

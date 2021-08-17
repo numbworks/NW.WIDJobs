@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using NW.WIDJobs.JobPostingsExtended;
+using NW.WIDJobs.Validation;
 
 namespace NW.WIDJobs.Database
 {
@@ -89,7 +90,7 @@ namespace NW.WIDJobs.Database
         public JobPostingExtendedEntity(JobPostingExtended jobPostingExtended) 
         {
 
-            Validator.ValidateObject(jobPostingExtended, nameof(jobPostingExtended));
+            Validation.Validator.ValidateObject(jobPostingExtended, nameof(jobPostingExtended));
 
             JobPostingId = jobPostingExtended.JobPosting.JobPostingId;
             Response = jobPostingExtended.Response;

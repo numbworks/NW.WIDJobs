@@ -2,6 +2,7 @@
 using System.Net;
 using System.IO;
 using System.Text;
+using NW.WIDJobs.Validation;
 
 namespace NW.WIDJobs.HttpRequests
 {

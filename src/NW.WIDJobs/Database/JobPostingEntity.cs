@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using NW.WIDJobs.JobPostings;
+using NW.WIDJobs.Validation;
 
 namespace NW.WIDJobs.Database
 {
@@ -148,7 +149,7 @@ namespace NW.WIDJobs.Database
         public JobPostingEntity(JobPosting jobPosting) 
         {
 
-            Validator.ValidateObject(jobPosting, nameof(jobPosting));
+            Validation.Validator.ValidateObject(jobPosting, nameof(jobPosting));
 
             RunId = jobPosting.RunId;
             PageNumber = jobPosting.PageNumber;

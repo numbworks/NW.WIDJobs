@@ -5,6 +5,7 @@ using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Web;
 using NW.WIDJobs.JobPostings;
+using NW.WIDJobs.Validation;
 
 namespace NW.WIDJobs.JobPostingsExtended
 {

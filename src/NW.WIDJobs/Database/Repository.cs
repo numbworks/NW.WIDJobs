@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using NW.WIDJobs.JobPostings;
 using NW.WIDJobs.JobPostingsExtended;
+using NW.WIDJobs.Validation;
 
 namespace NW.WIDJobs.Database
 {

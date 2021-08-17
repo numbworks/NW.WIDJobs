@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Runtime.Serialization;
+using NW.WIDJobs.Validation;
 
 namespace NW.WIDJobs.Files
 {

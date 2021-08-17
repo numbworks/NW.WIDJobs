@@ -5,6 +5,7 @@ using System.Linq;
 using NW.WIDJobs.Explorations;
 using NW.WIDJobs.JobPostings;
 using NW.WIDJobs.JobPostingsExtended;
+using NW.WIDJobs.Validation;
 
 namespace NW.WIDJobs.Metrics
 {

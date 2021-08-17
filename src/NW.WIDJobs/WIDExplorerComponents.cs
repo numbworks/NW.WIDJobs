@@ -10,6 +10,7 @@ using NW.WIDJobs.JobPostings;
 using NW.WIDJobs.JobPostingsExtended;
 using NW.WIDJobs.Metrics;
 using NW.WIDJobs.Runs;
+using NW.WIDJobs.Validation;
 
 namespace NW.WIDJobs
 {

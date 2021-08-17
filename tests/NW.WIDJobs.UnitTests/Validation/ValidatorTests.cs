@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using NUnit.Framework;
 using NW.WIDJobs.Messages;
+using NW.WIDJobs.Validation;
 
 namespace NW.WIDJobs.UnitTests
 {

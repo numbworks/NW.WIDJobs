@@ -17,6 +17,7 @@ using NW.WIDJobs.JobPostingsExtended;
 using NW.WIDJobs.Messages;
 using NW.WIDJobs.Metrics;
 using NW.WIDJobs.Miscellaneous;
+using NW.WIDJobs.Validation;
 
 namespace NW.WIDJobs
 {

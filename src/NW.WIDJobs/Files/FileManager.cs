@@ -2,6 +2,7 @@
 using System.IO;
 using System.Collections.Generic;
 using NW.WIDJobs.Messages;
+using NW.WIDJobs.Validation;
 
 namespace NW.WIDJobs.Files
 {

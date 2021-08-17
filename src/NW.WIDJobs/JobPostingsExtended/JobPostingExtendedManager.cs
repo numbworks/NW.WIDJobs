@@ -1,6 +1,7 @@
 ﻿using System;
 using NW.WIDJobs.HttpRequests;
 using NW.WIDJobs.JobPostings;
+using NW.WIDJobs.Validation;
 
 namespace NW.WIDJobs.JobPostingsExtended
 {

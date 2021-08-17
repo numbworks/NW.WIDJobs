@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using HtmlAgilityPack;
+using NW.WIDJobs.Validation;
 
 namespace NW.WIDJobs
 {
