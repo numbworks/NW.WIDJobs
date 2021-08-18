@@ -106,12 +106,12 @@ namespace NW.WIDJobs.Messages
         public static Func<ushort, string> WIDExplorer_FinalPageNumberThresholdDate
             = (finalPageNumber) => $"The 'FinalPageNumber' for the provided 'ThresholdDate' is '{finalPageNumber}'.";
 
-        public static string WIDExplorer_ExtractJobPostingsFromJson
+        public static string WIDExplorer_ExtractJobPostingsFromJsonFile
             = $"Extracting {nameof(JobPosting)} objects from the provided Json file...";
-        public static Func<List<JobPosting>, string> WIDExplorer_JobPostingsExtractedFromJson
+        public static Func<List<JobPosting>, string> WIDExplorer_JobPostingsExtractedFromJsonFile
             = (jobPostings) => $"'{jobPostings.Count}' {nameof(JobPosting)} objects have been successfully extracted from the provided Json file.";
-        public static string WIDExplorer_SomeDefaultValuesUsedFromHTML
-            = $"Some default values need to be used in order to perform this extraction directly out of a HTML file.";
+        public static string WIDExplorer_SomeDefaultValuesUsedJsonFile
+            = $"Some default values need to be used in order to perform this extraction directly from a Json file.";
 
         public static Func<IFileInfoAdapter, string> WIDExplorer_HTMLFileIs
             = (htmlFile) => $"HTMLFile: '{htmlFile}'.";

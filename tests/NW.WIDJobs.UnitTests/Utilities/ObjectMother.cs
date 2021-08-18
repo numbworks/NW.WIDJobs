@@ -3858,6 +3858,8 @@ namespace NW.WIDJobs.UnitTests
         internal static string WIDExplorer_ExplorationStage3MetricCollectionPercentagesAsJson_Content
             = Properties.Resources.ExplorationStage3MCPercentagesAsJson;
 
+        internal static string WIDExplorer_JobPage01_FakeFilePath = @"C:\JobPage01.json";
+
         internal static DateTime WIDExplorer_FakeNow = new DateTime(2021, 05, 01);
         internal static Func<DateTime> WIDExplorer_FakeNowFunction = () => WIDExplorer_FakeNow;
         internal static Func<string, IGetRequestManager> WIDExplorer_FakeGetRequestManager
@@ -4307,6 +4309,38 @@ namespace NW.WIDJobs.UnitTests
                 workPlacePostalCode: jobPosting.WorkPlacePostalCode,
                 workPlaceCity: jobPosting.WorkPlaceCity,
                 postingCreated: postingCreated,
+                lastDateApplication: jobPosting.LastDateApplication,
+                url: jobPosting.Url,
+                region: jobPosting.Region,
+                municipality: jobPosting.Municipality,
+                country: jobPosting.Country,
+                employmentType: jobPosting.EmploymentType,
+                workHours: jobPosting.WorkHours,
+                occupation: jobPosting.Occupation,
+                workplaceId: jobPosting.WorkplaceId,
+                organisationId: jobPosting.OrganisationId,
+                hiringOrgCVR: jobPosting.HiringOrgCVR,
+                id: jobPosting.Id,
+                workPlaceCityWithoutZone: jobPosting.WorkPlaceCityWithoutZone,
+                jobPostingNumber: jobPosting.JobPostingNumber,
+                jobPostingId: jobPosting.JobPostingId
+            );
+
+        }
+        internal static JobPosting UpdateRunIdPageNumber(JobPosting jobPosting, string runId, ushort pageNumber)
+        {
+
+            return new JobPosting(
+                runId: runId,
+                pageNumber: pageNumber,
+                response: jobPosting.Response,
+                title: jobPosting.Title,
+                presentation: jobPosting.Presentation,
+                hiringOrgName: jobPosting.HiringOrgName,
+                workPlaceAddress: jobPosting.WorkPlaceAddress,
+                workPlacePostalCode: jobPosting.WorkPlacePostalCode,
+                workPlaceCity: jobPosting.WorkPlaceCity,
+                postingCreated: jobPosting.PostingCreated,
                 lastDateApplication: jobPosting.LastDateApplication,
                 url: jobPosting.Url,
                 region: jobPosting.Region,

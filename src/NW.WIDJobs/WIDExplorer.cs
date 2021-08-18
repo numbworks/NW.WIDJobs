@@ -136,19 +136,19 @@ namespace NW.WIDJobs
             return JsonSerializer.Serialize(dyn, CreateJsonSerializerOptions());
 
         }
-        public List<JobPosting> ExtractFromJson(IFileInfoAdapter jsonFile)
+        public List<JobPosting> ExtractFromJsonFile(IFileInfoAdapter jsonFile)
         {
 
             Validator.ValidateObject(jsonFile, nameof(jsonFile));
             Validator.ValidateFileExistance(jsonFile);
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExtractJobPostingsFromJson);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExtractJobPostingsFromJsonFile);
 
             DateTime now = NowFunction.Invoke();
             string runId = _components.RunIdManager.Create(now);
             ushort pageNumber = 1;
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SomeDefaultValuesUsedFromHTML);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SomeDefaultValuesUsedJsonFile);
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs.Invoke(runId));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageNumberIs.Invoke(pageNumber));
 
@@ -156,13 +156,13 @@ namespace NW.WIDJobs
             JobPage jobPage = new JobPage(runId, pageNumber, content);
             List<JobPosting> jobPostings = _components.JobPostingDeserializer.Do(jobPage);
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingsExtractedFromJson.Invoke(jobPostings));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingsExtractedFromJsonFile.Invoke(jobPostings));
 
             return jobPostings;
 
         }
-        public List<JobPosting> ExtractFromJson(string filePath)
-            => ExtractFromJson(_components.FileManager.Create(filePath));
+        public List<JobPosting> ExtractFromJsonFile(string filePath)
+            => ExtractFromJsonFile(_components.FileManager.Create(filePath));
 
 
         public Exploration Explore(string runId, ushort finalPageNumber, Stages stage)

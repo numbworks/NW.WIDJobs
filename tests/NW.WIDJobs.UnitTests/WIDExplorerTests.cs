@@ -105,7 +105,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                        () => new WIDExplorer().ExtractFromJson((IFileInfoAdapter)null)
+                        () => new WIDExplorer().ExtractFromJsonFile((IFileInfoAdapter)null)
                     ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("jsonFile").Message
@@ -113,7 +113,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                        () => new WIDExplorer().ExtractFromJson(ObjectMother.FileManager_FileInfoAdapterDoesntExist)
+                        () => new WIDExplorer().ExtractFromJsonFile(ObjectMother.FileManager_FileInfoAdapterDoesntExist)
                     ),
                 typeof(ArgumentException),
                 MessageCollection.Validator_ProvidedPathDoesntExist.Invoke(ObjectMother.FileManager_FileInfoAdapterDoesntExist)
@@ -121,7 +121,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                        () => new WIDExplorer().ExtractFromJson((string)null)
+                        () => new WIDExplorer().ExtractFromJsonFile((string)null)
                     ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("filePath").Message
@@ -348,6 +348,15 @@ namespace NW.WIDJobs.UnitTests
         {
 
             // Arrange
+            List<BulletPoint> expected = new BulletPointManager().GetPreLabeledExamples();
+            List<string> expectedLogMessages = new List<string>()
+            {
+
+                MessageCollection.WIDExplorer_RetrievingPreLabeledBulletPoints,
+                MessageCollection.WIDExplorer_PreLabeledBulletPointsRetrieved.Invoke(expected)
+
+            };
+
             FakeLogger fakeLogger = new FakeLogger();
             Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
             FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
@@ -373,21 +382,12 @@ namespace NW.WIDJobs.UnitTests
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings(), WIDExplorer.DefaultNowFunction);
 
-            List<BulletPoint> expectedBulletPoints = new BulletPointManager().GetPreLabeledExamples();
-            List<string> expectedLogMessages = new List<string>()
-            {
-
-                MessageCollection.WIDExplorer_RetrievingPreLabeledBulletPoints,
-                MessageCollection.WIDExplorer_PreLabeledBulletPointsRetrieved.Invoke(expectedBulletPoints)
-
-            };
-
             // Act
             List<BulletPoint> actual = widExplorer.GetPreLabeledBulletPoints();
 
             // Assert
             Assert.IsTrue(
-                ObjectMother.AreEqual(expectedBulletPoints, actual)
+                ObjectMother.AreEqual(expected, actual)
                 );
             Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
 
@@ -398,6 +398,16 @@ namespace NW.WIDJobs.UnitTests
         {
 
             // Arrange
+            MetricCollection expected = ObjectMother.MetricCollection_ExplorationStage3;
+            List<string> expectedLogMessages = new List<string>()
+            {
+
+                MessageCollection.WIDExplorer_ConvertingExplorationToMetricCollection,
+                MessageCollection.WIDExplorer_RunIdIs.Invoke(ObjectMother.Shared_ExplorationStage3.RunId),
+                MessageCollection.WIDExplorer_ExplorationConvertedToMetricCollection
+
+            };
+
             FakeLogger fakeLogger = new FakeLogger();
             Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
             FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
@@ -423,21 +433,12 @@ namespace NW.WIDJobs.UnitTests
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings(), WIDExplorer.DefaultNowFunction);
             
-            List<string> expectedLogMessages = new List<string>()
-            {
-
-                MessageCollection.WIDExplorer_ConvertingExplorationToMetricCollection,
-                MessageCollection.WIDExplorer_RunIdIs.Invoke(ObjectMother.Shared_ExplorationStage3.RunId),
-                MessageCollection.WIDExplorer_ExplorationConvertedToMetricCollection
-
-            };
-
             // Act
             MetricCollection actual = widExplorer.ConvertToMetricCollection(ObjectMother.Shared_ExplorationStage3);
 
             // Assert
             Assert.IsTrue(
-                ObjectMother.AreEqual(ObjectMother.MetricCollection_ExplorationStage3, actual)
+                ObjectMother.AreEqual(expected, actual)
                 );
             Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
 
@@ -448,6 +449,19 @@ namespace NW.WIDJobs.UnitTests
         {
 
             // Arrange
+            string expected = ObjectMother.WIDExplorer_ExplorationStage3AsJson_Content;
+            List<string> expectedLogMessages = new List<string>()
+            {
+
+                MessageCollection.WIDExplorer_ConvertingExplorationToJsonString,
+                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
+                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
+                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(MessageCollection.WIDExplorer_NotSerializedJobPageContent),
+                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(MessageCollection.WIDExplorer_NotSerializedJobPostings),
+                MessageCollection.WIDExplorer_ConvertedExplorationToJsonString
+
+            };
+
             FakeLogger fakeLogger = new FakeLogger();
             Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
             FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
@@ -472,19 +486,6 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointManager: new BulletPointManager()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings(), WIDExplorer.DefaultNowFunction);
-
-            string expected = ObjectMother.WIDExplorer_ExplorationStage3AsJson_Content;
-            List<string> expectedLogMessages = new List<string>()
-            {
-
-                MessageCollection.WIDExplorer_ConvertingExplorationToJsonString,
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(MessageCollection.WIDExplorer_NotSerializedJobPageContent),
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(MessageCollection.WIDExplorer_NotSerializedJobPostings),
-                MessageCollection.WIDExplorer_ConvertedExplorationToJsonString
-
-            };
 
             // Act
             string actual = widExplorer.ConvertToJson(ObjectMother.Shared_ExplorationStage3);
@@ -500,6 +501,19 @@ namespace NW.WIDJobs.UnitTests
         {
 
             // Arrange
+            bool numbersAsPercentages = false;
+            string expected = ObjectMother.WIDExplorer_ExplorationStage3MetricCollectionNumbersAsJson_Content;
+            List<string> expectedLogMessages = new List<string>()
+            {
+
+                MessageCollection.WIDExplorer_ConvertingMetricCollectionToJsonString,
+                MessageCollection.WIDExplorer_NumbersAsPercentagesIs.Invoke(numbersAsPercentages),
+                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
+                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
+                MessageCollection.WIDExplorer_ConvertedMetricsCollectionToJsonString
+
+            };
+
             FakeLogger fakeLogger = new FakeLogger();
             Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
             FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
@@ -524,19 +538,6 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointManager: new BulletPointManager()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings(), WIDExplorer.DefaultNowFunction);
-
-            bool numbersAsPercentages = false;
-            string expected = ObjectMother.WIDExplorer_ExplorationStage3MetricCollectionNumbersAsJson_Content;
-            List<string> expectedLogMessages = new List<string>()
-            {
-
-                MessageCollection.WIDExplorer_ConvertingMetricCollectionToJsonString,
-                MessageCollection.WIDExplorer_NumbersAsPercentagesIs.Invoke(numbersAsPercentages),
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
-                MessageCollection.WIDExplorer_ConvertedMetricsCollectionToJsonString
-
-            };
 
             // Act
             string actual = widExplorer.ConvertToJson(ObjectMother.MetricCollection_ExplorationStage3, numbersAsPercentages);
@@ -552,6 +553,19 @@ namespace NW.WIDJobs.UnitTests
         {
 
             // Arrange
+            bool numbersAsPercentages = true;
+            string expected = ObjectMother.WIDExplorer_ExplorationStage3MetricCollectionPercentagesAsJson_Content;
+            List<string> expectedLogMessages = new List<string>()
+            {
+
+                MessageCollection.WIDExplorer_ConvertingMetricCollectionToJsonString,
+                MessageCollection.WIDExplorer_NumbersAsPercentagesIs.Invoke(numbersAsPercentages),
+                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
+                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
+                MessageCollection.WIDExplorer_ConvertedMetricsCollectionToJsonString
+
+            };
+
             FakeLogger fakeLogger = new FakeLogger();
             Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
             FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
@@ -577,24 +591,93 @@ namespace NW.WIDJobs.UnitTests
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings(), WIDExplorer.DefaultNowFunction);
 
-            bool numbersAsPercentages = true;
-            string expected = ObjectMother.WIDExplorer_ExplorationStage3MetricCollectionPercentagesAsJson_Content;
-            List<string> expectedLogMessages = new List<string>()
-            {
-
-                MessageCollection.WIDExplorer_ConvertingMetricCollectionToJsonString,
-                MessageCollection.WIDExplorer_NumbersAsPercentagesIs.Invoke(numbersAsPercentages),
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
-                MessageCollection.WIDExplorer_ConvertedMetricsCollectionToJsonString
-
-            };
-
             // Act
             string actual = widExplorer.ConvertToJson(ObjectMother.MetricCollection_ExplorationStage3, numbersAsPercentages);
 
             // Assert
             Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
+
+        }
+
+        [Test]
+        public void ExtractFromJsonFile_ShouldReturnExpectedJobPostingsAndLogExpectedMessages_WhenProperJsonFile()
+        {
+
+            // Arrange
+            DateTime now = ObjectMother.WIDExplorer_FakeNowFunction.Invoke();
+            string runId = new RunIdManager().Create(now);
+            ushort pageNumber = 1;
+            string content = ObjectMother.Shared_JobPage01_Content;
+            IFileInfoAdapter fakeFileInfoAdapter = new FakeFileInfoAdapter(true, ObjectMother.WIDExplorer_JobPage01_FakeFilePath);
+            List<JobPosting> expected = new List<JobPosting>()
+            {
+
+                ObjectMother.UpdateRunIdPageNumber(ObjectMother.Shared_JobPage01_JobPostings[0], runId, pageNumber),
+                ObjectMother.UpdateRunIdPageNumber(ObjectMother.Shared_JobPage01_JobPostings[1], runId, pageNumber),
+                ObjectMother.UpdateRunIdPageNumber(ObjectMother.Shared_JobPage01_JobPostings[2], runId, pageNumber),
+                ObjectMother.UpdateRunIdPageNumber(ObjectMother.Shared_JobPage01_JobPostings[3], runId, pageNumber),
+                ObjectMother.UpdateRunIdPageNumber(ObjectMother.Shared_JobPage01_JobPostings[4], runId, pageNumber),
+                ObjectMother.UpdateRunIdPageNumber(ObjectMother.Shared_JobPage01_JobPostings[5], runId, pageNumber),
+                ObjectMother.UpdateRunIdPageNumber(ObjectMother.Shared_JobPage01_JobPostings[6], runId, pageNumber),
+                ObjectMother.UpdateRunIdPageNumber(ObjectMother.Shared_JobPage01_JobPostings[7], runId, pageNumber),
+                ObjectMother.UpdateRunIdPageNumber(ObjectMother.Shared_JobPage01_JobPostings[8], runId, pageNumber),
+                ObjectMother.UpdateRunIdPageNumber(ObjectMother.Shared_JobPage01_JobPostings[9], runId, pageNumber),
+                ObjectMother.UpdateRunIdPageNumber(ObjectMother.Shared_JobPage01_JobPostings[10], runId, pageNumber),
+                ObjectMother.UpdateRunIdPageNumber(ObjectMother.Shared_JobPage01_JobPostings[11], runId, pageNumber),
+                ObjectMother.UpdateRunIdPageNumber(ObjectMother.Shared_JobPage01_JobPostings[12], runId, pageNumber),
+                ObjectMother.UpdateRunIdPageNumber(ObjectMother.Shared_JobPage01_JobPostings[13], runId, pageNumber),
+                ObjectMother.UpdateRunIdPageNumber(ObjectMother.Shared_JobPage01_JobPostings[14], runId, pageNumber),
+                ObjectMother.UpdateRunIdPageNumber(ObjectMother.Shared_JobPage01_JobPostings[15], runId, pageNumber),
+                ObjectMother.UpdateRunIdPageNumber(ObjectMother.Shared_JobPage01_JobPostings[16], runId, pageNumber),
+                ObjectMother.UpdateRunIdPageNumber(ObjectMother.Shared_JobPage01_JobPostings[17], runId, pageNumber),
+                ObjectMother.UpdateRunIdPageNumber(ObjectMother.Shared_JobPage01_JobPostings[18], runId, pageNumber),
+                ObjectMother.UpdateRunIdPageNumber(ObjectMother.Shared_JobPage01_JobPostings[19], runId, pageNumber)
+
+            };
+            List<string> expectedLogMessages = new List<string>()
+            {
+
+                MessageCollection.WIDExplorer_ExtractJobPostingsFromJsonFile,
+                MessageCollection.WIDExplorer_SomeDefaultValuesUsedJsonFile,
+                MessageCollection.WIDExplorer_RunIdIs.Invoke(runId),
+                MessageCollection.WIDExplorer_PageNumberIs.Invoke(pageNumber),
+                MessageCollection.WIDExplorer_JobPostingsExtractedFromJsonFile.Invoke(expected)
+
+            };
+
+            FakeLogger fakeLogger = new FakeLogger();
+            Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
+            FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
+            Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
+            WIDExplorerComponents components = new WIDExplorerComponents(
+                    loggingAction: fakeLoggingAction,
+                    loggingActionAsciiBanner: fakeLoggingActionAsciiBanner,
+                    xpathManager: new XPathManager(),
+                    getRequestManager: new GetRequestManager(),
+                    jobPageDeserializer: new JobPageDeserializer(),
+                    jobPageManager: new JobPageManager(),
+                    jobPostingDeserializer: new JobPostingDeserializer(),
+                    jobPostingManager: new JobPostingManager(),
+                    jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
+                    jobPostingExtendedManager: new JobPostingExtendedManager(),
+                    runIdManager: new RunIdManager(),
+                    metricCollectionManager: new MetricCollectionManager(),
+                    fileManager: new FakeFileManager(content),
+                    repositoryFactory: new RepositoryFactory(),
+                    asciiBannerManager: new AsciiBannerManager(),
+                    filenameFactory: new FilenameFactory(),
+                    bulletPointManager: new BulletPointManager()
+                  );
+            WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings(), ObjectMother.WIDExplorer_FakeNowFunction);
+
+            // Act
+            List<JobPosting> actual = widExplorer.ExtractFromJsonFile(fakeFileInfoAdapter);
+
+            // Assert
+            Assert.IsTrue(
+                ObjectMother.AreEqual(expected, actual)
+                );
             Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
 
         }
