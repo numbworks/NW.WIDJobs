@@ -116,6 +116,30 @@ namespace NW.WIDJobs.UnitTests.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to {
+        ///  &quot;RunId&quot;: &quot;FakeRunId&quot;,
+        ///  &quot;TotalJobPages&quot;: 2,
+        ///  &quot;TotalJobPostings&quot;: 40,
+        ///  &quot;JobPostingsByHiringOrgName&quot;: {
+        ///    &quot;TeamVikaren.dk, Århus ApS, Horsens Afdeling&quot;: &quot;30%&quot;,
+        ///    &quot;Aarhus Universitet&quot;: &quot;10%&quot;,
+        ///    &quot;Keepit A/S&quot;: &quot;5%&quot;,
+        ///    &quot;Copenhagen Business School&quot;: &quot;5%&quot;,
+        ///    &quot;RANDSTAD A/S&quot;: &quot;5%&quot;,
+        ///    &quot;Plecto ApS&quot;: &quot;5%&quot;,
+        ///    &quot;Novo Nordisk A/S&quot;: &quot;5%&quot;,
+        ///    &quot;A.P. Møller - Mærsk A/S&quot;: &quot;5%&quot;,
+        ///    &quot;Lokal Boligservice ApS&quot;: &quot;2.5%&quot;,
+        ///    &quot;Danmarks Tekniske Universitet&quot;: &quot;2.5%&quot;,
+        ///    &quot;BH HotelService ApS&quot;: &quot;2.5%&quot;, [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ExplorationStage3MCPercentagesAsJson {
+            get {
+                return ResourceManager.GetString("ExplorationStage3MCPercentagesAsJson", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
         ///    &quot;WorkSchedule&quot;: [
         ///        {
         ///            &quot;Id&quot;: 1,

@@ -3855,6 +3855,8 @@ namespace NW.WIDJobs.UnitTests
             = Properties.Resources.ExplorationStage3AsJson;
         internal static string WIDExplorer_ExplorationStage3MetricCollectionNumbersAsJson_Content
             = Properties.Resources.ExplorationStage3MCNumbersAsJson;
+        internal static string WIDExplorer_ExplorationStage3MetricCollectionPercentagesAsJson_Content
+            = Properties.Resources.ExplorationStage3MCPercentagesAsJson;
 
         internal static DateTime WIDExplorer_FakeNow = new DateTime(2021, 05, 01);
         internal static Func<DateTime> WIDExplorer_FakeNowFunction = () => WIDExplorer_FakeNow;

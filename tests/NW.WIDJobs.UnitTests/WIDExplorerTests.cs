@@ -547,6 +547,58 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
+        [Test]
+        public void ConvertToJson_ShouldReturnExpectedStringAndLogExpectedMessages_WhenProperMetricCollectionAndPercentages()
+        {
+
+            // Arrange
+            FakeLogger fakeLogger = new FakeLogger();
+            Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
+            FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
+            Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
+            WIDExplorerComponents components = new WIDExplorerComponents(
+                    loggingAction: fakeLoggingAction,
+                    loggingActionAsciiBanner: fakeLoggingActionAsciiBanner,
+                    xpathManager: new XPathManager(),
+                    getRequestManager: new GetRequestManager(),
+                    jobPageDeserializer: new JobPageDeserializer(),
+                    jobPageManager: new JobPageManager(),
+                    jobPostingDeserializer: new JobPostingDeserializer(),
+                    jobPostingManager: new JobPostingManager(),
+                    jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
+                    jobPostingExtendedManager: new JobPostingExtendedManager(),
+                    runIdManager: new RunIdManager(),
+                    metricCollectionManager: new MetricCollectionManager(),
+                    fileManager: new FileManager(),
+                    repositoryFactory: new RepositoryFactory(),
+                    asciiBannerManager: new AsciiBannerManager(),
+                    filenameFactory: new FilenameFactory(),
+                    bulletPointManager: new BulletPointManager()
+                  );
+            WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings(), WIDExplorer.DefaultNowFunction);
+
+            bool numbersAsPercentages = true;
+            string expected = ObjectMother.WIDExplorer_ExplorationStage3MetricCollectionPercentagesAsJson_Content;
+            List<string> expectedLogMessages = new List<string>()
+            {
+
+                MessageCollection.WIDExplorer_ConvertingMetricCollectionToJsonString,
+                MessageCollection.WIDExplorer_NumbersAsPercentagesIs.Invoke(numbersAsPercentages),
+                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
+                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
+                MessageCollection.WIDExplorer_ConvertedMetricsCollectionToJsonString
+
+            };
+
+            // Act
+            string actual = widExplorer.ConvertToJson(ObjectMother.MetricCollection_ExplorationStage3, numbersAsPercentages);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
+
+        }
+
     }
 }
 
