@@ -197,7 +197,39 @@ namespace NW.WIDJobs
             return SaveToJsonFile(metricCollection, numbersAsPercentages, jsonFile);
 
         }
+        public IFileInfoAdapter SaveToJsonFile(Exploration exploration, IFileInfoAdapter jsonFile)
+        {
 
+            Validator.ValidateObject(exploration, nameof(exploration));
+            Validator.ValidateObject(jsonFile, nameof(jsonFile));
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SavingExplorationToJsonFile);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs.Invoke(exploration.RunId));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JSONFileIs.Invoke(jsonFile));
+
+            string json = ConvertToJson(exploration);
+            _components.FileManager.WriteAllText(jsonFile, json);
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationSavedToJsonFile);
+
+            return jsonFile;
+
+        }
+        public IFileInfoAdapter SaveToJsonFile(Exploration exploration)
+        {
+
+            DateTime now = NowFunction.Invoke();
+            string fullName = _components.FilenameFactory.CreateForExplorationJson(_settings.FolderPath, now);
+            IFileInfoAdapter jsonFile = new FileInfoAdapter(fullName);
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_MethodCalledWithoutIFileInfoAdapter.Invoke(nameof(SaveToJsonFile)));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DefaultValuesCreateIFileInfoAdapter);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FolderPathIs.Invoke(_settings.FolderPath));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_NowIs.Invoke(now));
+
+            return SaveToJsonFile(exploration, jsonFile);
+
+        }
 
 
         public Exploration Explore(string runId, ushort finalPageNumber, Stages stage)
@@ -335,40 +367,6 @@ namespace NW.WIDJobs
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_NowIs.Invoke(now));
 
             return SaveAsSQLite(jobPostingsExtended, databaseFile, _settings.DeleteAndRecreateDatabase);
-
-        }
-
-        public IFileInfoAdapter SaveToJsonFile(Exploration exploration, IFileInfoAdapter jsonFile)
-        {
-
-            Validator.ValidateObject(exploration, nameof(exploration));
-            Validator.ValidateObject(jsonFile, nameof(jsonFile));
-
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SavingExplorationAsJson);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs.Invoke(exploration.RunId));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JSONFileIs.Invoke(jsonFile));
-
-            string json = ConvertToJson(exploration);
-            _components.FileManager.WriteAllText(jsonFile, json);
-
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationSavedAsJson);
-
-            return jsonFile;
-
-        }
-        public IFileInfoAdapter SaveToJsonFile(Exploration exploration)
-        {
-
-            DateTime now = NowFunction.Invoke();
-            string fullName = _components.FilenameFactory.CreateForExplorationJson(_settings.FolderPath, now);
-            IFileInfoAdapter jsonFile = new FileInfoAdapter(fullName);
-
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_MethodCalledWithoutIFileInfoAdapter.Invoke(nameof(SaveToJsonFile)));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DefaultValuesCreateIFileInfoAdapter);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FolderPathIs.Invoke(_settings.FolderPath));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_NowIs.Invoke(now));
-
-            return SaveToJsonFile(exploration, jsonFile);
 
         }
 

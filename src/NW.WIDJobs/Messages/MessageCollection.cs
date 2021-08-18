@@ -135,12 +135,12 @@ namespace NW.WIDJobs.Messages
         public static string WIDExplorer_ExplorationSavedAsSQLite
             = $"The provided {nameof(JobPostingExtended)} objects have been successfully saved as SQLite database.";
 
-        public static string WIDExplorer_SavingExplorationAsJson
-            = $"Saving the provided {nameof(Exploration)} object as JSON file...";
+        public static string WIDExplorer_SavingExplorationToJsonFile
+            = $"Saving the provided {nameof(Exploration)} object to a JSON file...";
         public static Func<IFileInfoAdapter, string> WIDExplorer_JSONFileIs
             = (jsonFile) => $"JSONFile: '{jsonFile.FullName}'.";
-        public static string WIDExplorer_ExplorationSavedAsJson
-            = $"The provided {nameof(Exploration)} object has been successfully saved as JSON file.";
+        public static string WIDExplorer_ExplorationSavedToJsonFile
+            = $"The provided {nameof(Exploration)} object has been successfully saved to a JSON file.";
 
         public static string WIDExplorer_SavingMetricCollectionToJsonFile
             = $"Saving the provided {nameof(MetricCollection)} object to a JSON file...";

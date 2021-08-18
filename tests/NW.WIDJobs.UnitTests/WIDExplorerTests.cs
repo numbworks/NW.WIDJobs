@@ -901,6 +901,66 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
+        [Test]
+        public void SaveToJsonFile_ShouldWriteJsonFileToDiskAndLogExpectedMessages_WhenProperExplorationAndFileInfoAdapter()
+        {
+
+            // Arrange
+            Exploration exploration = ObjectMother.Shared_ExplorationStage3;
+            IFileInfoAdapter fakeFileInfoAdapter = new FakeFileInfoAdapter(false, ObjectMother.WIDExplorer_FakeJsonFilePath);
+            List<string> expectedLogMessages = new List<string>()
+            {
+
+                MessageCollection.WIDExplorer_SavingExplorationToJsonFile,
+                MessageCollection.WIDExplorer_RunIdIs.Invoke(exploration.RunId),
+                MessageCollection.WIDExplorer_JSONFileIs.Invoke(fakeFileInfoAdapter),
+
+                // ConvertToJson
+                MessageCollection.WIDExplorer_ConvertingExplorationToJsonString,
+                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
+                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
+                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(MessageCollection.WIDExplorer_NotSerializedJobPageContent),
+                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(MessageCollection.WIDExplorer_NotSerializedJobPostings),
+                MessageCollection.WIDExplorer_ConvertedExplorationToJsonString,
+
+                MessageCollection.WIDExplorer_ExplorationSavedToJsonFile
+
+            };
+
+            FakeLogger fakeLogger = new FakeLogger();
+            Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
+            FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
+            Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
+            WIDExplorerComponents components = new WIDExplorerComponents(
+                    loggingAction: fakeLoggingAction,
+                    loggingActionAsciiBanner: fakeLoggingActionAsciiBanner,
+                    xpathManager: new XPathManager(),
+                    getRequestManager: new GetRequestManager(),
+                    jobPageDeserializer: new JobPageDeserializer(),
+                    jobPageManager: new JobPageManager(),
+                    jobPostingDeserializer: new JobPostingDeserializer(),
+                    jobPostingManager: new JobPostingManager(),
+                    jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
+                    jobPostingExtendedManager: new JobPostingExtendedManager(),
+                    runIdManager: new RunIdManager(),
+                    metricCollectionManager: new MetricCollectionManager(),
+                    fileManager: new FakeFileManager(null), // Content is not relevant, we'll just use this fake to simulate writing.
+                    repositoryFactory: new RepositoryFactory(),
+                    asciiBannerManager: new AsciiBannerManager(),
+                    filenameFactory: new FilenameFactory(),
+                    bulletPointManager: new BulletPointManager()
+                  );
+            WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings(), WIDExplorer.DefaultNowFunction);
+
+            // Act
+            IFileInfoAdapter actual = widExplorer.SaveToJsonFile(exploration, fakeFileInfoAdapter);
+
+            // Assert
+            Assert.AreEqual(fakeFileInfoAdapter.FullName, actual.FullName);
+            Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
+
+        }
+
     }
 }
 
