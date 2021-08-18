@@ -473,7 +473,7 @@ namespace NW.WIDJobs.UnitTests
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings(), WIDExplorer.DefaultNowFunction);
 
-            string expected = "";
+            string expected = ObjectMother.WIDExplorer_ExplorationStage3AsJson_Content;
             List<string> expectedLogMessages = new List<string>()
             {
 
@@ -481,7 +481,8 @@ namespace NW.WIDJobs.UnitTests
                 MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
                 MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
                 MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(MessageCollection.WIDExplorer_NotSerializedJobPageContent),
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(MessageCollection.WIDExplorer_NotSerializedJobPostings)
+                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(MessageCollection.WIDExplorer_NotSerializedJobPostings),
+                MessageCollection.WIDExplorer_ConvertedExplorationToJsonString
 
             };
 

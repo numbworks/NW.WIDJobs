@@ -3851,6 +3851,9 @@ namespace NW.WIDJobs.UnitTests
 
         #region WIDExplorerTests
 
+        internal static string WIDExplorer_ExplorationStage3AsJson_Content
+            = Properties.Resources.ExplorationStage3AsJson;
+
         internal static DateTime WIDExplorer_FakeNow = new DateTime(2021, 05, 01);
         internal static Func<DateTime> WIDExplorer_FakeNowFunction = () => WIDExplorer_FakeNow;
         internal static Func<string, IGetRequestManager> WIDExplorer_FakeGetRequestManager

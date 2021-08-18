@@ -385,6 +385,7 @@ namespace NW.WIDJobs
 
             options.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
             options.Converters.Add(new DateTimeToDateConverter());
+            options.WriteIndented = true;
 
             return options;
 
@@ -526,7 +527,7 @@ namespace NW.WIDJobs
                         pageNumber: jobPosting.PageNumber,
                         response: DefaultNotSerialized,
                         title: jobPosting.Title,
-                        presentation: jobPosting.Presentation,
+                        presentation: DefaultNotSerialized,
                         hiringOrgName: jobPosting.HiringOrgName,
                         workPlaceAddress: jobPosting.WorkPlaceAddress,
                         workPlacePostalCode: jobPosting.WorkPlacePostalCode,

@@ -62,6 +62,33 @@ namespace NW.WIDJobs.UnitTests.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to {
+        ///    &quot;RunId&quot;: &quot;FakeRunId&quot;,
+        ///    &quot;TotalResultCount&quot;: 2177,
+        ///    &quot;TotalJobPages&quot;: 109,
+        ///    &quot;Stage&quot;: 2,
+        ///    &quot;IsCompleted&quot;: true,
+        ///    &quot;JobPages&quot;: [
+        ///        {
+        ///            &quot;RunId&quot;: &quot;FakeRunId&quot;,
+        ///            &quot;PageNumber&quot;: 1,
+        ///            &quot;Response&quot;: &quot;This item has been exluded from the serializazion.&quot;
+        ///        },
+        ///        {
+        ///            &quot;RunId&quot;: &quot;FakeRunId&quot;,
+        ///            &quot;PageNumber&quot;: 2,
+        ///            &quot;Response&quot;: &quot;This item has been exluded from the serializazion.&quot;
+        ///        }
+        ///    ],
+        ///    &quot;JobPostings&quot;: &quot;Thi [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ExplorationStage3AsJson {
+            get {
+                return ResourceManager.GetString("ExplorationStage3AsJson", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
         ///    &quot;WorkSchedule&quot;: [
         ///        {
         ///            &quot;Id&quot;: 1,
