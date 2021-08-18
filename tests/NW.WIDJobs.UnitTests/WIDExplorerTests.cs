@@ -105,7 +105,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                        () => new WIDExplorer().ExtractFromJsonFile((IFileInfoAdapter)null)
+                        () => new WIDExplorer().LoadFromJsonFile((IFileInfoAdapter)null)
                     ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("jsonFile").Message
@@ -113,7 +113,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                        () => new WIDExplorer().ExtractFromJsonFile(ObjectMother.FileManager_FileInfoAdapterDoesntExist)
+                        () => new WIDExplorer().LoadFromJsonFile(ObjectMother.FileManager_FileInfoAdapterDoesntExist)
                     ),
                 typeof(ArgumentException),
                 MessageCollection.Validator_ProvidedPathDoesntExist.Invoke(ObjectMother.FileManager_FileInfoAdapterDoesntExist)
@@ -121,7 +121,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                        () => new WIDExplorer().ExtractFromJsonFile((string)null)
+                        () => new WIDExplorer().LoadFromJsonFile((string)null)
                     ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("filePath").Message
@@ -162,7 +162,7 @@ namespace NW.WIDJobs.UnitTests
             new TestCaseData(
                 new TestDelegate(
                     () => new WIDExplorer()
-                                .SaveAsJson(
+                                .SaveToJsonFile(
                                     null,
                                     ObjectMother.FileManager_FileInfoAdapterDoesntExist
                         )),
@@ -173,7 +173,7 @@ namespace NW.WIDJobs.UnitTests
             new TestCaseData(
                 new TestDelegate(
                     () => new WIDExplorer()
-                                .SaveAsJson(
+                                .SaveToJsonFile(
                                     ObjectMother.Shared_ExplorationStage3,
                                     null
                         )),
@@ -184,7 +184,7 @@ namespace NW.WIDJobs.UnitTests
             new TestCaseData(
                 new TestDelegate(
                     () => new WIDExplorer()
-                                .SaveAsJson(
+                                .SaveToJsonFile(
                                     null,
                                     true,
                                     ObjectMother.FileManager_FileInfoAdapterDoesntExist
@@ -196,7 +196,7 @@ namespace NW.WIDJobs.UnitTests
             new TestCaseData(
                 new TestDelegate(
                     () => new WIDExplorer()
-                                .SaveAsJson(
+                                .SaveToJsonFile(
                                     ObjectMother.MetricCollection_ExplorationStage3,
                                     true,
                                     null
@@ -601,7 +601,7 @@ namespace NW.WIDJobs.UnitTests
         }
 
         [Test]
-        public void ExtractFromJsonFile_ShouldReturnExpectedJobPostingsAndLogExpectedMessages_WhenProperJsonFile()
+        public void LoadFromJsonFile_ShouldReturnExpectedJobPostingsAndLogExpectedMessages_WhenProperJsonFile()
         {
 
             // Arrange
@@ -672,7 +672,7 @@ namespace NW.WIDJobs.UnitTests
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings(), ObjectMother.WIDExplorer_FakeNowFunction);
 
             // Act
-            List<JobPosting> actual = widExplorer.ExtractFromJsonFile(fakeFileInfoAdapter);
+            List<JobPosting> actual = widExplorer.LoadFromJsonFile(fakeFileInfoAdapter);
 
             // Assert
             Assert.IsTrue(
@@ -683,7 +683,7 @@ namespace NW.WIDJobs.UnitTests
         }
 
         [Test]
-        public void ExtractFromJsonFile_ShouldReturnExpectedJobPostingsAndLogExpectedMessages_WhenProperFilePath()
+        public void LoadFromJsonFile_ShouldReturnExpectedJobPostingsAndLogExpectedMessages_WhenProperFilePath()
         {
 
             // Arrange
@@ -754,7 +754,7 @@ namespace NW.WIDJobs.UnitTests
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings(), ObjectMother.WIDExplorer_FakeNowFunction);
 
             // Act
-            List<JobPosting> actual = widExplorer.ExtractFromJsonFile(ObjectMother.WIDExplorer_JobPage01_FakeFilePath);
+            List<JobPosting> actual = widExplorer.LoadFromJsonFile(ObjectMother.WIDExplorer_JobPage01_FakeFilePath);
 
             // Assert
             Assert.IsTrue(

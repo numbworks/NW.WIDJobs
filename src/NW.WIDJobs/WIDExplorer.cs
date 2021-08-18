@@ -136,7 +136,7 @@ namespace NW.WIDJobs
             return JsonSerializer.Serialize(dyn, CreateJsonSerializerOptions());
 
         }
-        public List<JobPosting> ExtractFromJsonFile(IFileInfoAdapter jsonFile)
+        public List<JobPosting> LoadFromJsonFile(IFileInfoAdapter jsonFile)
         {
 
             Validator.ValidateObject(jsonFile, nameof(jsonFile));
@@ -161,8 +161,43 @@ namespace NW.WIDJobs
             return jobPostings;
 
         }
-        public List<JobPosting> ExtractFromJsonFile(string filePath)
-            => ExtractFromJsonFile(_components.FileManager.Create(filePath));
+        public List<JobPosting> LoadFromJsonFile(string filePath)
+            => LoadFromJsonFile(_components.FileManager.Create(filePath));
+        public IFileInfoAdapter SaveToJsonFile(MetricCollection metricCollection, bool numbersAsPercentages, IFileInfoAdapter jsonFile)
+        {
+
+            Validator.ValidateObject(metricCollection, nameof(metricCollection));
+            Validator.ValidateObject(jsonFile, nameof(jsonFile));
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SavingMetricCollectionAsJson);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs.Invoke(metricCollection.RunId));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_NumbersAsPercentagesIs.Invoke(numbersAsPercentages));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JSONFileIs.Invoke(jsonFile));
+
+            string json = ConvertToJson(metricCollection, numbersAsPercentages);
+            _components.FileManager.WriteAllText(jsonFile, json);
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_MetricCollectionSavedAsJson);
+
+            return jsonFile;
+
+        }
+        public IFileInfoAdapter SaveToJsonFile(MetricCollection metricCollection, bool numbersAsPercentages)
+        {
+
+            DateTime now = NowFunction.Invoke();
+            string fullName = _components.FilenameFactory.CreateForMetricCollectionJson(_settings.FolderPath, now, numbersAsPercentages);
+            IFileInfoAdapter jsonFile = new FileInfoAdapter(fullName);
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_MethodCalledWithoutIFileInfoAdapter.Invoke(nameof(SaveToJsonFile)));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DefaultValuesCreateIFileInfoAdapter);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FolderPathIs.Invoke(_settings.FolderPath));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_NowIs.Invoke(now));
+
+            return SaveToJsonFile(metricCollection, numbersAsPercentages, jsonFile);
+
+        }
+
 
 
         public Exploration Explore(string runId, ushort finalPageNumber, Stages stage)
@@ -294,7 +329,7 @@ namespace NW.WIDJobs
             string fullName = _components.FilenameFactory.CreateForDatabase(_settings.FolderPath, now);
             IFileInfoAdapter databaseFile = new FileInfoAdapter(fullName);
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_MethodCalledWithoutIFileInfoAdapter.Invoke(nameof(SaveAsJson)));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_MethodCalledWithoutIFileInfoAdapter.Invoke(nameof(SaveToJsonFile)));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DefaultValuesCreateIFileInfoAdapter);
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FolderPathIs.Invoke(_settings.FolderPath));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_NowIs.Invoke(now));
@@ -303,7 +338,7 @@ namespace NW.WIDJobs
 
         }
 
-        public IFileInfoAdapter SaveAsJson(Exploration exploration, IFileInfoAdapter jsonFile)
+        public IFileInfoAdapter SaveToJsonFile(Exploration exploration, IFileInfoAdapter jsonFile)
         {
 
             Validator.ValidateObject(exploration, nameof(exploration));
@@ -321,54 +356,19 @@ namespace NW.WIDJobs
             return jsonFile;
 
         }
-        public IFileInfoAdapter SaveAsJson(Exploration exploration)
+        public IFileInfoAdapter SaveToJsonFile(Exploration exploration)
         {
 
             DateTime now = NowFunction.Invoke();
             string fullName = _components.FilenameFactory.CreateForExplorationJson(_settings.FolderPath, now);
             IFileInfoAdapter jsonFile = new FileInfoAdapter(fullName);
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_MethodCalledWithoutIFileInfoAdapter.Invoke(nameof(SaveAsJson)));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_MethodCalledWithoutIFileInfoAdapter.Invoke(nameof(SaveToJsonFile)));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DefaultValuesCreateIFileInfoAdapter);
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FolderPathIs.Invoke(_settings.FolderPath));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_NowIs.Invoke(now));
 
-            return SaveAsJson(exploration, jsonFile);
-
-        }
-
-        public IFileInfoAdapter SaveAsJson(MetricCollection metricCollection, bool numbersAsPercentages, IFileInfoAdapter jsonFile)
-        {
-
-            Validator.ValidateObject(metricCollection, nameof(metricCollection));
-            Validator.ValidateObject(jsonFile, nameof(jsonFile));
-
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SavingMetricCollectionAsJson);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs.Invoke(metricCollection.RunId));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_NumbersAsPercentagesIs.Invoke(numbersAsPercentages));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JSONFileIs.Invoke(jsonFile));
-
-            string json = ConvertToJson(metricCollection, numbersAsPercentages);
-            _components.FileManager.WriteAllText(jsonFile, json);
-
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_MetricCollectionSavedAsJson);
-
-            return jsonFile;
-
-        }
-        public IFileInfoAdapter SaveAsJson(MetricCollection metricCollection, bool numbersAsPercentages)
-        {
-
-            DateTime now = NowFunction.Invoke();           
-            string fullName = _components.FilenameFactory.CreateForMetricsJson(_settings.FolderPath, now, numbersAsPercentages);       
-            IFileInfoAdapter jsonFile = new FileInfoAdapter(fullName);
-
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_MethodCalledWithoutIFileInfoAdapter.Invoke(nameof(SaveAsJson)));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DefaultValuesCreateIFileInfoAdapter);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FolderPathIs.Invoke(_settings.FolderPath));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_NowIs.Invoke(now));
-
-            return SaveAsJson(metricCollection, numbersAsPercentages, jsonFile);
+            return SaveToJsonFile(exploration, jsonFile);
 
         }
 

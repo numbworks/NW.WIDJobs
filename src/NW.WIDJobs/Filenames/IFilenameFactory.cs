@@ -34,7 +34,7 @@ namespace NW.WIDJobs.Filenames
         /// Returns a dated filename based on <paramref name="filePath"/> and <see cref="FilenameFactory.DefaultMetricsJsonToken"/> (or <see cref="FilenameFactory.DefaultMetricsPctJsonToken"/>).
         /// </summary>
         /// <exception cref="ArgumentNullException"/>
-        string CreateForMetricsJson(string filePath, DateTime now, bool numbersAsPercentages);
+        string CreateForMetricCollectionJson(string filePath, DateTime now, bool numbersAsPercentages);
 
         /// <summary>
         /// Returns a dated filename based on <paramref name="filePath"/> and <paramref name="token"/>.

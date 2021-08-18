@@ -79,10 +79,10 @@ namespace NW.WIDJobsClient
                 = explorer.Explore(1, Stages.Stage3_UpToAllJobPostingsExtended);
             MetricCollection metrics = explorer.ConvertToMetricCollection(exploration);
 
-            explorer.SaveAsJson(exploration);
+            explorer.SaveToJsonFile(exploration);
             explorer.SaveAsSQLite(exploration.JobPostingsExtended);
-            explorer.SaveAsJson(metrics, false);
-            explorer.SaveAsJson(metrics, true);
+            explorer.SaveToJsonFile(metrics, false);
+            explorer.SaveToJsonFile(metrics, true);
 
         }
 

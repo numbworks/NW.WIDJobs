@@ -95,7 +95,7 @@ namespace NW.WIDJobs.UnitTests
             new TestCaseData(
                     new Func<string>(
                             () => new FilenameFactory()
-                                        .CreateForMetricsJson(
+                                        .CreateForMetricCollectionJson(
                                             ObjectMother.FileNameFactory_FakeFilePath,
                                             ObjectMother.FileNameFactory_FakeNow,
                                             true)
@@ -106,7 +106,7 @@ namespace NW.WIDJobs.UnitTests
             new TestCaseData(
                     new Func<string>(
                             () => new FilenameFactory()
-                                        .CreateForMetricsJson(
+                                        .CreateForMetricCollectionJson(
                                             ObjectMother.FileNameFactory_FakeFilePath,
                                             ObjectMother.FileNameFactory_FakeNow,
                                             false)
@@ -121,7 +121,7 @@ namespace NW.WIDJobs.UnitTests
             new TestCaseData(
                 new TestDelegate(
                     () => new FilenameFactory()
-                                .CreateForMetricsJson(
+                                .CreateForMetricCollectionJson(
                                     null,
                                     ObjectMother.FileNameFactory_FakeNow,
                                     true)

@@ -45,7 +45,7 @@ namespace NW.WIDJobs.Filenames
         public string CreateForDatabase(string filePath, DateTime now)
             => ValidateAndCreate(filePath, DefaultDatabaseToken, now, DefaultDatabaseExtension);
 
-        public string CreateForMetricsJson(string filePath, DateTime now, bool numbersAsPercentages)
+        public string CreateForMetricCollectionJson(string filePath, DateTime now, bool numbersAsPercentages)
         {
 
             if (numbersAsPercentages)
