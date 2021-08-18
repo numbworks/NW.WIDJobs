@@ -28,7 +28,7 @@ namespace NW.WIDJobs.UnitTests
         public DirectoryInfo Directory
             => throw new NotImplementedException();
         public string DirectoryName
-            => throw new NotImplementedException();
+            => new FileInfo(FullName).DirectoryName;
         public string Extension
             => throw new NotImplementedException();
         public bool IsReadOnly
@@ -59,7 +59,7 @@ namespace NW.WIDJobs.UnitTests
         public long Length
             => throw new NotImplementedException();
         public string Name
-            => throw new NotImplementedException();
+            => new FileInfo(FullName).Name;
 
         public bool Exists { get; }
         public string FullName { get; }

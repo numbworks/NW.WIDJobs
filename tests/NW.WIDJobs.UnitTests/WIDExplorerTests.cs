@@ -1074,7 +1074,7 @@ namespace NW.WIDJobs.UnitTests
                     runIdManager: new RunIdManager(),
                     metricCollectionManager: new MetricCollectionManager(),
                     fileManager: new FileManager(),
-                    repositoryFactory: new RepositoryFactory(),
+                    repositoryFactory: new FakeRepositoryFactory(affectedRows),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
                     bulletPointManager: new BulletPointManager()
