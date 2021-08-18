@@ -230,6 +230,44 @@ namespace NW.WIDJobs
             return SaveToJsonFile(exploration, jsonFile);
 
         }
+        public IFileInfoAdapter SaveToSQLiteDatabase(List<JobPostingExtended> jobPostingsExtended, IFileInfoAdapter databaseFile, bool deleteAndRecreateDatabase)
+        {
+
+            Validator.ValidateList(jobPostingsExtended, nameof(jobPostingsExtended));
+            Validator.ValidateObject(databaseFile, nameof(databaseFile));
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SavingJobPostingsExtendedToSQLiteDatabase);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingsExtendedAre.Invoke(jobPostingsExtended));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DatabaseFileIs.Invoke(databaseFile.FullName));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DeleteAndRecreateDatabaseIs.Invoke(deleteAndRecreateDatabase));
+
+            IRepository repository =
+                _components.RepositoryFactory
+                    .Create(databaseFile.DirectoryName, databaseFile.Name, _settings.DeleteAndRecreateDatabase);
+
+            int affectedRows = repository.ConditionallyInsert(jobPostingsExtended);
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_AffectedRowsAre.Invoke(affectedRows));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationSavedToSQLiteDatabase);
+
+            return databaseFile;
+
+        }
+        public IFileInfoAdapter SaveToSQLiteDatabase(List<JobPostingExtended> jobPostingsExtended)
+        {
+
+            DateTime now = NowFunction.Invoke();
+            string fullName = _components.FilenameFactory.CreateForDatabase(_settings.FolderPath, now);
+            IFileInfoAdapter databaseFile = new FileInfoAdapter(fullName);
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_MethodCalledWithoutIFileInfoAdapter.Invoke(nameof(SaveToJsonFile)));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DefaultValuesCreateIFileInfoAdapter);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FolderPathIs.Invoke(_settings.FolderPath));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_NowIs.Invoke(now));
+
+            return SaveToSQLiteDatabase(jobPostingsExtended, databaseFile, _settings.DeleteAndRecreateDatabase);
+
+        }
 
 
         public Exploration Explore(string runId, ushort finalPageNumber, Stages stage)
@@ -327,46 +365,6 @@ namespace NW.WIDJobs
             string runId = _components.RunIdManager.Create(now);
 
             return ExploreAll(runId, stage);
-
-        }
-
-        public IFileInfoAdapter SaveAsSQLite
-            (List<JobPostingExtended> jobPostingsExtended, IFileInfoAdapter databaseFile, bool deleteAndRecreateDatabase)
-        {
-
-            Validator.ValidateList(jobPostingsExtended, nameof(jobPostingsExtended));
-            Validator.ValidateObject(databaseFile, nameof(databaseFile));
-
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SavingJobPostingsExtendedAsSQLite);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingsExtendedAre.Invoke(jobPostingsExtended));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DatabaseFileIs.Invoke(databaseFile.FullName));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DeleteAndRecreateDatabaseIs.Invoke(deleteAndRecreateDatabase));
-
-            IRepository repository = 
-                _components.RepositoryFactory
-                    .Create(databaseFile.DirectoryName, databaseFile.Name, _settings.DeleteAndRecreateDatabase);
-
-            int affectedRows = repository.ConditionallyInsert(jobPostingsExtended);
-
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_AffectedRowsAre.Invoke(affectedRows));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationSavedAsSQLite);
-
-            return databaseFile;
-
-        }
-        public IFileInfoAdapter SaveAsSQLite(List<JobPostingExtended> jobPostingsExtended)
-        {
-
-            DateTime now = NowFunction.Invoke();
-            string fullName = _components.FilenameFactory.CreateForDatabase(_settings.FolderPath, now);
-            IFileInfoAdapter databaseFile = new FileInfoAdapter(fullName);
-
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_MethodCalledWithoutIFileInfoAdapter.Invoke(nameof(SaveToJsonFile)));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DefaultValuesCreateIFileInfoAdapter);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FolderPathIs.Invoke(_settings.FolderPath));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_NowIs.Invoke(now));
-
-            return SaveAsSQLite(jobPostingsExtended, databaseFile, _settings.DeleteAndRecreateDatabase);
 
         }
 

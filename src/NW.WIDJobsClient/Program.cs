@@ -80,7 +80,7 @@ namespace NW.WIDJobsClient
             MetricCollection metrics = explorer.ConvertToMetricCollection(exploration);
 
             explorer.SaveToJsonFile(exploration);
-            explorer.SaveAsSQLite(exploration.JobPostingsExtended);
+            explorer.SaveToSQLiteDatabase(exploration.JobPostingsExtended);
             explorer.SaveToJsonFile(metrics, false);
             explorer.SaveToJsonFile(metrics, true);
 

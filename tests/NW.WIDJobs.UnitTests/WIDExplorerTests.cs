@@ -134,7 +134,7 @@ namespace NW.WIDJobs.UnitTests
             new TestCaseData(
                 new TestDelegate(
                     () => new WIDExplorer()
-                                .SaveAsSQLite(
+                                .SaveToSQLiteDatabase(
                                     null,
                                     ObjectMother.FileManager_FileInfoAdapterDoesntExist,
                                     true
@@ -146,7 +146,7 @@ namespace NW.WIDJobs.UnitTests
             new TestCaseData(
                 new TestDelegate(
                     () => new WIDExplorer()
-                                .SaveAsSQLite(
+                                .SaveToSQLiteDatabase(
                                     ObjectMother.Shared_JobPage01_JobPostingsExtended,
                                     null,
                                     true
@@ -1031,6 +1031,61 @@ namespace NW.WIDJobs.UnitTests
 
             // Assert
             Assert.AreEqual(expected.FullName, actual.FullName);
+            Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
+
+        }
+
+        [Test]
+        public void SaveToSQLiteDatabase_ShouldWriteDatabaseFileToDiskAndLogExpectedMessages_WhenProperJobPostingsExtendedAndFileInfoAdapter()
+        {
+
+            // Arrange
+            List<JobPostingExtended> jobPostingsExtended = ObjectMother.Shared_JobPage01_JobPostingsExtended;
+            bool deleteAndRecreateDatabase = true;
+            IFileInfoAdapter fakeFileInfoAdapter = new FakeFileInfoAdapter(false, ObjectMother.WIDExplorer_FakeSQLiteDatabaseFilePath);
+            int affectedRows = 467;
+            List<string> expectedLogMessages = new List<string>()
+            {
+
+                MessageCollection.WIDExplorer_SavingJobPostingsExtendedToSQLiteDatabase,
+                MessageCollection.WIDExplorer_JobPostingsExtendedAre.Invoke(jobPostingsExtended),
+                MessageCollection.WIDExplorer_DatabaseFileIs.Invoke(fakeFileInfoAdapter.FullName),
+                MessageCollection.WIDExplorer_DeleteAndRecreateDatabaseIs.Invoke(deleteAndRecreateDatabase),
+                MessageCollection.WIDExplorer_AffectedRowsAre.Invoke(affectedRows),
+                MessageCollection.WIDExplorer_ExplorationSavedToSQLiteDatabase
+
+            };
+
+            FakeLogger fakeLogger = new FakeLogger();
+            Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
+            FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
+            Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
+            WIDExplorerComponents components = new WIDExplorerComponents(
+                    loggingAction: fakeLoggingAction,
+                    loggingActionAsciiBanner: fakeLoggingActionAsciiBanner,
+                    xpathManager: new XPathManager(),
+                    getRequestManager: new GetRequestManager(),
+                    jobPageDeserializer: new JobPageDeserializer(),
+                    jobPageManager: new JobPageManager(),
+                    jobPostingDeserializer: new JobPostingDeserializer(),
+                    jobPostingManager: new JobPostingManager(),
+                    jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
+                    jobPostingExtendedManager: new JobPostingExtendedManager(),
+                    runIdManager: new RunIdManager(),
+                    metricCollectionManager: new MetricCollectionManager(),
+                    fileManager: new FileManager(),
+                    repositoryFactory: new RepositoryFactory(),
+                    asciiBannerManager: new AsciiBannerManager(),
+                    filenameFactory: new FilenameFactory(),
+                    bulletPointManager: new BulletPointManager()
+                  );
+            WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings(), WIDExplorer.DefaultNowFunction);
+
+            // Act
+            IFileInfoAdapter actual = widExplorer.SaveToSQLiteDatabase(jobPostingsExtended, fakeFileInfoAdapter, deleteAndRecreateDatabase);
+
+            // Assert
+            Assert.AreEqual(fakeFileInfoAdapter.FullName, actual.FullName);
             Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
 
         }

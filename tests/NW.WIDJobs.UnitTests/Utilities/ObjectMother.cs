@@ -3859,8 +3859,10 @@ namespace NW.WIDJobs.UnitTests
             = Properties.Resources.ExplorationStage3MCPercentagesAsJson;
 
         internal static string WIDExplorer_JobPage01_FakeFilePath = @"C:\JobPage01.json";
-        internal static string WIDExplorer_FakeJsonFilePath = @"C:\export.json";
         internal static string WIDExplorer_FakeFolderPath = @"C:\";
+        internal static string WIDExplorer_FakeJsonFilePath = @"C:\export.json";
+        internal static string WIDExplorer_FakeSQLiteDatabaseFilePath = @"C:\export.db";
+        internal static string WIDExplorer_FakeSQLiteDatabaseName = @"export.db";
 
         internal static DateTime WIDExplorer_FakeNow = new DateTime(2021, 05, 01);
         internal static Func<DateTime> WIDExplorer_FakeNowFunction = () => WIDExplorer_FakeNow;

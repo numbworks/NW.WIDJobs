@@ -122,8 +122,8 @@ namespace NW.WIDJobs.Messages
         public static Func<JobPostingExtended, string> WIDExplorer_JobPostingExtendedIs
             = (jobPostingExtended) => $"PageItemExtended:'{jobPostingExtended}'.";
 
-        public static string WIDExplorer_SavingJobPostingsExtendedAsSQLite
-            =  $"Saving the provided {nameof(JobPostingExtended)} objects as SQLite database...";
+        public static string WIDExplorer_SavingJobPostingsExtendedToSQLiteDatabase
+            =  $"Saving the provided {nameof(JobPostingExtended)} objects to a SQLite database...";
         public static Func<List<JobPostingExtended>, string> WIDExplorer_JobPostingsExtendedAre
             = (jobPostingsExtended) => $"PJobPostingsExtended: '{jobPostingsExtended.Count}'.";
         public static Func<string, string> WIDExplorer_DatabaseFileIs
@@ -132,8 +132,8 @@ namespace NW.WIDJobs.Messages
             = (deleteAndRecreateDatabase) => $"DeleteAndRecreateDatabase: '{deleteAndRecreateDatabase}'.";
         public static Func<int, string> WIDExplorer_AffectedRowsAre
             = (affectedRows) => $"AffectedRows: '{affectedRows}'.";
-        public static string WIDExplorer_ExplorationSavedAsSQLite
-            = $"The provided {nameof(JobPostingExtended)} objects have been successfully saved as SQLite database.";
+        public static string WIDExplorer_ExplorationSavedToSQLiteDatabase
+            = $"The provided {nameof(JobPostingExtended)} objects have been successfully saved to a SQLite database.";
 
         public static string WIDExplorer_SavingExplorationToJsonFile
             = $"Saving the provided {nameof(Exploration)} object to a JSON file...";
