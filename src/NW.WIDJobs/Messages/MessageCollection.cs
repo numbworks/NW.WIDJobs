@@ -106,8 +106,8 @@ namespace NW.WIDJobs.Messages
         public static Func<ushort, string> WIDExplorer_FinalPageNumberThresholdDate
             = (finalPageNumber) => $"The 'FinalPageNumber' for the provided 'ThresholdDate' is '{finalPageNumber}'.";
 
-        public static string WIDExplorer_ExtractJobPostingsFromJsonFile
-            = $"Extracting {nameof(JobPosting)} objects from the provided Json file...";
+        public static string WIDExplorer_LoadingJobPostingsFromJsonFile
+            = $"Loading {nameof(JobPosting)} objects from the provided Json file...";
         public static Func<List<JobPosting>, string> WIDExplorer_JobPostingsExtractedFromJsonFile
             = (jobPostings) => $"'{jobPostings.Count}' {nameof(JobPosting)} objects have been successfully extracted from the provided Json file.";
         public static string WIDExplorer_SomeDefaultValuesUsedJsonFile
@@ -142,12 +142,12 @@ namespace NW.WIDJobs.Messages
         public static string WIDExplorer_ExplorationSavedAsJson
             = $"The provided {nameof(Exploration)} object has been successfully saved as JSON file.";
 
-        public static string WIDExplorer_SavingMetricCollectionAsJson
-            = $"Saving the provided {nameof(MetricCollection)} object as JSON file...";
+        public static string WIDExplorer_SavingMetricCollectionToJsonFile
+            = $"Saving the provided {nameof(MetricCollection)} object to a JSON file...";
         public static Func<bool, string> WIDExplorer_NumbersAsPercentagesIs
             = (numbersAsPercentages) => $"NumbersAsPercentages: '{numbersAsPercentages}'.";
-        public static string WIDExplorer_MetricCollectionSavedAsJson
-            = $"The provided {nameof(MetricCollection)} object has been successfully saved as JSON file.";
+        public static string WIDExplorer_MetricCollectionSavedToJsonFile
+            = $"The provided {nameof(MetricCollection)} object has been successfully saved to a JSON file.";
 
         public static Func<string, string> WIDExplorer_MethodCalledWithoutIFileInfoAdapter
             = (methodName) => $"'{methodName}' has been called without providing a '{nameof(IFileInfoAdapter)}' parameter.";

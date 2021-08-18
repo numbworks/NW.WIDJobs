@@ -638,7 +638,7 @@ namespace NW.WIDJobs.UnitTests
             List<string> expectedLogMessages = new List<string>()
             {
 
-                MessageCollection.WIDExplorer_ExtractJobPostingsFromJsonFile,
+                MessageCollection.WIDExplorer_LoadingJobPostingsFromJsonFile,
                 MessageCollection.WIDExplorer_SomeDefaultValuesUsedJsonFile,
                 MessageCollection.WIDExplorer_RunIdIs.Invoke(runId),
                 MessageCollection.WIDExplorer_PageNumberIs.Invoke(pageNumber),
@@ -720,7 +720,7 @@ namespace NW.WIDJobs.UnitTests
             List<string> expectedLogMessages = new List<string>()
             {
 
-                MessageCollection.WIDExplorer_ExtractJobPostingsFromJsonFile,
+                MessageCollection.WIDExplorer_LoadingJobPostingsFromJsonFile,
                 MessageCollection.WIDExplorer_SomeDefaultValuesUsedJsonFile,
                 MessageCollection.WIDExplorer_RunIdIs.Invoke(runId),
                 MessageCollection.WIDExplorer_PageNumberIs.Invoke(pageNumber),
@@ -760,6 +760,67 @@ namespace NW.WIDJobs.UnitTests
             Assert.IsTrue(
                 ObjectMother.AreEqual(expected, actual)
                 );
+            Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
+
+        }
+
+        [Test]
+        public void SaveToJsonFile_ShouldWriteJsonFileToDiskAndLogExpectedMessages_WhenProperMetricCollectionAndFileInfoAdapter()
+        {
+
+            // Arrange
+            MetricCollection metricCollection = ObjectMother.MetricCollection_ExplorationStage3;
+            bool numbersAsPercentages = false;
+            IFileInfoAdapter fakeFileInfoAdapter = new FakeFileInfoAdapter(false, ObjectMother.WIDExplorer_FakeJsonFilePath);
+            List<string> expectedLogMessages = new List<string>()
+            {
+
+                MessageCollection.WIDExplorer_SavingMetricCollectionToJsonFile,
+                MessageCollection.WIDExplorer_RunIdIs.Invoke(metricCollection.RunId),
+                MessageCollection.WIDExplorer_NumbersAsPercentagesIs.Invoke(numbersAsPercentages),
+                MessageCollection.WIDExplorer_JSONFileIs.Invoke(fakeFileInfoAdapter),
+
+                // ConvertToJson
+                MessageCollection.WIDExplorer_ConvertingMetricCollectionToJsonString,
+                MessageCollection.WIDExplorer_NumbersAsPercentagesIs.Invoke(numbersAsPercentages),
+                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
+                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
+                MessageCollection.WIDExplorer_ConvertedMetricsCollectionToJsonString,
+
+                MessageCollection.WIDExplorer_MetricCollectionSavedToJsonFile
+
+            };
+
+            FakeLogger fakeLogger = new FakeLogger();
+            Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
+            FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
+            Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
+            WIDExplorerComponents components = new WIDExplorerComponents(
+                    loggingAction: fakeLoggingAction,
+                    loggingActionAsciiBanner: fakeLoggingActionAsciiBanner,
+                    xpathManager: new XPathManager(),
+                    getRequestManager: new GetRequestManager(),
+                    jobPageDeserializer: new JobPageDeserializer(),
+                    jobPageManager: new JobPageManager(),
+                    jobPostingDeserializer: new JobPostingDeserializer(),
+                    jobPostingManager: new JobPostingManager(),
+                    jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
+                    jobPostingExtendedManager: new JobPostingExtendedManager(),
+                    runIdManager: new RunIdManager(),
+                    metricCollectionManager: new MetricCollectionManager(),
+                    fileManager: new FakeFileManager(null), // Content is not relevant, we'll just use this fake to simulate writing.
+                    repositoryFactory: new RepositoryFactory(),
+                    asciiBannerManager: new AsciiBannerManager(),
+                    filenameFactory: new FilenameFactory(),
+                    bulletPointManager: new BulletPointManager()
+                  );
+            WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings(), WIDExplorer.DefaultNowFunction);
+
+            // Act
+            IFileInfoAdapter actual = widExplorer.SaveToJsonFile(metricCollection, numbersAsPercentages, fakeFileInfoAdapter);
+
+            // Assert
+            Assert.AreEqual(fakeFileInfoAdapter.FullName, actual.FullName);
             Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
 
         }

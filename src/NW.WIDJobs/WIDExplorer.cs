@@ -142,7 +142,7 @@ namespace NW.WIDJobs
             Validator.ValidateObject(jsonFile, nameof(jsonFile));
             Validator.ValidateFileExistance(jsonFile);
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExtractJobPostingsFromJsonFile);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_LoadingJobPostingsFromJsonFile);
 
             DateTime now = NowFunction.Invoke();
             string runId = _components.RunIdManager.Create(now);
@@ -169,7 +169,7 @@ namespace NW.WIDJobs
             Validator.ValidateObject(metricCollection, nameof(metricCollection));
             Validator.ValidateObject(jsonFile, nameof(jsonFile));
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SavingMetricCollectionAsJson);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SavingMetricCollectionToJsonFile);
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs.Invoke(metricCollection.RunId));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_NumbersAsPercentagesIs.Invoke(numbersAsPercentages));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JSONFileIs.Invoke(jsonFile));
@@ -177,7 +177,7 @@ namespace NW.WIDJobs
             string json = ConvertToJson(metricCollection, numbersAsPercentages);
             _components.FileManager.WriteAllText(jsonFile, json);
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_MetricCollectionSavedAsJson);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_MetricCollectionSavedToJsonFile);
 
             return jsonFile;
 
