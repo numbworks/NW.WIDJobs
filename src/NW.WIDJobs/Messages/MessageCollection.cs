@@ -71,8 +71,8 @@ namespace NW.WIDJobs.Messages
             = (stage) => $"Stage:'{stage}'.";
         public static Func<Stages, string> WIDExplorer_ExecutionStageStarted
             = (stage) => $"The execution of the '{stage}' has been started.";
-        public static string WIDExplorer_ContentSuccessfullyRetrieved
-            = "Content has been successfully retrieved for the provided url.";
+        public static Func<ushort, string> WIDExplorer_JobPageSuccessfullyRetrieved
+            = (pageNumber) => $"The '{nameof(JobPage)}' object with '{nameof(JobPage.PageNumber)}'='{pageNumber}' has been successfully retrieved";       
         public static Func<uint, string> WIDExplorer_TotalResultCountIs
             = (totalResultCount) => $"TotalResultCount:'{totalResultCount}'.";
         public static Func<ushort, string> WIDExplorer_TotalJobPagesIs

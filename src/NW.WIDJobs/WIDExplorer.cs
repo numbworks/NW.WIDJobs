@@ -623,8 +623,7 @@ namespace NW.WIDJobs
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(stage));
 
             JobPage jobPage = _components.JobPageManager.GetJobPage(runId, initialPageNumber);
-
-            // To-Do: "Page n.X retrieved" 
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPageSuccessfullyRetrieved.Invoke(jobPage.PageNumber));
 
             ushort totalResultCount = _components.JobPageDeserializer.GetTotalResultCount(jobPage.Response);
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_TotalResultCountIs(totalResultCount));

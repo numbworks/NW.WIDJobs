@@ -1183,6 +1183,7 @@ namespace NW.WIDJobs.UnitTests
 
                 // ProcessStage1
                 MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage1_OnlyMetrics),
+                MessageCollection.WIDExplorer_JobPageSuccessfullyRetrieved.Invoke((ushort)1),
                 MessageCollection.WIDExplorer_TotalResultCountIs(expected.TotalResultCount),
                 MessageCollection.WIDExplorer_TotalJobPagesIs(expected.TotalJobPages),
 
