@@ -2667,7 +2667,11 @@ namespace NW.WIDJobs.UnitTests
         internal static ushort Shared_ExplorationStage1_TotalJobPages = Shared_JobPage01_TotalJobPages;
         internal static Stages Shared_ExplorationStage1_Stage = Stages.Stage1_OnlyMetrics;
         internal static bool Shared_ExplorationStage1_IsCompleted = true;
-        internal static List<JobPage> Shared_ExplorationStage1_JobPages = null;
+        internal static List<JobPage> Shared_ExplorationStage1_JobPages 
+            = new List<JobPage>()
+            { 
+                Shared_JobPage01_Object
+            };
         internal static List<JobPosting> Shared_ExplorationStage1_JobPostings = null;
         internal static List<JobPostingExtended> Shared_ExplorationStage1_JobPostingsExtended = null;
         internal static Exploration Shared_ExplorationStage1
@@ -2689,7 +2693,7 @@ namespace NW.WIDJobs.UnitTests
                 $"'{nameof(Exploration.TotalJobPages)}':'{Shared_ExplorationStage1_TotalJobPages}', ",
                 $"'{nameof(Exploration.Stage)}':'{Shared_ExplorationStage1_Stage}', ",
                 $"'{nameof(Exploration.IsCompleted)}':'{Shared_ExplorationStage1_IsCompleted}', ",
-                $"'{nameof(Exploration.JobPages)}':'null', ",
+                $"'{nameof(Exploration.JobPages)}':'1', ",
                 $"'{nameof(Exploration.JobPostings)}':'null', ",
                 $"'{nameof(Exploration.JobPostingsExtended)}':'null'",
                 " }"
@@ -3866,6 +3870,20 @@ namespace NW.WIDJobs.UnitTests
 
         internal static DateTime WIDExplorer_FakeNow = new DateTime(2021, 05, 01);
         internal static Func<DateTime> WIDExplorer_FakeNowFunction = () => WIDExplorer_FakeNow;
+
+        internal static Dictionary<string, string> WIDExplorer_UrlsResponses
+            = new Dictionary<string, string>()
+            {
+
+                { Shared_JobPage01_Url, Shared_JobPage01_Content },
+                { Shared_JobPage02_Url, Shared_JobPage02_Content }
+
+            };
+        internal static IPostRequestManager WIDExplorer_FakePostRequestManager
+            = new FakePostRequestManager(WIDExplorer_UrlsResponses);
+        internal static IPostRequestManagerFactory WIDExplorer_FakePostRequestManagerFactory
+            = new FakePostRequestManagerFactory(WIDExplorer_FakePostRequestManager);
+
         internal static Func<string, IGetRequestManager> WIDExplorer_FakeGetRequestManager
             = (url) =>
             {
@@ -4361,6 +4379,41 @@ namespace NW.WIDJobs.UnitTests
                 jobPostingNumber: jobPosting.JobPostingNumber,
                 jobPostingId: jobPosting.JobPostingId
             );
+
+        }
+        internal static JobPage UpdateRunId(JobPage jobPage, string runId)
+        {
+
+            return new JobPage(
+                        runId: runId,
+                        pageNumber: jobPage.PageNumber,
+                        response: jobPage.Response
+                    );
+
+        }
+        internal static List<JobPage> UpdateRunIds(List<JobPage> jobPages, string runId)
+        {
+
+            List<JobPage> updated = new List<JobPage>();
+            foreach (JobPage jobPage in jobPages)
+                updated.Add(UpdateRunId(jobPage, runId));
+
+            return updated;
+
+        }
+        internal static Exploration UpdateRunId(Exploration exploration, string runId)
+        {
+
+            return new Exploration(
+                        runId: runId,
+                        totalResultCount: exploration.TotalResultCount,
+                        totalJobPages: exploration.TotalJobPages,
+                        stage: exploration.Stage,
+                        isCompleted: exploration.IsCompleted,
+                        jobPages: UpdateRunIds(exploration.JobPages, runId),
+                        jobPostings: exploration.JobPostings,                   // To-Do: add UpdateRunIds()
+                        jobPostingsExtended: exploration.JobPostingsExtended    // To-Do: add UpdateRunIds()
+                    );
 
         }
 

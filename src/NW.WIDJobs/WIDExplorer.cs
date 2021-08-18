@@ -269,7 +269,15 @@ namespace NW.WIDJobs
 
         }
 
+        public Exploration Explore(ushort finalPageNumber, Stages stage)
+        {
 
+            DateTime now = NowFunction.Invoke();
+            string runId = _components.RunIdManager.Create(now, DefaultInitialPageNumber, finalPageNumber);
+
+            return Explore(runId, finalPageNumber, stage);
+
+        }
         public Exploration Explore(string runId, ushort finalPageNumber, Stages stage)
         {
 
@@ -293,18 +301,18 @@ namespace NW.WIDJobs
             return LogCompletionMessageAndReturn(exploration);
 
         }
-        public Exploration Explore(ushort finalPageNumber, Stages stage)
+
+
+
+        public Exploration Explore(DateTime thresholdDate, Stages stage)
         {
 
             DateTime now = NowFunction.Invoke();
-            ushort initialPageNumber = 1;
+            string runId = _components.RunIdManager.Create(now, thresholdDate);
 
-            string runId = _components.RunIdManager.Create(now, initialPageNumber, finalPageNumber);
-
-            return Explore(runId, finalPageNumber, stage);
+            return Explore(runId, thresholdDate, stage);
 
         }
-
         public Exploration Explore(string runId, DateTime thresholdDate, Stages stage)
         {
 
@@ -325,17 +333,16 @@ namespace NW.WIDJobs
             return LogCompletionMessageAndReturn(exploration);
 
         }
-        public Exploration Explore(DateTime thresholdDate, Stages stage)
+
+        public Exploration ExploreAll(Stages stage)
         {
 
             DateTime now = NowFunction.Invoke();
+            string runId = _components.RunIdManager.Create(now);
 
-            string runId = _components.RunIdManager.Create(now, thresholdDate);
-
-            return Explore(runId, thresholdDate, stage);
+            return ExploreAll(runId, stage);
 
         }
-
         public Exploration ExploreAll(string runId, Stages stage)
         {
 
@@ -356,15 +363,6 @@ namespace NW.WIDJobs
             exploration = ProcessStage3(exploration, stage);
 
             return LogCompletionMessageAndReturn(exploration);
-
-        }
-        public Exploration ExploreAll(Stages stage)
-        {
-
-            DateTime now = NowFunction.Invoke();
-            string runId = _components.RunIdManager.Create(now);
-
-            return ExploreAll(runId, stage);
 
         }
 

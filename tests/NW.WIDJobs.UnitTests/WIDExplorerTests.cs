@@ -1159,6 +1159,80 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
+        [Test]
+        public void Explore_ShouldReturnExpectedExplorationObjectAndLogExpectedMessages_WhenFinalPageNumberAndStage1()
+        {
+
+            // Arrange
+            Stages stage = Stages.Stage1_OnlyMetrics;
+            ushort finalPageNumber = 2;
+            DateTime now = ObjectMother.WIDExplorer_FakeNowFunction.Invoke();
+            string runId = new RunIdManager().Create(now, WIDExplorer.DefaultInitialPageNumber, finalPageNumber);
+            ushort parallelRequests = 3;
+            uint pauseBetweenRequestsMs = 0;
+            Exploration expected = ObjectMother.UpdateRunId(ObjectMother.Shared_ExplorationStage1, runId);
+            
+            List<string> expectedLogMessages = new List<string>()
+            {
+
+                MessageCollection.WIDExplorer_ExplorationStarted,
+                MessageCollection.WIDExplorer_RunIdIs(runId),
+                MessageCollection.WIDExplorer_DefaultInitialPageNumberIs(WIDExplorer.DefaultInitialPageNumber),
+                MessageCollection.WIDExplorer_FinalPageNumberIs(finalPageNumber),
+                MessageCollection.WIDExplorer_StageIs(stage),
+
+                // ProcessStage1
+                MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage1_OnlyMetrics),
+                MessageCollection.WIDExplorer_TotalResultCountIs(expected.TotalResultCount),
+                MessageCollection.WIDExplorer_TotalJobPagesIs(expected.TotalJobPages),
+
+                MessageCollection.WIDExplorer_ExplorationCompleted
+
+            };
+
+            FakeLogger fakeLogger = new FakeLogger();
+            Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
+            FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
+            Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
+            WIDExplorerSettings fakeExplorerSettings = new WIDExplorerSettings(
+                    parallelRequests: parallelRequests,
+                    pauseBetweenRequestsMs: pauseBetweenRequestsMs,
+                    folderPath: WIDExplorerSettings.DefaultFolderPath,
+                    deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
+                );
+            WIDExplorerComponents components = new WIDExplorerComponents(
+                    loggingAction: fakeLoggingAction,
+                    loggingActionAsciiBanner: fakeLoggingActionAsciiBanner,
+                    xpathManager: new XPathManager(),
+                    getRequestManager: new GetRequestManager(),
+                    jobPageDeserializer: new JobPageDeserializer(),
+                    jobPageManager: new JobPageManager(postRequestManagerFactory: ObjectMother.WIDExplorer_FakePostRequestManagerFactory),
+                    jobPostingDeserializer: new JobPostingDeserializer(),
+                    jobPostingManager: new JobPostingManager(),
+                    jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
+                    jobPostingExtendedManager: new JobPostingExtendedManager(),
+                    runIdManager: new RunIdManager(),
+                    metricCollectionManager: new MetricCollectionManager(),
+                    fileManager: new FileManager(),
+                    repositoryFactory: new RepositoryFactory(),
+                    asciiBannerManager: new AsciiBannerManager(),
+                    filenameFactory: new FilenameFactory(),
+                    bulletPointManager: new BulletPointManager()
+                  );
+            WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings, ObjectMother.WIDExplorer_FakeNowFunction);
+
+            // Act
+            Exploration actual = widExplorer.Explore(finalPageNumber, stage);
+
+            // Assert
+            Assert.IsTrue(
+                ObjectMother.AreEqual(expected, actual)
+                );
+            Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
+
+        }
+
+
     }
 }
 

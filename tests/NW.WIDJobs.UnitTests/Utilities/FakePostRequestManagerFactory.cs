@@ -15,13 +15,13 @@ namespace NW.WIDJobs.UnitTests
 
         #region Properties
 
-        public FakePostRequestManager FakePostRequestManager { get; private set; }
+        public IPostRequestManager FakePostRequestManager { get; private set; }
 
         #endregion
 
         #region Constructors
 
-        public FakePostRequestManagerFactory(FakePostRequestManager fakePostRequestManager) 
+        public FakePostRequestManagerFactory(IPostRequestManager fakePostRequestManager) 
         {
 
             FakePostRequestManager = fakePostRequestManager;
@@ -48,5 +48,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 06.08.2021
+    Last Update: 18.08.2021
 */
