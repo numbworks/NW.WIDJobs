@@ -62,28 +62,55 @@ namespace NW.WIDJobs.UnitTests.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to {
-        ///    &quot;RunId&quot;: &quot;FakeRunId&quot;,
-        ///    &quot;TotalResultCount&quot;: 2177,
-        ///    &quot;TotalJobPages&quot;: 109,
-        ///    &quot;Stage&quot;: 2,
-        ///    &quot;IsCompleted&quot;: true,
-        ///    &quot;JobPages&quot;: [
-        ///        {
-        ///            &quot;RunId&quot;: &quot;FakeRunId&quot;,
-        ///            &quot;PageNumber&quot;: 1,
-        ///            &quot;Response&quot;: &quot;This item has been exluded from the serializazion.&quot;
-        ///        },
-        ///        {
-        ///            &quot;RunId&quot;: &quot;FakeRunId&quot;,
-        ///            &quot;PageNumber&quot;: 2,
-        ///            &quot;Response&quot;: &quot;This item has been exluded from the serializazion.&quot;
-        ///        }
-        ///    ],
-        ///    &quot;JobPostings&quot;: &quot;Thi [rest of string was truncated]&quot;;.
+        ///  &quot;RunId&quot;: &quot;FakeRunId&quot;,
+        ///  &quot;TotalResultCount&quot;: 2177,
+        ///  &quot;TotalJobPages&quot;: 109,
+        ///  &quot;Stage&quot;: 2,
+        ///  &quot;IsCompleted&quot;: true,
+        ///  &quot;JobPages&quot;: [
+        ///    {
+        ///      &quot;RunId&quot;: &quot;FakeRunId&quot;,
+        ///      &quot;PageNumber&quot;: 1,
+        ///      &quot;Response&quot;: &quot;This item has been exluded from the serializazion.&quot;
+        ///    },
+        ///    {
+        ///      &quot;RunId&quot;: &quot;FakeRunId&quot;,
+        ///      &quot;PageNumber&quot;: 2,
+        ///      &quot;Response&quot;: &quot;This item has been exluded from the serializazion.&quot;
+        ///    }
+        ///  ],
+        ///  &quot;JobPostings&quot;: &quot;This item has been exluded from the serializazion.&quot;,
+        ///  &quot;JobPostingsExt [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ExplorationStage3AsJson {
             get {
                 return ResourceManager.GetString("ExplorationStage3AsJson", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
+        ///  &quot;RunId&quot;: &quot;FakeRunId&quot;,
+        ///  &quot;TotalJobPages&quot;: 2,
+        ///  &quot;TotalJobPostings&quot;: 40,
+        ///  &quot;JobPostingsByHiringOrgName&quot;: {
+        ///    &quot;TeamVikaren.dk, Århus ApS, Horsens Afdeling&quot;: 12,
+        ///    &quot;Aarhus Universitet&quot;: 4,
+        ///    &quot;Keepit A/S&quot;: 2,
+        ///    &quot;Copenhagen Business School&quot;: 2,
+        ///    &quot;RANDSTAD A/S&quot;: 2,
+        ///    &quot;Plecto ApS&quot;: 2,
+        ///    &quot;Novo Nordisk A/S&quot;: 2,
+        ///    &quot;A.P. Møller - Mærsk A/S&quot;: 2,
+        ///    &quot;Lokal Boligservice ApS&quot;: 1,
+        ///    &quot;Danmarks Tekniske Universitet&quot;: 1,
+        ///    &quot;BH HotelService ApS&quot;: 1,
+        ///    &quot;Vikar DK A/S&quot;: 1,
+        ///    &quot;KU - SCIE [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ExplorationStage3MCNumbersAsJson {
+            get {
+                return ResourceManager.GetString("ExplorationStage3MCNumbersAsJson", resourceCulture);
             }
         }
         

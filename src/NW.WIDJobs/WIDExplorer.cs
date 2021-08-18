@@ -118,6 +118,24 @@ namespace NW.WIDJobs
             return json;
 
         }
+        public string ConvertToJson(MetricCollection metricCollection, bool numbersAsPercentages)
+        {
+
+            Validator.ValidateObject(metricCollection, nameof(metricCollection));
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ConvertingMetricCollectionToJsonString);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_NumbersAsPercentagesIs.Invoke(numbersAsPercentages));
+            LogSharedSerializationOptions();
+
+            dynamic dyn = metricCollection;
+            if (numbersAsPercentages)
+                dyn = ConvertNumbersToPercentages(metricCollection);
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ConvertedMetricsCollectionToJsonString);
+
+            return JsonSerializer.Serialize(dyn, CreateJsonSerializerOptions());
+
+        }
 
 
         public Exploration Explore(string runId, ushort finalPageNumber, Stages stage)
@@ -352,25 +370,6 @@ namespace NW.WIDJobs
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_NowIs.Invoke(now));
 
             return SaveAsJson(metricCollection, numbersAsPercentages, jsonFile);
-
-        }
-
-        public string ConvertToJson(MetricCollection metricCollection, bool numbersAsPercentages)
-        {
-
-            Validator.ValidateObject(metricCollection, nameof(metricCollection));
-
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ConvertingMetricCollectionToJsonString);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_NumbersAsPercentagesIs.Invoke(numbersAsPercentages));
-            LogSharedSerializationOptions();
-
-            dynamic dyn = metricCollection;
-            if (numbersAsPercentages)
-                dyn = ConvertNumbersToPercentages(metricCollection);
-
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ConvertedMetricsCollectionToJsonString);
-
-            return JsonSerializer.Serialize(dyn, CreateJsonSerializerOptions());
 
         }
 
