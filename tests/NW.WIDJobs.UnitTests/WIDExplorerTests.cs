@@ -825,6 +825,82 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
+        [Test]
+        public void SaveToJsonFile_ShouldWriteJsonFileToDiskAndLogExpectedMessages_WhenProperMetricCollection()
+        {
+
+            // Arrange
+            MetricCollection metricCollection = ObjectMother.MetricCollection_ExplorationStage3;
+            bool numbersAsPercentages = true;
+            DateTime now = ObjectMother.WIDExplorer_FakeNowFunction.Invoke();
+            string fakeFullName = new FilenameFactory().CreateForMetricCollectionJson(ObjectMother.WIDExplorer_FakeFolderPath, now, numbersAsPercentages);
+            IFileInfoAdapter expected = new FakeFileInfoAdapter(false, fakeFullName);
+            List<string> expectedLogMessages = new List<string>()
+            {
+
+                MessageCollection.WIDExplorer_MethodCalledWithoutIFileInfoAdapter.Invoke("SaveToJsonFile"),
+                MessageCollection.WIDExplorer_DefaultValuesCreateIFileInfoAdapter,
+                MessageCollection.WIDExplorer_FolderPathIs.Invoke(ObjectMother.WIDExplorer_FakeFolderPath),
+                MessageCollection.WIDExplorer_NowIs.Invoke(now),
+
+                // SaveToJsonFile
+                MessageCollection.WIDExplorer_SavingMetricCollectionToJsonFile,
+                MessageCollection.WIDExplorer_RunIdIs.Invoke(metricCollection.RunId),
+                MessageCollection.WIDExplorer_NumbersAsPercentagesIs.Invoke(numbersAsPercentages),
+                MessageCollection.WIDExplorer_JSONFileIs.Invoke(expected),
+
+                // ConvertToJson
+                MessageCollection.WIDExplorer_ConvertingMetricCollectionToJsonString,
+                MessageCollection.WIDExplorer_NumbersAsPercentagesIs.Invoke(numbersAsPercentages),
+                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
+                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
+                MessageCollection.WIDExplorer_ConvertedMetricsCollectionToJsonString,
+
+                MessageCollection.WIDExplorer_MetricCollectionSavedToJsonFile
+
+
+            };
+
+            FakeLogger fakeLogger = new FakeLogger();
+            Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
+            FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
+            Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
+            WIDExplorerSettings fakeExplorerSettings = new WIDExplorerSettings(
+                    parallelRequests: WIDExplorerSettings.DefaultParallelRequests,
+                    pauseBetweenRequestsMs: WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
+                    folderPath: ObjectMother.WIDExplorer_FakeFolderPath,
+                    deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
+                );
+            WIDExplorerComponents components = new WIDExplorerComponents(
+                    loggingAction: fakeLoggingAction,
+                    loggingActionAsciiBanner: fakeLoggingActionAsciiBanner,
+                    xpathManager: new XPathManager(),
+                    getRequestManager: new GetRequestManager(),
+                    jobPageDeserializer: new JobPageDeserializer(),
+                    jobPageManager: new JobPageManager(),
+                    jobPostingDeserializer: new JobPostingDeserializer(),
+                    jobPostingManager: new JobPostingManager(),
+                    jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
+                    jobPostingExtendedManager: new JobPostingExtendedManager(),
+                    runIdManager: new RunIdManager(),
+                    metricCollectionManager: new MetricCollectionManager(),
+                    fileManager: new FakeFileManager(null), // Content is not relevant, we'll just use this fake to simulate writing.
+                    repositoryFactory: new RepositoryFactory(),
+                    asciiBannerManager: new AsciiBannerManager(),
+                    filenameFactory: new FilenameFactory(),
+                    bulletPointManager: new BulletPointManager()
+                  );
+            WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings, ObjectMother.WIDExplorer_FakeNowFunction);
+
+            // Act
+            IFileInfoAdapter actual = widExplorer.SaveToJsonFile(metricCollection, numbersAsPercentages);
+
+            // Assert
+            Assert.AreEqual(expected.FullName, actual.FullName);
+            Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
+
+        }
+
     }
 }
 
