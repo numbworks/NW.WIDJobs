@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Text;
 using NW.WIDJobs.HttpRequests;
@@ -34,17 +35,16 @@ namespace NW.WIDJobs.UnitTests
         public string UserAgent
             => throw new NotImplementedException();
 
-        public string Response { get; private set; }
-        public string Url { get; private set; }
+        public Dictionary<string, string> UrlsResponses { get; private set; }
 
         #endregion
 
         #region Constructors
 
-        public FakePostRequestManager(string response) 
+        public FakePostRequestManager(Dictionary<string, string> urlsResponses) 
         {
 
-            Response = response;
+            UrlsResponses = urlsResponses;
         
         }
 
@@ -55,9 +55,9 @@ namespace NW.WIDJobs.UnitTests
         public string Send(string url)
         {
 
-            Url = url;
+            string response = UrlsResponses[url]; // We don't consider the "not found" case.
 
-            return Response;
+            return response;
 
         }
 
@@ -72,5 +72,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 06.08.2021
+    Last Update: 18.08.2021
 */

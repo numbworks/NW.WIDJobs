@@ -2,6 +2,7 @@
 using System;
 using NW.WIDJobs.JobPages;
 using NW.WIDJobs.Messages;
+using System.Collections.Generic;
 
 namespace NW.WIDJobs.UnitTests
 {
@@ -79,19 +80,19 @@ namespace NW.WIDJobs.UnitTests
         {
 
             new TestCaseData(
+                JobPageManager.UrlTemplate.Invoke((ushort)0),
                     ObjectMother.Shared_JobPage01_Content,
                     ObjectMother.Shared_FakeRunId,
                     (ushort)1,
-                    new JobPage(ObjectMother.Shared_FakeRunId, (ushort)1, ObjectMother.Shared_JobPage01_Content),
-                    JobPageManager.UrlTemplate.Invoke((ushort)0)
+                    new JobPage(ObjectMother.Shared_FakeRunId, (ushort)1, ObjectMother.Shared_JobPage01_Content)          
                 ).SetArgDisplayNames($"{nameof(getJobPageTestCases)}_01"),
 
             new TestCaseData(
+                   JobPageManager.UrlTemplate.Invoke((ushort)20),
                     ObjectMother.Shared_JobPage02_Content,
                     ObjectMother.Shared_FakeRunId,
                     (ushort)2,
-                    new JobPage(ObjectMother.Shared_FakeRunId, (ushort)2, ObjectMother.Shared_JobPage02_Content),
-                    JobPageManager.UrlTemplate.Invoke((ushort)20)
+                    new JobPage(ObjectMother.Shared_FakeRunId, (ushort)2, ObjectMother.Shared_JobPage02_Content)
                 ).SetArgDisplayNames($"{nameof(getJobPageTestCases)}_02")
 
         };
@@ -126,11 +127,15 @@ namespace NW.WIDJobs.UnitTests
 
         [TestCaseSource(nameof(getJobPageTestCases))]
         public void GetJobPage_ShouldReturnExpectedJobPage_WhenInvoked
-            (string fakeResponse, string runId, ushort pageNumber, JobPage expectedJobPage, string expectedUrl)
+            (string url, string response, string runId, ushort pageNumber, JobPage expectedJobPage)
         {
 
             // Arrange
-            FakePostRequestManager fakePostRequestManager = new FakePostRequestManager(fakeResponse);
+            Dictionary<string, string> urlsResponses = new Dictionary<string, string>() 
+            { 
+                { url, response } 
+            };
+            FakePostRequestManager fakePostRequestManager = new FakePostRequestManager(urlsResponses);
             FakePostRequestManagerFactory fakePostRequestManagerFactory = new FakePostRequestManagerFactory(fakePostRequestManager);
 
             // Act
@@ -140,7 +145,6 @@ namespace NW.WIDJobs.UnitTests
             Assert.IsTrue(
                 ObjectMother.AreEqual(expectedJobPage, actualJobPage)
                 );
-            Assert.AreEqual(expectedUrl, fakePostRequestManager.Url);
 
         }
 
@@ -189,5 +193,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 06.08.2021
+    Last Update: 18.08.2021
 */
