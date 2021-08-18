@@ -4317,6 +4317,29 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
+        internal static JobPage UpdateRunId(JobPage jobPage, string runId)
+        {
+
+            return new JobPage(
+                        runId: runId,
+                        pageNumber: jobPage.PageNumber,
+                        response: jobPage.Response
+                    );
+
+        }
+        internal static List<JobPage> UpdateRunIds(List<JobPage> jobPages, string runId)
+        {
+
+            if (jobPages == null)
+                return jobPages;
+
+            List<JobPage> updated = new List<JobPage>();
+            foreach (JobPage jobPage in jobPages)
+                updated.Add(UpdateRunId(jobPage, runId));
+
+            return updated;
+
+        }
         internal static JobPosting UpdatePostingCreated(JobPosting jobPosting, DateTime postingCreated)
         {
 
@@ -4381,22 +4404,80 @@ namespace NW.WIDJobs.UnitTests
             );
 
         }
-        internal static JobPage UpdateRunId(JobPage jobPage, string runId)
+        internal static JobPosting UpdateRunId(JobPosting jobPosting, string runId)
         {
 
-            return new JobPage(
-                        runId: runId,
-                        pageNumber: jobPage.PageNumber,
-                        response: jobPage.Response
-                    );
+            return new JobPosting(
+                runId: runId,
+                pageNumber: jobPosting.PageNumber,
+                response: jobPosting.Response,
+                title: jobPosting.Title,
+                presentation: jobPosting.Presentation,
+                hiringOrgName: jobPosting.HiringOrgName,
+                workPlaceAddress: jobPosting.WorkPlaceAddress,
+                workPlacePostalCode: jobPosting.WorkPlacePostalCode,
+                workPlaceCity: jobPosting.WorkPlaceCity,
+                postingCreated: jobPosting.PostingCreated,
+                lastDateApplication: jobPosting.LastDateApplication,
+                url: jobPosting.Url,
+                region: jobPosting.Region,
+                municipality: jobPosting.Municipality,
+                country: jobPosting.Country,
+                employmentType: jobPosting.EmploymentType,
+                workHours: jobPosting.WorkHours,
+                occupation: jobPosting.Occupation,
+                workplaceId: jobPosting.WorkplaceId,
+                organisationId: jobPosting.OrganisationId,
+                hiringOrgCVR: jobPosting.HiringOrgCVR,
+                id: jobPosting.Id,
+                workPlaceCityWithoutZone: jobPosting.WorkPlaceCityWithoutZone,
+                jobPostingNumber: jobPosting.JobPostingNumber,
+                jobPostingId: jobPosting.JobPostingId
+            );
 
         }
-        internal static List<JobPage> UpdateRunIds(List<JobPage> jobPages, string runId)
+        internal static List<JobPosting> UpdateRunIds(List<JobPosting> jobPostings, string runId)
         {
 
-            List<JobPage> updated = new List<JobPage>();
-            foreach (JobPage jobPage in jobPages)
-                updated.Add(UpdateRunId(jobPage, runId));
+            if (jobPostings == null)
+                return jobPostings;
+
+            List<JobPosting> updated = new List<JobPosting>();
+            foreach (JobPosting jobPosting in jobPostings)
+                updated.Add(UpdateRunId(jobPosting, runId));
+
+            return updated;
+
+        }
+        internal static JobPostingExtended UpdateRunId(JobPostingExtended jobPostingExtended, string runId)
+        {
+
+            return new JobPostingExtended(
+                jobPosting: UpdateRunId(jobPostingExtended.JobPosting, runId),
+                response: jobPostingExtended.Response,
+                hiringOrgDescription: jobPostingExtended.HiringOrgDescription,
+                publicationStartDate: jobPostingExtended.PublicationStartDate,
+                publicationEndDate: jobPostingExtended.PublicationEndDate,
+                purpose: jobPostingExtended.Purpose,
+                numberToFill: jobPostingExtended.NumberToFill,
+                contactEmail: jobPostingExtended.ContactEmail,
+                contactPersonName: jobPostingExtended.ContactPersonName,
+                employmentDate: jobPostingExtended.EmploymentDate,
+                applicationDeadlineDate: jobPostingExtended.ApplicationDeadlineDate,
+                bulletPoints: jobPostingExtended.BulletPoints,
+                bulletPointScenario: jobPostingExtended.BulletPointScenario
+            );
+
+        }
+        internal static List<JobPostingExtended> UpdateRunIds(List<JobPostingExtended> jobPostingsExtended, string runId)
+        {
+
+            if (jobPostingsExtended == null)
+                return jobPostingsExtended;
+
+            List<JobPostingExtended> updated = new List<JobPostingExtended>();
+            foreach (JobPostingExtended jobPostingExtended in jobPostingsExtended)
+                updated.Add(UpdateRunId(jobPostingExtended, runId));
 
             return updated;
 
@@ -4411,8 +4492,8 @@ namespace NW.WIDJobs.UnitTests
                         stage: exploration.Stage,
                         isCompleted: exploration.IsCompleted,
                         jobPages: UpdateRunIds(exploration.JobPages, runId),
-                        jobPostings: exploration.JobPostings,                   // To-Do: add UpdateRunIds()
-                        jobPostingsExtended: exploration.JobPostingsExtended    // To-Do: add UpdateRunIds()
+                        jobPostings: UpdateRunIds(exploration.JobPostings, runId),
+                        jobPostingsExtended: UpdateRunIds(exploration.JobPostingsExtended, runId)
                     );
 
         }
