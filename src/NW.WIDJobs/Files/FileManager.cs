@@ -121,7 +121,7 @@ namespace NW.WIDJobs.Files
             }
 
         }
-        public FileInfoAdapter Create(string filePath)
+        public IFileInfoAdapter Create(string filePath)
         {
 
             Validator.ValidateStringNullOrWhiteSpace(filePath, nameof(filePath));
@@ -129,7 +129,7 @@ namespace NW.WIDJobs.Files
             return Create(new FileInfo(filePath));
         
         }
-        public FileInfoAdapter Create(FileInfo fileInfo)
+        public IFileInfoAdapter Create(FileInfo fileInfo)
         {
 
             Validator.ValidateObject(fileInfo, nameof(fileInfo));

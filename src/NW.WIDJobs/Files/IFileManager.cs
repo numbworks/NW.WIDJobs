@@ -34,14 +34,14 @@ namespace NW.WIDJobs.Files
         void WriteAllText(IFileInfoAdapter file, string content);
 
         /// <summary>
-        /// Initializes a <see cref="FileInfoAdapter"/> instance for <paramref name="filePath"/>.
+        /// Initializes a <see cref="IFileInfoAdapter"/> instance for <paramref name="filePath"/>.
         /// </summary>    
-        FileInfoAdapter Create(string filePath);
+        IFileInfoAdapter Create(string filePath);
 
         /// <summary>
-        /// Initializes a <see cref="FileInfoAdapter"/> instance for <paramref name="fileInfo"/>.
+        /// Initializes a <see cref="IFileInfoAdapter"/> instance for <paramref name="fileInfo"/>.
         /// </summary>        
-        FileInfoAdapter Create(FileInfo fileInfo);
+        IFileInfoAdapter Create(FileInfo fileInfo);
 
     }
 }

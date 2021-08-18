@@ -136,6 +136,33 @@ namespace NW.WIDJobs
             return JsonSerializer.Serialize(dyn, CreateJsonSerializerOptions());
 
         }
+        public List<JobPosting> ExtractFromJson(IFileInfoAdapter jsonFile)
+        {
+
+            Validator.ValidateObject(jsonFile, nameof(jsonFile));
+            Validator.ValidateFileExistance(jsonFile);
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExtractJobPostingsFromJson);
+
+            DateTime now = NowFunction.Invoke();
+            string runId = _components.RunIdManager.Create(now);
+            ushort pageNumber = 1;
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SomeDefaultValuesUsedFromHTML);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs.Invoke(runId));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageNumberIs.Invoke(pageNumber));
+
+            string content = _components.FileManager.ReadAllText(jsonFile);
+            JobPage jobPage = new JobPage(runId, pageNumber, content);
+            List<JobPosting> jobPostings = _components.JobPostingDeserializer.Do(jobPage);
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingsExtractedFromJson.Invoke(jobPostings));
+
+            return jobPostings;
+
+        }
+        public List<JobPosting> ExtractFromJson(string filePath)
+            => ExtractFromJson(_components.FileManager.Create(filePath));
 
 
         public Exploration Explore(string runId, ushort finalPageNumber, Stages stage)
@@ -235,34 +262,6 @@ namespace NW.WIDJobs
             return ExploreAll(runId, stage);
 
         }
-
-        public List<JobPosting> ExtractFromJson(IFileInfoAdapter jsonFile)
-        {
-
-            Validator.ValidateObject(jsonFile, nameof(jsonFile));
-            Validator.ValidateFileExistance(jsonFile);
-
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExtractJobPostingsFromJson);
-
-            DateTime now = NowFunction.Invoke();
-            string runId = _components.RunIdManager.Create(now);
-            ushort pageNumber = 1;
-
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SomeDefaultValuesUsedFromHTML);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs.Invoke(runId));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageNumberIs.Invoke(pageNumber));
-
-            string content = _components.FileManager.ReadAllText(jsonFile);
-            JobPage jobPage = new JobPage(runId, pageNumber, content);
-            List<JobPosting> jobPostings = _components.JobPostingDeserializer.Do(jobPage);
-            
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingsExtractedFromJson.Invoke(jobPostings));
-
-            return jobPostings;
-
-        }
-        public List<JobPosting> ExtractFromJson(string filePath)
-            => ExtractFromJson(_components.FileManager.Create(filePath));
 
         public IFileInfoAdapter SaveAsSQLite
             (List<JobPostingExtended> jobPostingsExtended, IFileInfoAdapter databaseFile, bool deleteAndRecreateDatabase)
