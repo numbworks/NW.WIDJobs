@@ -59,6 +59,8 @@ namespace NW.WIDJobs.Messages
         public static string WIDExplorer_ExplorationStarted = "The exploration has started...";
         public static Func<string, string> WIDExplorer_RunIdIs 
             = (runId) => $"RunId:'{runId}'.";
+        public static Func<ushort, string> WIDExplorer_PageNumberIs
+            = (pageNumber) => $"PageNumber:'{pageNumber}'.";
         public static Func<ushort, string> WIDExplorer_DefaultInitialPageNumberIs
             = (defaultInitialPageNumber) => $"DefaultInitialPageNumber:'{defaultInitialPageNumber}'.";
         public static Func<ushort, string> WIDExplorer_FinalPageNumberIs
@@ -112,13 +114,6 @@ namespace NW.WIDJobs.Messages
             = (jobPostings) => $"'{jobPostings.Count}' {nameof(JobPosting)} objects have been successfully extracted from the provided Json file.";
         public static string WIDExplorer_SomeDefaultValuesUsedJsonFile
             = $"Some default values need to be used in order to perform this extraction directly from a Json file.";
-
-        public static Func<ushort, string> WIDExplorer_PageNumberIs
-            = (pageNumber) => $"PageNumber:'{pageNumber}'.";
-        public static Func<ushort, string> WIDExplorer_JobPostingNumberIs
-            = (jobPostingNumber) => $"PageItemNumber:'{jobPostingNumber}'.";
-        public static Func<JobPostingExtended, string> WIDExplorer_JobPostingExtendedIs
-            = (jobPostingExtended) => $"PageItemExtended:'{jobPostingExtended}'.";
 
         public static string WIDExplorer_SavingJobPostingsExtendedToSQLiteDatabase
             =  $"Saving the provided {nameof(JobPostingExtended)} objects to a SQLite database...";
