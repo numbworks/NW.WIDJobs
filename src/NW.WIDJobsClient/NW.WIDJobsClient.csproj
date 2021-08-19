@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="3.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\tests\NW.WIDJobs.UnitTests\NW.WIDJobs.UnitTests.csproj" />
     <ProjectReference Include="..\NW.WIDJobs\NW.WIDJobs.csproj" />
   </ItemGroup>
