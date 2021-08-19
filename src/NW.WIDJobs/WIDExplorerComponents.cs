@@ -28,6 +28,7 @@ namespace NW.WIDJobs
             = (message) => Console.WriteLine($"[{DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss:fff")}] {message}");
         public static Action<string> DefaultLoggingActionAsciiBanner { get; }
             = (message) => Console.WriteLine($"{message}");
+        public static Func<DateTime> DefaultNowFunction { get; } = () => DateTime.Now;
 
         public Action<string> LoggingAction { get; }
         public Action<string> LoggingActionAsciiBanner { get; }
@@ -46,6 +47,7 @@ namespace NW.WIDJobs
         public IAsciiBannerManager AsciiBannerManager { get; }
         public IFilenameFactory FilenameFactory { get; }
         public IBulletPointManager BulletPointManager { get; }
+        public Func<DateTime> NowFunction { get; }
 
         #endregion
 
@@ -70,7 +72,8 @@ namespace NW.WIDJobs
             IRepositoryFactory repositoryFactory,
             IAsciiBannerManager asciiBannerManager,
             IFilenameFactory filenameFactory,
-            IBulletPointManager bulletPointManager
+            IBulletPointManager bulletPointManager,
+            Func<DateTime> nowFunction
             )
         {
 
@@ -91,6 +94,7 @@ namespace NW.WIDJobs
             Validator.ValidateObject(asciiBannerManager, nameof(asciiBannerManager));
             Validator.ValidateObject(filenameFactory, nameof(filenameFactory));
             Validator.ValidateObject(bulletPointManager, nameof(bulletPointManager));
+            Validator.ValidateObject(nowFunction, nameof(nowFunction));
 
             LoggingAction = loggingAction;
             LoggingActionAsciiBanner = loggingActionAsciiBanner;
@@ -109,6 +113,7 @@ namespace NW.WIDJobs
             AsciiBannerManager = asciiBannerManager;
             FilenameFactory = filenameFactory;
             BulletPointManager = bulletPointManager;
+            NowFunction = nowFunction;
 
         }
 
@@ -131,7 +136,8 @@ namespace NW.WIDJobs
                   new RepositoryFactory(),
                   new AsciiBannerManager(),
                   new FilenameFactory(),
-                  new BulletPointManager()
+                  new BulletPointManager(),
+                  DefaultNowFunction
                   )
         { }
 

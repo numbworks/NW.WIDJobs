@@ -30,7 +30,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new WIDExplorer(null, new WIDExplorerSettings(), ObjectMother.WIDExplorer_FakeNowFunction)
+                    () => new WIDExplorer(null, new WIDExplorerSettings())
 				),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("components").Message
@@ -38,7 +38,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new WIDExplorer(new WIDExplorerComponents(), null, ObjectMother.WIDExplorer_FakeNowFunction)
+                    () => new WIDExplorer(new WIDExplorerComponents(), null)
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("settings").Message
@@ -324,9 +324,10 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager()
+                    bulletPointManager: new BulletPointManager(),
+                    nowFunction: WIDExplorerComponents.DefaultNowFunction
                   );
-            WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings(), WIDExplorer.DefaultNowFunction);
+            WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
             List<string> expectedLogMessages = new List<string>()
             {
@@ -378,9 +379,10 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager()
+                    bulletPointManager: new BulletPointManager(),
+                    nowFunction: WIDExplorerComponents.DefaultNowFunction
                   );
-            WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings(), WIDExplorer.DefaultNowFunction);
+            WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
             // Act
             List<BulletPoint> actual = widExplorer.GetPreLabeledBulletPoints();
@@ -429,9 +431,10 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager()
+                    bulletPointManager: new BulletPointManager(),
+                    nowFunction: WIDExplorerComponents.DefaultNowFunction
                   );
-            WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings(), WIDExplorer.DefaultNowFunction);
+            WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
             
             // Act
             MetricCollection actual = widExplorer.ConvertToMetricCollection(ObjectMother.Shared_ExplorationStage3);
@@ -483,9 +486,10 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager()
+                    bulletPointManager: new BulletPointManager(),
+                    nowFunction: WIDExplorerComponents.DefaultNowFunction
                   );
-            WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings(), WIDExplorer.DefaultNowFunction);
+            WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
             // Act
             string actual = widExplorer.ConvertToJson(ObjectMother.Shared_ExplorationStage3);
@@ -535,9 +539,10 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager()
+                    bulletPointManager: new BulletPointManager(),
+                    nowFunction: WIDExplorerComponents.DefaultNowFunction
                   );
-            WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings(), WIDExplorer.DefaultNowFunction);
+            WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
             // Act
             string actual = widExplorer.ConvertToJson(ObjectMother.MetricCollection_ExplorationStage3, numbersAsPercentages);
@@ -587,9 +592,10 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager()
+                    bulletPointManager: new BulletPointManager(),
+                    nowFunction: WIDExplorerComponents.DefaultNowFunction
                   );
-            WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings(), WIDExplorer.DefaultNowFunction);
+            WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
             // Act
             string actual = widExplorer.ConvertToJson(ObjectMother.MetricCollection_ExplorationStage3, numbersAsPercentages);
@@ -667,9 +673,10 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager()
+                    bulletPointManager: new BulletPointManager(),
+                    nowFunction: ObjectMother.WIDExplorer_FakeNowFunction
                   );
-            WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings(), ObjectMother.WIDExplorer_FakeNowFunction);
+            WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
             // Act
             List<JobPosting> actual = widExplorer.LoadFromJsonFile(fakeFileInfoAdapter);
@@ -749,9 +756,10 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager()
+                    bulletPointManager: new BulletPointManager(),
+                    nowFunction: ObjectMother.WIDExplorer_FakeNowFunction
                   );
-            WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings(), ObjectMother.WIDExplorer_FakeNowFunction);
+            WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
             // Act
             List<JobPosting> actual = widExplorer.LoadFromJsonFile(ObjectMother.WIDExplorer_JobPage01_FakeFilePath);
@@ -812,9 +820,10 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager()
+                    bulletPointManager: new BulletPointManager(),
+                    nowFunction: WIDExplorerComponents.DefaultNowFunction
                   );
-            WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings(), WIDExplorer.DefaultNowFunction);
+            WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
             // Act
             IFileInfoAdapter actual = widExplorer.SaveToJsonFile(metricCollection, numbersAsPercentages, fakeFileInfoAdapter);
@@ -888,9 +897,10 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager()
+                    bulletPointManager: new BulletPointManager(),
+                    nowFunction: ObjectMother.WIDExplorer_FakeNowFunction
                   );
-            WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings, ObjectMother.WIDExplorer_FakeNowFunction);
+            WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
 
             // Act
             IFileInfoAdapter actual = widExplorer.SaveToJsonFile(metricCollection, numbersAsPercentages);
@@ -948,9 +958,10 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager()
+                    bulletPointManager: new BulletPointManager(),
+                    nowFunction: WIDExplorerComponents.DefaultNowFunction
                   );
-            WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings(), WIDExplorer.DefaultNowFunction);
+            WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
             // Act
             IFileInfoAdapter actual = widExplorer.SaveToJsonFile(exploration, fakeFileInfoAdapter);
@@ -1022,9 +1033,10 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager()
+                    bulletPointManager: new BulletPointManager(),
+                    nowFunction: ObjectMother.WIDExplorer_FakeNowFunction
                   );
-            WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings, ObjectMother.WIDExplorer_FakeNowFunction);
+            WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
 
             // Act
             IFileInfoAdapter actual = widExplorer.SaveToJsonFile(exploration);
@@ -1077,9 +1089,10 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new FakeRepositoryFactory(affectedRows),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager()
+                    bulletPointManager: new BulletPointManager(),
+                    nowFunction: WIDExplorerComponents.DefaultNowFunction
                   );
-            WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings(), WIDExplorer.DefaultNowFunction);
+            WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
             // Act
             IFileInfoAdapter actual = widExplorer.SaveToSQLiteDatabase(jobPostingsExtended, fakeFileInfoAdapter, deleteAndRecreateDatabase);
@@ -1146,9 +1159,10 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new FakeRepositoryFactory(affectedRows),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager()
+                    bulletPointManager: new BulletPointManager(),
+                    nowFunction: ObjectMother.WIDExplorer_FakeNowFunction
                   );
-            WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings, ObjectMother.WIDExplorer_FakeNowFunction);
+            WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
 
             // Act
             IFileInfoAdapter actual = widExplorer.SaveToSQLiteDatabase(jobPostingsExtended);
@@ -1218,9 +1232,10 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager()
+                    bulletPointManager: new BulletPointManager(),
+                    nowFunction: ObjectMother.WIDExplorer_FakeNowFunction
                   );
-            WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings, ObjectMother.WIDExplorer_FakeNowFunction);
+            WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
 
             // Act
             Exploration actual = widExplorer.Explore(finalPageNumber, stage);
@@ -1303,9 +1318,10 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager()
+                    bulletPointManager: new BulletPointManager(),
+                    nowFunction: ObjectMother.WIDExplorer_FakeNowFunction
                   );
-            WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings, ObjectMother.WIDExplorer_FakeNowFunction);
+            WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
 
             // Act
             Exploration actual = widExplorer.Explore(finalPageNumber, stage);
@@ -1432,9 +1448,10 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager()
+                    bulletPointManager: new BulletPointManager(),
+                    nowFunction: ObjectMother.WIDExplorer_FakeNowFunction
                   );
-            WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings, ObjectMother.WIDExplorer_FakeNowFunction);
+            WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
 
             // Act
             Exploration actual = widExplorer.Explore(finalPageNumber, stage);
@@ -1529,9 +1546,10 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager()
+                    bulletPointManager: new BulletPointManager(),
+                    nowFunction: ObjectMother.WIDExplorer_FakeNowFunction
                   );
-            WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings, ObjectMother.WIDExplorer_FakeNowFunction);
+            WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
 
             // Act
             Exploration actual = widExplorer.Explore(thresholdDate, stage);

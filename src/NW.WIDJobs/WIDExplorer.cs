@@ -33,13 +33,11 @@ namespace NW.WIDJobs
 
         #region Properties
 
-        public static Func<DateTime> DefaultNowFunction { get; } = () => DateTime.Now;
         public static string DefaultFormatDateTime { get; } = "yyyyMMddHHmmssfff";
         public static string DefaultFormatDate { get; } = "yyyyMMdd";
         public static string DefaultNotSerialized { get; } = "This item has been exluded from the serializazion.";
         public static ushort DefaultInitialPageNumber { get; } = 1;
 
-        public Func<DateTime> NowFunction { get; }
         public string Version { get; }
         public string AsciiBanner { get; }
 
@@ -48,7 +46,7 @@ namespace NW.WIDJobs
         #region Constructors
 
         public WIDExplorer
-            (WIDExplorerComponents components, WIDExplorerSettings settings, Func<DateTime> nowFunction)
+            (WIDExplorerComponents components, WIDExplorerSettings settings)
         {
 
             Validator.ValidateObject(components, nameof(components));
@@ -56,7 +54,6 @@ namespace NW.WIDJobs
 
             _components = components;
             _settings = settings;
-            NowFunction = nowFunction;
 
             Version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
             AsciiBanner = _components.AsciiBannerManager.Create(Version);
@@ -64,7 +61,7 @@ namespace NW.WIDJobs
         }
         
         public WIDExplorer()
-            : this(new WIDExplorerComponents(), new WIDExplorerSettings(), DefaultNowFunction) { }
+            : this(new WIDExplorerComponents(), new WIDExplorerSettings()) { }
 
         #endregion
 
@@ -144,7 +141,7 @@ namespace NW.WIDJobs
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_LoadingJobPostingsFromJsonFile);
 
-            DateTime now = NowFunction.Invoke();
+            DateTime now = _components.NowFunction.Invoke();
             string runId = _components.RunIdManager.Create(now);
             ushort pageNumber = 1;
 
@@ -185,7 +182,7 @@ namespace NW.WIDJobs
         public IFileInfoAdapter SaveToJsonFile(MetricCollection metricCollection, bool numbersAsPercentages)
         {
 
-            DateTime now = NowFunction.Invoke();
+            DateTime now = _components.NowFunction.Invoke();
             string fullName = _components.FilenameFactory.CreateForMetricCollectionJson(_settings.FolderPath, now, numbersAsPercentages);
             IFileInfoAdapter jsonFile = new FileInfoAdapter(fullName);
 
@@ -218,7 +215,7 @@ namespace NW.WIDJobs
         public IFileInfoAdapter SaveToJsonFile(Exploration exploration)
         {
 
-            DateTime now = NowFunction.Invoke();
+            DateTime now = _components.NowFunction.Invoke();
             string fullName = _components.FilenameFactory.CreateForExplorationJson(_settings.FolderPath, now);
             IFileInfoAdapter jsonFile = new FileInfoAdapter(fullName);
 
@@ -256,7 +253,7 @@ namespace NW.WIDJobs
         public IFileInfoAdapter SaveToSQLiteDatabase(List<JobPostingExtended> jobPostingsExtended)
         {
 
-            DateTime now = NowFunction.Invoke();
+            DateTime now = _components.NowFunction.Invoke();
             string fullName = _components.FilenameFactory.CreateForDatabase(_settings.FolderPath, now);
             IFileInfoAdapter databaseFile = new FileInfoAdapter(fullName);
 
@@ -272,7 +269,7 @@ namespace NW.WIDJobs
         public Exploration Explore(ushort finalPageNumber, Stages stage)
         {
 
-            DateTime now = NowFunction.Invoke();
+            DateTime now = _components.NowFunction.Invoke();
             string runId = _components.RunIdManager.Create(now, DefaultInitialPageNumber, finalPageNumber);
 
             return Explore(runId, finalPageNumber, stage);
@@ -304,7 +301,7 @@ namespace NW.WIDJobs
         public Exploration Explore(DateTime thresholdDate, Stages stage)
         {
 
-            DateTime now = NowFunction.Invoke();
+            DateTime now = _components.NowFunction.Invoke();
             string runId = _components.RunIdManager.Create(now, thresholdDate);
 
             return Explore(runId, thresholdDate, stage);
@@ -335,7 +332,7 @@ namespace NW.WIDJobs
         public Exploration ExploreAll(Stages stage)
         {
 
-            DateTime now = NowFunction.Invoke();
+            DateTime now = _components.NowFunction.Invoke();
             string runId = _components.RunIdManager.Create(now);
 
             return ExploreAll(runId, stage);

@@ -42,7 +42,8 @@ namespace NW.WIDJobs.UnitTests
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
-                                new BulletPointManager()
+                                new BulletPointManager(),
+                                WIDExplorerComponents.DefaultNowFunction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -68,7 +69,8 @@ namespace NW.WIDJobs.UnitTests
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
-                                new BulletPointManager()
+                                new BulletPointManager(),
+                                WIDExplorerComponents.DefaultNowFunction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -94,7 +96,8 @@ namespace NW.WIDJobs.UnitTests
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
-                                new BulletPointManager()
+                                new BulletPointManager(),
+                                WIDExplorerComponents.DefaultNowFunction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -120,7 +123,8 @@ namespace NW.WIDJobs.UnitTests
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
-                                new BulletPointManager()
+                                new BulletPointManager(),
+                                WIDExplorerComponents.DefaultNowFunction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -146,7 +150,8 @@ namespace NW.WIDJobs.UnitTests
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
-                                new BulletPointManager()
+                                new BulletPointManager(),
+                                WIDExplorerComponents.DefaultNowFunction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -174,7 +179,8 @@ namespace NW.WIDJobs.UnitTests
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
-                                new BulletPointManager()
+                                new BulletPointManager(),
+                                WIDExplorerComponents.DefaultNowFunction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -200,7 +206,8 @@ namespace NW.WIDJobs.UnitTests
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
-                                new BulletPointManager()
+                                new BulletPointManager(),
+                                WIDExplorerComponents.DefaultNowFunction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -226,7 +233,8 @@ namespace NW.WIDJobs.UnitTests
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
-                                new BulletPointManager()
+                                new BulletPointManager(),
+                                WIDExplorerComponents.DefaultNowFunction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -252,7 +260,8 @@ namespace NW.WIDJobs.UnitTests
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
-                                new BulletPointManager()
+                                new BulletPointManager(),
+                                WIDExplorerComponents.DefaultNowFunction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -278,7 +287,8 @@ namespace NW.WIDJobs.UnitTests
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
-                                new BulletPointManager()
+                                new BulletPointManager(),
+                                WIDExplorerComponents.DefaultNowFunction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -304,7 +314,8 @@ namespace NW.WIDJobs.UnitTests
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
-                                new BulletPointManager()
+                                new BulletPointManager(),
+                                WIDExplorerComponents.DefaultNowFunction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -330,7 +341,8 @@ namespace NW.WIDJobs.UnitTests
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
-                                new BulletPointManager()
+                                new BulletPointManager(),
+                                WIDExplorerComponents.DefaultNowFunction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -356,7 +368,8 @@ namespace NW.WIDJobs.UnitTests
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
-                                new BulletPointManager()
+                                new BulletPointManager(),
+                                WIDExplorerComponents.DefaultNowFunction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -382,7 +395,8 @@ namespace NW.WIDJobs.UnitTests
                                 null,
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
-                                new BulletPointManager()
+                                new BulletPointManager(),
+                                WIDExplorerComponents.DefaultNowFunction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -408,7 +422,8 @@ namespace NW.WIDJobs.UnitTests
                                 new RepositoryFactory(),
                                 null,
                                 new FilenameFactory(),
-                                new BulletPointManager()
+                                new BulletPointManager(),
+                                WIDExplorerComponents.DefaultNowFunction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -434,7 +449,8 @@ namespace NW.WIDJobs.UnitTests
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
                                 null,
-                                new BulletPointManager()
+                                new BulletPointManager(),
+                                WIDExplorerComponents.DefaultNowFunction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -460,12 +476,40 @@ namespace NW.WIDJobs.UnitTests
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
-                                null
+                                null,
+                                WIDExplorerComponents.DefaultNowFunction
                         )
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("bulletPointManager").Message
-            ).SetArgDisplayNames($"{nameof(widExplorerComponentsExceptionTestCases)}_17")
+            ).SetArgDisplayNames($"{nameof(widExplorerComponentsExceptionTestCases)}_17"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new WIDExplorerComponents(
+                                WIDExplorerComponents.DefaultLoggingAction,
+                                WIDExplorerComponents.DefaultLoggingActionAsciiBanner,
+                                new XPathManager(),
+                                new GetRequestManager(),
+                                new JobPageDeserializer(),
+                                new JobPageManager(),
+                                new JobPostingDeserializer(),
+                                new JobPostingManager(),
+                                new JobPostingExtendedDeserializer(),
+                                new JobPostingExtendedManager(),
+                                new RunIdManager(),
+                                new MetricCollectionManager(),
+                                new FileManager(),
+                                new RepositoryFactory(),
+                                new AsciiBannerManager(),
+                                new FilenameFactory(),
+                                new BulletPointManager(),
+                                null
+                        )
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("nowFunction").Message
+            ).SetArgDisplayNames($"{nameof(widExplorerComponentsExceptionTestCases)}_18")
 
         };
 
@@ -495,7 +539,8 @@ namespace NW.WIDJobs.UnitTests
                             new RepositoryFactory(),
                             new AsciiBannerManager(),
                             new FilenameFactory(),
-                            new BulletPointManager()
+                            new BulletPointManager(),
+                            WIDExplorerComponents.DefaultNowFunction
                         );
 
             // Assert

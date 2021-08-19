@@ -64,7 +64,7 @@ namespace NW.WIDJobsClient
                         WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
                         );
             WIDExplorer explorer
-                = new WIDExplorer(new WIDExplorerComponents(), settings, WIDExplorer.DefaultNowFunction);
+                = new WIDExplorer(new WIDExplorerComponents(), settings);
 
             return explorer;
 
