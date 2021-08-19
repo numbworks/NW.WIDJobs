@@ -780,6 +780,82 @@ namespace NW.WIDJobs
                         stage2JobPostings);
 
         }
+        private Exploration ProcessStage2WhenJobPostingId(Exploration exploration, Stages stage, string jobPostingId)
+        {
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage2_UpToAllJobPostings));
+
+            List<JobPage> stage2JobPages = new List<JobPage>() { exploration.JobPages[0] };
+            List<JobPosting> stage2JobPostings = new List<JobPosting>();
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_AntiFloodingStrategy);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ParallelRequestsAre(_settings.ParallelRequests));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PauseBetweenRequestsIs(_settings.PauseBetweenRequestsMs));
+
+            ushort finalPageNumber = exploration.TotalJobPages;
+            for (ushort i = 1; i <= exploration.TotalJobPages; i++)
+            {
+
+                List<JobPosting> currentJobPostings = new List<JobPosting>();
+
+                if (i == 1)
+                {
+
+                    currentJobPostings = _components.JobPostingDeserializer.Do(exploration.JobPages[0]);
+                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingScrapedInitial(currentJobPostings));
+
+                }
+                else
+                {
+
+                    JobPage currentJobPage = _components.JobPageManager.GetJobPage(exploration.RunId, i);
+                    currentJobPostings = _components.JobPostingDeserializer.Do(currentJobPage);
+
+                    stage2JobPages.Add(currentJobPage);
+                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingObjectsScraped(i, currentJobPostings));
+
+                }
+
+                bool isThresholdConditionMet = _components.JobPostingManager.IsThresholdConditionMet(jobPostingId, currentJobPostings);
+
+                if (isThresholdConditionMet)
+                {
+
+                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingIdFoundJobPageNr(jobPostingId, i));
+
+                    currentJobPostings = _components.JobPostingManager.RemoveUnsuitable(jobPostingId, currentJobPostings);
+                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_XJobPostingsRemovedJobPageNr(currentJobPostings.Count, i));
+
+                    stage2JobPostings.AddRange(currentJobPostings);
+                    finalPageNumber = i;
+
+                    break;
+
+                }
+                else
+                    stage2JobPostings.AddRange(currentJobPostings);
+
+                ConditionallySleep(i, _settings.ParallelRequests, _settings.PauseBetweenRequestsMs);
+
+            }
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FinalPageNumberThresholdDate(finalPageNumber));
+
+            bool isCompleted = false;
+            if (stage == Stages.Stage2_UpToAllJobPostings)
+                isCompleted = true;
+
+            return
+                new Exploration(
+                        exploration.RunId,
+                        exploration.TotalResultCount,
+                        exploration.TotalJobPages,
+                        exploration.Stage,
+                        isCompleted,
+                        stage2JobPages,
+                        stage2JobPostings);
+
+        }
         private Exploration ProcessStage3(Exploration exploration, Stages stage)
         {
 
@@ -822,5 +898,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 17.08.2021
+    Last Update: 19.08.2021
 */
