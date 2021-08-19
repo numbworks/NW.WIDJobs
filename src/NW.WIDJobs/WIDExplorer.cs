@@ -333,7 +333,7 @@ namespace NW.WIDJobs
             DateTime now = _components.NowFunction.Invoke();
             string runId = _components.RunIdManager.Create(now, jobPostingId);
 
-            return Explore(runId, thresholdDate, stage);
+            return Explore(runId, jobPostingId, stage);
 
         }
         public Exploration Explore(string runId, string jobPostingId, Stages stage)
