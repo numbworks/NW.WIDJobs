@@ -3972,9 +3972,6 @@ namespace NW.WIDJobs.UnitTests
                 List<(string url, string content)> tuples = new List<(string url, string content)>()
                 {
 
-                    (Shared_JobPage01_Url, Shared_JobPage01_Content),
-                    (Shared_JobPage02_Url, Shared_JobPage02_Content),
-
                     (Shared_JobPage01_JobPostingExtended01.JobPosting.Url, Shared_JobPage01_JobPostingExtended01_Content),
                     (Shared_JobPage01_JobPostingExtended02.JobPosting.Url, Shared_JobPage01_JobPostingExtended02_Content),
                     (Shared_JobPage01_JobPostingExtended03.JobPosting.Url, Shared_JobPage01_JobPostingExtended03_Content),

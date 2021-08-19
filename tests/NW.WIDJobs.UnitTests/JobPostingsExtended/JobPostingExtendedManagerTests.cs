@@ -3,6 +3,7 @@ using System;
 using NW.WIDJobs.HttpRequests;
 using NW.WIDJobs.JobPostings;
 using NW.WIDJobs.JobPostingsExtended;
+using System.Collections.Generic;
 
 namespace NW.WIDJobs.UnitTests
 {
@@ -60,7 +61,11 @@ namespace NW.WIDJobs.UnitTests
         {
 
             new TestCaseData(
-                    ObjectMother.Shared_JobPage01_JobPostingExtended01_Content,
+                    new Dictionary<string, string>() 
+                    { 
+                        { ObjectMother.Shared_JobPage01_JobPostingExtended01.JobPosting.Url, ObjectMother.Shared_JobPage01_JobPostingExtended01_Content} 
+                    
+                    }, 
                     ObjectMother.Shared_JobPage01_JobPosting01,
                     ObjectMother.Shared_JobPage01_JobPostingExtended01
                 ).SetArgDisplayNames($"{nameof(getJobPostingExtendedTestCases)}_01")
@@ -92,11 +97,11 @@ namespace NW.WIDJobs.UnitTests
 
         [TestCaseSource(nameof(getJobPostingExtendedTestCases))]
         public void GetJobPostingExtended_ShouldReturnExpectedJobPostingExtended_WhenInvoked
-            (string fakeResponse, JobPosting jobPosting, JobPostingExtended expected)
+            (Dictionary<string, string> urlsResponses, JobPosting jobPosting, JobPostingExtended expected)
         {
 
             // Arrange
-            FakeGetRequestManager fakeGetRequestManager = new FakeGetRequestManager(fakeResponse);
+            FakeGetRequestManager fakeGetRequestManager = new FakeGetRequestManager(urlsResponses);
             FakeGetRequestManagerFactory fakeGetRequestManagerFactory = new FakeGetRequestManagerFactory(fakeGetRequestManager);
 
             // Act
@@ -121,5 +126,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 07.08.2021
+    Last Update: 19.08.2021
 */
