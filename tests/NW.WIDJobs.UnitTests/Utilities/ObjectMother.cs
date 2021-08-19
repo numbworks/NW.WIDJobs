@@ -3952,7 +3952,7 @@ namespace NW.WIDJobs.UnitTests
         internal static DateTime WIDExplorer_FakeNow = new DateTime(2021, 05, 01);
         internal static Func<DateTime> WIDExplorer_FakeNowFunction = () => WIDExplorer_FakeNow;
 
-        internal static Dictionary<string, string> WIDExplorer_UrlsResponses
+        internal static Dictionary<string, string> WIDExplorer_FakePostRequestManager_UrlsResponses
             = new Dictionary<string, string>()
             {
 
@@ -3961,74 +3961,61 @@ namespace NW.WIDJobs.UnitTests
 
             };
         internal static IPostRequestManager WIDExplorer_FakePostRequestManager
-            = new FakePostRequestManager(WIDExplorer_UrlsResponses);
+            = new FakePostRequestManager(WIDExplorer_FakePostRequestManager_UrlsResponses);
         internal static IPostRequestManagerFactory WIDExplorer_FakePostRequestManagerFactory
             = new FakePostRequestManagerFactory(WIDExplorer_FakePostRequestManager);
 
-        internal static Func<string, IGetRequestManager> WIDExplorer_FakeGetRequestManager
-            = (url) =>
+        internal static Dictionary<string, string> WIDExplorer_FakeGetRequestManager_UrlsResponses
+            = new Dictionary<string, string>()
             {
 
-                List<(string url, string content)> tuples = new List<(string url, string content)>()
-                {
+                    {Shared_JobPage01_JobPostingExtended01.JobPosting.Url, Shared_JobPage01_JobPostingExtended01_Content},
+                    {Shared_JobPage01_JobPostingExtended02.JobPosting.Url, Shared_JobPage01_JobPostingExtended02_Content},
+                    {Shared_JobPage01_JobPostingExtended03.JobPosting.Url, Shared_JobPage01_JobPostingExtended03_Content},
+                    {Shared_JobPage01_JobPostingExtended04.JobPosting.Url, Shared_JobPage01_JobPostingExtended04_Content},
+                    {Shared_JobPage01_JobPostingExtended05.JobPosting.Url, Shared_JobPage01_JobPostingExtended05_Content},
+                    {Shared_JobPage01_JobPostingExtended06.JobPosting.Url, Shared_JobPage01_JobPostingExtended06_Content},
+                    {Shared_JobPage01_JobPostingExtended07.JobPosting.Url, Shared_JobPage01_JobPostingExtended07_Content},
+                    {Shared_JobPage01_JobPostingExtended08.JobPosting.Url, Shared_JobPage01_JobPostingExtended08_Content},
+                    {Shared_JobPage01_JobPostingExtended09.JobPosting.Url, Shared_JobPage01_JobPostingExtended09_Content},
+                    {Shared_JobPage01_JobPostingExtended10.JobPosting.Url, Shared_JobPage01_JobPostingExtended10_Content},
+                    {Shared_JobPage01_JobPostingExtended11.JobPosting.Url, Shared_JobPage01_JobPostingExtended11_Content},
+                    {Shared_JobPage01_JobPostingExtended12.JobPosting.Url, Shared_JobPage01_JobPostingExtended12_Content},
+                    {Shared_JobPage01_JobPostingExtended13.JobPosting.Url, Shared_JobPage01_JobPostingExtended13_Content},
+                    {Shared_JobPage01_JobPostingExtended14.JobPosting.Url, Shared_JobPage01_JobPostingExtended14_Content},
+                    {Shared_JobPage01_JobPostingExtended15.JobPosting.Url, Shared_JobPage01_JobPostingExtended15_Content},
+                    {Shared_JobPage01_JobPostingExtended16.JobPosting.Url, Shared_JobPage01_JobPostingExtended16_Content},
+                    {Shared_JobPage01_JobPostingExtended17.JobPosting.Url, Shared_JobPage01_JobPostingExtended17_Content},
+                    {Shared_JobPage01_JobPostingExtended18.JobPosting.Url, Shared_JobPage01_JobPostingExtended18_Content},
+                    {Shared_JobPage01_JobPostingExtended19.JobPosting.Url, Shared_JobPage01_JobPostingExtended19_Content},
+                    {Shared_JobPage01_JobPostingExtended20.JobPosting.Url, Shared_JobPage01_JobPostingExtended20_Content},
 
-                    (Shared_JobPage01_JobPostingExtended01.JobPosting.Url, Shared_JobPage01_JobPostingExtended01_Content),
-                    (Shared_JobPage01_JobPostingExtended02.JobPosting.Url, Shared_JobPage01_JobPostingExtended02_Content),
-                    (Shared_JobPage01_JobPostingExtended03.JobPosting.Url, Shared_JobPage01_JobPostingExtended03_Content),
-                    (Shared_JobPage01_JobPostingExtended04.JobPosting.Url, Shared_JobPage01_JobPostingExtended04_Content),
-                    (Shared_JobPage01_JobPostingExtended05.JobPosting.Url, Shared_JobPage01_JobPostingExtended05_Content),
-                    (Shared_JobPage01_JobPostingExtended06.JobPosting.Url, Shared_JobPage01_JobPostingExtended06_Content),
-                    (Shared_JobPage01_JobPostingExtended07.JobPosting.Url, Shared_JobPage01_JobPostingExtended07_Content),
-                    (Shared_JobPage01_JobPostingExtended08.JobPosting.Url, Shared_JobPage01_JobPostingExtended08_Content),
-                    (Shared_JobPage01_JobPostingExtended09.JobPosting.Url, Shared_JobPage01_JobPostingExtended09_Content),
-                    (Shared_JobPage01_JobPostingExtended10.JobPosting.Url, Shared_JobPage01_JobPostingExtended10_Content),
-                    (Shared_JobPage01_JobPostingExtended11.JobPosting.Url, Shared_JobPage01_JobPostingExtended11_Content),
-                    (Shared_JobPage01_JobPostingExtended12.JobPosting.Url, Shared_JobPage01_JobPostingExtended12_Content),
-                    (Shared_JobPage01_JobPostingExtended13.JobPosting.Url, Shared_JobPage01_JobPostingExtended13_Content),
-                    (Shared_JobPage01_JobPostingExtended14.JobPosting.Url, Shared_JobPage01_JobPostingExtended14_Content),
-                    (Shared_JobPage01_JobPostingExtended15.JobPosting.Url, Shared_JobPage01_JobPostingExtended15_Content),
-                    (Shared_JobPage01_JobPostingExtended16.JobPosting.Url, Shared_JobPage01_JobPostingExtended16_Content),
-                    (Shared_JobPage01_JobPostingExtended17.JobPosting.Url, Shared_JobPage01_JobPostingExtended17_Content),
-                    (Shared_JobPage01_JobPostingExtended18.JobPosting.Url, Shared_JobPage01_JobPostingExtended18_Content),
-                    (Shared_JobPage01_JobPostingExtended19.JobPosting.Url, Shared_JobPage01_JobPostingExtended19_Content),
-                    (Shared_JobPage01_JobPostingExtended20.JobPosting.Url, Shared_JobPage01_JobPostingExtended20_Content),
-
-                    (Shared_JobPage02_JobPostingExtended01.JobPosting.Url, Shared_JobPage02_JobPostingExtended01_Content),
-                    (Shared_JobPage02_JobPostingExtended02.JobPosting.Url, Shared_JobPage02_JobPostingExtended02_Content),
-                    (Shared_JobPage02_JobPostingExtended03.JobPosting.Url, Shared_JobPage02_JobPostingExtended03_Content),
-                    (Shared_JobPage02_JobPostingExtended04.JobPosting.Url, Shared_JobPage02_JobPostingExtended04_Content),
-                    (Shared_JobPage02_JobPostingExtended05.JobPosting.Url, Shared_JobPage02_JobPostingExtended05_Content),
-                    (Shared_JobPage02_JobPostingExtended06.JobPosting.Url, Shared_JobPage02_JobPostingExtended06_Content),
-                    (Shared_JobPage02_JobPostingExtended07.JobPosting.Url, Shared_JobPage02_JobPostingExtended07_Content),
-                    (Shared_JobPage02_JobPostingExtended08.JobPosting.Url, Shared_JobPage02_JobPostingExtended08_Content),
-                    (Shared_JobPage02_JobPostingExtended09.JobPosting.Url, Shared_JobPage02_JobPostingExtended09_Content),
-                    (Shared_JobPage02_JobPostingExtended10.JobPosting.Url, Shared_JobPage02_JobPostingExtended10_Content),
-                    (Shared_JobPage02_JobPostingExtended11.JobPosting.Url, Shared_JobPage02_JobPostingExtended11_Content),
-                    (Shared_JobPage02_JobPostingExtended12.JobPosting.Url, Shared_JobPage02_JobPostingExtended12_Content),
-                    (Shared_JobPage02_JobPostingExtended13.JobPosting.Url, Shared_JobPage02_JobPostingExtended13_Content),
-                    (Shared_JobPage02_JobPostingExtended14.JobPosting.Url, Shared_JobPage02_JobPostingExtended14_Content),
-                    (Shared_JobPage02_JobPostingExtended15.JobPosting.Url, Shared_JobPage02_JobPostingExtended15_Content),
-                    (Shared_JobPage02_JobPostingExtended16.JobPosting.Url, Shared_JobPage02_JobPostingExtended16_Content),
-                    (Shared_JobPage02_JobPostingExtended17.JobPosting.Url, Shared_JobPage02_JobPostingExtended17_Content),
-                    (Shared_JobPage02_JobPostingExtended18.JobPosting.Url, Shared_JobPage02_JobPostingExtended18_Content),
-                    (Shared_JobPage02_JobPostingExtended19.JobPosting.Url, Shared_JobPage02_JobPostingExtended19_Content),
-                    (Shared_JobPage02_JobPostingExtended20.JobPosting.Url, Shared_JobPage02_JobPostingExtended20_Content),
-
-                };
-
-                IGetRequestManager fakeGetRequestManager = Substitute.For<IGetRequestManager>();
-
-                foreach ((string url, string content) tuple in tuples)
-                    if (string.Equals(url, tuple.url, StringComparison.InvariantCulture))
-                    {
-                        fakeGetRequestManager.Send(tuple.url, Arg.Any<Encoding>()).Returns(tuple.content);
-                        break;
-                    };
-                // We don't consider the case in which we do provide an url that it's not among the ones in the list. 
-
-                return fakeGetRequestManager;
+                    {Shared_JobPage02_JobPostingExtended01.JobPosting.Url, Shared_JobPage02_JobPostingExtended01_Content},
+                    {Shared_JobPage02_JobPostingExtended02.JobPosting.Url, Shared_JobPage02_JobPostingExtended02_Content},
+                    {Shared_JobPage02_JobPostingExtended03.JobPosting.Url, Shared_JobPage02_JobPostingExtended03_Content},
+                    {Shared_JobPage02_JobPostingExtended04.JobPosting.Url, Shared_JobPage02_JobPostingExtended04_Content},
+                    {Shared_JobPage02_JobPostingExtended05.JobPosting.Url, Shared_JobPage02_JobPostingExtended05_Content},
+                    {Shared_JobPage02_JobPostingExtended06.JobPosting.Url, Shared_JobPage02_JobPostingExtended06_Content},
+                    {Shared_JobPage02_JobPostingExtended07.JobPosting.Url, Shared_JobPage02_JobPostingExtended07_Content},
+                    {Shared_JobPage02_JobPostingExtended08.JobPosting.Url, Shared_JobPage02_JobPostingExtended08_Content},
+                    {Shared_JobPage02_JobPostingExtended09.JobPosting.Url, Shared_JobPage02_JobPostingExtended09_Content},
+                    {Shared_JobPage02_JobPostingExtended10.JobPosting.Url, Shared_JobPage02_JobPostingExtended10_Content},
+                    {Shared_JobPage02_JobPostingExtended11.JobPosting.Url, Shared_JobPage02_JobPostingExtended11_Content},
+                    {Shared_JobPage02_JobPostingExtended12.JobPosting.Url, Shared_JobPage02_JobPostingExtended12_Content},
+                    {Shared_JobPage02_JobPostingExtended13.JobPosting.Url, Shared_JobPage02_JobPostingExtended13_Content},
+                    {Shared_JobPage02_JobPostingExtended14.JobPosting.Url, Shared_JobPage02_JobPostingExtended14_Content},
+                    {Shared_JobPage02_JobPostingExtended15.JobPosting.Url, Shared_JobPage02_JobPostingExtended15_Content},
+                    {Shared_JobPage02_JobPostingExtended16.JobPosting.Url, Shared_JobPage02_JobPostingExtended16_Content},
+                    {Shared_JobPage02_JobPostingExtended17.JobPosting.Url, Shared_JobPage02_JobPostingExtended17_Content},
+                    {Shared_JobPage02_JobPostingExtended18.JobPosting.Url, Shared_JobPage02_JobPostingExtended18_Content},
+                    {Shared_JobPage02_JobPostingExtended19.JobPosting.Url, Shared_JobPage02_JobPostingExtended19_Content},
+                    {Shared_JobPage02_JobPostingExtended20.JobPosting.Url, Shared_JobPage02_JobPostingExtended20_Content}
 
             };
+        internal static IGetRequestManager WIDExplorer_FakeGetRequestManager
+            = new FakeGetRequestManager(WIDExplorer_FakeGetRequestManager_UrlsResponses);
+        internal static IGetRequestManagerFactory WIDExplorer_FakeGetRequestManagerFactory
+            = new FakeGetRequestManagerFactory(WIDExplorer_FakeGetRequestManager);
 
         #endregion
 
@@ -4583,5 +4570,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 18.08.2021
+    Last Update: 19.08.2021
 */
