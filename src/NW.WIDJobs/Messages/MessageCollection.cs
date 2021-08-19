@@ -69,6 +69,8 @@ namespace NW.WIDJobs.Messages
             = "FinalPageNumber: The last available page on the website.";
         public static Func<DateTime, string> WIDExplorer_ThresholdDateIs
             = (thresholdDate) => $"ThresholdDate:'{thresholdDate.ToString(WIDExplorer.DefaultFormatDate)}'.";
+        public static Func<string, string> WIDExplorer_JobPostingIdIs
+            = (jobPostingId) => $"JobPostingId:'{jobPostingId}'.";
         public static Func<Stages, string> WIDExplorer_StageIs
             = (stage) => $"Stage:'{stage}'.";
         public static Func<Stages, string> WIDExplorer_ExecutionStageStarted

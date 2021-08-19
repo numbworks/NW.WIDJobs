@@ -327,7 +327,36 @@ namespace NW.WIDJobs
             return LogCompletionMessageAndReturn(exploration);
 
         }
+        public Exploration Explore(string jobPostingId, Stages stage)
+        {
 
+            DateTime now = _components.NowFunction.Invoke();
+            string runId = _components.RunIdManager.Create(now, jobPostingId);
+
+            return Explore(runId, thresholdDate, stage);
+
+        }
+        public Exploration Explore(string runId, string jobPostingId, Stages stage)
+        {
+
+            Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
+            Validator.ValidateStringNullOrWhiteSpace(jobPostingId, nameof(jobPostingId));
+
+            LogInitializationMessage(runId, jobPostingId, stage);
+
+            Exploration exploration = ProcessStage1(runId, DefaultInitialPageNumber, stage);
+            if (exploration.IsCompleted)
+                return LogCompletionMessageAndReturn(exploration);
+
+            exploration = ProcessStage2WhenJobPostingId(exploration, stage, jobPostingId);
+            if (exploration.IsCompleted)
+                return LogCompletionMessageAndReturn(exploration);
+
+            exploration = ProcessStage3(exploration, stage);
+
+            return LogCompletionMessageAndReturn(exploration);
+
+        }
 
         public Exploration ExploreAll(Stages stage)
         {
@@ -451,6 +480,16 @@ namespace NW.WIDJobs
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs(runId));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DefaultInitialPageNumberIs(DefaultInitialPageNumber));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ThresholdDateIs(thresholdDate));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_StageIs(stage));
+
+        }
+        private void LogInitializationMessage(string runId, string jobPostingId, Stages stage)
+        {
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationStarted);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs(runId));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DefaultInitialPageNumberIs(DefaultInitialPageNumber));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingIdIs(jobPostingId));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_StageIs(stage));
 
         }
