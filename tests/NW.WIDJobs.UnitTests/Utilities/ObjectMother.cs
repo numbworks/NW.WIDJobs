@@ -2656,6 +2656,11 @@ namespace NW.WIDJobs.UnitTests
         internal static JobPage Shared_JobPage01Alt_Object
             = new JobPage(Shared_FakeRunId, 1, Shared_JobPage01Alt_Content);
 
+        internal static DateTime Shared_JobPage01Alt_ThresholdDate01
+            = Shared_JobPage01Alt_JobPostings[6].PostingCreated;                     // 2021-07-01
+        internal static List<JobPosting> Shared_JobPage01Alt_RangeForThresholdDate01
+            = Shared_JobPage01Alt_JobPostings.GetRange(0, 11);                       // 2021-07-02 ... (2021-06-30)
+
         #endregion
 
         #region Shared_JobPage01_Entities
@@ -3133,10 +3138,6 @@ namespace NW.WIDJobs.UnitTests
             = JobPostingManager_JobPage01Alt_ThresholdDateLeastRecentPostingCreated.AddDays(-1);
 
         internal static string JobPostingManager_UnexistantJobPostingId = "0000000fakeid";
-        internal static DateTime JobPostingManager_JobPage01Alt_ThresholdDate01
-            = Shared_JobPage01Alt_JobPostings[6].PostingCreated;                     // 2021-07-01
-        internal static List<JobPosting> JobPostingManager_JobPage01Alt_RangeForThresholdDate01
-            = Shared_JobPage01Alt_JobPostings.GetRange(0, 11);                       // 2021-07-02 ... (2021-06-30)
 
         #endregion
 
@@ -4069,6 +4070,44 @@ namespace NW.WIDJobs.UnitTests
             = new FakeGetRequestManager(WIDExplorer_FakeGetRequestManager_UrlsResponses);
         internal static IGetRequestManagerFactory WIDExplorer_FakeGetRequestManagerFactory
             = new FakeGetRequestManagerFactory(WIDExplorer_FakeGetRequestManager);
+
+        internal static string WIDExplorer_ExplorationStage2Alt_RunId = Shared_FakeRunId;
+        internal static ushort WIDExplorer_ExplorationStage2Alt_TotalResultCount = Shared_JobPage01_TotalResultCount;
+        internal static ushort WIDExplorer_ExplorationStage2Alt_TotalJobPages = Shared_JobPage01_TotalJobPages;
+        internal static Stages WIDExplorer_ExplorationStage2Alt_Stage = Stages.Stage2_UpToAllJobPostings;
+        internal static bool WIDExplorer_ExplorationStage2Alt_IsCompleted = true;
+        internal static List<JobPage> WIDExplorer_ExplorationStage2Alt_JobPages
+            = new List<JobPage>()
+            {
+                Shared_JobPage01Alt_Object
+            };
+        internal static List<JobPosting> WIDExplorer_ExplorationStage2Alt_JobPostings
+            = Shared_JobPage01Alt_JobPostings;
+        internal static List<JobPostingExtended> WIDExplorer_ExplorationStage2Alt_JobPostingsExtended = null;
+        internal static Exploration WIDExplorer_ExplorationStage2Alt
+            = new Exploration(
+                    WIDExplorer_ExplorationStage2Alt_RunId,
+                    WIDExplorer_ExplorationStage2Alt_TotalResultCount,
+                    WIDExplorer_ExplorationStage2Alt_TotalJobPages,
+                    Stages.Stage2_UpToAllJobPostings,
+                    WIDExplorer_ExplorationStage2Alt_IsCompleted,
+                    WIDExplorer_ExplorationStage2Alt_JobPages,
+                    WIDExplorer_ExplorationStage2Alt_JobPostings,
+                    WIDExplorer_ExplorationStage2Alt_JobPostingsExtended
+                    );
+        internal static string WIDExplorer_ExplorationStage2Alt_AsString
+            = string.Concat(
+                "{ ",
+                $"'{nameof(Exploration.RunId)}':'{WIDExplorer_ExplorationStage2Alt_RunId}', ",
+                $"'{nameof(Exploration.TotalResultCount)}':'{WIDExplorer_ExplorationStage2Alt_TotalResultCount}', ",
+                $"'{nameof(Exploration.TotalJobPages)}':'{WIDExplorer_ExplorationStage2Alt_TotalJobPages}', ",
+                $"'{nameof(Exploration.Stage)}':'{WIDExplorer_ExplorationStage2Alt_Stage}', ",
+                $"'{nameof(Exploration.IsCompleted)}':'{WIDExplorer_ExplorationStage2Alt_IsCompleted}', ",
+                $"'{nameof(Exploration.JobPages)}':'1', ",
+                $"'{nameof(Exploration.JobPostings)}':'20', ",
+                $"'{nameof(Exploration.JobPostingsExtended)}':'null'",
+                " }"
+                );
 
         #endregion
 

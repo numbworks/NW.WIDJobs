@@ -153,9 +153,9 @@ namespace NW.WIDJobs.UnitTests
         {
 
             new TestCaseData(
-                   ObjectMother.JobPostingManager_JobPage01Alt_ThresholdDate01,
+                   ObjectMother.Shared_JobPage01Alt_ThresholdDate01,
                    ObjectMother.Shared_JobPage01Alt_JobPostings,
-                   ObjectMother.JobPostingManager_JobPage01Alt_RangeForThresholdDate01
+                   ObjectMother.Shared_JobPage01Alt_RangeForThresholdDate01
             ).SetArgDisplayNames($"{nameof(removeUnsuitableForThresholdDateTestCases)}_01"),
 
         };
