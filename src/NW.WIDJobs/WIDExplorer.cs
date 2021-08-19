@@ -790,12 +790,12 @@ namespace NW.WIDJobs
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage3_UpToAllJobPostingsExtended));
 
-            List<JobPostingExtended> pageItemsExtended = new List<JobPostingExtended>();
+            List<JobPostingExtended> jobPostingsExtended = new List<JobPostingExtended>();
             foreach (JobPosting jobPosting in exploration.JobPostings)
             {
 
                 JobPostingExtended current = _components.JobPostingExtendedManager.GetJobPostingExtended(jobPosting);
-                pageItemsExtended.Add(current);
+                jobPostingsExtended.Add(current);
 
                 _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingExtendedScraped(jobPosting));
 
@@ -803,7 +803,7 @@ namespace NW.WIDJobs
 
             }
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingExtendedScrapedTotal(pageItemsExtended));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingExtendedScrapedTotal(jobPostingsExtended));
 
             bool isCompleted = true;
 
@@ -816,7 +816,7 @@ namespace NW.WIDJobs
                         isCompleted,
                         exploration.JobPages,
                         exploration.JobPostings,
-                        pageItemsExtended);
+                        jobPostingsExtended);
 
         }
 
