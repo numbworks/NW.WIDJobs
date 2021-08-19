@@ -3878,13 +3878,6 @@ namespace NW.WIDJobs.UnitTests
                 RunIdManager.DefaultTemplateId,
                 RunIdManager_Now.ToString(RunIdManager.DefaultFormatDateTime)
             );
-        internal static string RunIdManager_RunId_StartDateEndDate
-            = string.Format(
-                RunIdManager.DefaultTemplateFromTo,
-                RunIdManager_RunId_Now,
-                RunIdManager_StartDate.ToString(RunIdManager.DefaultFormatDate),
-                RunIdManager_EndDate.ToString(RunIdManager.DefaultFormatDate)
-            );
         internal static string RunIdManager_RunId_Threshold
             = string.Format(
                 RunIdManager.DefaultTemplateThreshold,
@@ -3897,6 +3890,12 @@ namespace NW.WIDJobs.UnitTests
                 RunIdManager_RunId_Now,
                 RunIdManager_InitialPageNumber,
                 RunIdManager_FinalPageNumber
+            );
+        internal static string RunIdManager_RunId_JobPostingId
+            = string.Format(
+                RunIdManager.DefaultTemplateJobPostingId,
+                RunIdManager_RunId_Now,
+                Shared_JobPage01_JobPosting01.JobPostingId
             );
 
         #endregion

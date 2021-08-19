@@ -23,23 +23,12 @@ namespace NW.WIDJobs.UnitTests
             new TestCaseData(
                 new Func<string>(
                     () => new RunIdManager()
-                                .Create(
-                                    ObjectMother.RunIdManager_Now, 
-                                    ObjectMother.RunIdManager_StartDate,
-                                    ObjectMother.RunIdManager_EndDate
-                        )),
-                    ObjectMother.RunIdManager_RunId_StartDateEndDate
-                ).SetArgDisplayNames($"{nameof(createTestCases)}_02"),
-
-            new TestCaseData(
-                new Func<string>(
-                    () => new RunIdManager()
                             .Create(
                                 ObjectMother.RunIdManager_Now,
                                 ObjectMother.RunIdManager_Threshold
                         )),
                     ObjectMother.RunIdManager_RunId_Threshold
-                ).SetArgDisplayNames($"{nameof(createTestCases)}_03"),
+                ).SetArgDisplayNames($"{nameof(createTestCases)}_02"),
 
             new TestCaseData(
                 new Func<string>(
@@ -50,8 +39,17 @@ namespace NW.WIDJobs.UnitTests
                                 ObjectMother.RunIdManager_FinalPageNumber
                         )),
                     ObjectMother.RunIdManager_RunId_FromTo
-                ).SetArgDisplayNames($"{nameof(createTestCases)}_04")
+                ).SetArgDisplayNames($"{nameof(createTestCases)}_03"),
 
+            new TestCaseData(
+                new Func<string>(
+                    () => new RunIdManager()
+                            .Create(
+                                ObjectMother.RunIdManager_Now,
+                                ObjectMother.Shared_JobPage01_JobPosting01.JobPostingId
+                        )),
+                    ObjectMother.RunIdManager_RunId_JobPostingId
+                ).SetArgDisplayNames($"{nameof(createTestCases)}_04")
 
         };
 

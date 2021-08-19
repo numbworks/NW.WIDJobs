@@ -13,15 +13,15 @@ namespace NW.WIDJobs.Runs
         string Create(DateTime now, DateTime thresholdDate);
 
         /// <summary>Creates a RunId based upon <see cref="RunIdManager.DefaultTemplateFromTo"/>.</summary>
-        string Create(DateTime now, DateTime startDate, DateTime endDate);
-
-        /// <summary>Creates a RunId based upon <see cref="RunIdManager.DefaultTemplateFromTo"/>.</summary>
         string Create(DateTime now, ushort initialPageNumber, ushort finalPageNumber);
+
+        /// <summary>Creates a RunId based upon <see cref="RunIdManager.DefaultTemplateJobPostingId"/>.</summary>
+        string Create(DateTime now, string jobPostingId);
 
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 16.05.2021
+    Last Update: 19.08.2021
 */

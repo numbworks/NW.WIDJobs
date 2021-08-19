@@ -13,6 +13,7 @@ namespace NW.WIDJobs.Runs
 
         public static string DefaultTemplateId { get; } = "ID:{0}";
         public static string DefaultTemplateThreshold { get; } = "{0}|THRESHOLD:{1}";
+        public static string DefaultTemplateJobPostingId { get; } = "{0}|JOBPOSTINGID:{1}";
         public static string DefaultTemplateFromTo { get; } = "{0}|FROM:{1}|TO:{2}";
         public static string DefaultFormatDateTime { get; } = "yyyyMMddHHmmssfff";
         public static string DefaultFormatDate { get; } = "yyyyMMdd";
@@ -37,17 +38,6 @@ namespace NW.WIDJobs.Runs
             );
 
         }
-        public string Create(DateTime now, DateTime startDate, DateTime endDate)
-        {
-
-            return string.Format(
-                DefaultTemplateFromTo,
-                Create(now),
-                startDate.ToString(DefaultFormatDate),
-                endDate.ToString(DefaultFormatDate)
-            );
-
-        }
         public string Create(DateTime now, DateTime thresholdDate)
         {
 
@@ -69,6 +59,16 @@ namespace NW.WIDJobs.Runs
             );
 
         }
+        public string Create(DateTime now, string jobPostingId)
+        {
+
+            return string.Format(
+                DefaultTemplateJobPostingId,
+                Create(now),
+                jobPostingId
+            );
+
+        }
 
         #endregion
 
@@ -77,5 +77,5 @@ namespace NW.WIDJobs.Runs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 16.05.2021
+    Last Update: 19.08.2021
 */
