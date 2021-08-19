@@ -867,6 +867,33 @@ namespace NW.WIDJobs.UnitTests.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to {
+        ///    &quot;Expression&quot;: {
+        ///        &quot;ShowNearbyCriteria&quot;: true,
+        ///        &quot;Offset&quot;: 0,
+        ///        &quot;Count&quot;: 20,
+        ///        &quot;SearchString&quot;: null,
+        ///        &quot;SortValue&quot;: &quot;CreationDate&quot;,
+        ///        &quot;Id&quot;: [],
+        ///        &quot;EarliestPublicationDate&quot;: &quot;0001-01-01T00:00:00&quot;,
+        ///        &quot;HotJob&quot;: false,
+        ///        &quot;Abroad&quot;: false,
+        ///        &quot;NearBy&quot;: null,
+        ///        &quot;ExternalJob&quot;: null,
+        ///        &quot;WorkPlaceNotStatic&quot;: null,
+        ///        &quot;WorkHourMin&quot;: null,
+        ///        &quot;WorkHourMax&quot;: null,
+        ///        &quot;OnlyGeoPoints&quot;: false,
+        ///        &quot;Facets&quot;: {
+        ///   [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string JobPage01Alt_json {
+            get {
+                return ResourceManager.GetString("JobPage01Alt_json", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
         ///    &quot;WorkSchedule&quot;: [
         ///        {
         ///            &quot;Id&quot;: 1,

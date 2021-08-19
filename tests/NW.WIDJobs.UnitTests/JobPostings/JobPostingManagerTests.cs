@@ -138,13 +138,13 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 ObjectMother.JobPostingManager_UnexistantJobPostingId,
-                ObjectMother.JobPostingManager_JobPage01Alt_JobPostings,
+                ObjectMother.Shared_JobPage01Alt_JobPostings,
                 false
             ).SetArgDisplayNames($"{nameof(isThresholdConditionMetForJobPostingIdTestCases)}_01"),
 
             new TestCaseData(
-                ObjectMother.JobPostingManager_JobPage01Alt_JobPostings[0].JobPostingId,
-                ObjectMother.JobPostingManager_JobPage01Alt_JobPostings,
+                ObjectMother.Shared_JobPage01Alt_JobPostings[0].JobPostingId,
+                ObjectMother.Shared_JobPage01Alt_JobPostings,
                 true
             ).SetArgDisplayNames($"{nameof(isThresholdConditionMetForJobPostingIdTestCases)}_02")
 
@@ -154,7 +154,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                    ObjectMother.JobPostingManager_JobPage01Alt_ThresholdDate01,
-                   ObjectMother.JobPostingManager_JobPage01Alt_JobPostings,
+                   ObjectMother.Shared_JobPage01Alt_JobPostings,
                    ObjectMother.JobPostingManager_JobPage01Alt_RangeForThresholdDate01
             ).SetArgDisplayNames($"{nameof(removeUnsuitableForThresholdDateTestCases)}_01"),
 
@@ -164,14 +164,14 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 ObjectMother.JobPostingManager_UnexistantJobPostingId,
-                ObjectMother.JobPostingManager_JobPage01Alt_JobPostings,
-                ObjectMother.JobPostingManager_JobPage01Alt_JobPostings
+                ObjectMother.Shared_JobPage01Alt_JobPostings,
+                ObjectMother.Shared_JobPage01Alt_JobPostings
             ).SetArgDisplayNames($"{nameof(removeUnsuitableForJobPostingIdTestCases)}_01"),
 
             new TestCaseData(
-                ObjectMother.JobPostingManager_JobPage01Alt_JobPostings[5].JobPostingId,
-                ObjectMother.JobPostingManager_JobPage01Alt_JobPostings,
-                ObjectMother.JobPostingManager_JobPage01Alt_JobPostings.Take(5).ToList()
+                ObjectMother.Shared_JobPage01Alt_JobPostings[5].JobPostingId,
+                ObjectMother.Shared_JobPage01Alt_JobPostings,
+                ObjectMother.Shared_JobPage01Alt_JobPostings.Take(5).ToList()
             ).SetArgDisplayNames($"{nameof(removeUnsuitableForJobPostingIdTestCases)}_02")
 
         };
