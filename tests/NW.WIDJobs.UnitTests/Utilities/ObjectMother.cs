@@ -2699,6 +2699,87 @@ namespace NW.WIDJobs.UnitTests
                 " }"
                 );
 
+        internal static string Shared_ExplorationStage2_RunId = Shared_FakeRunId;
+        internal static ushort Shared_ExplorationStage2_TotalResultCount = Shared_JobPage01_TotalResultCount;
+        internal static ushort Shared_ExplorationStage2_TotalJobPages = Shared_JobPage01_TotalJobPages;
+        internal static Stages Shared_ExplorationStage2_Stage = Stages.Stage2_UpToAllJobPostings;
+        internal static bool Shared_ExplorationStage2_IsCompleted = true;
+        internal static List<JobPage> Shared_ExplorationStage2_JobPages
+            = new List<JobPage>()
+            {
+                Shared_JobPage01_Object,
+                Shared_JobPage02_Object
+            };
+        internal static List<JobPosting> Shared_ExplorationStage2_JobPostings
+            = new List<JobPosting>()
+            {
+                Shared_JobPage01_JobPosting01,
+                Shared_JobPage01_JobPosting02,
+                Shared_JobPage01_JobPosting03,
+                Shared_JobPage01_JobPosting04,
+                Shared_JobPage01_JobPosting05,
+                Shared_JobPage01_JobPosting06,
+                Shared_JobPage01_JobPosting07,
+                Shared_JobPage01_JobPosting08,
+                Shared_JobPage01_JobPosting09,
+                Shared_JobPage01_JobPosting10,
+                Shared_JobPage01_JobPosting11,
+                Shared_JobPage01_JobPosting12,
+                Shared_JobPage01_JobPosting13,
+                Shared_JobPage01_JobPosting14,
+                Shared_JobPage01_JobPosting15,
+                Shared_JobPage01_JobPosting16,
+                Shared_JobPage01_JobPosting17,
+                Shared_JobPage01_JobPosting18,
+                Shared_JobPage01_JobPosting19,
+                Shared_JobPage01_JobPosting20,
+                Shared_JobPage02_JobPosting01,
+                Shared_JobPage02_JobPosting02,
+                Shared_JobPage02_JobPosting03,
+                Shared_JobPage02_JobPosting04,
+                Shared_JobPage02_JobPosting05,
+                Shared_JobPage02_JobPosting06,
+                Shared_JobPage02_JobPosting07,
+                Shared_JobPage02_JobPosting08,
+                Shared_JobPage02_JobPosting09,
+                Shared_JobPage02_JobPosting10,
+                Shared_JobPage02_JobPosting11,
+                Shared_JobPage02_JobPosting12,
+                Shared_JobPage02_JobPosting13,
+                Shared_JobPage02_JobPosting14,
+                Shared_JobPage02_JobPosting15,
+                Shared_JobPage02_JobPosting16,
+                Shared_JobPage02_JobPosting17,
+                Shared_JobPage02_JobPosting18,
+                Shared_JobPage02_JobPosting19,
+                Shared_JobPage02_JobPosting20
+            };
+        internal static List<JobPostingExtended> Shared_ExplorationStage2_JobPostingsExtended = null;
+        internal static Exploration Shared_ExplorationStage2
+            = new Exploration(
+                    Shared_ExplorationStage2_RunId,
+                    Shared_ExplorationStage2_TotalResultCount,
+                    Shared_ExplorationStage2_TotalJobPages,
+                    Stages.Stage2_UpToAllJobPostings,
+                    Shared_ExplorationStage2_IsCompleted,
+                    Shared_ExplorationStage2_JobPages,
+                    Shared_ExplorationStage2_JobPostings,
+                    Shared_ExplorationStage2_JobPostingsExtended
+                    );
+        internal static string Shared_ExplorationStage2_AsString
+            = string.Concat(
+                "{ ",
+                $"'{nameof(Exploration.RunId)}':'{Shared_ExplorationStage2_RunId}', ",
+                $"'{nameof(Exploration.TotalResultCount)}':'{Shared_ExplorationStage2_TotalResultCount}', ",
+                $"'{nameof(Exploration.TotalJobPages)}':'{Shared_ExplorationStage2_TotalJobPages}', ",
+                $"'{nameof(Exploration.Stage)}':'{Shared_ExplorationStage2_Stage}', ",
+                $"'{nameof(Exploration.IsCompleted)}':'{Shared_ExplorationStage2_IsCompleted}', ",
+                $"'{nameof(Exploration.JobPages)}':'2', ",
+                $"'{nameof(Exploration.JobPostings)}':'40', ",
+                $"'{nameof(Exploration.JobPostingsExtended)}':'null'",
+                " }"
+                );
+
         internal static string Shared_ExplorationStage3_RunId = Shared_FakeRunId;
         internal static ushort Shared_ExplorationStage3_TotalResultCount = Shared_JobPage01_TotalResultCount;
         internal static ushort Shared_ExplorationStage3_TotalJobPages = Shared_JobPage01_TotalJobPages;

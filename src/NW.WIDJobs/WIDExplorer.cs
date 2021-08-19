@@ -620,7 +620,7 @@ namespace NW.WIDJobs
         private Exploration ProcessStage1(string runId, ushort initialPageNumber, Stages stage)
         {
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(stage));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage1_OnlyMetrics));
 
             JobPage jobPage = _components.JobPageManager.GetJobPage(runId, initialPageNumber);
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPageSuccessfullyRetrieved.Invoke(jobPage.PageNumber));
@@ -666,7 +666,7 @@ namespace NW.WIDJobs
         private Exploration ProcessStage2(Exploration exploration, ushort finalPageNumber, Stages stage)
         {
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(stage));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage2_UpToAllJobPostings));
 
             List<JobPosting> jobPostings = _components.JobPostingDeserializer.Do(exploration.JobPages[0]);
 
@@ -711,7 +711,7 @@ namespace NW.WIDJobs
         private Exploration ProcessStage2WhenThresholdDate(Exploration exploration, Stages stage, DateTime thresholdDate)
         {
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(stage));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage2_UpToAllJobPostings));
 
             List<JobPage> stage2JobPages = new List<JobPage>() { exploration.JobPages[0] };
             List<JobPosting> stage2JobPostings = new List<JobPosting>();
@@ -788,7 +788,7 @@ namespace NW.WIDJobs
         private Exploration ProcessStage3(Exploration exploration, Stages stage)
         {
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(stage));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage3_UpToAllJobPostingsExtended));
 
             List<JobPostingExtended> pageItemsExtended = new List<JobPostingExtended>();
             foreach (JobPosting jobPosting in exploration.JobPostings)
