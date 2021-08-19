@@ -2593,36 +2593,36 @@ namespace NW.WIDJobs.UnitTests
         internal static JobPosting Shared_JobPage01Alt_JobPosting06 = Shared_JobPage01_JobPosting06; // 2021-07-02
 
         internal static JobPosting Shared_JobPage01Alt_JobPosting07 
-            = UpdatePostingCreated(Shared_JobPage01_JobPosting07, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-1));    // 2021-07-01
+            = UpdatePostingCreatedResponse(Shared_JobPage01_JobPosting07, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-1));    // 2021-07-01
         internal static JobPosting Shared_JobPage01Alt_JobPosting08 
-            = UpdatePostingCreated(Shared_JobPage01_JobPosting08, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-1));    // 2021-07-01
+            = UpdatePostingCreatedResponse(Shared_JobPage01_JobPosting08, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-1));    // 2021-07-01
         internal static JobPosting Shared_JobPage01Alt_JobPosting09 
-            = UpdatePostingCreated(Shared_JobPage01_JobPosting09, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-1));    // 2021-07-01
+            = UpdatePostingCreatedResponse(Shared_JobPage01_JobPosting09, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-1));    // 2021-07-01
         internal static JobPosting Shared_JobPage01Alt_JobPosting10 
-            = UpdatePostingCreated(Shared_JobPage01_JobPosting10, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-1));    // 2021-07-01
+            = UpdatePostingCreatedResponse(Shared_JobPage01_JobPosting10, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-1));    // 2021-07-01
         internal static JobPosting Shared_JobPage01Alt_JobPosting11 
-            = UpdatePostingCreated(Shared_JobPage01_JobPosting11, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-1));    // 2021-07-01
+            = UpdatePostingCreatedResponse(Shared_JobPage01_JobPosting11, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-1));    // 2021-07-01
 
         internal static JobPosting Shared_JobPage01Alt_JobPosting12 
-            = UpdatePostingCreated(Shared_JobPage01_JobPosting12, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-2));    // 2021-06-30
+            = UpdatePostingCreatedResponse(Shared_JobPage01_JobPosting12, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-2));    // 2021-06-30
         internal static JobPosting Shared_JobPage01Alt_JobPosting13 
-            = UpdatePostingCreated(Shared_JobPage01_JobPosting13, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-2));    // 2021-06-30
+            = UpdatePostingCreatedResponse(Shared_JobPage01_JobPosting13, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-2));    // 2021-06-30
         internal static JobPosting Shared_JobPage01Alt_JobPosting14 
-            = UpdatePostingCreated(Shared_JobPage01_JobPosting14, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-2));    // 2021-06-30
+            = UpdatePostingCreatedResponse(Shared_JobPage01_JobPosting14, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-2));    // 2021-06-30
         internal static JobPosting Shared_JobPage01Alt_JobPosting15 
-            = UpdatePostingCreated(Shared_JobPage01_JobPosting15, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-2));    // 2021-06-30
+            = UpdatePostingCreatedResponse(Shared_JobPage01_JobPosting15, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-2));    // 2021-06-30
 
         internal static JobPosting Shared_JobPage01Alt_JobPosting16 
-            = UpdatePostingCreated(Shared_JobPage01_JobPosting16, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-3));    // 2021-06-29
+            = UpdatePostingCreatedResponse(Shared_JobPage01_JobPosting16, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-3));    // 2021-06-29
         internal static JobPosting Shared_JobPage01Alt_JobPosting17 
-            = UpdatePostingCreated(Shared_JobPage01_JobPosting17, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-3));    // 2021-06-29
+            = UpdatePostingCreatedResponse(Shared_JobPage01_JobPosting17, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-3));    // 2021-06-29
         internal static JobPosting Shared_JobPage01Alt_JobPosting18 
-            = UpdatePostingCreated(Shared_JobPage01_JobPosting18, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-3));    // 2021-06-29
+            = UpdatePostingCreatedResponse(Shared_JobPage01_JobPosting18, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-3));    // 2021-06-29
 
         internal static JobPosting Shared_JobPage01Alt_JobPosting19 
-            = UpdatePostingCreated(Shared_JobPage01_JobPosting19, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-4));    // 2021-06-28
+            = UpdatePostingCreatedResponse(Shared_JobPage01_JobPosting19, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-4));    // 2021-06-28
         internal static JobPosting Shared_JobPage01Alt_JobPosting20 
-            = UpdatePostingCreated(Shared_JobPage01_JobPosting20, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-4));    // 2021-06-28
+            = UpdatePostingCreatedResponse(Shared_JobPage01_JobPosting20, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-4));    // 2021-06-28
 
         internal static List<JobPosting> Shared_JobPage01Alt_JobPostings
             = new List<JobPosting>()
@@ -2696,7 +2696,7 @@ namespace NW.WIDJobs.UnitTests
             = Shared_JobPage01_JobPostingEntities[1];
         internal static JobPostingEntity Shared_JobPage01_JobPostingEntity01WithUpdatedPostingCreated
             = new JobPostingEntity(
-                    UpdatePostingCreated(
+                    UpdatePostingCreatedResponse(
                         Shared_JobPage01_JobPostings[0],
                         Shared_JobPage01_JobPostingEntities[0].PostingCreated.AddDays(1)));
 
@@ -4006,7 +4006,7 @@ namespace NW.WIDJobs.UnitTests
         internal static DateTime WIDExplorer_FakeNow = new DateTime(2021, 05, 01);
         internal static Func<DateTime> WIDExplorer_FakeNowFunction = () => WIDExplorer_FakeNow;
 
-        internal static Dictionary<string, string> WIDExplorer_FakePostRequestManager_UrlsResponses
+        internal static Dictionary<string, string> WIDExplorer_JobPage0102_PostUrlsResponses
             = new Dictionary<string, string>()
             {
 
@@ -4014,12 +4014,12 @@ namespace NW.WIDJobs.UnitTests
                 { Shared_JobPage02_Url, Shared_JobPage02_Content }
 
             };
-        internal static IPostRequestManager WIDExplorer_FakePostRequestManager
-            = new FakePostRequestManager(WIDExplorer_FakePostRequestManager_UrlsResponses);
-        internal static IPostRequestManagerFactory WIDExplorer_FakePostRequestManagerFactory
-            = new FakePostRequestManagerFactory(WIDExplorer_FakePostRequestManager);
+        internal static IPostRequestManager WIDExplorer_JobPage0102_FakePostRequestManager
+            = new FakePostRequestManager(WIDExplorer_JobPage0102_PostUrlsResponses);
+        internal static IPostRequestManagerFactory WIDExplorer_JobPage0102_FakePostRequestManagerFactory
+            = new FakePostRequestManagerFactory(WIDExplorer_JobPage0102_FakePostRequestManager);
 
-        internal static Dictionary<string, string> WIDExplorer_FakeGetRequestManager_UrlsResponses
+        internal static Dictionary<string, string> WIDExplorer_JobPage0102_GetUrlsResponses
             = new Dictionary<string, string>()
             {
 
@@ -4066,48 +4066,22 @@ namespace NW.WIDJobs.UnitTests
                     {Shared_JobPage02_JobPostingExtended20.JobPosting.Url, Shared_JobPage02_JobPostingExtended20_Content}
 
             };
-        internal static IGetRequestManager WIDExplorer_FakeGetRequestManager
-            = new FakeGetRequestManager(WIDExplorer_FakeGetRequestManager_UrlsResponses);
-        internal static IGetRequestManagerFactory WIDExplorer_FakeGetRequestManagerFactory
-            = new FakeGetRequestManagerFactory(WIDExplorer_FakeGetRequestManager);
+        internal static IGetRequestManager WIDExplorer_JobPage0102_FakeGetRequestManager
+            = new FakeGetRequestManager(WIDExplorer_JobPage0102_GetUrlsResponses);
+        internal static IGetRequestManagerFactory WIDExplorer_JobPage0102_FakeGetRequestManagerFactory
+            = new FakeGetRequestManagerFactory(WIDExplorer_JobPage0102_FakeGetRequestManager);
 
-        internal static string WIDExplorer_ExplorationStage2Alt_RunId = Shared_FakeRunId;
-        internal static ushort WIDExplorer_ExplorationStage2Alt_TotalResultCount = Shared_JobPage01_TotalResultCount;
-        internal static ushort WIDExplorer_ExplorationStage2Alt_TotalJobPages = Shared_JobPage01_TotalJobPages;
-        internal static Stages WIDExplorer_ExplorationStage2Alt_Stage = Stages.Stage2_UpToAllJobPostings;
-        internal static bool WIDExplorer_ExplorationStage2Alt_IsCompleted = true;
-        internal static List<JobPage> WIDExplorer_ExplorationStage2Alt_JobPages
-            = new List<JobPage>()
+        internal static Dictionary<string, string> WIDExplorer_JobPage01Alt_PostUrlsResponses
+            = new Dictionary<string, string>()
             {
-                Shared_JobPage01Alt_Object
+
+                { Shared_JobPage01_Url, Shared_JobPage01Alt_Content }
+
             };
-        internal static List<JobPosting> WIDExplorer_ExplorationStage2Alt_JobPostings
-            = Shared_JobPage01Alt_JobPostings;
-        internal static List<JobPostingExtended> WIDExplorer_ExplorationStage2Alt_JobPostingsExtended = null;
-        internal static Exploration WIDExplorer_ExplorationStage2Alt
-            = new Exploration(
-                    WIDExplorer_ExplorationStage2Alt_RunId,
-                    WIDExplorer_ExplorationStage2Alt_TotalResultCount,
-                    WIDExplorer_ExplorationStage2Alt_TotalJobPages,
-                    Stages.Stage2_UpToAllJobPostings,
-                    WIDExplorer_ExplorationStage2Alt_IsCompleted,
-                    WIDExplorer_ExplorationStage2Alt_JobPages,
-                    WIDExplorer_ExplorationStage2Alt_JobPostings,
-                    WIDExplorer_ExplorationStage2Alt_JobPostingsExtended
-                    );
-        internal static string WIDExplorer_ExplorationStage2Alt_AsString
-            = string.Concat(
-                "{ ",
-                $"'{nameof(Exploration.RunId)}':'{WIDExplorer_ExplorationStage2Alt_RunId}', ",
-                $"'{nameof(Exploration.TotalResultCount)}':'{WIDExplorer_ExplorationStage2Alt_TotalResultCount}', ",
-                $"'{nameof(Exploration.TotalJobPages)}':'{WIDExplorer_ExplorationStage2Alt_TotalJobPages}', ",
-                $"'{nameof(Exploration.Stage)}':'{WIDExplorer_ExplorationStage2Alt_Stage}', ",
-                $"'{nameof(Exploration.IsCompleted)}':'{WIDExplorer_ExplorationStage2Alt_IsCompleted}', ",
-                $"'{nameof(Exploration.JobPages)}':'1', ",
-                $"'{nameof(Exploration.JobPostings)}':'20', ",
-                $"'{nameof(Exploration.JobPostingsExtended)}':'null'",
-                " }"
-                );
+        internal static IPostRequestManager WIDExplorer_JobPage01Alt_FakePostRequestManager
+            = new FakePostRequestManager(WIDExplorer_JobPage01Alt_PostUrlsResponses);
+        internal static IPostRequestManagerFactory WIDExplorer_JobPage01Alt_FakePostRequestManagerFactory
+            = new FakePostRequestManagerFactory(WIDExplorer_JobPage01Alt_FakePostRequestManager);
 
         #endregion
 
@@ -4497,13 +4471,17 @@ namespace NW.WIDJobs.UnitTests
             return updated;
 
         }
-        internal static JobPosting UpdatePostingCreated(JobPosting jobPosting, DateTime postingCreated)
+        internal static JobPosting UpdatePostingCreatedResponse(JobPosting jobPosting, DateTime postingCreated)
         {
+
+            string oldString = "\"PostingCreated\": \"2021-07-02T00:00:00\"";   // To-Do: add a regex pattern instead of this.
+            string newString = $"\"PostingCreated\": \"{postingCreated.ToString("yyyy-MM-dd")}T00:00:00\"";
+            string newResponse = jobPosting.Response.Replace(oldString, newString);
 
             return new JobPosting(
                 runId: jobPosting.RunId,
                 pageNumber: jobPosting.PageNumber,
-                response: jobPosting.Response,
+                response: newResponse,
                 title: jobPosting.Title,
                 presentation: jobPosting.Presentation,
                 hiringOrgName: jobPosting.HiringOrgName,

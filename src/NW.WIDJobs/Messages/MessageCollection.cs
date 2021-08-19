@@ -99,10 +99,10 @@ namespace NW.WIDJobs.Messages
             = (jobPostingExtended) => $"'{jobPostingExtended.Count}' '{nameof(JobPostingExtended)}' objects have been scraped in total.";
         public static string WIDExplorer_ExplorationCompleted
             = "The exploration has been completed.";
-        public static Func<DateTime, ushort, string> WIDExplorer_ThresholdDateFoundPageNr 
-            = (thresholdDate, i) => $"'{thresholdDate}' has been found in page nr. '{i}'.";
-        public static Func<List<JobPosting>, ushort, string> WIDExplorer_XJobPostingsRemovedPageNr
-            = (jobPostings, i) => $"'{20 - jobPostings.Count}' has been removed from page nr. '{i}'.";
+        public static Func<DateTime, ushort, string> WIDExplorer_ThresholdDateFoundJobPageNr 
+            = (thresholdDate, i) => $"'{thresholdDate}' has been found in {nameof(JobPage)} nr. '{i}'.";
+        public static Func<int, ushort, string> WIDExplorer_XJobPostingsRemovedJobPageNr
+            = (jobPostings, i) => $"'{20 - jobPostings}' has been removed from {nameof(JobPage)} nr. '{i}'.";
         public static Func<ushort, string> WIDExplorer_FinalPageNumberThresholdDate
             = (finalPageNumber) => $"The 'FinalPageNumber' for the provided 'ThresholdDate' is '{finalPageNumber}'.";
 
@@ -113,8 +113,6 @@ namespace NW.WIDJobs.Messages
         public static string WIDExplorer_SomeDefaultValuesUsedJsonFile
             = $"Some default values need to be used in order to perform this extraction directly from a Json file.";
 
-        public static Func<IFileInfoAdapter, string> WIDExplorer_HTMLFileIs
-            = (htmlFile) => $"HTMLFile: '{htmlFile}'.";
         public static Func<ushort, string> WIDExplorer_PageNumberIs
             = (pageNumber) => $"PageNumber:'{pageNumber}'.";
         public static Func<ushort, string> WIDExplorer_JobPostingNumberIs

@@ -1207,7 +1207,7 @@ namespace NW.WIDJobs.UnitTests
                     xpathManager: new XPathManager(),
                     getRequestManager: new GetRequestManager(),
                     jobPageDeserializer: new JobPageDeserializer(),
-                    jobPageManager: new JobPageManager(postRequestManagerFactory: ObjectMother.WIDExplorer_FakePostRequestManagerFactory),
+                    jobPageManager: new JobPageManager(postRequestManagerFactory: ObjectMother.WIDExplorer_JobPage0102_FakePostRequestManagerFactory),
                     jobPostingDeserializer: new JobPostingDeserializer(),
                     jobPostingManager: new JobPostingManager(),
                     jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
@@ -1292,7 +1292,7 @@ namespace NW.WIDJobs.UnitTests
                     xpathManager: new XPathManager(),
                     getRequestManager: new GetRequestManager(),
                     jobPageDeserializer: new JobPageDeserializer(),
-                    jobPageManager: new JobPageManager(postRequestManagerFactory: ObjectMother.WIDExplorer_FakePostRequestManagerFactory),
+                    jobPageManager: new JobPageManager(postRequestManagerFactory: ObjectMother.WIDExplorer_JobPage0102_FakePostRequestManagerFactory),
                     jobPostingDeserializer: new JobPostingDeserializer(),
                     jobPostingManager: new JobPostingManager(),
                     jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
@@ -1421,11 +1421,11 @@ namespace NW.WIDJobs.UnitTests
                     xpathManager: new XPathManager(),
                     getRequestManager: new GetRequestManager(),
                     jobPageDeserializer: new JobPageDeserializer(),
-                    jobPageManager: new JobPageManager(postRequestManagerFactory: ObjectMother.WIDExplorer_FakePostRequestManagerFactory),
+                    jobPageManager: new JobPageManager(postRequestManagerFactory: ObjectMother.WIDExplorer_JobPage0102_FakePostRequestManagerFactory),
                     jobPostingDeserializer: new JobPostingDeserializer(),
                     jobPostingManager: new JobPostingManager(),
                     jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
-                    jobPostingExtendedManager: new JobPostingExtendedManager(ObjectMother.WIDExplorer_FakeGetRequestManagerFactory, new JobPostingExtendedDeserializer()),
+                    jobPostingExtendedManager: new JobPostingExtendedManager(ObjectMother.WIDExplorer_JobPage0102_FakeGetRequestManagerFactory, new JobPostingExtendedDeserializer()),
                     runIdManager: new RunIdManager(),
                     metricCollectionManager: new MetricCollectionManager(),
                     fileManager: new FileManager(),
@@ -1438,6 +1438,103 @@ namespace NW.WIDJobs.UnitTests
 
             // Act
             Exploration actual = widExplorer.Explore(finalPageNumber, stage);
+
+            // Assert
+            Assert.IsTrue(
+                ObjectMother.AreEqual(expected, actual)
+                );
+            Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
+
+        }
+
+        [Test]
+        public void Explore_ShouldReturnExpectedExplorationObjectAndLogExpectedMessages_WhenThresholdDateAndStage2()
+        {
+
+            // Arrange
+            Stages stage = Stages.Stage2_UpToAllJobPostings;
+            DateTime thresholdDate = ObjectMother.Shared_JobPage01Alt_ThresholdDate01;
+            DateTime now = ObjectMother.WIDExplorer_FakeNowFunction.Invoke();
+            string runId = new RunIdManager().Create(now, thresholdDate);
+            ushort parallelRequests = 3;
+            uint pauseBetweenRequestsMs = 0;
+            List<JobPage> jobPages = new List<JobPage>() 
+            {
+                ObjectMother.Shared_JobPage01Alt_Object
+            };
+            Exploration expected = new Exploration(
+                    runId: runId,
+                    totalResultCount: ObjectMother.Shared_JobPage01_TotalResultCount,
+                    totalJobPages: ObjectMother.Shared_JobPage01_TotalJobPages,
+                    stage: Stages.Stage2_UpToAllJobPostings,
+                    isCompleted: true,
+                    jobPages: ObjectMother.UpdateRunIds(jobPages, runId),
+                    jobPostings: ObjectMother.UpdateRunIds(ObjectMother.Shared_JobPage01Alt_RangeForThresholdDate01, runId),
+                    jobPostingsExtended: null
+                );
+
+            List<string> expectedLogMessages = new List<string>()
+            {
+
+                MessageCollection.WIDExplorer_ExplorationStarted,
+                MessageCollection.WIDExplorer_RunIdIs(runId),
+                MessageCollection.WIDExplorer_DefaultInitialPageNumberIs(WIDExplorer.DefaultInitialPageNumber),
+                MessageCollection.WIDExplorer_ThresholdDateIs(thresholdDate),
+                MessageCollection.WIDExplorer_StageIs(Stages.Stage2_UpToAllJobPostings),
+
+                // ProcessStage1
+                MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage1_OnlyMetrics),
+                MessageCollection.WIDExplorer_JobPageSuccessfullyRetrieved.Invoke((ushort)1),
+                MessageCollection.WIDExplorer_TotalResultCountIs(expected.TotalResultCount),
+                MessageCollection.WIDExplorer_TotalJobPagesIs(expected.TotalJobPages),
+
+                // ProcessStage2WhenThresholdDate
+                MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage2_UpToAllJobPostings),
+                MessageCollection.WIDExplorer_AntiFloodingStrategy,
+                MessageCollection.WIDExplorer_ParallelRequestsAre(parallelRequests),
+                MessageCollection.WIDExplorer_PauseBetweenRequestsIs(pauseBetweenRequestsMs),
+                MessageCollection.WIDExplorer_JobPostingScrapedInitial(ObjectMother.Shared_JobPage01Alt_JobPostings),
+                MessageCollection.WIDExplorer_ThresholdDateFoundJobPageNr(thresholdDate, 1),
+                MessageCollection.WIDExplorer_XJobPostingsRemovedJobPageNr(ObjectMother.Shared_JobPage01Alt_RangeForThresholdDate01.Count, 1),
+                MessageCollection.WIDExplorer_FinalPageNumberThresholdDate(1),
+
+                MessageCollection.WIDExplorer_ExplorationCompleted
+
+            };
+
+            FakeLogger fakeLogger = new FakeLogger();
+            Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
+            FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
+            Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
+            WIDExplorerSettings fakeExplorerSettings = new WIDExplorerSettings(
+                    parallelRequests: parallelRequests,
+                    pauseBetweenRequestsMs: pauseBetweenRequestsMs,
+                    folderPath: WIDExplorerSettings.DefaultFolderPath,
+                    deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
+                );
+            WIDExplorerComponents components = new WIDExplorerComponents(
+                    loggingAction: fakeLoggingAction,
+                    loggingActionAsciiBanner: fakeLoggingActionAsciiBanner,
+                    xpathManager: new XPathManager(),
+                    getRequestManager: new GetRequestManager(),
+                    jobPageDeserializer: new JobPageDeserializer(),
+                    jobPageManager: new JobPageManager(postRequestManagerFactory: ObjectMother.WIDExplorer_JobPage01Alt_FakePostRequestManagerFactory),
+                    jobPostingDeserializer: new JobPostingDeserializer(),
+                    jobPostingManager: new JobPostingManager(),
+                    jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
+                    jobPostingExtendedManager: new JobPostingExtendedManager(),
+                    runIdManager: new RunIdManager(),
+                    metricCollectionManager: new MetricCollectionManager(),
+                    fileManager: new FileManager(),
+                    repositoryFactory: new RepositoryFactory(),
+                    asciiBannerManager: new AsciiBannerManager(),
+                    filenameFactory: new FilenameFactory(),
+                    bulletPointManager: new BulletPointManager()
+                  );
+            WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings, ObjectMother.WIDExplorer_FakeNowFunction);
+
+            // Act
+            Exploration actual = widExplorer.Explore(thresholdDate, stage);
 
             // Assert
             Assert.IsTrue(

@@ -301,9 +301,6 @@ namespace NW.WIDJobs
             return LogCompletionMessageAndReturn(exploration);
 
         }
-
-
-
         public Exploration Explore(DateTime thresholdDate, Stages stage)
         {
 
@@ -333,6 +330,7 @@ namespace NW.WIDJobs
             return LogCompletionMessageAndReturn(exploration);
 
         }
+
 
         public Exploration ExploreAll(Stages stage)
         {
@@ -750,10 +748,10 @@ namespace NW.WIDJobs
                 if (isThresholdConditionMet)
                 {
 
-                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ThresholdDateFoundPageNr(thresholdDate, i));
+                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ThresholdDateFoundJobPageNr(thresholdDate, i));
 
                     currentJobPostings = _components.JobPostingManager.RemoveUnsuitable(thresholdDate, currentJobPostings);
-                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_XJobPostingsRemovedPageNr(currentJobPostings, i));
+                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_XJobPostingsRemovedJobPageNr(currentJobPostings.Count, i));
 
                     stage2JobPostings.AddRange(currentJobPostings);
                     finalPageNumber = i;
