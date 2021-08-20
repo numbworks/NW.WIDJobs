@@ -1334,7 +1334,7 @@ namespace NW.WIDJobs.UnitTests
         internal static string Shared_JobPage01_JobPostingId01
             = Shared_JobPage01_JobPostings[10].JobPostingId;                        // "5361275committedemployeesforassemblingdisplays"
         internal static List<JobPosting> Shared_JobPage01_RangeForJobPostingId01
-            = Shared_JobPage01_JobPostings.GetRange(0, 9);                          // ("5361275committedemployeesforassemblingdisplays") ...
+            = Shared_JobPage01_JobPostings.GetRange(0, 10);                          // ("5361275committedemployeesforassemblingdisplays") ...
 
         #endregion
 

@@ -1562,10 +1562,108 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
+        [Test]
+        public void Explore_ShouldReturnExpectedExplorationObjectAndLogExpectedMessages_WhenJobPostingIdAndStage2()
+        {
+
+            // Arrange
+            Stages stage = Stages.Stage2_UpToAllJobPostings;
+            string jobPostingId = ObjectMother.Shared_JobPage01_JobPostingId01;
+            DateTime now = ObjectMother.WIDExplorer_FakeNowFunction.Invoke();
+            string runId = new RunIdManager().Create(now, jobPostingId);
+            ushort parallelRequests = 3;
+            uint pauseBetweenRequestsMs = 0;
+            List<JobPage> jobPages = new List<JobPage>()
+            {
+                ObjectMother.Shared_JobPage01_Object
+            };
+            Exploration expected = new Exploration(
+                    runId: runId,
+                    totalResultCount: ObjectMother.Shared_JobPage01_TotalResultCount,
+                    totalJobPages: ObjectMother.Shared_JobPage01_TotalJobPages,
+                    stage: Stages.Stage2_UpToAllJobPostings,
+                    isCompleted: true,
+                    jobPages: ObjectMother.UpdateRunIds(jobPages, runId),
+                    jobPostings: ObjectMother.UpdateRunIds(ObjectMother.Shared_JobPage01_RangeForJobPostingId01, runId),
+                    jobPostingsExtended: null
+                );
+
+            List<string> expectedLogMessages = new List<string>()
+            {
+
+                MessageCollection.WIDExplorer_ExplorationStarted,
+                MessageCollection.WIDExplorer_RunIdIs(runId),
+                MessageCollection.WIDExplorer_DefaultInitialPageNumberIs(WIDExplorer.DefaultInitialPageNumber),
+                MessageCollection.WIDExplorer_JobPostingIdIs(jobPostingId),
+                MessageCollection.WIDExplorer_StageIs(Stages.Stage2_UpToAllJobPostings),
+
+                // ProcessStage1
+                MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage1_OnlyMetrics),
+                MessageCollection.WIDExplorer_JobPageSuccessfullyRetrieved.Invoke((ushort)1),
+                MessageCollection.WIDExplorer_TotalResultCountIs(expected.TotalResultCount),
+                MessageCollection.WIDExplorer_TotalJobPagesIs(expected.TotalJobPages),
+
+                // ProcessStage2WhenThresholdDate
+                MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage2_UpToAllJobPostings),
+                MessageCollection.WIDExplorer_AntiFloodingStrategy,
+                MessageCollection.WIDExplorer_ParallelRequestsAre(parallelRequests),
+                MessageCollection.WIDExplorer_PauseBetweenRequestsIs(pauseBetweenRequestsMs),
+                MessageCollection.WIDExplorer_JobPostingScrapedInitial(ObjectMother.Shared_JobPage01_JobPostings),
+                MessageCollection.WIDExplorer_JobPostingIdFoundJobPageNr(jobPostingId, 1),
+                MessageCollection.WIDExplorer_XJobPostingsRemovedJobPageNr(ObjectMother.Shared_JobPage01_RangeForJobPostingId01.Count, 1),
+                MessageCollection.WIDExplorer_FinalPageNumberJobPostingId(1),
+
+                MessageCollection.WIDExplorer_ExplorationCompleted
+
+            };
+
+            FakeLogger fakeLogger = new FakeLogger();
+            Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
+            FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
+            Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
+            WIDExplorerSettings fakeExplorerSettings = new WIDExplorerSettings(
+                    parallelRequests: parallelRequests,
+                    pauseBetweenRequestsMs: pauseBetweenRequestsMs,
+                    folderPath: WIDExplorerSettings.DefaultFolderPath,
+                    deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
+                );
+            WIDExplorerComponents components = new WIDExplorerComponents(
+                    loggingAction: fakeLoggingAction,
+                    loggingActionAsciiBanner: fakeLoggingActionAsciiBanner,
+                    xpathManager: new XPathManager(),
+                    getRequestManager: new GetRequestManager(),
+                    jobPageDeserializer: new JobPageDeserializer(),
+                    jobPageManager: new JobPageManager(postRequestManagerFactory: ObjectMother.WIDExplorer_JobPage0102_FakePostRequestManagerFactory),
+                    jobPostingDeserializer: new JobPostingDeserializer(),
+                    jobPostingManager: new JobPostingManager(),
+                    jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
+                    jobPostingExtendedManager: new JobPostingExtendedManager(),
+                    runIdManager: new RunIdManager(),
+                    metricCollectionManager: new MetricCollectionManager(),
+                    fileManager: new FileManager(),
+                    repositoryFactory: new RepositoryFactory(),
+                    asciiBannerManager: new AsciiBannerManager(),
+                    filenameFactory: new FilenameFactory(),
+                    bulletPointManager: new BulletPointManager(),
+                    nowFunction: ObjectMother.WIDExplorer_FakeNowFunction
+                  );
+            WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
+
+            // Act
+            Exploration actual = widExplorer.Explore(jobPostingId, stage);
+
+            // Assert
+            Assert.IsTrue(
+                ObjectMother.AreEqual(expected, actual)
+                );
+            Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
+
+        }
+
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 19.08.2021
+    Last Update: 20.08.2021
 */

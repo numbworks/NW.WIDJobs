@@ -111,6 +111,8 @@ namespace NW.WIDJobs.Messages
             = (jobPostings, i) => $"'{20 - jobPostings}' has been removed from {nameof(JobPage)} nr. '{i}'.";
         public static Func<ushort, string> WIDExplorer_FinalPageNumberThresholdDate
             = (finalPageNumber) => $"The 'FinalPageNumber' for the provided 'ThresholdDate' is '{finalPageNumber}'.";
+        public static Func<ushort, string> WIDExplorer_FinalPageNumberJobPostingId
+            = (finalPageNumber) => $"The 'FinalPageNumber' for the provided 'JobPosting' is '{finalPageNumber}'.";
 
         public static string WIDExplorer_LoadingJobPostingsFromJsonFile
             = $"Loading {nameof(JobPosting)} objects from the provided Json file...";

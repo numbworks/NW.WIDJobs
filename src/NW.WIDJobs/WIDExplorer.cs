@@ -878,7 +878,7 @@ namespace NW.WIDJobs
 
             }
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FinalPageNumberThresholdDate(finalPageNumber));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FinalPageNumberJobPostingId(finalPageNumber));
 
             bool isCompleted = false;
             if (stage == Stages.Stage2_UpToAllJobPostings)
@@ -937,5 +937,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 19.08.2021
+    Last Update: 20.08.2021
 */
