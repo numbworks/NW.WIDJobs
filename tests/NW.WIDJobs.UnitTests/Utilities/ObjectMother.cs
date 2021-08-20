@@ -25,61 +25,61 @@ namespace NW.WIDJobs.UnitTests
 
         #region Shared
 
-        internal static string Shared_FakeRunId = "FakeRunId";
-        internal static string Shared_UnexistantJobPostingId = "0000000fakeid";
+        public static string Shared_FakeRunId = "FakeRunId";
+        public static string Shared_UnexistantJobPostingId = "0000000fakeid";
 
         #endregion
 
         #region Shared_JobPage01
 
-        internal static string Shared_FakeResponse = "Fake response";
-        internal static string Shared_FakePurpose = "Fake purpose";
-        internal static string Shared_JobPage01_Url = "https://job.jobnet.dk/CV/FindWork?Offset=0&SortValue=CreationDate&widk=true";
+        public static string Shared_FakeResponse = "Fake response";
+        public static string Shared_FakePurpose = "Fake purpose";
+        public static string Shared_JobPage01_Url = "https://job.jobnet.dk/CV/FindWork?Offset=0&SortValue=CreationDate&widk=true";
 
-        internal static string Shared_JobPage01_Content 
+        public static string Shared_JobPage01_Content 
             = Properties.Resources.JobPage01_json;
-        internal static string Shared_JobPage01_JobPostingExtended01_Content
+        public static string Shared_JobPage01_JobPostingExtended01_Content
             = Properties.Resources.JobPage01_JobPostingExtended01_json;
-        internal static string Shared_JobPage01_JobPostingExtended02_Content
+        public static string Shared_JobPage01_JobPostingExtended02_Content
             = Properties.Resources.JobPage01_JobPostingExtended02_json;
-        internal static string Shared_JobPage01_JobPostingExtended03_Content
+        public static string Shared_JobPage01_JobPostingExtended03_Content
             = Properties.Resources.JobPage01_JobPostingExtended03_json;
-        internal static string Shared_JobPage01_JobPostingExtended04_Content
+        public static string Shared_JobPage01_JobPostingExtended04_Content
             = Properties.Resources.JobPage01_JobPostingExtended04_json;
-        internal static string Shared_JobPage01_JobPostingExtended05_Content
+        public static string Shared_JobPage01_JobPostingExtended05_Content
             = Properties.Resources.JobPage01_JobPostingExtended05_json;
-        internal static string Shared_JobPage01_JobPostingExtended06_Content
+        public static string Shared_JobPage01_JobPostingExtended06_Content
             = Properties.Resources.JobPage01_JobPostingExtended06_json;
-        internal static string Shared_JobPage01_JobPostingExtended07_Content
+        public static string Shared_JobPage01_JobPostingExtended07_Content
             = Properties.Resources.JobPage01_JobPostingExtended07_json;
-        internal static string Shared_JobPage01_JobPostingExtended08_Content
+        public static string Shared_JobPage01_JobPostingExtended08_Content
             = Properties.Resources.JobPage01_JobPostingExtended08_json;
-        internal static string Shared_JobPage01_JobPostingExtended09_Content
+        public static string Shared_JobPage01_JobPostingExtended09_Content
             = Properties.Resources.JobPage01_JobPostingExtended09_json;
-        internal static string Shared_JobPage01_JobPostingExtended10_Content
+        public static string Shared_JobPage01_JobPostingExtended10_Content
             = Properties.Resources.JobPage01_JobPostingExtended10_json;
-        internal static string Shared_JobPage01_JobPostingExtended11_Content
+        public static string Shared_JobPage01_JobPostingExtended11_Content
             = Properties.Resources.JobPage01_JobPostingExtended11_json;
-        internal static string Shared_JobPage01_JobPostingExtended12_Content
+        public static string Shared_JobPage01_JobPostingExtended12_Content
             = Properties.Resources.JobPage01_JobPostingExtended12_json;
-        internal static string Shared_JobPage01_JobPostingExtended13_Content
+        public static string Shared_JobPage01_JobPostingExtended13_Content
             = Properties.Resources.JobPage01_JobPostingExtended13_json;
-        internal static string Shared_JobPage01_JobPostingExtended14_Content
+        public static string Shared_JobPage01_JobPostingExtended14_Content
             = Properties.Resources.JobPage01_JobPostingExtended14_json;
-        internal static string Shared_JobPage01_JobPostingExtended15_Content
+        public static string Shared_JobPage01_JobPostingExtended15_Content
             = Properties.Resources.JobPage01_JobPostingExtended15_json;
-        internal static string Shared_JobPage01_JobPostingExtended16_Content
+        public static string Shared_JobPage01_JobPostingExtended16_Content
             = Properties.Resources.JobPage01_JobPostingExtended16_json;
-        internal static string Shared_JobPage01_JobPostingExtended17_Content
+        public static string Shared_JobPage01_JobPostingExtended17_Content
             = Properties.Resources.JobPage01_JobPostingExtended17_json;
-        internal static string Shared_JobPage01_JobPostingExtended18_Content
+        public static string Shared_JobPage01_JobPostingExtended18_Content
             = Properties.Resources.JobPage01_JobPostingExtended18_json;
-        internal static string Shared_JobPage01_JobPostingExtended19_Content
+        public static string Shared_JobPage01_JobPostingExtended19_Content
             = Properties.Resources.JobPage01_JobPostingExtended19_json;
-        internal static string Shared_JobPage01_JobPostingExtended20_Content
+        public static string Shared_JobPage01_JobPostingExtended20_Content
             = Properties.Resources.JobPage01_JobPostingExtended20_json;
 
-        internal static JobPosting Shared_JobPage01_JobPosting01
+        public static JobPosting Shared_JobPage01_JobPosting01
             = new JobPosting(
                     runId: Shared_FakeRunId,
                     pageNumber: 1,
@@ -107,7 +107,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingNumber: 1,
                     jobPostingId: "5332213linuxspecialist"
                 );
-        internal static JobPostingExtended Shared_JobPage01_JobPostingExtended01
+        public static JobPostingExtended Shared_JobPage01_JobPostingExtended01
             = new JobPostingExtended(
                     jobPosting: Shared_JobPage01_JobPosting01,
                     response: Shared_FakeResponse,                      // Ignored
@@ -129,7 +129,7 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: "keepit"
                 );
 
-        internal static JobPosting Shared_JobPage01_JobPosting02
+        public static JobPosting Shared_JobPage01_JobPosting02
             = new JobPosting(
                     runId: Shared_FakeRunId,
                     pageNumber: 1,
@@ -157,7 +157,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingNumber: 2,
                     jobPostingId: "5365786motivatedforkliftdriversfortemporary"
                 );
-        internal static JobPostingExtended Shared_JobPage01_JobPostingExtended02
+        public static JobPostingExtended Shared_JobPage01_JobPostingExtended02
             = new JobPostingExtended(
                     jobPosting: Shared_JobPage01_JobPosting02,
                     response: Shared_FakeResponse,                      // Ignored
@@ -185,7 +185,7 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: "generic"
                 );
 
-        internal static JobPosting Shared_JobPage01_JobPosting03
+        public static JobPosting Shared_JobPage01_JobPosting03
             = new JobPosting(
                     runId: Shared_FakeRunId,
                     pageNumber: 1,
@@ -213,7 +213,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingNumber: 3,
                     jobPostingId: "5372675selvstndigetruckfreretil"
                 );
-        internal static JobPostingExtended Shared_JobPage01_JobPostingExtended03
+        public static JobPostingExtended Shared_JobPage01_JobPostingExtended03
             = new JobPostingExtended(
                     jobPosting: Shared_JobPage01_JobPosting03,
                     response: Shared_FakeResponse,                      // Ignored
@@ -251,7 +251,7 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: "generic"
                 );
 
-        internal static JobPosting Shared_JobPage01_JobPosting04
+        public static JobPosting Shared_JobPage01_JobPosting04
             = new JobPosting(
                     runId: Shared_FakeRunId,
                     pageNumber: 1,
@@ -279,7 +279,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingNumber: 4,
                     jobPostingId: "5379659erfarenogselvstndigtruckf"
                 );
-        internal static JobPostingExtended Shared_JobPage01_JobPostingExtended04
+        public static JobPostingExtended Shared_JobPage01_JobPostingExtended04
             = new JobPostingExtended(
                     jobPosting: Shared_JobPage01_JobPosting04,
                     response: Shared_FakeResponse,                      // Ignored
@@ -308,7 +308,7 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: "generic"
                 );
 
-        internal static JobPosting Shared_JobPage01_JobPosting05
+        public static JobPosting Shared_JobPage01_JobPosting05
             = new JobPosting(
                     runId: Shared_FakeRunId,
                     pageNumber: 1,
@@ -336,7 +336,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingNumber: 5,
                     jobPostingId: "5376524visgerrengringsassistenter"
                 );
-        internal static JobPostingExtended Shared_JobPage01_JobPostingExtended05
+        public static JobPostingExtended Shared_JobPage01_JobPostingExtended05
             = new JobPostingExtended(
                     jobPosting: Shared_JobPage01_JobPosting05,
                     response: Shared_FakeResponse,                      // Ignored
@@ -373,7 +373,7 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: "generic"
                 );
 
-        internal static JobPosting Shared_JobPage01_JobPosting06
+        public static JobPosting Shared_JobPage01_JobPosting06
             = new JobPosting(
                     runId: Shared_FakeRunId,
                     pageNumber: 1,
@@ -401,7 +401,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingNumber: 6,
                     jobPostingId: "5303321motivatedemployeesforwarehousework"
                 );
-        internal static JobPostingExtended Shared_JobPage01_JobPostingExtended06
+        public static JobPostingExtended Shared_JobPage01_JobPostingExtended06
             = new JobPostingExtended(
                     jobPosting: Shared_JobPage01_JobPosting06,
                     response: Shared_FakeResponse,                      // Ignored
@@ -429,7 +429,7 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: "generic"
                 );
 
-        internal static JobPosting Shared_JobPage01_JobPosting07
+        public static JobPosting Shared_JobPage01_JobPosting07
             = new JobPosting(
                     runId: Shared_FakeRunId,
                     pageNumber: 1,
@@ -457,7 +457,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingNumber: 7,
                     jobPostingId: "5290988motivatedemployeesforwarehousework"
                 );
-        internal static JobPostingExtended Shared_JobPage01_JobPostingExtended07
+        public static JobPostingExtended Shared_JobPage01_JobPostingExtended07
             = new JobPostingExtended(
                     jobPosting: Shared_JobPage01_JobPosting07,
                     response: Shared_FakeResponse,                      // Ignored
@@ -486,7 +486,7 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: "generic"
                 );
 
-        internal static JobPosting Shared_JobPage01_JobPosting08
+        public static JobPosting Shared_JobPage01_JobPosting08
             = new JobPosting(
                     runId: Shared_FakeRunId,
                     pageNumber: 1,
@@ -514,7 +514,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingNumber: 8,
                     jobPostingId: "5383229vicepresidentofproductmarketing"
                 );
-        internal static JobPostingExtended Shared_JobPage01_JobPostingExtended08
+        public static JobPostingExtended Shared_JobPage01_JobPostingExtended08
                 = new JobPostingExtended(
                         jobPosting: Shared_JobPage01_JobPosting08,
                         response: Shared_FakeResponse,                      // Ignored
@@ -530,7 +530,7 @@ namespace NW.WIDJobs.UnitTests
                         bulletPoints: new HashSet<string>()
                         {
                             "As a Vice President, we expect a truly transparent and inclusive leadership style, empowering your team to perform at their maximum abilities.",
-                            "Facilitate outstanding collaborations between the product marketing team and the full brand & marketing team as well as internal core stakeholders such as product management and sales",
+                            "Facilitate outstanding collaborations between the product marketing team and the full brand & marketing team as well as public core stakeholders such as product management and sales",
                             "Help us articulate and implement a global product marketing strategy ·Serve as an evangelist for our products through thought leadership",
                             "Keep the company up-to-date with market trends and competition",
                             "Product Marketing Strategy: We are looking for a profile that can help us define the right strategies that will fuel our continued growth. Having experience with making product marketing strategies for SaaS products is a requirement.",
@@ -542,7 +542,7 @@ namespace NW.WIDJobs.UnitTests
                         bulletPointScenario: "generic"
                     );
 
-        internal static JobPosting Shared_JobPage01_JobPosting09
+        public static JobPosting Shared_JobPage01_JobPosting09
             = new JobPosting(
                     runId: Shared_FakeRunId,
                     pageNumber: 1,
@@ -570,7 +570,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingNumber: 9,
                     jobPostingId: "5331002friskeogoplagtemedarbejderetil"
                 );
-        internal static JobPostingExtended Shared_JobPage01_JobPostingExtended09
+        public static JobPostingExtended Shared_JobPage01_JobPostingExtended09
             = new JobPostingExtended(
                     jobPosting: Shared_JobPage01_JobPosting09,
                     response: Shared_FakeResponse,                      // Ignored
@@ -609,7 +609,7 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: "generic"
                 );
 
-        internal static JobPosting Shared_JobPage01_JobPosting10
+        public static JobPosting Shared_JobPage01_JobPosting10
             = new JobPosting(
                     runId: Shared_FakeRunId,
                     pageNumber: 1,
@@ -637,7 +637,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingNumber: 10,
                     jobPostingId: "5383212tenuretrackassistantprofessorin"
                 );
-        internal static JobPostingExtended Shared_JobPage01_JobPostingExtended10
+        public static JobPostingExtended Shared_JobPage01_JobPostingExtended10
             = new JobPostingExtended(
                     jobPosting: Shared_JobPage01_JobPosting10,
                     response: Shared_FakeResponse,                      // Ignored
@@ -668,7 +668,7 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: "generic"
                 );
 
-        internal static JobPosting Shared_JobPage01_JobPosting11
+        public static JobPosting Shared_JobPage01_JobPosting11
             = new JobPosting(
                     runId: Shared_FakeRunId,
                     pageNumber: 1,
@@ -696,7 +696,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingNumber: 11,
                     jobPostingId: "5361275committedemployeesforassemblingdisplays"
                 );
-        internal static JobPostingExtended Shared_JobPage01_JobPostingExtended11
+        public static JobPostingExtended Shared_JobPage01_JobPostingExtended11
             = new JobPostingExtended(
                     jobPosting: Shared_JobPage01_JobPosting11,
                     response: Shared_FakeResponse,                      // Ignored
@@ -724,7 +724,7 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: "generic"
                 );
 
-        internal static JobPosting Shared_JobPage01_JobPosting12
+        public static JobPosting Shared_JobPage01_JobPosting12
             = new JobPosting(
                     runId: Shared_FakeRunId,
                     pageNumber: 1,
@@ -752,7 +752,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingNumber: 12,
                     jobPostingId: "5359775wearelookingforforklift"
                 );
-        internal static JobPostingExtended Shared_JobPage01_JobPostingExtended12
+        public static JobPostingExtended Shared_JobPage01_JobPostingExtended12
             = new JobPostingExtended(
                     jobPosting: Shared_JobPage01_JobPosting12,
                     response: Shared_FakeResponse,                      // Ignored
@@ -808,7 +808,7 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: "generic"
                 );
 
-        internal static JobPosting Shared_JobPage01_JobPosting13
+        public static JobPosting Shared_JobPage01_JobPosting13
             = new JobPosting(
                     runId: Shared_FakeRunId,
                     pageNumber: 1,
@@ -836,7 +836,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingNumber: 13,
                     jobPostingId: "5383201laboratorytechnicianforplantanalysis"
                 );
-        internal static JobPostingExtended Shared_JobPage01_JobPostingExtended13
+        public static JobPostingExtended Shared_JobPage01_JobPostingExtended13
             = new JobPostingExtended(
                     jobPosting: Shared_JobPage01_JobPosting13,
                     response: Shared_FakeResponse,                      // Ignored
@@ -862,7 +862,7 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: "generic"
                 );
 
-        internal static JobPosting Shared_JobPage01_JobPosting14
+        public static JobPosting Shared_JobPage01_JobPosting14
             = new JobPosting(
                     runId: Shared_FakeRunId,
                     pageNumber: 1,
@@ -890,7 +890,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingNumber: 14,
                     jobPostingId: "5383195laboratorytechnicianforfoodprocessing"
                 );
-        internal static JobPostingExtended Shared_JobPage01_JobPostingExtended14
+        public static JobPostingExtended Shared_JobPage01_JobPostingExtended14
             = new JobPostingExtended(
                     jobPosting: Shared_JobPage01_JobPosting14,
                     response: Shared_FakeResponse,                      // Ignored
@@ -916,7 +916,7 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: "generic"
                 );
 
-        internal static JobPosting Shared_JobPage01_JobPosting15
+        public static JobPosting Shared_JobPage01_JobPosting15
             = new JobPosting(
                     runId: Shared_FakeRunId,
                     pageNumber: 1,
@@ -944,7 +944,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingNumber: 15,
                     jobPostingId: "5383165lagermedarbejderetilpakkeopgaverpdaghold"
                 );
-        internal static JobPostingExtended Shared_JobPage01_JobPostingExtended15
+        public static JobPostingExtended Shared_JobPage01_JobPostingExtended15
             = new JobPostingExtended(
                     jobPosting: Shared_JobPage01_JobPosting15,
                     response: Shared_FakeResponse,                      // Ignored
@@ -961,7 +961,7 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: null
                 );
 
-        internal static JobPosting Shared_JobPage01_JobPosting16
+        public static JobPosting Shared_JobPage01_JobPosting16
             = new JobPosting(
                     runId: Shared_FakeRunId,
                     pageNumber: 1,
@@ -989,7 +989,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingNumber: 16,
                     jobPostingId: "5346333motivatedemployeeforemptyingcontainers"
                 );
-        internal static JobPostingExtended Shared_JobPage01_JobPostingExtended16
+        public static JobPostingExtended Shared_JobPage01_JobPostingExtended16
             = new JobPostingExtended(
                     jobPosting: Shared_JobPage01_JobPosting16,
                     response: Shared_FakeResponse,                      // Ignored
@@ -1017,7 +1017,7 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: "generic"
                 );
 
-        internal static JobPosting Shared_JobPage01_JobPosting17
+        public static JobPosting Shared_JobPage01_JobPosting17
             = new JobPosting(
                     runId: Shared_FakeRunId,
                     pageNumber: 1,
@@ -1045,7 +1045,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingNumber: 17,
                     jobPostingId: "5376709medarbejderetilsommervikariaterp"
                 );
-        internal static JobPostingExtended Shared_JobPage01_JobPostingExtended17
+        public static JobPostingExtended Shared_JobPage01_JobPostingExtended17
             = new JobPostingExtended(
                     jobPosting: Shared_JobPage01_JobPosting17,
                     response: Shared_FakeResponse,                      // Ignored
@@ -1084,7 +1084,7 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: "generic"
                 );
 
-        internal static JobPosting Shared_JobPage01_JobPosting18
+        public static JobPosting Shared_JobPage01_JobPosting18
             = new JobPosting(
                     runId: Shared_FakeRunId,
                     pageNumber: 1,
@@ -1112,7 +1112,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingNumber: 18,
                     jobPostingId: "5382809tenuretrackassistantprofessorshipsin"
                 );
-        internal static JobPostingExtended Shared_JobPage01_JobPostingExtended18
+        public static JobPostingExtended Shared_JobPage01_JobPostingExtended18
             = new JobPostingExtended(
                     jobPosting: Shared_JobPage01_JobPosting18,
                     response: Shared_FakeResponse,                      // Ignored
@@ -1144,7 +1144,7 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: "generic"
                 );
 
-        internal static JobPosting Shared_JobPage01_JobPosting19
+        public static JobPosting Shared_JobPage01_JobPosting19
             = new JobPosting(
                     runId: Shared_FakeRunId,
                     pageNumber: 1,
@@ -1172,7 +1172,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingNumber: 19,
                     jobPostingId: "5382781warehouseemployee"
                 );
-        internal static JobPostingExtended Shared_JobPage01_JobPostingExtended19
+        public static JobPostingExtended Shared_JobPage01_JobPostingExtended19
             = new JobPostingExtended(
                     jobPosting: Shared_JobPage01_JobPosting19,
                     response: Shared_FakeResponse,                      // Ignored
@@ -1210,7 +1210,7 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: "randstad"
                 );
 
-        internal static JobPosting Shared_JobPage01_JobPosting20
+        public static JobPosting Shared_JobPage01_JobPosting20
             = new JobPosting(
                     runId: Shared_FakeRunId,
                     pageNumber: 1,
@@ -1238,7 +1238,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingNumber: 20,
                     jobPostingId: "5382486postdocondigitalplatformsand"
                 );
-        internal static JobPostingExtended Shared_JobPage01_JobPostingExtended20
+        public static JobPostingExtended Shared_JobPage01_JobPostingExtended20
             = new JobPostingExtended(
                     jobPosting: Shared_JobPage01_JobPosting20,
                     response: Shared_FakeResponse,                      // Ignored
@@ -1274,7 +1274,7 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: "generic"
                 );
 
-        internal static List<JobPosting> Shared_JobPage01_JobPostings
+        public static List<JobPosting> Shared_JobPage01_JobPostings
             = new List<JobPosting>()
             {
                 Shared_JobPage01_JobPosting01,
@@ -1298,7 +1298,7 @@ namespace NW.WIDJobs.UnitTests
                 Shared_JobPage01_JobPosting19,
                 Shared_JobPage01_JobPosting20
             };
-        internal static List<JobPostingExtended> Shared_JobPage01_JobPostingsExtended
+        public static List<JobPostingExtended> Shared_JobPage01_JobPostingsExtended
             = new List<JobPostingExtended>()
             {
                 Shared_JobPage01_JobPostingExtended01,
@@ -1323,69 +1323,69 @@ namespace NW.WIDJobs.UnitTests
                 Shared_JobPage01_JobPostingExtended20
             };
 
-        internal static JobPage Shared_JobPage01_Object
+        public static JobPage Shared_JobPage01_Object
             = new JobPage(Shared_FakeRunId, 1, Shared_JobPage01_Content);
-        internal static JobPage Shared_JobPage01WithEmptyResponse_Object
+        public static JobPage Shared_JobPage01WithEmptyResponse_Object
             = new JobPage(Shared_FakeRunId, 1, "{ }");
 
-        internal static ushort Shared_JobPage01_TotalResultCount = 2177;
-        internal static ushort Shared_JobPage01_TotalJobPages = 109;
+        public static ushort Shared_JobPage01_TotalResultCount = 2177;
+        public static ushort Shared_JobPage01_TotalJobPages = 109;
 
-        internal static string Shared_JobPage01_JobPostingId01
+        public static string Shared_JobPage01_JobPostingId01
             = Shared_JobPage01_JobPostings[10].JobPostingId;                        // "5361275committedemployeesforassemblingdisplays"
-        internal static List<JobPosting> Shared_JobPage01_RangeForJobPostingId01
+        public static List<JobPosting> Shared_JobPage01_RangeForJobPostingId01
             = Shared_JobPage01_JobPostings.GetRange(0, 10);                          // ("5361275committedemployeesforassemblingdisplays") ...
 
         #endregion
 
         #region Shared_JobPage02
 
-        internal static string Shared_JobPage02_Url = "https://job.jobnet.dk/CV/FindWork?Offset=20&SortValue=CreationDate&widk=true";
+        public static string Shared_JobPage02_Url = "https://job.jobnet.dk/CV/FindWork?Offset=20&SortValue=CreationDate&widk=true";
 
-        internal static string Shared_JobPage02_Content
+        public static string Shared_JobPage02_Content
             = Properties.Resources.JobPage02_json;
-        internal static string Shared_JobPage02_JobPostingExtended01_Content
+        public static string Shared_JobPage02_JobPostingExtended01_Content
             = Properties.Resources.JobPage02_JobPostingExtended01_json;
-        internal static string Shared_JobPage02_JobPostingExtended02_Content
+        public static string Shared_JobPage02_JobPostingExtended02_Content
             = Properties.Resources.JobPage02_JobPostingExtended02_json;
-        internal static string Shared_JobPage02_JobPostingExtended03_Content
+        public static string Shared_JobPage02_JobPostingExtended03_Content
             = Properties.Resources.JobPage02_JobPostingExtended03_json;
-        internal static string Shared_JobPage02_JobPostingExtended04_Content
+        public static string Shared_JobPage02_JobPostingExtended04_Content
             = Properties.Resources.JobPage02_JobPostingExtended04_json;
-        internal static string Shared_JobPage02_JobPostingExtended05_Content
+        public static string Shared_JobPage02_JobPostingExtended05_Content
             = Properties.Resources.JobPage02_JobPostingExtended05_json;
-        internal static string Shared_JobPage02_JobPostingExtended06_Content
+        public static string Shared_JobPage02_JobPostingExtended06_Content
             = Properties.Resources.JobPage02_JobPostingExtended06_json;
-        internal static string Shared_JobPage02_JobPostingExtended07_Content
+        public static string Shared_JobPage02_JobPostingExtended07_Content
             = Properties.Resources.JobPage02_JobPostingExtended07_json;
-        internal static string Shared_JobPage02_JobPostingExtended08_Content
+        public static string Shared_JobPage02_JobPostingExtended08_Content
             = Properties.Resources.JobPage02_JobPostingExtended08_json;
-        internal static string Shared_JobPage02_JobPostingExtended09_Content
+        public static string Shared_JobPage02_JobPostingExtended09_Content
             = Properties.Resources.JobPage02_JobPostingExtended09_json;
-        internal static string Shared_JobPage02_JobPostingExtended10_Content
+        public static string Shared_JobPage02_JobPostingExtended10_Content
             = Properties.Resources.JobPage02_JobPostingExtended10;
-        internal static string Shared_JobPage02_JobPostingExtended11_Content
+        public static string Shared_JobPage02_JobPostingExtended11_Content
             = Properties.Resources.JobPage02_JobPostingExtended11;
-        internal static string Shared_JobPage02_JobPostingExtended12_Content
+        public static string Shared_JobPage02_JobPostingExtended12_Content
             = Properties.Resources.JobPage02_JobPostingExtended12;
-        internal static string Shared_JobPage02_JobPostingExtended13_Content
+        public static string Shared_JobPage02_JobPostingExtended13_Content
             = Properties.Resources.JobPage02_JobPostingExtended13;
-        internal static string Shared_JobPage02_JobPostingExtended14_Content
+        public static string Shared_JobPage02_JobPostingExtended14_Content
             = Properties.Resources.JobPage02_JobPostingExtended14;
-        internal static string Shared_JobPage02_JobPostingExtended15_Content
+        public static string Shared_JobPage02_JobPostingExtended15_Content
             = Properties.Resources.JobPage02_JobPostingExtended15;
-        internal static string Shared_JobPage02_JobPostingExtended16_Content
+        public static string Shared_JobPage02_JobPostingExtended16_Content
             = Properties.Resources.JobPage02_JobPostingExtended16;
-        internal static string Shared_JobPage02_JobPostingExtended17_Content
+        public static string Shared_JobPage02_JobPostingExtended17_Content
             = Properties.Resources.JobPage02_JobPostingExtended17;
-        internal static string Shared_JobPage02_JobPostingExtended18_Content
+        public static string Shared_JobPage02_JobPostingExtended18_Content
             = Properties.Resources.JobPage02_JobPostingExtended18;
-        internal static string Shared_JobPage02_JobPostingExtended19_Content
+        public static string Shared_JobPage02_JobPostingExtended19_Content
             = Properties.Resources.JobPage02_JobPostingExtended19;
-        internal static string Shared_JobPage02_JobPostingExtended20_Content
+        public static string Shared_JobPage02_JobPostingExtended20_Content
             = Properties.Resources.JobPage02_JobPostingExtended20;
 
-        internal static JobPosting Shared_JobPage02_JobPosting01
+        public static JobPosting Shared_JobPage02_JobPosting01
             = new JobPosting(
                     runId: Shared_FakeRunId,
                     pageNumber: 2,
@@ -1413,7 +1413,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingNumber: 1,
                     jobPostingId: "5382440assistantorassociateprofessorshipin"
                 );
-        internal static JobPostingExtended Shared_JobPage02_JobPostingExtended01
+        public static JobPostingExtended Shared_JobPage02_JobPostingExtended01
             = new JobPostingExtended(
                     jobPosting: Shared_JobPage02_JobPosting01,
                     response: Shared_FakeResponse,                      // Ignored
@@ -1467,7 +1467,7 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: "generic"
                 );
 
-        internal static JobPosting Shared_JobPage02_JobPosting02
+        public static JobPosting Shared_JobPage02_JobPosting02
             = new JobPosting(
                     runId: Shared_FakeRunId,
                     pageNumber: 2,
@@ -1495,7 +1495,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingNumber: 2,
                     jobPostingId: "5316797carpenter"
                 );
-        internal static JobPostingExtended Shared_JobPage02_JobPostingExtended02
+        public static JobPostingExtended Shared_JobPage02_JobPostingExtended02
             = new JobPostingExtended(
                     jobPosting: Shared_JobPage02_JobPosting02,
                     response: Shared_FakeResponse,                      // Ignored
@@ -1512,7 +1512,7 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: null
                 );
 
-        internal static JobPosting Shared_JobPage02_JobPosting03
+        public static JobPosting Shared_JobPage02_JobPosting03
             = new JobPosting(
                     runId: Shared_FakeRunId,
                     pageNumber: 2,
@@ -1540,7 +1540,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingNumber: 3,
                     jobPostingId: "5382367solutionarchitect"
                 );
-        internal static JobPostingExtended Shared_JobPage02_JobPostingExtended03
+        public static JobPostingExtended Shared_JobPage02_JobPostingExtended03
             = new JobPostingExtended(
                     jobPosting: Shared_JobPage02_JobPosting03,
                     response: Shared_FakeResponse,                      // Ignored
@@ -1562,7 +1562,7 @@ namespace NW.WIDJobs.UnitTests
                         "Assist in initial integration research",
                         "Reading technical API documentation - JSON, REST and OAuth",
                         "Solve customer problems under complex constraints and come up with solutions without any additional development of Plecto",
-                        "Maintaining and creating internal knowledge base articles",
+                        "Maintaining and creating public knowledge base articles",
                         "Experience in delivering outstanding technical support",
                         "Experience in database operations including reading and writing basic to intermediate database SQL queries and troubleshooting connection issues",
                         "Experience and knowledge in API and SQL Server Databases",
@@ -1576,7 +1576,7 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: "generic"
                 );
 
-        internal static JobPosting Shared_JobPage02_JobPosting04
+        public static JobPosting Shared_JobPage02_JobPosting04
             = new JobPosting(
                     runId: Shared_FakeRunId,
                     pageNumber: 2,
@@ -1604,7 +1604,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingNumber: 4,
                     jobPostingId: "5382358projectofficerimpactassessmentand"
                 );
-        internal static JobPostingExtended Shared_JobPage02_JobPostingExtended04
+        public static JobPostingExtended Shared_JobPage02_JobPostingExtended04
             = new JobPostingExtended(
                     jobPosting: Shared_JobPage02_JobPosting04,
                     response: Shared_FakeResponse,                      // Ignored
@@ -1645,7 +1645,7 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: "generic"
                 );
 
-        internal static JobPosting Shared_JobPage02_JobPosting05
+        public static JobPosting Shared_JobPage02_JobPosting05
             = new JobPosting(
                     runId: Shared_FakeRunId,
                     pageNumber: 2,
@@ -1673,7 +1673,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingNumber: 5,
                     jobPostingId: "5382226warehouseworkers"
                 );
-        internal static JobPostingExtended Shared_JobPage02_JobPostingExtended05
+        public static JobPostingExtended Shared_JobPage02_JobPostingExtended05
             = new JobPostingExtended(
                     jobPosting: Shared_JobPage02_JobPosting05,
                     response: Shared_FakeResponse,                      // Ignored
@@ -1695,7 +1695,7 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: "generic"
                 );
 
-        internal static JobPosting Shared_JobPage02_JobPosting06
+        public static JobPosting Shared_JobPage02_JobPosting06
             = new JobPosting(
                     runId: Shared_FakeRunId,
                     pageNumber: 2,
@@ -1723,7 +1723,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingNumber: 6,
                     jobPostingId: "5339477cleaninghousekeeping"
                 );
-        internal static JobPostingExtended Shared_JobPage02_JobPostingExtended06
+        public static JobPostingExtended Shared_JobPage02_JobPostingExtended06
             = new JobPostingExtended(
                     jobPosting: Shared_JobPage02_JobPosting06,
                     response: Shared_FakeResponse,                      // Ignored
@@ -1753,7 +1753,7 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: "generic"
                 );
 
-        internal static JobPosting Shared_JobPage02_JobPosting07
+        public static JobPosting Shared_JobPage02_JobPosting07
             = new JobPosting(
                     runId: Shared_FakeRunId,
                     pageNumber: 2,
@@ -1781,7 +1781,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingNumber: 7,
                     jobPostingId: "5345782bbsalesspecialist"
                 );
-        internal static JobPostingExtended Shared_JobPage02_JobPostingExtended07
+        public static JobPostingExtended Shared_JobPage02_JobPostingExtended07
             = new JobPostingExtended(
                     jobPosting: Shared_JobPage02_JobPosting07,
                     response: Shared_FakeResponse,                      // Ignored
@@ -1811,7 +1811,7 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: "generic"
                 );
 
-        internal static JobPosting Shared_JobPage02_JobPosting08
+        public static JobPosting Shared_JobPage02_JobPosting08
             = new JobPosting(
                     runId: Shared_FakeRunId,
                     pageNumber: 2,
@@ -1839,7 +1839,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingNumber: 8,
                     jobPostingId: "5366564warwhoseworkerwithinexperince"
                 );
-        internal static JobPostingExtended Shared_JobPage02_JobPostingExtended08
+        public static JobPostingExtended Shared_JobPage02_JobPostingExtended08
             = new JobPostingExtended(
                     jobPosting: Shared_JobPage02_JobPosting08,
                     response: Shared_FakeResponse,                      // Ignored
@@ -1856,7 +1856,7 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: null
                 );
 
-        internal static JobPosting Shared_JobPage02_JobPosting09
+        public static JobPosting Shared_JobPage02_JobPosting09
             = new JobPosting(
                     runId: Shared_FakeRunId,
                     pageNumber: 2,
@@ -1884,7 +1884,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingNumber: 9,
                     jobPostingId: "5363343tenuretrackassistantprofessorin"
                 );
-        internal static JobPostingExtended Shared_JobPage02_JobPostingExtended09
+        public static JobPostingExtended Shared_JobPage02_JobPostingExtended09
             = new JobPostingExtended(
                     jobPosting: Shared_JobPage02_JobPosting09,
                     response: Shared_FakeResponse,                      // Ignored
@@ -1917,7 +1917,7 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: "generic"
                 );
 
-        internal static JobPosting Shared_JobPage02_JobPosting10
+        public static JobPosting Shared_JobPage02_JobPosting10
             = new JobPosting(
                     runId: Shared_FakeRunId,
                     pageNumber: 2,
@@ -1945,7 +1945,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingNumber: 10,
                     jobPostingId: "8251052receptionist"
                 );
-        internal static JobPostingExtended Shared_JobPage02_JobPostingExtended10
+        public static JobPostingExtended Shared_JobPage02_JobPostingExtended10
             = new JobPostingExtended(
                     jobPosting: Shared_JobPage02_JobPosting10,
                     response: Shared_FakeResponse,                      // Ignored
@@ -1970,7 +1970,7 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: "novonordisk"
                 );
 
-        internal static JobPosting Shared_JobPage02_JobPosting11
+        public static JobPosting Shared_JobPage02_JobPosting11
             = new JobPosting(
                     runId: Shared_FakeRunId,
                     pageNumber: 2,
@@ -1998,7 +1998,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingNumber: 11,
                     jobPostingId: "8251051securityofficer"
                 );
-        internal static JobPostingExtended Shared_JobPage02_JobPostingExtended11
+        public static JobPostingExtended Shared_JobPage02_JobPostingExtended11
             = new JobPostingExtended(
                     jobPosting: Shared_JobPage02_JobPosting11,
                     response: Shared_FakeResponse,                      // Ignored
@@ -2027,7 +2027,7 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: "generic"
                 );
 
-        internal static JobPosting Shared_JobPage02_JobPosting12
+        public static JobPosting Shared_JobPage02_JobPosting12
             = new JobPosting(
                     runId: Shared_FakeRunId,
                     pageNumber: 2,
@@ -2055,7 +2055,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingNumber: 12,
                     jobPostingId: "8251042phd"
                 );
-        internal static JobPostingExtended Shared_JobPage02_JobPostingExtended12
+        public static JobPostingExtended Shared_JobPage02_JobPostingExtended12
             = new JobPostingExtended(
                     jobPosting: Shared_JobPage02_JobPosting12,
                     response: Shared_FakeResponse,                      // Ignored
@@ -2085,7 +2085,7 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: "jobportal"
                 );
 
-        internal static JobPosting Shared_JobPage02_JobPosting13
+        public static JobPosting Shared_JobPage02_JobPosting13
             = new JobPosting(
                     runId: Shared_FakeRunId,
                     pageNumber: 2,
@@ -2113,7 +2113,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingNumber: 13,
                     jobPostingId: "8251041specialist"
                 );
-        internal static JobPostingExtended Shared_JobPage02_JobPostingExtended13
+        public static JobPostingExtended Shared_JobPage02_JobPostingExtended13
             = new JobPostingExtended(
                     jobPosting: Shared_JobPage02_JobPosting13,
                     response: Shared_FakeResponse,                      // Ignored
@@ -2139,7 +2139,7 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: "easycruit"
                 );
 
-        internal static JobPosting Shared_JobPage02_JobPosting14
+        public static JobPosting Shared_JobPage02_JobPosting14
             = new JobPosting(
                     runId: Shared_FakeRunId,
                     pageNumber: 2,
@@ -2167,7 +2167,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingNumber: 14,
                     jobPostingId: "8251039supportengineer"
                 );
-        internal static JobPostingExtended Shared_JobPage02_JobPostingExtended14
+        public static JobPostingExtended Shared_JobPage02_JobPostingExtended14
             = new JobPostingExtended(
                     jobPosting: Shared_JobPage02_JobPosting14,
                     response: Shared_FakeResponse,                      // Ignored
@@ -2184,7 +2184,7 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: null
                 );
 
-        internal static JobPosting Shared_JobPage02_JobPosting15
+        public static JobPosting Shared_JobPage02_JobPosting15
             = new JobPosting(
                     runId: Shared_FakeRunId,
                     pageNumber: 2,
@@ -2212,7 +2212,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingNumber: 15,
                     jobPostingId: "8251038softwaredeveloper"
                 );
-        internal static JobPostingExtended Shared_JobPage02_JobPostingExtended15
+        public static JobPostingExtended Shared_JobPage02_JobPostingExtended15
             = new JobPostingExtended(
                     jobPosting: Shared_JobPage02_JobPosting15,
                     response: Shared_FakeResponse,                      // Ignored
@@ -2238,7 +2238,7 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: "generic"
                 );
 
-        internal static JobPosting Shared_JobPage02_JobPosting16
+        public static JobPosting Shared_JobPage02_JobPosting16
             = new JobPosting(
                     runId: Shared_FakeRunId,
                     pageNumber: 2,
@@ -2266,7 +2266,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingNumber: 16,
                     jobPostingId: "8251036phd"
                 );
-        internal static JobPostingExtended Shared_JobPage02_JobPostingExtended16
+        public static JobPostingExtended Shared_JobPage02_JobPostingExtended16
             = new JobPostingExtended(
                     jobPosting: Shared_JobPage02_JobPosting16,
                     response: Shared_FakeResponse,                      // Ignored
@@ -2320,7 +2320,7 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: "generic"
                 );
 
-        internal static JobPosting Shared_JobPage02_JobPosting17
+        public static JobPosting Shared_JobPage02_JobPosting17
             = new JobPosting(
                     runId: Shared_FakeRunId,
                     pageNumber: 2,
@@ -2348,7 +2348,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingNumber: 17,
                     jobPostingId: "8251035leader"
                 );
-        internal static JobPostingExtended Shared_JobPage02_JobPostingExtended17
+        public static JobPostingExtended Shared_JobPage02_JobPostingExtended17
             = new JobPostingExtended(
                     jobPosting: Shared_JobPage02_JobPosting17,
                     response: Shared_FakeResponse,                      // Ignored
@@ -2374,7 +2374,7 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: "generic"
                 );
 
-        internal static JobPosting Shared_JobPage02_JobPosting18
+        public static JobPosting Shared_JobPage02_JobPosting18
             = new JobPosting(
                     runId: Shared_FakeRunId,
                     pageNumber: 2,
@@ -2402,7 +2402,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingNumber: 18,
                     jobPostingId: "8251034productowner"
                 );
-        internal static JobPostingExtended Shared_JobPage02_JobPostingExtended18
+        public static JobPostingExtended Shared_JobPage02_JobPostingExtended18
             = new JobPostingExtended(
                     jobPosting: Shared_JobPage02_JobPosting18,
                     response: Shared_FakeResponse,                      // Ignored
@@ -2428,7 +2428,7 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: "generic"
                 );
 
-        internal static JobPosting Shared_JobPage02_JobPosting19
+        public static JobPosting Shared_JobPage02_JobPosting19
             = new JobPosting(
                     runId: Shared_FakeRunId,
                     pageNumber: 2,
@@ -2456,7 +2456,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingNumber: 19,
                     jobPostingId: "8251030seniormanager"
                 );
-        internal static JobPostingExtended Shared_JobPage02_JobPostingExtended19
+        public static JobPostingExtended Shared_JobPage02_JobPostingExtended19
             = new JobPostingExtended(
                     jobPosting: Shared_JobPage02_JobPosting19,
                     response: Shared_FakeResponse,                      // Ignored
@@ -2484,7 +2484,7 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: "coloplast"
                 );
 
-        internal static JobPosting Shared_JobPage02_JobPosting20
+        public static JobPosting Shared_JobPage02_JobPosting20
             = new JobPosting(
                     runId: Shared_FakeRunId,
                     pageNumber: 2,
@@ -2512,7 +2512,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingNumber: 20,
                     jobPostingId: "8251029businessintelligenceanalyst"
                 );
-        internal static JobPostingExtended Shared_JobPage02_JobPostingExtended20
+        public static JobPostingExtended Shared_JobPage02_JobPostingExtended20
             = new JobPostingExtended(
                     jobPosting: Shared_JobPage02_JobPosting20,
                     response: Shared_FakeResponse,                      // Ignored
@@ -2529,7 +2529,7 @@ namespace NW.WIDJobs.UnitTests
                     bulletPointScenario: null
                 );
 
-        internal static List<JobPosting> Shared_JobPage02_JobPostings
+        public static List<JobPosting> Shared_JobPage02_JobPostings
             = new List<JobPosting>()
             {
                 Shared_JobPage02_JobPosting01,
@@ -2553,7 +2553,7 @@ namespace NW.WIDJobs.UnitTests
                 Shared_JobPage02_JobPosting19,
                 Shared_JobPage02_JobPosting20
             };
-        internal static List<JobPostingExtended> Shared_JobPage02_JobPostingsExtended
+        public static List<JobPostingExtended> Shared_JobPage02_JobPostingsExtended
             = new List<JobPostingExtended>()
             {
                 Shared_JobPage02_JobPostingExtended01,
@@ -2578,58 +2578,58 @@ namespace NW.WIDJobs.UnitTests
                 Shared_JobPage02_JobPostingExtended20
             };
 
-        internal static JobPage Shared_JobPage02_Object
+        public static JobPage Shared_JobPage02_Object
             = new JobPage(Shared_FakeRunId, 2, Shared_JobPage02_Content);
 
-        internal static ushort Shared_JobPage02_TotalResultCount = 2177;
+        public static ushort Shared_JobPage02_TotalResultCount = 2177;
 
         #endregion
 
         #region Shared_JobPage01Alt
 
-        internal static string Shared_JobPage01Alt_Url = Shared_JobPage01_Url;
-        internal static string Shared_JobPage01Alt_Content = Properties.Resources.JobPage01Alt_json;
+        public static string Shared_JobPage01Alt_Url = Shared_JobPage01_Url;
+        public static string Shared_JobPage01Alt_Content = Properties.Resources.JobPage01Alt_json;
 
-        internal static JobPosting Shared_JobPage01Alt_JobPosting01 = Shared_JobPage01_JobPosting01; // 2021-07-02
-        internal static JobPosting Shared_JobPage01Alt_JobPosting02 = Shared_JobPage01_JobPosting02; // 2021-07-02
-        internal static JobPosting Shared_JobPage01Alt_JobPosting03 = Shared_JobPage01_JobPosting03; // 2021-07-02
-        internal static JobPosting Shared_JobPage01Alt_JobPosting04 = Shared_JobPage01_JobPosting04; // 2021-07-02
-        internal static JobPosting Shared_JobPage01Alt_JobPosting05 = Shared_JobPage01_JobPosting05; // 2021-07-02
-        internal static JobPosting Shared_JobPage01Alt_JobPosting06 = Shared_JobPage01_JobPosting06; // 2021-07-02
+        public static JobPosting Shared_JobPage01Alt_JobPosting01 = Shared_JobPage01_JobPosting01; // 2021-07-02
+        public static JobPosting Shared_JobPage01Alt_JobPosting02 = Shared_JobPage01_JobPosting02; // 2021-07-02
+        public static JobPosting Shared_JobPage01Alt_JobPosting03 = Shared_JobPage01_JobPosting03; // 2021-07-02
+        public static JobPosting Shared_JobPage01Alt_JobPosting04 = Shared_JobPage01_JobPosting04; // 2021-07-02
+        public static JobPosting Shared_JobPage01Alt_JobPosting05 = Shared_JobPage01_JobPosting05; // 2021-07-02
+        public static JobPosting Shared_JobPage01Alt_JobPosting06 = Shared_JobPage01_JobPosting06; // 2021-07-02
 
-        internal static JobPosting Shared_JobPage01Alt_JobPosting07 
+        public static JobPosting Shared_JobPage01Alt_JobPosting07 
             = UpdatePostingCreatedResponse(Shared_JobPage01_JobPosting07, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-1));    // 2021-07-01
-        internal static JobPosting Shared_JobPage01Alt_JobPosting08 
+        public static JobPosting Shared_JobPage01Alt_JobPosting08 
             = UpdatePostingCreatedResponse(Shared_JobPage01_JobPosting08, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-1));    // 2021-07-01
-        internal static JobPosting Shared_JobPage01Alt_JobPosting09 
+        public static JobPosting Shared_JobPage01Alt_JobPosting09 
             = UpdatePostingCreatedResponse(Shared_JobPage01_JobPosting09, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-1));    // 2021-07-01
-        internal static JobPosting Shared_JobPage01Alt_JobPosting10 
+        public static JobPosting Shared_JobPage01Alt_JobPosting10 
             = UpdatePostingCreatedResponse(Shared_JobPage01_JobPosting10, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-1));    // 2021-07-01
-        internal static JobPosting Shared_JobPage01Alt_JobPosting11 
+        public static JobPosting Shared_JobPage01Alt_JobPosting11 
             = UpdatePostingCreatedResponse(Shared_JobPage01_JobPosting11, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-1));    // 2021-07-01
 
-        internal static JobPosting Shared_JobPage01Alt_JobPosting12 
+        public static JobPosting Shared_JobPage01Alt_JobPosting12 
             = UpdatePostingCreatedResponse(Shared_JobPage01_JobPosting12, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-2));    // 2021-06-30
-        internal static JobPosting Shared_JobPage01Alt_JobPosting13 
+        public static JobPosting Shared_JobPage01Alt_JobPosting13 
             = UpdatePostingCreatedResponse(Shared_JobPage01_JobPosting13, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-2));    // 2021-06-30
-        internal static JobPosting Shared_JobPage01Alt_JobPosting14 
+        public static JobPosting Shared_JobPage01Alt_JobPosting14 
             = UpdatePostingCreatedResponse(Shared_JobPage01_JobPosting14, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-2));    // 2021-06-30
-        internal static JobPosting Shared_JobPage01Alt_JobPosting15 
+        public static JobPosting Shared_JobPage01Alt_JobPosting15 
             = UpdatePostingCreatedResponse(Shared_JobPage01_JobPosting15, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-2));    // 2021-06-30
 
-        internal static JobPosting Shared_JobPage01Alt_JobPosting16 
+        public static JobPosting Shared_JobPage01Alt_JobPosting16 
             = UpdatePostingCreatedResponse(Shared_JobPage01_JobPosting16, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-3));    // 2021-06-29
-        internal static JobPosting Shared_JobPage01Alt_JobPosting17 
+        public static JobPosting Shared_JobPage01Alt_JobPosting17 
             = UpdatePostingCreatedResponse(Shared_JobPage01_JobPosting17, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-3));    // 2021-06-29
-        internal static JobPosting Shared_JobPage01Alt_JobPosting18 
+        public static JobPosting Shared_JobPage01Alt_JobPosting18 
             = UpdatePostingCreatedResponse(Shared_JobPage01_JobPosting18, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-3));    // 2021-06-29
 
-        internal static JobPosting Shared_JobPage01Alt_JobPosting19 
+        public static JobPosting Shared_JobPage01Alt_JobPosting19 
             = UpdatePostingCreatedResponse(Shared_JobPage01_JobPosting19, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-4));    // 2021-06-28
-        internal static JobPosting Shared_JobPage01Alt_JobPosting20 
+        public static JobPosting Shared_JobPage01Alt_JobPosting20 
             = UpdatePostingCreatedResponse(Shared_JobPage01_JobPosting20, Shared_JobPage01_JobPosting01.PostingCreated.AddDays(-4));    // 2021-06-28
 
-        internal static List<JobPosting> Shared_JobPage01Alt_JobPostings
+        public static List<JobPosting> Shared_JobPage01Alt_JobPostings
             = new List<JobPosting>()
             {
                 Shared_JobPage01Alt_JobPosting01,  // 2021-07-02
@@ -2658,19 +2658,19 @@ namespace NW.WIDJobs.UnitTests
                 Shared_JobPage01Alt_JobPosting20   // 2021-06-28
             };
 
-        internal static JobPage Shared_JobPage01Alt_Object
+        public static JobPage Shared_JobPage01Alt_Object
             = new JobPage(Shared_FakeRunId, 1, Shared_JobPage01Alt_Content);
 
-        internal static DateTime Shared_JobPage01Alt_ThresholdDate01
+        public static DateTime Shared_JobPage01Alt_ThresholdDate01
             = Shared_JobPage01Alt_JobPostings[6].PostingCreated;                     // 2021-07-01
-        internal static List<JobPosting> Shared_JobPage01Alt_RangeForThresholdDate01
+        public static List<JobPosting> Shared_JobPage01Alt_RangeForThresholdDate01
             = Shared_JobPage01Alt_JobPostings.GetRange(0, 11);                       // 2021-07-02 ... (2021-06-30)
 
         #endregion
 
         #region Shared_JobPage01_Entities
 
-        internal static List<JobPostingEntity> Shared_JobPage01_JobPostingEntities = new List<JobPostingEntity>()
+        public static List<JobPostingEntity> Shared_JobPage01_JobPostingEntities = new List<JobPostingEntity>()
         {
 
             new JobPostingEntity(Shared_JobPage01_JobPosting01),
@@ -2695,19 +2695,19 @@ namespace NW.WIDJobs.UnitTests
             new JobPostingEntity(Shared_JobPage01_JobPosting20)
 
         };
-        internal static JobPostingEntity Shared_JobPage01_JobPostingEntity01
+        public static JobPostingEntity Shared_JobPage01_JobPostingEntity01
             = Shared_JobPage01_JobPostingEntities[0];
-        internal static JobPostingEntity Shared_JobPage01_JobPostingEntity02
+        public static JobPostingEntity Shared_JobPage01_JobPostingEntity02
             = Shared_JobPage01_JobPostingEntities[1];
-        internal static JobPostingEntity Shared_JobPage01_JobPostingEntity01WithUpdatedPostingCreated
+        public static JobPostingEntity Shared_JobPage01_JobPostingEntity01WithUpdatedPostingCreated
             = new JobPostingEntity(
                     UpdatePostingCreatedResponse(
                         Shared_JobPage01_JobPostings[0],
                         Shared_JobPage01_JobPostingEntities[0].PostingCreated.AddDays(1)));
 
-        internal static JobPostingExtendedEntity Shared_JobPage01_JobPostingExtendedEntity01
+        public static JobPostingExtendedEntity Shared_JobPage01_JobPostingExtendedEntity01
             = new JobPostingExtendedEntity(Shared_JobPage01_JobPostingExtended01);
-        internal static List<JobPostingExtendedEntity> Shared_JobPage01_JobPostingExtendedEntities
+        public static List<JobPostingExtendedEntity> Shared_JobPage01_JobPostingExtendedEntities
             = new List<JobPostingExtendedEntity>()
             {
                 new JobPostingExtendedEntity(Shared_JobPage01_JobPostingExtended01),
@@ -2732,11 +2732,11 @@ namespace NW.WIDJobs.UnitTests
                 new JobPostingExtendedEntity(Shared_JobPage01_JobPostingExtended20)
             };
 
-        internal static BulletPointEntity Shared_JobPage01_JobPostingExtended01BulletPointEntity01
+        public static BulletPointEntity Shared_JobPage01_JobPostingExtended01BulletPointEntity01
             = new BulletPointEntity(
                     Shared_JobPage01_JobPostingExtended01.JobPosting.JobPostingId,
                     Shared_JobPage01_JobPostingExtended01.BulletPoints.ToList()[0]);
-        internal static List<BulletPointEntity> Shared_JobPage01_JobPostingExtended01BulletPointEntities
+        public static List<BulletPointEntity> Shared_JobPage01_JobPostingExtended01BulletPointEntities
             = Shared_JobPage01_JobPostingExtended01
                 .BulletPoints
                 .Select(bulletPoint => new BulletPointEntity(Shared_JobPage01_JobPostingExtended01.JobPosting.JobPostingId, bulletPoint))
@@ -2750,19 +2750,19 @@ namespace NW.WIDJobs.UnitTests
 
         #region Shared_ExplorationTests
 
-        internal static string Shared_ExplorationStage1_RunId = Shared_FakeRunId;
-        internal static ushort Shared_ExplorationStage1_TotalResultCount = Shared_JobPage01_TotalResultCount;
-        internal static ushort Shared_ExplorationStage1_TotalJobPages = Shared_JobPage01_TotalJobPages;
-        internal static Stages Shared_ExplorationStage1_Stage = Stages.Stage1_OnlyMetrics;
-        internal static bool Shared_ExplorationStage1_IsCompleted = true;
-        internal static List<JobPage> Shared_ExplorationStage1_JobPages 
+        public static string Shared_ExplorationStage1_RunId = Shared_FakeRunId;
+        public static ushort Shared_ExplorationStage1_TotalResultCount = Shared_JobPage01_TotalResultCount;
+        public static ushort Shared_ExplorationStage1_TotalJobPages = Shared_JobPage01_TotalJobPages;
+        public static Stages Shared_ExplorationStage1_Stage = Stages.Stage1_OnlyMetrics;
+        public static bool Shared_ExplorationStage1_IsCompleted = true;
+        public static List<JobPage> Shared_ExplorationStage1_JobPages 
             = new List<JobPage>()
             { 
                 Shared_JobPage01_Object
             };
-        internal static List<JobPosting> Shared_ExplorationStage1_JobPostings = null;
-        internal static List<JobPostingExtended> Shared_ExplorationStage1_JobPostingsExtended = null;
-        internal static Exploration Shared_ExplorationStage1
+        public static List<JobPosting> Shared_ExplorationStage1_JobPostings = null;
+        public static List<JobPostingExtended> Shared_ExplorationStage1_JobPostingsExtended = null;
+        public static Exploration Shared_ExplorationStage1
             = new Exploration(
                     Shared_ExplorationStage1_RunId,
                     Shared_ExplorationStage1_TotalResultCount,
@@ -2773,7 +2773,7 @@ namespace NW.WIDJobs.UnitTests
                     Shared_ExplorationStage1_JobPostings,
                     Shared_ExplorationStage1_JobPostingsExtended
                     );
-        internal static string Shared_ExplorationStage1_AsString
+        public static string Shared_ExplorationStage1_AsString
             = string.Concat(
                 "{ ",
                 $"'{nameof(Exploration.RunId)}':'{Shared_ExplorationStage1_RunId}', ",
@@ -2787,18 +2787,18 @@ namespace NW.WIDJobs.UnitTests
                 " }"
                 );
 
-        internal static string Shared_ExplorationStage2_RunId = Shared_FakeRunId;
-        internal static ushort Shared_ExplorationStage2_TotalResultCount = Shared_JobPage01_TotalResultCount;
-        internal static ushort Shared_ExplorationStage2_TotalJobPages = Shared_JobPage01_TotalJobPages;
-        internal static Stages Shared_ExplorationStage2_Stage = Stages.Stage2_UpToAllJobPostings;
-        internal static bool Shared_ExplorationStage2_IsCompleted = true;
-        internal static List<JobPage> Shared_ExplorationStage2_JobPages
+        public static string Shared_ExplorationStage2_RunId = Shared_FakeRunId;
+        public static ushort Shared_ExplorationStage2_TotalResultCount = Shared_JobPage01_TotalResultCount;
+        public static ushort Shared_ExplorationStage2_TotalJobPages = Shared_JobPage01_TotalJobPages;
+        public static Stages Shared_ExplorationStage2_Stage = Stages.Stage2_UpToAllJobPostings;
+        public static bool Shared_ExplorationStage2_IsCompleted = true;
+        public static List<JobPage> Shared_ExplorationStage2_JobPages
             = new List<JobPage>()
             {
                 Shared_JobPage01_Object,
                 Shared_JobPage02_Object
             };
-        internal static List<JobPosting> Shared_ExplorationStage2_JobPostings
+        public static List<JobPosting> Shared_ExplorationStage2_JobPostings
             = new List<JobPosting>()
             {
                 Shared_JobPage01_JobPosting01,
@@ -2842,8 +2842,8 @@ namespace NW.WIDJobs.UnitTests
                 Shared_JobPage02_JobPosting19,
                 Shared_JobPage02_JobPosting20
             };
-        internal static List<JobPostingExtended> Shared_ExplorationStage2_JobPostingsExtended = null;
-        internal static Exploration Shared_ExplorationStage2
+        public static List<JobPostingExtended> Shared_ExplorationStage2_JobPostingsExtended = null;
+        public static Exploration Shared_ExplorationStage2
             = new Exploration(
                     Shared_ExplorationStage2_RunId,
                     Shared_ExplorationStage2_TotalResultCount,
@@ -2854,7 +2854,7 @@ namespace NW.WIDJobs.UnitTests
                     Shared_ExplorationStage2_JobPostings,
                     Shared_ExplorationStage2_JobPostingsExtended
                     );
-        internal static string Shared_ExplorationStage2_AsString
+        public static string Shared_ExplorationStage2_AsString
             = string.Concat(
                 "{ ",
                 $"'{nameof(Exploration.RunId)}':'{Shared_ExplorationStage2_RunId}', ",
@@ -2868,18 +2868,18 @@ namespace NW.WIDJobs.UnitTests
                 " }"
                 );
 
-        internal static string Shared_ExplorationStage3_RunId = Shared_FakeRunId;
-        internal static ushort Shared_ExplorationStage3_TotalResultCount = Shared_JobPage01_TotalResultCount;
-        internal static ushort Shared_ExplorationStage3_TotalJobPages = Shared_JobPage01_TotalJobPages;
-        internal static Stages Shared_ExplorationStage3_Stage = Stages.Stage3_UpToAllJobPostingsExtended;
-        internal static bool Shared_ExplorationStage3_IsCompleted = true;
-        internal static List<JobPage> Shared_ExplorationStage3_JobPages
+        public static string Shared_ExplorationStage3_RunId = Shared_FakeRunId;
+        public static ushort Shared_ExplorationStage3_TotalResultCount = Shared_JobPage01_TotalResultCount;
+        public static ushort Shared_ExplorationStage3_TotalJobPages = Shared_JobPage01_TotalJobPages;
+        public static Stages Shared_ExplorationStage3_Stage = Stages.Stage3_UpToAllJobPostingsExtended;
+        public static bool Shared_ExplorationStage3_IsCompleted = true;
+        public static List<JobPage> Shared_ExplorationStage3_JobPages
             = new List<JobPage>()
             {
                 Shared_JobPage01_Object,
                 Shared_JobPage02_Object
             };
-        internal static List<JobPosting> Shared_ExplorationStage3_JobPostings
+        public static List<JobPosting> Shared_ExplorationStage3_JobPostings
             = new List<JobPosting>()
             {
                 Shared_JobPage01_JobPosting01,
@@ -2923,7 +2923,7 @@ namespace NW.WIDJobs.UnitTests
                 Shared_JobPage02_JobPosting19,
                 Shared_JobPage02_JobPosting20
             };
-        internal static List<JobPostingExtended> Shared_ExplorationStage3_JobPostingsExtended
+        public static List<JobPostingExtended> Shared_ExplorationStage3_JobPostingsExtended
             = new List<JobPostingExtended>()
             {
                 Shared_JobPage01_JobPostingExtended01,
@@ -2967,7 +2967,7 @@ namespace NW.WIDJobs.UnitTests
                 Shared_JobPage02_JobPostingExtended19,
                 Shared_JobPage02_JobPostingExtended20
             };
-        internal static Exploration Shared_ExplorationStage3
+        public static Exploration Shared_ExplorationStage3
             = new Exploration(
                     Shared_ExplorationStage3_RunId,
                     Shared_ExplorationStage3_TotalResultCount,
@@ -2978,7 +2978,7 @@ namespace NW.WIDJobs.UnitTests
                     Shared_ExplorationStage3_JobPostings,
                     Shared_ExplorationStage3_JobPostingsExtended
                     );
-        internal static string Shared_ExplorationStage3_AsString
+        public static string Shared_ExplorationStage3_AsString
             = string.Concat(
                 "{ ",
                 $"'{nameof(Exploration.RunId)}':'{Shared_ExplorationStage3_RunId}', ",
@@ -2996,47 +2996,47 @@ namespace NW.WIDJobs.UnitTests
 
         #region DatabaseContextTests
 
-        internal static string DatabaseContext_DatabasePath = @"c:\";
-        internal static string DatabaseContext_DatabaseName01 = "widjobs.db";
-        internal static string DatabaseContext_DatabaseName02 = "widjobs";
-        internal static string DatabaseContext_ConnectionString
+        public static string DatabaseContext_DatabasePath = @"c:\";
+        public static string DatabaseContext_DatabaseName01 = "widjobs.db";
+        public static string DatabaseContext_DatabaseName02 = "widjobs";
+        public static string DatabaseContext_ConnectionString
             = DatabaseContext.ConnectionStringTemplate.Invoke(@"c:\widjobs.db");
 
         #endregion
 
         #region DbSetExtensionMethodsTests
 
-        internal static DatabaseContext DbSetExtensionMethods_InMemoryDatabaseContext
+        public static DatabaseContext DbSetExtensionMethods_InMemoryDatabaseContext
             = CreateInMemoryContext();
-        internal static List<JobPostingEntity> DbSetExtensionMethods_NotExistingPageItemEntities;
+        public static List<JobPostingEntity> DbSetExtensionMethods_NotExistingPageItemEntities;
 
         #endregion
 
         #region FileManagerTests
 
-        internal static string FileManager_ContentSingleLine = "First line";
-        internal static IEnumerable<string> FileManager_ContentMultipleLines =
+        public static string FileManager_ContentSingleLine = "First line";
+        public static IEnumerable<string> FileManager_ContentMultipleLines =
             new List<string>() {
                 "First line",
                 "Second line"
             };
-        internal static string FileManager_FileInfoAdapterFullName = @"C:\somefile.txt";
-        internal static IFileInfoAdapter FileManager_FileInfoAdapterDoesntExist
+        public static string FileManager_FileInfoAdapterFullName = @"C:\somefile.txt";
+        public static IFileInfoAdapter FileManager_FileInfoAdapterDoesntExist
             => new FakeFileInfoAdapter(false, FileManager_FileInfoAdapterFullName);
-        internal static IFileInfoAdapter FileManager_FileInfoAdapterExists
+        public static IFileInfoAdapter FileManager_FileInfoAdapterExists
             => new FakeFileInfoAdapter(true, FileManager_FileInfoAdapterFullName);
-        internal static IOException FileManager_FileAdapterIOException = new IOException("Impossible to access the file.");
-        internal static IFileAdapter FileManager_FileAdapterReadAllMethodsThrowIOException
+        public static IOException FileManager_FileAdapterIOException = new IOException("Impossible to access the file.");
+        public static IFileAdapter FileManager_FileAdapterReadAllMethodsThrowIOException
             => new FakeFileAdapter(
                     fakeReadAllLines: () => throw FileManager_FileAdapterIOException,
                     fakeReadAllText: () => throw FileManager_FileAdapterIOException
                 );
-        internal static IFileAdapter FileManager_FileAdapterWriteAllMethodsThrowIOException
+        public static IFileAdapter FileManager_FileAdapterWriteAllMethodsThrowIOException
             => new FakeFileAdapter(
                     fakeWriteAllLines: () => throw FileManager_FileAdapterIOException,
                     fakeWriteAllText: () => throw FileManager_FileAdapterIOException
                 );
-        internal static IFileAdapter FileManager_FileAdapterAllMethodsWork
+        public static IFileAdapter FileManager_FileAdapterAllMethodsWork
             => new FakeFileAdapter(
                     fakeReadAllLines: () => FileManager_ContentMultipleLines.ToArray(),
                     fakeReadAllText: () => FileManager_ContentSingleLine,
@@ -3048,27 +3048,27 @@ namespace NW.WIDJobs.UnitTests
 
         #region FileNameFactoryTests
 
-        internal static string FileNameFactory_FakeFilePath = @"C:\";
-        internal static string FileNameFactory_FakeToken = "fake";
-        internal static DateTime FileNameFactory_FakeNow = new DateTime(2021, 05, 01);
-        internal static string FileNameFactory_FakeNowString
+        public static string FileNameFactory_FakeFilePath = @"C:\";
+        public static string FileNameFactory_FakeToken = "fake";
+        public static DateTime FileNameFactory_FakeNow = new DateTime(2021, 05, 01);
+        public static string FileNameFactory_FakeNowString
             = FileNameFactory_FakeNow.ToString(FilenameFactory.DefaultFormatNow);
 
-        internal static string FileNameFactory_FakeDatabaseFileName = "fakedb.db";
+        public static string FileNameFactory_FakeDatabaseFileName = "fakedb.db";
 
-        internal static string FileNameFactory_DatabaseNameIfFilePath
+        public static string FileNameFactory_DatabaseNameIfFilePath
             = string.Concat(
                         FileNameFactory_FakeFilePath,
                         FilenameFactory.DefaultDatabaseToken,
                         ".",
                         FilenameFactory.DefaultDatabaseExtension
                         );
-        internal static string FileNameFactory_DatabaseNameIfFilePathFileName
+        public static string FileNameFactory_DatabaseNameIfFilePathFileName
             = string.Concat(
                         FileNameFactory_FakeFilePath,
                         FileNameFactory_FakeDatabaseFileName
                         );
-        internal static string FileNameFactory_DatabaseNameIfFilePathTokenNow
+        public static string FileNameFactory_DatabaseNameIfFilePathTokenNow
             = string.Concat(
                         FileNameFactory_FakeFilePath,
                         FileNameFactory_FakeToken,
@@ -3077,7 +3077,7 @@ namespace NW.WIDJobs.UnitTests
                         ".",
                         FilenameFactory.DefaultDatabaseExtension
                         );
-        internal static string FileNameFactory_DatabaseNameIfFilePathNow
+        public static string FileNameFactory_DatabaseNameIfFilePathNow
             = string.Concat(
                         FileNameFactory_FakeFilePath,
                         FilenameFactory.DefaultDatabaseToken,
@@ -3087,7 +3087,7 @@ namespace NW.WIDJobs.UnitTests
                         FilenameFactory.DefaultDatabaseExtension
                         );
 
-        internal static string FileNameFactory_MetricsJsonIfTrue
+        public static string FileNameFactory_MetricsJsonIfTrue
             = string.Concat(
                         FileNameFactory_FakeFilePath,
                         FilenameFactory.DefaultMetricsPctJsonToken,
@@ -3096,7 +3096,7 @@ namespace NW.WIDJobs.UnitTests
                         ".",
                         FilenameFactory.DefaultJsonExtension
                         );
-        internal static string FileNameFactory_MetricsJsonIfFalse
+        public static string FileNameFactory_MetricsJsonIfFalse
             = string.Concat(
                         FileNameFactory_FakeFilePath,
                         FilenameFactory.DefaultMetricsJsonToken,
@@ -3106,7 +3106,7 @@ namespace NW.WIDJobs.UnitTests
                         FilenameFactory.DefaultJsonExtension
                         );
 
-        internal static string FileNameFactory_ExplorationJsonIfFilePathNow
+        public static string FileNameFactory_ExplorationJsonIfFilePathNow
             = string.Concat(
                         FileNameFactory_FakeFilePath,
                         FilenameFactory.DefaultExplorationJsonToken,
@@ -3115,7 +3115,7 @@ namespace NW.WIDJobs.UnitTests
                         ".",
                         FilenameFactory.DefaultJsonExtension
                         );
-        internal static string FileNameFactory_ExplorationJsonIfFilePathTokenNow
+        public static string FileNameFactory_ExplorationJsonIfFilePathTokenNow
             = string.Concat(
                         FileNameFactory_FakeFilePath,
                         FileNameFactory_FakeToken,
@@ -3129,31 +3129,31 @@ namespace NW.WIDJobs.UnitTests
 
         #region JobPostingManagerTests
 
-        internal static List<DateTime> JobPostingManager_JobPage01Alt_PostingCreatedCollection
+        public static List<DateTime> JobPostingManager_JobPage01Alt_PostingCreatedCollection
             = Shared_JobPage01Alt_JobPostings.Select(jobPosting => jobPosting.PostingCreated).ToList();
-        internal static DateTime JobPostingManager_JobPage01Alt_ThresholdDateMostRecentPostingCreated
+        public static DateTime JobPostingManager_JobPage01Alt_ThresholdDateMostRecentPostingCreated
             = JobPostingManager_JobPage01Alt_PostingCreatedCollection.First();
-        internal static DateTime JobPostingManager_JobPage01Alt_ThresholdDateMostRecentPostingCreatedPlusOneDay
+        public static DateTime JobPostingManager_JobPage01Alt_ThresholdDateMostRecentPostingCreatedPlusOneDay
             = JobPostingManager_JobPage01Alt_ThresholdDateMostRecentPostingCreated.AddDays(1);
-        internal static DateTime JobPostingManager_JobPage01Alt_ThresholdDateMostRecentPostingCreatedMinusOneDay
+        public static DateTime JobPostingManager_JobPage01Alt_ThresholdDateMostRecentPostingCreatedMinusOneDay
             = JobPostingManager_JobPage01Alt_ThresholdDateMostRecentPostingCreated.AddDays(-1);
-        internal static DateTime JobPostingManager_JobPage01Alt_ThresholdDateLeastRecentPostingCreated
+        public static DateTime JobPostingManager_JobPage01Alt_ThresholdDateLeastRecentPostingCreated
             = Shared_JobPage01Alt_JobPostings.OrderByDescending(jobPosting => jobPosting.PostingCreated).Reverse().First().PostingCreated;
-        internal static DateTime JobPostingManager_JobPage01Alt_ThresholdDateLeastRecentPostingCreatedMinusOneDay
+        public static DateTime JobPostingManager_JobPage01Alt_ThresholdDateLeastRecentPostingCreatedMinusOneDay
             = JobPostingManager_JobPage01Alt_ThresholdDateLeastRecentPostingCreated.AddDays(-1);
 
         #endregion
 
         #region MetricCollectionTests
 
-        internal static string MetricCollection_ExplorationStage3_RunId 
+        public static string MetricCollection_ExplorationStage3_RunId 
             = Shared_ExplorationStage3.RunId;
-        internal static uint MetricCollection_ExplorationStage3_TotalJobPages 
+        public static uint MetricCollection_ExplorationStage3_TotalJobPages 
             = (uint)Shared_ExplorationStage3.JobPages.Count;
-        internal static uint MetricCollection_ExplorationStage3_TotalJobPostings 
+        public static uint MetricCollection_ExplorationStage3_TotalJobPostings 
             = (uint)Shared_ExplorationStage3.JobPostings.Count;
 
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByHiringOrgName
+        public static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByHiringOrgName
             = new Dictionary<string, uint>() 
             {
                 { "TeamVikaren.dk, Århus ApS, Horsens Afdeling", 12 },
@@ -3177,7 +3177,7 @@ namespace NW.WIDJobs.UnitTests
                 { "Coloplast Danmark A/S", 1 },
                 { "GN Store Nord A/S", 1 }
             }; 
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByWorkPlaceAddress
+        public static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByWorkPlaceAddress
             = new Dictionary<string, uint>()
             {
                 { "", 19 },
@@ -3199,7 +3199,7 @@ namespace NW.WIDJobs.UnitTests
                 { "Holtedam 1", 1 },
                 { "Lautrupbjerg 7", 1 }
             };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByWorkPlacePostalCode
+        public static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByWorkPlacePostalCode
             = new Dictionary<string, uint>()
             {
                 { "8700", 6 },
@@ -3224,7 +3224,7 @@ namespace NW.WIDJobs.UnitTests
                 { "1350", 1 },
                 { "3050", 1 }
             };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByWorkPlaceCity
+        public static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByWorkPlaceCity
             = new Dictionary<string, uint>()
             {
                 { "Horsens", 6 },
@@ -3249,12 +3249,12 @@ namespace NW.WIDJobs.UnitTests
                 { "København K", 1 },
                 { "Humlebæk", 1 }
             };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByPostingCreated
+        public static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByPostingCreated
             = new Dictionary<string, uint>()
             {
                { "2021-07-02", 40 }
             };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByLastDateApplication
+        public static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByLastDateApplication
             = new Dictionary<string, uint>()
             {
                 { "2021-08-27", 9 },
@@ -3281,7 +3281,7 @@ namespace NW.WIDJobs.UnitTests
                 { "2021-07-17", 1 },
                 { "1900-01-01", 1 }
             };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByRegion
+        public static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByRegion
             = new Dictionary<string, uint>()
             {
                 { "Hovedstaden og Bornholm", 17 },
@@ -3290,7 +3290,7 @@ namespace NW.WIDJobs.UnitTests
                 { "Nordjylland", 2 },
                 { "", 1 }
             };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByMunicipality
+        public static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByMunicipality
             = new Dictionary<string, uint>()
             {
                 { "København", 9 },
@@ -3311,26 +3311,26 @@ namespace NW.WIDJobs.UnitTests
                 { "Middelfart", 1 },
                 { "Fredensborg", 1 }
             };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByCountry
+        public static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByCountry
             = new Dictionary<string, uint>()
             {
                 { "Danmark", 29 },
                 { "", 11 }
             };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByEmploymentType
+        public static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByEmploymentType
             = new Dictionary<string, uint>()
             {
                 { "", 29 },
                 { "Fastansættelse", 8 },
                 { "Tidsbegrænset ansættelse", 3 }
             };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByWorkHours
+        public static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByWorkHours
             = new Dictionary<string, uint>()
             {
                 { "Fuldtid", 36 },
                 { "Deltid", 4 }
             };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByOccupation
+        public static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByOccupation
             = new Dictionary<string, uint>()
             {
                 { "", 11 },
@@ -3350,7 +3350,7 @@ namespace NW.WIDJobs.UnitTests
                 { "Salgskonsulent", 1 },
                 { "Adjunkt, sundhedsvidenskab", 1 }
             };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByWorkplaceId
+        public static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByWorkplaceId
             = new Dictionary<string, uint>()
             {
                 { "0", 13 },
@@ -3367,7 +3367,7 @@ namespace NW.WIDJobs.UnitTests
                 { "99015", 1 },
                 { "105129", 1 }
             };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByOrganisationId
+        public static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByOrganisationId
             = new Dictionary<string, uint>()
             {
                 { "71174", 12 },
@@ -3383,7 +3383,7 @@ namespace NW.WIDJobs.UnitTests
                 { "90677", 1 },
                 { "57758", 1 }
             };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByHiringOrgCVR
+        public static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByHiringOrgCVR
             = new Dictionary<string, uint>()
             {
                 { "30899695", 12 },
@@ -3399,7 +3399,7 @@ namespace NW.WIDJobs.UnitTests
                 { "34046956", 1 },
                 { "29979812", 1 }
             };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByWorkPlaceCityWithoutZone
+        public static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByWorkPlaceCityWithoutZone
             = new Dictionary<string, uint>()
             {
                 { "Horsens", 6 },
@@ -3422,13 +3422,13 @@ namespace NW.WIDJobs.UnitTests
                 { "Humlebæk", 1 }
             };
 
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByPublicationStartDate
+        public static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByPublicationStartDate
             = new Dictionary<string, uint>()
             {
                 { "2021-07-02", 22 },
                 { "null", 18}
             };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByPublicationEndDate
+        public static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByPublicationEndDate
             = new Dictionary<string, uint>()
             {
                 { "null", 18 },
@@ -3445,7 +3445,7 @@ namespace NW.WIDJobs.UnitTests
                 { "2021-07-16", 1 },
                 { "2021-08-05", 1 }
             };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByNumberToFill
+        public static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByNumberToFill
             = new Dictionary<string, uint>()
             {
                 { "null", 18 },
@@ -3457,7 +3457,7 @@ namespace NW.WIDJobs.UnitTests
                 { "10", 2 },
                 { "6", 1 }
             };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByContactEmail
+        public static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByContactEmail
             = new Dictionary<string, uint>()
             {
                 { "null", 31 },
@@ -3469,7 +3469,7 @@ namespace NW.WIDJobs.UnitTests
                 { "anja@bh-hotelservice.dk", 1 },
                 { "bbo@vikardk.dk", 1 }
             };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByContactPersonName
+        public static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByContactPersonName
             = new Dictionary<string, uint>()
             {
                 { "null", 18 },
@@ -3483,12 +3483,12 @@ namespace NW.WIDJobs.UnitTests
                 { "Anja Løvhøj", 1 },
                 { "Bettina Bonde Thygesen", 1 }
             };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByEmploymentDate
+        public static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByEmploymentDate
             = new Dictionary<string, uint>()
             {
                 { "null", 40 }
             };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByApplicationDeadlineDate
+        public static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByApplicationDeadlineDate
             = new Dictionary<string, uint>()
             {
                 { "null", 18 },
@@ -3505,7 +3505,7 @@ namespace NW.WIDJobs.UnitTests
                 { "2021-07-16", 1 },
                 { "2021-08-05", 1 }
             };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByBulletPointScenario
+        public static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByBulletPointScenario
             = new Dictionary<string, uint>()
             {
                 { "generic", 29 },
@@ -3518,7 +3518,7 @@ namespace NW.WIDJobs.UnitTests
                 { "coloplast", 1 }
             };
 
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_ResponseLengthByJobPostingId
+        public static Dictionary<string, uint> MetricCollection_ExplorationStage3_ResponseLengthByJobPostingId
             = new Dictionary<string, uint>()
             {
                 { "5379659erfarenogselvstndigtruckf", 2625 },
@@ -3562,7 +3562,7 @@ namespace NW.WIDJobs.UnitTests
                 { "5345782bbsalesspecialist", 2199 },
                 { "5316797carpenter", 2144 }
             };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_PresentationLengthByJobPostingId
+        public static Dictionary<string, uint> MetricCollection_ExplorationStage3_PresentationLengthByJobPostingId
             = new Dictionary<string, uint>()
             {
                 { "5383201laboratorytechnicianforplantanalysis", 200 },
@@ -3606,7 +3606,7 @@ namespace NW.WIDJobs.UnitTests
                 { "5345782bbsalesspecialist", 1 },
                 { "5316797carpenter", 0 }
             };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_ExtendedResponseLengthByJobPostingId
+        public static Dictionary<string, uint> MetricCollection_ExplorationStage3_ExtendedResponseLengthByJobPostingId
             = new Dictionary<string, uint>()
             {
                 { "5332213linuxspecialist", 13 },
@@ -3650,7 +3650,7 @@ namespace NW.WIDJobs.UnitTests
                 { "8251030seniormanager", 13 },
                 { "8251029businessintelligenceanalyst", 13 }
             };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_HiringOrgDescriptionLengthByJobPostingId
+        public static Dictionary<string, uint> MetricCollection_ExplorationStage3_HiringOrgDescriptionLengthByJobPostingId
             = new Dictionary<string, uint>()
             {
                 { "5382781warehouseemployee", 442 },
@@ -3694,7 +3694,7 @@ namespace NW.WIDJobs.UnitTests
                 { "8251030seniormanager", 0 },
                 { "8251029businessintelligenceanalyst", 0 }
             };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_PurposeLengthByJobPostingId
+        public static Dictionary<string, uint> MetricCollection_ExplorationStage3_PurposeLengthByJobPostingId
             = new Dictionary<string, uint>()
             {
                 { "5332213linuxspecialist", 12 },
@@ -3738,7 +3738,7 @@ namespace NW.WIDJobs.UnitTests
                 { "8251030seniormanager", 12 },
                 { "8251029businessintelligenceanalyst", 12 }
             };
-        internal static Dictionary<string, uint> MetricCollection_ExplorationStage3_BulletPointsByJobPostingId
+        public static Dictionary<string, uint> MetricCollection_ExplorationStage3_BulletPointsByJobPostingId
             = new Dictionary<string, uint>()
             {
                 { "5359775wearelookingforforklift", 37 },
@@ -3783,9 +3783,9 @@ namespace NW.WIDJobs.UnitTests
                 { "8251029businessintelligenceanalyst", 0 }
             };
 
-        internal static uint MetricCollection_ExplorationStage3_TotalBulletPoints = 469;
+        public static uint MetricCollection_ExplorationStage3_TotalBulletPoints = 469;
 
-        internal static MetricCollection MetricCollection_ExplorationStage3 =
+        public static MetricCollection MetricCollection_ExplorationStage3 =
             new MetricCollection(
                     runId: MetricCollection_ExplorationStage3_RunId,
                     totalJobPages: MetricCollection_ExplorationStage3_TotalJobPages,
@@ -3827,7 +3827,7 @@ namespace NW.WIDJobs.UnitTests
 
         #region MetricCollectionManagerTests
 
-        internal static Exploration Shared_ExplorationStage3WithNullJobPostings
+        public static Exploration Shared_ExplorationStage3WithNullJobPostings
             = new Exploration(
                     Shared_ExplorationStage3_RunId,
                     Shared_ExplorationStage3_TotalResultCount,
@@ -3838,7 +3838,7 @@ namespace NW.WIDJobs.UnitTests
                     null,
                     Shared_ExplorationStage3_JobPostingsExtended
                 );
-        internal static Exploration Shared_ExplorationStage3WithNullJobPostingsExtended
+        public static Exploration Shared_ExplorationStage3WithNullJobPostingsExtended
             = new Exploration(
                     Shared_ExplorationStage3_RunId,
                     Shared_ExplorationStage3_TotalResultCount,
@@ -3850,7 +3850,7 @@ namespace NW.WIDJobs.UnitTests
                     null
                 );
 
-        internal static Dictionary<string, uint> MetricCollectionManager_WorkPlaceCityWithoutZones = new Dictionary<string, uint>()
+        public static Dictionary<string, uint> MetricCollectionManager_WorkPlaceCityWithoutZones = new Dictionary<string, uint>()
             {
 
                 { "København", 45 },
@@ -3858,7 +3858,7 @@ namespace NW.WIDJobs.UnitTests
                 { "Vejen", 4 }
 
             };
-        internal static Dictionary<string, string> MetricCollectionManager_WorkPlaceCityWithoutZonesAsPercentages = new Dictionary<string, string>()
+        public static Dictionary<string, string> MetricCollectionManager_WorkPlaceCityWithoutZonesAsPercentages = new Dictionary<string, string>()
             {
 
                 { "København", $"{MetricCollectionManager.FormatPercentage(73.77)}" },
@@ -3871,31 +3871,31 @@ namespace NW.WIDJobs.UnitTests
 
         #region RunIdManagerTests
 
-        internal static DateTime RunIdManager_Now = new DateTime(2020, 01, 01, 19, 25, 40, 980);
-        internal static DateTime RunIdManager_StartDate = new DateTime(2019, 09, 01, 00, 00, 00, 000);
-        internal static DateTime RunIdManager_EndDate = new DateTime(2019, 12, 31, 23, 59, 59, 999);
-        internal static DateTime RunIdManager_Threshold = new DateTime(2020, 03, 31, 00, 00, 00, 000);
-        internal static ushort RunIdManager_InitialPageNumber = 1;
-        internal static ushort RunIdManager_FinalPageNumber = 3;
-        internal static string RunIdManager_RunId_Now
+        public static DateTime RunIdManager_Now = new DateTime(2020, 01, 01, 19, 25, 40, 980);
+        public static DateTime RunIdManager_StartDate = new DateTime(2019, 09, 01, 00, 00, 00, 000);
+        public static DateTime RunIdManager_EndDate = new DateTime(2019, 12, 31, 23, 59, 59, 999);
+        public static DateTime RunIdManager_Threshold = new DateTime(2020, 03, 31, 00, 00, 00, 000);
+        public static ushort RunIdManager_InitialPageNumber = 1;
+        public static ushort RunIdManager_FinalPageNumber = 3;
+        public static string RunIdManager_RunId_Now
             = string.Format(
                 RunIdManager.DefaultTemplateId,
                 RunIdManager_Now.ToString(RunIdManager.DefaultFormatDateTime)
             );
-        internal static string RunIdManager_RunId_Threshold
+        public static string RunIdManager_RunId_Threshold
             = string.Format(
                 RunIdManager.DefaultTemplateThreshold,
                 RunIdManager_RunId_Now,
                 RunIdManager_Threshold.ToString(RunIdManager.DefaultFormatDate)
             );
-        internal static string RunIdManager_RunId_FromTo
+        public static string RunIdManager_RunId_FromTo
             = string.Format(
                 RunIdManager.DefaultTemplateFromTo,
                 RunIdManager_RunId_Now,
                 RunIdManager_InitialPageNumber,
                 RunIdManager_FinalPageNumber
             );
-        internal static string RunIdManager_RunId_JobPostingId
+        public static string RunIdManager_RunId_JobPostingId
             = string.Format(
                 RunIdManager.DefaultTemplateJobPostingId,
                 RunIdManager_RunId_Now,
@@ -3906,8 +3906,8 @@ namespace NW.WIDJobs.UnitTests
 
         #region ValidatorTests
 
-        internal static string[] Validator_Array1 = new[] { "Dodge", "Datsun", "Jaguar", "DeLorean" };
-        internal static Car Validator_Object1 = new Car()
+        public static string[] Validator_Array1 = new[] { "Dodge", "Datsun", "Jaguar", "DeLorean" };
+        public static Car Validator_Object1 = new Car()
         {
             Brand = "Dodge",
             Model = "Charger",
@@ -3915,16 +3915,16 @@ namespace NW.WIDJobs.UnitTests
             Price = 13500,
             Currency = "USD"
         };
-        internal static uint Validator_Length1 = 3;
-        internal static string Validator_VariableName_Variable = "variable";
-        internal static string Validator_VariableName_Length = "length";
-        internal static string Validator_VariableName_N1 = "n1";
-        internal static string Validator_VariableName_N2 = "n2";
-        internal static List<string> List1 = Validator_Array1.ToList();
-        internal static uint Validator_Value = Validator_Length1;
-        internal static string Validator_String1 = "Dodge";
-        internal static string Validator_StringOnlyWhiteSpaces = "   ";
-        internal static Dictionary<string, int> Validator_SubScrapers_Proper = new Dictionary<string, int>()
+        public static uint Validator_Length1 = 3;
+        public static string Validator_VariableName_Variable = "variable";
+        public static string Validator_VariableName_Length = "length";
+        public static string Validator_VariableName_N1 = "n1";
+        public static string Validator_VariableName_N2 = "n2";
+        public static List<string> List1 = Validator_Array1.ToList();
+        public static uint Validator_Value = Validator_Length1;
+        public static string Validator_String1 = "Dodge";
+        public static string Validator_StringOnlyWhiteSpaces = "   ";
+        public static Dictionary<string, int> Validator_SubScrapers_Proper = new Dictionary<string, int>()
         {
 
             { "urls", 20 },
@@ -3938,7 +3938,7 @@ namespace NW.WIDJobs.UnitTests
             { "jobIds", 20 }
 
         };
-        internal static Dictionary<string, int> Validator_SubScrapers_Wrong = new Dictionary<string, int>()
+        public static Dictionary<string, int> Validator_SubScrapers_Wrong = new Dictionary<string, int>()
         {
 
             { "urls", 19 },
@@ -3952,14 +3952,14 @@ namespace NW.WIDJobs.UnitTests
             { "jobIds", 20 }
 
         };
-        internal static DateTime Validator_DateTimeOlder = new DateTime(2019, 09, 01, 00, 00, 00, 000);
-        internal static DateTime Validator_DateTimeNewer = new DateTime(2019, 12, 31, 23, 59, 59, 999);
+        public static DateTime Validator_DateTimeOlder = new DateTime(2019, 09, 01, 00, 00, 00, 000);
+        public static DateTime Validator_DateTimeNewer = new DateTime(2019, 12, 31, 23, 59, 59, 999);
 
         #endregion
 
         #region XPathManagerTests
 
-        internal static string XPathManager_HTML =
+        public static string XPathManager_HTML =
             string.Concat(
                 "<html>",
                 "<body>",
@@ -3971,44 +3971,44 @@ namespace NW.WIDJobs.UnitTests
                 "</ul>",
                 "</html>"
                 );
-        internal static string XPathManager_GetInnerTexts_XPath = "//ul/li";
-        internal static List<string> XPathManager_GetInnerTexts_Results
+        public static string XPathManager_GetInnerTexts_XPath = "//ul/li";
+        public static List<string> XPathManager_GetInnerTexts_Results
             = new List<string>()
             {
                 "This is a link",
                 "This is another link"
             };
-        internal static string XPathManager_GetAttributeValues_XPath = "//ul/li/a/@href";
-        internal static List<string> XPathManager_GetAttributeValues_Results
+        public static string XPathManager_GetAttributeValues_XPath = "//ul/li/a/@href";
+        public static List<string> XPathManager_GetAttributeValues_Results
             = new List<string>()
             {
                 "https://github.com/numbworks",
                 "https://www.nuget.org/profiles/numbworks"
             };
-        internal static string XPathManager_TryGetInnerText_XPath = "//div";
-        internal static string XPathManager_TryGetFirstAttributeValue_XPath = "//div/@class";
+        public static string XPathManager_TryGetInnerText_XPath = "//div";
+        public static string XPathManager_TryGetFirstAttributeValue_XPath = "//div/@class";
 
         #endregion
 
         #region WIDExplorerTests
 
-        internal static string WIDExplorer_ExplorationStage3AsJson_Content
+        public static string WIDExplorer_ExplorationStage3AsJson_Content
             = Properties.Resources.ExplorationStage3AsJson;
-        internal static string WIDExplorer_ExplorationStage3MetricCollectionNumbersAsJson_Content
+        public static string WIDExplorer_ExplorationStage3MetricCollectionNumbersAsJson_Content
             = Properties.Resources.ExplorationStage3MCNumbersAsJson;
-        internal static string WIDExplorer_ExplorationStage3MetricCollectionPercentagesAsJson_Content
+        public static string WIDExplorer_ExplorationStage3MetricCollectionPercentagesAsJson_Content
             = Properties.Resources.ExplorationStage3MCPercentagesAsJson;
 
-        internal static string WIDExplorer_JobPage01_FakeFilePath = @"C:\JobPage01.json";
-        internal static string WIDExplorer_FakeFolderPath = @"C:\";
-        internal static string WIDExplorer_FakeJsonFilePath = @"C:\export.json";
-        internal static string WIDExplorer_FakeSQLiteDatabaseFilePath = @"C:\export.db";
-        internal static string WIDExplorer_FakeSQLiteDatabaseName = @"export.db";
+        public static string WIDExplorer_JobPage01_FakeFilePath = @"C:\JobPage01.json";
+        public static string WIDExplorer_FakeFolderPath = @"C:\";
+        public static string WIDExplorer_FakeJsonFilePath = @"C:\export.json";
+        public static string WIDExplorer_FakeSQLiteDatabaseFilePath = @"C:\export.db";
+        public static string WIDExplorer_FakeSQLiteDatabaseName = @"export.db";
 
-        internal static DateTime WIDExplorer_FakeNow = new DateTime(2021, 05, 01);
-        internal static Func<DateTime> WIDExplorer_FakeNowFunction = () => WIDExplorer_FakeNow;
+        public static DateTime WIDExplorer_FakeNow = new DateTime(2021, 05, 01);
+        public static Func<DateTime> WIDExplorer_FakeNowFunction = () => WIDExplorer_FakeNow;
 
-        internal static Dictionary<string, string> WIDExplorer_JobPage0102_PostUrlsResponses
+        public static Dictionary<string, string> WIDExplorer_JobPage0102_PostUrlsResponses
             = new Dictionary<string, string>()
             {
 
@@ -4016,12 +4016,12 @@ namespace NW.WIDJobs.UnitTests
                 { Shared_JobPage02_Url, Shared_JobPage02_Content }
 
             };
-        internal static IPostRequestManager WIDExplorer_JobPage0102_FakePostRequestManager
+        public static IPostRequestManager WIDExplorer_JobPage0102_FakePostRequestManager
             = new FakePostRequestManager(WIDExplorer_JobPage0102_PostUrlsResponses);
-        internal static IPostRequestManagerFactory WIDExplorer_JobPage0102_FakePostRequestManagerFactory
+        public static IPostRequestManagerFactory WIDExplorer_JobPage0102_FakePostRequestManagerFactory
             = new FakePostRequestManagerFactory(WIDExplorer_JobPage0102_FakePostRequestManager);
 
-        internal static Dictionary<string, string> WIDExplorer_JobPage0102_GetUrlsResponses
+        public static Dictionary<string, string> WIDExplorer_JobPage0102_GetUrlsResponses
             = new Dictionary<string, string>()
             {
 
@@ -4068,28 +4068,28 @@ namespace NW.WIDJobs.UnitTests
                     {Shared_JobPage02_JobPostingExtended20.JobPosting.Url, Shared_JobPage02_JobPostingExtended20_Content}
 
             };
-        internal static IGetRequestManager WIDExplorer_JobPage0102_FakeGetRequestManager
+        public static IGetRequestManager WIDExplorer_JobPage0102_FakeGetRequestManager
             = new FakeGetRequestManager(WIDExplorer_JobPage0102_GetUrlsResponses);
-        internal static IGetRequestManagerFactory WIDExplorer_JobPage0102_FakeGetRequestManagerFactory
+        public static IGetRequestManagerFactory WIDExplorer_JobPage0102_FakeGetRequestManagerFactory
             = new FakeGetRequestManagerFactory(WIDExplorer_JobPage0102_FakeGetRequestManager);
 
-        internal static Dictionary<string, string> WIDExplorer_JobPage01Alt_PostUrlsResponses
+        public static Dictionary<string, string> WIDExplorer_JobPage01Alt_PostUrlsResponses
             = new Dictionary<string, string>()
             {
 
                 { Shared_JobPage01_Url, Shared_JobPage01Alt_Content }
 
             };
-        internal static IPostRequestManager WIDExplorer_JobPage01Alt_FakePostRequestManager
+        public static IPostRequestManager WIDExplorer_JobPage01Alt_FakePostRequestManager
             = new FakePostRequestManager(WIDExplorer_JobPage01Alt_PostUrlsResponses);
-        internal static IPostRequestManagerFactory WIDExplorer_JobPage01Alt_FakePostRequestManagerFactory
+        public static IPostRequestManagerFactory WIDExplorer_JobPage01Alt_FakePostRequestManagerFactory
             = new FakePostRequestManagerFactory(WIDExplorer_JobPage01Alt_FakePostRequestManager);
 
         #endregion
 
         #region Methods
 
-        internal static void Method_ShouldThrowACertainException_WhenUnproperArguments
+        public static void Method_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
         {
 
@@ -4100,7 +4100,7 @@ namespace NW.WIDJobs.UnitTests
             Assert.AreEqual(expectedMessage, actual.Message);
 
         }
-        internal static DatabaseContext CreateInMemoryContext()
+        public static DatabaseContext CreateInMemoryContext()
         {
 
             string databaseName = Guid.NewGuid().ToString();
@@ -4110,9 +4110,9 @@ namespace NW.WIDJobs.UnitTests
             return new DatabaseContext(options);
 
         }
-        internal static Repository CreateInMemoryRepository()
+        public static Repository CreateInMemoryRepository()
             => new Repository(CreateInMemoryContext(), false);
-        internal static TReturn CallPrivateMethod<TClass, TReturn>
+        public static TReturn CallPrivateMethod<TClass, TReturn>
             (TClass obj, string methodName, object[] args)
         {
 
@@ -4122,7 +4122,7 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
-        internal static bool AreEqual(List<string> list1, List<string> list2)
+        public static bool AreEqual(List<string> list1, List<string> list2)
         {
 
             if (list1 == null && list2 == null)
@@ -4141,7 +4141,7 @@ namespace NW.WIDJobs.UnitTests
             return true;
 
         }
-        internal static bool AreEqual(HashSet<string> hashset1, HashSet<string> hashset2)
+        public static bool AreEqual(HashSet<string> hashset1, HashSet<string> hashset2)
         {
 
             if (hashset1 == null && hashset2 == null)
@@ -4153,7 +4153,7 @@ namespace NW.WIDJobs.UnitTests
             return AreEqual(new List<string>(hashset1), new List<string>(hashset2));
 
         }
-        internal static bool AreEqual<TKey, TValue>(Dictionary<TKey, TValue> dict1, Dictionary<TKey, TValue> dict2)
+        public static bool AreEqual<TKey, TValue>(Dictionary<TKey, TValue> dict1, Dictionary<TKey, TValue> dict2)
         {
 
             IEqualityComparer<TValue> valueComparer = EqualityComparer<TValue>.Default;
@@ -4164,7 +4164,7 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
-        internal static bool AreEqual(JobPage jobPage1, JobPage jobPage2)
+        public static bool AreEqual(JobPage jobPage1, JobPage jobPage2)
         {
 
             return (jobPage1.PageNumber == jobPage2.PageNumber)
@@ -4172,7 +4172,7 @@ namespace NW.WIDJobs.UnitTests
                     && string.Equals(jobPage1.RunId, jobPage2.RunId, StringComparison.InvariantCulture);
 
         }
-        internal static bool AreEqual(List<JobPage> list1, List<JobPage> list2)
+        public static bool AreEqual(List<JobPage> list1, List<JobPage> list2)
         {
 
             if (list1 == null && list2 == null)
@@ -4191,7 +4191,7 @@ namespace NW.WIDJobs.UnitTests
             return true;
 
         }
-        internal static bool AreEqual(JobPosting jobPosting1, JobPosting jobPosting2)
+        public static bool AreEqual(JobPosting jobPosting1, JobPosting jobPosting2)
         {
 
             return string.Equals(jobPosting1.Country, jobPosting2.Country, StringComparison.InvariantCulture)
@@ -4221,7 +4221,7 @@ namespace NW.WIDJobs.UnitTests
                         && (jobPosting1.WorkPlacePostalCode == jobPosting2.WorkPlacePostalCode);
 
         }
-        internal static bool AreEqual(List<JobPosting> list1, List<JobPosting> list2)
+        public static bool AreEqual(List<JobPosting> list1, List<JobPosting> list2)
         {
 
             if (list1 == null && list2 == null)
@@ -4240,7 +4240,7 @@ namespace NW.WIDJobs.UnitTests
             return true;
 
         }
-        internal static bool AreEqual(JobPostingExtended jobPostingExtended1, JobPostingExtended jobPostingExtended2, bool ignorePurposeResponse = true)
+        public static bool AreEqual(JobPostingExtended jobPostingExtended1, JobPostingExtended jobPostingExtended2, bool ignorePurposeResponse = true)
         {
 
             if (ignorePurposeResponse)
@@ -4271,7 +4271,7 @@ namespace NW.WIDJobs.UnitTests
                         && string.Equals(jobPostingExtended1.Response, jobPostingExtended2.Response, StringComparison.InvariantCulture);
 
         }
-        internal static bool AreEqual(List<JobPostingExtended> list1, List<JobPostingExtended> list2, bool ignorePurposeResponse = true)
+        public static bool AreEqual(List<JobPostingExtended> list1, List<JobPostingExtended> list2, bool ignorePurposeResponse = true)
         {
 
             if (list1 == null && list2 == null)
@@ -4291,7 +4291,7 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
-        internal static bool AreEqual(JobPosting jobPosting, JobPostingEntity jobPostingEntity)
+        public static bool AreEqual(JobPosting jobPosting, JobPostingEntity jobPostingEntity)
         {
 
             return string.Equals(jobPosting.Country, jobPostingEntity.Country, StringComparison.InvariantCulture)
@@ -4324,7 +4324,7 @@ namespace NW.WIDJobs.UnitTests
                         && (jobPostingEntity.RowModifiedOn == default(DateTime));
 
         }
-        internal static bool AreEqual(JobPostingExtended jobPostingExtended, JobPostingExtendedEntity jobPostingExtendedEntity, bool ignorePurposeResponse = true)
+        public static bool AreEqual(JobPostingExtended jobPostingExtended, JobPostingExtendedEntity jobPostingExtendedEntity, bool ignorePurposeResponse = true)
         {
 
             if (ignorePurposeResponse)
@@ -4359,7 +4359,7 @@ namespace NW.WIDJobs.UnitTests
                         && (jobPostingExtendedEntity.RowModifiedOn == default(DateTime));
 
         }
-        internal static bool AreEqual(BulletPointEntity bulletPointEntity1, BulletPointEntity bulletPointEntity2)
+        public static bool AreEqual(BulletPointEntity bulletPointEntity1, BulletPointEntity bulletPointEntity2)
         {
 
             return (bulletPointEntity1.RowId == bulletPointEntity2.RowId)
@@ -4369,14 +4369,14 @@ namespace NW.WIDJobs.UnitTests
                     && (bulletPointEntity1.RowModifiedOn == bulletPointEntity2.RowModifiedOn);
 
         }
-        internal static bool AreEqual(BulletPoint bulletPoint1, BulletPoint bulletPoint2)
+        public static bool AreEqual(BulletPoint bulletPoint1, BulletPoint bulletPoint2)
         {
 
             return string.Equals(bulletPoint1.Label, bulletPoint2.Label, StringComparison.InvariantCulture)
                     && string.Equals(bulletPoint1.Text, bulletPoint2.Text, StringComparison.InvariantCulture);
 
         }
-        internal static bool AreEqual(List<BulletPoint> list1, List<BulletPoint> list2)
+        public static bool AreEqual(List<BulletPoint> list1, List<BulletPoint> list2)
         {
 
             if (list1 == null && list2 == null)
@@ -4396,7 +4396,7 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
-        internal static bool AreEqual(Exploration exploration1, Exploration exploration2)
+        public static bool AreEqual(Exploration exploration1, Exploration exploration2)
         {
 
             return string.Equals(exploration1.RunId, exploration2.RunId, StringComparison.InvariantCulture)
@@ -4409,7 +4409,7 @@ namespace NW.WIDJobs.UnitTests
                         && AreEqual(exploration1.JobPostingsExtended, exploration2.JobPostingsExtended);
 
         }
-        internal static bool AreEqual(MetricCollection metricCollection1, MetricCollection metricCollection2)
+        public static bool AreEqual(MetricCollection metricCollection1, MetricCollection metricCollection2)
         {
 
             return string.Equals(metricCollection1.RunId, metricCollection2.RunId, StringComparison.InvariantCulture)
@@ -4450,7 +4450,7 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
-        internal static JobPage UpdateRunId(JobPage jobPage, string runId)
+        public static JobPage UpdateRunId(JobPage jobPage, string runId)
         {
 
             return new JobPage(
@@ -4460,7 +4460,7 @@ namespace NW.WIDJobs.UnitTests
                     );
 
         }
-        internal static List<JobPage> UpdateRunIds(List<JobPage> jobPages, string runId)
+        public static List<JobPage> UpdateRunIds(List<JobPage> jobPages, string runId)
         {
 
             if (jobPages == null)
@@ -4473,7 +4473,7 @@ namespace NW.WIDJobs.UnitTests
             return updated;
 
         }
-        internal static JobPosting UpdatePostingCreatedResponse(JobPosting jobPosting, DateTime postingCreated)
+        public static JobPosting UpdatePostingCreatedResponse(JobPosting jobPosting, DateTime postingCreated)
         {
 
             string oldString = "\"PostingCreated\": \"2021-07-02T00:00:00\"";   // To-Do: add a regex pattern instead of this.
@@ -4509,7 +4509,7 @@ namespace NW.WIDJobs.UnitTests
             );
 
         }
-        internal static JobPosting UpdateRunIdPageNumber(JobPosting jobPosting, string runId, ushort pageNumber)
+        public static JobPosting UpdateRunIdPageNumber(JobPosting jobPosting, string runId, ushort pageNumber)
         {
 
             return new JobPosting(
@@ -4541,7 +4541,7 @@ namespace NW.WIDJobs.UnitTests
             );
 
         }
-        internal static JobPosting UpdateRunId(JobPosting jobPosting, string runId)
+        public static JobPosting UpdateRunId(JobPosting jobPosting, string runId)
         {
 
             return new JobPosting(
@@ -4573,7 +4573,7 @@ namespace NW.WIDJobs.UnitTests
             );
 
         }
-        internal static List<JobPosting> UpdateRunIds(List<JobPosting> jobPostings, string runId)
+        public static List<JobPosting> UpdateRunIds(List<JobPosting> jobPostings, string runId)
         {
 
             if (jobPostings == null)
@@ -4586,7 +4586,7 @@ namespace NW.WIDJobs.UnitTests
             return updated;
 
         }
-        internal static JobPostingExtended UpdateRunId(JobPostingExtended jobPostingExtended, string runId)
+        public static JobPostingExtended UpdateRunId(JobPostingExtended jobPostingExtended, string runId)
         {
 
             return new JobPostingExtended(
@@ -4606,7 +4606,7 @@ namespace NW.WIDJobs.UnitTests
             );
 
         }
-        internal static List<JobPostingExtended> UpdateRunIds(List<JobPostingExtended> jobPostingsExtended, string runId)
+        public static List<JobPostingExtended> UpdateRunIds(List<JobPostingExtended> jobPostingsExtended, string runId)
         {
 
             if (jobPostingsExtended == null)
@@ -4619,7 +4619,7 @@ namespace NW.WIDJobs.UnitTests
             return updated;
 
         }
-        internal static Exploration UpdateRunId(Exploration exploration, string runId)
+        public static Exploration UpdateRunId(Exploration exploration, string runId)
         {
 
             return new Exploration(

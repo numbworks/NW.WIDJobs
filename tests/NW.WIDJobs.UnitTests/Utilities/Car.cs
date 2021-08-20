@@ -1,6 +1,6 @@
 ﻿namespace NW.WIDJobs.UnitTests
 {
-    internal class Car
+    public class Car
     {
 
         // Fields

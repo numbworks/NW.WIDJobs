@@ -14,4 +14,8 @@
     <ProjectReference Include="..\NW.WIDJobs\NW.WIDJobs.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Messages\" />
+  </ItemGroup>
+
 </Project>
