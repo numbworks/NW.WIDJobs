@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Dynamic;
-using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text.Encodings.Web;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading;
 using NW.WIDJobs.BulletPoints;
 using NW.WIDJobs.Database;
@@ -403,6 +403,7 @@ namespace NW.WIDJobs
             JsonSerializerOptions options = new JsonSerializerOptions();
 
             options.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
+            options.Converters.Add(new JsonStringEnumConverter());
             options.Converters.Add(new DateTimeToDateConverter());
             options.WriteIndented = true;
 

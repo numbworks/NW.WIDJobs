@@ -530,7 +530,7 @@ namespace NW.WIDJobs.UnitTests
                         bulletPoints: new HashSet<string>()
                         {
                             "As a Vice President, we expect a truly transparent and inclusive leadership style, empowering your team to perform at their maximum abilities.",
-                            "Facilitate outstanding collaborations between the product marketing team and the full brand & marketing team as well as public core stakeholders such as product management and sales",
+                            "Facilitate outstanding collaborations between the product marketing team and the full brand & marketing team as well as internal core stakeholders such as product management and sales",
                             "Help us articulate and implement a global product marketing strategy ·Serve as an evangelist for our products through thought leadership",
                             "Keep the company up-to-date with market trends and competition",
                             "Product Marketing Strategy: We are looking for a profile that can help us define the right strategies that will fuel our continued growth. Having experience with making product marketing strategies for SaaS products is a requirement.",
@@ -1562,7 +1562,7 @@ namespace NW.WIDJobs.UnitTests
                         "Assist in initial integration research",
                         "Reading technical API documentation - JSON, REST and OAuth",
                         "Solve customer problems under complex constraints and come up with solutions without any additional development of Plecto",
-                        "Maintaining and creating public knowledge base articles",
+                        "Maintaining and creating internal knowledge base articles",
                         "Experience in delivering outstanding technical support",
                         "Experience in database operations including reading and writing basic to intermediate database SQL queries and troubleshooting connection issues",
                         "Experience and knowledge in API and SQL Server Databases",

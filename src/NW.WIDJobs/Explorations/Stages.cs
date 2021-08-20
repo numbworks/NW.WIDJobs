@@ -7,17 +7,17 @@
         /// <summary>
         /// Retrieves <see cref="Exploration.TotalResultCount"/> and <see cref="Exploration.TotalJobPages"/>.
         /// </summary>
-        Stage1_OnlyMetrics,
+        Stage1_OnlyMetrics = 1,
 
         /// <summary>
         /// Retrieves <see cref="Exploration.TotalResultCount"/>, <see cref="Exploration.TotalJobPages"/>, <see cref="Exploration.JobPages"/> and <see cref="Exploration.JobPostings"/>.
         /// </summary>
-        Stage2_UpToAllJobPostings,
+        Stage2_UpToAllJobPostings = 2,
 
         /// <summary>
         /// Retrieves <see cref="Exploration.TotalResultCount"/>, <see cref="Exploration.TotalJobPages"/>, <see cref="Exploration.JobPages"/>, <see cref="Exploration.JobPostings"/> and <see cref="Exploration.JobPostingsExtended"/>.
         /// </summary>
-        Stage3_UpToAllJobPostingsExtended
+        Stage3_UpToAllJobPostingsExtended = 3
 
     }
 }

@@ -2,7 +2,7 @@
   "RunId": "FakeRunId",
   "TotalResultCount": 2177,
   "TotalJobPages": 109,
-  "Stage": 2,
+  "Stage": "Stage3_UpToAllJobPostingsExtended",
   "IsCompleted": true,
   "JobPages": [
     {
