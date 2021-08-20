@@ -21,7 +21,8 @@ using NW.WIDJobs.Validation;
 
 namespace NW.WIDJobs
 {
-    public class WIDExplorer
+    /// <inheritdoc cref="IWIDExplorer"/>
+    public class WIDExplorer : IWIDExplorer
     {
 
         #region Fields
@@ -45,6 +46,7 @@ namespace NW.WIDJobs
 
         #region Constructors
 
+        /// <summary>Initializes a <see cref="WIDExplorer"/> instance.</summary>	
         public WIDExplorer
             (WIDExplorerComponents components, WIDExplorerSettings settings)
         {
@@ -59,7 +61,8 @@ namespace NW.WIDJobs
             AsciiBanner = _components.AsciiBannerManager.Create(Version);
 
         }
-        
+
+        /// <summary>Initializes a <see cref="WIDExplorer"/> instance with default parameters.</summary>	
         public WIDExplorer()
             : this(new WIDExplorerComponents(), new WIDExplorerSettings()) { }
 
@@ -533,7 +536,7 @@ namespace NW.WIDJobs
                 = new JobPage(jobPage.RunId, jobPage.PageNumber, DefaultNotSerialized);
 
             return optimized;
-        
+
         }
         private List<JobPage> OptimizeJobPagesForSerialization(List<JobPage> jobPages)
         {
@@ -547,8 +550,8 @@ namespace NW.WIDJobs
         private JobPosting OptimizeJobPostingForSerialization(JobPosting jobPosting)
         {
 
-            JobPosting optimized 
-                =  new JobPosting(
+            JobPosting optimized
+                = new JobPosting(
                         runId: jobPosting.RunId,
                         pageNumber: jobPosting.PageNumber,
                         response: DefaultNotSerialized,
