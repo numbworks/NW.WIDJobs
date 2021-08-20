@@ -137,7 +137,7 @@ namespace NW.WIDJobs.UnitTests
         {
 
             new TestCaseData(
-                ObjectMother.JobPostingManager_UnexistantJobPostingId,
+                ObjectMother.Shared_UnexistantJobPostingId,
                 ObjectMother.Shared_JobPage01Alt_JobPostings,
                 false
             ).SetArgDisplayNames($"{nameof(isThresholdConditionMetForJobPostingIdTestCases)}_01"),
@@ -163,7 +163,7 @@ namespace NW.WIDJobs.UnitTests
         {
 
             new TestCaseData(
-                ObjectMother.JobPostingManager_UnexistantJobPostingId,
+                ObjectMother.Shared_UnexistantJobPostingId,
                 ObjectMother.Shared_JobPage01Alt_JobPostings,
                 ObjectMother.Shared_JobPage01Alt_JobPostings
             ).SetArgDisplayNames($"{nameof(removeUnsuitableForJobPostingIdTestCases)}_01"),

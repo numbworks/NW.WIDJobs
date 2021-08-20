@@ -26,6 +26,7 @@ namespace NW.WIDJobs.UnitTests
         #region Shared
 
         internal static string Shared_FakeRunId = "FakeRunId";
+        internal static string Shared_UnexistantJobPostingId = "0000000fakeid";
 
         #endregion
 
@@ -1329,6 +1330,11 @@ namespace NW.WIDJobs.UnitTests
 
         internal static ushort Shared_JobPage01_TotalResultCount = 2177;
         internal static ushort Shared_JobPage01_TotalJobPages = 109;
+
+        internal static string Shared_JobPage01_JobPostingId01
+            = Shared_JobPage01_JobPostings[10].JobPostingId;                        // "5361275committedemployeesforassemblingdisplays"
+        internal static List<JobPosting> Shared_JobPage01_RangeForJobPostingId01
+            = Shared_JobPage01_JobPostings.GetRange(0, 9);                          // ("5361275committedemployeesforassemblingdisplays") ...
 
         #endregion
 
@@ -3135,8 +3141,6 @@ namespace NW.WIDJobs.UnitTests
             = Shared_JobPage01Alt_JobPostings.OrderByDescending(jobPosting => jobPosting.PostingCreated).Reverse().First().PostingCreated;
         internal static DateTime JobPostingManager_JobPage01Alt_ThresholdDateLeastRecentPostingCreatedMinusOneDay
             = JobPostingManager_JobPage01Alt_ThresholdDateLeastRecentPostingCreated.AddDays(-1);
-
-        internal static string JobPostingManager_UnexistantJobPostingId = "0000000fakeid";
 
         #endregion
 
