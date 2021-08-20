@@ -14,6 +14,7 @@ using NW.WIDJobs.AsciiBanner;
 using NW.WIDJobs.Filenames;
 using NW.WIDJobs.BulletPoints;
 using NW.WIDJobs.UnitTests;
+using NW.WIDJobsClient.Messages;
 
 namespace NW.WIDJobsClient
 {
@@ -59,27 +60,33 @@ namespace NW.WIDJobsClient
             WIDExplorer widExplorer = new WIDExplorer(components, settings);
 
             widExplorer.LogAsciiBanner();
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke("*** DEMO MODE ***");
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(MessageCollection.Program_DemoMode);
             WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
 
             Exploration exploration = widExplorer.Explore(2, Stages.Stage3_UpToAllJobPostingsExtended);
+            WIDExplorerComponents.DefaultLoggingAction.Invoke(MessageCollection.Program_DumpingExplorationToConsole);
             WIDExplorerComponents.DefaultLoggingAction.Invoke(exploration.ToString());
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
 
             string json = widExplorer.ConvertToJson(exploration);
+            WIDExplorerComponents.DefaultLoggingAction.Invoke(MessageCollection.Program_DumpingJSONToConsole);
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
             WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(json);
             WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
 
             MetricCollection metricCollection = widExplorer.ConvertToMetricCollection(exploration);
             json = widExplorer.ConvertToJson(metricCollection, false);
+            WIDExplorerComponents.DefaultLoggingAction.Invoke(MessageCollection.Program_DumpingJSONToConsole);
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
             WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(json);
             WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
 
             json = widExplorer.ConvertToJson(metricCollection, true);
+            WIDExplorerComponents.DefaultLoggingAction.Invoke(MessageCollection.Program_DumpingJSONToConsole);
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
             WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(json);
             WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
 
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke("Press a button to close the window.");
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(MessageCollection.Program_PressAButtonToCloseTheWindow);
             Console.ReadLine();
 
         }
