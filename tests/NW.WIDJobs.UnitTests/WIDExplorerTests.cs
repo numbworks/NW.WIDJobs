@@ -82,7 +82,19 @@ namespace NW.WIDJobs.UnitTests
                         )),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("runId").Message
-            ).SetArgDisplayNames($"{nameof(widExplorerExceptionTestCases)}_03")
+            ).SetArgDisplayNames($"{nameof(widExplorerExceptionTestCases)}_03"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new WIDExplorer()
+                            .Explore(
+                                ObjectMother.Shared_FakeRunId,
+                                null,
+                                Stages.Stage1_OnlyMetrics
+                        )),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("jobPostingId").Message
+            ).SetArgDisplayNames($"{nameof(widExplorerExceptionTestCases)}_04")
 
         };
         private static TestCaseData[] exploreAllExceptionTestCases =
