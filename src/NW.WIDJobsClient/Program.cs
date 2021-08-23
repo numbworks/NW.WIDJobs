@@ -15,15 +15,92 @@ using NW.WIDJobs.Filenames;
 using NW.WIDJobs.BulletPoints;
 using NW.WIDJobs.UnitTests;
 using NW.WIDJobsClient.Messages;
+using McMaster.Extensions.CommandLineUtils;
 
 namespace NW.WIDJobsClient
 {
     class Program
     {
-        static void Main(string[] args)
+
+        static int Main(string[] args)
         {
 
-            RunDemo();
+            CommandLineApplication app = CreateRootCommand();
+            AddRootCommandBehaviour(app);
+            AddDemoCommandBehaviour(app);
+
+            app.HelpOption(inherited: true);
+
+            return app.Execute(args);
+
+        }
+
+        private static CommandLineApplication CreateRootCommand()
+        {
+
+            CommandLineApplication app = new CommandLineApplication
+            {
+
+                Name = "NW.WIDJobsClient.exe",
+                Description = "Unofficial command-line client for WorkInDenmark.dk.",
+
+            };
+
+            return app;
+
+        }
+        private static CommandLineApplication AddRootCommandBehaviour(CommandLineApplication app)
+        {
+
+            app.OnExecute(() =>
+            {
+
+                WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
+                new WIDExplorer().LogAsciiBanner();
+                app.ShowHelp();
+
+                return ((int)ExitCodes.Success);
+
+            });
+
+            return app;
+
+        }
+        private static CommandLineApplication AddDemoCommandBehaviour(CommandLineApplication app)
+        {
+
+            app.Command("demo", demoCommand =>
+            {
+
+                demoCommand.OnExecute(() =>
+                {
+
+                    WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
+                    new WIDExplorer().LogAsciiBanner();
+                    demoCommand.ShowHelp();
+
+                    return ((int)ExitCodes.Success);
+
+                });
+
+                demoCommand.Command("run", runSubCommand =>
+                {
+
+                    runSubCommand.OnExecute(() =>
+                    {
+
+                        WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
+                        RunDemo();
+
+                        return ((int)ExitCodes.Success);
+
+                    });
+
+                });
+
+            });
+
+            return app;
 
         }
 
@@ -130,5 +207,5 @@ namespace NW.WIDJobsClient
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 20.08.2021
+    Last Update: 23.08.2021
 */
