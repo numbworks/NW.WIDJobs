@@ -28,6 +28,7 @@ namespace NW.WIDJobsClient
             CommandLineApplication app = CreateRootCommand();
             AddRootCommandBehaviour(app);
             AddDemoCommandBehaviour(app);
+            AddInfoCommandBehaviour(app);
 
             app.HelpOption(inherited: true);
 
@@ -95,6 +96,37 @@ namespace NW.WIDJobsClient
                         return ((int)ExitCodes.Success);
 
                     });
+
+                });
+
+            });
+
+            return app;
+
+        }
+        private static CommandLineApplication AddInfoCommandBehaviour(CommandLineApplication app)
+        {
+
+            app.Command("info", infoCommand =>
+            {
+
+                infoCommand.OnExecute(() =>
+                {
+
+                    WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
+                    new WIDExplorer().LogAsciiBanner();
+
+                    WIDExplorerComponents.DefaultLoggingActionAsciiBanner("Unofficial command-line client for WorkInDenmark.dk.");
+
+                    WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
+                    WIDExplorerComponents.DefaultLoggingActionAsciiBanner("Author: numbworks");
+                    WIDExplorerComponents.DefaultLoggingActionAsciiBanner("Email: numbworks [AT] gmail [DOT] com");
+                    WIDExplorerComponents.DefaultLoggingActionAsciiBanner(@"Github: http://www.github.com/numbworks");
+                    WIDExplorerComponents.DefaultLoggingActionAsciiBanner("License: MIT License");
+
+                    WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
+
+                    return ((int)ExitCodes.Success);
 
                 });
 
