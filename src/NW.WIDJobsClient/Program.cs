@@ -28,7 +28,7 @@ namespace NW.WIDJobsClient
             CommandLineApplication app = CreateRootCommand();
             AddRootCommandBehaviour(app);
             AddDemoCommandBehaviour(app);
-            AddInfoCommandBehaviour(app);
+            AddAboutCommandBehaviour(app);
 
             app.HelpOption(inherited: true);
 
@@ -104,13 +104,13 @@ namespace NW.WIDJobsClient
             return app;
 
         }
-        private static CommandLineApplication AddInfoCommandBehaviour(CommandLineApplication app)
+        private static CommandLineApplication AddAboutCommandBehaviour(CommandLineApplication app)
         {
 
-            app.Command("info", infoCommand =>
+            app.Command("about", aboutCommand =>
             {
 
-                infoCommand.OnExecute(() =>
+                aboutCommand.OnExecute(() =>
                 {
 
                     WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
@@ -135,6 +135,7 @@ namespace NW.WIDJobsClient
             return app;
 
         }
+
 
         static void RunDemo() 
         {
