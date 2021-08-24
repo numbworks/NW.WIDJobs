@@ -4634,6 +4634,36 @@ namespace NW.WIDJobs.UnitTests
                     );
 
         }
+        public static Exploration ConvertToDeserializedExploration(Exploration exploration)
+        {
+
+            List<JobPage> jobPages = null;
+            if (exploration.JobPages != null)
+                jobPages = CallPrivateMethod<WIDExplorer, List<JobPage>>(new WIDExplorer(), "OptimizeJobPagesForSerialization", new object[1] { exploration.JobPages });
+
+            List<JobPosting> jobPostings = null;
+            if (exploration.JobPostings != null)
+                jobPostings = CallPrivateMethod<WIDExplorer, List<JobPosting>>(new WIDExplorer(), "OptimizeJobPostingsForSerialization", new object[1] { exploration.JobPostings });
+
+            List<JobPostingExtended> jobPostingsExtended = null;
+            if (exploration.JobPostingsExtended != null)
+                jobPostingsExtended = CallPrivateMethod<WIDExplorer, List<JobPostingExtended>>(new WIDExplorer(), "OptimizeJobPostingsExtendedForSerialization", new object[1] { exploration.JobPostingsExtended });
+
+            Exploration result 
+                = new Exploration(
+                        runId: exploration.RunId,
+                        totalResultCount: exploration.TotalResultCount,
+                        totalJobPages: exploration.TotalJobPages,
+                        stage: exploration.Stage,
+                        isCompleted: exploration.IsCompleted,
+                        jobPages: jobPages,
+                        jobPostings: jobPostings,
+                        jobPostingsExtended: jobPostingsExtended
+                );
+
+            return result;
+
+        }
 
         #endregion
 
