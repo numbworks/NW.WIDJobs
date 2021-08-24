@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -27,7 +28,14 @@ namespace NW.WIDJobs.JsonSerializerConverters
         #region Methods_public
 
         public override DateTime Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-            => throw new NotImplementedException($"'{nameof(DateTimeToDateConverter)}' doesn't implement  the '{nameof(Read)}' method.");
+        {
+
+            string raw = reader.GetString();
+            DateTime value = DateTime.ParseExact(raw, DateFormat, CultureInfo.InvariantCulture);
+
+            return value;
+
+        }
 
         public override void Write(Utf8JsonWriter writer, DateTime value, JsonSerializerOptions options)
             => writer.WriteStringValue(value.ToString(DateFormat));
@@ -39,5 +47,5 @@ namespace NW.WIDJobs.JsonSerializerConverters
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 28.05.2021
+    Last Update: 24.08.2021
 */

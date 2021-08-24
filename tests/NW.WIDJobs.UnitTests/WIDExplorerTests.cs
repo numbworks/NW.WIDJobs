@@ -818,6 +818,110 @@ namespace NW.WIDJobs.UnitTests
         }
 
         [Test]
+        public void LoadExplorationFromJsonFile_ShouldReturnExpectedExplorationAndLogExpectedMessages_WhenProperJsonFile()
+        {
+
+            // Arrange
+            string content = ObjectMother.WIDExplorer_ExplorationStage3AsJson_Content;
+            IFileInfoAdapter fakeFileInfoAdapter = new FakeFileInfoAdapter(true, ObjectMother.WIDExplorer_FakeJsonFilePath);
+            Exploration expected = ObjectMother.ConvertToDeserializedExploration(ObjectMother.Shared_ExplorationStage3);
+            List<string> expectedLogMessages = new List<string>()
+            {
+
+               MessageCollection.WIDExplorer_LoadingExplorationFromJsonFile
+
+            };
+
+            FakeLogger fakeLogger = new FakeLogger();
+            Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
+            FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
+            Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
+            WIDExplorerComponents components = new WIDExplorerComponents(
+                    loggingAction: fakeLoggingAction,
+                    loggingActionAsciiBanner: fakeLoggingActionAsciiBanner,
+                    xpathManager: new XPathManager(),
+                    getRequestManager: new GetRequestManager(),
+                    jobPageDeserializer: new JobPageDeserializer(),
+                    jobPageManager: new JobPageManager(),
+                    jobPostingDeserializer: new JobPostingDeserializer(),
+                    jobPostingManager: new JobPostingManager(),
+                    jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
+                    jobPostingExtendedManager: new JobPostingExtendedManager(),
+                    runIdManager: new RunIdManager(),
+                    metricCollectionManager: new MetricCollectionManager(),
+                    fileManager: new FakeFileManager(content),
+                    repositoryFactory: new RepositoryFactory(),
+                    asciiBannerManager: new AsciiBannerManager(),
+                    filenameFactory: new FilenameFactory(),
+                    bulletPointManager: new BulletPointManager(),
+                    nowFunction: WIDExplorerComponents.DefaultNowFunction
+                  );
+            WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
+
+            // Act
+            Exploration actual = widExplorer.LoadExplorationFromJsonFile(fakeFileInfoAdapter);
+
+            // Assert
+            Assert.IsTrue(
+                ObjectMother.AreEqual(expected, actual)
+                );
+            Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
+
+        }
+
+        [Test]
+        public void LoadExplorationFromJsonFile_ShouldReturnExpectedExplorationsAndLogExpectedMessages_WhenProperFilePath()
+        {
+
+            // Arrange
+            string content = ObjectMother.WIDExplorer_ExplorationStage3AsJson_Content;
+            IFileInfoAdapter fakeFileInfoAdapter = new FakeFileInfoAdapter(true, ObjectMother.WIDExplorer_FakeJsonFilePath);
+            Exploration expected = ObjectMother.ConvertToDeserializedExploration(ObjectMother.Shared_ExplorationStage3);
+            List<string> expectedLogMessages = new List<string>()
+            {
+
+               MessageCollection.WIDExplorer_LoadingExplorationFromJsonFile
+
+            };
+
+            FakeLogger fakeLogger = new FakeLogger();
+            Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
+            FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
+            Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
+            WIDExplorerComponents components = new WIDExplorerComponents(
+                    loggingAction: fakeLoggingAction,
+                    loggingActionAsciiBanner: fakeLoggingActionAsciiBanner,
+                    xpathManager: new XPathManager(),
+                    getRequestManager: new GetRequestManager(),
+                    jobPageDeserializer: new JobPageDeserializer(),
+                    jobPageManager: new JobPageManager(),
+                    jobPostingDeserializer: new JobPostingDeserializer(),
+                    jobPostingManager: new JobPostingManager(),
+                    jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
+                    jobPostingExtendedManager: new JobPostingExtendedManager(),
+                    runIdManager: new RunIdManager(),
+                    metricCollectionManager: new MetricCollectionManager(),
+                    fileManager: new FakeFileManager(content),
+                    repositoryFactory: new RepositoryFactory(),
+                    asciiBannerManager: new AsciiBannerManager(),
+                    filenameFactory: new FilenameFactory(),
+                    bulletPointManager: new BulletPointManager(),
+                    nowFunction: WIDExplorerComponents.DefaultNowFunction
+                  );
+            WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
+
+            // Act
+            Exploration actual = widExplorer.LoadExplorationFromJsonFile(ObjectMother.WIDExplorer_FakeJsonFilePath);
+
+            // Assert
+            Assert.IsTrue(
+                ObjectMother.AreEqual(expected, actual)
+                );
+            Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
+
+        }
+
+        [Test]
         public void SaveToJsonFile_ShouldWriteJsonFileToDiskAndLogExpectedMessages_WhenProperMetricCollectionAndFileInfoAdapter()
         {
 
