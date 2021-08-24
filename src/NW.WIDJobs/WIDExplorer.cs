@@ -136,7 +136,7 @@ namespace NW.WIDJobs
             return JsonSerializer.Serialize(dyn, CreateJsonSerializerOptions());
 
         }
-        public List<JobPosting> LoadFromJsonFile(IFileInfoAdapter jsonFile)
+        public List<JobPosting> LoadJobPostingsFromJsonFile(IFileInfoAdapter jsonFile)
         {
 
             Validator.ValidateObject(jsonFile, nameof(jsonFile));
@@ -161,8 +161,8 @@ namespace NW.WIDJobs
             return jobPostings;
 
         }
-        public List<JobPosting> LoadFromJsonFile(string filePath)
-            => LoadFromJsonFile(_components.FileManager.Create(filePath));
+        public List<JobPosting> LoadJobPostingsFromJsonFile(string filePath)
+            => LoadJobPostingsFromJsonFile(_components.FileManager.Create(filePath));
         public IFileInfoAdapter SaveToJsonFile(MetricCollection metricCollection, bool numbersAsPercentages, IFileInfoAdapter jsonFile)
         {
 
@@ -941,5 +941,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 20.08.2021
+    Last Update: 24.08.2021
 */

@@ -29,10 +29,10 @@ namespace NW.WIDJobs
         string ConvertToJson(MetricCollection metricCollection, bool numbersAsPercentages);
 
         /// <summary>Converts the provided JSON format to a collection of <see cref="JobPosting"/> objects.</summary>
-        List<JobPosting> LoadFromJsonFile(IFileInfoAdapter jsonFile);
+        List<JobPosting> LoadJobPostingsFromJsonFile(IFileInfoAdapter jsonFile);
 
         /// <summary>Converts the provided JSON format to a collection of <see cref="JobPosting"/> objects.</summary>
-        List<JobPosting> LoadFromJsonFile(string filePath);
+        List<JobPosting> LoadJobPostingsFromJsonFile(string filePath);
 
         /// <summary>Save the provided <see cref="Exploration"/> to a JSON file using a default filename and path.</summary>
         IFileInfoAdapter SaveToJsonFile(Exploration exploration);
@@ -81,5 +81,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 20.08.2021
+    Last Update: 24.08.2021
 */

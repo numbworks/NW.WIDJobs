@@ -112,32 +112,32 @@ namespace NW.WIDJobs.UnitTests
             ).SetArgDisplayNames($"{nameof(exploreAllExceptionTestCases)}_01")
 
         };        
-        private static TestCaseData[] extractFromJsonExceptionTestCases =
+        private static TestCaseData[] loadJobPostingsFromJsonExceptionTestCases =
         {
 
             new TestCaseData(
                 new TestDelegate(
-                        () => new WIDExplorer().LoadFromJsonFile((IFileInfoAdapter)null)
+                        () => new WIDExplorer().LoadJobPostingsFromJsonFile((IFileInfoAdapter)null)
                     ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("jsonFile").Message
-            ).SetArgDisplayNames($"{nameof(extractFromJsonExceptionTestCases)}_01"),
+            ).SetArgDisplayNames($"{nameof(loadJobPostingsFromJsonExceptionTestCases)}_01"),
 
             new TestCaseData(
                 new TestDelegate(
-                        () => new WIDExplorer().LoadFromJsonFile(ObjectMother.FileManager_FileInfoAdapterDoesntExist)
+                        () => new WIDExplorer().LoadJobPostingsFromJsonFile(ObjectMother.FileManager_FileInfoAdapterDoesntExist)
                     ),
                 typeof(ArgumentException),
                 MessageCollection.Validator_ProvidedPathDoesntExist.Invoke(ObjectMother.FileManager_FileInfoAdapterDoesntExist)
-            ).SetArgDisplayNames($"{nameof(extractFromJsonExceptionTestCases)}_02"),           
+            ).SetArgDisplayNames($"{nameof(loadJobPostingsFromJsonExceptionTestCases)}_02"),           
 
             new TestCaseData(
                 new TestDelegate(
-                        () => new WIDExplorer().LoadFromJsonFile((string)null)
+                        () => new WIDExplorer().LoadJobPostingsFromJsonFile((string)null)
                     ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("filePath").Message
-            ).SetArgDisplayNames($"{nameof(extractFromJsonExceptionTestCases)}_03")
+            ).SetArgDisplayNames($"{nameof(loadJobPostingsFromJsonExceptionTestCases)}_03")
 
         };
         private static TestCaseData[] saveAsSQLiteExceptionTestCases =
@@ -285,8 +285,8 @@ namespace NW.WIDJobs.UnitTests
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
-        [TestCaseSource(nameof(extractFromJsonExceptionTestCases))]
-        public void ExtractFromJson_ShouldThrowACertainException_WhenUnproperArguments
+        [TestCaseSource(nameof(loadJobPostingsFromJsonExceptionTestCases))]
+        public void LoadJobPostingsFromJson_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
@@ -619,7 +619,7 @@ namespace NW.WIDJobs.UnitTests
         }
 
         [Test]
-        public void LoadFromJsonFile_ShouldReturnExpectedJobPostingsAndLogExpectedMessages_WhenProperJsonFile()
+        public void LoadJobPostingsFromJsonFile_ShouldReturnExpectedJobPostingsAndLogExpectedMessages_WhenProperJsonFile()
         {
 
             // Arrange
@@ -691,7 +691,7 @@ namespace NW.WIDJobs.UnitTests
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
             // Act
-            List<JobPosting> actual = widExplorer.LoadFromJsonFile(fakeFileInfoAdapter);
+            List<JobPosting> actual = widExplorer.LoadJobPostingsFromJsonFile(fakeFileInfoAdapter);
 
             // Assert
             Assert.IsTrue(
@@ -702,7 +702,7 @@ namespace NW.WIDJobs.UnitTests
         }
 
         [Test]
-        public void LoadFromJsonFile_ShouldReturnExpectedJobPostingsAndLogExpectedMessages_WhenProperFilePath()
+        public void LoadJobPostingsFromJsonFile_ShouldReturnExpectedJobPostingsAndLogExpectedMessages_WhenProperFilePath()
         {
 
             // Arrange
@@ -774,7 +774,7 @@ namespace NW.WIDJobs.UnitTests
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
             // Act
-            List<JobPosting> actual = widExplorer.LoadFromJsonFile(ObjectMother.WIDExplorer_JobPage01_FakeFilePath);
+            List<JobPosting> actual = widExplorer.LoadJobPostingsFromJsonFile(ObjectMother.WIDExplorer_JobPage01_FakeFilePath);
 
             // Assert
             Assert.IsTrue(
@@ -1677,5 +1677,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 20.08.2021
+    Last Update: 24.08.2021
 */
