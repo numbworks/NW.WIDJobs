@@ -658,14 +658,7 @@ namespace NW.WIDJobs
                 dyn.JobPostings = OptimizeJobPostingsForSerialization(exploration.JobPostings);
 
             if (exploration.JobPostingsExtended != null)
-            {
-
                 dyn.JobPostingsExtended = OptimizeJobPostingsExtendedForSerialization(exploration.JobPostingsExtended);
-
-                if (exploration.Stage == Stages.Stage3_UpToAllJobPostingsExtended)
-                    dyn.JobPostings = DefaultNotSerialized;
-
-            }
 
             return dyn;
 
