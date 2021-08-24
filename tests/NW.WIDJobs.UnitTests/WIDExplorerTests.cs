@@ -140,6 +140,34 @@ namespace NW.WIDJobs.UnitTests
             ).SetArgDisplayNames($"{nameof(loadJobPostingsFromJsonExceptionTestCases)}_03")
 
         };
+        private static TestCaseData[] loadExplorationFromJsonExceptionTestCases =
+        {
+
+            new TestCaseData(
+                new TestDelegate(
+                        () => new WIDExplorer().LoadExplorationFromJsonFile((IFileInfoAdapter)null)
+                    ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("jsonFile").Message
+            ).SetArgDisplayNames($"{nameof(loadExplorationFromJsonExceptionTestCases)}_01"),
+
+            new TestCaseData(
+                new TestDelegate(
+                        () => new WIDExplorer().LoadExplorationFromJsonFile(ObjectMother.FileManager_FileInfoAdapterDoesntExist)
+                    ),
+                typeof(ArgumentException),
+                MessageCollection.Validator_ProvidedPathDoesntExist.Invoke(ObjectMother.FileManager_FileInfoAdapterDoesntExist)
+            ).SetArgDisplayNames($"{nameof(loadExplorationFromJsonExceptionTestCases)}_02"),
+
+            new TestCaseData(
+                new TestDelegate(
+                        () => new WIDExplorer().LoadExplorationFromJsonFile((string)null)
+                    ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("filePath").Message
+            ).SetArgDisplayNames($"{nameof(loadExplorationFromJsonExceptionTestCases)}_03")
+
+        };
         private static TestCaseData[] saveAsSQLiteExceptionTestCases =
         {
 
@@ -287,6 +315,11 @@ namespace NW.WIDJobs.UnitTests
 
         [TestCaseSource(nameof(loadJobPostingsFromJsonExceptionTestCases))]
         public void LoadJobPostingsFromJson_ShouldThrowACertainException_WhenUnproperArguments
+            (TestDelegate del, Type expectedType, string expectedMessage)
+                => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
+
+        [TestCaseSource(nameof(loadExplorationFromJsonExceptionTestCases))]
+        public void LoadExplorationFromJson_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 

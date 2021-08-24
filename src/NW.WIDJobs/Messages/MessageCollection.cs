@@ -116,6 +116,8 @@ namespace NW.WIDJobs.Messages
 
         public static string WIDExplorer_LoadingJobPostingsFromJsonFile
             = $"Loading {nameof(JobPosting)} objects from the provided Json file...";
+        public static string WIDExplorer_LoadingExplorationFromJsonFile
+            = $"Loading an {nameof(Exploration)} object from the provided Json file...";
         public static Func<List<JobPosting>, string> WIDExplorer_JobPostingsExtractedFromJsonFile
             = (jobPostings) => $"'{jobPostings.Count}' {nameof(JobPosting)} objects have been successfully extracted from the provided Json file.";
         public static string WIDExplorer_SomeDefaultValuesUsedJsonFile
@@ -225,6 +227,6 @@ namespace NW.WIDJobs.Messages
 /*
 
     Author: numbworks@gmail.com
-    Last Update: 11.08.2021
+    Last Update: 24.08.2021
 
 */

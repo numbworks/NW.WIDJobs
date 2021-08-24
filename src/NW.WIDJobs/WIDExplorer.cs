@@ -163,6 +163,22 @@ namespace NW.WIDJobs
         }
         public List<JobPosting> LoadJobPostingsFromJsonFile(string filePath)
             => LoadJobPostingsFromJsonFile(_components.FileManager.Create(filePath));
+        public Exploration LoadExplorationFromJsonFile(IFileInfoAdapter jsonFile)
+        {
+
+            Validator.ValidateObject(jsonFile, nameof(jsonFile));
+            Validator.ValidateFileExistance(jsonFile);
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_LoadingExplorationFromJsonFile);
+
+            string json = _components.FileManager.ReadAllText(jsonFile);
+            Exploration exploration = JsonSerializer.Deserialize<Exploration>(json, CreateJsonSerializerOptions());
+
+            return exploration;
+
+        }
+        public Exploration LoadExplorationFromJsonFile(string filePath)
+            => LoadExplorationFromJsonFile(_components.FileManager.Create(filePath));
         public IFileInfoAdapter SaveToJsonFile(MetricCollection metricCollection, bool numbersAsPercentages, IFileInfoAdapter jsonFile)
         {
 

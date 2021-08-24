@@ -34,6 +34,12 @@ namespace NW.WIDJobs
         /// <summary>Converts the provided JSON format to a collection of <see cref="JobPosting"/> objects.</summary>
         List<JobPosting> LoadJobPostingsFromJsonFile(string filePath);
 
+        /// <summary>Converts the provided JSON format to a <see cref="Exploration"/> object.</summary>
+        Exploration LoadExplorationFromJsonFile(IFileInfoAdapter jsonFile);
+
+        /// <summary>Converts the provided JSON format to a <see cref="Exploration"/> object.</summary>
+        Exploration LoadExplorationFromJsonFile(string filePath);
+
         /// <summary>Save the provided <see cref="Exploration"/> to a JSON file using a default filename and path.</summary>
         IFileInfoAdapter SaveToJsonFile(Exploration exploration);
 

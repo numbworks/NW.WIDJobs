@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using NW.WIDJobs;
 using NW.WIDJobs.Explorations;
 using NW.WIDJobs.JobPostingsExtended;
@@ -29,6 +30,7 @@ namespace NW.WIDJobsClient
             AddRootCommandBehaviour(app);
             AddDemoCommandBehaviour(app);
             AddAboutCommandBehaviour(app);
+            AddMetricsCommandBehaviour(app);
 
             app.HelpOption(inherited: true);
 
@@ -129,6 +131,58 @@ namespace NW.WIDJobsClient
                     return ((int)ExitCodes.Success);
 
                 });
+
+            });
+
+            return app;
+
+        }
+        private static CommandLineApplication AddMetricsCommandBehaviour(CommandLineApplication app)
+        {
+
+            app.Command("metrics", metricsCommand =>
+            {
+
+                metricsCommand.OnExecute(() =>
+                {
+
+                    WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
+                    new WIDExplorer().LogAsciiBanner();
+                    metricsCommand.ShowHelp();
+
+                    return ((int)ExitCodes.Success);
+
+                });
+
+                metricsCommand.Command("show", runSubCommand =>
+                {
+
+                    CommandOption jsonPath = runSubCommand.Option("--jsonpath", "The file path to an Exploration JSON file.", CommandOptionType.SingleValue);
+
+                    runSubCommand.OnExecute(() =>
+                    {
+
+                        if (jsonPath.HasValue())
+                        {
+
+                            WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
+
+                            WIDExplorer explorer = new WIDExplorer();
+                            Exploration exploration = explorer.LoadExplorationFromJsonFile(jsonPath.Value());
+
+                            // To-do
+
+                        }
+
+
+                        RunDemo();
+
+                        return ((int)ExitCodes.Success);
+
+                    });
+
+                });
+
 
             });
 
