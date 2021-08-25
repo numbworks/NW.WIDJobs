@@ -61,13 +61,6 @@ namespace NW.WIDJobsClient
 
             CommandLineApplication app = CreateApplication();
 
-            AddRoot(app);
-            AddAbout(app);
-            AddDemo(app);
-            AddExploration(app);
-
-            app.HelpOption(inherited: true);
-
             return app.Execute(args);
 
         }
@@ -82,6 +75,13 @@ namespace NW.WIDJobsClient
                 Description = Application_Description
 
             };
+
+            AddRoot(app);
+            AddAbout(app);
+            AddDemo(app);
+            AddExploration(app);
+
+            app.HelpOption(inherited: true);
 
             return app;
 
