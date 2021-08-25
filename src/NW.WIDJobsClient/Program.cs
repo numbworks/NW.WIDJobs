@@ -399,8 +399,11 @@ namespace NW.WIDJobsClient
                 return ((int)ExitCodes.Success);
 
             }
-            catch 
+            catch (Exception e)
             {
+
+                WIDExplorerComponents.DefaultLoggingAction.Invoke(MessageCollection.Program_FormattedErrorMessage.Invoke(e.Message));
+                WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
 
                 return ((int)ExitCodes.Failure);
 
@@ -429,6 +432,8 @@ namespace NW.WIDJobsClient
                 Exploration exploration = widExplorer.LoadExplorationFromJsonFile(filePath);
                 MetricCollection metricCollection = widExplorer.ConvertToMetricCollection(exploration);
                 IFileInfoAdapter fileInfoAdapter = widExplorer.SaveToJsonFile(metricCollection, numbersAsPercentages);
+                
+                WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
 
                 if (fileInfoAdapter.Exists)
                     return ((int)ExitCodes.Success);
@@ -436,8 +441,11 @@ namespace NW.WIDJobsClient
                 return ((int)ExitCodes.Failure);
 
             }
-            catch
+            catch (Exception e)
             {
+
+                WIDExplorerComponents.DefaultLoggingAction.Invoke(MessageCollection.Program_FormattedErrorMessage.Invoke(e.Message));
+                WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
 
                 return ((int)ExitCodes.Failure);
 

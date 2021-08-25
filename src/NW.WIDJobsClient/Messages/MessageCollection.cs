@@ -1,4 +1,5 @@
-﻿using NW.WIDJobs.Explorations;
+﻿using System;
+using NW.WIDJobs.Explorations;
 
 namespace NW.WIDJobsClient.Messages
 {
@@ -14,6 +15,7 @@ namespace NW.WIDJobsClient.Messages
         public static string Program_ApplicationEmail = "Email: numbworks [AT] gmail [DOT] com";
         public static string Program_ApplicationUrl = @"Github: http://www.github.com/numbworks";
         public static string Program_ApplicationLicense = "License: MIT License";
+        public static Func<string, string> Program_FormattedErrorMessage = (message) => $"ERROR: {message}";
 
     }
 }
