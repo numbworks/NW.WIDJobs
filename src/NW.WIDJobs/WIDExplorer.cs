@@ -36,7 +36,7 @@ namespace NW.WIDJobs
 
         public static string DefaultFormatDateTime { get; } = "yyyyMMddHHmmssfff";
         public static string DefaultFormatDate { get; } = "yyyyMMdd";
-        public static string DefaultNotSerialized { get; } = "This item has been exluded from the serializazion.";
+        public static string DefaultNotSerialized { get; } = "This item has been exluded from the serialization.";
         public static ushort DefaultInitialPageNumber { get; } = 1;
 
         public string Version { get; }
