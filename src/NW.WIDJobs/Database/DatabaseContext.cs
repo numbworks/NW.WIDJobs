@@ -231,7 +231,7 @@ namespace NW.WIDJobs.Database
             modelBuilder.Entity<JobPostingExtendedEntity>()
                 .Property(entity => entity.HiringOrgDescription)
                 .HasColumnType("varchar(250)")
-                .IsRequired(true);
+                .IsRequired(false);
             modelBuilder.Entity<JobPostingExtendedEntity>()
                 .Property(entity => entity.PublicationStartDate)
                 .HasColumnType("datetime")
