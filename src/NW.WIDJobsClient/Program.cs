@@ -54,10 +54,10 @@ namespace NW.WIDJobsClient
 
             CommandLineApplication app = CreateApplication();
 
-            AddRootCommandBehaviour(app);
-            AddDemoCommandBehaviour(app);
-            AddAboutCommandBehaviour(app);
-            AddExplorationCommandBehaviour(app);
+            AddRoot(app);
+            AddAbout(app);
+            AddDemo(app);
+            AddExploration(app);
 
             app.HelpOption(inherited: true);
 
@@ -79,7 +79,7 @@ namespace NW.WIDJobsClient
             return app;
 
         }
-        private static CommandLineApplication AddRootCommandBehaviour(CommandLineApplication app)
+        private static CommandLineApplication AddRoot(CommandLineApplication app)
         {
 
             app.OnExecute(() =>
@@ -95,112 +95,148 @@ namespace NW.WIDJobsClient
             return app;
 
         }
-        private static CommandLineApplication AddAboutCommandBehaviour(CommandLineApplication app)
+        private static CommandLineApplication AddAbout(CommandLineApplication app)
         {
 
             app.Command(Command_About_Name, aboutCommand =>
             {
 
-                aboutCommand.Description = Command_About_Description;
-
-                aboutCommand.OnExecute(() =>
-                {
-
-                    return About();
-
-                });
+                aboutCommand = AddAboutMain(aboutCommand);
 
             });
 
             return app;
 
         }
-        private static CommandLineApplication AddDemoCommandBehaviour(CommandLineApplication app)
+        private static CommandLineApplication AddAboutMain(CommandLineApplication aboutCommand)
+        {
+
+            aboutCommand.Description = Command_About_Description;
+            aboutCommand.OnExecute(() =>
+            {
+
+                return About();
+
+            });
+
+            return aboutCommand;
+
+        }
+        private static CommandLineApplication AddDemo(CommandLineApplication app)
         {
 
             app.Command(Command_Demo_Name, demoCommand =>
             {
 
-                demoCommand.Description = Command_Demo_Description;
-
-                demoCommand.OnExecute(() =>
-                {
-
-                    int exitCode = GenericCommand();
-                    demoCommand.ShowHelp();
-
-                    return exitCode;
-
-                });
-
-                demoCommand.Command(SubCommand_Run_Name, runSubCommand =>
-                {
-
-                    runSubCommand.Description = SubCommand_Run_Description;
-
-                    runSubCommand.OnExecute(() =>
-                    {
-                        return DemoRun();
-
-                    });
-
-                });
+                demoCommand = AddDemoMain(demoCommand);
+                demoCommand = AddDemoRun(demoCommand);
 
             });
 
             return app;
 
         }
-        private static CommandLineApplication AddExplorationCommandBehaviour(CommandLineApplication app)
+        private static CommandLineApplication AddDemoMain(CommandLineApplication demoCommand)
+        {
+
+            demoCommand.Description = Command_Demo_Description;
+            demoCommand.OnExecute(() =>
+            {
+
+                int exitCode = GenericCommand();
+                demoCommand.ShowHelp();
+
+                return exitCode;
+
+            });
+
+            return demoCommand;
+
+        }
+        private static CommandLineApplication AddDemoRun(CommandLineApplication demoCommand)
+        {
+
+            demoCommand.Command(SubCommand_Run_Name, runSubCommand =>
+            {
+
+                runSubCommand.Description = SubCommand_Run_Description;
+
+                runSubCommand.OnExecute(() =>
+                {
+                    return DemoRun();
+
+                });
+
+            });
+
+            return demoCommand;
+
+        }
+        private static CommandLineApplication AddExploration(CommandLineApplication app)
         {
 
             app.Command(Command_Exploration_Name, explorationCommand =>
             {
 
-                explorationCommand.Description = Command_Exploration_Description;
-
-                explorationCommand.OnExecute(() =>
-                {
-
-                    int exitCode = GenericCommand();
-                    explorationCommand.ShowHelp();
-
-                    return exitCode;
-
-                });
-
-                explorationCommand.Command(SubCommand_ShowAsMetrics_Name, showAsMetricsSubCommand =>
-                {
-
-                    showAsMetricsSubCommand.Description = SubCommand_ShowasMetrics_Description;
-
-                    CommandOption asPercentagesOption = showAsMetricsSubCommand.Option(Option_AsPercentages_Template, Option_AsPercentages_Description, CommandOptionType.NoValue);
-                    
-                    CommandOption jsonPathOption = showAsMetricsSubCommand.Option(Option_JsonPath_Template, Option_JsonPath_Description, CommandOptionType.SingleValue);
-                    jsonPathOption.IsRequired(false, Option_JsonPath_ErrorMessage);
-
-                    showAsMetricsSubCommand.OnExecute(() =>
-                    {
-
-                        bool numbersAsPercentages = false;
-                        if (asPercentagesOption.HasValue())
-                            numbersAsPercentages = true;
-
-                        if (jsonPathOption.HasValue())
-                            return ExplorationShowAsMetrics(jsonPathOption.Value(), numbersAsPercentages);
-
-                        return ((int)ExitCodes.Failure);
-
-                    });
-
-                });
+                explorationCommand = AddExplorationMain(explorationCommand);
+                explorationCommand = AddExplorationShowAsMetrics(explorationCommand);
 
             });
 
             return app;
 
         }
+        private static CommandLineApplication AddExplorationMain(CommandLineApplication explorationCommand)
+        {
 
+            explorationCommand.Description = Command_Exploration_Description;
+            explorationCommand.OnExecute(() =>
+            {
+
+                int exitCode = GenericCommand();
+                explorationCommand.ShowHelp();
+
+                return exitCode;
+
+            });
+
+            return explorationCommand;
+
+        }
+        private static CommandLineApplication AddExplorationShowAsMetrics(CommandLineApplication explorationCommand)
+        {
+
+            explorationCommand.Command(SubCommand_ShowAsMetrics_Name, showAsMetricsSubCommand =>
+            {
+
+                showAsMetricsSubCommand.Description = SubCommand_ShowasMetrics_Description;
+
+                CommandOption asPercentagesOption
+                    = showAsMetricsSubCommand.Option(Option_AsPercentages_Template, Option_AsPercentages_Description, CommandOptionType.NoValue);
+
+                CommandOption jsonPathOption
+                    = showAsMetricsSubCommand.Option(Option_JsonPath_Template, Option_JsonPath_Description, CommandOptionType.SingleValue);
+                jsonPathOption.IsRequired(false, Option_JsonPath_ErrorMessage);
+
+                showAsMetricsSubCommand.OnExecute(() =>
+                {
+
+                    bool numbersAsPercentages = false;
+                    if (asPercentagesOption.HasValue())
+                        numbersAsPercentages = true;
+
+                    if (jsonPathOption.HasValue())
+                        return ExplorationShowAsMetrics(jsonPathOption.Value(), numbersAsPercentages);
+
+                    return ((int)ExitCodes.Failure);
+
+                });
+
+            });
+
+            return explorationCommand;
+
+        }
 
         static int GenericCommand()
         {
