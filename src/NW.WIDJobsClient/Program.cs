@@ -301,13 +301,12 @@ namespace NW.WIDJobsClient
             WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
             widExplorer.LogAsciiBanner();
 
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner("Unofficial command-line client for WorkInDenmark.dk.");
-
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner(Application_Description);
             WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner("Author: numbworks");
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner("Email: numbworks [AT] gmail [DOT] com");
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner(@"Github: http://www.github.com/numbworks");
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner("License: MIT License");
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner(MessageCollection.Program_ApplicationAuthor);
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner(MessageCollection.Program_ApplicationEmail);
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner(MessageCollection.Program_ApplicationUrl);
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner(MessageCollection.Program_ApplicationLicense);
 
             WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
 
@@ -485,9 +484,9 @@ namespace NW.WIDJobsClient
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 23.08.2021
+    Last Update: 25.08.2021
 
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(MessageCollection.Program_PressAButtonToCloseTheWindow);
-            Console.ReadLine();
+    WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(MessageCollection.Program_PressAButtonToCloseTheWindow);
+    Console.ReadLine();
 
 */

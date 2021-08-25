@@ -10,11 +10,15 @@ namespace NW.WIDJobsClient.Messages
         public static string Program_DumpingExplorationToConsole = $"Dumping {nameof(Exploration)} object to console:";
         public static string Program_DumpingJSONToConsole = "Dumping JSON to console:";
         public static string Program_PressAButtonToCloseTheWindow = "Press a button to close the window.";
+        public static string Program_ApplicationAuthor = "Author: numbworks";
+        public static string Program_ApplicationEmail = "Email: numbworks [AT] gmail [DOT] com";
+        public static string Program_ApplicationUrl = @"Github: http://www.github.com/numbworks";
+        public static string Program_ApplicationLicense = "License: MIT License";
 
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 20.08.2021
+    Last Update: 25.08.2021
 */
