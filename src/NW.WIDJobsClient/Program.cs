@@ -22,23 +22,37 @@ namespace NW.WIDJobsClient
 {
     class Program
     {
-        // Fields
-        static string ApplicationName = "NW.WIDJobsClient.exe";
-        static string ApplicationDescription = "Unofficial command-line client for WorkInDenmark.dk.";
-        static string AsPercentages_Template = "--aspercentages";
-        static string AsPercentages_Description = "Shows metrics as percentages instead of numbers.";
-        static string JsonPath_Template = "--jsonpath";
-        static string JsonPath_Description = "The file path to an Exploration JSON file.";
-        static string JsonPath_ErrorMessage = "--jsonpath is mandatory.";
-        static string Demo_CommandName = "demo";
-        static string Demo_Description = "Groups all the features related to the demo mode.";
-        static string Run_SubCommandName = "run";
+
+        #region Fields
+
+        static string Application_Name = "NW.WIDJobsClient.exe";
+        static string Application_Description = "Unofficial command-line client for WorkInDenmark.dk.";
+
+        static string Command_About_Name = "about";
+        static string Command_About_Description = "About this application.";
+
+        static string Command_Demo_Name = "demo";
+        static string Command_Demo_Description = "Groups all the features related to the demo mode.";
+        static string SubCommand_Run_Name = "run";
+        static string SubCommand_Run_Description = "Runs a demo exploration.";
+
+        static string Command_Exploration_Name = "exploration";
+        static string Command_Exploration_Description = "Groups all the features related to the exploration of WorkInDenmark.dk.";
+        static string SubCommand_ShowAsMetrics_Name = "showasmetrics";
+        static string SubCommand_ShowasMetrics_Description = $"Imports a {nameof(Exploration)} from a JSON file, calculates the metrics out of it and shows them on screen.";
+        static string Option_AsPercentages_Template = "--aspercentages";
+        static string Option_AsPercentages_Description = "Shows metrics as percentages instead of numbers.";
+        static string Option_JsonPath_Template = "--jsonpath";
+        static string Option_JsonPath_Description = $"The file path to the required JSON file.";
+        static string Option_JsonPath_ErrorMessage = "--jsonpath is mandatory.";
+
+        #endregion
 
         // Methods_Public
         static int Main(string[] args)
         {
 
-            CommandLineApplication app = CreateRootCommand();
+            CommandLineApplication app = CreateApplication();
 
             AddRootCommandBehaviour(app);
             AddDemoCommandBehaviour(app);
@@ -51,14 +65,14 @@ namespace NW.WIDJobsClient
 
         }
 
-        private static CommandLineApplication CreateRootCommand()
+        private static CommandLineApplication CreateApplication()
         {
 
             CommandLineApplication app = new CommandLineApplication
             {
 
-                Name = ApplicationName,
-                Description = ApplicationDescription
+                Name = Application_Name,
+                Description = Application_Description
 
             };
 
@@ -71,7 +85,7 @@ namespace NW.WIDJobsClient
             app.OnExecute(() =>
             {
 
-                int exitCode = ShowGenericCommand();
+                int exitCode = GenericCommand();
                 app.ShowHelp();
 
                 return exitCode;
@@ -81,32 +95,18 @@ namespace NW.WIDJobsClient
             return app;
 
         }
-        private static CommandLineApplication AddDemoCommandBehaviour(CommandLineApplication app)
+        private static CommandLineApplication AddAboutCommandBehaviour(CommandLineApplication app)
         {
 
-            app.Command(Demo_CommandName, demoCommand =>
+            app.Command(Command_About_Name, aboutCommand =>
             {
 
-                demoCommand.Description = Demo_Description;
+                aboutCommand.Description = Command_About_Description;
 
-                demoCommand.OnExecute(() =>
+                aboutCommand.OnExecute(() =>
                 {
 
-                    int exitCode = ShowGenericCommand();
-                    demoCommand.ShowHelp();
-
-                    return exitCode;
-
-                });
-
-                demoCommand.Command(Run_SubCommandName, runSubCommand =>
-                {
-
-                    runSubCommand.OnExecute(() =>
-                    {
-                        return RunDemo();
-
-                    });
+                    return About();
 
                 });
 
@@ -115,16 +115,34 @@ namespace NW.WIDJobsClient
             return app;
 
         }
-        private static CommandLineApplication AddAboutCommandBehaviour(CommandLineApplication app)
+        private static CommandLineApplication AddDemoCommandBehaviour(CommandLineApplication app)
         {
 
-            app.Command("about", aboutCommand =>
+            app.Command(Command_Demo_Name, demoCommand =>
             {
 
-                aboutCommand.OnExecute(() =>
+                demoCommand.Description = Command_Demo_Description;
+
+                demoCommand.OnExecute(() =>
                 {
 
-                    return ShowAboutCommand();
+                    int exitCode = GenericCommand();
+                    demoCommand.ShowHelp();
+
+                    return exitCode;
+
+                });
+
+                demoCommand.Command(SubCommand_Run_Name, runSubCommand =>
+                {
+
+                    runSubCommand.Description = SubCommand_Run_Description;
+
+                    runSubCommand.OnExecute(() =>
+                    {
+                        return DemoRun();
+
+                    });
 
                 });
 
@@ -136,28 +154,32 @@ namespace NW.WIDJobsClient
         private static CommandLineApplication AddExplorationCommandBehaviour(CommandLineApplication app)
         {
 
-            app.Command("exploration", explorationCommand =>
+            app.Command(Command_Exploration_Name, explorationCommand =>
             {
+
+                explorationCommand.Description = Command_Exploration_Description;
 
                 explorationCommand.OnExecute(() =>
                 {
 
-                    int exitCode = ShowGenericCommand();
+                    int exitCode = GenericCommand();
                     explorationCommand.ShowHelp();
 
                     return exitCode;
 
                 });
 
-                explorationCommand.Command("showasmetrics", showasmetricsSubCommand =>
+                explorationCommand.Command(SubCommand_ShowAsMetrics_Name, showAsMetricsSubCommand =>
                 {
 
-                    CommandOption asPercentagesOption = showasmetricsSubCommand.Option(AsPercentages_Template, AsPercentages_Description, CommandOptionType.NoValue);
-                    
-                    CommandOption jsonPathOption = showasmetricsSubCommand.Option(JsonPath_Template, JsonPath_Description, CommandOptionType.SingleValue);
-                    jsonPathOption.IsRequired(false, JsonPath_ErrorMessage);
+                    showAsMetricsSubCommand.Description = SubCommand_ShowasMetrics_Description;
 
-                    showasmetricsSubCommand.OnExecute(() =>
+                    CommandOption asPercentagesOption = showAsMetricsSubCommand.Option(Option_AsPercentages_Template, Option_AsPercentages_Description, CommandOptionType.NoValue);
+                    
+                    CommandOption jsonPathOption = showAsMetricsSubCommand.Option(Option_JsonPath_Template, Option_JsonPath_Description, CommandOptionType.SingleValue);
+                    jsonPathOption.IsRequired(false, Option_JsonPath_ErrorMessage);
+
+                    showAsMetricsSubCommand.OnExecute(() =>
                     {
 
                         bool numbersAsPercentages = false;
@@ -165,14 +187,13 @@ namespace NW.WIDJobsClient
                             numbersAsPercentages = true;
 
                         if (jsonPathOption.HasValue())
-                            return ShowExplorationAsMetrics(jsonPathOption.Value(), numbersAsPercentages);
+                            return ExplorationShowAsMetrics(jsonPathOption.Value(), numbersAsPercentages);
 
                         return ((int)ExitCodes.Failure);
 
                     });
 
                 });
-
 
             });
 
@@ -181,20 +202,24 @@ namespace NW.WIDJobsClient
         }
 
 
-        static int ShowGenericCommand()
+        static int GenericCommand()
         {
 
+            WIDExplorer widExplorer = new WIDExplorer();
+
             WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
-            new WIDExplorer().LogAsciiBanner();
+            widExplorer.LogAsciiBanner();
 
             return ((int)ExitCodes.Success);
 
         }
-        static int ShowAboutCommand()
+        static int About()
         {
 
+            WIDExplorer widExplorer = new WIDExplorer();
+
             WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
-            new WIDExplorer().LogAsciiBanner();
+            widExplorer.LogAsciiBanner();
 
             WIDExplorerComponents.DefaultLoggingActionAsciiBanner("Unofficial command-line client for WorkInDenmark.dk.");
 
@@ -209,10 +234,8 @@ namespace NW.WIDJobsClient
             return ((int)ExitCodes.Success);
 
         }
-        static int RunDemo() 
+        static int DemoRun() 
         {
-
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
 
             WIDExplorerComponents components = new WIDExplorerComponents(
                     loggingAction: WIDExplorerComponents.DefaultLoggingAction,
@@ -243,6 +266,7 @@ namespace NW.WIDJobsClient
 
             WIDExplorer widExplorer = new WIDExplorer(components, settings);
 
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
             widExplorer.LogAsciiBanner();
             WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(MessageCollection.Program_DemoMode);
             WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
@@ -273,15 +297,17 @@ namespace NW.WIDJobsClient
             return ((int)ExitCodes.Success);
 
         }
-        static int ShowExplorationAsMetrics(string filePath, bool numbersAsPercentages)
+        static int ExplorationShowAsMetrics(string filePath, bool numbersAsPercentages)
         {
 
             try
             {
 
-                WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
-
                 WIDExplorer widExplorer = new WIDExplorer();
+
+                WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
+                widExplorer.LogAsciiBanner();
+
                 Exploration exploration = widExplorer.LoadExplorationFromJsonFile(filePath);
                 MetricCollection metricCollection = widExplorer.ConvertToMetricCollection(exploration);
 
