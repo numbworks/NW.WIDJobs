@@ -25,6 +25,14 @@ namespace NW.WIDJobsClient
         // Fields
         static string ApplicationName = "NW.WIDJobsClient.exe";
         static string ApplicationDescription = "Unofficial command-line client for WorkInDenmark.dk.";
+        static string AsPercentages_Template = "--aspercentages";
+        static string AsPercentages_Description = "Shows metrics as percentages instead of numbers.";
+        static string JsonPath_Template = "--jsonpath";
+        static string JsonPath_Description = "The file path to an Exploration JSON file.";
+        static string JsonPath_ErrorMessage = "--jsonpath is mandatory.";
+        static string Demo_CommandName = "demo";
+        static string Demo_Description = "Groups all the features related to the demo mode.";
+        static string Run_SubCommandName = "run";
 
         // Methods_Public
         static int Main(string[] args)
@@ -63,11 +71,10 @@ namespace NW.WIDJobsClient
             app.OnExecute(() =>
             {
 
-                WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
-                new WIDExplorer().LogAsciiBanner();
+                int exitCode = ShowGenericCommand();
                 app.ShowHelp();
 
-                return ((int)ExitCodes.Success);
+                return exitCode;
 
             });
 
@@ -77,8 +84,10 @@ namespace NW.WIDJobsClient
         private static CommandLineApplication AddDemoCommandBehaviour(CommandLineApplication app)
         {
 
-            app.Command("demo", demoCommand =>
+            app.Command(Demo_CommandName, demoCommand =>
             {
+
+                demoCommand.Description = Demo_Description;
 
                 demoCommand.OnExecute(() =>
                 {
@@ -90,7 +99,7 @@ namespace NW.WIDJobsClient
 
                 });
 
-                demoCommand.Command("run", runSubCommand =>
+                demoCommand.Command(Run_SubCommandName, runSubCommand =>
                 {
 
                     runSubCommand.OnExecute(() =>
@@ -143,10 +152,10 @@ namespace NW.WIDJobsClient
                 explorationCommand.Command("showasmetrics", showasmetricsSubCommand =>
                 {
 
-                    CommandOption asPercentagesOption = showasmetricsSubCommand.Option("--aspercentages", "Shows metrics as percentages instead of numbers.", CommandOptionType.NoValue);
+                    CommandOption asPercentagesOption = showasmetricsSubCommand.Option(AsPercentages_Template, AsPercentages_Description, CommandOptionType.NoValue);
                     
-                    CommandOption jsonPathOption = showasmetricsSubCommand.Option("--jsonpath", "The file path to an Exploration JSON file.", CommandOptionType.SingleValue);
-                    jsonPathOption.IsRequired(false, "--jsonpath is mandatory.");
+                    CommandOption jsonPathOption = showasmetricsSubCommand.Option(JsonPath_Template, JsonPath_Description, CommandOptionType.SingleValue);
+                    jsonPathOption.IsRequired(false, JsonPath_ErrorMessage);
 
                     showasmetricsSubCommand.OnExecute(() =>
                     {
