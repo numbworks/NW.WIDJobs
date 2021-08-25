@@ -92,7 +92,7 @@ namespace NW.WIDJobs.Database
                 .HasKey(entity => entity.RowId);
             modelBuilder.Entity<JobPostingEntity>()
                 .Property(entity => entity.RowId)
-                .HasColumnType("bigint")
+                .HasColumnType("integer")
                 .IsRequired(true)
                 .ValueGeneratedOnAdd();
 
@@ -216,7 +216,7 @@ namespace NW.WIDJobs.Database
                 .HasKey(entity => entity.RowId);
             modelBuilder.Entity<JobPostingExtendedEntity>()
                 .Property(entity => entity.RowId)
-                .HasColumnType("bigint")
+                .HasColumnType("integer")
                 .IsRequired(true)
                 .ValueGeneratedOnAdd();
 
@@ -288,7 +288,7 @@ namespace NW.WIDJobs.Database
                 .HasKey(entity => entity.RowId);
             modelBuilder.Entity<BulletPointEntity>()
                 .Property(entity => entity.RowId)
-                .HasColumnType("bigint")
+                .HasColumnType("integer")
                 .IsRequired(true)
                 .ValueGeneratedOnAdd();
 
@@ -321,5 +321,5 @@ namespace NW.WIDJobs.Database
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 08.08.2021
+    Last Update: 25.08.2021
 */

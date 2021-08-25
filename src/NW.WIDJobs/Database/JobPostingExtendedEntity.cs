@@ -2,7 +2,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using NW.WIDJobs.JobPostingsExtended;
-using NW.WIDJobs.Validation;
 
 namespace NW.WIDJobs.Database
 {
@@ -19,7 +18,7 @@ namespace NW.WIDJobs.Database
 
         [Key]
         [Required]
-        [DataType("bigint")]
+        [DataType("integer")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public uint RowId { get; set; }
 
@@ -122,5 +121,5 @@ namespace NW.WIDJobs.Database
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 08.08.2021
+    Last Update: 25.08.2021
 */
