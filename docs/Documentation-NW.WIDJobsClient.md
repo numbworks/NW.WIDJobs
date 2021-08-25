@@ -15,15 +15,17 @@ Contact: numbworks@gmail.com
 
 The command-line interface for of `NW.WIDJobsClient`:
 
-|Root|Command|Sub Command|Options|Exit codes|
-|---|---|---|---|---|
-|widjobs.exe|about|||Success|
-|widjobs.exe|demo|||Success|
-|widjobs.exe|demo|run||Success|
-|widjobs.exe|exploration|||Success|
-|widjobs.exe|exploration|showasmetrics|--jsonpath:{path} <br />*--aspercentages*|Success<br />Failure|
-|widjobs.exe|exploration|saveasmetrics|--jsonpath:{path}<br />--folderpath:{path} <br />*--aspercentages*|Success<br />Failure|
-|widjobs.exe|exploration|saveasdatabase|--jsonpath:{path}<br />--folderpath:{path}|Success<br />Failure|
+|Command|Sub Command|Options|Exit Codes|
+|---|---|---|---|
+|about|||Success|
+|demo|||Success|
+|demo|run||Success|
+|exploration|||Success|
+|exploration|showasmetrics|--jsonpath:{path} <br />*--aspercentages*|Success<br />Failure|
+|exploration|saveasmetrics|--jsonpath:{path}<br />--folderpath:{path} <br />*--aspercentages*|Success<br />Failure|
+|exploration|saveasdatabase|--jsonpath:{path}<br />--folderpath:{path}|Success<br />Failure|
+|exploration|describe|--output:{jsonfile\|console\|all}<br />*--folderpath:{path}*|Success<br />Failure|
+|exploration|explore|--stage:{2\|3}<br />--thresholdtype:{pagenumber\|date\|jobpostingid}<br />--threshold:{pagenumber}\|{date}\|{jobpostingid}<br />--explorationoutput:{database\|jsonfile\|console\|all}<br />*--folderpath:{path}*<br />*--metrics*<br />*--metricsoutput:{jsonfile\|console\|all}*<br />*--parallelrequests*<br />*--pausebetweenrequestsms*|Success<br />Failure|
 
 # Exit codes
 
