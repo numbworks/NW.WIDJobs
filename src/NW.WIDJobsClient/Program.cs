@@ -22,15 +22,20 @@ namespace NW.WIDJobsClient
 {
     class Program
     {
+        // Fields
+        static string ApplicationName = "NW.WIDJobsClient.exe";
+        static string ApplicationDescription = "Unofficial command-line client for WorkInDenmark.dk.";
 
+        // Methods_Public
         static int Main(string[] args)
         {
 
             CommandLineApplication app = CreateRootCommand();
+
             AddRootCommandBehaviour(app);
             AddDemoCommandBehaviour(app);
             AddAboutCommandBehaviour(app);
-            AddMetricsCommandBehaviour(app);
+            AddExplorationCommandBehaviour(app);
 
             app.HelpOption(inherited: true);
 
@@ -44,8 +49,8 @@ namespace NW.WIDJobsClient
             CommandLineApplication app = new CommandLineApplication
             {
 
-                Name = "NW.WIDJobsClient.exe",
-                Description = "Unofficial command-line client for WorkInDenmark.dk.",
+                Name = ApplicationName,
+                Description = ApplicationDescription
 
             };
 
@@ -78,11 +83,10 @@ namespace NW.WIDJobsClient
                 demoCommand.OnExecute(() =>
                 {
 
-                    WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
-                    new WIDExplorer().LogAsciiBanner();
+                    int exitCode = ShowGenericCommand();
                     demoCommand.ShowHelp();
 
-                    return ((int)ExitCodes.Success);
+                    return exitCode;
 
                 });
 
@@ -91,11 +95,7 @@ namespace NW.WIDJobsClient
 
                     runSubCommand.OnExecute(() =>
                     {
-
-                        WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
-                        RunDemo();
-
-                        return ((int)ExitCodes.Success);
+                        return RunDemo();
 
                     });
 
@@ -115,20 +115,7 @@ namespace NW.WIDJobsClient
                 aboutCommand.OnExecute(() =>
                 {
 
-                    WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
-                    new WIDExplorer().LogAsciiBanner();
-
-                    WIDExplorerComponents.DefaultLoggingActionAsciiBanner("Unofficial command-line client for WorkInDenmark.dk.");
-
-                    WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
-                    WIDExplorerComponents.DefaultLoggingActionAsciiBanner("Author: numbworks");
-                    WIDExplorerComponents.DefaultLoggingActionAsciiBanner("Email: numbworks [AT] gmail [DOT] com");
-                    WIDExplorerComponents.DefaultLoggingActionAsciiBanner(@"Github: http://www.github.com/numbworks");
-                    WIDExplorerComponents.DefaultLoggingActionAsciiBanner("License: MIT License");
-
-                    WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
-
-                    return ((int)ExitCodes.Success);
+                    return ShowAboutCommand();
 
                 });
 
@@ -137,47 +124,41 @@ namespace NW.WIDJobsClient
             return app;
 
         }
-        private static CommandLineApplication AddMetricsCommandBehaviour(CommandLineApplication app)
+        private static CommandLineApplication AddExplorationCommandBehaviour(CommandLineApplication app)
         {
 
-            app.Command("metrics", metricsCommand =>
+            app.Command("exploration", explorationCommand =>
             {
 
-                metricsCommand.OnExecute(() =>
+                explorationCommand.OnExecute(() =>
                 {
 
-                    WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
-                    new WIDExplorer().LogAsciiBanner();
-                    metricsCommand.ShowHelp();
+                    int exitCode = ShowGenericCommand();
+                    explorationCommand.ShowHelp();
 
-                    return ((int)ExitCodes.Success);
+                    return exitCode;
 
                 });
 
-                metricsCommand.Command("show", runSubCommand =>
+                explorationCommand.Command("showasmetrics", showasmetricsSubCommand =>
                 {
 
-                    CommandOption jsonPath = runSubCommand.Option("--jsonpath", "The file path to an Exploration JSON file.", CommandOptionType.SingleValue);
+                    CommandOption asPercentagesOption = showasmetricsSubCommand.Option("--aspercentages", "Shows metrics as percentages instead of numbers.", CommandOptionType.NoValue);
+                    
+                    CommandOption jsonPathOption = showasmetricsSubCommand.Option("--jsonpath", "The file path to an Exploration JSON file.", CommandOptionType.SingleValue);
+                    jsonPathOption.IsRequired(false, "--jsonpath is mandatory.");
 
-                    runSubCommand.OnExecute(() =>
+                    showasmetricsSubCommand.OnExecute(() =>
                     {
 
-                        if (jsonPath.HasValue())
-                        {
+                        bool numbersAsPercentages = false;
+                        if (asPercentagesOption.HasValue())
+                            numbersAsPercentages = true;
 
-                            WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
+                        if (jsonPathOption.HasValue())
+                            return ShowExplorationAsMetrics(jsonPathOption.Value(), numbersAsPercentages);
 
-                            WIDExplorer explorer = new WIDExplorer();
-                            Exploration exploration = explorer.LoadExplorationFromJsonFile(jsonPath.Value());
-
-                            // To-do
-
-                        }
-
-
-                        RunDemo();
-
-                        return ((int)ExitCodes.Success);
+                        return ((int)ExitCodes.Failure);
 
                     });
 
@@ -191,8 +172,38 @@ namespace NW.WIDJobsClient
         }
 
 
-        static void RunDemo() 
+        static int ShowGenericCommand()
         {
+
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
+            new WIDExplorer().LogAsciiBanner();
+
+            return ((int)ExitCodes.Success);
+
+        }
+        static int ShowAboutCommand()
+        {
+
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
+            new WIDExplorer().LogAsciiBanner();
+
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner("Unofficial command-line client for WorkInDenmark.dk.");
+
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner("Author: numbworks");
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner("Email: numbworks [AT] gmail [DOT] com");
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner(@"Github: http://www.github.com/numbworks");
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner("License: MIT License");
+
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
+
+            return ((int)ExitCodes.Success);
+
+        }
+        static int RunDemo() 
+        {
+
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
 
             WIDExplorerComponents components = new WIDExplorerComponents(
                     loggingAction: WIDExplorerComponents.DefaultLoggingAction,
@@ -250,8 +261,36 @@ namespace NW.WIDJobsClient
             WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(json);
             WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
 
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(MessageCollection.Program_PressAButtonToCloseTheWindow);
-            Console.ReadLine();
+            return ((int)ExitCodes.Success);
+
+        }
+        static int ShowExplorationAsMetrics(string filePath, bool numbersAsPercentages)
+        {
+
+            try
+            {
+
+                WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
+
+                WIDExplorer widExplorer = new WIDExplorer();
+                Exploration exploration = widExplorer.LoadExplorationFromJsonFile(filePath);
+                MetricCollection metricCollection = widExplorer.ConvertToMetricCollection(exploration);
+
+                string json = widExplorer.ConvertToJson(metricCollection, numbersAsPercentages);
+                WIDExplorerComponents.DefaultLoggingAction.Invoke(MessageCollection.Program_DumpingJSONToConsole);
+                WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
+                WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(json);
+                WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
+
+                return ((int)ExitCodes.Success);
+
+            }
+            catch 
+            {
+
+                return ((int)ExitCodes.Failure);
+
+            }
 
         }
 
@@ -295,4 +334,8 @@ namespace NW.WIDJobsClient
 /*
     Author: numbworks@gmail.com
     Last Update: 23.08.2021
+
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(MessageCollection.Program_PressAButtonToCloseTheWindow);
+            Console.ReadLine();
+
 */
