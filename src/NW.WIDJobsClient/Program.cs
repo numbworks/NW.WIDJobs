@@ -39,17 +39,19 @@ namespace NW.WIDJobsClient
         static string Command_Exploration_Name = "exploration";
         static string Command_Exploration_Description = "Groups all the features related to the exploration of WorkInDenmark.dk.";
         static string SubCommand_ShowAsMetrics_Name = "showasmetrics";
-        static string SubCommand_ShowAsMetrics_Description = $"Imports a {nameof(Exploration)} from a JSON file, calculates the metrics and shows them on screen.";
+        static string SubCommand_ShowAsMetrics_Description = $"Loads an {nameof(Exploration)} from a JSON file, calculates the metrics and shows them on screen.";
         static string Option_AsPercentages_Template = "--aspercentages";
         static string Option_AsPercentages_Description = "Shows metrics as percentages instead of numbers.";
         static string Option_JsonPath_Template = "--jsonpath";
         static string Option_JsonPath_Description = $"The file path to the required JSON file.";
         static string Option_JsonPath_ErrorMessage = "--jsonpath is mandatory.";
-        static string SubCommand_ExportAsMetrics_Name = "exportasmetrics";
-        static string SubCommand_ExportAsMetrics_Description = $"Imports a {nameof(Exploration)} from a JSON file, calculates the metrics and export them as JSON.";
+        static string SubCommand_SaveAsMetrics_Name = "saveasmetrics";
+        static string SubCommand_SaveAsMetrics_Description = $"Loads an {nameof(Exploration)} from a JSON file, calculates the metrics and saves them as JSON.";
         static string Option_FolderPath_Template = "--folderpath";
         static string Option_FolderPath_Description = $"A valid folder path.";
         static string Option_FolderPath_ErrorMessage = "--folderpath is mandatory.";
+        static string SubCommand_SaveAsDatabase_Name = "saveasdatabase";
+        static string SubCommand_SaveAsDatabase_Description = $"Loads an {nameof(Exploration)} from a JSON file, calculates the metrics and saves them as SQLite database.";
 
         #endregion
 
@@ -185,7 +187,8 @@ namespace NW.WIDJobsClient
 
                 explorationCommand = AddExplorationMain(explorationCommand);
                 explorationCommand = AddExplorationShowAsMetrics(explorationCommand);
-                explorationCommand = AddExplorationExportAsMetrics(explorationCommand);
+                explorationCommand = AddExplorationSaveAsMetrics(explorationCommand);
+                explorationCommand = AddExplorationSaveAsDatabase(explorationCommand);
 
             });
 
@@ -243,26 +246,26 @@ namespace NW.WIDJobsClient
             return explorationCommand;
 
         }
-        private static CommandLineApplication AddExplorationExportAsMetrics(CommandLineApplication explorationCommand)
+        private static CommandLineApplication AddExplorationSaveAsMetrics(CommandLineApplication explorationCommand)
         {
 
-            explorationCommand.Command(SubCommand_ExportAsMetrics_Name, exportAsMetricsSubCommand =>
+            explorationCommand.Command(SubCommand_SaveAsMetrics_Name, saveAsMetricsSubCommand =>
             {
 
-                exportAsMetricsSubCommand.Description = SubCommand_ExportAsMetrics_Description;
+                saveAsMetricsSubCommand.Description = SubCommand_SaveAsMetrics_Description;
 
                 CommandOption asPercentagesOption
-                    = exportAsMetricsSubCommand.Option(Option_AsPercentages_Template, Option_AsPercentages_Description, CommandOptionType.NoValue);
+                    = saveAsMetricsSubCommand.Option(Option_AsPercentages_Template, Option_AsPercentages_Description, CommandOptionType.NoValue);
 
                 CommandOption jsonPathOption
-                    = exportAsMetricsSubCommand.Option(Option_JsonPath_Template, Option_JsonPath_Description, CommandOptionType.SingleValue);
+                    = saveAsMetricsSubCommand.Option(Option_JsonPath_Template, Option_JsonPath_Description, CommandOptionType.SingleValue);
                 jsonPathOption.IsRequired(false, Option_JsonPath_ErrorMessage);
 
                 CommandOption folderPathOption
-                    = exportAsMetricsSubCommand.Option(Option_FolderPath_Template, Option_FolderPath_Description, CommandOptionType.SingleValue);
+                    = saveAsMetricsSubCommand.Option(Option_FolderPath_Template, Option_FolderPath_Description, CommandOptionType.SingleValue);
                 folderPathOption.IsRequired(false, Option_FolderPath_ErrorMessage);
 
-                exportAsMetricsSubCommand.OnExecute(() =>
+                saveAsMetricsSubCommand.OnExecute(() =>
                 {
 
                     bool numbersAsPercentages = false;
@@ -270,7 +273,38 @@ namespace NW.WIDJobsClient
                         numbersAsPercentages = true;
 
                     if (jsonPathOption.HasValue() && folderPathOption.HasValue())
-                        return ExplorationExportAsMetrics(jsonPathOption.Value(), folderPathOption.Value(), numbersAsPercentages);
+                        return ExplorationSaveAsMetrics(jsonPathOption.Value(), folderPathOption.Value(), numbersAsPercentages);
+
+                    return ((int)ExitCodes.Failure);
+
+                });
+
+            });
+
+            return explorationCommand;
+
+        }
+        private static CommandLineApplication AddExplorationSaveAsDatabase(CommandLineApplication explorationCommand)
+        {
+
+            explorationCommand.Command(SubCommand_SaveAsDatabase_Name, saveAsDatabaseSubCommand =>
+            {
+
+                saveAsDatabaseSubCommand.Description = SubCommand_SaveAsDatabase_Description;
+
+                CommandOption jsonPathOption
+                    = saveAsDatabaseSubCommand.Option(Option_JsonPath_Template, Option_JsonPath_Description, CommandOptionType.SingleValue);
+                jsonPathOption.IsRequired(false, Option_JsonPath_ErrorMessage);
+
+                CommandOption folderPathOption
+                    = saveAsDatabaseSubCommand.Option(Option_FolderPath_Template, Option_FolderPath_Description, CommandOptionType.SingleValue);
+                folderPathOption.IsRequired(false, Option_FolderPath_ErrorMessage);
+
+                saveAsDatabaseSubCommand.OnExecute(() =>
+                {
+
+                    if (jsonPathOption.HasValue() && folderPathOption.HasValue())
+                        return ExplorationSaveAsDatabase(jsonPathOption.Value(), folderPathOption.Value());
 
                     return ((int)ExitCodes.Failure);
 
@@ -410,7 +444,7 @@ namespace NW.WIDJobsClient
             }
 
         }
-        static int ExplorationExportAsMetrics(string filePath, string folderPath, bool numbersAsPercentages)
+        static int ExplorationSaveAsMetrics(string filePath, string folderPath, bool numbersAsPercentages)
         {
 
             try
@@ -433,6 +467,47 @@ namespace NW.WIDJobsClient
                 MetricCollection metricCollection = widExplorer.ConvertToMetricCollection(exploration);
                 IFileInfoAdapter fileInfoAdapter = widExplorer.SaveToJsonFile(metricCollection, numbersAsPercentages);
                 
+                WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
+
+                if (fileInfoAdapter.Exists)
+                    return ((int)ExitCodes.Success);
+
+                return ((int)ExitCodes.Failure);
+
+            }
+            catch (Exception e)
+            {
+
+                WIDExplorerComponents.DefaultLoggingAction.Invoke(MessageCollection.Program_FormattedErrorMessage.Invoke(e.Message));
+                WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
+
+                return ((int)ExitCodes.Failure);
+
+            }
+
+        }
+        static int ExplorationSaveAsDatabase(string filePath, string folderPath)
+        {
+
+            try
+            {
+
+                WIDExplorerSettings settings
+                    = new WIDExplorerSettings(
+                            parallelRequests: WIDExplorerSettings.DefaultParallelRequests,
+                            pauseBetweenRequestsMs: WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
+                            folderPath: folderPath,
+                            deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
+                        );
+
+                WIDExplorer widExplorer = new WIDExplorer(new WIDExplorerComponents(), settings);
+
+                WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
+                widExplorer.LogAsciiBanner();
+
+                Exploration exploration = widExplorer.LoadExplorationFromJsonFile(filePath);
+                IFileInfoAdapter fileInfoAdapter = widExplorer.SaveToSQLiteDatabase(exploration.JobPostingsExtended);
+
                 WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
 
                 if (fileInfoAdapter.Exists)

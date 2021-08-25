@@ -15,14 +15,15 @@ Contact: numbworks@gmail.com
 
 The command-line interface for of `NW.WIDJobsClient`:
 
-|Root Command|Command|Sub Command|Options|Exit codes|
+|Root|Command|Sub Command|Options|Exit codes|
 |---|---|---|---|---|
 |widjobs.exe|about|||Success|
 |widjobs.exe|demo|||Success|
 |widjobs.exe|demo|run||Success|
 |widjobs.exe|exploration|||Success|
-|widjobs.exe|exploration|showasmetrics|--jsonpath:{path} <br />--aspercentages|Success<br />Failure|
-|widjobs.exe|exploration|exportasmetrics|--jsonpath:{path}<br /> --folderpath:{path}<br /> --aspercentages|Success<br />Failure|
+|widjobs.exe|exploration|showasmetrics|--jsonpath:{path} <br />*--aspercentages*|Success<br />Failure|
+|widjobs.exe|exploration|saveasmetrics|--jsonpath:{path}<br />--folderpath:{path} <br />*--aspercentages*|Success<br />Failure|
+|widjobs.exe|exploration|saveasdatabase|--jsonpath:{path}<br />--folderpath:{path}|Success<br />Failure|
 
 # Exit codes
 
