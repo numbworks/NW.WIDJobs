@@ -208,8 +208,10 @@ namespace NW.WIDJobsClient
                 convertSubCommand.OnExecute(() =>
                 {
 
-                    
-                    return ExplorationConvert(jsonPathOption.Value(), folderPathOption.Value());
+                    return ExplorationConvert(
+                                jsonPathOption.Value(), 
+                                ConvertToDatabaseOutputs(outputOption.Value()),
+                                folderPathOption.Value());
 
                 });
 
@@ -347,7 +349,6 @@ namespace NW.WIDJobsClient
             }
 
         }
-
         static int ExplorationDescribe(JsonConsoleOutputs output, string folderPath, bool useDemoData)
         {
 
@@ -432,13 +433,13 @@ namespace NW.WIDJobsClient
             if (outputValue == nameof(JsonConsoleOutputs.both))
                 return JsonConsoleOutputs.both;
 
-            throw CreateJsonConsoleOutputException(outputValue);
+            throw CreateOutputException<JsonConsoleOutputs>(outputValue);
 
         }
-        private static Exception CreateJsonConsoleOutputException(string outputValue)
+        private static Exception CreateOutputException<T>(string outputValue)
         {
 
-            return new Exception(MessageCollection.Program_OutputValueCantBeConvertedDescribeOutputs.Invoke(outputValue));
+            return new Exception(MessageCollection.Program_OutputValueCantBeConvertedToOutputs.Invoke(outputValue, typeof(T)));
 
         }
         private static int DumpExploratonToConsole(WIDExplorer widExplorer, Exploration exploration)
@@ -603,7 +604,7 @@ namespace NW.WIDJobsClient
             if (outputValue == nameof(DatabaseOutputs.databasefile))
                 return DatabaseOutputs.databasefile;
 
-            throw CreateDatabaseOutputException(outputValue);
+            throw CreateOutputException<DatabaseOutputs>(outputValue);
 
         }
 
