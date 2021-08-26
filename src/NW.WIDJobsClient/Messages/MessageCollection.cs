@@ -9,7 +9,7 @@ namespace NW.WIDJobsClient.Messages
 
         public static string Program_DemoMode = "Demo Mode";
         public static string Program_DumpingExplorationToConsole = $"Dumping {nameof(Exploration)} object to console:";
-        public static string Program_DumpingJSONToConsole = "Dumping JSON to console:";
+        public static string Program_DumpingJsonToConsole = "Dumping Json to console:";
         public static string Program_PressAButtonToCloseTheWindow = "Press a button to close the window.";
         public static string Program_ApplicationAuthor = "Author: numbworks";
         public static string Program_ApplicationEmail = "Email: numbworks [AT] gmail [DOT] com";

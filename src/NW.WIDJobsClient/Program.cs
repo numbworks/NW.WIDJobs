@@ -17,6 +17,7 @@ using NW.WIDJobs.BulletPoints;
 using NW.WIDJobs.UnitTests;
 using NW.WIDJobsClient.Messages;
 using McMaster.Extensions.CommandLineUtils;
+using McMaster.Extensions.CommandLineUtils.Validation;
 
 namespace NW.WIDJobsClient
 {
@@ -49,9 +50,15 @@ namespace NW.WIDJobsClient
         static string SubCommand_SaveAsMetrics_Description = $"Loads an {nameof(Exploration)} from a JSON file, calculates the metrics and saves them as JSON.";
         static string Option_FolderPath_Template = "--folderpath";
         static string Option_FolderPath_Description = $"A valid folder path.";
-        static string Option_FolderPath_ErrorMessage = "--folderpath is mandatory.";
+        static string Option_FolderPath_ErrorMessage = $"{Option_FolderPath_Template} is mandatory.";
         static string SubCommand_SaveAsDatabase_Name = "saveasdatabase";
         static string SubCommand_SaveAsDatabase_Description = $"Loads an {nameof(Exploration)} from a JSON file, calculates the metrics and saves them as SQLite database.";
+
+        static string SubCommand_Describe_Name = "describe";
+        static string SubCommand_Describe_Description = $"Describes the current state of WorkInDenmark.dk.";
+        static string Option_Output_Template = "--output";
+        static string Option_Output_Description = $"The output(s) of the operation.";
+        static string Option_Output_ErrorMessage = $"{Option_Output_Template} is mandatory.";
 
         #endregion
 
@@ -189,6 +196,7 @@ namespace NW.WIDJobsClient
                 explorationCommand = AddExplorationShowAsMetrics(explorationCommand);
                 explorationCommand = AddExplorationSaveAsMetrics(explorationCommand);
                 explorationCommand = AddExplorationSaveAsDatabase(explorationCommand);
+                explorationCommand = AddExplorationDescribe(explorationCommand);
 
             });
 
@@ -315,6 +323,37 @@ namespace NW.WIDJobsClient
             return explorationCommand;
 
         }
+        private static CommandLineApplication AddExplorationDescribe(CommandLineApplication explorationCommand)
+        {
+
+            explorationCommand.Command(SubCommand_Describe_Name, describeSubCommand =>
+            {
+
+                describeSubCommand.Description = SubCommand_SaveAsDatabase_Description;
+
+                CommandOption outputOption 
+                    = describeSubCommand
+                        .Option(Option_Output_Template, Option_Output_Description, CommandOptionType.SingleValue)
+                        .IsRequired(false, Option_Output_ErrorMessage)
+                        .Accepts(validator => validator.Enum<Outputs>());
+
+                CommandOption folderPathOption
+                    = describeSubCommand
+                        .Option(Option_FolderPath_Template, Option_FolderPath_Description, CommandOptionType.SingleValue)
+                        .Accepts(validator => validator.ExistingDirectory());
+
+                describeSubCommand.OnExecute(() =>
+                {
+
+                    return ExplorationDescribe(ConvertToOutputs(outputOption.Value()), folderPathOption.Value());
+
+                });
+
+            });
+
+            return explorationCommand;
+
+        }
 
         static int GenericCommand()
         {
@@ -389,23 +428,14 @@ namespace NW.WIDJobsClient
             WIDExplorerComponents.DefaultLoggingAction.Invoke(exploration.ToString());
 
             string json = widExplorer.ConvertToJson(exploration);
-            WIDExplorerComponents.DefaultLoggingAction.Invoke(MessageCollection.Program_DumpingJSONToConsole);
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(json);
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
+            DumpJsonToConsole(json);
 
             MetricCollection metricCollection = widExplorer.ConvertToMetricCollection(exploration);
             json = widExplorer.ConvertToJson(metricCollection, false);
-            WIDExplorerComponents.DefaultLoggingAction.Invoke(MessageCollection.Program_DumpingJSONToConsole);
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(json);
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
+            DumpJsonToConsole(json);
 
             json = widExplorer.ConvertToJson(metricCollection, true);
-            WIDExplorerComponents.DefaultLoggingAction.Invoke(MessageCollection.Program_DumpingJSONToConsole);
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(json);
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
+            DumpJsonToConsole(json);
 
             return ((int)ExitCodes.Success);
 
@@ -425,10 +455,7 @@ namespace NW.WIDJobsClient
                 MetricCollection metricCollection = widExplorer.ConvertToMetricCollection(exploration);
 
                 string json = widExplorer.ConvertToJson(metricCollection, numbersAsPercentages);
-                WIDExplorerComponents.DefaultLoggingAction.Invoke(MessageCollection.Program_DumpingJSONToConsole);
-                WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
-                WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(json);
-                WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
+                DumpJsonToConsole(json);
 
                 return ((int)ExitCodes.Success);
 
@@ -526,38 +553,99 @@ namespace NW.WIDJobsClient
 
             }
 
-        }
-
-        static WIDExplorer CreateExplorer()
+        }        
+        static int ExplorationDescribe(Outputs output, string folderPath)
         {
 
-            WIDExplorerSettings settings
-                = new WIDExplorerSettings(
-                        WIDExplorerSettings.DefaultParallelRequests,
-                        WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
-                        @"C:\Users\Rubèn\Desktop\",
-                        WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
+            try
+            {
+
+                WIDExplorerSettings settings
+                    = new WIDExplorerSettings(
+                            parallelRequests: WIDExplorerSettings.DefaultParallelRequests,
+                            pauseBetweenRequestsMs: WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
+                            folderPath: folderPath,
+                            deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
                         );
-            WIDExplorer explorer
-                = new WIDExplorer(new WIDExplorerComponents(), settings);
 
-            return explorer;
+                WIDExplorer widExplorer = new WIDExplorer(new WIDExplorerComponents(), settings);
+
+                WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
+                widExplorer.LogAsciiBanner();
+
+                Exploration exploration = widExplorer.Explore(1, Stages.Stage1_OnlyMetrics);
+
+                if (output == Outputs.console)
+                    return DumpExploratonToConsole(widExplorer, exploration);
+                if (output == Outputs.jsonfile)
+                    return SaveExplorationToJson(widExplorer, exploration);
+
+                return DumpExplorationToConsoleAndSaveToJson(widExplorer, exploration);
+
+            }
+            catch (Exception e)
+            {
+
+                WIDExplorerComponents.DefaultLoggingAction.Invoke(MessageCollection.Program_FormattedErrorMessage.Invoke(e.Message));
+                WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
+
+                return ((int)ExitCodes.Failure);
+
+            }
 
         }
-        static void ExploreFirstJobPage()
+
+        // Methods_Private
+        private static void DumpJsonToConsole(string json)
         {
 
-            WIDExplorer explorer = CreateExplorer();
-            explorer.LogAsciiBanner();
+            WIDExplorerComponents.DefaultLoggingAction.Invoke(MessageCollection.Program_DumpingJsonToConsole);
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(json);
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
 
-            Exploration exploration
-                = explorer.Explore(1, Stages.Stage3_UpToAllJobPostingsExtended);
-            MetricCollection metrics = explorer.ConvertToMetricCollection(exploration);
+        }
+        private static Outputs ConvertToOutputs(string optionValue)
+        {
 
-            explorer.SaveToJsonFile(exploration);
-            explorer.SaveToSQLiteDatabase(exploration.JobPostingsExtended);
-            explorer.SaveToJsonFile(metrics, false);
-            explorer.SaveToJsonFile(metrics, true);
+            if (optionValue == Outputs.jsonfile.ToString())
+                return Outputs.jsonfile;
+
+            if (optionValue == Outputs.console.ToString())
+                return Outputs.console;
+
+            if (optionValue == Outputs.both.ToString())
+                return Outputs.both;
+
+            throw new Exception($"{optionValue} can't be converted to {nameof(Outputs)}.");
+
+        }
+        private static int DumpExploratonToConsole(WIDExplorer widExplorer, Exploration exploration)
+        {
+
+            string json = widExplorer.ConvertToJson(exploration);
+            DumpJsonToConsole(json);
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
+
+            return ((int)ExitCodes.Success);
+
+        }
+        private static int SaveExplorationToJson(WIDExplorer widExplorer, Exploration exploration)
+        {
+            IFileInfoAdapter fileInfoAdapter = widExplorer.SaveToJsonFile(exploration);
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
+
+            if (!fileInfoAdapter.Exists)
+                return ((int)ExitCodes.Failure);
+
+            return ((int)ExitCodes.Success);
+        }
+        private static int DumpExplorationToConsoleAndSaveToJson(WIDExplorer widExplorer, Exploration exploration)
+        {
+
+            DumpExploratonToConsole(widExplorer, exploration);
+            
+            return SaveExplorationToJson(widExplorer, exploration);
 
         }
 
