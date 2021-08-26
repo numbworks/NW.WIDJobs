@@ -248,7 +248,7 @@ namespace NW.WIDJobsClient
 
                 CommandOption outputOption = CreateJsonConsoleOutputOption(describeSubCommand);
                 CommandOption folderPathOption = CreateOptionalFolderPathOption(describeSubCommand);
-                CommandOption useDemoDataOption = CreateDemoDataOption(describeSubCommand);
+                CommandOption useDemoDataOption = CreateUseDemoDataOption(describeSubCommand);
 
                 describeSubCommand.OnExecute(() =>
                 {
@@ -596,7 +596,7 @@ namespace NW.WIDJobsClient
                     .Option(Option_AsPercentages_Template, Option_AsPercentages_Description, CommandOptionType.NoValue);
 
         }
-        private static CommandOption CreateDemoDataOption(CommandLineApplication subCommand)
+        private static CommandOption CreateUseDemoDataOption(CommandLineApplication subCommand)
         {
 
             return subCommand
@@ -656,12 +656,21 @@ namespace NW.WIDJobsClient
             return result;
 
         }
+        private static CommandOption CreateMetricsOption(CommandLineApplication subCommand)
+        {
 
+            return subCommand
+                    .Option(Option_Metrics_Template, Option_Metrics_Description, CommandOptionType.SingleValue);
 
+        }
+        private static CommandOption CreateMetricsOutputOption(CommandLineApplication subCommand)
+        {
 
+            return subCommand
+                    .Option(Option_MetricsOutput_Template, Option_MetricsOutput_Description, CommandOptionType.SingleValue)
+                    .Accepts(validator => validator.Enum<JsonConsoleOutputs>());
 
-
-
+        }
 
     }
 
