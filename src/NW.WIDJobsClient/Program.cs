@@ -33,6 +33,8 @@ namespace NW.WIDJobsClient
 
         static string Command_Exploration_Name = "exploration";
         static string Command_Exploration_Description = "Groups all the features related to the exploration of WorkInDenmark.dk.";
+        static string SubCommand_Calculate_Name = "calculate";
+        static string SubCommand_Calculate_Description = $"Loads an {nameof(Exploration)} from a JSON file and calculates the metrics.";
         static string SubCommand_Convert_Name = "convert";
         static string SubCommand_Convert_Description = $"Loads an {nameof(Exploration)} from a JSON file and convert it to a SQLite database.";
         static string SubCommand_Describe_Name = "describe";
@@ -48,21 +50,8 @@ namespace NW.WIDJobsClient
         static string Option_Output_Template = "--output";
         static string Option_Output_Description = $"The output(s) of the operation.";
         static string Option_Output_ErrorMessage = $"{Option_Output_Template} is mandatory.";
-
-
-        static string SubCommand_ShowAsMetrics_Name = "showasmetrics";
-        static string SubCommand_ShowAsMetrics_Description = $"Loads an {nameof(Exploration)} from a JSON file, calculates the metrics and shows them on screen.";
         static string Option_AsPercentages_Template = "--aspercentages";
         static string Option_AsPercentages_Description = "Shows metrics as percentages instead of numbers.";
-
-        static string SubCommand_SaveAsMetrics_Name = "saveasmetrics";
-        static string SubCommand_SaveAsMetrics_Description = $"Loads an {nameof(Exploration)} from a JSON file, calculates the metrics and saves them as JSON.";
-
-
-
-
-
-
         static string Option_UseDemoData_Template = "--usedemodata";
         static string Option_UseDemoData_Description = $"Use demo data instead of real data. This options doesn't require internet connection.";
 
@@ -149,12 +138,9 @@ namespace NW.WIDJobsClient
             {
 
                 explorationCommand = AddExplorationMain(explorationCommand);
+                explorationCommand = AddExplorationCalculate(explorationCommand);
                 explorationCommand = AddExplorationConvert(explorationCommand);
                 explorationCommand = AddExplorationDescribe(explorationCommand);
-
-
-                explorationCommand = AddExplorationShowAsMetrics(explorationCommand);
-                explorationCommand = AddExplorationSaveAsMetrics(explorationCommand);
 
             });
 
@@ -172,6 +158,51 @@ namespace NW.WIDJobsClient
                 explorationCommand.ShowHelp();
 
                 return exitCode;
+
+            });
+
+            return explorationCommand;
+
+        }
+        private static CommandLineApplication AddExplorationCalculate(CommandLineApplication explorationCommand)
+        {
+
+            explorationCommand.Command(SubCommand_Calculate_Name, calculateSubCommand =>
+            {
+
+                calculateSubCommand.Description = SubCommand_Calculate_Description;
+
+                CommandOption jsonPathOption
+                    = calculateSubCommand
+                        .Option(Option_JsonPath_Template, Option_JsonPath_Description, CommandOptionType.SingleValue)
+                        .IsRequired(false, Option_JsonPath_ErrorMessage)
+                        .Accepts(validator => validator.ExistingFile());
+
+                CommandOption outputOption
+                    = calculateSubCommand
+                        .Option(Option_Output_Template, Option_Output_Description, CommandOptionType.SingleValue)
+                        .IsRequired(false, Option_Output_ErrorMessage)
+                        .Accepts(validator => validator.Enum<JsonConsoleOutputs>());
+
+                CommandOption folderPathOption
+                    = calculateSubCommand
+                        .Option(Option_FolderPath_Template, Option_FolderPath_Description, CommandOptionType.SingleValue)
+                        .Accepts(validator => validator.ExistingDirectory());
+
+                CommandOption asPercentagesOption
+                    = calculateSubCommand
+                        .Option(Option_AsPercentages_Template, Option_AsPercentages_Description, CommandOptionType.NoValue);
+
+                calculateSubCommand.OnExecute(() =>
+                {
+
+                    return ExplorationCalculate(
+                                jsonPathOption.Value(),
+                                ConvertToJsonConsoleOutputs(outputOption.Value()),
+                                folderPathOption.Value(),
+                                asPercentagesOption.HasValue());
+
+                });
 
             });
 
@@ -196,7 +227,7 @@ namespace NW.WIDJobsClient
                     = convertSubCommand
                         .Option(Option_Output_Template, Option_Output_Description, CommandOptionType.SingleValue)
                         .IsRequired(false, Option_Output_ErrorMessage)
-                        .Accepts(validator => validator.Enum<ConvertOutputs>());
+                        .Accepts(validator => validator.Enum<DatabasetOutputs>());
 
                 CommandOption folderPathOption
                     = convertSubCommand
@@ -229,7 +260,7 @@ namespace NW.WIDJobsClient
                     = describeSubCommand
                         .Option(Option_Output_Template, Option_Output_Description, CommandOptionType.SingleValue)
                         .IsRequired(false, Option_Output_ErrorMessage)
-                        .Accepts(validator => validator.Enum<DescribeOutputs>());
+                        .Accepts(validator => validator.Enum<JsonConsoleOutputs>());
 
                 CommandOption folderPathOption
                     = describeSubCommand
@@ -243,7 +274,10 @@ namespace NW.WIDJobsClient
                 describeSubCommand.OnExecute(() =>
                 {
 
-                    return ExplorationDescribe(ConvertToDescribeOutputs(outputOption.Value()), folderPathOption.Value(), useDemoDataOption.HasValue());
+                    return ExplorationDescribe(
+                                ConvertToJsonConsoleOutputs(outputOption.Value()), 
+                                folderPathOption.Value(), 
+                                useDemoDataOption.HasValue());
 
                 });
 
@@ -253,79 +287,6 @@ namespace NW.WIDJobsClient
 
         }
 
-
-        private static CommandLineApplication AddExplorationShowAsMetrics(CommandLineApplication explorationCommand)
-        {
-
-            explorationCommand.Command(SubCommand_ShowAsMetrics_Name, showAsMetricsSubCommand =>
-            {
-
-                showAsMetricsSubCommand.Description = SubCommand_ShowAsMetrics_Description;
-
-                CommandOption asPercentagesOption
-                    = showAsMetricsSubCommand.Option(Option_AsPercentages_Template, Option_AsPercentages_Description, CommandOptionType.NoValue);
-
-                CommandOption jsonPathOption
-                    = showAsMetricsSubCommand.Option(Option_JsonPath_Template, Option_JsonPath_Description, CommandOptionType.SingleValue);
-                jsonPathOption.IsRequired(false, Option_JsonPath_ErrorMessage);
-
-                showAsMetricsSubCommand.OnExecute(() =>
-                {
-
-                    bool numbersAsPercentages = false;
-                    if (asPercentagesOption.HasValue())
-                        numbersAsPercentages = true;
-
-                    if (jsonPathOption.HasValue())
-                        return ExplorationShowAsMetrics(jsonPathOption.Value(), numbersAsPercentages);
-
-                    return ((int)ExitCodes.Failure);
-
-                });
-
-            });
-
-            return explorationCommand;
-
-        }
-        private static CommandLineApplication AddExplorationSaveAsMetrics(CommandLineApplication explorationCommand)
-        {
-
-            explorationCommand.Command(SubCommand_SaveAsMetrics_Name, saveAsMetricsSubCommand =>
-            {
-
-                saveAsMetricsSubCommand.Description = SubCommand_SaveAsMetrics_Description;
-
-                CommandOption asPercentagesOption
-                    = saveAsMetricsSubCommand.Option(Option_AsPercentages_Template, Option_AsPercentages_Description, CommandOptionType.NoValue);
-
-                CommandOption jsonPathOption
-                    = saveAsMetricsSubCommand.Option(Option_JsonPath_Template, Option_JsonPath_Description, CommandOptionType.SingleValue);
-                jsonPathOption.IsRequired(false, Option_JsonPath_ErrorMessage);
-
-                CommandOption folderPathOption
-                    = saveAsMetricsSubCommand.Option(Option_FolderPath_Template, Option_FolderPath_Description, CommandOptionType.SingleValue);
-                folderPathOption.IsRequired(false, Option_FolderPath_ErrorMessage);
-
-                saveAsMetricsSubCommand.OnExecute(() =>
-                {
-
-                    bool numbersAsPercentages = false;
-                    if (asPercentagesOption.HasValue())
-                        numbersAsPercentages = true;
-
-                    if (jsonPathOption.HasValue() && folderPathOption.HasValue())
-                        return ExplorationSaveAsMetrics(jsonPathOption.Value(), folderPathOption.Value(), numbersAsPercentages);
-
-                    return ((int)ExitCodes.Failure);
-
-                });
-
-            });
-
-            return explorationCommand;
-
-        }
 
 
 
@@ -352,6 +313,47 @@ namespace NW.WIDJobsClient
             WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
 
             return ((int)ExitCodes.Success);
+
+        }
+        static int ExplorationCalculate(string filePath, JsonConsoleOutputs output, string folderPath, bool numbersAsPercentages)
+        {
+
+            try
+            {
+
+                LogAsciiBanner();
+
+                WIDExplorerComponents components = new WIDExplorerComponents();
+                WIDExplorerSettings settings
+                    = new WIDExplorerSettings(
+                            parallelRequests: WIDExplorerSettings.DefaultParallelRequests,
+                            pauseBetweenRequestsMs: WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
+                            folderPath: folderPath ?? WIDExplorerSettings.DefaultFolderPath,
+                            deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
+                        );
+
+                WIDExplorer widExplorer = new WIDExplorer(components, settings);
+                Exploration exploration = widExplorer.LoadExplorationFromJsonFile(filePath);
+                MetricCollection metricCollection = widExplorer.ConvertToMetricCollection(exploration);
+
+                if (output == JsonConsoleOutputs.console)
+                    return DumpMetricCollectionToConsole(widExplorer, metricCollection, numbersAsPercentages);
+
+                if (output == JsonConsoleOutputs.jsonfile)
+                    return SaveMetricCollectionToJson(widExplorer, metricCollection, numbersAsPercentages);
+
+                if (output == JsonConsoleOutputs.both)
+                    return DumpMetricCollectionToConsoleAndSaveToJson(widExplorer, metricCollection, numbersAsPercentages);
+
+                throw CreateJsonConsoleOutputException(output.ToString());
+
+            }
+            catch (Exception e)
+            {
+
+                return DumpExceptionToConsole(e);
+
+            }
 
         }
         static int ExplorationConvert(string filePath, string folderPath)
@@ -390,7 +392,7 @@ namespace NW.WIDJobsClient
             }
 
         }
-        static int ExplorationDescribe(DescribeOutputs output, string folderPath, bool useDemoData)
+        static int ExplorationDescribe(JsonConsoleOutputs output, string folderPath, bool useDemoData)
         {
 
             try
@@ -413,82 +415,16 @@ namespace NW.WIDJobsClient
                 WIDExplorer widExplorer = new WIDExplorer(components, settings);
                 Exploration exploration = widExplorer.Explore(1, Stages.Stage1_OnlyMetrics);
 
-                if (output == DescribeOutputs.console)
+                if (output == JsonConsoleOutputs.console)
                     return DumpExploratonToConsole(widExplorer, exploration);
 
-                if (output == DescribeOutputs.jsonfile)
+                if (output == JsonConsoleOutputs.jsonfile)
                     return SaveExplorationToJson(widExplorer, exploration);
 
-                if (output == DescribeOutputs.both)
+                if (output == JsonConsoleOutputs.both)
                     return DumpExplorationToConsoleAndSaveToJson(widExplorer, exploration);
 
-                throw CreateDescribeOutputException(output.ToString());
-
-            }
-            catch (Exception e)
-            {
-
-                return DumpExceptionToConsole(e);
-
-            }
-
-        }
-
-
-
-        static int ExplorationShowAsMetrics(string filePath, bool numbersAsPercentages)
-        {
-
-            try
-            {
-
-                LogAsciiBanner();
-
-                WIDExplorer widExplorer = new WIDExplorer();
-                Exploration exploration = widExplorer.LoadExplorationFromJsonFile(filePath);
-                MetricCollection metricCollection = widExplorer.ConvertToMetricCollection(exploration);
-
-                string json = widExplorer.ConvertToJson(metricCollection, numbersAsPercentages);
-                DumpJsonToConsole(json);
-
-                return ((int)ExitCodes.Success);
-
-            }
-            catch (Exception e)
-            {
-
-                return DumpExceptionToConsole(e);
-
-            }
-
-        }
-        static int ExplorationSaveAsMetrics(string filePath, string folderPath, bool numbersAsPercentages)
-        {
-
-            try
-            {
-
-                LogAsciiBanner();
-
-                WIDExplorerSettings settings 
-                    = new WIDExplorerSettings(
-                            parallelRequests: WIDExplorerSettings.DefaultParallelRequests,
-                            pauseBetweenRequestsMs: WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
-                            folderPath: folderPath,
-                            deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
-                        );
-
-                WIDExplorer widExplorer = new WIDExplorer(new WIDExplorerComponents(), settings);
-                Exploration exploration = widExplorer.LoadExplorationFromJsonFile(filePath);
-                MetricCollection metricCollection = widExplorer.ConvertToMetricCollection(exploration);
-                IFileInfoAdapter fileInfoAdapter = widExplorer.SaveToJsonFile(metricCollection, numbersAsPercentages);
-                
-                WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
-
-                if (fileInfoAdapter.Exists)
-                    return ((int)ExitCodes.Success);
-
-                return ((int)ExitCodes.Failure);
+                throw CreateJsonConsoleOutputException(output.ToString());
 
             }
             catch (Exception e)
@@ -528,22 +464,22 @@ namespace NW.WIDJobsClient
             WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
 
         }
-        private static DescribeOutputs ConvertToDescribeOutputs(string outputValue)
+        private static JsonConsoleOutputs ConvertToJsonConsoleOutputs(string outputValue)
         {
 
-            if (outputValue == nameof(DescribeOutputs.jsonfile))
-                return DescribeOutputs.jsonfile;
+            if (outputValue == nameof(JsonConsoleOutputs.jsonfile))
+                return JsonConsoleOutputs.jsonfile;
 
-            if (outputValue == nameof(DescribeOutputs.console))
-                return DescribeOutputs.console;
+            if (outputValue == nameof(JsonConsoleOutputs.console))
+                return JsonConsoleOutputs.console;
 
-            if (outputValue == nameof(DescribeOutputs.both))
-                return DescribeOutputs.both;
+            if (outputValue == nameof(JsonConsoleOutputs.both))
+                return JsonConsoleOutputs.both;
 
-            throw CreateDescribeOutputException(outputValue);
+            throw CreateJsonConsoleOutputException(outputValue);
 
         }
-        private static Exception CreateDescribeOutputException(string outputValue)
+        private static Exception CreateJsonConsoleOutputException(string outputValue)
         {
 
             return new Exception(MessageCollection.Program_OutputValueCantBeConvertedDescribeOutputs.Invoke(outputValue));
@@ -561,6 +497,7 @@ namespace NW.WIDJobsClient
         }
         private static int SaveExplorationToJson(WIDExplorer widExplorer, Exploration exploration)
         {
+
             IFileInfoAdapter fileInfoAdapter = widExplorer.SaveToJsonFile(exploration);
             WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
 
@@ -568,6 +505,7 @@ namespace NW.WIDJobsClient
                 return ((int)ExitCodes.Failure);
 
             return ((int)ExitCodes.Success);
+
         }
         private static int DumpExplorationToConsoleAndSaveToJson(WIDExplorer widExplorer, Exploration exploration)
         {
@@ -600,6 +538,36 @@ namespace NW.WIDJobsClient
                     bulletPointManager: new BulletPointManager(),
                     nowFunction: ObjectMother.WIDExplorer_FakeNowFunction
                   );
+
+        }        
+        private static int DumpMetricCollectionToConsole(WIDExplorer widExplorer, MetricCollection metricCollection, bool numbersAsPercentages)
+        {
+
+            string json = widExplorer.ConvertToJson(metricCollection, numbersAsPercentages);
+            DumpJsonToConsole(json);
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
+
+            return ((int)ExitCodes.Success);
+
+        }
+        private static int SaveMetricCollectionToJson(WIDExplorer widExplorer, MetricCollection metricCollection, bool numbersAsPercentages)
+        {
+
+            IFileInfoAdapter fileInfoAdapter = widExplorer.SaveToJsonFile(metricCollection, numbersAsPercentages);
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
+
+            if (!fileInfoAdapter.Exists)
+                return ((int)ExitCodes.Failure);
+
+            return ((int)ExitCodes.Success);
+
+        }
+        private static int DumpMetricCollectionToConsoleAndSaveToJson(WIDExplorer widExplorer, MetricCollection metricCollection, bool numbersAsPercentages)
+        {
+
+            DumpMetricCollectionToConsole(widExplorer, metricCollection, numbersAsPercentages);
+
+            return SaveMetricCollectionToJson(widExplorer, metricCollection, numbersAsPercentages);
 
         }
 

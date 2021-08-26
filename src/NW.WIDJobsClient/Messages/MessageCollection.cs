@@ -16,7 +16,7 @@ namespace NW.WIDJobsClient.Messages
         public static string Program_ApplicationLicense = "License: MIT License";
         public static Func<string, string> Program_FormattedErrorMessage = (message) => $"ERROR: {message}";
         public static Func<string, string> Program_OutputValueCantBeConvertedDescribeOutputs
-            = (outputValue) => $"The provided output value ('{outputValue}') can't be converted to {nameof(DescribeOutputs)}.";
+            = (outputValue) => $"The provided output value ('{outputValue}') can't be converted to {nameof(JsonConsoleOutputs)}.";
 
     }
 }
