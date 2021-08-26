@@ -57,10 +57,13 @@ namespace NW.WIDJobsClient
 
         static string Option_Stage_Template = "--stage";
         static string Option_Stage_Description = $"The depth of an {nameof(Exploration)}.";
+        static string Option_Stage_ErrorMessage = $"{Option_Stage_Template} is mandatory.";
         static string Option_ThresholdType_Template = "--thresholdtype";
         static string Option_ThresholdType_Description = "The exploration proceeds until this criteria is met.";
+        static string Option_ThresholdType_ErrorMessage = $"{Option_ThresholdType_Template} is mandatory.";
         static string Option_Threshold_Template = "--threshold";
-        static string Option_Threshold_Description = $"The value for the provided threshold type.";
+        static string Option_Threshold_Description = $"The value for the provided threshold type. Date must be provided in the 'yyyyMMdd' format.";
+        static string Option_Threshold_ErrorMessage = $"{Option_Threshold_Template} is mandatory.";
         static string Option_Metrics_Template = "--metrics";
         static string Option_Metrics_Description = "Enables the metric calculation.";
         static string Option_MetricsOutput_Template = "--metricsoutput";
@@ -546,9 +549,9 @@ namespace NW.WIDJobsClient
         {
 
             return subCommand
-                    .Option(Option_JsonPath_Template, Option_JsonPath_Description, CommandOptionType.SingleValue)
-                    .IsRequired(false, Option_JsonPath_ErrorMessage)
-                    .Accepts(validator => validator.ExistingFile());
+                    .Option(Option_JsonPath_Template, Option_JsonPath_Description, CommandOptionType.SingleValue)                    
+                    .Accepts(validator => validator.ExistingFile())
+                    .IsRequired(false, Option_JsonPath_ErrorMessage);
 
         }
         private static CommandOption CreateJsonConsoleOutputOption(CommandLineApplication subCommand)
@@ -556,8 +559,8 @@ namespace NW.WIDJobsClient
 
             return subCommand
                     .Option(Option_Output_Template, Option_Output_Description, CommandOptionType.SingleValue)
-                    .IsRequired(false, Option_Output_ErrorMessage)
-                    .Accepts(validator => validator.Enum<JsonConsoleOutputs>());
+                    .Accepts(validator => validator.Enum<JsonConsoleOutputs>())
+                    .IsRequired(false, Option_Output_ErrorMessage);
 
         }
         private static CommandOption CreateDatabaseOutputOption(CommandLineApplication subCommand)
@@ -565,8 +568,8 @@ namespace NW.WIDJobsClient
 
             return subCommand
                     .Option(Option_Output_Template, Option_Output_Description, CommandOptionType.SingleValue)
-                    .IsRequired(false, Option_Output_ErrorMessage)
-                    .Accepts(validator => validator.Enum<DatabaseOutputs>());
+                    .Accepts(validator => validator.Enum<DatabaseOutputs>())
+                    .IsRequired(false, Option_Output_ErrorMessage);
 
         }
         private static CommandOption CreateOptionalFolderPathOption(CommandLineApplication subCommand)
@@ -622,6 +625,43 @@ namespace NW.WIDJobsClient
             throw CreateOutputException<DatabaseOutputs>(outputValue);
 
         }
+
+        private static CommandOption CreateStageOption(CommandLineApplication subCommand)
+        {
+
+            return subCommand
+                    .Option(Option_Stage_Template, Option_Stage_Description, CommandOptionType.SingleValue)
+                    .Accepts(validator => validator.Enum<ExploreStages>())
+                    .IsRequired(false, Option_Stage_ErrorMessage);
+
+        }
+        private static CommandOption CreateThresholdTypeOption(CommandLineApplication subCommand)
+        {
+
+            return subCommand
+                    .Option(Option_ThresholdType_Template, Option_ThresholdType_Description, CommandOptionType.SingleValue)
+                    .Accepts(validator => validator.Enum<ThresholdTypes>())
+                    .IsRequired(false, Option_ThresholdType_ErrorMessage);
+
+        }
+        private static CommandOption CreateThresholdOption(CommandLineApplication subCommand)
+        {
+
+            CommandOption result 
+                = subCommand
+                    .Option(Option_Threshold_Template, Option_Threshold_Description, CommandOptionType.SingleValue)
+                    .IsRequired(false, Option_Threshold_ErrorMessage);
+            result.Validators.Add(new ThresholdValidator());
+
+            return result;
+
+        }
+
+
+
+
+
+
 
     }
 

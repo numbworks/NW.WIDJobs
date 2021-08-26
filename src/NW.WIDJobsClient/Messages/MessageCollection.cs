@@ -7,6 +7,8 @@ namespace NW.WIDJobsClient.Messages
     public static class MessageCollection
     {
 
+        #region Program
+
         public static string Program_DumpingExplorationToConsole = $"Dumping {nameof(Exploration)} object to console:";
         public static string Program_DumpingJsonToConsole = "Dumping Json to console:";
         public static string Program_PressAButtonToCloseTheWindow = "Press a button to close the window.";
@@ -18,10 +20,19 @@ namespace NW.WIDJobsClient.Messages
         public static Func<string, Type, string> Program_OutputValueCantBeConvertedToOutputs
             = (outputValue, type) => $"The provided output value ('{outputValue}') can't be converted to {type.Name}.";
 
+        #endregion
+
+        #region ThresholdValidator
+
+        public static Func<string, string> ThresholdValidator_ThresholdValueNotValidFormat
+            = (optionValue) => $"The thresold value ('{optionValue}') is not in a valid format.";
+
+        #endregion
+
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 25.08.2021
+    Last Update: 26.08.2021
 */
