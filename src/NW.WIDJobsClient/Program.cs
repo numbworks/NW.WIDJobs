@@ -328,7 +328,7 @@ namespace NW.WIDJobsClient
             explorationCommand.Command(SubCommand_Describe_Name, describeSubCommand =>
             {
 
-                describeSubCommand.Description = SubCommand_SaveAsDatabase_Description;
+                describeSubCommand.Description = SubCommand_Describe_Description;
 
                 CommandOption outputOption 
                     = describeSubCommand
