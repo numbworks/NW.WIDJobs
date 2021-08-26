@@ -306,7 +306,7 @@ namespace NW.WIDJobsClient
                 if (output == JsonConsoleOutputs.both)
                     return DumpMetricCollectionToConsoleAndSaveToJson(widExplorer, metricCollection, numbersAsPercentages);
 
-                throw CreateJsonConsoleOutputException(output.ToString());
+                throw CreateOutputException<JsonConsoleOutputs>(output.ToString());
 
             }
             catch (Exception e)
@@ -381,7 +381,7 @@ namespace NW.WIDJobsClient
                 if (output == JsonConsoleOutputs.both)
                     return DumpExplorationToConsoleAndSaveToJson(widExplorer, exploration);
 
-                throw CreateJsonConsoleOutputException(output.ToString());
+                throw CreateOutputException<JsonConsoleOutputs>(output.ToString());
 
             }
             catch (Exception e)
