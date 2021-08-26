@@ -208,7 +208,7 @@ namespace NW.WIDJobsClient
                 convertSubCommand.OnExecute(() =>
                 {
 
-                    // At the moment there is no need to pass a outputOption.Value() to this method, because there is only one ConvertOutput.
+                    
                     return ExplorationConvert(jsonPathOption.Value(), folderPathOption.Value());
 
                 });
@@ -315,7 +315,7 @@ namespace NW.WIDJobsClient
             }
 
         }
-        static int ExplorationConvert(string filePath, string folderPath)
+        static int ExplorationConvert(string filePath, DatabaseOutputs output, string folderPath)
         {
 
             try
@@ -323,6 +323,7 @@ namespace NW.WIDJobsClient
 
                 LogAsciiBanner();
 
+                WIDExplorerComponents components = new WIDExplorerComponents();
                 WIDExplorerSettings settings
                     = new WIDExplorerSettings(
                             parallelRequests: WIDExplorerSettings.DefaultParallelRequests,
@@ -331,16 +332,11 @@ namespace NW.WIDJobsClient
                             deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
                         );
 
-                WIDExplorer widExplorer = new WIDExplorer(new WIDExplorerComponents(), settings);
+                WIDExplorer widExplorer = new WIDExplorer(components, settings);
                 Exploration exploration = widExplorer.LoadExplorationFromJsonFile(filePath);
-                IFileInfoAdapter fileInfoAdapter = widExplorer.SaveToSQLiteDatabase(exploration.JobPostingsExtended);
 
-                WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
-
-                if (fileInfoAdapter.Exists)
-                    return ((int)ExitCodes.Success);
-
-                return ((int)ExitCodes.Failure);
+                // At the moment there is only one DatabaseOutputs.
+                return SaveExplorationToDatabaseFile(widExplorer, exploration);
 
             }
             catch (Exception e)
@@ -351,6 +347,7 @@ namespace NW.WIDJobsClient
             }
 
         }
+
         static int ExplorationDescribe(JsonConsoleOutputs output, string folderPath, bool useDemoData)
         {
 
@@ -585,6 +582,28 @@ namespace NW.WIDJobsClient
 
             return subCommand
                     .Option(Option_UseDemoData_Template, Option_UseDemoData_Description, CommandOptionType.NoValue);
+
+        }
+        private static int SaveExplorationToDatabaseFile(WIDExplorer widExplorer, Exploration exploration)
+        {
+
+            IFileInfoAdapter fileInfoAdapter = widExplorer.SaveToSQLiteDatabase(exploration.JobPostingsExtended);
+
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
+
+            if (fileInfoAdapter.Exists)
+                return ((int)ExitCodes.Success);
+
+            return ((int)ExitCodes.Failure);
+
+        }
+        private static DatabaseOutputs ConvertToDatabaseOutputs(string outputValue)
+        {
+
+            if (outputValue == nameof(DatabaseOutputs.databasefile))
+                return DatabaseOutputs.databasefile;
+
+            throw CreateDatabaseOutputException(outputValue);
 
         }
 
