@@ -1,7 +1,7 @@
 ﻿namespace NW.WIDJobsClient
 {
     /// <summary></summary>
-    public enum Outputs
+    public enum DescribeOutputs
     {
 
         jsonfile,

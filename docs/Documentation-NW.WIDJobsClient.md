@@ -19,10 +19,14 @@ The command-line interface for of `NW.WIDJobsClient`:
 |---|---|---|---|
 |about|||Success|
 |exploration|||Success|
+|exploration|convert|--jsonpath:{path}<br />--output:{databasefile}<br />--folderpath:{path}|Success<br />Failure|
+|exploration|describe|--output:{jsonfile\|console\|both}<br />*--folderpath:{path}*<br />*--usedemodata*|Success<br />Failure|
+
+
+|Command|Sub Command|Options|Exit Codes|
+|---|---|---|---|
 |exploration|showasmetrics|--jsonpath:{path} <br />*--aspercentages*|Success<br />Failure|
 |exploration|saveasmetrics|--jsonpath:{path}<br />--folderpath:{path} <br />*--aspercentages*|Success<br />Failure|
-|exploration|saveasdatabase|--jsonpath:{path}<br />--folderpath:{path}|Success<br />Failure|
-|exploration|describe|--output:{jsonfile\|console\|both}<br />*--folderpath:{path}*<br />*--usedemodata*|Success<br />Failure|
 |exploration|explore|--stage:{2\|3}<br />--thresholdtype:{pagenumber\|date\|jobpostingid}<br />--threshold:{pagenumber}\|{date}\|{jobpostingid}<br />--explorationoutput:{databasefile\|jsonfile\|console\|all}<br />*--folderpath:{path}*<br />*--metrics*<br />*--metricsoutput:{jsonfile\|console\|all}*<br />*--parallelrequests*<br />*--pausebetweenrequestsms*<br />*--usedemodata*|Success<br />Failure|
 
 # Exit codes

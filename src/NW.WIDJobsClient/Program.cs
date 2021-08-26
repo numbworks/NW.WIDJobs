@@ -33,27 +33,35 @@ namespace NW.WIDJobsClient
 
         static string Command_Exploration_Name = "exploration";
         static string Command_Exploration_Description = "Groups all the features related to the exploration of WorkInDenmark.dk.";
+        static string SubCommand_Convert_Name = "convert";
+        static string SubCommand_Convert_Description = $"Loads an {nameof(Exploration)} from a JSON file and convert it to a SQLite database.";
+        static string SubCommand_Describe_Name = "describe";
+        static string SubCommand_Describe_Description = $"Describes the current state of WorkInDenmark.dk.";
+
+
+        static string Option_JsonPath_Template = "--jsonpath";
+        static string Option_JsonPath_Description = $"The file path to the required JSON file.";
+        static string Option_JsonPath_ErrorMessage = $"{Option_JsonPath_Template} is mandatory.";
+        static string Option_FolderPath_Template = "--folderpath";
+        static string Option_FolderPath_Description = $"A valid folder path.";
+        static string Option_FolderPath_ErrorMessage = $"{Option_FolderPath_Template} is mandatory.";
+        static string Option_Output_Template = "--output";
+        static string Option_Output_Description = $"The output(s) of the operation.";
+        static string Option_Output_ErrorMessage = $"{Option_Output_Template} is mandatory.";
+
 
         static string SubCommand_ShowAsMetrics_Name = "showasmetrics";
         static string SubCommand_ShowAsMetrics_Description = $"Loads an {nameof(Exploration)} from a JSON file, calculates the metrics and shows them on screen.";
         static string Option_AsPercentages_Template = "--aspercentages";
         static string Option_AsPercentages_Description = "Shows metrics as percentages instead of numbers.";
-        static string Option_JsonPath_Template = "--jsonpath";
-        static string Option_JsonPath_Description = $"The file path to the required JSON file.";
-        static string Option_JsonPath_ErrorMessage = "--jsonpath is mandatory.";
+
         static string SubCommand_SaveAsMetrics_Name = "saveasmetrics";
         static string SubCommand_SaveAsMetrics_Description = $"Loads an {nameof(Exploration)} from a JSON file, calculates the metrics and saves them as JSON.";
-        static string Option_FolderPath_Template = "--folderpath";
-        static string Option_FolderPath_Description = $"A valid folder path.";
-        static string Option_FolderPath_ErrorMessage = $"{Option_FolderPath_Template} is mandatory.";
-        static string SubCommand_SaveAsDatabase_Name = "saveasdatabase";
-        static string SubCommand_SaveAsDatabase_Description = $"Loads an {nameof(Exploration)} from a JSON file, calculates the metrics and saves them as SQLite database.";
 
-        static string SubCommand_Describe_Name = "describe";
-        static string SubCommand_Describe_Description = $"Describes the current state of WorkInDenmark.dk.";
-        static string Option_Output_Template = "--output";
-        static string Option_Output_Description = $"The output(s) of the operation.";
-        static string Option_Output_ErrorMessage = $"{Option_Output_Template} is mandatory.";
+
+
+
+
 
         static string Option_UseDemoData_Template = "--usedemodata";
         static string Option_UseDemoData_Description = $"Use demo data instead of real data. This options doesn't require internet connection.";
@@ -141,10 +149,12 @@ namespace NW.WIDJobsClient
             {
 
                 explorationCommand = AddExplorationMain(explorationCommand);
+                explorationCommand = AddExplorationConvert(explorationCommand);
+                explorationCommand = AddExplorationDescribe(explorationCommand);
+
+
                 explorationCommand = AddExplorationShowAsMetrics(explorationCommand);
                 explorationCommand = AddExplorationSaveAsMetrics(explorationCommand);
-                explorationCommand = AddExplorationSaveAsDatabase(explorationCommand);
-                explorationCommand = AddExplorationDescribe(explorationCommand);
 
             });
 
@@ -168,6 +178,82 @@ namespace NW.WIDJobsClient
             return explorationCommand;
 
         }
+        private static CommandLineApplication AddExplorationConvert(CommandLineApplication explorationCommand)
+        {
+
+            explorationCommand.Command(SubCommand_Convert_Name, convertSubCommand =>
+            {
+
+                convertSubCommand.Description = SubCommand_Convert_Description;
+
+                CommandOption jsonPathOption
+                    = convertSubCommand
+                        .Option(Option_JsonPath_Template, Option_JsonPath_Description, CommandOptionType.SingleValue)
+                        .IsRequired(false, Option_JsonPath_ErrorMessage)
+                        .Accepts(validator => validator.ExistingFile());
+
+                CommandOption outputOption
+                    = convertSubCommand
+                        .Option(Option_Output_Template, Option_Output_Description, CommandOptionType.SingleValue)
+                        .IsRequired(false, Option_Output_ErrorMessage)
+                        .Accepts(validator => validator.Enum<ConvertOutputs>());
+
+                CommandOption folderPathOption
+                    = convertSubCommand
+                        .Option(Option_FolderPath_Template, Option_FolderPath_Description, CommandOptionType.SingleValue)
+                        .IsRequired(false, Option_FolderPath_ErrorMessage)
+                        .Accepts(validator => validator.ExistingDirectory());
+
+                convertSubCommand.OnExecute(() =>
+                {
+
+                    // At the moment there is no need to pass a outputOption.Value() to this method, because there is only one ConvertOutput.
+                    return ExplorationConvert(jsonPathOption.Value(), folderPathOption.Value());
+
+                });
+
+            });
+
+            return explorationCommand;
+
+        }
+        private static CommandLineApplication AddExplorationDescribe(CommandLineApplication explorationCommand)
+        {
+
+            explorationCommand.Command(SubCommand_Describe_Name, describeSubCommand =>
+            {
+
+                describeSubCommand.Description = SubCommand_Describe_Description;
+
+                CommandOption outputOption
+                    = describeSubCommand
+                        .Option(Option_Output_Template, Option_Output_Description, CommandOptionType.SingleValue)
+                        .IsRequired(false, Option_Output_ErrorMessage)
+                        .Accepts(validator => validator.Enum<DescribeOutputs>());
+
+                CommandOption folderPathOption
+                    = describeSubCommand
+                        .Option(Option_FolderPath_Template, Option_FolderPath_Description, CommandOptionType.SingleValue)
+                        .Accepts(validator => validator.ExistingDirectory());
+
+                CommandOption useDemoDataOption
+                    = describeSubCommand
+                        .Option(Option_UseDemoData_Template, Option_UseDemoData_Description, CommandOptionType.NoValue);
+
+                describeSubCommand.OnExecute(() =>
+                {
+
+                    return ExplorationDescribe(ConvertToDescribeOutputs(outputOption.Value()), folderPathOption.Value(), useDemoDataOption.HasValue());
+
+                });
+
+            });
+
+            return explorationCommand;
+
+        }
+
+
         private static CommandLineApplication AddExplorationShowAsMetrics(CommandLineApplication explorationCommand)
         {
 
@@ -240,72 +326,8 @@ namespace NW.WIDJobsClient
             return explorationCommand;
 
         }
-        private static CommandLineApplication AddExplorationSaveAsDatabase(CommandLineApplication explorationCommand)
-        {
 
-            explorationCommand.Command(SubCommand_SaveAsDatabase_Name, saveAsDatabaseSubCommand =>
-            {
 
-                saveAsDatabaseSubCommand.Description = SubCommand_SaveAsDatabase_Description;
-
-                CommandOption jsonPathOption
-                    = saveAsDatabaseSubCommand.Option(Option_JsonPath_Template, Option_JsonPath_Description, CommandOptionType.SingleValue);
-                jsonPathOption.IsRequired(false, Option_JsonPath_ErrorMessage);
-
-                CommandOption folderPathOption
-                    = saveAsDatabaseSubCommand.Option(Option_FolderPath_Template, Option_FolderPath_Description, CommandOptionType.SingleValue);
-                folderPathOption.IsRequired(false, Option_FolderPath_ErrorMessage);
-
-                saveAsDatabaseSubCommand.OnExecute(() =>
-                {
-
-                    if (jsonPathOption.HasValue() && folderPathOption.HasValue())
-                        return ExplorationSaveAsDatabase(jsonPathOption.Value(), folderPathOption.Value());
-
-                    return ((int)ExitCodes.Failure);
-
-                });
-
-            });
-
-            return explorationCommand;
-
-        }
-        private static CommandLineApplication AddExplorationDescribe(CommandLineApplication explorationCommand)
-        {
-
-            explorationCommand.Command(SubCommand_Describe_Name, describeSubCommand =>
-            {
-
-                describeSubCommand.Description = SubCommand_Describe_Description;
-
-                CommandOption outputOption 
-                    = describeSubCommand
-                        .Option(Option_Output_Template, Option_Output_Description, CommandOptionType.SingleValue)
-                        .IsRequired(false, Option_Output_ErrorMessage)
-                        .Accepts(validator => validator.Enum<Outputs>());
-
-                CommandOption folderPathOption
-                    = describeSubCommand
-                        .Option(Option_FolderPath_Template, Option_FolderPath_Description, CommandOptionType.SingleValue)
-                        .Accepts(validator => validator.ExistingDirectory());
-
-                CommandOption useDemoDataOption
-                    = describeSubCommand
-                        .Option(Option_UseDemoData_Template, Option_UseDemoData_Description, CommandOptionType.NoValue);
-
-                describeSubCommand.OnExecute(() =>
-                {
-
-                    return ExplorationDescribe(ConvertToOutputs(outputOption.Value()), folderPathOption.Value(), useDemoDataOption.HasValue());
-
-                });
-
-            });
-
-            return explorationCommand;
-
-        }
 
         static int GenericCommand()
         {
@@ -332,6 +354,88 @@ namespace NW.WIDJobsClient
             return ((int)ExitCodes.Success);
 
         }
+        static int ExplorationConvert(string filePath, string folderPath)
+        {
+
+            try
+            {
+
+                LogAsciiBanner();
+
+                WIDExplorerSettings settings
+                    = new WIDExplorerSettings(
+                            parallelRequests: WIDExplorerSettings.DefaultParallelRequests,
+                            pauseBetweenRequestsMs: WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
+                            folderPath: folderPath,
+                            deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
+                        );
+
+                WIDExplorer widExplorer = new WIDExplorer(new WIDExplorerComponents(), settings);
+                Exploration exploration = widExplorer.LoadExplorationFromJsonFile(filePath);
+                IFileInfoAdapter fileInfoAdapter = widExplorer.SaveToSQLiteDatabase(exploration.JobPostingsExtended);
+
+                WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
+
+                if (fileInfoAdapter.Exists)
+                    return ((int)ExitCodes.Success);
+
+                return ((int)ExitCodes.Failure);
+
+            }
+            catch (Exception e)
+            {
+
+                return DumpExceptionToConsole(e);
+
+            }
+
+        }
+        static int ExplorationDescribe(DescribeOutputs output, string folderPath, bool useDemoData)
+        {
+
+            try
+            {
+
+                LogAsciiBanner();
+
+                WIDExplorerComponents components = new WIDExplorerComponents();
+                if (useDemoData)
+                    components = CreateComponentsWithDemoData();
+
+                WIDExplorerSettings settings
+                    = new WIDExplorerSettings(
+                            parallelRequests: WIDExplorerSettings.DefaultParallelRequests,
+                            pauseBetweenRequestsMs: WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
+                            folderPath: folderPath ?? WIDExplorerSettings.DefaultFolderPath,
+                            deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
+                        );
+
+                WIDExplorer widExplorer = new WIDExplorer(components, settings);
+                Exploration exploration = widExplorer.Explore(1, Stages.Stage1_OnlyMetrics);
+
+                if (output == DescribeOutputs.console)
+                    return DumpExploratonToConsole(widExplorer, exploration);
+
+                if (output == DescribeOutputs.jsonfile)
+                    return SaveExplorationToJson(widExplorer, exploration);
+
+                if (output == DescribeOutputs.both)
+                    return DumpExplorationToConsoleAndSaveToJson(widExplorer, exploration);
+
+                throw CreateDescribeOutputException(output.ToString());
+
+            }
+            catch (Exception e)
+            {
+
+                return DumpExceptionToConsole(e);
+
+            }
+
+        }
+
+
+
         static int ExplorationShowAsMetrics(string filePath, bool numbersAsPercentages)
         {
 
@@ -395,85 +499,6 @@ namespace NW.WIDJobsClient
             }
 
         }
-        static int ExplorationSaveAsDatabase(string filePath, string folderPath)
-        {
-
-            try
-            {
-
-                LogAsciiBanner();
-
-                WIDExplorerSettings settings
-                    = new WIDExplorerSettings(
-                            parallelRequests: WIDExplorerSettings.DefaultParallelRequests,
-                            pauseBetweenRequestsMs: WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
-                            folderPath: folderPath,
-                            deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
-                        );
-
-                WIDExplorer widExplorer = new WIDExplorer(new WIDExplorerComponents(), settings);
-                Exploration exploration = widExplorer.LoadExplorationFromJsonFile(filePath);
-                IFileInfoAdapter fileInfoAdapter = widExplorer.SaveToSQLiteDatabase(exploration.JobPostingsExtended);
-
-                WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
-
-                if (fileInfoAdapter.Exists)
-                    return ((int)ExitCodes.Success);
-
-                return ((int)ExitCodes.Failure);
-
-            }
-            catch (Exception e)
-            {
-
-                return DumpExceptionToConsole(e);
-
-            }
-
-        }        
-        static int ExplorationDescribe(Outputs output, string folderPath, bool useDemoData)
-        {
-
-            try
-            {
-
-                LogAsciiBanner();
-
-                WIDExplorerComponents components = new WIDExplorerComponents();
-                if (useDemoData)
-                    components = CreateComponentsWithDemoData();
-
-                WIDExplorerSettings settings
-                    = new WIDExplorerSettings(
-                            parallelRequests: WIDExplorerSettings.DefaultParallelRequests,
-                            pauseBetweenRequestsMs: WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
-                            folderPath: folderPath ?? WIDExplorerSettings.DefaultFolderPath,
-                            deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
-                        );
-
-                WIDExplorer widExplorer = new WIDExplorer(components, settings);
-                Exploration exploration = widExplorer.Explore(1, Stages.Stage1_OnlyMetrics);
-
-                if (output == Outputs.console)
-                    return DumpExploratonToConsole(widExplorer, exploration);
-
-                if (output == Outputs.jsonfile)
-                    return SaveExplorationToJson(widExplorer, exploration);
-
-                if (output == Outputs.both)
-                    return DumpExplorationToConsoleAndSaveToJson(widExplorer, exploration);
-
-                throw CreateOutputException(output.ToString());
-
-            }
-            catch (Exception e)
-            {
-
-                return DumpExceptionToConsole(e);
-
-            }
-
-        }
 
         // Methods_Private
         private static void LogAsciiBanner()
@@ -503,25 +528,25 @@ namespace NW.WIDJobsClient
             WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
 
         }
-        private static Outputs ConvertToOutputs(string optionValue)
+        private static DescribeOutputs ConvertToDescribeOutputs(string outputValue)
         {
 
-            if (optionValue == nameof(Outputs.jsonfile))
-                return Outputs.jsonfile;
+            if (outputValue == nameof(DescribeOutputs.jsonfile))
+                return DescribeOutputs.jsonfile;
 
-            if (optionValue == nameof(Outputs.console))
-                return Outputs.console;
+            if (outputValue == nameof(DescribeOutputs.console))
+                return DescribeOutputs.console;
 
-            if (optionValue == nameof(Outputs.both))
-                return Outputs.both;
+            if (outputValue == nameof(DescribeOutputs.both))
+                return DescribeOutputs.both;
 
-            throw CreateOutputException(optionValue);
+            throw CreateDescribeOutputException(outputValue);
 
         }
-        private static Exception CreateOutputException(string outputValue)
+        private static Exception CreateDescribeOutputException(string outputValue)
         {
 
-            return new Exception(MessageCollection.Program_OutputValueCantBeConvertedOutputs.Invoke(outputValue));
+            return new Exception(MessageCollection.Program_OutputValueCantBeConvertedDescribeOutputs.Invoke(outputValue));
 
         }
         private static int DumpExploratonToConsole(WIDExplorer widExplorer, Exploration exploration)
