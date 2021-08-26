@@ -1,7 +1,7 @@
 ﻿namespace NW.WIDJobsClient
 {
     /// <summary></summary>
-    public enum DatabasetOutputs
+    public enum DatabaseOutputs
     {
 
         databasefile

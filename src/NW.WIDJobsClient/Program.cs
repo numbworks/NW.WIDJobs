@@ -172,26 +172,10 @@ namespace NW.WIDJobsClient
 
                 calculateSubCommand.Description = SubCommand_Calculate_Description;
 
-                CommandOption jsonPathOption
-                    = calculateSubCommand
-                        .Option(Option_JsonPath_Template, Option_JsonPath_Description, CommandOptionType.SingleValue)
-                        .IsRequired(false, Option_JsonPath_ErrorMessage)
-                        .Accepts(validator => validator.ExistingFile());
-
-                CommandOption outputOption
-                    = calculateSubCommand
-                        .Option(Option_Output_Template, Option_Output_Description, CommandOptionType.SingleValue)
-                        .IsRequired(false, Option_Output_ErrorMessage)
-                        .Accepts(validator => validator.Enum<JsonConsoleOutputs>());
-
-                CommandOption folderPathOption
-                    = calculateSubCommand
-                        .Option(Option_FolderPath_Template, Option_FolderPath_Description, CommandOptionType.SingleValue)
-                        .Accepts(validator => validator.ExistingDirectory());
-
-                CommandOption asPercentagesOption
-                    = calculateSubCommand
-                        .Option(Option_AsPercentages_Template, Option_AsPercentages_Description, CommandOptionType.NoValue);
+                CommandOption jsonPathOption = CreateJsonPathOption(calculateSubCommand);
+                CommandOption outputOption = CreateJsonConsoleOutputOption(calculateSubCommand);
+                CommandOption folderPathOption = CreateOptionalFolderPathOption(calculateSubCommand);
+                CommandOption asPercentagesOption = CreateAsPercentagesOption(calculateSubCommand);
 
                 calculateSubCommand.OnExecute(() =>
                 {
@@ -217,23 +201,9 @@ namespace NW.WIDJobsClient
 
                 convertSubCommand.Description = SubCommand_Convert_Description;
 
-                CommandOption jsonPathOption
-                    = convertSubCommand
-                        .Option(Option_JsonPath_Template, Option_JsonPath_Description, CommandOptionType.SingleValue)
-                        .IsRequired(false, Option_JsonPath_ErrorMessage)
-                        .Accepts(validator => validator.ExistingFile());
-
-                CommandOption outputOption
-                    = convertSubCommand
-                        .Option(Option_Output_Template, Option_Output_Description, CommandOptionType.SingleValue)
-                        .IsRequired(false, Option_Output_ErrorMessage)
-                        .Accepts(validator => validator.Enum<DatabasetOutputs>());
-
-                CommandOption folderPathOption
-                    = convertSubCommand
-                        .Option(Option_FolderPath_Template, Option_FolderPath_Description, CommandOptionType.SingleValue)
-                        .IsRequired(false, Option_FolderPath_ErrorMessage)
-                        .Accepts(validator => validator.ExistingDirectory());
+                CommandOption jsonPathOption = CreateJsonPathOption(convertSubCommand);
+                CommandOption outputOption = CreateDatabaseOutputOption(convertSubCommand);
+                CommandOption folderPathOption = CreateRequiredFolderPathOption(convertSubCommand);
 
                 convertSubCommand.OnExecute(() =>
                 {
@@ -256,20 +226,9 @@ namespace NW.WIDJobsClient
 
                 describeSubCommand.Description = SubCommand_Describe_Description;
 
-                CommandOption outputOption
-                    = describeSubCommand
-                        .Option(Option_Output_Template, Option_Output_Description, CommandOptionType.SingleValue)
-                        .IsRequired(false, Option_Output_ErrorMessage)
-                        .Accepts(validator => validator.Enum<JsonConsoleOutputs>());
-
-                CommandOption folderPathOption
-                    = describeSubCommand
-                        .Option(Option_FolderPath_Template, Option_FolderPath_Description, CommandOptionType.SingleValue)
-                        .Accepts(validator => validator.ExistingDirectory());
-
-                CommandOption useDemoDataOption
-                    = describeSubCommand
-                        .Option(Option_UseDemoData_Template, Option_UseDemoData_Description, CommandOptionType.NoValue);
+                CommandOption outputOption = CreateJsonConsoleOutputOption(describeSubCommand);
+                CommandOption folderPathOption = CreateOptionalFolderPathOption(describeSubCommand);
+                CommandOption useDemoDataOption = CreateDemoDataOption(describeSubCommand);
 
                 describeSubCommand.OnExecute(() =>
                 {
@@ -568,6 +527,64 @@ namespace NW.WIDJobsClient
             DumpMetricCollectionToConsole(widExplorer, metricCollection, numbersAsPercentages);
 
             return SaveMetricCollectionToJson(widExplorer, metricCollection, numbersAsPercentages);
+
+        }
+        private static CommandOption CreateJsonPathOption(CommandLineApplication subCommand)
+        {
+
+            return subCommand
+                    .Option(Option_JsonPath_Template, Option_JsonPath_Description, CommandOptionType.SingleValue)
+                    .IsRequired(false, Option_JsonPath_ErrorMessage)
+                    .Accepts(validator => validator.ExistingFile());
+
+        }
+        private static CommandOption CreateJsonConsoleOutputOption(CommandLineApplication subCommand)
+        {
+
+            return subCommand
+                    .Option(Option_Output_Template, Option_Output_Description, CommandOptionType.SingleValue)
+                    .IsRequired(false, Option_Output_ErrorMessage)
+                    .Accepts(validator => validator.Enum<JsonConsoleOutputs>());
+
+        }
+        private static CommandOption CreateDatabaseOutputOption(CommandLineApplication subCommand)
+        {
+
+            return subCommand
+                    .Option(Option_Output_Template, Option_Output_Description, CommandOptionType.SingleValue)
+                    .IsRequired(false, Option_Output_ErrorMessage)
+                    .Accepts(validator => validator.Enum<DatabaseOutputs>());
+
+        }
+        private static CommandOption CreateOptionalFolderPathOption(CommandLineApplication subCommand)
+        {
+
+            return subCommand
+                    .Option(Option_FolderPath_Template, Option_FolderPath_Description, CommandOptionType.SingleValue)
+                    .Accepts(validator => validator.ExistingDirectory());
+
+        }
+        private static CommandOption CreateRequiredFolderPathOption(CommandLineApplication subCommand)
+        {
+
+            return subCommand
+                    .Option(Option_FolderPath_Template, Option_FolderPath_Description, CommandOptionType.SingleValue)
+                    .Accepts(validator => validator.ExistingDirectory())
+                    .IsRequired(false, Option_FolderPath_ErrorMessage);
+
+        }
+        private static CommandOption CreateAsPercentagesOption(CommandLineApplication subCommand)
+        {
+
+            return subCommand
+                    .Option(Option_AsPercentages_Template, Option_AsPercentages_Description, CommandOptionType.NoValue);
+
+        }
+        private static CommandOption CreateDemoDataOption(CommandLineApplication subCommand)
+        {
+
+            return subCommand
+                    .Option(Option_UseDemoData_Template, Option_UseDemoData_Description, CommandOptionType.NoValue);
 
         }
 
