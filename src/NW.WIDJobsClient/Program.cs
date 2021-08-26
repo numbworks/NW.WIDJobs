@@ -55,6 +55,11 @@ namespace NW.WIDJobsClient
         static string Option_UseDemoData_Template = "--usedemodata";
         static string Option_UseDemoData_Description = $"Use demo data instead of real data. This options doesn't require internet connection.";
 
+        static string Option_Stage_Template = "--stage";
+        static string Option_Stage_Description = $"The depth of an {nameof(Exploration)}.";
+
+
+
         #endregion
 
         // Methods_Public

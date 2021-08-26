@@ -26,7 +26,7 @@ The command-line interface for of `NW.WIDJobsClient`:
 
 |Command|Sub Command|Options|Exit Codes|
 |---|---|---|---|
-|exploration|explore|--stage:{2\|3}<br />--thresholdtype:{pagenumber\|date\|jobpostingid}<br />--threshold:{pagenumber}\|{date}\|{jobpostingid}<br />--explorationoutput:{databasefile\|jsonfile\|console\|all}<br />*--folderpath:{path}*<br />*--metrics*<br />*--metricsoutput:{jsonfile\|console\|all}*<br />*--parallelrequests*<br />*--pausebetweenrequestsms*<br />*--usedemodata*|Success<br />Failure|
+|exploration|explore|--stage:{2\|3}<br />--thresholdtype:{pagenumber\|date\|jobpostingid}<br />--threshold:{pagenumber}\|{date}\|{jobpostingid}<br />--output:{databasefile\|jsonfile\|console\|all}<br />*--folderpath:{path}*<br />*--metrics*<br />*--metricsoutput:{jsonfile\|console\|all}*<br />*--aspercentages*<br />*--parallelrequests*<br />*--pausebetweenrequestsms*<br />*--usedemodata*|Success<br />Failure|
 
 # Exit codes
 
