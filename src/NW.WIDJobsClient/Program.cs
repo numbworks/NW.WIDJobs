@@ -48,7 +48,7 @@ namespace NW.WIDJobsClient
         static string Option_FolderPath_Description = $"A valid folder path.";
         static string Option_FolderPath_ErrorMessage = $"{Option_FolderPath_Template} is mandatory.";
         static string Option_Output_Template = "--output";
-        static string Option_Output_Description = $"The output(s) of the operation.";
+        static string Option_Output_Description = "The output(s) of the operation.";
         static string Option_Output_ErrorMessage = $"{Option_Output_Template} is mandatory.";
         static string Option_AsPercentages_Template = "--aspercentages";
         static string Option_AsPercentages_Description = "Shows metrics as percentages instead of numbers.";
@@ -58,10 +58,17 @@ namespace NW.WIDJobsClient
         static string Option_Stage_Template = "--stage";
         static string Option_Stage_Description = $"The depth of an {nameof(Exploration)}.";
         static string Option_ThresholdType_Template = "--thresholdtype";
-        static string Option_ThresholdType_Description = $"The exploration proceeds until this criteria is met.";
+        static string Option_ThresholdType_Description = "The exploration proceeds until this criteria is met.";
         static string Option_Threshold_Template = "--threshold";
         static string Option_Threshold_Description = $"The value for the provided threshold type.";
-
+        static string Option_Metrics_Template = "--metrics";
+        static string Option_Metrics_Description = "Enables the metric calculation.";
+        static string Option_MetricsOutput_Template = "--metricsoutput";
+        static string Option_MetricsOutput_Description = "The output(s) for the metric calculation.";
+        static string Option_ParallelRequests_Template = "--parallelrequests";
+        static string Option_ParallelRequests_Description = $"The number of HTTP requests to send to WorkInDenmark.dk before pausing. If not specified, '{WIDExplorerSettings.DefaultParallelRequests}' will be used.";
+        static string Option_PauseBetweenRequestsMs_Template = "--pausebetweenrequestsms";
+        static string Option_PauseBetweenRequestsMs_Description = $"The duration of the pause after x HTTP requests in milliseconds. If not specified, '{WIDExplorerSettings.DefaultPauseBetweenRequestsMs}' will be used.";
 
         #endregion
 
