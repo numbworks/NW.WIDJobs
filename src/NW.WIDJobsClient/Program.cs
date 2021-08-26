@@ -59,6 +59,8 @@ namespace NW.WIDJobsClient
         static string Option_Stage_Description = $"The depth of an {nameof(Exploration)}.";
         static string Option_ThresholdType_Template = "--thresholdtype";
         static string Option_ThresholdType_Description = $"The exploration proceeds until this criteria is met.";
+        static string Option_Threshold_Template = "--threshold";
+        static string Option_Threshold_Description = $"The value for the provided threshold type.";
 
 
         #endregion
