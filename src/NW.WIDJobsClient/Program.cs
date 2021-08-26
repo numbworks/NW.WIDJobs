@@ -31,13 +31,9 @@ namespace NW.WIDJobsClient
         static string Command_About_Name = "about";
         static string Command_About_Description = "About this application.";
 
-        static string Command_Demo_Name = "demo";
-        static string Command_Demo_Description = "Groups all the features related to the demo mode.";
-        static string SubCommand_Run_Name = "run";
-        static string SubCommand_Run_Description = "Runs a demo exploration.";
-
         static string Command_Exploration_Name = "exploration";
         static string Command_Exploration_Description = "Groups all the features related to the exploration of WorkInDenmark.dk.";
+
         static string SubCommand_ShowAsMetrics_Name = "showasmetrics";
         static string SubCommand_ShowAsMetrics_Description = $"Loads an {nameof(Exploration)} from a JSON file, calculates the metrics and shows them on screen.";
         static string Option_AsPercentages_Template = "--aspercentages";
@@ -58,6 +54,9 @@ namespace NW.WIDJobsClient
         static string Option_Output_Template = "--output";
         static string Option_Output_Description = $"The output(s) of the operation.";
         static string Option_Output_ErrorMessage = $"{Option_Output_Template} is mandatory.";
+
+        static string Option_UseDemoData_Template = "--usedemodata";
+        static string Option_UseDemoData_Description = $"Use demo data instead of real data. This options doesn't require internet connection.";
 
         #endregion
 
@@ -84,7 +83,6 @@ namespace NW.WIDJobsClient
 
             AddRoot(app);
             AddAbout(app);
-            AddDemo(app);
             AddExploration(app);
 
             app.HelpOption(inherited: true);
@@ -135,56 +133,7 @@ namespace NW.WIDJobsClient
             return aboutCommand;
 
         }
-        private static CommandLineApplication AddDemo(CommandLineApplication app)
-        {
 
-            app.Command(Command_Demo_Name, demoCommand =>
-            {
-
-                demoCommand = AddDemoMain(demoCommand);
-                demoCommand = AddDemoRun(demoCommand);
-
-            });
-
-            return app;
-
-        }
-        private static CommandLineApplication AddDemoMain(CommandLineApplication demoCommand)
-        {
-
-            demoCommand.Description = Command_Demo_Description;
-            demoCommand.OnExecute(() =>
-            {
-
-                int exitCode = GenericCommand();
-                demoCommand.ShowHelp();
-
-                return exitCode;
-
-            });
-
-            return demoCommand;
-
-        }
-        private static CommandLineApplication AddDemoRun(CommandLineApplication demoCommand)
-        {
-
-            demoCommand.Command(SubCommand_Run_Name, runSubCommand =>
-            {
-
-                runSubCommand.Description = SubCommand_Run_Description;
-
-                runSubCommand.OnExecute(() =>
-                {
-                    return DemoRun();
-
-                });
-
-            });
-
-            return demoCommand;
-
-        }
         private static CommandLineApplication AddExploration(CommandLineApplication app)
         {
 
@@ -341,10 +290,14 @@ namespace NW.WIDJobsClient
                         .Option(Option_FolderPath_Template, Option_FolderPath_Description, CommandOptionType.SingleValue)
                         .Accepts(validator => validator.ExistingDirectory());
 
+                CommandOption useDemoDataOption
+                    = describeSubCommand
+                        .Option(Option_UseDemoData_Template, Option_UseDemoData_Description, CommandOptionType.NoValue);
+
                 describeSubCommand.OnExecute(() =>
                 {
 
-                    return ExplorationDescribe(ConvertToOutputs(outputOption.Value()), folderPathOption.Value());
+                    return ExplorationDescribe(ConvertToOutputs(outputOption.Value()), folderPathOption.Value(), useDemoDataOption.HasValue());
 
                 });
 
@@ -375,56 +328,6 @@ namespace NW.WIDJobsClient
             WIDExplorerComponents.DefaultLoggingActionAsciiBanner(MessageCollection.Program_ApplicationLicense);
 
             WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
-
-            return ((int)ExitCodes.Success);
-
-        }
-        static int DemoRun() 
-        {
-
-            LogAsciiBanner();
-
-            WIDExplorerComponents components = new WIDExplorerComponents(
-                    loggingAction: WIDExplorerComponents.DefaultLoggingAction,
-                    loggingActionAsciiBanner: WIDExplorerComponents.DefaultLoggingActionAsciiBanner,
-                    xpathManager: new XPathManager(),
-                    getRequestManager: new GetRequestManager(),
-                    jobPageDeserializer: new JobPageDeserializer(),
-                    jobPageManager: new JobPageManager(postRequestManagerFactory: ObjectMother.WIDExplorer_JobPage0102_FakePostRequestManagerFactory),
-                    jobPostingDeserializer: new JobPostingDeserializer(),
-                    jobPostingManager: new JobPostingManager(),
-                    jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
-                    jobPostingExtendedManager: new JobPostingExtendedManager(ObjectMother.WIDExplorer_JobPage0102_FakeGetRequestManagerFactory, new JobPostingExtendedDeserializer()),
-                    runIdManager: new RunIdManager(),
-                    metricCollectionManager: new MetricCollectionManager(),
-                    fileManager: new FileManager(),
-                    repositoryFactory: new RepositoryFactory(),
-                    asciiBannerManager: new AsciiBannerManager(),
-                    filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager(),
-                    nowFunction: ObjectMother.WIDExplorer_FakeNowFunction
-                  );
-            WIDExplorerSettings settings = new WIDExplorerSettings(
-                    parallelRequests: WIDExplorerSettings.DefaultParallelRequests,
-                    pauseBetweenRequestsMs: 1000,
-                    folderPath: WIDExplorerSettings.DefaultFolderPath,
-                    deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
-                );
-
-            WIDExplorer widExplorer = new WIDExplorer(components, settings);
-            Exploration exploration = widExplorer.Explore(2, Stages.Stage3_UpToAllJobPostingsExtended);
-            WIDExplorerComponents.DefaultLoggingAction.Invoke(MessageCollection.Program_DumpingExplorationToConsole);
-            WIDExplorerComponents.DefaultLoggingAction.Invoke(exploration.ToString());
-
-            string json = widExplorer.ConvertToJson(exploration);
-            DumpJsonToConsole(json);
-
-            MetricCollection metricCollection = widExplorer.ConvertToMetricCollection(exploration);
-            json = widExplorer.ConvertToJson(metricCollection, false);
-            DumpJsonToConsole(json);
-
-            json = widExplorer.ConvertToJson(metricCollection, true);
-            DumpJsonToConsole(json);
 
             return ((int)ExitCodes.Success);
 
@@ -528,7 +431,7 @@ namespace NW.WIDJobsClient
             }
 
         }        
-        static int ExplorationDescribe(Outputs output, string folderPath)
+        static int ExplorationDescribe(Outputs output, string folderPath, bool useDemoData)
         {
 
             try
@@ -536,15 +439,19 @@ namespace NW.WIDJobsClient
 
                 LogAsciiBanner();
 
+                WIDExplorerComponents components = new WIDExplorerComponents();
+                if (useDemoData)
+                    components = CreateComponentsWithDemoData();
+
                 WIDExplorerSettings settings
                     = new WIDExplorerSettings(
                             parallelRequests: WIDExplorerSettings.DefaultParallelRequests,
                             pauseBetweenRequestsMs: WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
-                            folderPath: folderPath,
+                            folderPath: folderPath ?? WIDExplorerSettings.DefaultFolderPath,
                             deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
                         );
 
-                WIDExplorer widExplorer = new WIDExplorer(new WIDExplorerComponents(), settings);
+                WIDExplorer widExplorer = new WIDExplorer(components, settings);
                 Exploration exploration = widExplorer.Explore(1, Stages.Stage1_OnlyMetrics);
 
                 if (output == Outputs.console)
@@ -643,6 +550,31 @@ namespace NW.WIDJobsClient
             DumpExploratonToConsole(widExplorer, exploration);
             
             return SaveExplorationToJson(widExplorer, exploration);
+
+        }
+        private static WIDExplorerComponents CreateComponentsWithDemoData()
+        {
+
+            return new WIDExplorerComponents(
+                    loggingAction: WIDExplorerComponents.DefaultLoggingAction,
+                    loggingActionAsciiBanner: WIDExplorerComponents.DefaultLoggingActionAsciiBanner,
+                    xpathManager: new XPathManager(),
+                    getRequestManager: new GetRequestManager(),
+                    jobPageDeserializer: new JobPageDeserializer(),
+                    jobPageManager: new JobPageManager(postRequestManagerFactory: ObjectMother.WIDExplorer_JobPage0102_FakePostRequestManagerFactory),
+                    jobPostingDeserializer: new JobPostingDeserializer(),
+                    jobPostingManager: new JobPostingManager(),
+                    jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
+                    jobPostingExtendedManager: new JobPostingExtendedManager(ObjectMother.WIDExplorer_JobPage0102_FakeGetRequestManagerFactory, new JobPostingExtendedDeserializer()),
+                    runIdManager: new RunIdManager(),
+                    metricCollectionManager: new MetricCollectionManager(),
+                    fileManager: new FileManager(),
+                    repositoryFactory: new RepositoryFactory(),
+                    asciiBannerManager: new AsciiBannerManager(),
+                    filenameFactory: new FilenameFactory(),
+                    bulletPointManager: new BulletPointManager(),
+                    nowFunction: ObjectMother.WIDExplorer_FakeNowFunction
+                  );
 
         }
 
