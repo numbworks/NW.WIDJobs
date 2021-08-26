@@ -17,7 +17,6 @@ using NW.WIDJobs.BulletPoints;
 using NW.WIDJobs.UnitTests;
 using NW.WIDJobsClient.Messages;
 using McMaster.Extensions.CommandLineUtils;
-using McMaster.Extensions.CommandLineUtils.Validation;
 
 namespace NW.WIDJobsClient
 {
@@ -463,10 +462,7 @@ namespace NW.WIDJobsClient
             catch (Exception e)
             {
 
-                WIDExplorerComponents.DefaultLoggingAction.Invoke(MessageCollection.Program_FormattedErrorMessage.Invoke(e.Message));
-                WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
-
-                return ((int)ExitCodes.Failure);
+                return DumpExceptionToConsole(e);
 
             }
 
@@ -505,10 +501,7 @@ namespace NW.WIDJobsClient
             catch (Exception e)
             {
 
-                WIDExplorerComponents.DefaultLoggingAction.Invoke(MessageCollection.Program_FormattedErrorMessage.Invoke(e.Message));
-                WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
-
-                return ((int)ExitCodes.Failure);
+                return DumpExceptionToConsole(e);
 
             }
 
@@ -546,10 +539,7 @@ namespace NW.WIDJobsClient
             catch (Exception e)
             {
 
-                WIDExplorerComponents.DefaultLoggingAction.Invoke(MessageCollection.Program_FormattedErrorMessage.Invoke(e.Message));
-                WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
-
-                return ((int)ExitCodes.Failure);
+                return DumpExceptionToConsole(e);
 
             }
 
@@ -586,16 +576,22 @@ namespace NW.WIDJobsClient
             catch (Exception e)
             {
 
-                WIDExplorerComponents.DefaultLoggingAction.Invoke(MessageCollection.Program_FormattedErrorMessage.Invoke(e.Message));
-                WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
-
-                return ((int)ExitCodes.Failure);
+                return DumpExceptionToConsole(e);
 
             }
 
         }
 
         // Methods_Private
+        private static int DumpExceptionToConsole(Exception e)
+        {
+
+            WIDExplorerComponents.DefaultLoggingAction.Invoke(MessageCollection.Program_FormattedErrorMessage.Invoke(e.Message));
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
+
+            return ((int)ExitCodes.Failure);
+
+        }
         private static void DumpJsonToConsole(string json)
         {
 
