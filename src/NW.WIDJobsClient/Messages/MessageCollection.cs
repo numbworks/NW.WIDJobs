@@ -7,7 +7,6 @@ namespace NW.WIDJobsClient.Messages
     public static class MessageCollection
     {
 
-        public static string Program_DemoMode = "Demo Mode";
         public static string Program_DumpingExplorationToConsole = $"Dumping {nameof(Exploration)} object to console:";
         public static string Program_DumpingJsonToConsole = "Dumping Json to console:";
         public static string Program_PressAButtonToCloseTheWindow = "Press a button to close the window.";
@@ -16,6 +15,8 @@ namespace NW.WIDJobsClient.Messages
         public static string Program_ApplicationUrl = @"Github: http://www.github.com/numbworks";
         public static string Program_ApplicationLicense = "License: MIT License";
         public static Func<string, string> Program_FormattedErrorMessage = (message) => $"ERROR: {message}";
+        public static Func<string, string> Program_OutputValueCantBeConvertedOutputs
+            = (outputValue) => $"The provided output value ('{outputValue}') can't be converted to {nameof(Outputs)}.";
 
     }
 }

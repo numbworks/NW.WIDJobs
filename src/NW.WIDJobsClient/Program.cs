@@ -357,10 +357,7 @@ namespace NW.WIDJobsClient
         static int GenericCommand()
         {
 
-            WIDExplorer widExplorer = new WIDExplorer();
-
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
-            widExplorer.LogAsciiBanner();
+            LogAsciiBanner();
 
             return ((int)ExitCodes.Success);
 
@@ -368,10 +365,7 @@ namespace NW.WIDJobsClient
         static int About()
         {
 
-            WIDExplorer widExplorer = new WIDExplorer();
-
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
-            widExplorer.LogAsciiBanner();
+            LogAsciiBanner();
 
             WIDExplorerComponents.DefaultLoggingActionAsciiBanner(Application_Description);
             WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
@@ -387,6 +381,8 @@ namespace NW.WIDJobsClient
         }
         static int DemoRun() 
         {
+
+            LogAsciiBanner();
 
             WIDExplorerComponents components = new WIDExplorerComponents(
                     loggingAction: WIDExplorerComponents.DefaultLoggingAction,
@@ -416,12 +412,6 @@ namespace NW.WIDJobsClient
                 );
 
             WIDExplorer widExplorer = new WIDExplorer(components, settings);
-
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
-            widExplorer.LogAsciiBanner();
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(MessageCollection.Program_DemoMode);
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
-
             Exploration exploration = widExplorer.Explore(2, Stages.Stage3_UpToAllJobPostingsExtended);
             WIDExplorerComponents.DefaultLoggingAction.Invoke(MessageCollection.Program_DumpingExplorationToConsole);
             WIDExplorerComponents.DefaultLoggingAction.Invoke(exploration.ToString());
@@ -445,11 +435,9 @@ namespace NW.WIDJobsClient
             try
             {
 
+                LogAsciiBanner();
+
                 WIDExplorer widExplorer = new WIDExplorer();
-
-                WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
-                widExplorer.LogAsciiBanner();
-
                 Exploration exploration = widExplorer.LoadExplorationFromJsonFile(filePath);
                 MetricCollection metricCollection = widExplorer.ConvertToMetricCollection(exploration);
 
@@ -473,6 +461,8 @@ namespace NW.WIDJobsClient
             try
             {
 
+                LogAsciiBanner();
+
                 WIDExplorerSettings settings 
                     = new WIDExplorerSettings(
                             parallelRequests: WIDExplorerSettings.DefaultParallelRequests,
@@ -482,10 +472,6 @@ namespace NW.WIDJobsClient
                         );
 
                 WIDExplorer widExplorer = new WIDExplorer(new WIDExplorerComponents(), settings);
-
-                WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
-                widExplorer.LogAsciiBanner();
-
                 Exploration exploration = widExplorer.LoadExplorationFromJsonFile(filePath);
                 MetricCollection metricCollection = widExplorer.ConvertToMetricCollection(exploration);
                 IFileInfoAdapter fileInfoAdapter = widExplorer.SaveToJsonFile(metricCollection, numbersAsPercentages);
@@ -512,6 +498,8 @@ namespace NW.WIDJobsClient
             try
             {
 
+                LogAsciiBanner();
+
                 WIDExplorerSettings settings
                     = new WIDExplorerSettings(
                             parallelRequests: WIDExplorerSettings.DefaultParallelRequests,
@@ -521,10 +509,6 @@ namespace NW.WIDJobsClient
                         );
 
                 WIDExplorer widExplorer = new WIDExplorer(new WIDExplorerComponents(), settings);
-
-                WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
-                widExplorer.LogAsciiBanner();
-
                 Exploration exploration = widExplorer.LoadExplorationFromJsonFile(filePath);
                 IFileInfoAdapter fileInfoAdapter = widExplorer.SaveToSQLiteDatabase(exploration.JobPostingsExtended);
 
@@ -550,6 +534,8 @@ namespace NW.WIDJobsClient
             try
             {
 
+                LogAsciiBanner();
+
                 WIDExplorerSettings settings
                     = new WIDExplorerSettings(
                             parallelRequests: WIDExplorerSettings.DefaultParallelRequests,
@@ -559,18 +545,18 @@ namespace NW.WIDJobsClient
                         );
 
                 WIDExplorer widExplorer = new WIDExplorer(new WIDExplorerComponents(), settings);
-
-                WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
-                widExplorer.LogAsciiBanner();
-
                 Exploration exploration = widExplorer.Explore(1, Stages.Stage1_OnlyMetrics);
 
                 if (output == Outputs.console)
                     return DumpExploratonToConsole(widExplorer, exploration);
+
                 if (output == Outputs.jsonfile)
                     return SaveExplorationToJson(widExplorer, exploration);
 
-                return DumpExplorationToConsoleAndSaveToJson(widExplorer, exploration);
+                if (output == Outputs.both)
+                    return DumpExplorationToConsoleAndSaveToJson(widExplorer, exploration);
+
+                throw CreateOutputException(output.ToString());
 
             }
             catch (Exception e)
@@ -583,6 +569,15 @@ namespace NW.WIDJobsClient
         }
 
         // Methods_Private
+        private static void LogAsciiBanner()
+        {
+
+            WIDExplorer widExplorer = new WIDExplorer();
+
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
+            widExplorer.LogAsciiBanner();
+
+        }
         private static int DumpExceptionToConsole(Exception e)
         {
 
@@ -604,16 +599,22 @@ namespace NW.WIDJobsClient
         private static Outputs ConvertToOutputs(string optionValue)
         {
 
-            if (optionValue == Outputs.jsonfile.ToString())
+            if (optionValue == nameof(Outputs.jsonfile))
                 return Outputs.jsonfile;
 
-            if (optionValue == Outputs.console.ToString())
+            if (optionValue == nameof(Outputs.console))
                 return Outputs.console;
 
-            if (optionValue == Outputs.both.ToString())
+            if (optionValue == nameof(Outputs.both))
                 return Outputs.both;
 
-            throw new Exception($"{optionValue} can't be converted to {nameof(Outputs)}.");
+            throw CreateOutputException(optionValue);
+
+        }
+        private static Exception CreateOutputException(string outputValue)
+        {
+
+            return new Exception(MessageCollection.Program_OutputValueCantBeConvertedOutputs.Invoke(outputValue));
 
         }
         private static int DumpExploratonToConsole(WIDExplorer widExplorer, Exploration exploration)
