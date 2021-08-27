@@ -22,11 +22,12 @@ The command-line interface for of `NW.WIDJobsClient`:
 |exploration|calculate|--jsonpath:{path}<br />--output:{jsonfile\|console\|both}<br />*--folderpath:{path}*<br />*--aspercentages*|Success<br />Failure|
 |exploration|convert|--jsonpath:{path}<br />--output:{databasefile}<br />--folderpath:{path}|Success<br />Failure|
 |exploration|describe|--output:{jsonfile\|console\|both}<br />*--folderpath:{path}*<br />*--usedemodata*|Success<br />Failure|
+|exploration|explore|--stage:{S2\|S3}<br />--thresholdtype:{pagenumber\|date\|jobpostingid}<br />--thresholdvalue:{pagenumber}\|{date}\|{jobpostingid}<br />--output:{databasefile\|jsonfile\|console\|all}<br />*--folderpath:{path}*<br />*--metrics*<br />*--metricsoutput:{jsonfile\|console\|both}*<br />*--aspercentages*<br />*--parallelrequests:{number}*<br />*--pausebetweenrequestsms:{number}*<br />*--usedemodata*|Success<br />Failure|
 
 
 |Command|Sub Command|Options|Exit Codes|
 |---|---|---|---|
-|exploration|explore|--stage:{2\|3}<br />--thresholdtype:{pagenumber\|date\|jobpostingid}<br />--threshold:{pagenumber}\|{date}\|{jobpostingid}<br />--output:{databasefile\|jsonfile\|console\|all}<br />*--folderpath:{path}*<br />*--metrics*<br />*--metricsoutput:{jsonfile\|console\|all}*<br />*--aspercentages*<br />*--parallelrequests*<br />*--pausebetweenrequestsms*<br />*--usedemodata*|Success<br />Failure|
+|||||
 
 # Exit codes
 

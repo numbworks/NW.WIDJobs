@@ -17,8 +17,8 @@ namespace NW.WIDJobsClient.Messages
         public static string Program_ApplicationUrl = @"Github: http://www.github.com/numbworks";
         public static string Program_ApplicationLicense = "License: MIT License";
         public static Func<string, string> Program_FormattedErrorMessage = (message) => $"ERROR: {message}";
-        public static Func<string, Type, string> Program_OutputValueCantBeConvertedToOutputs
-            = (outputValue, type) => $"The provided output value ('{outputValue}') can't be converted to {type.Name}.";
+        public static Func<string, Type, string> Program_OptionValueCantBeConvertedTo
+            = (optionValue, type) => $"The provided option value ('{optionValue}') can't be converted to {type.Name}.";
 
         #endregion
 

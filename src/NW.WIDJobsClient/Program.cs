@@ -39,7 +39,8 @@ namespace NW.WIDJobsClient
         static string SubCommand_Convert_Description = $"Loads an {nameof(Exploration)} from a JSON file and convert it to a SQLite database.";
         static string SubCommand_Describe_Name = "describe";
         static string SubCommand_Describe_Description = $"Describes the current state of WorkInDenmark.dk.";
-
+        static string SubCommand_Explore_Name = "explore";
+        static string SubCommand_Explore_Description = $"Fetches data from WorkInDenmark.dk.";
 
         static string Option_JsonPath_Template = "--jsonpath";
         static string Option_JsonPath_Description = $"The file path to the required JSON file.";
@@ -61,9 +62,9 @@ namespace NW.WIDJobsClient
         static string Option_ThresholdType_Template = "--thresholdtype";
         static string Option_ThresholdType_Description = "The exploration proceeds until this criteria is met.";
         static string Option_ThresholdType_ErrorMessage = $"{Option_ThresholdType_Template} is mandatory.";
-        static string Option_Threshold_Template = "--threshold";
-        static string Option_Threshold_Description = $"The value for the provided threshold type. Date must be provided in the 'yyyyMMdd' format.";
-        static string Option_Threshold_ErrorMessage = $"{Option_Threshold_Template} is mandatory.";
+        static string Option_ThresholdValue_Template = "--thresholdvalue";
+        static string Option_ThresholdValue_Description = $"The value for the provided threshold type. Date must be provided in the 'yyyyMMdd' format.";
+        static string Option_ThresholdValue_ErrorMessage = $"{Option_ThresholdValue_Template} is mandatory.";
         static string Option_Metrics_Template = "--metrics";
         static string Option_Metrics_Description = "Enables the metric calculation.";
         static string Option_MetricsOutput_Template = "--metricsoutput";
@@ -265,7 +266,50 @@ namespace NW.WIDJobsClient
             return explorationCommand;
 
         }
+        private static CommandLineApplication AddExplorationExplore(CommandLineApplication explorationCommand)
+        {
 
+            explorationCommand.Command(SubCommand_Explore_Name, exploreSubCommand =>
+            {
+
+                exploreSubCommand.Description = SubCommand_Explore_Description;
+
+                CommandOption stageOption = CreateStageOption(exploreSubCommand);
+                CommandOption thresholdTypeOption = CreateThresholdTypeOption(exploreSubCommand);
+                CommandOption thresholdValueOption = CreateThresholdValueOption(exploreSubCommand);
+                CommandOption outputOption = CreateDatabaseJsonConsoleOutputOption(exploreSubCommand);
+                CommandOption folderPathOption = CreateOptionalFolderPathOption(exploreSubCommand);
+                CommandOption metricsOption = CreateMetricsOption(exploreSubCommand);
+                CommandOption metricsOutputOption = CreateMetricsOutputOption(exploreSubCommand);
+                CommandOption asPercentagesOption = CreateAsPercentagesOption(exploreSubCommand);
+                CommandOption parallelRequestsOption = CreateParallelRequestsOption(exploreSubCommand);
+                CommandOption pauseBetweenRequestsMsOption = CreatePauseBetweenRequestsMsOption(exploreSubCommand);
+                CommandOption useDemoDataOption = CreateUseDemoDataOption(exploreSubCommand);
+
+                exploreSubCommand.OnExecute(() =>
+                {
+
+                    return ExplorationExplore(
+                                ConvertToExploreStages(stageOption.Value()),
+                                ConvertToThresholdTypes(thresholdTypeOption.Value()),
+                                ParseThresholdValue(thresholdValueOption.Value()),
+                                ConvertToDatabaseJsonConsoleOutputs(outputOption.Value()),
+                                folderPathOption.Value(),
+                                metricsOption.HasValue(),
+                                ConvertToJsonConsoleOutputs(metricsOutputOption.Value()),
+                                asPercentagesOption.HasValue(),
+                                parallelRequestsOption.Value(),
+                                pauseBetweenRequestsMsOption.Value(),
+                                useDemoDataOption.HasValue()
+                                );
+
+                });
+
+            });
+
+            return explorationCommand;
+
+        }
 
 
 
@@ -324,7 +368,7 @@ namespace NW.WIDJobsClient
                 if (output == JsonConsoleOutputs.both)
                     return DumpMetricCollectionToConsoleAndSaveToJson(widExplorer, metricCollection, numbersAsPercentages);
 
-                throw CreateOutputException<JsonConsoleOutputs>(output.ToString());
+                throw CreateOptionValueException<JsonConsoleOutputs>(output.ToString());
 
             }
             catch (Exception e)
@@ -399,7 +443,7 @@ namespace NW.WIDJobsClient
                 if (output == JsonConsoleOutputs.both)
                     return DumpExplorationToConsoleAndSaveToJson(widExplorer, exploration);
 
-                throw CreateOutputException<JsonConsoleOutputs>(output.ToString());
+                throw CreateOptionValueException<JsonConsoleOutputs>(output.ToString());
 
             }
             catch (Exception e)
@@ -439,25 +483,25 @@ namespace NW.WIDJobsClient
             WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
 
         }
-        private static JsonConsoleOutputs ConvertToJsonConsoleOutputs(string outputValue)
+        private static JsonConsoleOutputs ConvertToJsonConsoleOutputs(string optionValue)
         {
 
-            if (outputValue == nameof(JsonConsoleOutputs.jsonfile))
+            if (optionValue == nameof(JsonConsoleOutputs.jsonfile))
                 return JsonConsoleOutputs.jsonfile;
 
-            if (outputValue == nameof(JsonConsoleOutputs.console))
+            if (optionValue == nameof(JsonConsoleOutputs.console))
                 return JsonConsoleOutputs.console;
 
-            if (outputValue == nameof(JsonConsoleOutputs.both))
+            if (optionValue == nameof(JsonConsoleOutputs.both))
                 return JsonConsoleOutputs.both;
 
-            throw CreateOutputException<JsonConsoleOutputs>(outputValue);
+            throw CreateOptionValueException<JsonConsoleOutputs>(optionValue);
 
         }
-        private static Exception CreateOutputException<T>(string outputValue)
+        private static Exception CreateOptionValueException<T>(string optionValue)
         {
 
-            return new Exception(MessageCollection.Program_OutputValueCantBeConvertedToOutputs.Invoke(outputValue, typeof(T)));
+            return new Exception(MessageCollection.Program_OptionValueCantBeConvertedTo.Invoke(optionValue, typeof(T)));
 
         }
         private static int DumpExploratonToConsole(WIDExplorer widExplorer, Exploration exploration)
@@ -616,13 +660,13 @@ namespace NW.WIDJobsClient
             return ((int)ExitCodes.Failure);
 
         }
-        private static DatabaseOutputs ConvertToDatabaseOutputs(string outputValue)
+        private static DatabaseOutputs ConvertToDatabaseOutputs(string optionValue)
         {
 
-            if (outputValue == nameof(DatabaseOutputs.databasefile))
+            if (optionValue == nameof(DatabaseOutputs.databasefile))
                 return DatabaseOutputs.databasefile;
 
-            throw CreateOutputException<DatabaseOutputs>(outputValue);
+            throw CreateOptionValueException<DatabaseOutputs>(optionValue);
 
         }
 
@@ -644,16 +688,25 @@ namespace NW.WIDJobsClient
                     .IsRequired(false, Option_ThresholdType_ErrorMessage);
 
         }
-        private static CommandOption CreateThresholdOption(CommandLineApplication subCommand)
+        private static CommandOption CreateThresholdValueOption(CommandLineApplication subCommand)
         {
 
             CommandOption result 
                 = subCommand
-                    .Option(Option_Threshold_Template, Option_Threshold_Description, CommandOptionType.SingleValue)
-                    .IsRequired(false, Option_Threshold_ErrorMessage);
+                    .Option(Option_ThresholdValue_Template, Option_ThresholdValue_Description, CommandOptionType.SingleValue)
+                    .IsRequired(false, Option_ThresholdValue_ErrorMessage);
             result.Validators.Add(new ThresholdValidator());
 
             return result;
+
+        }
+        private static CommandOption CreateDatabaseJsonConsoleOutputOption(CommandLineApplication subCommand)
+        {
+
+            return subCommand
+                    .Option(Option_Output_Template, Option_Output_Description, CommandOptionType.SingleValue)
+                    .Accepts(validator => validator.Enum<DatabaseJsonConsoleOutputs>())
+                    .IsRequired(false, Option_Output_ErrorMessage);
 
         }
         private static CommandOption CreateMetricsOption(CommandLineApplication subCommand)
@@ -685,6 +738,59 @@ namespace NW.WIDJobsClient
                     .Option(Option_PauseBetweenRequestsMs_Template, Option_PauseBetweenRequestsMs_Description, CommandOptionType.SingleValue);
 
         }
+        private static DatabaseJsonConsoleOutputs ConvertToDatabaseJsonConsoleOutputs(string optionValue)
+        {
+
+            if (optionValue == nameof(DatabaseJsonConsoleOutputs.databasefile))
+                return DatabaseJsonConsoleOutputs.databasefile;
+
+            if (optionValue == nameof(DatabaseJsonConsoleOutputs.jsonfile))
+                return DatabaseJsonConsoleOutputs.jsonfile;
+
+            if (optionValue == nameof(DatabaseJsonConsoleOutputs.console))
+                return DatabaseJsonConsoleOutputs.console;
+
+            if (optionValue == nameof(DatabaseJsonConsoleOutputs.all))
+                return DatabaseJsonConsoleOutputs.all;
+
+            throw CreateOptionValueException<DatabaseJsonConsoleOutputs>(optionValue);
+
+        }
+        private static ExploreStages ConvertToExploreStages(string optionValue)
+        {
+
+            if (optionValue == nameof(ExploreStages.S2))
+                return ExploreStages.S2;
+
+            if (optionValue == nameof(ExploreStages.S3))
+                return ExploreStages.S3;
+
+            throw CreateOptionValueException<ExploreStages>(optionValue);
+
+        }
+        private static ThresholdTypes ConvertToThresholdTypes(string optionValue)
+        {
+
+            if (optionValue == nameof(ThresholdTypes.pagenumber))
+                return ThresholdTypes.pagenumber;
+
+            if (optionValue == nameof(ThresholdTypes.date))
+                return ThresholdTypes.date;
+
+            if (optionValue == nameof(ThresholdTypes.jobpostingid))
+                return ThresholdTypes.jobpostingid;
+
+            throw CreateOptionValueException<ThresholdTypes>(optionValue);
+
+        }
+        private static ThresholdValue ParseThresholdValue(string optionValue)
+        {
+
+            throw new Exception();
+
+        }
+
+
 
     }
 
