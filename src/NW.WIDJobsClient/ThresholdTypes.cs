@@ -4,8 +4,8 @@
     public enum ThresholdTypes
     {
 
-        pagenumber,
-        date,
+        finalpagenumber,
+        thresholddate,
         jobpostingid
 
     }

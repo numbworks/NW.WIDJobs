@@ -737,7 +737,7 @@ namespace NW.WIDJobsClient
                 = subCommand
                     .Option(Option_ThresholdValue_Template, Option_ThresholdValue_Description, CommandOptionType.SingleValue)
                     .IsRequired(false, Option_ThresholdValue_ErrorMessage);
-            result.Validators.Add(new ThresholdValidator());
+            result.Validators.Add(new ThresholdValueValidator());
 
             return result;
 
@@ -813,11 +813,11 @@ namespace NW.WIDJobsClient
         private static ThresholdTypes ConvertToThresholdTypes(string optionValue)
         {
 
-            if (optionValue == nameof(ThresholdTypes.pagenumber))
-                return ThresholdTypes.pagenumber;
+            if (optionValue == nameof(ThresholdTypes.finalpagenumber))
+                return ThresholdTypes.finalpagenumber;
 
-            if (optionValue == nameof(ThresholdTypes.date))
-                return ThresholdTypes.date;
+            if (optionValue == nameof(ThresholdTypes.thresholddate))
+                return ThresholdTypes.thresholddate;
 
             if (optionValue == nameof(ThresholdTypes.jobpostingid))
                 return ThresholdTypes.jobpostingid;

@@ -12,8 +12,8 @@ namespace NW.WIDJobsClient
 
         #region Properties
 
-        public uint? PageNumber { get; }
-        public DateTime? Date { get; }
+        public uint? FinalPageNumber { get; }
+        public DateTime? ThresholdDate { get; }
         public string JobPostingId { get; }
 
         #endregion
@@ -21,11 +21,11 @@ namespace NW.WIDJobsClient
         #region Constructors
 
         /// <summary>Initializes a <see cref="ThresholdValue"/> instance.</summary>	
-        public ThresholdValue(uint? pageNumber, DateTime? date, string jobPostingId) 
+        public ThresholdValue(uint? finalPageNumber, DateTime? thresholdDate, string jobPostingId) 
         {
 
-            PageNumber = pageNumber;
-            Date = date;
+            FinalPageNumber = finalPageNumber;
+            ThresholdDate = thresholdDate;
             JobPostingId = jobPostingId;
 
         }
