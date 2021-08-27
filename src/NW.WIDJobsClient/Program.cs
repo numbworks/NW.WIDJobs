@@ -346,14 +346,8 @@ namespace NW.WIDJobsClient
 
                 LogAsciiBanner();
 
-                WIDExplorerComponents components = new WIDExplorerComponents();
-                WIDExplorerSettings settings
-                    = new WIDExplorerSettings(
-                            parallelRequests: WIDExplorerSettings.DefaultParallelRequests,
-                            pauseBetweenRequestsMs: WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
-                            folderPath: folderPath ?? WIDExplorerSettings.DefaultFolderPath,
-                            deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
-                        );
+                WIDExplorerComponents components = CreateComponents(useDemoData: false);
+                WIDExplorerSettings settings = CreateSettings(folderPath: folderPath);
 
                 WIDExplorer widExplorer = new WIDExplorer(components, settings);
                 Exploration exploration = widExplorer.LoadExplorationFromJsonFile(filePath);
@@ -387,14 +381,8 @@ namespace NW.WIDJobsClient
 
                 LogAsciiBanner();
 
-                WIDExplorerComponents components = new WIDExplorerComponents();
-                WIDExplorerSettings settings
-                    = new WIDExplorerSettings(
-                            parallelRequests: WIDExplorerSettings.DefaultParallelRequests,
-                            pauseBetweenRequestsMs: WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
-                            folderPath: folderPath,
-                            deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
-                        );
+                WIDExplorerComponents components = CreateComponents(useDemoData: false);
+                WIDExplorerSettings settings = CreateSettings(folderPath: folderPath);
 
                 WIDExplorer widExplorer = new WIDExplorer(components, settings);
                 Exploration exploration = widExplorer.LoadExplorationFromJsonFile(filePath);
@@ -419,17 +407,8 @@ namespace NW.WIDJobsClient
 
                 LogAsciiBanner();
 
-                WIDExplorerComponents components = new WIDExplorerComponents();
-                if (useDemoData)
-                    components = CreateComponentsWithDemoData();
-
-                WIDExplorerSettings settings
-                    = new WIDExplorerSettings(
-                            parallelRequests: WIDExplorerSettings.DefaultParallelRequests,
-                            pauseBetweenRequestsMs: WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
-                            folderPath: folderPath ?? WIDExplorerSettings.DefaultFolderPath,
-                            deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
-                        );
+                WIDExplorerComponents components = CreateComponents(useDemoData);
+                WIDExplorerSettings settings = CreateSettings(folderPath: folderPath);
 
                 WIDExplorer widExplorer = new WIDExplorer(components, settings);
                 Exploration exploration = widExplorer.Explore(1, Stages.Stage1_OnlyMetrics);
@@ -469,8 +448,17 @@ namespace NW.WIDJobsClient
                         bool useDemoData)
         {
 
+            WIDExplorerComponents components = CreateComponents(useDemoData: useDemoData);
+            WIDExplorerSettings settings = CreateSettings(parallelRequests: parallelRequests, pauseBetweenRequestsMs: pauseBetweenRequestsMs, folderPath: folderPath);
+
+
             Stages stage = ConvertToStages(stageFromInput);
 
+
+
+        }
+        static int ExplorationExplore(WIDExplorerComponents components, WIDExplorerSettings settings, ushort finalPageNumber, Stages stage)
+        {
 
 
         }
@@ -555,31 +543,64 @@ namespace NW.WIDJobsClient
             return SaveExplorationToJson(widExplorer, exploration);
 
         }
-        private static WIDExplorerComponents CreateComponentsWithDemoData()
+        private static WIDExplorerComponents CreateComponents(bool useDemoData)
         {
 
-            return new WIDExplorerComponents(
-                    loggingAction: WIDExplorerComponents.DefaultLoggingAction,
-                    loggingActionAsciiBanner: WIDExplorerComponents.DefaultLoggingActionAsciiBanner,
-                    xpathManager: new XPathManager(),
-                    getRequestManager: new GetRequestManager(),
-                    jobPageDeserializer: new JobPageDeserializer(),
-                    jobPageManager: new JobPageManager(postRequestManagerFactory: ObjectMother.WIDExplorer_JobPage0102_FakePostRequestManagerFactory),
-                    jobPostingDeserializer: new JobPostingDeserializer(),
-                    jobPostingManager: new JobPostingManager(),
-                    jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
-                    jobPostingExtendedManager: new JobPostingExtendedManager(ObjectMother.WIDExplorer_JobPage0102_FakeGetRequestManagerFactory, new JobPostingExtendedDeserializer()),
-                    runIdManager: new RunIdManager(),
-                    metricCollectionManager: new MetricCollectionManager(),
-                    fileManager: new FileManager(),
-                    repositoryFactory: new RepositoryFactory(),
-                    asciiBannerManager: new AsciiBannerManager(),
-                    filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager(),
-                    nowFunction: ObjectMother.WIDExplorer_FakeNowFunction
-                  );
+            if (useDemoData)
+                return new WIDExplorerComponents(
+                        loggingAction: WIDExplorerComponents.DefaultLoggingAction,
+                        loggingActionAsciiBanner: WIDExplorerComponents.DefaultLoggingActionAsciiBanner,
+                        xpathManager: new XPathManager(),
+                        getRequestManager: new GetRequestManager(),
+                        jobPageDeserializer: new JobPageDeserializer(),
+                        jobPageManager: new JobPageManager(postRequestManagerFactory: ObjectMother.WIDExplorer_JobPage0102_FakePostRequestManagerFactory),
+                        jobPostingDeserializer: new JobPostingDeserializer(),
+                        jobPostingManager: new JobPostingManager(),
+                        jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
+                        jobPostingExtendedManager: new JobPostingExtendedManager(ObjectMother.WIDExplorer_JobPage0102_FakeGetRequestManagerFactory, new JobPostingExtendedDeserializer()),
+                        runIdManager: new RunIdManager(),
+                        metricCollectionManager: new MetricCollectionManager(),
+                        fileManager: new FileManager(),
+                        repositoryFactory: new RepositoryFactory(),
+                        asciiBannerManager: new AsciiBannerManager(),
+                        filenameFactory: new FilenameFactory(),
+                        bulletPointManager: new BulletPointManager(),
+                        nowFunction: WIDExplorerComponents.DefaultNowFunction
+                      );
+            
+            return new WIDExplorerComponents();
 
-        }        
+        }
+        private static WIDExplorerSettings CreateSettings
+            (string parallelRequests = null, string pauseBetweenRequestsMs = null, string folderPath = null, bool? deleteAndRecreateDatabase = null)
+        {
+
+            return new WIDExplorerSettings(
+                            parallelRequests: TryParseParallelRequests(parallelRequests) ?? WIDExplorerSettings.DefaultParallelRequests,
+                            pauseBetweenRequestsMs: TryParsePauseBetweenRequestsMs(pauseBetweenRequestsMs) ?? WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
+                            folderPath: folderPath ?? WIDExplorerSettings.DefaultFolderPath,
+                            deleteAndRecreateDatabase: deleteAndRecreateDatabase ?? WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
+                        );
+
+        }
+        private static ushort? TryParseParallelRequests(string parallelRequests)
+        {
+
+            if (parallelRequests == null)
+                return null;
+
+            return ushort.Parse(parallelRequests);
+
+        }
+        private static uint? TryParsePauseBetweenRequestsMs(string pauseBetweenRequestsMs)
+        {
+
+            if (pauseBetweenRequestsMs == null)
+                return null;
+
+            return uint.Parse(pauseBetweenRequestsMs);
+
+        }
         private static int DumpMetricCollectionToConsole(WIDExplorer widExplorer, MetricCollection metricCollection, bool numbersAsPercentages)
         {
 
@@ -820,18 +841,6 @@ namespace NW.WIDJobsClient
                 return Stages.Stage3_UpToAllJobPostingsExtended;
 
             throw CreateOptionValueException<Stages>(nameof(stageFromInput));
-
-        }
-        private static ushort ParseParallelRequests(string parallelRequests)
-        {
-
-            return ushort.Parse(parallelRequests);
-
-        }
-        private static uint ParsePauseBetweenRequestsMs(string pauseBetweenRequestsMs)
-        {
-
-            return uint.Parse(pauseBetweenRequestsMs);
 
         }
 
