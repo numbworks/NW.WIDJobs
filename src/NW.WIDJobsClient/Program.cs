@@ -67,6 +67,9 @@ namespace NW.WIDJobsClient
         static string Option_ThresholdValue_ErrorMessage = $"{Option_ThresholdValue_Template} is mandatory.";
         static string Option_Metrics_Template = "--metrics";
         static string Option_Metrics_Description = "Enables the metric calculation.";
+        static string Option_ExplorationOutput_Template = "--explorationoutput";
+        static string Option_ExplorationOutput_Description = "The output(s) for the exploration.";
+        static string Option_ExplorationOutput_ErrorMessage = $"{Option_ExplorationOutput_Template} is mandatory.";
         static string Option_MetricsOutput_Template = "--metricsoutput";
         static string Option_MetricsOutput_Description = "The output(s) for the metric calculation.";
         static string Option_ParallelRequests_Template = "--parallelrequests";
@@ -75,6 +78,8 @@ namespace NW.WIDJobsClient
         static string Option_PauseBetweenRequestsMs_Description = $"The duration of the pause after x HTTP requests in milliseconds. If not specified, '{WIDExplorerSettings.DefaultPauseBetweenRequestsMs}' will be used.";
 
         #endregion
+
+        static IThresholdValueManager _thresholdValueManager = new ThresholdValueManager();
 
         // Methods_Public
         static int Main(string[] args)
@@ -277,7 +282,7 @@ namespace NW.WIDJobsClient
                 CommandOption stageFromInputOption = CreateStageFromInputOption(exploreSubCommand);
                 CommandOption thresholdTypeOption = CreateThresholdTypeOption(exploreSubCommand);
                 CommandOption thresholdValueOption = CreateThresholdValueOption(exploreSubCommand);
-                CommandOption outputOption = CreateDatabaseJsonConsoleOutputOption(exploreSubCommand);
+                CommandOption explorationOutputOption = CreateExplorationOption(exploreSubCommand);
                 CommandOption folderPathOption = CreateOptionalFolderPathOption(exploreSubCommand);
                 CommandOption metricsOption = CreateMetricsOption(exploreSubCommand);
                 CommandOption metricsOutputOption = CreateMetricsOutputOption(exploreSubCommand);
@@ -290,17 +295,17 @@ namespace NW.WIDJobsClient
                 {
 
                     return ExplorationExplore(
-                                ConvertToStagesFromInput(stageFromInputOption.Value()),
-                                ConvertToThresholdTypes(thresholdTypeOption.Value()),
-                                ParseThresholdValue(thresholdValueOption.Value()),
-                                ConvertToDatabaseJsonConsoleOutputs(outputOption.Value()),
-                                folderPathOption.Value(),
-                                metricsOption.HasValue(),
-                                ConvertToJsonConsoleOutputs(metricsOutputOption.Value()),
-                                asPercentagesOption.HasValue(),
-                                parallelRequestsOption.Value(),
-                                pauseBetweenRequestsMsOption.Value(),
-                                useDemoDataOption.HasValue()
+                                useDemoData: useDemoDataOption.HasValue(),
+                                parallelRequests: parallelRequestsOption.Value(),
+                                pauseBetweenRequestsMs: pauseBetweenRequestsMsOption.Value(),
+                                folderPath: folderPathOption.Value(),
+                                thresholdType: ConvertToThresholdTypes(thresholdTypeOption.Value()),
+                                thresholdValue: thresholdValueOption.Value(),
+                                stageFromInput: ConvertToStagesFromInput(stageFromInputOption.Value()),
+                                explorationOutput: ConvertToDatabaseJsonConsoleOutputs(explorationOutputOption.Value()),
+                                enableMetrics: metricsOption.HasValue(),
+                                metricsOutput: ConvertToJsonConsoleOutputs(metricsOutputOption.Value()),
+                                numbersAsPercentages: asPercentagesOption.HasValue()
                                 );
 
                 });
@@ -435,29 +440,54 @@ namespace NW.WIDJobsClient
         }
 
         static int ExplorationExplore(
-                        StagesFromInput stageFromInput, 
-                        ThresholdTypes thresholdType,
-                        ThresholdValue thresholdValue,
-                        DatabaseJsonConsoleOutputs databaseJsonConsoleOutputs,
-                        string folderPath,
-                        bool enableMetrics,
-                        JsonConsoleOutputs jsonConsoleOutputs,
-                        bool numbersAsPercentages,
+                        bool useDemoData,
                         string parallelRequests,
                         string pauseBetweenRequestsMs,
-                        bool useDemoData)
+                        string folderPath,
+                        ThresholdTypes thresholdType,
+                        string thresholdValue,
+                        StagesFromInput stageFromInput, 
+                        DatabaseJsonConsoleOutputs explorationOutput,
+                        bool enableMetrics,
+                        JsonConsoleOutputs metricsOutput,
+                        bool numbersAsPercentages
+                        )
         {
 
             WIDExplorerComponents components = CreateComponents(useDemoData: useDemoData);
             WIDExplorerSettings settings = CreateSettings(parallelRequests: parallelRequests, pauseBetweenRequestsMs: pauseBetweenRequestsMs, folderPath: folderPath);
 
-
             Stages stage = ConvertToStages(stageFromInput);
+
+            if (thresholdType == ThresholdTypes.finalpagenumber)
+                ExplorationExplore(
+                    components: components,
+                    settings: settings,
+                    finalPageNumber: _thresholdValueManager.ParseFinalPageNumber(thresholdValue),
+                    stage: stage,
+                    explorationOutput: explorationOutput,
+                    enableMetrics: enableMetrics,
+                    metricsOutput: metricsOutput,
+                    numbersAsPercentages: numbersAsPercentages
+                    );
+
+        
+
+
 
 
 
         }
-        static int ExplorationExplore(WIDExplorerComponents components, WIDExplorerSettings settings, ushort finalPageNumber, Stages stage)
+        static int ExplorationExplore(
+                        WIDExplorerComponents components, 
+                        WIDExplorerSettings settings, 
+                        ushort finalPageNumber, 
+                        Stages stage,
+                        DatabaseJsonConsoleOutputs explorationOutput,
+                        bool enableMetrics,
+                        JsonConsoleOutputs metricsOutput,
+                        bool numbersAsPercentages
+                    )
         {
 
 
@@ -742,13 +772,13 @@ namespace NW.WIDJobsClient
             return result;
 
         }
-        private static CommandOption CreateDatabaseJsonConsoleOutputOption(CommandLineApplication subCommand)
+        private static CommandOption CreateExplorationOption(CommandLineApplication subCommand)
         {
 
             return subCommand
-                    .Option(Option_Output_Template, Option_Output_Description, CommandOptionType.SingleValue)
+                    .Option(Option_ExplorationOutput_Template, Option_ExplorationOutput_Description, CommandOptionType.SingleValue)
                     .Accepts(validator => validator.Enum<DatabaseJsonConsoleOutputs>())
-                    .IsRequired(false, Option_Output_ErrorMessage);
+                    .IsRequired(false, Option_ExplorationOutput_ErrorMessage);
 
         }
         private static CommandOption CreateMetricsOption(CommandLineApplication subCommand)
@@ -823,12 +853,6 @@ namespace NW.WIDJobsClient
                 return ThresholdTypes.jobpostingid;
 
             throw CreateOptionValueException<ThresholdTypes>(optionValue);
-
-        }
-        private static ThresholdValue ParseThresholdValue(string optionValue)
-        {
-
-            throw new Exception();
 
         }
         private static Stages ConvertToStages(StagesFromInput stageFromInput)
