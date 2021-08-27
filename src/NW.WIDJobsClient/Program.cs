@@ -165,6 +165,7 @@ namespace NW.WIDJobsClient
                 explorationCommand = AddExplorationCalculate(explorationCommand);
                 explorationCommand = AddExplorationConvert(explorationCommand);
                 explorationCommand = AddExplorationDescribe(explorationCommand);
+                explorationCommand = AddExplorationExplore(explorationCommand);
 
             });
 
