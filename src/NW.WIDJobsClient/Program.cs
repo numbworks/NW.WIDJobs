@@ -438,7 +438,6 @@ namespace NW.WIDJobsClient
             }
 
         }
-
         static int ExplorationExplore(
                         bool useDemoData,
                         string parallelRequests,
@@ -454,30 +453,62 @@ namespace NW.WIDJobsClient
                         )
         {
 
-            WIDExplorerComponents components = CreateComponents(useDemoData: useDemoData);
-            WIDExplorerSettings settings = CreateSettings(parallelRequests: parallelRequests, pauseBetweenRequestsMs: pauseBetweenRequestsMs, folderPath: folderPath);
 
-            Stages stage = ConvertToStages(stageFromInput);
+            try 
+            {
 
-            if (thresholdType == ThresholdTypes.finalpagenumber)
-                ExplorationExplore(
-                    components: components,
-                    settings: settings,
-                    finalPageNumber: _thresholdValueManager.ParseFinalPageNumber(thresholdValue),
-                    stage: stage,
-                    explorationOutput: explorationOutput,
-                    enableMetrics: enableMetrics,
-                    metricsOutput: metricsOutput,
-                    numbersAsPercentages: numbersAsPercentages
-                    );
+                WIDExplorerComponents components = CreateComponents(useDemoData: useDemoData);
+                WIDExplorerSettings settings = CreateSettings(parallelRequests: parallelRequests, pauseBetweenRequestsMs: pauseBetweenRequestsMs, folderPath: folderPath);
+                Stages stage = ConvertToStages(stageFromInput);
 
-        
+                if (thresholdType == ThresholdTypes.finalpagenumber)
+                    ExplorationExplore(
+                        components: components,
+                        settings: settings,
+                        finalPageNumber: _thresholdValueManager.ParseFinalPageNumber(thresholdValue),
+                        stage: stage,
+                        explorationOutput: explorationOutput,
+                        enableMetrics: enableMetrics,
+                        metricsOutput: metricsOutput,
+                        numbersAsPercentages: numbersAsPercentages
+                        );
 
+                if (thresholdType == ThresholdTypes.thresholddate)
+                    ExplorationExplore(
+                        components: components,
+                        settings: settings,
+                        thresholdDate: _thresholdValueManager.ParseThresholdDate(thresholdValue),
+                        stage: stage,
+                        explorationOutput: explorationOutput,
+                        enableMetrics: enableMetrics,
+                        metricsOutput: metricsOutput,
+                        numbersAsPercentages: numbersAsPercentages
+                        );
 
+                if (thresholdType == ThresholdTypes.jobpostingid)
+                    ExplorationExplore(
+                        components: components,
+                        settings: settings,
+                        jobPostingId: thresholdValue,
+                        stage: stage,
+                        explorationOutput: explorationOutput,
+                        enableMetrics: enableMetrics,
+                        metricsOutput: metricsOutput,
+                        numbersAsPercentages: numbersAsPercentages
+                        );
 
+                throw CreateOptionValueException<ThresholdTypes>(nameof(thresholdType));
 
+            }
+            catch (Exception e)
+            {
+
+                return DumpExceptionToConsole(e);
+
+            }
 
         }
+        
         static int ExplorationExplore(
                         WIDExplorerComponents components, 
                         WIDExplorerSettings settings, 
@@ -492,6 +523,36 @@ namespace NW.WIDJobsClient
 
 
         }
+        static int ExplorationExplore(
+                        WIDExplorerComponents components,
+                        WIDExplorerSettings settings,
+                        DateTime thresholdDate,
+                        Stages stage,
+                        DatabaseJsonConsoleOutputs explorationOutput,
+                        bool enableMetrics,
+                        JsonConsoleOutputs metricsOutput,
+                        bool numbersAsPercentages
+                    )
+        {
+
+
+        }
+        static int ExplorationExplore(
+                        WIDExplorerComponents components,
+                        WIDExplorerSettings settings,
+                        string jobPostingId,
+                        Stages stage,
+                        DatabaseJsonConsoleOutputs explorationOutput,
+                        bool enableMetrics,
+                        JsonConsoleOutputs metricsOutput,
+                        bool numbersAsPercentages
+                    )
+        {
+
+
+        }
+
+
 
 
         // Methods_Private
