@@ -671,6 +671,20 @@ namespace NW.WIDJobsClient
                     .Accepts(validator => validator.Enum<JsonConsoleOutputs>());
 
         }
+        private static CommandOption CreateParallelRequestsOption(CommandLineApplication subCommand)
+        {
+
+            return subCommand
+                    .Option(Option_ParallelRequests_Template, Option_ParallelRequests_Description, CommandOptionType.SingleValue);
+
+        }
+        private static CommandOption CreatePauseBetweenRequestsMsOption(CommandLineApplication subCommand)
+        {
+
+            return subCommand
+                    .Option(Option_PauseBetweenRequestsMs_Template, Option_PauseBetweenRequestsMs_Description, CommandOptionType.SingleValue);
+
+        }
 
     }
 
