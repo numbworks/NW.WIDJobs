@@ -1,7 +1,7 @@
 ﻿namespace NW.WIDJobsClient
 {
     /// <summary></summary>
-    public enum ExploreStages
+    public enum StagesFromInput
     {
 
         S2 = 2,

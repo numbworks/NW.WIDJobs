@@ -274,7 +274,7 @@ namespace NW.WIDJobsClient
 
                 exploreSubCommand.Description = SubCommand_Explore_Description;
 
-                CommandOption stageOption = CreateStageOption(exploreSubCommand);
+                CommandOption stageFromInputOption = CreateStageFromInputOption(exploreSubCommand);
                 CommandOption thresholdTypeOption = CreateThresholdTypeOption(exploreSubCommand);
                 CommandOption thresholdValueOption = CreateThresholdValueOption(exploreSubCommand);
                 CommandOption outputOption = CreateDatabaseJsonConsoleOutputOption(exploreSubCommand);
@@ -290,7 +290,7 @@ namespace NW.WIDJobsClient
                 {
 
                     return ExplorationExplore(
-                                ConvertToExploreStages(stageOption.Value()),
+                                ConvertToStagesFromInput(stageFromInputOption.Value()),
                                 ConvertToThresholdTypes(thresholdTypeOption.Value()),
                                 ParseThresholdValue(thresholdValueOption.Value()),
                                 ConvertToDatabaseJsonConsoleOutputs(outputOption.Value()),
@@ -454,6 +454,27 @@ namespace NW.WIDJobsClient
             }
 
         }
+
+        static int ExplorationExplore(
+                        StagesFromInput stageFromInput, 
+                        ThresholdTypes thresholdType,
+                        ThresholdValue thresholdValue,
+                        DatabaseJsonConsoleOutputs databaseJsonConsoleOutputs,
+                        string folderPath,
+                        bool enableMetrics,
+                        JsonConsoleOutputs jsonConsoleOutputs,
+                        bool numbersAsPercentages,
+                        string parallelRequests,
+                        string pauseBetweenRequestsMs,
+                        bool useDemoData)
+        {
+
+            Stages stage = ConvertToStages(stageFromInput);
+
+
+
+        }
+
 
         // Methods_Private
         private static void LogAsciiBanner()
@@ -670,12 +691,12 @@ namespace NW.WIDJobsClient
 
         }
 
-        private static CommandOption CreateStageOption(CommandLineApplication subCommand)
+        private static CommandOption CreateStageFromInputOption(CommandLineApplication subCommand)
         {
 
             return subCommand
                     .Option(Option_Stage_Template, Option_Stage_Description, CommandOptionType.SingleValue)
-                    .Accepts(validator => validator.Enum<ExploreStages>())
+                    .Accepts(validator => validator.Enum<StagesFromInput>())
                     .IsRequired(false, Option_Stage_ErrorMessage);
 
         }
@@ -756,16 +777,16 @@ namespace NW.WIDJobsClient
             throw CreateOptionValueException<DatabaseJsonConsoleOutputs>(optionValue);
 
         }
-        private static ExploreStages ConvertToExploreStages(string optionValue)
+        private static StagesFromInput ConvertToStagesFromInput(string optionValue)
         {
 
-            if (optionValue == nameof(ExploreStages.S2))
-                return ExploreStages.S2;
+            if (optionValue == nameof(StagesFromInput.S2))
+                return StagesFromInput.S2;
 
-            if (optionValue == nameof(ExploreStages.S3))
-                return ExploreStages.S3;
+            if (optionValue == nameof(StagesFromInput.S3))
+                return StagesFromInput.S3;
 
-            throw CreateOptionValueException<ExploreStages>(optionValue);
+            throw CreateOptionValueException<StagesFromInput>(optionValue);
 
         }
         private static ThresholdTypes ConvertToThresholdTypes(string optionValue)
@@ -787,6 +808,30 @@ namespace NW.WIDJobsClient
         {
 
             throw new Exception();
+
+        }
+        private static Stages ConvertToStages(StagesFromInput stageFromInput)
+        {
+
+            if (stageFromInput == StagesFromInput.S2)
+                return Stages.Stage2_UpToAllJobPostings;
+
+            if (stageFromInput == StagesFromInput.S3)
+                return Stages.Stage3_UpToAllJobPostingsExtended;
+
+            throw CreateOptionValueException<Stages>(nameof(stageFromInput));
+
+        }
+        private static ushort ParseParallelRequests(string parallelRequests)
+        {
+
+            return ushort.Parse(parallelRequests);
+
+        }
+        private static uint ParsePauseBetweenRequestsMs(string pauseBetweenRequestsMs)
+        {
+
+            return uint.Parse(pauseBetweenRequestsMs);
 
         }
 
