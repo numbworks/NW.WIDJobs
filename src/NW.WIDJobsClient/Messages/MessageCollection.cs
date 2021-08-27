@@ -16,7 +16,10 @@ namespace NW.WIDJobsClient.Messages
         public static string Program_ApplicationEmail = "Email: numbworks [AT] gmail [DOT] com";
         public static string Program_ApplicationUrl = @"Github: http://www.github.com/numbworks";
         public static string Program_ApplicationLicense = "License: MIT License";
-        public static Func<string, string> Program_FormattedErrorMessage = (message) => $"ERROR: {message}";
+        public static Func<string, string> Program_FormattedErrorMessage 
+            = (message) => $"ERROR: {message}";
+        public static Func<string, string> Program_FileHasNotBeenCreated
+            = (filePath) => $"ERROR: the file hasn't been created ('{filePath}').";
         public static Func<string, Type, string> Program_OptionValueCantBeConvertedTo
             = (optionValue, type) => $"The provided option value ('{optionValue}') can't be converted to {type.Name}.";
 

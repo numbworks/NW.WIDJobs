@@ -353,21 +353,10 @@ namespace NW.WIDJobsClient
 
                 WIDExplorerComponents components = CreateComponents(useDemoData: false);
                 WIDExplorerSettings settings = CreateSettings(folderPath: folderPath);
-
                 WIDExplorer widExplorer = new WIDExplorer(components, settings);
                 Exploration exploration = widExplorer.LoadExplorationFromJsonFile(filePath);
-                MetricCollection metricCollection = widExplorer.ConvertToMetricCollection(exploration);
 
-                if (output == JsonConsoleOutputs.console)
-                    return DumpMetricCollectionToConsole(widExplorer, metricCollection, numbersAsPercentages);
-
-                if (output == JsonConsoleOutputs.jsonfile)
-                    return SaveMetricCollectionToJson(widExplorer, metricCollection, numbersAsPercentages);
-
-                if (output == JsonConsoleOutputs.both)
-                    return DumpMetricCollectionToConsoleAndSaveToJson(widExplorer, metricCollection, numbersAsPercentages);
-
-                throw CreateOptionValueException<JsonConsoleOutputs>(output.ToString());
+                return OrchestrateMetricCollection(widExplorer, exploration, output, numbersAsPercentages);
 
             }
             catch (Exception e)
@@ -388,7 +377,6 @@ namespace NW.WIDJobsClient
 
                 WIDExplorerComponents components = CreateComponents(useDemoData: false);
                 WIDExplorerSettings settings = CreateSettings(folderPath: folderPath);
-
                 WIDExplorer widExplorer = new WIDExplorer(components, settings);
                 Exploration exploration = widExplorer.LoadExplorationFromJsonFile(filePath);
 
@@ -414,20 +402,20 @@ namespace NW.WIDJobsClient
 
                 WIDExplorerComponents components = CreateComponents(useDemoData);
                 WIDExplorerSettings settings = CreateSettings(folderPath: folderPath);
-
                 WIDExplorer widExplorer = new WIDExplorer(components, settings);
                 Exploration exploration = widExplorer.Explore(1, Stages.Stage1_OnlyMetrics);
 
                 if (output == JsonConsoleOutputs.console)
-                    return DumpExploratonToConsole(widExplorer, exploration);
+                    return DumpExplorationToConsole(widExplorer, exploration);
 
-                if (output == JsonConsoleOutputs.jsonfile)
+                else if (output == JsonConsoleOutputs.jsonfile)
                     return SaveExplorationToJson(widExplorer, exploration);
 
-                if (output == JsonConsoleOutputs.both)
+                else if (output == JsonConsoleOutputs.both)
                     return DumpExplorationToConsoleAndSaveToJson(widExplorer, exploration);
-
-                throw CreateOptionValueException<JsonConsoleOutputs>(output.ToString());
+                
+                else
+                    throw CreateOptionValueException<JsonConsoleOutputs>(output.ToString());
 
             }
             catch (Exception e)
@@ -438,66 +426,36 @@ namespace NW.WIDJobsClient
             }
 
         }
-        static int ExplorationExplore(
-                        bool useDemoData,
-                        string parallelRequests,
-                        string pauseBetweenRequestsMs,
-                        string folderPath,
-                        ThresholdTypes thresholdType,
-                        string thresholdValue,
-                        StagesFromInput stageFromInput, 
-                        DatabaseJsonConsoleOutputs explorationOutput,
-                        bool enableMetrics,
-                        JsonConsoleOutputs metricsOutput,
-                        bool numbersAsPercentages
-                        )
+        static int ExplorationExplore
+            (bool useDemoData, string parallelRequests, string pauseBetweenRequestsMs, string folderPath,
+            ThresholdTypes thresholdType, string thresholdValue, StagesFromInput stageFromInput, DatabaseJsonConsoleOutputs explorationOutput,
+            bool enableMetrics, JsonConsoleOutputs metricsOutput, bool numbersAsPercentages)
         {
-
 
             try 
             {
 
+                LogAsciiBanner();
+
                 WIDExplorerComponents components = CreateComponents(useDemoData: useDemoData);
                 WIDExplorerSettings settings = CreateSettings(parallelRequests: parallelRequests, pauseBetweenRequestsMs: pauseBetweenRequestsMs, folderPath: folderPath);
                 Stages stage = ConvertToStages(stageFromInput);
-
+                WIDExplorer widExplorer = new WIDExplorer(components, settings);                            
+                Exploration exploration;
+                
                 if (thresholdType == ThresholdTypes.finalpagenumber)
-                    ExplorationExplore(
-                        components: components,
-                        settings: settings,
-                        finalPageNumber: _thresholdValueManager.ParseFinalPageNumber(thresholdValue),
-                        stage: stage,
-                        explorationOutput: explorationOutput,
-                        enableMetrics: enableMetrics,
-                        metricsOutput: metricsOutput,
-                        numbersAsPercentages: numbersAsPercentages
-                        );
+                    exploration = widExplorer.Explore(_thresholdValueManager.ParseFinalPageNumber(thresholdValue), stage);
 
-                if (thresholdType == ThresholdTypes.thresholddate)
-                    ExplorationExplore(
-                        components: components,
-                        settings: settings,
-                        thresholdDate: _thresholdValueManager.ParseThresholdDate(thresholdValue),
-                        stage: stage,
-                        explorationOutput: explorationOutput,
-                        enableMetrics: enableMetrics,
-                        metricsOutput: metricsOutput,
-                        numbersAsPercentages: numbersAsPercentages
-                        );
+                else if (thresholdType == ThresholdTypes.thresholddate)
+                    exploration = widExplorer.Explore(_thresholdValueManager.ParseThresholdDate(thresholdValue), stage);
 
-                if (thresholdType == ThresholdTypes.jobpostingid)
-                    ExplorationExplore(
-                        components: components,
-                        settings: settings,
-                        jobPostingId: thresholdValue,
-                        stage: stage,
-                        explorationOutput: explorationOutput,
-                        enableMetrics: enableMetrics,
-                        metricsOutput: metricsOutput,
-                        numbersAsPercentages: numbersAsPercentages
-                        );
+                else if (thresholdType == ThresholdTypes.jobpostingid)
+                    exploration = widExplorer.Explore(thresholdValue, stage);
 
-                throw CreateOptionValueException<ThresholdTypes>(nameof(thresholdType));
+                else
+                    throw CreateOptionValueException<ThresholdTypes>(thresholdType.ToString());
+
+                return OrchestrateExploration(widExplorer, exploration, explorationOutput, enableMetrics, metricsOutput, numbersAsPercentages);
 
             }
             catch (Exception e)
@@ -509,50 +467,6 @@ namespace NW.WIDJobsClient
 
         }
         
-        static int ExplorationExplore(
-                        WIDExplorerComponents components, 
-                        WIDExplorerSettings settings, 
-                        ushort finalPageNumber, 
-                        Stages stage,
-                        DatabaseJsonConsoleOutputs explorationOutput,
-                        bool enableMetrics,
-                        JsonConsoleOutputs metricsOutput,
-                        bool numbersAsPercentages
-                    )
-        {
-
-
-        }
-        static int ExplorationExplore(
-                        WIDExplorerComponents components,
-                        WIDExplorerSettings settings,
-                        DateTime thresholdDate,
-                        Stages stage,
-                        DatabaseJsonConsoleOutputs explorationOutput,
-                        bool enableMetrics,
-                        JsonConsoleOutputs metricsOutput,
-                        bool numbersAsPercentages
-                    )
-        {
-
-
-        }
-        static int ExplorationExplore(
-                        WIDExplorerComponents components,
-                        WIDExplorerSettings settings,
-                        string jobPostingId,
-                        Stages stage,
-                        DatabaseJsonConsoleOutputs explorationOutput,
-                        bool enableMetrics,
-                        JsonConsoleOutputs metricsOutput,
-                        bool numbersAsPercentages
-                    )
-        {
-
-
-        }
-
-
 
 
         // Methods_Private
@@ -604,7 +518,7 @@ namespace NW.WIDJobsClient
             return new Exception(MessageCollection.Program_OptionValueCantBeConvertedTo.Invoke(optionValue, typeof(T)));
 
         }
-        private static int DumpExploratonToConsole(WIDExplorer widExplorer, Exploration exploration)
+        private static int DumpExplorationToConsole(WIDExplorer widExplorer, Exploration exploration)
         {
 
             string json = widExplorer.ConvertToJson(exploration);
@@ -618,10 +532,38 @@ namespace NW.WIDJobsClient
         {
 
             IFileInfoAdapter fileInfoAdapter = widExplorer.SaveToJsonFile(exploration);
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
 
             if (!fileInfoAdapter.Exists)
+            {
+
+                WIDExplorerComponents.DefaultLoggingAction.Invoke(MessageCollection.Program_FileHasNotBeenCreated.Invoke(fileInfoAdapter.FullName));
+                WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
+
                 return ((int)ExitCodes.Failure);
+
+            }
+
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
+
+            return ((int)ExitCodes.Success);
+
+        }
+        private static int SaveExplorationToDatabase(WIDExplorer widExplorer, Exploration exploration)
+        {
+
+            IFileInfoAdapter fileInfoAdapter = widExplorer.SaveToSQLiteDatabase(exploration.JobPostingsExtended);
+
+            if (!fileInfoAdapter.Exists)
+            {
+
+                WIDExplorerComponents.DefaultLoggingAction.Invoke(MessageCollection.Program_FileHasNotBeenCreated.Invoke(fileInfoAdapter.FullName));
+                WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
+
+                return ((int)ExitCodes.Failure);
+
+            }
+
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
 
             return ((int)ExitCodes.Success);
 
@@ -629,9 +571,23 @@ namespace NW.WIDJobsClient
         private static int DumpExplorationToConsoleAndSaveToJson(WIDExplorer widExplorer, Exploration exploration)
         {
 
-            DumpExploratonToConsole(widExplorer, exploration);
+            DumpExplorationToConsole(widExplorer, exploration);
             
             return SaveExplorationToJson(widExplorer, exploration);
+
+        }
+        private static int DumpExplorationToConsoleAndSaveToJsonDatabase(WIDExplorer widExplorer, Exploration exploration)
+        {
+
+            DumpExplorationToConsole(widExplorer, exploration);
+
+            int exitCode1 = SaveExplorationToJson(widExplorer, exploration);
+            int exitCode2 = SaveExplorationToDatabase(widExplorer, exploration);
+
+            if (exitCode1 == ((int)ExitCodes.Success) && exitCode2 == ((int)ExitCodes.Success))
+                return ((int)ExitCodes.Success);
+
+            return ((int)ExitCodes.Failure);
 
         }
         private static WIDExplorerComponents CreateComponents(bool useDemoData)
@@ -925,11 +881,53 @@ namespace NW.WIDJobsClient
             if (stageFromInput == StagesFromInput.S3)
                 return Stages.Stage3_UpToAllJobPostingsExtended;
 
-            throw CreateOptionValueException<Stages>(nameof(stageFromInput));
+            throw CreateOptionValueException<Stages>(stageFromInput.ToString());
 
         }
 
+        private static int OrchestrateMetricCollection(WIDExplorer widExplorer, Exploration exploration, JsonConsoleOutputs output, bool numbersAsPercentages)
+        {
 
+            MetricCollection metricCollection = widExplorer.ConvertToMetricCollection(exploration);
+
+            if (output == JsonConsoleOutputs.console)
+                return DumpMetricCollectionToConsole(widExplorer, metricCollection, numbersAsPercentages);
+
+            if (output == JsonConsoleOutputs.jsonfile)
+                return SaveMetricCollectionToJson(widExplorer, metricCollection, numbersAsPercentages);
+
+            if (output == JsonConsoleOutputs.both)
+                return DumpMetricCollectionToConsoleAndSaveToJson(widExplorer, metricCollection, numbersAsPercentages);
+
+            throw CreateOptionValueException<JsonConsoleOutputs>(output.ToString());
+
+        }
+        private static int OrchestrateExploration
+            (WIDExplorer widExplorer, Exploration exploration, DatabaseJsonConsoleOutputs explorationOutput,
+            bool enableMetrics, JsonConsoleOutputs metricsOutput, bool numbersAsPercentages)
+        {
+
+            if (explorationOutput == DatabaseJsonConsoleOutputs.console)
+                return DumpExplorationToConsole(widExplorer, exploration);
+
+            else if (explorationOutput == DatabaseJsonConsoleOutputs.jsonfile)
+                return SaveExplorationToJson(widExplorer, exploration);
+
+            else if (explorationOutput == DatabaseJsonConsoleOutputs.databasefile)
+                return SaveExplorationToDatabase(widExplorer, exploration);
+
+            else if (explorationOutput == DatabaseJsonConsoleOutputs.all)
+                return DumpExplorationToConsoleAndSaveToJsonDatabase(widExplorer, exploration);
+
+            else
+                throw CreateOptionValueException<DatabaseJsonConsoleOutputs>(explorationOutput.ToString());
+
+            if (!enableMetrics)
+                return ((int)ExitCodes.Success);
+
+            return OrchestrateMetricCollection(widExplorer, exploration, metricsOutput, numbersAsPercentages);
+
+        }
 
     }
 
@@ -937,7 +935,7 @@ namespace NW.WIDJobsClient
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 25.08.2021
+    Last Update: 27.08.2021
 
     WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(MessageCollection.Program_PressAButtonToCloseTheWindow);
     Console.ReadLine();
