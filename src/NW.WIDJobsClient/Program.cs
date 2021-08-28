@@ -835,8 +835,7 @@ namespace NW.WIDJobsClient
 
             return subCommand
                     .Option(Option_Output_Template, Option_Output_Description, CommandOptionType.SingleValue)
-                    .Accepts(validator => validator.Enum<ConvertOutputs>())
-                    .IsRequired(false, Option_Output_ErrorMessage);
+                    .Accepts(validator => validator.Enum<ConvertOutputs>());
 
         }
         private static CommandOption CreateDescribeOutputOption(CommandLineApplication subCommand)
