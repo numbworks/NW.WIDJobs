@@ -6,10 +6,10 @@ namespace NW.WIDJobsClient
     public interface IWIDExplorerComponentsFactory
     {
 
-        /// <summary>Create a <see cref="WIDExplorerComponents"/> instance with default parameters.</summary>
+        /// <summary>Creates a <see cref="WIDExplorerComponents"/> instance with default parameters.</summary>
         WIDExplorerComponents CreateDefault();
 
-        /// <summary>Create a <see cref="WIDExplorerComponents"/> instance for demo usage.</summary>
+        /// <summary>Creates a <see cref="WIDExplorerComponents"/> instance for demo usage.</summary>
         WIDExplorerComponents CreateForDemoData();
 
     }

@@ -2,9 +2,14 @@
 
 namespace NW.WIDJobsClient
 {
+    /// <summary>Factory for <see cref="WIDExplorerSettings"/>.</summary>
     public interface IWIDExplorerSettingsFactory
     {
-        WIDExplorerSettings Create(string parallelRequests = null, string pauseBetweenRequestsMs = null, string folderPath = null, bool? deleteAndRecreateDatabase = null);
+
+        /// <summary>Creates a <see cref="WIDExplorerSettings"/> instance with provided parameters or default parameters when null.</summary>
+        WIDExplorerSettings Create
+            (string parallelRequests = null, string pauseBetweenRequestsMs = null, string folderPath = null, bool? deleteAndRecreateDatabase = null);
+    
     }
 }
 
