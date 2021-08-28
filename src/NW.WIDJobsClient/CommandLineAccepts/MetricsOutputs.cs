@@ -6,7 +6,8 @@
 
         jsonfile,
         console,
-        both
+        both,
+        none
 
     }
 
@@ -14,5 +15,5 @@
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 26.08.2021
+    Last Update: 28.08.2021
 */

@@ -72,8 +72,6 @@ namespace NW.WIDJobsClient
         public static string Option_ThresholdValue_Template { get; } = "--thresholdvalue";
         public static string Option_ThresholdValue_Description { get; } = $"The value for the provided threshold type. Date must be provided in the 'yyyyMMdd' format.";
         public static string Option_ThresholdValue_ErrorMessage { get; } = $"{Option_ThresholdValue_Template} is mandatory.";
-        public static string Option_Metrics_Template { get; } = "--metrics";
-        public static string Option_Metrics_Description { get; } = "Enables the metric calculation.";
         public static string Option_ExplorationOutput_Template { get; } = "--explorationoutput";
         public static string Option_ExplorationOutput_Description { get; } = "The output(s) for the exploration.";
         public static string Option_ExplorationOutput_ErrorMessage { get; } = $"{Option_ExplorationOutput_Template} is mandatory.";
@@ -314,8 +312,7 @@ namespace NW.WIDJobsClient
                 CommandOption thresholdValueOption = CreateRequiredThresholdValueOption(exploreSubCommand);
                 CommandOption explorationOutputOption = CreateRequiredExplorationOutputOption(exploreSubCommand);
                 CommandOption folderPathOption = CreateOptionalFolderPathOption(exploreSubCommand);
-                CommandOption metricsOption = CreateOptionalMetricsOption(exploreSubCommand);
-                CommandOption metricsOutputOption = CreateMetricsOutputOption(exploreSubCommand);
+                CommandOption metricsOutputOption = CreateRequiredMetricsOutputOption(exploreSubCommand);
                 CommandOption asPercentagesOption = CreateOptionalAsPercentagesOption(exploreSubCommand);
                 CommandOption parallelRequestsOption = CreateOptionalParallelRequestsOption(exploreSubCommand);
                 CommandOption pauseBetweenRequestsMsOption = CreateOptionalPauseBetweenRequestsMsOption(exploreSubCommand);
@@ -333,7 +330,6 @@ namespace NW.WIDJobsClient
                                 thresholdValue: thresholdValueOption.Value(),
                                 exploreStage: ConvertToExploreStages(stageFromInputOption.Value()),
                                 explorationOutput: ConvertToExploreOutputs(explorationOutputOption.Value()),
-                                enableMetrics: metricsOption.HasValue(),
                                 metricsOutput: ConvertToMetricsOutputs(metricsOutputOption.Value()),
                                 numbersAsPercentages: asPercentagesOption.HasValue()
                                 );
@@ -503,7 +499,6 @@ namespace NW.WIDJobsClient
             string thresholdValue, 
             ExploreStages exploreStage, 
             ExploreOutputs explorationOutput,
-            bool enableMetrics, 
             MetricsOutputs metricsOutput, 
             bool numbersAsPercentages)
         {
@@ -517,8 +512,8 @@ namespace NW.WIDJobsClient
                 WIDExplorerSettings settings = CreateSettings(parallelRequests: parallelRequests, pauseBetweenRequestsMs: pauseBetweenRequestsMs, folderPath: folderPath);
                 Stages stage = ConvertToStages(exploreStage);
                 WIDExplorer widExplorer = new WIDExplorer(components, settings);
-                Exploration exploration;
 
+                Exploration exploration;
                 if (thresholdType == ThresholdTypes.finalpagenumber)
                     exploration = widExplorer.Explore(_thresholdValueManager.ParseFinalPageNumber(thresholdValue), stage);
 
@@ -531,7 +526,7 @@ namespace NW.WIDJobsClient
                 else
                     throw CreateOptionValueException<ThresholdTypes>(thresholdType.ToString());
 
-                return OrchestrateExploration(widExplorer, exploration, explorationOutput, enableMetrics, metricsOutput, numbersAsPercentages);
+                return OrchestrateExploration(widExplorer, exploration, explorationOutput, metricsOutput, numbersAsPercentages);
 
             }
             catch (Exception e)
@@ -645,6 +640,9 @@ namespace NW.WIDJobsClient
 
             if (optionValue == nameof(MetricsOutputs.both))
                 return MetricsOutputs.both;
+
+            if (optionValue == nameof(MetricsOutputs.none))
+                return MetricsOutputs.none;
 
             throw CreateOptionValueException<MetricsOutputs>(optionValue);
 
@@ -778,10 +776,7 @@ namespace NW.WIDJobsClient
             int exitCode1 = SaveExplorationToJson(widExplorer, exploration);
             int exitCode2 = SaveExplorationToDatabaseFile(widExplorer, exploration);
 
-            if (exitCode1 == ((int)ExitCodes.Success) && exitCode2 == ((int)ExitCodes.Success))
-                return ((int)ExitCodes.Success);
-
-            return ((int)ExitCodes.Failure);
+            return OrchestrateExitCodes(exitCode1, exitCode2);
 
         }
         private int DumpMetricCollectionToConsole(WIDExplorer widExplorer, MetricCollection metricCollection, bool numbersAsPercentages)
@@ -900,7 +895,7 @@ namespace NW.WIDJobsClient
                     .IsRequired(false, Option_ExplorationOutput_ErrorMessage);
 
         }
-        private CommandOption CreateMetricsOutputOption(CommandLineApplication subCommand)
+        private CommandOption CreateRequiredMetricsOutputOption(CommandLineApplication subCommand)
         {
 
             return subCommand
@@ -970,13 +965,6 @@ namespace NW.WIDJobsClient
             return result;
 
         }
-        private CommandOption CreateOptionalMetricsOption(CommandLineApplication subCommand)
-        {
-
-            return subCommand
-                    .Option(Option_Metrics_Template, Option_Metrics_Description, CommandOptionType.SingleValue);
-
-        }
         private CommandOption CreateOptionalParallelRequestsOption(CommandLineApplication subCommand)
         {
 
@@ -994,6 +982,15 @@ namespace NW.WIDJobsClient
 
         }
 
+        private int OrchestrateExitCodes(int exitCode1, int exitCode2)
+        {
+
+            if (exitCode1 == ((int)ExitCodes.Success) && exitCode2 == ((int)ExitCodes.Success))
+                return ((int)ExitCodes.Success);
+
+            return ((int)ExitCodes.Failure);
+
+        }
         private int OrchestrateMetricCollection(WIDExplorer widExplorer, Exploration exploration, MetricsOutputs output, bool numbersAsPercentages)
         {
 
@@ -1013,34 +1010,62 @@ namespace NW.WIDJobsClient
         }
         private int OrchestrateMetricCollection(WIDExplorer widExplorer, Exploration exploration, CalculateOutputs output, bool numbersAsPercentages)
             => OrchestrateMetricCollection(widExplorer, exploration, Map(output), numbersAsPercentages);
-        private int OrchestrateExploration(
-            WIDExplorer widExplorer, 
-            Exploration exploration, 
-            ExploreOutputs explorationOutput,
-            bool enableMetrics, 
-            MetricsOutputs metricsOutput, 
-            bool numbersAsPercentages)
+        private int OrchestrateExploration(WIDExplorer widExplorer, Exploration exploration, ExploreOutputs explorationOutput, MetricsOutputs metricsOutput, bool numbersAsPercentages)
         {
 
             if (explorationOutput == ExploreOutputs.console)
-                return DumpExplorationToConsole(widExplorer, exploration);
+            {
 
-            else if (explorationOutput == ExploreOutputs.jsonfile)
-                return SaveExplorationToJson(widExplorer, exploration);
+                int exitCode1 = DumpExplorationToConsole(widExplorer, exploration);
 
-            else if (explorationOutput == ExploreOutputs.databasefile)
-                return SaveExplorationToDatabaseFile(widExplorer, exploration);
+                int exitCode2 = ((int)ExitCodes.Success);
+                if (metricsOutput != MetricsOutputs.none)
+                    exitCode2 = OrchestrateMetricCollection(widExplorer, exploration, metricsOutput, numbersAsPercentages);
 
-            else if (explorationOutput == ExploreOutputs.all)
-                return DumpExplorationToConsoleAndSaveToJsonDatabase(widExplorer, exploration);
+                return OrchestrateExitCodes(exitCode1, exitCode2);
 
-            else
-                throw CreateOptionValueException<ExploreOutputs>(explorationOutput.ToString());
+            }
 
-            if (!enableMetrics)
-                return ((int)ExitCodes.Success);
+            if (explorationOutput == ExploreOutputs.jsonfile)
+            {
 
-            return OrchestrateMetricCollection(widExplorer, exploration, metricsOutput, numbersAsPercentages);
+                int exitCode1 = SaveExplorationToJson(widExplorer, exploration);
+
+                int exitCode2 = ((int)ExitCodes.Success);
+                if (metricsOutput != MetricsOutputs.none)
+                    exitCode2 = OrchestrateMetricCollection(widExplorer, exploration, metricsOutput, numbersAsPercentages);
+
+                return OrchestrateExitCodes(exitCode1, exitCode2);
+
+            }
+
+            if (explorationOutput == ExploreOutputs.databasefile)
+            {
+
+                int exitCode1 = SaveExplorationToDatabaseFile(widExplorer, exploration);
+
+                int exitCode2 = ((int)ExitCodes.Success);
+                if (metricsOutput != MetricsOutputs.none)
+                    exitCode2 = OrchestrateMetricCollection(widExplorer, exploration, metricsOutput, numbersAsPercentages);
+
+                return OrchestrateExitCodes(exitCode1, exitCode2);
+
+            }
+
+            if (explorationOutput == ExploreOutputs.all)
+            {
+
+                int exitCode1 = DumpExplorationToConsoleAndSaveToJsonDatabase(widExplorer, exploration);
+
+                int exitCode2 = ((int)ExitCodes.Success);
+                if (metricsOutput != MetricsOutputs.none)
+                    exitCode2 = OrchestrateMetricCollection(widExplorer, exploration, metricsOutput, numbersAsPercentages);
+
+                return OrchestrateExitCodes(exitCode1, exitCode2);
+
+            }
+
+            throw CreateOptionValueException<ExploreOutputs>(explorationOutput.ToString());
 
         }
 
