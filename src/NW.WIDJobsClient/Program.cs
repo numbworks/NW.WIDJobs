@@ -107,6 +107,7 @@ namespace NW.WIDJobsClient
             AddRoot(app);
             AddAbout(app);
             AddSession(app);
+            AddService(app);
 
             app.HelpOption(inherited: true);
 
@@ -325,7 +326,7 @@ namespace NW.WIDJobsClient
             app.Command(Command_Service_Name, serviceCommand =>
             {
 
-                serviceCommand = AddSessionMain(serviceCommand);
+                serviceCommand = AddServiceMain(serviceCommand);
 
             });
 
