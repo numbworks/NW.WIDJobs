@@ -29,6 +29,25 @@ namespace NW.WIDJobsClient
 
         #region Methods_public
 
+        public bool IsValid(string value)
+        {
+
+            // PageNumber: 1, 2, ...
+            // Date: 20210722
+            // JobPostingId: 5376524visgerrengringsassistenter
+
+            if (IsValidFinalPageNumber(value))
+                return true;
+
+            if (IsValidThresholdDate(value))
+                return true;
+
+            if (IsValidJobPostingId(value))
+                return true;
+
+            return false;
+
+        }
         public bool IsValidFinalPageNumber(string value)
         {
 

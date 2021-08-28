@@ -43,17 +43,7 @@ namespace NW.WIDJobsClient
         public ValidationResult GetValidationResult(CommandOption option, ValidationContext context)
         {
 
-            // PageNumber: 1, 2, ...
-            // Date: 20210722
-            // JobPostingId: 5376524visgerrengringsassistenter
-
-            if (_thresholdValueManager.IsValidFinalPageNumber(option.Value()))
-                return ValidationResult.Success;
-
-            if (_thresholdValueManager.IsValidThresholdDate(option.Value()))
-                return ValidationResult.Success;
-
-            if (_thresholdValueManager.IsValidJobPostingId(option.Value()))
+            if (_thresholdValueManager.IsValid(option.Value()))
                 return ValidationResult.Success;
 
             return new ValidationResult(MessageCollection.ThresholdValidator_ThresholdValueNotValidFormat.Invoke(option.Value()));
