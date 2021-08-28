@@ -643,6 +643,26 @@ namespace NW.WIDJobsClient
             => new WIDExplorer();
         private WIDExplorer Create(WIDExplorerComponents components, WIDExplorerSettings settings)
             => new WIDExplorer(components, settings);
+        private int HandleFileExistance(IFileInfoAdapter fileInfoAdapter)
+        {
+
+            _defaultComponents.LoggingActionAsciiBanner.Invoke(string.Empty);
+
+            if (!fileInfoAdapter.Exists)
+            {
+
+                _defaultComponents.LoggingAction.Invoke(MessageCollection.CommandLineManager_FileHasNotBeenCreated.Invoke(fileInfoAdapter.FullName));
+                _defaultComponents.LoggingActionAsciiBanner.Invoke(string.Empty);
+
+                return Failure;
+
+            }
+
+            _defaultComponents.LoggingActionAsciiBanner.Invoke(string.Empty);
+
+            return Success;
+
+        }
 
         private void DumpJsonToConsole(string json)
         {
@@ -714,19 +734,7 @@ namespace NW.WIDJobsClient
 
             IFileInfoAdapter fileInfoAdapter = widExplorer.SaveToJsonFile(exploration);
 
-            if (!fileInfoAdapter.Exists)
-            {
-
-                _defaultComponents.LoggingAction.Invoke(MessageCollection.CommandLineManager_FileHasNotBeenCreated.Invoke(fileInfoAdapter.FullName));
-                _defaultComponents.LoggingActionAsciiBanner.Invoke(string.Empty);
-
-                return Failure;
-
-            }
-
-            _defaultComponents.LoggingActionAsciiBanner.Invoke(string.Empty);
-
-            return Success;
+            return HandleFileExistance(fileInfoAdapter);
 
         }
         private int SaveExplorationToDatabaseFile(WIDExplorer widExplorer, Exploration exploration)
@@ -734,19 +742,7 @@ namespace NW.WIDJobsClient
 
             IFileInfoAdapter fileInfoAdapter = widExplorer.SaveToSQLiteDatabase(exploration.JobPostingsExtended);
 
-            if (!fileInfoAdapter.Exists)
-            {
-
-                _defaultComponents.LoggingAction.Invoke(MessageCollection.CommandLineManager_FileHasNotBeenCreated.Invoke(fileInfoAdapter.FullName));
-                _defaultComponents.LoggingActionAsciiBanner.Invoke(string.Empty);
-
-                return Failure;
-
-            }
-
-            _defaultComponents.LoggingActionAsciiBanner.Invoke(string.Empty);
-
-            return Success;
+            return HandleFileExistance(fileInfoAdapter);
 
         }
         private int SaveExplorationToJsonDatabaseFiles(WIDExplorer widExplorer, Exploration exploration)
@@ -762,23 +758,11 @@ namespace NW.WIDJobsClient
         {
 
             IFileInfoAdapter fileInfoAdapter = widExplorer.SaveToJsonFile(metricCollection, numbersAsPercentages);
-            _defaultComponents.LoggingActionAsciiBanner.Invoke(string.Empty);
 
-            if (!fileInfoAdapter.Exists)
-            {
-
-                _defaultComponents.LoggingAction.Invoke(MessageCollection.CommandLineManager_FileHasNotBeenCreated.Invoke(fileInfoAdapter.FullName));
-                _defaultComponents.LoggingActionAsciiBanner.Invoke(string.Empty);
-
-                return Failure;
-
-            }
-
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
-
-            return Success;
+            return HandleFileExistance(fileInfoAdapter);
 
         }
+
         private int OrchestrateExitCodes(int exitCode1, int exitCode2)
         {
 
