@@ -14,7 +14,7 @@ namespace NW.WIDJobsClient
 
         #region Properties
 
-        public uint MininumFinalPageNumber { get; } = 1;
+        public static uint MininumFinalPageNumber { get; } = 1;
         public static string ThresholdDateFormat { get; } = "yyyyMMdd";
         public static string JobPostingIdPattern = "[0-9]{1,}[a-zA-Z]{1,}";
 

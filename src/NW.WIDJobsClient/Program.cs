@@ -818,7 +818,8 @@ namespace NW.WIDJobsClient
         {
 
             return subCommand
-                    .Option(Option_ParallelRequests_Template, Option_ParallelRequests_Description, CommandOptionType.SingleValue);
+                    .Option(Option_ParallelRequests_Template, Option_ParallelRequests_Description, CommandOptionType.SingleValue)
+                    .Accepts(validator => validator.Use(new ParallelRequestsValidator()));
 
         }
         private static CommandOption CreatePauseBetweenRequestsMsOption(CommandLineApplication subCommand)

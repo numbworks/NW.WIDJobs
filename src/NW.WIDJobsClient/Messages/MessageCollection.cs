@@ -25,10 +25,17 @@ namespace NW.WIDJobsClient.Messages
 
         #endregion
 
-        #region ThresholdValidator
+        #region ThresholdValueValidator
 
-        public static Func<string, string> ThresholdValidator_ThresholdValueNotValidFormat
+        public static Func<string, string> ThresholdValueValidator_ThresholdValueNotValidFormat
             = (optionValue) => $"The thresold value ('{optionValue}') is not in a valid format.";
+
+        #endregion
+
+        #region ParallelRequestsValidator
+
+        public static Func<string, string> ParallelRequestsValidator_ValueNotInExpectedRange
+            = (optionValue) => $"The value ('{optionValue}') is not within the expected range ('{nameof(ParallelRequestsManager.MininumParallelRequests)}':'{ParallelRequestsManager.MininumParallelRequests}', '{nameof(ParallelRequestsManager.MaximumParallelRequests)}':'{ParallelRequestsManager.MaximumParallelRequests}').";
 
         #endregion
 

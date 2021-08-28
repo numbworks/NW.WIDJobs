@@ -46,7 +46,7 @@ namespace NW.WIDJobsClient
             if (_thresholdValueManager.IsValid(option.Value()))
                 return ValidationResult.Success;
 
-            return new ValidationResult(MessageCollection.ThresholdValidator_ThresholdValueNotValidFormat.Invoke(option.Value()));
+            return new ValidationResult(MessageCollection.ThresholdValueValidator_ThresholdValueNotValidFormat.Invoke(option.Value()));
 
         }
 
