@@ -9,7 +9,7 @@ using McMaster.Extensions.CommandLineUtils;
 namespace NW.WIDJobsClient
 {
     /// <inheritdoc cref="ICommandLineManager"/>
-    public class CommandLineManager
+    public class CommandLineManager : ICommandLineManager
     {
 
         #region Fields
@@ -83,7 +83,8 @@ namespace NW.WIDJobsClient
         #region Constructors
 
         /// <summary>Initializes a <see cref="CommandLineManager"/> instance.</summary>	
-        public CommandLineManager(IThresholdValueManager thresholdValueManager, IWIDExplorerComponentsFactory componentsFactory, IWIDExplorerSettingsFactory settingsFactory) 
+        public CommandLineManager
+            (IThresholdValueManager thresholdValueManager, IWIDExplorerComponentsFactory componentsFactory, IWIDExplorerSettingsFactory settingsFactory)
         {
 
             // To-Do: validation
@@ -99,7 +100,7 @@ namespace NW.WIDJobsClient
 
         /// <summary>Initializes a <see cref="CommandLineManager"/> instance using default parameters.</summary>	
         public CommandLineManager()
-            :this(new ThresholdValueManager(), new WIDExplorerComponentsFactory(), new WIDExplorerSettingsFactory()) { }
+            : this(new ThresholdValueManager(), new WIDExplorerComponentsFactory(), new WIDExplorerSettingsFactory()) { }
 
         #endregion
 
@@ -975,15 +976,15 @@ namespace NW.WIDJobsClient
 
         }
         private int SessionExplore(
-            bool useDemoData, 
-            string parallelRequests, 
-            string pauseBetweenRequestsMs, 
+            bool useDemoData,
+            string parallelRequests,
+            string pauseBetweenRequestsMs,
             string folderPath,
-            ThresholdTypes thresholdType, 
-            string thresholdValue, 
-            ExploreStages exploreStage, 
+            ThresholdTypes thresholdType,
+            string thresholdValue,
+            ExploreStages exploreStage,
             ExploreOutputs explorationOutput,
-            MetricsOutputs metricsOutput, 
+            MetricsOutputs metricsOutput,
             bool numbersAsPercentages)
         {
 
