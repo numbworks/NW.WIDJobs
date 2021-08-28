@@ -647,17 +647,17 @@ namespace NW.WIDJobsClient
         private void DumpJsonToConsole(string json)
         {
 
-            WIDExplorerComponents.DefaultLoggingAction.Invoke(MessageCollection.CommandLineManager_DumpingJsonToConsole);
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(json);
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
+            _defaultComponents.LoggingAction.Invoke(MessageCollection.CommandLineManager_DumpingJsonToConsole);
+            _defaultComponents.LoggingActionAsciiBanner.Invoke(string.Empty);
+            _defaultComponents.LoggingActionAsciiBanner.Invoke(json);
+            _defaultComponents.LoggingActionAsciiBanner.Invoke(string.Empty);
 
         }
         private int DumpExceptionToConsole(Exception e)
         {
 
-            WIDExplorerComponents.DefaultLoggingAction.Invoke(MessageCollection.CommandLineManager_FormattedErrorMessage.Invoke(e.Message));
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
+            _defaultComponents.LoggingAction.Invoke(MessageCollection.CommandLineManager_FormattedErrorMessage.Invoke(e.Message));
+            _defaultComponents.LoggingActionAsciiBanner.Invoke(string.Empty);
 
             return Failure;
 
@@ -667,7 +667,7 @@ namespace NW.WIDJobsClient
 
             string json = widExplorer.ConvertToJson(exploration);
             DumpJsonToConsole(json);
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
+            _defaultComponents.LoggingActionAsciiBanner.Invoke(string.Empty);
 
             return Success;
 
@@ -696,7 +696,7 @@ namespace NW.WIDJobsClient
 
             string json = widExplorer.ConvertToJson(metricCollection, numbersAsPercentages);
             DumpJsonToConsole(json);
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
+            _defaultComponents.LoggingActionAsciiBanner.Invoke(string.Empty);
 
             return Success;
 
@@ -717,14 +717,14 @@ namespace NW.WIDJobsClient
             if (!fileInfoAdapter.Exists)
             {
 
-                WIDExplorerComponents.DefaultLoggingAction.Invoke(MessageCollection.CommandLineManager_FileHasNotBeenCreated.Invoke(fileInfoAdapter.FullName));
-                WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
+                _defaultComponents.LoggingAction.Invoke(MessageCollection.CommandLineManager_FileHasNotBeenCreated.Invoke(fileInfoAdapter.FullName));
+                _defaultComponents.LoggingActionAsciiBanner.Invoke(string.Empty);
 
-                return ((int)ExitCodes.Failure);
+                return Failure;
 
             }
 
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
+            _defaultComponents.LoggingActionAsciiBanner.Invoke(string.Empty);
 
             return Success;
 
@@ -737,14 +737,14 @@ namespace NW.WIDJobsClient
             if (!fileInfoAdapter.Exists)
             {
 
-                WIDExplorerComponents.DefaultLoggingAction.Invoke(MessageCollection.CommandLineManager_FileHasNotBeenCreated.Invoke(fileInfoAdapter.FullName));
-                WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
+                _defaultComponents.LoggingAction.Invoke(MessageCollection.CommandLineManager_FileHasNotBeenCreated.Invoke(fileInfoAdapter.FullName));
+                _defaultComponents.LoggingActionAsciiBanner.Invoke(string.Empty);
 
                 return Failure;
 
             }
 
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
+            _defaultComponents.LoggingActionAsciiBanner.Invoke(string.Empty);
 
             return Success;
 
@@ -762,13 +762,13 @@ namespace NW.WIDJobsClient
         {
 
             IFileInfoAdapter fileInfoAdapter = widExplorer.SaveToJsonFile(metricCollection, numbersAsPercentages);
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
+            _defaultComponents.LoggingActionAsciiBanner.Invoke(string.Empty);
 
             if (!fileInfoAdapter.Exists)
             {
 
-                WIDExplorerComponents.DefaultLoggingAction.Invoke(MessageCollection.CommandLineManager_FileHasNotBeenCreated.Invoke(fileInfoAdapter.FullName));
-                WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
+                _defaultComponents.LoggingAction.Invoke(MessageCollection.CommandLineManager_FileHasNotBeenCreated.Invoke(fileInfoAdapter.FullName));
+                _defaultComponents.LoggingActionAsciiBanner.Invoke(string.Empty);
 
                 return Failure;
 
@@ -878,9 +878,9 @@ namespace NW.WIDJobsClient
         private void LogAsciiBanner()
         {
 
-            WIDExplorer widExplorer = new WIDExplorer();
+            _defaultComponents.LoggingActionAsciiBanner(string.Empty);
 
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
+            WIDExplorer widExplorer = Create();
             widExplorer.LogAsciiBanner();
 
         }
@@ -897,14 +897,14 @@ namespace NW.WIDJobsClient
 
             LogAsciiBanner();
 
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner(Application_Description);
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner(MessageCollection.CommandLineManager_ApplicationAuthor);
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner(MessageCollection.CommandLineManager_ApplicationEmail);
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner(MessageCollection.CommandLineManager_ApplicationUrl);
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner(MessageCollection.CommandLineManager_ApplicationLicense);
+            _defaultComponents.LoggingActionAsciiBanner(Application_Description);
+            _defaultComponents.LoggingActionAsciiBanner(string.Empty);
+            _defaultComponents.LoggingActionAsciiBanner(MessageCollection.CommandLineManager_ApplicationAuthor);
+            _defaultComponents.LoggingActionAsciiBanner(MessageCollection.CommandLineManager_ApplicationEmail);
+            _defaultComponents.LoggingActionAsciiBanner(MessageCollection.CommandLineManager_ApplicationUrl);
+            _defaultComponents.LoggingActionAsciiBanner(MessageCollection.CommandLineManager_ApplicationLicense);
 
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
+            _defaultComponents.LoggingActionAsciiBanner(string.Empty);
 
             return Success;
 
@@ -918,7 +918,7 @@ namespace NW.WIDJobsClient
                 LogAsciiBanner();
 
                 WIDExplorerSettings settings = _settingsFactory.Create(folderPath: folderPath);
-                WIDExplorer widExplorer = new WIDExplorer(_defaultComponents, settings);
+                WIDExplorer widExplorer = Create(_defaultComponents, settings);
                 Exploration exploration = widExplorer.LoadExplorationFromJsonFile(filePath);
 
                 return OrchestrateMetricCollection(widExplorer, exploration, output, numbersAsPercentages);
@@ -941,7 +941,7 @@ namespace NW.WIDJobsClient
                 LogAsciiBanner();
 
                 WIDExplorerSettings settings = _settingsFactory.Create(folderPath: folderPath);
-                WIDExplorer widExplorer = new WIDExplorer(_defaultComponents, settings);
+                WIDExplorer widExplorer = Create(_defaultComponents, settings);
                 Exploration exploration = widExplorer.LoadExplorationFromJsonFile(filePath);
 
                 // At the moment there is only one DatabaseOutputs.
@@ -966,7 +966,7 @@ namespace NW.WIDJobsClient
 
                 WIDExplorerComponents components = ChooseComponents(useDemoData);
                 WIDExplorerSettings settings = _settingsFactory.Create(folderPath: folderPath);
-                WIDExplorer widExplorer = new WIDExplorer(components, settings);
+                WIDExplorer widExplorer = Create(components, settings);
                 Exploration exploration = widExplorer.Explore(1, Stages.Stage1_OnlyMetrics);
 
                 if (output == DescribeOutputs.console)
@@ -1011,7 +1011,7 @@ namespace NW.WIDJobsClient
                 WIDExplorerComponents components = ChooseComponents(useDemoData);
                 WIDExplorerSettings settings = _settingsFactory.Create(parallelRequests: parallelRequests, pauseBetweenRequestsMs: pauseBetweenRequestsMs, folderPath: folderPath);
                 Stages stage = ConvertToStages(exploreStage);
-                WIDExplorer widExplorer = new WIDExplorer(components, settings);
+                WIDExplorer widExplorer = Create(components, settings);
 
                 Exploration exploration;
                 if (thresholdType == ThresholdTypes.finalpagenumber)
