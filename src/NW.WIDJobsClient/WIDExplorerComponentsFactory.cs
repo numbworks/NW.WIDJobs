@@ -36,7 +36,7 @@ namespace NW.WIDJobsClient
 
         #region Methods_public
 
-        public WIDExplorerComponents CreateComponents(bool useDemoData)
+        public WIDExplorerComponents Create(bool useDemoData)
         {
 
             if (useDemoData)

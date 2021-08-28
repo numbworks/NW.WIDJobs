@@ -27,6 +27,7 @@ namespace NW.WIDJobsClient
 
         private IThresholdValueManager _thresholdValueManager;
         private IWIDExplorerComponentsFactory _componentsFactory;
+        private IWIDExplorerSettingsFactory _settingsFactory;
 
         #endregion
 
@@ -90,7 +91,8 @@ namespace NW.WIDJobsClient
         /// <summary>Initializes a <see cref="CommandLineManager"/> instance.</summary>	
         public CommandLineManager(
                     IThresholdValueManager thresholdValueManager, 
-                    IWIDExplorerComponentsFactory componentsFactory
+                    IWIDExplorerComponentsFactory componentsFactory,
+                    IWIDExplorerSettingsFactory settingsFactory
             ) 
         {
 
@@ -98,12 +100,13 @@ namespace NW.WIDJobsClient
 
             _thresholdValueManager = thresholdValueManager;
             _componentsFactory = componentsFactory;
+            _settingsFactory = settingsFactory;
 
         }
 
         /// <summary>Initializes a <see cref="CommandLineManager"/> instance using default parameters.</summary>	
         public CommandLineManager()
-            :this(new ThresholdValueManager(), new WIDExplorerComponentsFactory()) { }
+            :this(new ThresholdValueManager(), new WIDExplorerComponentsFactory(), new WIDExplorerSettingsFactory()) { }
 
         #endregion
 
@@ -420,8 +423,8 @@ namespace NW.WIDJobsClient
 
                 LogAsciiBanner();
 
-                WIDExplorerComponents components = _componentsFactory.CreateComponents(useDemoData: false);
-                WIDExplorerSettings settings = CreateSettings(folderPath: folderPath);
+                WIDExplorerComponents components = _componentsFactory.Create(useDemoData: false);
+                WIDExplorerSettings settings = _settingsFactory.Create(folderPath: folderPath);
                 WIDExplorer widExplorer = new WIDExplorer(components, settings);
                 Exploration exploration = widExplorer.LoadExplorationFromJsonFile(filePath);
 
@@ -444,8 +447,8 @@ namespace NW.WIDJobsClient
 
                 LogAsciiBanner();
 
-                WIDExplorerComponents components = _componentsFactory.CreateComponents(useDemoData: false);
-                WIDExplorerSettings settings = CreateSettings(folderPath: folderPath);
+                WIDExplorerComponents components = _componentsFactory.Create(useDemoData: false);
+                WIDExplorerSettings settings = _settingsFactory.Create(folderPath: folderPath);
                 WIDExplorer widExplorer = new WIDExplorer(components, settings);
                 Exploration exploration = widExplorer.LoadExplorationFromJsonFile(filePath);
 
@@ -469,8 +472,8 @@ namespace NW.WIDJobsClient
 
                 LogAsciiBanner();
 
-                WIDExplorerComponents components = _componentsFactory.CreateComponents(useDemoData);
-                WIDExplorerSettings settings = CreateSettings(folderPath: folderPath);
+                WIDExplorerComponents components = _componentsFactory.Create(useDemoData);
+                WIDExplorerSettings settings = _settingsFactory.Create(folderPath: folderPath);
                 WIDExplorer widExplorer = new WIDExplorer(components, settings);
                 Exploration exploration = widExplorer.Explore(1, Stages.Stage1_OnlyMetrics);
 
@@ -513,8 +516,8 @@ namespace NW.WIDJobsClient
 
                 LogAsciiBanner();
 
-                WIDExplorerComponents components = _componentsFactory.CreateComponents(useDemoData: useDemoData);
-                WIDExplorerSettings settings = CreateSettings(parallelRequests: parallelRequests, pauseBetweenRequestsMs: pauseBetweenRequestsMs, folderPath: folderPath);
+                WIDExplorerComponents components = _componentsFactory.Create(useDemoData: useDemoData);
+                WIDExplorerSettings settings = _settingsFactory.Create(parallelRequests: parallelRequests, pauseBetweenRequestsMs: pauseBetweenRequestsMs, folderPath: folderPath);
                 Stages stage = ConvertToStages(exploreStage);
                 WIDExplorer widExplorer = new WIDExplorer(components, settings);
 
@@ -540,38 +543,6 @@ namespace NW.WIDJobsClient
                 return DumpExceptionToConsole(e);
 
             }
-
-        }
-
-        private ushort? TryParseParallelRequests(string parallelRequests)
-        {
-
-            if (parallelRequests == null)
-                return null;
-
-            return ushort.Parse(parallelRequests);
-
-        }
-        private uint? TryParsePauseBetweenRequestsMs(string pauseBetweenRequestsMs)
-        {
-
-            if (pauseBetweenRequestsMs == null)
-                return null;
-
-            return uint.Parse(pauseBetweenRequestsMs);
-
-        }
-
-        private WIDExplorerSettings CreateSettings
-            (string parallelRequests = null, string pauseBetweenRequestsMs = null, string folderPath = null, bool? deleteAndRecreateDatabase = null)
-        {
-
-            return new WIDExplorerSettings(
-                            parallelRequests: TryParseParallelRequests(parallelRequests) ?? WIDExplorerSettings.DefaultParallelRequests,
-                            pauseBetweenRequestsMs: TryParsePauseBetweenRequestsMs(pauseBetweenRequestsMs) ?? WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
-                            folderPath: folderPath ?? WIDExplorerSettings.DefaultFolderPath,
-                            deleteAndRecreateDatabase: deleteAndRecreateDatabase ?? WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
-                        );
 
         }
 
