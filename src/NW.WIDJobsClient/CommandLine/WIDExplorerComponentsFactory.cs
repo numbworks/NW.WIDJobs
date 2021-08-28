@@ -36,32 +36,30 @@ namespace NW.WIDJobsClient
 
         #region Methods_public
 
-        public WIDExplorerComponents Create(bool useDemoData)
+        public WIDExplorerComponents CreateDefault() => new WIDExplorerComponents();
+        public WIDExplorerComponents CreateForDemoData()
         {
 
-            if (useDemoData)
-                return new WIDExplorerComponents(
-                        loggingAction: WIDExplorerComponents.DefaultLoggingAction,
-                        loggingActionAsciiBanner: WIDExplorerComponents.DefaultLoggingActionAsciiBanner,
-                        xpathManager: new XPathManager(),
-                        getRequestManager: new GetRequestManager(),
-                        jobPageDeserializer: new JobPageDeserializer(),
-                        jobPageManager: new JobPageManager(postRequestManagerFactory: ObjectMother.WIDExplorer_JobPage0102_FakePostRequestManagerFactory),
-                        jobPostingDeserializer: new JobPostingDeserializer(),
-                        jobPostingManager: new JobPostingManager(),
-                        jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
-                        jobPostingExtendedManager: new JobPostingExtendedManager(ObjectMother.WIDExplorer_JobPage0102_FakeGetRequestManagerFactory, new JobPostingExtendedDeserializer()),
-                        runIdManager: new RunIdManager(),
-                        metricCollectionManager: new MetricCollectionManager(),
-                        fileManager: new FileManager(),
-                        repositoryFactory: new RepositoryFactory(),
-                        asciiBannerManager: new AsciiBannerManager(),
-                        filenameFactory: new FilenameFactory(),
-                        bulletPointManager: new BulletPointManager(),
-                        nowFunction: WIDExplorerComponents.DefaultNowFunction
-                      );
-
-            return new WIDExplorerComponents();
+            return new WIDExplorerComponents(
+                    loggingAction: WIDExplorerComponents.DefaultLoggingAction,
+                    loggingActionAsciiBanner: WIDExplorerComponents.DefaultLoggingActionAsciiBanner,
+                    xpathManager: new XPathManager(),
+                    getRequestManager: new GetRequestManager(),
+                    jobPageDeserializer: new JobPageDeserializer(),
+                    jobPageManager: new JobPageManager(postRequestManagerFactory: ObjectMother.WIDExplorer_JobPage0102_FakePostRequestManagerFactory),
+                    jobPostingDeserializer: new JobPostingDeserializer(),
+                    jobPostingManager: new JobPostingManager(),
+                    jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
+                    jobPostingExtendedManager: new JobPostingExtendedManager(ObjectMother.WIDExplorer_JobPage0102_FakeGetRequestManagerFactory, new JobPostingExtendedDeserializer()),
+                    runIdManager: new RunIdManager(),
+                    metricCollectionManager: new MetricCollectionManager(),
+                    fileManager: new FileManager(),
+                    repositoryFactory: new RepositoryFactory(),
+                    asciiBannerManager: new AsciiBannerManager(),
+                    filenameFactory: new FilenameFactory(),
+                    bulletPointManager: new BulletPointManager(),
+                    nowFunction: WIDExplorerComponents.DefaultNowFunction
+                  );
 
         }
 

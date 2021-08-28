@@ -17,6 +17,8 @@ namespace NW.WIDJobsClient
         private IThresholdValueManager _thresholdValueManager;
         private IWIDExplorerComponentsFactory _componentsFactory;
         private IWIDExplorerSettingsFactory _settingsFactory;
+        private WIDExplorerComponents _defaultComponents;
+        private WIDExplorerComponents _demodataComponents;
 
         #endregion
 
@@ -86,6 +88,9 @@ namespace NW.WIDJobsClient
             _thresholdValueManager = thresholdValueManager;
             _componentsFactory = componentsFactory;
             _settingsFactory = settingsFactory;
+
+            _defaultComponents = _componentsFactory.CreateDefault();
+            _demodataComponents = _componentsFactory.CreateForDemoData();
 
         }
 
@@ -622,6 +627,15 @@ namespace NW.WIDJobsClient
             throw CreateMappingException<CalculateOutputs, MetricsOutputs>(output.ToString());
 
         }
+        private WIDExplorerComponents ChooseComponents(bool useDemoData)
+        {
+
+            if (useDemoData)
+                return _demodataComponents;
+
+            return _defaultComponents;
+
+        }
 
         private void DumpJsonToConsole(string json)
         {
@@ -896,9 +910,8 @@ namespace NW.WIDJobsClient
 
                 LogAsciiBanner();
 
-                WIDExplorerComponents components = _componentsFactory.Create(useDemoData: false);
                 WIDExplorerSettings settings = _settingsFactory.Create(folderPath: folderPath);
-                WIDExplorer widExplorer = new WIDExplorer(components, settings);
+                WIDExplorer widExplorer = new WIDExplorer(_defaultComponents, settings);
                 Exploration exploration = widExplorer.LoadExplorationFromJsonFile(filePath);
 
                 return OrchestrateMetricCollection(widExplorer, exploration, output, numbersAsPercentages);
@@ -920,9 +933,8 @@ namespace NW.WIDJobsClient
 
                 LogAsciiBanner();
 
-                WIDExplorerComponents components = _componentsFactory.Create(useDemoData: false);
                 WIDExplorerSettings settings = _settingsFactory.Create(folderPath: folderPath);
-                WIDExplorer widExplorer = new WIDExplorer(components, settings);
+                WIDExplorer widExplorer = new WIDExplorer(_defaultComponents, settings);
                 Exploration exploration = widExplorer.LoadExplorationFromJsonFile(filePath);
 
                 // At the moment there is only one DatabaseOutputs.
@@ -945,7 +957,7 @@ namespace NW.WIDJobsClient
 
                 LogAsciiBanner();
 
-                WIDExplorerComponents components = _componentsFactory.Create(useDemoData);
+                WIDExplorerComponents components = ChooseComponents(useDemoData);
                 WIDExplorerSettings settings = _settingsFactory.Create(folderPath: folderPath);
                 WIDExplorer widExplorer = new WIDExplorer(components, settings);
                 Exploration exploration = widExplorer.Explore(1, Stages.Stage1_OnlyMetrics);
@@ -989,7 +1001,7 @@ namespace NW.WIDJobsClient
 
                 LogAsciiBanner();
 
-                WIDExplorerComponents components = _componentsFactory.Create(useDemoData: useDemoData);
+                WIDExplorerComponents components = ChooseComponents(useDemoData);
                 WIDExplorerSettings settings = _settingsFactory.Create(parallelRequests: parallelRequests, pauseBetweenRequestsMs: pauseBetweenRequestsMs, folderPath: folderPath);
                 Stages stage = ConvertToStages(exploreStage);
                 WIDExplorer widExplorer = new WIDExplorer(components, settings);

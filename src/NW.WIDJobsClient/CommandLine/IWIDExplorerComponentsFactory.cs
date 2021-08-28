@@ -4,7 +4,10 @@ namespace NW.WIDJobsClient
 {
     public interface IWIDExplorerComponentsFactory
     {
-        WIDExplorerComponents Create(bool useDemoData);
+
+        WIDExplorerComponents CreateDefault();
+        WIDExplorerComponents CreateForDemoData();
+
     }
 }
 
