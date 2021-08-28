@@ -7,22 +7,21 @@ namespace NW.WIDJobsClient.Messages
     public static class MessageCollection
     {
 
-        #region Program
+        #region CommandLineManager
 
-        public static string Program_DumpingExplorationToConsole = $"Dumping {nameof(Exploration)} object to console:";
-        public static string Program_DumpingJsonToConsole = "Dumping Json to console:";
-        public static string Program_PressAButtonToCloseTheWindow = "Press a button to close the window.";
-        public static string Program_ApplicationAuthor = "Author: numbworks";
-        public static string Program_ApplicationEmail = "Email: numbworks [AT] gmail [DOT] com";
-        public static string Program_ApplicationUrl = @"Github: http://www.github.com/numbworks";
-        public static string Program_ApplicationLicense = "License: MIT License";
-        public static Func<string, string> Program_FormattedErrorMessage 
+        public static string CommandLineManager_DumpingJsonToConsole = "Dumping Json to console:";
+        public static string CommandLineManager_PressAButtonToCloseTheWindow = "Press a button to close the window.";
+        public static string CommandLineManager_ApplicationAuthor = "Author: numbworks";
+        public static string CommandLineManager_ApplicationEmail = "Email: numbworks [AT] gmail [DOT] com";
+        public static string CommandLineManager_ApplicationUrl = @"Github: http://www.github.com/numbworks";
+        public static string CommandLineManager_ApplicationLicense = "License: MIT License";
+        public static Func<string, string> CommandLineManager_FormattedErrorMessage 
             = (message) => $"ERROR: {message}";
-        public static Func<string, string> Program_FileHasNotBeenCreated
+        public static Func<string, string> CommandLineManager_FileHasNotBeenCreated
             = (filePath) => $"ERROR: the file hasn't been created ('{filePath}').";
-        public static Func<string, Type, string> Program_OptionValueCantBeConvertedTo
+        public static Func<string, Type, string> CommandLineManager_OptionValueCantBeConvertedTo
             = (optionValue, type) => $"The provided option value ('{optionValue}') can't be converted to {type.Name}.";
-        public static Func<Type, Type, string, string> Program_FirstEnumCantBeMapped
+        public static Func<Type, Type, string, string> CommandLineManager_FirstEnumCantBeMapped
             = (inputEnum, outputEnum, value) => $"The input enum ('{inputEnum}') can't be mapped to the output enum ('{outputEnum}') for the provided value: '{value}'.";
 
         #endregion
