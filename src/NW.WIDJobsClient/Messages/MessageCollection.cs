@@ -28,7 +28,7 @@ namespace NW.WIDJobsClient.Messages
         #region ThresholdValueValidator
 
         public static Func<string, string> ThresholdValueValidator_ThresholdValueNotValidFormat
-            = (optionValue) => $"The thresold value ('{optionValue}') is not in a valid format.";
+            = (optionValue) => $"The thresold value ('{optionValue}') is not in a valid format. It can be a number (1, 2, ...), a date (yyyyMMdd) or an id (5376524visgerrengringsassistenter, ...).";
 
         #endregion
 
@@ -39,10 +39,17 @@ namespace NW.WIDJobsClient.Messages
 
         #endregion
 
+        #region PauseBetweenRequestsValidator
+
+        public static Func<string, string> PauseBetweenRequestsValidator_ValueNotValid
+            = (optionValue) => $"The value ('{optionValue}') is not valid.";
+
+        #endregion
+
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 26.08.2021
+    Last Update: 28.08.2021
 */

@@ -319,7 +319,7 @@ namespace NW.WIDJobsClient
 
 
 
-        static int GenericCommand()
+        private static int GenericCommand()
         {
 
             LogAsciiBanner();
@@ -327,7 +327,7 @@ namespace NW.WIDJobsClient
             return ((int)ExitCodes.Success);
 
         }
-        static int About()
+        private static int About()
         {
 
             LogAsciiBanner();
@@ -344,7 +344,7 @@ namespace NW.WIDJobsClient
             return ((int)ExitCodes.Success);
 
         }
-        static int ExplorationCalculate(string filePath, JsonConsoleOutputs output, string folderPath, bool numbersAsPercentages)
+        private static int ExplorationCalculate(string filePath, JsonConsoleOutputs output, string folderPath, bool numbersAsPercentages)
         {
 
             try
@@ -368,7 +368,7 @@ namespace NW.WIDJobsClient
             }
 
         }
-        static int ExplorationConvert(string filePath, DatabaseOutputs output, string folderPath)
+        private static int ExplorationConvert(string filePath, DatabaseOutputs output, string folderPath)
         {
 
             try
@@ -393,7 +393,7 @@ namespace NW.WIDJobsClient
             }
 
         }
-        static int ExplorationDescribe(JsonConsoleOutputs output, string folderPath, bool useDemoData)
+        private static int ExplorationDescribe(JsonConsoleOutputs output, string folderPath, bool useDemoData)
         {
 
             try
@@ -427,7 +427,7 @@ namespace NW.WIDJobsClient
             }
 
         }
-        static int ExplorationExplore
+        private static int ExplorationExplore
             (bool useDemoData, string parallelRequests, string pauseBetweenRequestsMs, string folderPath,
             ThresholdTypes thresholdType, string thresholdValue, StagesFromInput stageFromInput, DatabaseJsonConsoleOutputs explorationOutput,
             bool enableMetrics, JsonConsoleOutputs metricsOutput, bool numbersAsPercentages)
@@ -467,128 +467,26 @@ namespace NW.WIDJobsClient
             }
 
         }
-        
+
 
 
         // Methods_Private
-        private static void LogAsciiBanner()
+        private static ushort? TryParseParallelRequests(string parallelRequests)
         {
 
-            WIDExplorer widExplorer = new WIDExplorer();
+            if (parallelRequests == null)
+                return null;
 
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
-            widExplorer.LogAsciiBanner();
+            return ushort.Parse(parallelRequests);
 
         }
-        private static int DumpExceptionToConsole(Exception e)
+        private static uint? TryParsePauseBetweenRequestsMs(string pauseBetweenRequestsMs)
         {
 
-            WIDExplorerComponents.DefaultLoggingAction.Invoke(MessageCollection.Program_FormattedErrorMessage.Invoke(e.Message));
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
+            if (pauseBetweenRequestsMs == null)
+                return null;
 
-            return ((int)ExitCodes.Failure);
-
-        }
-        private static void DumpJsonToConsole(string json)
-        {
-
-            WIDExplorerComponents.DefaultLoggingAction.Invoke(MessageCollection.Program_DumpingJsonToConsole);
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(json);
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
-
-        }
-        private static JsonConsoleOutputs ConvertToJsonConsoleOutputs(string optionValue)
-        {
-
-            if (optionValue == nameof(JsonConsoleOutputs.jsonfile))
-                return JsonConsoleOutputs.jsonfile;
-
-            if (optionValue == nameof(JsonConsoleOutputs.console))
-                return JsonConsoleOutputs.console;
-
-            if (optionValue == nameof(JsonConsoleOutputs.both))
-                return JsonConsoleOutputs.both;
-
-            throw CreateOptionValueException<JsonConsoleOutputs>(optionValue);
-
-        }
-        private static Exception CreateOptionValueException<T>(string optionValue)
-        {
-
-            return new Exception(MessageCollection.Program_OptionValueCantBeConvertedTo.Invoke(optionValue, typeof(T)));
-
-        }
-        private static int DumpExplorationToConsole(WIDExplorer widExplorer, Exploration exploration)
-        {
-
-            string json = widExplorer.ConvertToJson(exploration);
-            DumpJsonToConsole(json);
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
-
-            return ((int)ExitCodes.Success);
-
-        }
-        private static int SaveExplorationToJson(WIDExplorer widExplorer, Exploration exploration)
-        {
-
-            IFileInfoAdapter fileInfoAdapter = widExplorer.SaveToJsonFile(exploration);
-
-            if (!fileInfoAdapter.Exists)
-            {
-
-                WIDExplorerComponents.DefaultLoggingAction.Invoke(MessageCollection.Program_FileHasNotBeenCreated.Invoke(fileInfoAdapter.FullName));
-                WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
-
-                return ((int)ExitCodes.Failure);
-
-            }
-
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
-
-            return ((int)ExitCodes.Success);
-
-        }
-        private static int SaveExplorationToDatabase(WIDExplorer widExplorer, Exploration exploration)
-        {
-
-            IFileInfoAdapter fileInfoAdapter = widExplorer.SaveToSQLiteDatabase(exploration.JobPostingsExtended);
-
-            if (!fileInfoAdapter.Exists)
-            {
-
-                WIDExplorerComponents.DefaultLoggingAction.Invoke(MessageCollection.Program_FileHasNotBeenCreated.Invoke(fileInfoAdapter.FullName));
-                WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
-
-                return ((int)ExitCodes.Failure);
-
-            }
-
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
-
-            return ((int)ExitCodes.Success);
-
-        }
-        private static int DumpExplorationToConsoleAndSaveToJson(WIDExplorer widExplorer, Exploration exploration)
-        {
-
-            DumpExplorationToConsole(widExplorer, exploration);
-            
-            return SaveExplorationToJson(widExplorer, exploration);
-
-        }
-        private static int DumpExplorationToConsoleAndSaveToJsonDatabase(WIDExplorer widExplorer, Exploration exploration)
-        {
-
-            DumpExplorationToConsole(widExplorer, exploration);
-
-            int exitCode1 = SaveExplorationToJson(widExplorer, exploration);
-            int exitCode2 = SaveExplorationToDatabase(widExplorer, exploration);
-
-            if (exitCode1 == ((int)ExitCodes.Success) && exitCode2 == ((int)ExitCodes.Success))
-                return ((int)ExitCodes.Success);
-
-            return ((int)ExitCodes.Failure);
+            return uint.Parse(pauseBetweenRequestsMs);
 
         }
         private static WIDExplorerComponents CreateComponents(bool useDemoData)
@@ -615,7 +513,7 @@ namespace NW.WIDJobsClient
                         bulletPointManager: new BulletPointManager(),
                         nowFunction: WIDExplorerComponents.DefaultNowFunction
                       );
-            
+
             return new WIDExplorerComponents();
 
         }
@@ -631,22 +529,148 @@ namespace NW.WIDJobsClient
                         );
 
         }
-        private static ushort? TryParseParallelRequests(string parallelRequests)
+        private static void LogAsciiBanner()
         {
 
-            if (parallelRequests == null)
-                return null;
+            WIDExplorer widExplorer = new WIDExplorer();
 
-            return ushort.Parse(parallelRequests);
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
+            widExplorer.LogAsciiBanner();
 
         }
-        private static uint? TryParsePauseBetweenRequestsMs(string pauseBetweenRequestsMs)
+
+        private static Exception CreateOptionValueException<T>(string optionValue)
+           => new Exception(MessageCollection.Program_OptionValueCantBeConvertedTo.Invoke(optionValue, typeof(T)));
+        private static JsonConsoleOutputs ConvertToJsonConsoleOutputs(string optionValue)
         {
 
-            if (pauseBetweenRequestsMs == null)
-                return null;
+            if (optionValue == nameof(JsonConsoleOutputs.jsonfile))
+                return JsonConsoleOutputs.jsonfile;
 
-            return uint.Parse(pauseBetweenRequestsMs);
+            if (optionValue == nameof(JsonConsoleOutputs.console))
+                return JsonConsoleOutputs.console;
+
+            if (optionValue == nameof(JsonConsoleOutputs.both))
+                return JsonConsoleOutputs.both;
+
+            throw CreateOptionValueException<JsonConsoleOutputs>(optionValue);
+
+        }
+        private static DatabaseOutputs ConvertToDatabaseOutputs(string optionValue)
+        {
+
+            if (optionValue == nameof(DatabaseOutputs.databasefile))
+                return DatabaseOutputs.databasefile;
+
+            throw CreateOptionValueException<DatabaseOutputs>(optionValue);
+
+        }
+        private static DatabaseJsonConsoleOutputs ConvertToDatabaseJsonConsoleOutputs(string optionValue)
+        {
+
+            if (optionValue == nameof(DatabaseJsonConsoleOutputs.databasefile))
+                return DatabaseJsonConsoleOutputs.databasefile;
+
+            if (optionValue == nameof(DatabaseJsonConsoleOutputs.jsonfile))
+                return DatabaseJsonConsoleOutputs.jsonfile;
+
+            if (optionValue == nameof(DatabaseJsonConsoleOutputs.console))
+                return DatabaseJsonConsoleOutputs.console;
+
+            if (optionValue == nameof(DatabaseJsonConsoleOutputs.all))
+                return DatabaseJsonConsoleOutputs.all;
+
+            throw CreateOptionValueException<DatabaseJsonConsoleOutputs>(optionValue);
+
+        }
+        private static StagesFromInput ConvertToStagesFromInput(string optionValue)
+        {
+
+            if (optionValue == nameof(StagesFromInput.S2))
+                return StagesFromInput.S2;
+
+            if (optionValue == nameof(StagesFromInput.S3))
+                return StagesFromInput.S3;
+
+            throw CreateOptionValueException<StagesFromInput>(optionValue);
+
+        }
+        private static ThresholdTypes ConvertToThresholdTypes(string optionValue)
+        {
+
+            if (optionValue == nameof(ThresholdTypes.finalpagenumber))
+                return ThresholdTypes.finalpagenumber;
+
+            if (optionValue == nameof(ThresholdTypes.thresholddate))
+                return ThresholdTypes.thresholddate;
+
+            if (optionValue == nameof(ThresholdTypes.jobpostingid))
+                return ThresholdTypes.jobpostingid;
+
+            throw CreateOptionValueException<ThresholdTypes>(optionValue);
+
+        }
+        private static Stages ConvertToStages(StagesFromInput stageFromInput)
+        {
+
+            if (stageFromInput == StagesFromInput.S2)
+                return Stages.Stage2_UpToAllJobPostings;
+
+            if (stageFromInput == StagesFromInput.S3)
+                return Stages.Stage3_UpToAllJobPostingsExtended;
+
+            throw CreateOptionValueException<Stages>(stageFromInput.ToString());
+
+        }
+
+        private static void DumpJsonToConsole(string json)
+        {
+
+            WIDExplorerComponents.DefaultLoggingAction.Invoke(MessageCollection.Program_DumpingJsonToConsole);
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(json);
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
+
+        }
+        private static int DumpExceptionToConsole(Exception e)
+        {
+
+            WIDExplorerComponents.DefaultLoggingAction.Invoke(MessageCollection.Program_FormattedErrorMessage.Invoke(e.Message));
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
+
+            return ((int)ExitCodes.Failure);
+
+        }
+        private static int DumpExplorationToConsole(WIDExplorer widExplorer, Exploration exploration)
+        {
+
+            string json = widExplorer.ConvertToJson(exploration);
+            DumpJsonToConsole(json);
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
+
+            return ((int)ExitCodes.Success);
+
+        }
+        private static int DumpExplorationToConsoleAndSaveToJson(WIDExplorer widExplorer, Exploration exploration)
+        {
+
+            DumpExplorationToConsole(widExplorer, exploration);
+
+            return SaveExplorationToJson(widExplorer, exploration);
+
+        }
+        private static int DumpExplorationToConsoleAndSaveToJsonDatabase(WIDExplorer widExplorer, Exploration exploration)
+        {
+
+            DumpExplorationToConsole(widExplorer, exploration);
+
+            int exitCode1 = SaveExplorationToJson(widExplorer, exploration);
+            int exitCode2 = SaveExplorationToDatabaseFile(widExplorer, exploration);
+
+            if (exitCode1 == ((int)ExitCodes.Success) && exitCode2 == ((int)ExitCodes.Success))
+                return ((int)ExitCodes.Success);
+
+            return ((int)ExitCodes.Failure);
 
         }
         private static int DumpMetricCollectionToConsole(WIDExplorer widExplorer, MetricCollection metricCollection, bool numbersAsPercentages)
@@ -654,6 +678,54 @@ namespace NW.WIDJobsClient
 
             string json = widExplorer.ConvertToJson(metricCollection, numbersAsPercentages);
             DumpJsonToConsole(json);
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
+
+            return ((int)ExitCodes.Success);
+
+        }
+        private static int DumpMetricCollectionToConsoleAndSaveToJson(WIDExplorer widExplorer, MetricCollection metricCollection, bool numbersAsPercentages)
+        {
+
+            DumpMetricCollectionToConsole(widExplorer, metricCollection, numbersAsPercentages);
+
+            return SaveMetricCollectionToJson(widExplorer, metricCollection, numbersAsPercentages);
+
+        }
+        private static int SaveExplorationToJson(WIDExplorer widExplorer, Exploration exploration)
+        {
+
+            IFileInfoAdapter fileInfoAdapter = widExplorer.SaveToJsonFile(exploration);
+
+            if (!fileInfoAdapter.Exists)
+            {
+
+                WIDExplorerComponents.DefaultLoggingAction.Invoke(MessageCollection.Program_FileHasNotBeenCreated.Invoke(fileInfoAdapter.FullName));
+                WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
+
+                return ((int)ExitCodes.Failure);
+
+            }
+
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
+
+            return ((int)ExitCodes.Success);
+
+        }
+        private static int SaveExplorationToDatabaseFile(WIDExplorer widExplorer, Exploration exploration)
+        {
+
+            IFileInfoAdapter fileInfoAdapter = widExplorer.SaveToSQLiteDatabase(exploration.JobPostingsExtended);
+
+            if (!fileInfoAdapter.Exists)
+            {
+
+                WIDExplorerComponents.DefaultLoggingAction.Invoke(MessageCollection.Program_FileHasNotBeenCreated.Invoke(fileInfoAdapter.FullName));
+                WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
+
+                return ((int)ExitCodes.Failure);
+
+            }
+
             WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
 
             return ((int)ExitCodes.Success);
@@ -671,14 +743,7 @@ namespace NW.WIDJobsClient
             return ((int)ExitCodes.Success);
 
         }
-        private static int DumpMetricCollectionToConsoleAndSaveToJson(WIDExplorer widExplorer, MetricCollection metricCollection, bool numbersAsPercentages)
-        {
 
-            DumpMetricCollectionToConsole(widExplorer, metricCollection, numbersAsPercentages);
-
-            return SaveMetricCollectionToJson(widExplorer, metricCollection, numbersAsPercentages);
-
-        }
         private static CommandOption CreateJsonPathOption(CommandLineApplication subCommand)
         {
 
@@ -737,29 +802,6 @@ namespace NW.WIDJobsClient
                     .Option(Option_UseDemoData_Template, Option_UseDemoData_Description, CommandOptionType.NoValue);
 
         }
-        private static int SaveExplorationToDatabaseFile(WIDExplorer widExplorer, Exploration exploration)
-        {
-
-            IFileInfoAdapter fileInfoAdapter = widExplorer.SaveToSQLiteDatabase(exploration.JobPostingsExtended);
-
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
-
-            if (fileInfoAdapter.Exists)
-                return ((int)ExitCodes.Success);
-
-            return ((int)ExitCodes.Failure);
-
-        }
-        private static DatabaseOutputs ConvertToDatabaseOutputs(string optionValue)
-        {
-
-            if (optionValue == nameof(DatabaseOutputs.databasefile))
-                return DatabaseOutputs.databasefile;
-
-            throw CreateOptionValueException<DatabaseOutputs>(optionValue);
-
-        }
-
         private static CommandOption CreateStageFromInputOption(CommandLineApplication subCommand)
         {
 
@@ -826,64 +868,8 @@ namespace NW.WIDJobsClient
         {
 
             return subCommand
-                    .Option(Option_PauseBetweenRequestsMs_Template, Option_PauseBetweenRequestsMs_Description, CommandOptionType.SingleValue);
-
-        }
-        private static DatabaseJsonConsoleOutputs ConvertToDatabaseJsonConsoleOutputs(string optionValue)
-        {
-
-            if (optionValue == nameof(DatabaseJsonConsoleOutputs.databasefile))
-                return DatabaseJsonConsoleOutputs.databasefile;
-
-            if (optionValue == nameof(DatabaseJsonConsoleOutputs.jsonfile))
-                return DatabaseJsonConsoleOutputs.jsonfile;
-
-            if (optionValue == nameof(DatabaseJsonConsoleOutputs.console))
-                return DatabaseJsonConsoleOutputs.console;
-
-            if (optionValue == nameof(DatabaseJsonConsoleOutputs.all))
-                return DatabaseJsonConsoleOutputs.all;
-
-            throw CreateOptionValueException<DatabaseJsonConsoleOutputs>(optionValue);
-
-        }
-        private static StagesFromInput ConvertToStagesFromInput(string optionValue)
-        {
-
-            if (optionValue == nameof(StagesFromInput.S2))
-                return StagesFromInput.S2;
-
-            if (optionValue == nameof(StagesFromInput.S3))
-                return StagesFromInput.S3;
-
-            throw CreateOptionValueException<StagesFromInput>(optionValue);
-
-        }
-        private static ThresholdTypes ConvertToThresholdTypes(string optionValue)
-        {
-
-            if (optionValue == nameof(ThresholdTypes.finalpagenumber))
-                return ThresholdTypes.finalpagenumber;
-
-            if (optionValue == nameof(ThresholdTypes.thresholddate))
-                return ThresholdTypes.thresholddate;
-
-            if (optionValue == nameof(ThresholdTypes.jobpostingid))
-                return ThresholdTypes.jobpostingid;
-
-            throw CreateOptionValueException<ThresholdTypes>(optionValue);
-
-        }
-        private static Stages ConvertToStages(StagesFromInput stageFromInput)
-        {
-
-            if (stageFromInput == StagesFromInput.S2)
-                return Stages.Stage2_UpToAllJobPostings;
-
-            if (stageFromInput == StagesFromInput.S3)
-                return Stages.Stage3_UpToAllJobPostingsExtended;
-
-            throw CreateOptionValueException<Stages>(stageFromInput.ToString());
+                    .Option(Option_PauseBetweenRequestsMs_Template, Option_PauseBetweenRequestsMs_Description, CommandOptionType.SingleValue)
+                    .Accepts(validator => validator.Use(new PauseBetweenRequestsValidator()));
 
         }
 
@@ -916,7 +902,7 @@ namespace NW.WIDJobsClient
                 return SaveExplorationToJson(widExplorer, exploration);
 
             else if (explorationOutput == DatabaseJsonConsoleOutputs.databasefile)
-                return SaveExplorationToDatabase(widExplorer, exploration);
+                return SaveExplorationToDatabaseFile(widExplorer, exploration);
 
             else if (explorationOutput == DatabaseJsonConsoleOutputs.all)
                 return DumpExplorationToConsoleAndSaveToJsonDatabase(widExplorer, exploration);
@@ -937,7 +923,7 @@ namespace NW.WIDJobsClient
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 27.08.2021
+    Last Update: 2.08.2021
 
     WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(MessageCollection.Program_PressAButtonToCloseTheWindow);
     Console.ReadLine();
