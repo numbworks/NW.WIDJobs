@@ -7,6 +7,7 @@
         databasefile,
         jsonfile,
         console,
+        onlyfiles,
         all
 
     }

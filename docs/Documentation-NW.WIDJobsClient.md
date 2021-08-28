@@ -22,7 +22,7 @@ The command-line interface for of `NW.WIDJobsClient`:
 |session|calculate|--jsonpath:{path}<br />--output:{jsonfile\|console\|both}<br />*--folderpath:{path}*<br />*--aspercentages*|Success<br />Failure|
 |session|convert|--jsonpath:{path}<br />--output:{databasefile}<br />*--folderpath:{path}*|Success<br />Failure|
 |session|describe|--output:{jsonfile\|console\|both}<br />*--folderpath:{path}*<br />*--usedemodata*|Success<br />Failure|
-|session|explore|--stage:{S2\|S3}<br />--thresholdtype:{finalpagenumber\|thresholddate\|jobpostingid}<br />--thresholdvalue:{finalpagenumber}\|{thresholddate}\|{jobpostingid}<br />--explorationoutput:{databasefile\|jsonfile\|console\|all}<br />*--folderpath:{path}*<br />*--metricsoutput:{jsonfile\|console\|both\|none}*<br />*--aspercentages*<br />*--parallelrequests:{number}*<br />*--pausebetweenrequestsms:{number}*<br />*--usedemodata*|Success<br />Failure|
+|session|explore|--stage:{S2\|S3}<br />--thresholdtype:{finalpagenumber\|thresholddate\|jobpostingid}<br />--thresholdvalue:{finalpagenumber}\|{thresholddate}\|{jobpostingid}<br />--explorationoutput:{databasefile\|jsonfile\|console\|onlyfiles\|all}<br />*--folderpath:{path}*<br />*--metricsoutput:{jsonfile\|console\|both\|none}*<br />*--aspercentages*<br />*--parallelrequests:{number}*<br />*--pausebetweenrequestsms:{number}*<br />*--usedemodata*|Success<br />Failure|
 |service|||Success|
 
 |Command|Sub Command|Options|Exit Codes|

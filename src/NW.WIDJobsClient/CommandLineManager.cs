@@ -473,10 +473,10 @@ namespace NW.WIDJobsClient
                     return DumpExplorationToConsole(widExplorer, exploration);
 
                 else if (output == DescribeOutputs.jsonfile)
-                    return SaveExplorationToJson(widExplorer, exploration);
+                    return SaveExplorationToJsonFile(widExplorer, exploration);
 
                 else if (output == DescribeOutputs.both)
-                    return DumpExplorationToConsoleAndSaveToJson(widExplorer, exploration);
+                    return DumpExplorationToConsoleAndSaveToJsonFile(widExplorer, exploration);
 
                 else
                     throw CreateOptionValueException<DescribeOutputs>(output.ToString());
@@ -668,6 +668,9 @@ namespace NW.WIDJobsClient
             if (optionValue == nameof(ExploreOutputs.console))
                 return ExploreOutputs.console;
 
+            if (optionValue == nameof(ExploreOutputs.onlyfiles))
+                return ExploreOutputs.onlyfiles;
+
             if (optionValue == nameof(ExploreOutputs.all))
                 return ExploreOutputs.all;
 
@@ -760,20 +763,20 @@ namespace NW.WIDJobsClient
             return ((int)ExitCodes.Success);
 
         }
-        private int DumpExplorationToConsoleAndSaveToJson(WIDExplorer widExplorer, Exploration exploration)
+        private int DumpExplorationToConsoleAndSaveToJsonFile(WIDExplorer widExplorer, Exploration exploration)
         {
 
             DumpExplorationToConsole(widExplorer, exploration);
 
-            return SaveExplorationToJson(widExplorer, exploration);
+            return SaveExplorationToJsonFile(widExplorer, exploration);
 
         }
-        private int DumpExplorationToConsoleAndSaveToJsonDatabase(WIDExplorer widExplorer, Exploration exploration)
+        private int DumpExplorationToConsoleAndSaveToJsonDatabaseFiles(WIDExplorer widExplorer, Exploration exploration)
         {
 
             DumpExplorationToConsole(widExplorer, exploration);
 
-            int exitCode1 = SaveExplorationToJson(widExplorer, exploration);
+            int exitCode1 = SaveExplorationToJsonFile(widExplorer, exploration);
             int exitCode2 = SaveExplorationToDatabaseFile(widExplorer, exploration);
 
             return OrchestrateExitCodes(exitCode1, exitCode2);
@@ -789,15 +792,15 @@ namespace NW.WIDJobsClient
             return ((int)ExitCodes.Success);
 
         }
-        private int DumpMetricCollectionToConsoleAndSaveToJson(WIDExplorer widExplorer, MetricCollection metricCollection, bool numbersAsPercentages)
+        private int DumpMetricCollectionToConsoleAndSaveToJsonFile(WIDExplorer widExplorer, MetricCollection metricCollection, bool numbersAsPercentages)
         {
 
             DumpMetricCollectionToConsole(widExplorer, metricCollection, numbersAsPercentages);
 
-            return SaveMetricCollectionToJson(widExplorer, metricCollection, numbersAsPercentages);
+            return SaveMetricCollectionToJsonFile(widExplorer, metricCollection, numbersAsPercentages);
 
         }
-        private int SaveExplorationToJson(WIDExplorer widExplorer, Exploration exploration)
+        private int SaveExplorationToJsonFile(WIDExplorer widExplorer, Exploration exploration)
         {
 
             IFileInfoAdapter fileInfoAdapter = widExplorer.SaveToJsonFile(exploration);
@@ -837,7 +840,16 @@ namespace NW.WIDJobsClient
             return ((int)ExitCodes.Success);
 
         }
-        private int SaveMetricCollectionToJson(WIDExplorer widExplorer, MetricCollection metricCollection, bool numbersAsPercentages)
+        private int SaveExplorationToJsonDatabaseFiles(WIDExplorer widExplorer, Exploration exploration)
+        {
+
+            int exitCode1 = SaveExplorationToJsonFile(widExplorer, exploration);
+            int exitCode2 = SaveExplorationToDatabaseFile(widExplorer, exploration);
+
+            return OrchestrateExitCodes(exitCode1, exitCode2);
+
+        }
+        private int SaveMetricCollectionToJsonFile(WIDExplorer widExplorer, MetricCollection metricCollection, bool numbersAsPercentages)
         {
 
             IFileInfoAdapter fileInfoAdapter = widExplorer.SaveToJsonFile(metricCollection, numbersAsPercentages);
@@ -1000,10 +1012,10 @@ namespace NW.WIDJobsClient
                 return DumpMetricCollectionToConsole(widExplorer, metricCollection, numbersAsPercentages);
 
             if (output == MetricsOutputs.jsonfile)
-                return SaveMetricCollectionToJson(widExplorer, metricCollection, numbersAsPercentages);
+                return SaveMetricCollectionToJsonFile(widExplorer, metricCollection, numbersAsPercentages);
 
             if (output == MetricsOutputs.both)
-                return DumpMetricCollectionToConsoleAndSaveToJson(widExplorer, metricCollection, numbersAsPercentages);
+                return DumpMetricCollectionToConsoleAndSaveToJsonFile(widExplorer, metricCollection, numbersAsPercentages);
 
             throw CreateOptionValueException<MetricsOutputs>(output.ToString());
 
@@ -1025,11 +1037,10 @@ namespace NW.WIDJobsClient
                 return OrchestrateExitCodes(exitCode1, exitCode2);
 
             }
-
             if (explorationOutput == ExploreOutputs.jsonfile)
             {
 
-                int exitCode1 = SaveExplorationToJson(widExplorer, exploration);
+                int exitCode1 = SaveExplorationToJsonFile(widExplorer, exploration);
 
                 int exitCode2 = ((int)ExitCodes.Success);
                 if (metricsOutput != MetricsOutputs.none)
@@ -1038,7 +1049,6 @@ namespace NW.WIDJobsClient
                 return OrchestrateExitCodes(exitCode1, exitCode2);
 
             }
-
             if (explorationOutput == ExploreOutputs.databasefile)
             {
 
@@ -1051,11 +1061,22 @@ namespace NW.WIDJobsClient
                 return OrchestrateExitCodes(exitCode1, exitCode2);
 
             }
+            if (explorationOutput == ExploreOutputs.onlyfiles)
+            {
 
+                int exitCode1 = SaveExplorationToJsonDatabaseFiles(widExplorer, exploration);
+
+                int exitCode2 = ((int)ExitCodes.Success);
+                if (metricsOutput != MetricsOutputs.none)
+                    exitCode2 = OrchestrateMetricCollection(widExplorer, exploration, metricsOutput, numbersAsPercentages);
+
+                return OrchestrateExitCodes(exitCode1, exitCode2);
+
+            }
             if (explorationOutput == ExploreOutputs.all)
             {
 
-                int exitCode1 = DumpExplorationToConsoleAndSaveToJsonDatabase(widExplorer, exploration);
+                int exitCode1 = DumpExplorationToConsoleAndSaveToJsonDatabaseFiles(widExplorer, exploration);
 
                 int exitCode2 = ((int)ExitCodes.Success);
                 if (metricsOutput != MetricsOutputs.none)
