@@ -19,7 +19,7 @@ namespace NW.WIDJobs.Filenames
         public static string DefaultExplorationJsonToken { get; } = "widjobs_exploration";
         public static string DefaultMetricsJsonToken { get; } = "widjobs_metrics";
         public static string DefaultMetricsPctJsonToken { get; } = "widjobs_metricspct";
-        public static string DefaultDatabaseToken { get; } = "widjobs";
+        public static string DefaultDatabaseToken { get; } = "widjobs_exploration";
         public static string DefaultJsonExtension { get; } = "json";
         public static string DefaultDatabaseExtension { get; } = "db";
 
@@ -100,5 +100,5 @@ namespace NW.WIDJobs.Filenames
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 12.06.2021
+    Last Update: 28.08.2021
 */
