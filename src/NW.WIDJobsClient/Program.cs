@@ -38,9 +38,9 @@ namespace NW.WIDJobsClient
         static string SubCommand_Convert_Name = "convert";
         static string SubCommand_Convert_Description = $"Loads an {nameof(Exploration)} from a JSON file and convert it to a SQLite database.";
         static string SubCommand_Describe_Name = "describe";
-        static string SubCommand_Describe_Description = $"Describes the current state of WorkInDenmark.dk.";
+        static string SubCommand_Describe_Description = $"Describes the current state of WorkInDenmark.dk. It requires internet connection to work.";
         static string SubCommand_Explore_Name = "explore";
-        static string SubCommand_Explore_Description = $"Fetches data from WorkInDenmark.dk.";
+        static string SubCommand_Explore_Description = $"Fetches data from WorkInDenmark.dk. It requires internet connection to work.";
 
         static string Option_JsonPath_Template = "--jsonpath";
         static string Option_JsonPath_Description = $"The file path to the required JSON file.";
@@ -52,9 +52,9 @@ namespace NW.WIDJobsClient
         static string Option_Output_Description = "The output(s) of the operation.";
         static string Option_Output_ErrorMessage = $"{Option_Output_Template} is mandatory.";
         static string Option_AsPercentages_Template = "--aspercentages";
-        static string Option_AsPercentages_Description = "Shows metrics as percentages instead of numbers.";
+        static string Option_AsPercentages_Description = "Shows the metrics as percentages instead of numbers.";
         static string Option_UseDemoData_Template = "--usedemodata";
-        static string Option_UseDemoData_Description = $"Use demo data instead of real data. This options doesn't require internet connection.";
+        static string Option_UseDemoData_Description = $"Use demo data instead of real data. It doesn't require internet connection to work.";
 
         static string Option_Stage_Template = "--stage";
         static string Option_Stage_Description = $"The depth of an {nameof(Exploration)}.";
@@ -283,7 +283,7 @@ namespace NW.WIDJobsClient
                 CommandOption stageFromInputOption = CreateStageFromInputOption(exploreSubCommand);
                 CommandOption thresholdTypeOption = CreateThresholdTypeOption(exploreSubCommand);
                 CommandOption thresholdValueOption = CreateThresholdValueOption(exploreSubCommand);
-                CommandOption explorationOutputOption = CreateExplorationOption(exploreSubCommand);
+                CommandOption explorationOutputOption = CreateExplorationOutputOption(exploreSubCommand);
                 CommandOption folderPathOption = CreateOptionalFolderPathOption(exploreSubCommand);
                 CommandOption metricsOption = CreateMetricsOption(exploreSubCommand);
                 CommandOption metricsOutputOption = CreateMetricsOutputOption(exploreSubCommand);
@@ -790,7 +790,7 @@ namespace NW.WIDJobsClient
             return result;
 
         }
-        private static CommandOption CreateExplorationOption(CommandLineApplication subCommand)
+        private static CommandOption CreateExplorationOutputOption(CommandLineApplication subCommand)
         {
 
             return subCommand
