@@ -26,6 +26,7 @@ namespace NW.WIDJobsClient
         #region Fields
 
         private IThresholdValueManager _thresholdValueManager;
+        private IWIDExplorerComponentsFactory _componentsFactory;
 
         #endregion
 
@@ -87,18 +88,22 @@ namespace NW.WIDJobsClient
         #region Constructors
 
         /// <summary>Initializes a <see cref="CommandLineManager"/> instance.</summary>	
-        public CommandLineManager(IThresholdValueManager thresholdValueManager) 
+        public CommandLineManager(
+                    IThresholdValueManager thresholdValueManager, 
+                    IWIDExplorerComponentsFactory componentsFactory
+            ) 
         {
 
             // To-Do: validation
 
             _thresholdValueManager = thresholdValueManager;
+            _componentsFactory = componentsFactory;
 
         }
 
         /// <summary>Initializes a <see cref="CommandLineManager"/> instance using default parameters.</summary>	
         public CommandLineManager()
-            :this(new ThresholdValueManager()) { }
+            :this(new ThresholdValueManager(), new WIDExplorerComponentsFactory()) { }
 
         #endregion
 
@@ -415,7 +420,7 @@ namespace NW.WIDJobsClient
 
                 LogAsciiBanner();
 
-                WIDExplorerComponents components = CreateComponents(useDemoData: false);
+                WIDExplorerComponents components = _componentsFactory.CreateComponents(useDemoData: false);
                 WIDExplorerSettings settings = CreateSettings(folderPath: folderPath);
                 WIDExplorer widExplorer = new WIDExplorer(components, settings);
                 Exploration exploration = widExplorer.LoadExplorationFromJsonFile(filePath);
@@ -439,7 +444,7 @@ namespace NW.WIDJobsClient
 
                 LogAsciiBanner();
 
-                WIDExplorerComponents components = CreateComponents(useDemoData: false);
+                WIDExplorerComponents components = _componentsFactory.CreateComponents(useDemoData: false);
                 WIDExplorerSettings settings = CreateSettings(folderPath: folderPath);
                 WIDExplorer widExplorer = new WIDExplorer(components, settings);
                 Exploration exploration = widExplorer.LoadExplorationFromJsonFile(filePath);
@@ -464,7 +469,7 @@ namespace NW.WIDJobsClient
 
                 LogAsciiBanner();
 
-                WIDExplorerComponents components = CreateComponents(useDemoData);
+                WIDExplorerComponents components = _componentsFactory.CreateComponents(useDemoData);
                 WIDExplorerSettings settings = CreateSettings(folderPath: folderPath);
                 WIDExplorer widExplorer = new WIDExplorer(components, settings);
                 Exploration exploration = widExplorer.Explore(1, Stages.Stage1_OnlyMetrics);
@@ -508,7 +513,7 @@ namespace NW.WIDJobsClient
 
                 LogAsciiBanner();
 
-                WIDExplorerComponents components = CreateComponents(useDemoData: useDemoData);
+                WIDExplorerComponents components = _componentsFactory.CreateComponents(useDemoData: useDemoData);
                 WIDExplorerSettings settings = CreateSettings(parallelRequests: parallelRequests, pauseBetweenRequestsMs: pauseBetweenRequestsMs, folderPath: folderPath);
                 Stages stage = ConvertToStages(exploreStage);
                 WIDExplorer widExplorer = new WIDExplorer(components, settings);
@@ -556,34 +561,7 @@ namespace NW.WIDJobsClient
             return uint.Parse(pauseBetweenRequestsMs);
 
         }
-        private WIDExplorerComponents CreateComponents(bool useDemoData)
-        {
 
-            if (useDemoData)
-                return new WIDExplorerComponents(
-                        loggingAction: WIDExplorerComponents.DefaultLoggingAction,
-                        loggingActionAsciiBanner: WIDExplorerComponents.DefaultLoggingActionAsciiBanner,
-                        xpathManager: new XPathManager(),
-                        getRequestManager: new GetRequestManager(),
-                        jobPageDeserializer: new JobPageDeserializer(),
-                        jobPageManager: new JobPageManager(postRequestManagerFactory: ObjectMother.WIDExplorer_JobPage0102_FakePostRequestManagerFactory),
-                        jobPostingDeserializer: new JobPostingDeserializer(),
-                        jobPostingManager: new JobPostingManager(),
-                        jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
-                        jobPostingExtendedManager: new JobPostingExtendedManager(ObjectMother.WIDExplorer_JobPage0102_FakeGetRequestManagerFactory, new JobPostingExtendedDeserializer()),
-                        runIdManager: new RunIdManager(),
-                        metricCollectionManager: new MetricCollectionManager(),
-                        fileManager: new FileManager(),
-                        repositoryFactory: new RepositoryFactory(),
-                        asciiBannerManager: new AsciiBannerManager(),
-                        filenameFactory: new FilenameFactory(),
-                        bulletPointManager: new BulletPointManager(),
-                        nowFunction: WIDExplorerComponents.DefaultNowFunction
-                      );
-
-            return new WIDExplorerComponents();
-
-        }
         private WIDExplorerSettings CreateSettings
             (string parallelRequests = null, string pauseBetweenRequestsMs = null, string folderPath = null, bool? deleteAndRecreateDatabase = null)
         {
