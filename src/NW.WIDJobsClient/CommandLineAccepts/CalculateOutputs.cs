@@ -1,11 +1,12 @@
 ﻿namespace NW.WIDJobsClient
 {
     /// <summary></summary>
-    public enum StagesFromInput
+    public enum CalculateOutputs
     {
 
-        S2 = 2,
-        S3 = 3
+        jsonfile,
+        console,
+        both
 
     }
 

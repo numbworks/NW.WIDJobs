@@ -201,7 +201,7 @@ namespace NW.WIDJobsClient
                 calculateSubCommand.Description = SubCommand_Calculate_Description;
 
                 CommandOption jsonPathOption = CreateJsonPathOption(calculateSubCommand);
-                CommandOption outputOption = CreateJsonConsoleOutputOption(calculateSubCommand);
+                CommandOption outputOption = CreateCalculateOutputOption(calculateSubCommand);
                 CommandOption folderPathOption = CreateOptionalFolderPathOption(calculateSubCommand);
                 CommandOption asPercentagesOption = CreateAsPercentagesOption(calculateSubCommand);
 
@@ -210,7 +210,7 @@ namespace NW.WIDJobsClient
 
                     return SessionCalculate(
                                 jsonPathOption.Value(),
-                                ConvertToJsonConsoleOutputs(outputOption.Value()),
+                                ConvertToCalculateOutputs(outputOption.Value()),
                                 folderPathOption.Value(),
                                 asPercentagesOption.HasValue());
 
@@ -230,7 +230,7 @@ namespace NW.WIDJobsClient
                 convertSubCommand.Description = SubCommand_Convert_Description;
 
                 CommandOption jsonPathOption = CreateJsonPathOption(convertSubCommand);
-                CommandOption outputOption = CreateDatabaseOutputOption(convertSubCommand);
+                CommandOption outputOption = CreateConvertOutputOption(convertSubCommand);
                 CommandOption folderPathOption = CreateRequiredFolderPathOption(convertSubCommand);
 
                 convertSubCommand.OnExecute(() =>
@@ -238,7 +238,7 @@ namespace NW.WIDJobsClient
 
                     return SessionConvert(
                                 jsonPathOption.Value(), 
-                                ConvertToDatabaseOutputs(outputOption.Value()),
+                                ConvertToConvertOutputs(outputOption.Value()),
                                 folderPathOption.Value());
 
                 });
@@ -256,7 +256,7 @@ namespace NW.WIDJobsClient
 
                 describeSubCommand.Description = SubCommand_Describe_Description;
 
-                CommandOption outputOption = CreateJsonConsoleOutputOption(describeSubCommand);
+                CommandOption outputOption = CreateDescribeOutputOption(describeSubCommand);
                 CommandOption folderPathOption = CreateOptionalFolderPathOption(describeSubCommand);
                 CommandOption useDemoDataOption = CreateUseDemoDataOption(describeSubCommand);
 
@@ -264,7 +264,7 @@ namespace NW.WIDJobsClient
                 {
 
                     return SessionDescribe(
-                                ConvertToJsonConsoleOutputs(outputOption.Value()), 
+                                ConvertToDescribeOutputs(outputOption.Value()), 
                                 folderPathOption.Value(), 
                                 useDemoDataOption.HasValue());
 
@@ -305,10 +305,10 @@ namespace NW.WIDJobsClient
                                 folderPath: folderPathOption.Value(),
                                 thresholdType: ConvertToThresholdTypes(thresholdTypeOption.Value()),
                                 thresholdValue: thresholdValueOption.Value(),
-                                stageFromInput: ConvertToStagesFromInput(stageFromInputOption.Value()),
-                                explorationOutput: ConvertToDatabaseJsonConsoleOutputs(explorationOutputOption.Value()),
+                                stageFromInput: ConvertToExploreStages(stageFromInputOption.Value()),
+                                explorationOutput: ConvertToExploreOutputs(explorationOutputOption.Value()),
                                 enableMetrics: metricsOption.HasValue(),
-                                metricsOutput: ConvertToJsonConsoleOutputs(metricsOutputOption.Value()),
+                                metricsOutput: ConvertToMetricsOutputs(metricsOutputOption.Value()),
                                 numbersAsPercentages: asPercentagesOption.HasValue()
                                 );
 
@@ -385,7 +385,7 @@ namespace NW.WIDJobsClient
             return ((int)ExitCodes.Success);
 
         }
-        private static int SessionCalculate(string filePath, JsonConsoleOutputs output, string folderPath, bool numbersAsPercentages)
+        private static int SessionCalculate(string filePath, CalculateOutputs output, string folderPath, bool numbersAsPercentages)
         {
 
             try
@@ -409,7 +409,7 @@ namespace NW.WIDJobsClient
             }
 
         }
-        private static int SessionConvert(string filePath, DatabaseOutputs output, string folderPath)
+        private static int SessionConvert(string filePath, ConvertOutputs output, string folderPath)
         {
 
             try
@@ -434,7 +434,7 @@ namespace NW.WIDJobsClient
             }
 
         }
-        private static int SessionDescribe(JsonConsoleOutputs output, string folderPath, bool useDemoData)
+        private static int SessionDescribe(DescribeOutputs output, string folderPath, bool useDemoData)
         {
 
             try
@@ -447,17 +447,17 @@ namespace NW.WIDJobsClient
                 WIDExplorer widExplorer = new WIDExplorer(components, settings);
                 Exploration exploration = widExplorer.Explore(1, Stages.Stage1_OnlyMetrics);
 
-                if (output == JsonConsoleOutputs.console)
+                if (output == DescribeOutputs.console)
                     return DumpExplorationToConsole(widExplorer, exploration);
 
-                else if (output == JsonConsoleOutputs.jsonfile)
+                else if (output == DescribeOutputs.jsonfile)
                     return SaveExplorationToJson(widExplorer, exploration);
 
-                else if (output == JsonConsoleOutputs.both)
+                else if (output == DescribeOutputs.both)
                     return DumpExplorationToConsoleAndSaveToJson(widExplorer, exploration);
                 
                 else
-                    throw CreateOptionValueException<JsonConsoleOutputs>(output.ToString());
+                    throw CreateOptionValueException<DescribeOutputs>(output.ToString());
 
             }
             catch (Exception e)
@@ -470,8 +470,8 @@ namespace NW.WIDJobsClient
         }
         private static int SessionExplore
             (bool useDemoData, string parallelRequests, string pauseBetweenRequestsMs, string folderPath,
-            ThresholdTypes thresholdType, string thresholdValue, StagesFromInput stageFromInput, DatabaseJsonConsoleOutputs explorationOutput,
-            bool enableMetrics, JsonConsoleOutputs metricsOutput, bool numbersAsPercentages)
+            ThresholdTypes thresholdType, string thresholdValue, ExploreStages stageFromInput, ExploreOutputs explorationOutput,
+            bool enableMetrics, MetricsOutputs metricsOutput, bool numbersAsPercentages)
         {
 
             try 
@@ -570,58 +570,88 @@ namespace NW.WIDJobsClient
 
         private static Exception CreateOptionValueException<T>(string optionValue)
            => new Exception(MessageCollection.Program_OptionValueCantBeConvertedTo.Invoke(optionValue, typeof(T)));
-        private static JsonConsoleOutputs ConvertToJsonConsoleOutputs(string optionValue)
+        private static CalculateOutputs ConvertToCalculateOutputs(string optionValue)
         {
 
-            if (optionValue == nameof(JsonConsoleOutputs.jsonfile))
-                return JsonConsoleOutputs.jsonfile;
+            if (optionValue == nameof(CalculateOutputs.jsonfile))
+                return CalculateOutputs.jsonfile;
 
-            if (optionValue == nameof(JsonConsoleOutputs.console))
-                return JsonConsoleOutputs.console;
+            if (optionValue == nameof(CalculateOutputs.console))
+                return CalculateOutputs.console;
 
-            if (optionValue == nameof(JsonConsoleOutputs.both))
-                return JsonConsoleOutputs.both;
+            if (optionValue == nameof(CalculateOutputs.both))
+                return CalculateOutputs.both;
 
-            throw CreateOptionValueException<JsonConsoleOutputs>(optionValue);
+            throw CreateOptionValueException<CalculateOutputs>(optionValue);
 
         }
-        private static DatabaseOutputs ConvertToDatabaseOutputs(string optionValue)
+        private static DescribeOutputs ConvertToDescribeOutputs(string optionValue)
         {
 
-            if (optionValue == nameof(DatabaseOutputs.databasefile))
-                return DatabaseOutputs.databasefile;
+            if (optionValue == nameof(DescribeOutputs.jsonfile))
+                return DescribeOutputs.jsonfile;
 
-            throw CreateOptionValueException<DatabaseOutputs>(optionValue);
+            if (optionValue == nameof(DescribeOutputs.console))
+                return DescribeOutputs.console;
+
+            if (optionValue == nameof(DescribeOutputs.both))
+                return DescribeOutputs.both;
+
+            throw CreateOptionValueException<DescribeOutputs>(optionValue);
 
         }
-        private static DatabaseJsonConsoleOutputs ConvertToDatabaseJsonConsoleOutputs(string optionValue)
+        private static MetricsOutputs ConvertToMetricsOutputs(string optionValue)
         {
 
-            if (optionValue == nameof(DatabaseJsonConsoleOutputs.databasefile))
-                return DatabaseJsonConsoleOutputs.databasefile;
+            if (optionValue == nameof(MetricsOutputs.jsonfile))
+                return MetricsOutputs.jsonfile;
 
-            if (optionValue == nameof(DatabaseJsonConsoleOutputs.jsonfile))
-                return DatabaseJsonConsoleOutputs.jsonfile;
+            if (optionValue == nameof(MetricsOutputs.console))
+                return MetricsOutputs.console;
 
-            if (optionValue == nameof(DatabaseJsonConsoleOutputs.console))
-                return DatabaseJsonConsoleOutputs.console;
+            if (optionValue == nameof(MetricsOutputs.both))
+                return MetricsOutputs.both;
 
-            if (optionValue == nameof(DatabaseJsonConsoleOutputs.all))
-                return DatabaseJsonConsoleOutputs.all;
-
-            throw CreateOptionValueException<DatabaseJsonConsoleOutputs>(optionValue);
+            throw CreateOptionValueException<MetricsOutputs>(optionValue);
 
         }
-        private static StagesFromInput ConvertToStagesFromInput(string optionValue)
+        private static ConvertOutputs ConvertToConvertOutputs(string optionValue)
         {
 
-            if (optionValue == nameof(StagesFromInput.S2))
-                return StagesFromInput.S2;
+            if (optionValue == nameof(ConvertOutputs.databasefile))
+                return ConvertOutputs.databasefile;
 
-            if (optionValue == nameof(StagesFromInput.S3))
-                return StagesFromInput.S3;
+            throw CreateOptionValueException<ConvertOutputs>(optionValue);
 
-            throw CreateOptionValueException<StagesFromInput>(optionValue);
+        }
+        private static ExploreOutputs ConvertToExploreOutputs(string optionValue)
+        {
+
+            if (optionValue == nameof(ExploreOutputs.databasefile))
+                return ExploreOutputs.databasefile;
+
+            if (optionValue == nameof(ExploreOutputs.jsonfile))
+                return ExploreOutputs.jsonfile;
+
+            if (optionValue == nameof(ExploreOutputs.console))
+                return ExploreOutputs.console;
+
+            if (optionValue == nameof(ExploreOutputs.all))
+                return ExploreOutputs.all;
+
+            throw CreateOptionValueException<ExploreOutputs>(optionValue);
+
+        }
+        private static ExploreStages ConvertToExploreStages(string optionValue)
+        {
+
+            if (optionValue == nameof(ExploreStages.S2))
+                return ExploreStages.S2;
+
+            if (optionValue == nameof(ExploreStages.S3))
+                return ExploreStages.S3;
+
+            throw CreateOptionValueException<ExploreStages>(optionValue);
 
         }
         private static ThresholdTypes ConvertToThresholdTypes(string optionValue)
@@ -639,16 +669,34 @@ namespace NW.WIDJobsClient
             throw CreateOptionValueException<ThresholdTypes>(optionValue);
 
         }
-        private static Stages ConvertToStages(StagesFromInput stageFromInput)
+        private static Stages ConvertToStages(ExploreStages exploreStage)
         {
 
-            if (stageFromInput == StagesFromInput.S2)
+            if (exploreStage == ExploreStages.S2)
                 return Stages.Stage2_UpToAllJobPostings;
 
-            if (stageFromInput == StagesFromInput.S3)
+            if (exploreStage == ExploreStages.S3)
                 return Stages.Stage3_UpToAllJobPostingsExtended;
 
-            throw CreateOptionValueException<Stages>(stageFromInput.ToString());
+            throw CreateOptionValueException<Stages>(exploreStage.ToString());
+
+        }
+
+        private static Exception CreateMappingException<TInput, TOutput>(string value)
+           => new Exception(MessageCollection.Program_FirstEnumCantBeMapped.Invoke(typeof(TInput), typeof(TOutput), value));
+        private static MetricsOutputs Map(CalculateOutputs output)
+        {
+
+            if (output.ToString() == nameof(CalculateOutputs.jsonfile))
+                return MetricsOutputs.jsonfile;
+
+            if (output.ToString() == nameof(CalculateOutputs.console))
+                return MetricsOutputs.console;
+
+            if (output.ToString() == nameof(CalculateOutputs.both))
+                return MetricsOutputs.both;
+
+            throw CreateMappingException<CalculateOutputs, MetricsOutputs>(output.ToString());
 
         }
 
@@ -773,31 +821,58 @@ namespace NW.WIDJobsClient
 
         }
 
+        private static CommandOption CreateCalculateOutputOption(CommandLineApplication subCommand)
+        {
+
+            return subCommand
+                    .Option(Option_Output_Template, Option_Output_Description, CommandOptionType.SingleValue)
+                    .Accepts(validator => validator.Enum<CalculateOutputs>())
+                    .IsRequired(false, Option_Output_ErrorMessage);
+
+        }
+        private static CommandOption CreateConvertOutputOption(CommandLineApplication subCommand)
+        {
+
+            return subCommand
+                    .Option(Option_Output_Template, Option_Output_Description, CommandOptionType.SingleValue)
+                    .Accepts(validator => validator.Enum<ConvertOutputs>())
+                    .IsRequired(false, Option_Output_ErrorMessage);
+
+        }
+        private static CommandOption CreateDescribeOutputOption(CommandLineApplication subCommand)
+        {
+
+            return subCommand
+                    .Option(Option_Output_Template, Option_Output_Description, CommandOptionType.SingleValue)
+                    .Accepts(validator => validator.Enum<DescribeOutputs>())
+                    .IsRequired(false, Option_Output_ErrorMessage);
+
+        }
+        private static CommandOption CreateMetricsOutputOption(CommandLineApplication subCommand)
+        {
+
+            return subCommand
+                    .Option(Option_MetricsOutput_Template, Option_MetricsOutput_Description, CommandOptionType.SingleValue)
+                    .Accepts(validator => validator.Enum<MetricsOutputs>());
+
+        }
+        private static CommandOption CreateExplorationOutputOption(CommandLineApplication subCommand)
+        {
+
+            return subCommand
+                    .Option(Option_ExplorationOutput_Template, Option_ExplorationOutput_Description, CommandOptionType.SingleValue)
+                    .Accepts(validator => validator.Enum<ExploreOutputs>())
+                    .IsRequired(false, Option_ExplorationOutput_ErrorMessage);
+
+        }
+
         private static CommandOption CreateJsonPathOption(CommandLineApplication subCommand)
         {
 
             return subCommand
-                    .Option(Option_JsonPath_Template, Option_JsonPath_Description, CommandOptionType.SingleValue)                    
+                    .Option(Option_JsonPath_Template, Option_JsonPath_Description, CommandOptionType.SingleValue)
                     .Accepts(validator => validator.ExistingFile())
                     .IsRequired(false, Option_JsonPath_ErrorMessage);
-
-        }
-        private static CommandOption CreateJsonConsoleOutputOption(CommandLineApplication subCommand)
-        {
-
-            return subCommand
-                    .Option(Option_Output_Template, Option_Output_Description, CommandOptionType.SingleValue)
-                    .Accepts(validator => validator.Enum<JsonConsoleOutputs>())
-                    .IsRequired(false, Option_Output_ErrorMessage);
-
-        }
-        private static CommandOption CreateDatabaseOutputOption(CommandLineApplication subCommand)
-        {
-
-            return subCommand
-                    .Option(Option_Output_Template, Option_Output_Description, CommandOptionType.SingleValue)
-                    .Accepts(validator => validator.Enum<DatabaseOutputs>())
-                    .IsRequired(false, Option_Output_ErrorMessage);
 
         }
         private static CommandOption CreateOptionalFolderPathOption(CommandLineApplication subCommand)
@@ -836,7 +911,7 @@ namespace NW.WIDJobsClient
 
             return subCommand
                     .Option(Option_Stage_Template, Option_Stage_Description, CommandOptionType.SingleValue)
-                    .Accepts(validator => validator.Enum<StagesFromInput>())
+                    .Accepts(validator => validator.Enum<ExploreStages>())
                     .IsRequired(false, Option_Stage_ErrorMessage);
 
         }
@@ -861,28 +936,11 @@ namespace NW.WIDJobsClient
             return result;
 
         }
-        private static CommandOption CreateExplorationOutputOption(CommandLineApplication subCommand)
-        {
-
-            return subCommand
-                    .Option(Option_ExplorationOutput_Template, Option_ExplorationOutput_Description, CommandOptionType.SingleValue)
-                    .Accepts(validator => validator.Enum<DatabaseJsonConsoleOutputs>())
-                    .IsRequired(false, Option_ExplorationOutput_ErrorMessage);
-
-        }
         private static CommandOption CreateMetricsOption(CommandLineApplication subCommand)
         {
 
             return subCommand
                     .Option(Option_Metrics_Template, Option_Metrics_Description, CommandOptionType.SingleValue);
-
-        }
-        private static CommandOption CreateMetricsOutputOption(CommandLineApplication subCommand)
-        {
-
-            return subCommand
-                    .Option(Option_MetricsOutput_Template, Option_MetricsOutput_Description, CommandOptionType.SingleValue)
-                    .Accepts(validator => validator.Enum<JsonConsoleOutputs>());
 
         }
         private static CommandOption CreateParallelRequestsOption(CommandLineApplication subCommand)
@@ -902,42 +960,44 @@ namespace NW.WIDJobsClient
 
         }
 
-        private static int OrchestrateMetricCollection(WIDExplorer widExplorer, Exploration exploration, JsonConsoleOutputs output, bool numbersAsPercentages)
+        private static int OrchestrateMetricCollection(WIDExplorer widExplorer, Exploration exploration, MetricsOutputs output, bool numbersAsPercentages)
         {
 
             MetricCollection metricCollection = widExplorer.ConvertToMetricCollection(exploration);
 
-            if (output == JsonConsoleOutputs.console)
+            if (output == MetricsOutputs.console)
                 return DumpMetricCollectionToConsole(widExplorer, metricCollection, numbersAsPercentages);
 
-            if (output == JsonConsoleOutputs.jsonfile)
+            if (output == MetricsOutputs.jsonfile)
                 return SaveMetricCollectionToJson(widExplorer, metricCollection, numbersAsPercentages);
 
-            if (output == JsonConsoleOutputs.both)
+            if (output == MetricsOutputs.both)
                 return DumpMetricCollectionToConsoleAndSaveToJson(widExplorer, metricCollection, numbersAsPercentages);
 
-            throw CreateOptionValueException<JsonConsoleOutputs>(output.ToString());
+            throw CreateOptionValueException<MetricsOutputs>(output.ToString());
 
         }
+        private static int OrchestrateMetricCollection(WIDExplorer widExplorer, Exploration exploration, CalculateOutputs output, bool numbersAsPercentages)
+            => OrchestrateMetricCollection(widExplorer, exploration, Map(output), numbersAsPercentages);
         private static int OrchestrateExploration
-            (WIDExplorer widExplorer, Exploration exploration, DatabaseJsonConsoleOutputs explorationOutput,
-            bool enableMetrics, JsonConsoleOutputs metricsOutput, bool numbersAsPercentages)
+            (WIDExplorer widExplorer, Exploration exploration, ExploreOutputs explorationOutput,
+            bool enableMetrics, MetricsOutputs metricsOutput, bool numbersAsPercentages)
         {
 
-            if (explorationOutput == DatabaseJsonConsoleOutputs.console)
+            if (explorationOutput == ExploreOutputs.console)
                 return DumpExplorationToConsole(widExplorer, exploration);
 
-            else if (explorationOutput == DatabaseJsonConsoleOutputs.jsonfile)
+            else if (explorationOutput == ExploreOutputs.jsonfile)
                 return SaveExplorationToJson(widExplorer, exploration);
 
-            else if (explorationOutput == DatabaseJsonConsoleOutputs.databasefile)
+            else if (explorationOutput == ExploreOutputs.databasefile)
                 return SaveExplorationToDatabaseFile(widExplorer, exploration);
 
-            else if (explorationOutput == DatabaseJsonConsoleOutputs.all)
+            else if (explorationOutput == ExploreOutputs.all)
                 return DumpExplorationToConsoleAndSaveToJsonDatabase(widExplorer, exploration);
 
             else
-                throw CreateOptionValueException<DatabaseJsonConsoleOutputs>(explorationOutput.ToString());
+                throw CreateOptionValueException<ExploreOutputs>(explorationOutput.ToString());
 
             if (!enableMetrics)
                 return ((int)ExitCodes.Success);

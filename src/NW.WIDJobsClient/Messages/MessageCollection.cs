@@ -22,6 +22,8 @@ namespace NW.WIDJobsClient.Messages
             = (filePath) => $"ERROR: the file hasn't been created ('{filePath}').";
         public static Func<string, Type, string> Program_OptionValueCantBeConvertedTo
             = (optionValue, type) => $"The provided option value ('{optionValue}') can't be converted to {type.Name}.";
+        public static Func<Type, Type, string, string> Program_FirstEnumCantBeMapped
+            = (inputEnum, outputEnum, value) => $"The input enum ('{inputEnum}') can't be mapped to the output enum ('{outputEnum}') for the provided value: '{value}'.";
 
         #endregion
 

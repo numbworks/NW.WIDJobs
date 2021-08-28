@@ -1,10 +1,12 @@
 ﻿namespace NW.WIDJobsClient
 {
     /// <summary></summary>
-    public enum DatabaseOutputs
+    public enum MetricsOutputs
     {
 
-        databasefile
+        jsonfile,
+        console,
+        both
 
     }
 
