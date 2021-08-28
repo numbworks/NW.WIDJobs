@@ -781,11 +781,11 @@ namespace NW.WIDJobsClient
         private static CommandOption CreateThresholdValueOption(CommandLineApplication subCommand)
         {
 
-            CommandOption result 
+            CommandOption result
                 = subCommand
                     .Option(Option_ThresholdValue_Template, Option_ThresholdValue_Description, CommandOptionType.SingleValue)
-                    .IsRequired(false, Option_ThresholdValue_ErrorMessage);
-            result.Validators.Add(new ThresholdValueValidator());
+                    .IsRequired(false, Option_ThresholdValue_ErrorMessage)
+                    .Accepts(validator => validator.Use(new ThresholdValueValidator()));
 
             return result;
 
