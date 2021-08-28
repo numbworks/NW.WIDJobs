@@ -30,9 +30,11 @@ namespace NW.WIDJobsClient
 
         static string Command_About_Name = "about";
         static string Command_About_Description = "About this application.";
+        static string Command_Session_Name = "session";
+        static string Command_Session_Description = "Groups all the features related to a single WorkInDenmark.dk exploration session.";
+        static string Command_Service_Name = "service";
+        static string Command_Service_Description = "Groups all the features related to a continuous WorkInDenmark.dk exploration.";
 
-        static string Command_Exploration_Name = "exploration";
-        static string Command_Exploration_Description = "Groups all the features related to the exploration of WorkInDenmark.dk.";
         static string SubCommand_Calculate_Name = "calculate";
         static string SubCommand_Calculate_Description = $"Loads an {nameof(Exploration)} from a JSON file and calculates the metrics.";
         static string SubCommand_Convert_Name = "convert";
@@ -55,7 +57,6 @@ namespace NW.WIDJobsClient
         static string Option_AsPercentages_Description = "Shows the metrics as percentages instead of numbers.";
         static string Option_UseDemoData_Template = "--usedemodata";
         static string Option_UseDemoData_Description = $"Use demo data instead of real data. It doesn't require internet connection to work.";
-
         static string Option_Stage_Template = "--stage";
         static string Option_Stage_Description = $"The depth of an {nameof(Exploration)}.";
         static string Option_Stage_ErrorMessage = $"{Option_Stage_Template} is mandatory.";
@@ -91,6 +92,7 @@ namespace NW.WIDJobsClient
 
         }
 
+        // Methods_Private
         private static CommandLineApplication CreateApplication()
         {
 
@@ -104,7 +106,7 @@ namespace NW.WIDJobsClient
 
             AddRoot(app);
             AddAbout(app);
-            AddExploration(app);
+            AddSession(app);
 
             app.HelpOption(inherited: true);
 
@@ -155,44 +157,44 @@ namespace NW.WIDJobsClient
 
         }
 
-        private static CommandLineApplication AddExploration(CommandLineApplication app)
+        private static CommandLineApplication AddSession(CommandLineApplication app)
         {
 
-            app.Command(Command_Exploration_Name, explorationCommand =>
+            app.Command(Command_Session_Name, sessionCommand =>
             {
 
-                explorationCommand = AddExplorationMain(explorationCommand);
-                explorationCommand = AddExplorationCalculate(explorationCommand);
-                explorationCommand = AddExplorationConvert(explorationCommand);
-                explorationCommand = AddExplorationDescribe(explorationCommand);
-                explorationCommand = AddExplorationExplore(explorationCommand);
+                sessionCommand = AddSessionMain(sessionCommand);
+                sessionCommand = AddSessionCalculate(sessionCommand);
+                sessionCommand = AddSessionConvert(sessionCommand);
+                sessionCommand = AddSessionDescribe(sessionCommand);
+                sessionCommand = AddSessionExplore(sessionCommand);
 
             });
 
             return app;
 
         }
-        private static CommandLineApplication AddExplorationMain(CommandLineApplication explorationCommand)
+        private static CommandLineApplication AddSessionMain(CommandLineApplication sessionCommand)
         {
 
-            explorationCommand.Description = Command_Exploration_Description;
-            explorationCommand.OnExecute(() =>
+            sessionCommand.Description = Command_Session_Description;
+            sessionCommand.OnExecute(() =>
             {
 
                 int exitCode = GenericCommand();
-                explorationCommand.ShowHelp();
+                sessionCommand.ShowHelp();
 
                 return exitCode;
 
             });
 
-            return explorationCommand;
+            return sessionCommand;
 
         }
-        private static CommandLineApplication AddExplorationCalculate(CommandLineApplication explorationCommand)
+        private static CommandLineApplication AddSessionCalculate(CommandLineApplication sessionCommand)
         {
 
-            explorationCommand.Command(SubCommand_Calculate_Name, calculateSubCommand =>
+            sessionCommand.Command(SubCommand_Calculate_Name, calculateSubCommand =>
             {
 
                 calculateSubCommand.Description = SubCommand_Calculate_Description;
@@ -205,7 +207,7 @@ namespace NW.WIDJobsClient
                 calculateSubCommand.OnExecute(() =>
                 {
 
-                    return ExplorationCalculate(
+                    return SessionCalculate(
                                 jsonPathOption.Value(),
                                 ConvertToJsonConsoleOutputs(outputOption.Value()),
                                 folderPathOption.Value(),
@@ -215,13 +217,13 @@ namespace NW.WIDJobsClient
 
             });
 
-            return explorationCommand;
+            return sessionCommand;
 
         }
-        private static CommandLineApplication AddExplorationConvert(CommandLineApplication explorationCommand)
+        private static CommandLineApplication AddSessionConvert(CommandLineApplication sessionCommand)
         {
 
-            explorationCommand.Command(SubCommand_Convert_Name, convertSubCommand =>
+            sessionCommand.Command(SubCommand_Convert_Name, convertSubCommand =>
             {
 
                 convertSubCommand.Description = SubCommand_Convert_Description;
@@ -233,7 +235,7 @@ namespace NW.WIDJobsClient
                 convertSubCommand.OnExecute(() =>
                 {
 
-                    return ExplorationConvert(
+                    return SessionConvert(
                                 jsonPathOption.Value(), 
                                 ConvertToDatabaseOutputs(outputOption.Value()),
                                 folderPathOption.Value());
@@ -242,13 +244,13 @@ namespace NW.WIDJobsClient
 
             });
 
-            return explorationCommand;
+            return sessionCommand;
 
         }
-        private static CommandLineApplication AddExplorationDescribe(CommandLineApplication explorationCommand)
+        private static CommandLineApplication AddSessionDescribe(CommandLineApplication sessionCommand)
         {
 
-            explorationCommand.Command(SubCommand_Describe_Name, describeSubCommand =>
+            sessionCommand.Command(SubCommand_Describe_Name, describeSubCommand =>
             {
 
                 describeSubCommand.Description = SubCommand_Describe_Description;
@@ -260,7 +262,7 @@ namespace NW.WIDJobsClient
                 describeSubCommand.OnExecute(() =>
                 {
 
-                    return ExplorationDescribe(
+                    return SessionDescribe(
                                 ConvertToJsonConsoleOutputs(outputOption.Value()), 
                                 folderPathOption.Value(), 
                                 useDemoDataOption.HasValue());
@@ -269,13 +271,13 @@ namespace NW.WIDJobsClient
 
             });
 
-            return explorationCommand;
+            return sessionCommand;
 
         }
-        private static CommandLineApplication AddExplorationExplore(CommandLineApplication explorationCommand)
+        private static CommandLineApplication AddSessionExplore(CommandLineApplication sessionCommand)
         {
 
-            explorationCommand.Command(SubCommand_Explore_Name, exploreSubCommand =>
+            sessionCommand.Command(SubCommand_Explore_Name, exploreSubCommand =>
             {
 
                 exploreSubCommand.Description = SubCommand_Explore_Description;
@@ -295,7 +297,7 @@ namespace NW.WIDJobsClient
                 exploreSubCommand.OnExecute(() =>
                 {
 
-                    return ExplorationExplore(
+                    return SessionExplore(
                                 useDemoData: useDemoDataOption.HasValue(),
                                 parallelRequests: parallelRequestsOption.Value(),
                                 pauseBetweenRequestsMs: pauseBetweenRequestsMsOption.Value(),
@@ -313,12 +315,50 @@ namespace NW.WIDJobsClient
 
             });
 
-            return explorationCommand;
+            return sessionCommand;
 
         }
 
+        private static CommandLineApplication AddService(CommandLineApplication app)
+        {
 
+            app.Command(Command_Service_Name, serviceCommand =>
+            {
 
+                serviceCommand = AddSessionMain(serviceCommand);
+
+            });
+
+            return app;
+
+        }
+        private static CommandLineApplication AddServiceMain(CommandLineApplication serviceCommand)
+        {
+
+            serviceCommand.Description = Command_Service_Description;
+            serviceCommand.OnExecute(() =>
+            {
+
+                int exitCode = GenericCommand();
+                serviceCommand.ShowHelp();
+
+                return exitCode;
+
+            });
+
+            return serviceCommand;
+
+        }
+
+        private static void LogAsciiBanner()
+        {
+
+            WIDExplorer widExplorer = new WIDExplorer();
+
+            WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
+            widExplorer.LogAsciiBanner();
+
+        }
         private static int GenericCommand()
         {
 
@@ -344,7 +384,7 @@ namespace NW.WIDJobsClient
             return ((int)ExitCodes.Success);
 
         }
-        private static int ExplorationCalculate(string filePath, JsonConsoleOutputs output, string folderPath, bool numbersAsPercentages)
+        private static int SessionCalculate(string filePath, JsonConsoleOutputs output, string folderPath, bool numbersAsPercentages)
         {
 
             try
@@ -368,7 +408,7 @@ namespace NW.WIDJobsClient
             }
 
         }
-        private static int ExplorationConvert(string filePath, DatabaseOutputs output, string folderPath)
+        private static int SessionConvert(string filePath, DatabaseOutputs output, string folderPath)
         {
 
             try
@@ -393,7 +433,7 @@ namespace NW.WIDJobsClient
             }
 
         }
-        private static int ExplorationDescribe(JsonConsoleOutputs output, string folderPath, bool useDemoData)
+        private static int SessionDescribe(JsonConsoleOutputs output, string folderPath, bool useDemoData)
         {
 
             try
@@ -427,7 +467,7 @@ namespace NW.WIDJobsClient
             }
 
         }
-        private static int ExplorationExplore
+        private static int SessionExplore
             (bool useDemoData, string parallelRequests, string pauseBetweenRequestsMs, string folderPath,
             ThresholdTypes thresholdType, string thresholdValue, StagesFromInput stageFromInput, DatabaseJsonConsoleOutputs explorationOutput,
             bool enableMetrics, JsonConsoleOutputs metricsOutput, bool numbersAsPercentages)
@@ -468,9 +508,6 @@ namespace NW.WIDJobsClient
 
         }
 
-
-
-        // Methods_Private
         private static ushort? TryParseParallelRequests(string parallelRequests)
         {
 
@@ -527,15 +564,6 @@ namespace NW.WIDJobsClient
                             folderPath: folderPath ?? WIDExplorerSettings.DefaultFolderPath,
                             deleteAndRecreateDatabase: deleteAndRecreateDatabase ?? WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
                         );
-
-        }
-        private static void LogAsciiBanner()
-        {
-
-            WIDExplorer widExplorer = new WIDExplorer();
-
-            WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
-            widExplorer.LogAsciiBanner();
 
         }
 
