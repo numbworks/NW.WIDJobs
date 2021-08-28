@@ -75,6 +75,9 @@ namespace NW.WIDJobsClient
         public static string Option_PauseBetweenRequestsMs_Template { get; } = "--pausebetweenrequestsms";
         public static string Option_PauseBetweenRequestsMs_Description { get; } = $"The duration of the pause after x HTTP requests in milliseconds. If not specified, '{WIDExplorerSettings.DefaultPauseBetweenRequestsMs}' will be used.";
 
+        public static int Success { get; } = ((int)ExitCodes.Success);
+        public static int Failure { get; } = ((int)ExitCodes.Failure);
+
         #endregion
 
         #region Constructors
@@ -656,7 +659,7 @@ namespace NW.WIDJobsClient
             WIDExplorerComponents.DefaultLoggingAction.Invoke(MessageCollection.CommandLineManager_FormattedErrorMessage.Invoke(e.Message));
             WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
 
-            return Failure();
+            return Failure;
 
         }
         private int DumpExplorationToConsole(WIDExplorer widExplorer, Exploration exploration)
@@ -666,7 +669,7 @@ namespace NW.WIDJobsClient
             DumpJsonToConsole(json);
             WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
 
-            return Success();
+            return Success;
 
         }
         private int DumpExplorationToConsoleAndSaveToJsonFile(WIDExplorer widExplorer, Exploration exploration)
@@ -695,7 +698,7 @@ namespace NW.WIDJobsClient
             DumpJsonToConsole(json);
             WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
 
-            return Success();
+            return Success;
 
         }
         private int DumpMetricCollectionToConsoleAndSaveToJsonFile(WIDExplorer widExplorer, MetricCollection metricCollection, bool numbersAsPercentages)
@@ -723,7 +726,7 @@ namespace NW.WIDJobsClient
 
             WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
 
-            return Success();
+            return Success;
 
         }
         private int SaveExplorationToDatabaseFile(WIDExplorer widExplorer, Exploration exploration)
@@ -737,13 +740,13 @@ namespace NW.WIDJobsClient
                 WIDExplorerComponents.DefaultLoggingAction.Invoke(MessageCollection.CommandLineManager_FileHasNotBeenCreated.Invoke(fileInfoAdapter.FullName));
                 WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
 
-                return Failure();
+                return Failure;
 
             }
 
             WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
 
-            return Success();
+            return Success;
 
         }
         private int SaveExplorationToJsonDatabaseFiles(WIDExplorer widExplorer, Exploration exploration)
@@ -767,22 +770,22 @@ namespace NW.WIDJobsClient
                 WIDExplorerComponents.DefaultLoggingAction.Invoke(MessageCollection.CommandLineManager_FileHasNotBeenCreated.Invoke(fileInfoAdapter.FullName));
                 WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
 
-                return Failure();
+                return Failure;
 
             }
 
             WIDExplorerComponents.DefaultLoggingActionAsciiBanner.Invoke(string.Empty);
 
-            return Success();
+            return Success;
 
         }
         private int OrchestrateExitCodes(int exitCode1, int exitCode2)
         {
 
-            if (exitCode1 == Success() && exitCode2 == Success())
-                return Success();
+            if (exitCode1 == Success && exitCode2 == Success)
+                return Success;
 
-            return Failure();
+            return Failure;
 
         }
         private int OrchestrateMetricCollection(WIDExplorer widExplorer, Exploration exploration, MetricsOutputs output, bool numbersAsPercentages)
@@ -872,8 +875,6 @@ namespace NW.WIDJobsClient
 
         }
 
-        private int Success() => ((int)ExitCodes.Success);
-        private int Failure() => ((int)ExitCodes.Failure);
         private void LogAsciiBanner()
         {
 
@@ -888,7 +889,7 @@ namespace NW.WIDJobsClient
 
             LogAsciiBanner();
 
-            return Success();
+            return Success;
 
         }
         private int About()
@@ -905,7 +906,7 @@ namespace NW.WIDJobsClient
 
             WIDExplorerComponents.DefaultLoggingActionAsciiBanner(string.Empty);
 
-            return Success();
+            return Success;
 
         }
         private int SessionCalculate(string filePath, CalculateOutputs output, string folderPath, bool numbersAsPercentages)
