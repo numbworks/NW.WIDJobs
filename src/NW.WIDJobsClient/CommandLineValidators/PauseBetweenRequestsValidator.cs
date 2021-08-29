@@ -2,7 +2,6 @@
 using McMaster.Extensions.CommandLineUtils;
 using McMaster.Extensions.CommandLineUtils.Validation;
 using NW.WIDJobsClient.Messages;
-using NW.WIDJobs.Validation;
 
 namespace NW.WIDJobsClient.CommandLineValidators
 {
