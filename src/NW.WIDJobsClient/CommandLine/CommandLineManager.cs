@@ -3,6 +3,7 @@ using NW.WIDJobs;
 using NW.WIDJobs.Explorations;
 using NW.WIDJobs.Metrics;
 using NW.WIDJobs.Files;
+using NW.WIDJobs.Validation;
 using NW.WIDJobsClient.Messages;
 using NW.WIDJobsClient.CommandLineAccepts;
 using NW.WIDJobsClient.CommandLineValidators;
@@ -89,7 +90,9 @@ namespace NW.WIDJobsClient.CommandLine
             (IThresholdValueManager thresholdValueManager, IWIDExplorerComponentsFactory componentsFactory, IWIDExplorerSettingsFactory settingsFactory)
         {
 
-            // To-Do: validation
+            Validator.ValidateObject(thresholdValueManager, nameof(thresholdValueManager));
+            Validator.ValidateObject(componentsFactory, nameof(componentsFactory));
+            Validator.ValidateObject(settingsFactory, nameof(settingsFactory));
 
             _thresholdValueManager = thresholdValueManager;
             _componentsFactory = componentsFactory;
