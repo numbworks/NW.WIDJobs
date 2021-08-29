@@ -15,4 +15,9 @@
     <ProjectReference Include="..\..\src\NW.WIDJobsClient\NW.WIDJobsClient.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="CommandLineValidators\" />
+    <Folder Include="CommandLine\" />
+  </ItemGroup>
+
 </Project>
