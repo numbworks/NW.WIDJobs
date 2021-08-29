@@ -12,7 +12,7 @@ namespace NW.WIDJobsClient.UnitTests
 
 
 
-        #region Mthod
+        #region Methods
 
         internal static void Method_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)

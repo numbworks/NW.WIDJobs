@@ -5,7 +5,7 @@ using NW.WIDJobsClient.CommandLineValidators;
 namespace NW.WIDJobsClient.UnitTests
 {
     [TestFixture]
-    public class ThresholdValueManagerTests
+    public class ThresholdValueValidatorTests
     {
 
         #region Fields
