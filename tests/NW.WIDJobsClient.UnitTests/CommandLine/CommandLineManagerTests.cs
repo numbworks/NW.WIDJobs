@@ -59,6 +59,54 @@ namespace NW.WIDJobsClient.UnitTests
             ).SetArgDisplayNames($"{nameof(commandLineManagerExceptionTestCases)}_03")
 
         };
+        private static TestCaseData[] executeTestCases =
+        {
+
+            new TestCaseData(
+                    new string[] { "about" },
+                    new FakeWIDExplorerComponentsFactory(FakeWIDExplorerComponentsTypes.allsuccess),
+                    CommandLineManager.Success
+                ).SetArgDisplayNames($"{nameof(executeTestCases)}_01"),
+
+            new TestCaseData(
+                    new string[] { "session" },
+                    new FakeWIDExplorerComponentsFactory(FakeWIDExplorerComponentsTypes.allsuccess),
+                    CommandLineManager.Success
+                ).SetArgDisplayNames($"{nameof(executeTestCases)}_02"),
+
+            new TestCaseData(
+                    new string[] { "session", "calculate" },
+                    new FakeWIDExplorerComponentsFactory(FakeWIDExplorerComponentsTypes.allsuccess),
+                    CommandLineManager.Failure
+                ).SetArgDisplayNames($"{nameof(executeTestCases)}_03"),
+
+            new TestCaseData(
+                    new string[] { "session", "convert" },
+                    new FakeWIDExplorerComponentsFactory(FakeWIDExplorerComponentsTypes.allsuccess),
+                    CommandLineManager.Failure
+                ).SetArgDisplayNames($"{nameof(executeTestCases)}_04"),
+
+            new TestCaseData(
+                    new string[] { "session", "describe" },
+                    new FakeWIDExplorerComponentsFactory(FakeWIDExplorerComponentsTypes.allsuccess),
+                    CommandLineManager.Failure
+                ).SetArgDisplayNames($"{nameof(executeTestCases)}_05"),
+
+            new TestCaseData(
+                    new string[] { "session", "explore" },
+                    new FakeWIDExplorerComponentsFactory(FakeWIDExplorerComponentsTypes.allsuccess),
+                    CommandLineManager.Failure
+                ).SetArgDisplayNames($"{nameof(executeTestCases)}_06"),
+
+            new TestCaseData(
+                    new string[] { "service" },
+                    new FakeWIDExplorerComponentsFactory(FakeWIDExplorerComponentsTypes.allsuccess),
+                    CommandLineManager.Success
+                ).SetArgDisplayNames($"{nameof(executeTestCases)}_07")
+
+            // The option:argument pairs can be tested because they rely on the internal FileExistance() validators.
+
+        };
 
         #endregion
 
@@ -85,6 +133,21 @@ namespace NW.WIDJobsClient.UnitTests
         public void CommandLineManager_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
+
+        [TestCaseSource(nameof(executeTestCases))]
+        public void Execute_ShouldReturnExpectedExitCode_WhenInvoked
+            (string[] args, IWIDExplorerComponentsFactory fakeComponentsFactory, int expected)
+        {
+
+            // Arrange
+            // Act
+            CommandLineManager commandLineManager = new CommandLineManager(new ThresholdValueManager(), fakeComponentsFactory, new WIDExplorerSettingsFactory());
+            int actual = commandLineManager.Execute(args);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+
+        }
 
         #endregion
 

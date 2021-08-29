@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using NUnit.Framework;
 
 namespace NW.WIDJobsClient.UnitTests
@@ -8,9 +6,6 @@ namespace NW.WIDJobsClient.UnitTests
 
     public static class ObjectMother
     {
-
-
-
 
         #region Methods
 
