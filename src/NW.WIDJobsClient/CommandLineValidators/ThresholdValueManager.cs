@@ -36,16 +36,27 @@ namespace NW.WIDJobsClient.CommandLineValidators
             // Date: 20210722
             // JobPostingId: 5376524visgerrengringsassistenter
 
-            if (IsValidFinalPageNumber(value))
-                return true;
+            try
+            {
 
-            if (IsValidThresholdDate(value))
-                return true;
+                if (IsValidFinalPageNumber(value))
+                    return true;
 
-            if (IsValidJobPostingId(value))
-                return true;
+                if (IsValidThresholdDate(value))
+                    return true;
 
-            return false;
+                if (IsValidJobPostingId(value))
+                    return true;
+
+                return false;
+
+            }
+            catch
+            {
+
+                return false;
+
+            }
 
         }
         public bool IsValidFinalPageNumber(string value)
