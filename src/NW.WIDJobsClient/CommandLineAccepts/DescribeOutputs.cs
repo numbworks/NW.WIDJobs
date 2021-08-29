@@ -1,6 +1,6 @@
 ﻿namespace NW.WIDJobsClient
 {
-    /// <summary></summary>
+    /// <summary>Defines all the values accepted by <see cref="CommandLineManager.SubCommand_Describe_Name"/>.</summary>
     public enum DescribeOutputs
     {
 
@@ -14,5 +14,5 @@
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 26.08.2021
+    Last Update: 29.08.2021
 */

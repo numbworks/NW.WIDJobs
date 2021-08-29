@@ -1,6 +1,6 @@
 ﻿namespace NW.WIDJobsClient
 {
-    /// <summary>The exploration proceeds until this criteria is met.</summary>
+    /// <summary>Defines all the values accepted by <see cref="CommandLineManager.Option_ThresholdType_Template"/>.</summary>
     public enum ThresholdTypes
     {
 
@@ -14,5 +14,5 @@
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 26.08.2021
+    Last Update: 29.08.2021
 */
