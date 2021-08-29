@@ -1,4 +1,4 @@
-﻿namespace NW.WIDJobsClient
+﻿namespace NW.WIDJobsClient.CommandLineAccepts
 {
     /// <summary>Defines all the values accepted by <see cref="CommandLineManager.SubCommand_Convert_Name"/>.</summary>
     public enum ConvertOutputs

@@ -1,4 +1,4 @@
-﻿namespace NW.WIDJobsClient
+﻿namespace NW.WIDJobsClient.CommandLineAccepts
 {
     /// <summary>Defines all the values accepted by <see cref="CommandLineManager.Option_MetricsOutput_Template"/>.</summary>
     public enum MetricsOutputs

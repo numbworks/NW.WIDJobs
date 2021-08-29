@@ -4,6 +4,7 @@ using NW.WIDJobs.Explorations;
 using NW.WIDJobs.Metrics;
 using NW.WIDJobs.Files;
 using NW.WIDJobsClient.Messages;
+using NW.WIDJobsClient.CommandLineAccepts;
 using McMaster.Extensions.CommandLineUtils;
 
 namespace NW.WIDJobsClient.CommandLine

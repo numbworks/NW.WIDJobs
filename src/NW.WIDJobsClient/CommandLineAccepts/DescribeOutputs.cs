@@ -1,4 +1,4 @@
-﻿namespace NW.WIDJobsClient
+﻿namespace NW.WIDJobsClient.CommandLineAccepts
 {
     /// <summary>Defines all the values accepted by <see cref="CommandLineManager.SubCommand_Describe_Name"/>.</summary>
     public enum DescribeOutputs
