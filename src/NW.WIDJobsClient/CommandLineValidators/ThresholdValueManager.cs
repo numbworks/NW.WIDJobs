@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Text.RegularExpressions;
 
-namespace NW.WIDJobsClient
+namespace NW.WIDJobsClient.CommandLineValidators
 {
     /// <inheritdoc cref="IThresholdValueManager"/>
     public class ThresholdValueManager : IThresholdValueManager

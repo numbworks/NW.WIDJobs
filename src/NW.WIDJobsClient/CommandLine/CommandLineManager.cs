@@ -5,6 +5,7 @@ using NW.WIDJobs.Metrics;
 using NW.WIDJobs.Files;
 using NW.WIDJobsClient.Messages;
 using NW.WIDJobsClient.CommandLineAccepts;
+using NW.WIDJobsClient.CommandLineValidators;
 using McMaster.Extensions.CommandLineUtils;
 
 namespace NW.WIDJobsClient.CommandLine

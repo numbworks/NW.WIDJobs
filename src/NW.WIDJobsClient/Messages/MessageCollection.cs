@@ -1,5 +1,5 @@
 ﻿using System;
-using NW.WIDJobs.Explorations;
+using NW.WIDJobsClient.CommandLineValidators;
 
 namespace NW.WIDJobsClient.Messages
 {

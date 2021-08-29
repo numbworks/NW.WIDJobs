@@ -1,4 +1,4 @@
-﻿namespace NW.WIDJobsClient
+﻿namespace NW.WIDJobsClient.CommandLineValidators
 {
     /// <inheritdoc cref="IPauseBetweenRequestsManager"/>
     public class PauseBetweenRequestsManager : IPauseBetweenRequestsManager

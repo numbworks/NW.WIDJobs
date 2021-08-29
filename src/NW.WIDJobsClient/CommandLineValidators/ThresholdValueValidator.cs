@@ -1,10 +1,9 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using McMaster.Extensions.CommandLineUtils;
 using McMaster.Extensions.CommandLineUtils.Validation;
 using NW.WIDJobsClient.Messages;
 
-namespace NW.WIDJobsClient
+namespace NW.WIDJobsClient.CommandLineValidators
 {
     /// <inheritdoc cref="IOptionValidator"/>
     public class ThresholdValueValidator : IOptionValidator

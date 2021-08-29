@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NW.WIDJobsClient
+namespace NW.WIDJobsClient.CommandLineValidators
 {
     /// <summary>Groups all the utility methods related to <see cref="CommandLineManager.Option_ThresholdValue_Template"/>.</summary>
     public interface IThresholdValueManager

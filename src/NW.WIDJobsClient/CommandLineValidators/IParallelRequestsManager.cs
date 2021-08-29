@@ -1,4 +1,4 @@
-﻿namespace NW.WIDJobsClient
+﻿namespace NW.WIDJobsClient.CommandLineValidators
 {
     /// <summary>Groups all the utility methods related to <see cref="CommandLineManager.Option_ParallelRequests_Template"/>.</summary>
     public interface IParallelRequestsManager

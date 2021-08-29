@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace NW.WIDJobsClient
+namespace NW.WIDJobsClient.CommandLineValidators
 {
     /// <inheritdoc cref="IParallelRequestsManager/>
     public class ParallelRequestsManager : IParallelRequestsManager
