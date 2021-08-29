@@ -1,4 +1,4 @@
-﻿namespace NW.WIDJobsClient
+﻿namespace NW.WIDJobsClient.CommandLine
 {
     /// <summary>Groups all the logic related to the processing of the command-line arguments.</summary>
     public interface ICommandLineManager

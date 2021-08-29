@@ -1,7 +1,7 @@
 ﻿using System;
 using NW.WIDJobs;
 
-namespace NW.WIDJobsClient
+namespace NW.WIDJobsClient.CommandLine
 {
     /// <inheritdoc cref="IWIDExplorerSettingsFactory"/>
     public class WIDExplorerSettingsFactory : IWIDExplorerSettingsFactory

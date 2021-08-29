@@ -1,4 +1,5 @@
 ﻿using System;
+using NW.WIDJobsClient.CommandLine;
 
 namespace NW.WIDJobsClient
 {

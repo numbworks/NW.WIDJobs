@@ -6,7 +6,7 @@ using NW.WIDJobs.Files;
 using NW.WIDJobsClient.Messages;
 using McMaster.Extensions.CommandLineUtils;
 
-namespace NW.WIDJobsClient
+namespace NW.WIDJobsClient.CommandLine
 {
     /// <inheritdoc cref="ICommandLineManager"/>
     public class CommandLineManager : ICommandLineManager

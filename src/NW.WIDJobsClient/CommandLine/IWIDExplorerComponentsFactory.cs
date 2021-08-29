@@ -1,6 +1,6 @@
 ﻿using NW.WIDJobs;
 
-namespace NW.WIDJobsClient
+namespace NW.WIDJobsClient.CommandLine
 {
     /// <summary>Factory for <see cref="WIDExplorerComponents"/>.</summary>
     public interface IWIDExplorerComponentsFactory

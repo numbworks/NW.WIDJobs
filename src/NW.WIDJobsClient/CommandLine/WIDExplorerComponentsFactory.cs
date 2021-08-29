@@ -13,7 +13,7 @@ using NW.WIDJobs.Filenames;
 using NW.WIDJobs.BulletPoints;
 using NW.WIDJobs.UnitTests;
 
-namespace NW.WIDJobsClient
+namespace NW.WIDJobsClient.CommandLine
 {
     /// <inheritdoc cref="IWIDExplorerComponentsFactory"/>
     public class WIDExplorerComponentsFactory : IWIDExplorerComponentsFactory
