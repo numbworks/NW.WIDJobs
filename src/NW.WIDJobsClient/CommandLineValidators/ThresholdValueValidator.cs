@@ -25,7 +25,7 @@ namespace NW.WIDJobsClient.CommandLineValidators
         public ThresholdValueValidator(IThresholdValueManager thresholdValueManager) 
         {
 
-            // To-Do: validation
+            WIDJobs.Validation.Validator.ValidateObject(thresholdValueManager, nameof(thresholdValueManager));
 
             _thresholdValueManager = thresholdValueManager;
 

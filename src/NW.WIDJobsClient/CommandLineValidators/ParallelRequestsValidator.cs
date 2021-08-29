@@ -25,7 +25,7 @@ namespace NW.WIDJobsClient.CommandLineValidators
         public ParallelRequestsValidator(IParallelRequestsManager parallelRequestsManager)
         {
 
-            // To-Do: validation
+            WIDJobs.Validation.Validator.ValidateObject(parallelRequestsManager, nameof(parallelRequestsManager));
 
             _parallelRequestsManager = parallelRequestsManager;
 
