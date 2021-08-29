@@ -1,6 +1,6 @@
 ﻿namespace NW.WIDJobsClient
 {
-    /// <summary>Collects all the exit codes for <see cref="NW.WIDJobsClient"/>.</summary>	
+    /// <summary>Collects all the exit codes for <see cref="CommandLineManager"/>.</summary>	
     public enum ExitCodes
     {
 
