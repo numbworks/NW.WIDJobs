@@ -10,65 +10,93 @@ namespace NW.WIDJobs.Validation
     public static class Validator
     {
 
-        #region Methods_public
+        #region ValidateLength
 
-        public static void ValidateLength<T>(uint length) where T : Exception
+        /// <summary>Throws an exception of type <see cref="TException"/> when <paramref name="length"/> is less than one.</summary>
+        public static void ValidateLength<TException>(uint length) where TException : Exception
         {
 
             if (length < 1)
-                throw CreateException<T>(MessageCollection.Validator_VariableCantBeLessThanOne.Invoke(nameof(length)));
+                throw CreateException<TException>(MessageCollection.Validator_VariableCantBeLessThanOne.Invoke(nameof(length)));
 
         }
+
+        /// <summary>Throws an exception of type <see cref="ArgumentException"/> when <paramref name="length"/> is less than one.</summary>        
         public static void ValidateLength(uint length)
             => ValidateLength<ArgumentException>(length);
 
-        public static void ValidateObject<T>(object obj, string variableName) where T : Exception
+        #endregion
+
+        #region ValidateObject
+
+        /// <summary>Throws an exception of type <see cref="TException"/> when <paramref name="obj"/> is null.</summary>
+        public static void ValidateObject<TException>(object obj, string variableName) where TException : Exception
         {
 
             if (obj == null)
-                throw CreateException<T>(variableName);
+                throw CreateException<TException>(variableName);
 
         }
+
+        /// <summary>Throws an exception of type <see cref="ArgumentNullException"/> when <paramref name="obj"/> is null.</summary>
         public static void ValidateObject(object obj, string variableName)
             => ValidateObject<ArgumentNullException>(obj, variableName);
 
-        public static void ValidateArray<U>(U[] arr, string variableName)
+        #endregion
+
+        #region ValidateArray
+
+        /// <summary>Throws an exception of type <see cref="ArgumentNullException"/> when <paramref name="arr"/> is null or of type <see cref="ArgumentException"/> when <paramref name="arr"/> is empty.</summary>
+        public static void ValidateArray<UArray>(UArray[] arr, string variableName)
         {
 
-            ValidateArrayNull<ArgumentNullException, U>(arr, variableName);
-            ValidateArrayEmpty<ArgumentException, U>(arr, variableName);
+            ValidateArrayNull<ArgumentNullException, UArray>(arr, variableName);
+            ValidateArrayEmpty<ArgumentException, UArray>(arr, variableName);
 
         }
-        public static void ValidateArrayNull<T, U>(U[] arr, string variableName) where T : Exception
+
+        /// <summary>Throws an exception of type <see cref="ArgumentNullException"/> when <paramref name="arr"/> is null.</summary>
+        public static void ValidateArrayNull<TException, UArray>(UArray[] arr, string variableName) where TException : Exception
         {
 
             if (arr == null)
-                throw CreateException<T>(variableName);
+                throw CreateException<TException>(variableName);
 
         }
-        public static void ValidateArrayEmpty<T, U>(U[] arr, string variableName) where T : Exception
+
+        /// <summary>Throws an exception of type <see cref="ArgumentException"/> when <paramref name="arr"/> is empty.</summary>
+        public static void ValidateArrayEmpty<TException, UArray>(UArray[] arr, string variableName) where TException : Exception
         {
 
             if (arr.Length == 0)
-                throw CreateException<T>(MessageCollection.Validator_VariableContainsZeroItems.Invoke(variableName));
+                throw CreateException<TException>(MessageCollection.Validator_VariableContainsZeroItems.Invoke(variableName));
 
         }
 
-        public static void ValidateList<U>(List<U> list, string variableName)
+        #endregion
+
+        #region ValidateList
+
+        /// <summary>Throws an exception of type <see cref="ArgumentNullException"/> when <paramref name="list"/> is null or of type <see cref="ArgumentException"/> when <paramref name="list"/> is empty.</summary>
+        public static void ValidateList<UList>(List<UList> list, string variableName)
         {
 
-            ValidateListNull<ArgumentNullException, U>(list, variableName);
-            ValidateListEmpty<ArgumentException, U>(list, variableName);
+            ValidateListNull<ArgumentNullException, UList>(list, variableName);
+            ValidateListEmpty<ArgumentException, UList>(list, variableName);
 
         }
-        public static void ValidateListNull<T, U>(List<U> list, string variableName) where T : Exception
+
+        /// <summary>Throws an exception of type <see cref="ArgumentNullException"/> when <paramref name="arr"/> is null.</summary>        
+        public static void ValidateListNull<TException, UList>(List<UList> list, string variableName) where TException : Exception
         {
 
             if (list == null)
                 throw CreateException<ArgumentNullException>(variableName);
 
         }
-        public static void ValidateListEmpty<T, U>(List<U> list, string variableName) where T : Exception
+
+        /// <summary>Throws an exception of type <see cref="ArgumentException"/> when <paramref name="list"/> is empty.</summary>        
+        public static void ValidateListEmpty<T, UList>(List<UList> list, string variableName) where T : Exception
         {
 
             if (list.Count == 0)
@@ -76,93 +104,147 @@ namespace NW.WIDJobs.Validation
 
         }
 
-        public static void ValidateStringNullOrWhiteSpace<T>(string str, string variableName) where T : Exception
+        #endregion
+
+        #region ValidateStringNullOrWhiteSpace
+
+        /// <summary>Throws an exception of type <see cref="TException"/> when <paramref name="str"/> is null or whitespace.</summary> 
+        public static void ValidateStringNullOrWhiteSpace<TException>(string str, string variableName) where TException : Exception
         {
 
             if (string.IsNullOrWhiteSpace(str))
-                throw CreateException<T>(variableName);
+                throw CreateException<TException>(variableName);
 
         }
+
+        /// <summary>Throws an exception of type <see cref="ArgumentNullException"/> when <paramref name="str"/> is null or whitespace.</summary>         
         public static void ValidateStringNullOrWhiteSpace(string str, string variableName)
             => ValidateStringNullOrWhiteSpace<ArgumentNullException>(str, variableName);
-        public static void ValidateStringNullOrEmpty<T>(string str, string variableName) where T : Exception
+
+        /// <summary>Throws an exception of type <see cref="TException"/> when <paramref name="str"/> is null or empty.</summary>
+        public static void ValidateStringNullOrEmpty<TException>(string str, string variableName) where TException : Exception
         {
 
             if (string.IsNullOrEmpty(str))
-                throw CreateException<T>(variableName);
+                throw CreateException<TException>(variableName);
 
         }
+
+        /// <summary>Throws an exception of type <see cref="ArgumentNullException"/> when <paramref name="str"/> is null or empty.</summary>  
         public static void ValidateStringNullOrEmpty(string str, string variableName)
             => ValidateStringNullOrEmpty<ArgumentNullException>(str, variableName);
 
-        public static void ThrowIfFirstIsGreaterOrEqual<T>(int value1, string variableName1, int value2, string variableName2) where T : Exception
+        #endregion
+
+        #region ThrowIfFirst
+
+        /// <summary>Throws an exception of type <see cref="TException"/> when <paramref name="value1"/> is greater or equal than <paramref name="value2"/>.</summary> 
+        public static void ThrowIfFirstIsGreaterOrEqual<TException>(int value1, string variableName1, int value2, string variableName2) where TException : Exception
         {
 
             if (value1 >= value2)
-                throw CreateException<T>(MessageCollection.Validator_FirstValueIsGreaterOrEqualThanSecondValue.Invoke(variableName1, variableName2));
+                throw CreateException<TException>(MessageCollection.Validator_FirstValueIsGreaterOrEqualThanSecondValue.Invoke(variableName1, variableName2));
 
         }
+
+        /// <summary>Throws an exception of type <see cref="ArgumentException"/> when <paramref name="value1"/> is greater or equal than <paramref name="value2"/>.</summary> 
         public static void ThrowIfFirstIsGreaterOrEqual(int value1, string variableName1, int value2, string variableName2)
             => ThrowIfFirstIsGreaterOrEqual<ArgumentException>(value1, variableName1, value2, variableName2);
-        public static void ThrowIfFirstIsGreater<T>(int value1, string variableName1, int value2, string variableName2) where T : Exception
+
+        /// <summary>Throws an exception of type <see cref="TException"/> when <paramref name="value1"/> is greater than <paramref name="value2"/>.</summary> 
+        public static void ThrowIfFirstIsGreater<TException>(int value1, string variableName1, int value2, string variableName2) where TException : Exception
         {
 
             if (value1 > value2)
-                throw CreateException<T>(MessageCollection.Validator_FirstValueIsGreaterThanSecondValue.Invoke(variableName1, variableName2));
+                throw CreateException<TException>(MessageCollection.Validator_FirstValueIsGreaterThanSecondValue.Invoke(variableName1, variableName2));
 
         }
+
+        /// <summary>Throws an exception of type <see cref="ArgumentException"/> when <paramref name="value1"/> is greater than <paramref name="value2"/>.</summary> 
         public static void ThrowIfFirstIsGreater(int value1, string variableName1, int value2, string variableName2)
             => ThrowIfFirstIsGreater<ArgumentException>(value1, variableName1, value2, variableName2);
-        public static void ThrowIfLessThanOne<T>(uint value, string variableName) where T : Exception
+
+        #endregion
+
+        #region ThrowIfLess
+
+        /// <summary>Throws an exception of type <see cref="TException"/> when <paramref name="value"/> is less than one.</summary>
+        public static void ThrowIfLessThanOne<TException>(uint value, string variableName) where TException : Exception
         {
 
             if (value < 1)
-                throw CreateException<T>(MessageCollection.Validator_VariableCantBeLessThanOne.Invoke(variableName));
+                throw CreateException<TException>(MessageCollection.Validator_VariableCantBeLessThanOne.Invoke(variableName));
 
         }
+
+        /// <summary>Throws an exception of type <see cref="ArgumentException"/> when <paramref name="length"/> is less than one.</summary>
         public static void ThrowIfLessThanOne(uint value, string variableName)
             => ThrowIfLessThanOne<ArgumentException>(value, variableName);
-        public static void ThrowIfModuloIsNotZero<T>(uint value1, string variableName1, uint value2, string variableName2) where T : Exception
+
+        #endregion
+
+        #region ThrowIfModulo
+
+        /// <summary>Throws an exception of type <see cref="TException"/> when the modulo between <paramref name="value1"/> and <paramref name="value2"/> is not zero.</summary> 
+        public static void ThrowIfModuloIsNotZero<TException>(uint value1, string variableName1, uint value2, string variableName2) where TException : Exception
         {
 
             if (value1 % value2 != 0)
-                throw CreateException<T>(MessageCollection.Validator_DividingMustReturnWholeNumber.Invoke(variableName1, variableName2));
+                throw CreateException<TException>(MessageCollection.Validator_DividingMustReturnWholeNumber.Invoke(variableName1, variableName2));
 
         }
+
+        /// <summary>Throws an exception of type <see cref="ArgumentException"/> when the modulo between <paramref name="value1"/> and <paramref name="value2"/> is not zero.</summary> 
         public static void ThrowIfModuloIsNotZero(uint value1, string variableName1, uint value2, string variableName2)
             => ThrowIfModuloIsNotZero<ArgumentException>(value1, variableName1, value2, variableName2);
 
-        public static void ThrowIfCountsAreNotEqual<T>(Dictionary<string, int> lists) where T : Exception
+        #endregion
+
+        #region ThrowIfFirstIsOlderOrEqual
+
+        /// <summary>Throws an exception of type <see cref="TException"/> when <paramref name="dt1"/> is older or equal than <paramref name="dt2"/>.</summary>
+        public static void ThrowIfFirstIsOlderOrEqual<TException>(DateTime dt1, string variableName1, DateTime dt2, string variableName2) where TException : Exception
+        {
+
+            if (dt1 <= dt2)
+                throw CreateException<TException>(MessageCollection.Validator_FirstDateIsOlderOrEqual.Invoke(variableName1, variableName2));
+
+        }
+
+        /// <summary>Throws an exception of type <see cref="ArgumentException"/> when <paramref name="dt1"/> is older or equal than <paramref name="dt2"/>.</summary>   
+        public static void ThrowIfFirstIsOlderOrEqual(DateTime dt1, string variableName1, DateTime dt2, string variableName2)
+            => ThrowIfFirstIsOlderOrEqual<ArgumentException>(dt1, variableName1, dt2, variableName2);
+
+        #endregion
+
+        #region ValidateFileExistance
+
+        /// <summary>Throws an exception of type <see cref="TException"/> when <paramref name="file"/> doesn't exist.</summary>
+        public static void ValidateFileExistance<TException>(IFileInfoAdapter file) where TException : Exception
+        {
+
+            if (!file.Exists)
+                throw CreateException<TException>(MessageCollection.Validator_ProvidedPathDoesntExist.Invoke(file));
+
+        }
+
+        /// <summary>Throws an exception of type <see cref="ArgumentException"/> when <paramref name="file"/> doesn't exist.</summary>      
+        public static void ValidateFileExistance(IFileInfoAdapter file)
+            => ValidateFileExistance<ArgumentException>(file);
+
+        #endregion
+
+        /// <summary>Throws an exception of type <see cref="TException"/> when there is at least one amount in <paramref name="lists"/> that doesn't match the others.</summary>
+        public static void ThrowIfCountsAreNotEqual<TException>(Dictionary<string, int> lists) where TException : Exception
         {
 
             int[] counts = lists.Select(item => item.Value).ToArray();
             bool status = AreAllEqual(counts);
 
             if (status == false)
-                throw CreateException<T>(MessageCollection.Validator_AtLeastOneSubScraper.Invoke(lists));
+                throw CreateException<TException>(MessageCollection.Validator_AtLeastOneSubScraper.Invoke(lists));
 
         }
-        public static void ThrowIfFirstIsOlderOrEqual<T>(DateTime dt1, string variableName1, DateTime dt2, string variableName2) where T : Exception
-        {
-
-            if (dt1 <= dt2)
-                throw CreateException<T>(MessageCollection.Validator_FirstDateIsOlderOrEqual.Invoke(variableName1, variableName2));
-
-        }
-        public static void ThrowIfFirstIsOlderOrEqual(DateTime dt1, string variableName1, DateTime dt2, string variableName2)
-            => ThrowIfFirstIsOlderOrEqual<ArgumentException>(dt1, variableName1, dt2, variableName2);
-
-        public static void ValidateFileExistance<T>(IFileInfoAdapter file) where T : Exception
-        {
-
-            if (!file.Exists)
-                throw CreateException<T>(MessageCollection.Validator_ProvidedPathDoesntExist.Invoke(file));
-
-        }
-        public static void ValidateFileExistance(IFileInfoAdapter file)
-            => ValidateFileExistance<ArgumentException>(file);
-
-        #endregion
 
         #region Methods_private
 
@@ -179,6 +261,6 @@ namespace NW.WIDJobs.Validation
 /*
 
     Author: numbworks@gmail.com
-    Last Update: 10.05.2021
+    Last Update: 30.08.2021
 
 */
