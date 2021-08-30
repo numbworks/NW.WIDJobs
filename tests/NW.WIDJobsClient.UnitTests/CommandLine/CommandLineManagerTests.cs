@@ -10,7 +10,6 @@ using NW.WIDJobsClient.CommandLineAccepts;
 using NW.WIDJobsClient.CommandLineValidators;
 using McMaster.Extensions.CommandLineUtils;
 using NW.WIDJobsClient.CommandLine;
-using System.Reflection;
 
 namespace NW.WIDJobsClient.UnitTests
 {
@@ -196,8 +195,18 @@ namespace NW.WIDJobsClient.UnitTests
             ).SetArgDisplayNames($"{nameof(createOptionValueExceptionExceptionTestCases)}_08")
 
         };
+        private static TestCaseData[] createMappingExceptionExceptionTestCases =
+        {
 
-        // 
+            new TestCaseData(
+                new TestDelegate(
+                    () => ObjectMother.CallPrivateMethod<CommandLineManager, MetricsOutputs>(new CommandLineManager(), "MapCalculateToMetrics", new object[1] { (CalculateOutputs)(-1) })
+                ),
+                typeof(Exception),
+                MessageCollection.CommandLineManager_FirstEnumCantBeMapped.Invoke(typeof(CalculateOutputs), typeof(MetricsOutputs), "-1")
+            ).SetArgDisplayNames($"{nameof(createMappingExceptionExceptionTestCases)}_01")
+
+        };
 
         #endregion
 
@@ -246,7 +255,12 @@ namespace NW.WIDJobsClient.UnitTests
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
         [TestCaseSource(nameof(createOptionValueExceptionExceptionTestCases))]
-        public void CreateOptionValueException_ShouldThrowACertainInnerException_WhenUnproperArguments
+        public void CreateOptionValueException_ShouldThrowACertainInnerException_WhenCallPrivateMethodAndUnproperArguments
+            (TestDelegate del, Type expectedInnerType, string expectedInnerMessage)
+                => ObjectMother.Method_ShouldThrowACertainInnnerException_WhenCallPrivateMethodAndUnproperArguments(del, expectedInnerType, expectedInnerMessage);
+
+        [TestCaseSource(nameof(createMappingExceptionExceptionTestCases))]
+        public void CreateMappingException_ShouldThrowACertainInnerException_WhenCallPrivateMethodAndUnproperArguments
             (TestDelegate del, Type expectedInnerType, string expectedInnerMessage)
                 => ObjectMother.Method_ShouldThrowACertainInnnerException_WhenCallPrivateMethodAndUnproperArguments(del, expectedInnerType, expectedInnerMessage);
 
