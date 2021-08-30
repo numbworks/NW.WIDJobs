@@ -17,9 +17,10 @@ namespace NW.WIDJobs.Filenames
         public static string DefaultFileNameUndatedTemplate { get; } = "{0}.{1}";
         public static string DefaultFormatNow { get; } = "yyyyMMddHHmmssfff";
         public static string DefaultExplorationJsonToken { get; } = "widjobs_exploration";
-        public static string DefaultMetricsJsonToken { get; } = "widjobs_metrics";
-        public static string DefaultMetricsPctJsonToken { get; } = "widjobs_metricspct";
+        public static string DefaultMetricCollectionJsonToken { get; } = "widjobs_metrics";
+        public static string DefaultMetricCollectionPctJsonToken { get; } = "widjobs_metricspct";
         public static string DefaultDatabaseToken { get; } = "widjobs_exploration";
+        public static string DefaultBulletPointsToken { get; } = "widjobs_bulletpoints";
         public static string DefaultJsonExtension { get; } = "json";
         public static string DefaultDatabaseExtension { get; } = "db";
 
@@ -49,18 +50,15 @@ namespace NW.WIDJobs.Filenames
         {
 
             if (numbersAsPercentages)
-                return ValidateAndCreate(filePath, DefaultMetricsPctJsonToken, now, DefaultJsonExtension);
+                return ValidateAndCreate(filePath, DefaultMetricCollectionPctJsonToken, now, DefaultJsonExtension);
 
-            return ValidateAndCreate(filePath, DefaultMetricsJsonToken, now, DefaultJsonExtension);
+            return ValidateAndCreate(filePath, DefaultMetricCollectionJsonToken, now, DefaultJsonExtension);
 
         }
-        public string CreateForMetricsJson(string filePath, string token, DateTime now)
-            => ValidateAndCreate(filePath, token, now, DefaultJsonExtension);
-
         public string CreateForExplorationJson(string filePath, DateTime now)
             => ValidateAndCreate(filePath, DefaultExplorationJsonToken, now, DefaultJsonExtension);
-        public string CreateForExplorationJson(string filePath, string token, DateTime now)
-            => ValidateAndCreate(filePath, token, now, DefaultJsonExtension);
+        public string CreateForBulletPointsJson(string filePath, DateTime now)
+            => ValidateAndCreate(filePath, DefaultBulletPointsToken, now, DefaultJsonExtension);
 
         #endregion
 
@@ -100,5 +98,5 @@ namespace NW.WIDJobs.Filenames
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 28.08.2021
+    Last Update: 30.08.2021
 */

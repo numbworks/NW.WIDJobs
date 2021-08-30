@@ -89,7 +89,7 @@ namespace NW.WIDJobs.UnitTests
             ).SetArgDisplayNames($"{nameof(createForDatabaseExceptionTestCases)}_03")
 
         };
-        private static TestCaseData[] createForMetricsJsonTestCases =
+        private static TestCaseData[] createForMetricCollectionJsonTestCases =
         {
 
             new TestCaseData(
@@ -100,8 +100,8 @@ namespace NW.WIDJobs.UnitTests
                                             ObjectMother.FileNameFactory_FakeNow,
                                             true)
                         ),
-                    ObjectMother.FileNameFactory_MetricsJsonIfTrue
-                ).SetArgDisplayNames($"{nameof(createForMetricsJsonTestCases)}_01"),
+                    ObjectMother.FileNameFactory_MetricCollectionJsonIfTrue
+                ).SetArgDisplayNames($"{nameof(createForMetricCollectionJsonTestCases)}_01"),
 
             new TestCaseData(
                     new Func<string>(
@@ -111,11 +111,11 @@ namespace NW.WIDJobs.UnitTests
                                             ObjectMother.FileNameFactory_FakeNow,
                                             false)
                         ),
-                    ObjectMother.FileNameFactory_MetricsJsonIfFalse
-                ).SetArgDisplayNames($"{nameof(createForMetricsJsonTestCases)}_02")
+                    ObjectMother.FileNameFactory_MetricCollectionJsonIfFalse
+                ).SetArgDisplayNames($"{nameof(createForMetricCollectionJsonTestCases)}_02")
 
         };
-        private static TestCaseData[] createForMetricsJsonExceptionTestCases =
+        private static TestCaseData[] createForMetricCollectionJsonExceptionTestCases =
         {
 
             new TestCaseData(
@@ -128,21 +128,7 @@ namespace NW.WIDJobs.UnitTests
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("filePath").Message
-            ).SetArgDisplayNames($"{nameof(createForMetricsJsonExceptionTestCases)}_01"),
-
-            new TestCaseData(
-                new TestDelegate(
-                    () => new FilenameFactory()
-                                .CreateForMetricsJson(
-                                    ObjectMother.FileNameFactory_FakeFilePath,
-                                    null,
-                                    ObjectMother.FileNameFactory_FakeNow
-                                    )
-                ),
-                typeof(ArgumentNullException),
-                new ArgumentNullException("token").Message
-            ).SetArgDisplayNames($"{nameof(createForMetricsJsonExceptionTestCases)}_02")
-
+            ).SetArgDisplayNames($"{nameof(createForMetricCollectionJsonExceptionTestCases)}_01")
 
         };
         private static TestCaseData[] createForExplorationJsonTestCases =
@@ -156,18 +142,7 @@ namespace NW.WIDJobs.UnitTests
                                             ObjectMother.FileNameFactory_FakeNow)
                         ),
                     ObjectMother.FileNameFactory_ExplorationJsonIfFilePathNow
-                ).SetArgDisplayNames($"{nameof(createForMetricsJsonTestCases)}_01"),
-
-            new TestCaseData(
-                    new Func<string>(
-                            () => new FilenameFactory()
-                                        .CreateForExplorationJson(
-                                            ObjectMother.FileNameFactory_FakeFilePath,
-                                            ObjectMother.FileNameFactory_FakeToken,
-                                            ObjectMother.FileNameFactory_FakeNow)
-                        ),
-                    ObjectMother.FileNameFactory_ExplorationJsonIfFilePathTokenNow
-                ).SetArgDisplayNames($"{nameof(createForMetricsJsonTestCases)}_02")
+                ).SetArgDisplayNames($"{nameof(createForMetricCollectionJsonTestCases)}_01")
 
         };
         private static TestCaseData[] createForExplorationJsonExceptionTestCases =
@@ -182,20 +157,37 @@ namespace NW.WIDJobs.UnitTests
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("filePath").Message
-            ).SetArgDisplayNames($"{nameof(createForExplorationJsonExceptionTestCases)}_01"),
+            ).SetArgDisplayNames($"{nameof(createForExplorationJsonExceptionTestCases)}_01")
+
+
+        };
+        private static TestCaseData[] createForBulletPointsJsonTestCases =
+        {
+
+            new TestCaseData(
+                    new Func<string>(
+                            () => new FilenameFactory()
+                                        .CreateForBulletPointsJson(
+                                            ObjectMother.FileNameFactory_FakeFilePath,
+                                            ObjectMother.FileNameFactory_FakeNow)
+                        ),
+                    ObjectMother.FileNameFactory_BulletPointsJsonIfFilePathNow
+                ).SetArgDisplayNames($"{nameof(createForBulletPointsJsonTestCases)}_01")
+
+        };
+        private static TestCaseData[] createForBulletPointsJsonExceptionTestCases =
+        {
 
             new TestCaseData(
                 new TestDelegate(
                     () => new FilenameFactory()
-                                .CreateForExplorationJson(
-                                    ObjectMother.FileNameFactory_FakeFilePath,
+                                .CreateForBulletPointsJson(
                                     null,
-                                    ObjectMother.FileNameFactory_FakeNow
-                                    )
+                                    ObjectMother.FileNameFactory_FakeNow)
                 ),
                 typeof(ArgumentNullException),
-                new ArgumentNullException("token").Message
-            ).SetArgDisplayNames($"{nameof(createForExplorationJsonExceptionTestCases)}_02")
+                new ArgumentNullException("filePath").Message
+            ).SetArgDisplayNames($"{nameof(createForBulletPointsJsonExceptionTestCases)}_01")
 
 
         };
@@ -220,8 +212,8 @@ namespace NW.WIDJobs.UnitTests
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
-        [TestCaseSource(nameof(createForMetricsJsonTestCases))]
-        public void CreateForMetricsJson_ShouldReturnExpectedString_WhenInvoked
+        [TestCaseSource(nameof(createForMetricCollectionJsonTestCases))]
+        public void CreateForMetricCollectionJson_ShouldReturnExpectedString_WhenInvoked
             (Func<string> func, string expected)
         {
 
@@ -233,8 +225,8 @@ namespace NW.WIDJobs.UnitTests
             Assert.AreEqual(expected, actual);
 
         }
-        [TestCaseSource(nameof(createForMetricsJsonExceptionTestCases))]
-        public void CreateForMetricsJson_ShouldThrowACertainException_WhenUnproperArguments
+        [TestCaseSource(nameof(createForMetricCollectionJsonExceptionTestCases))]
+        public void CreateForMetricCollectionJson_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
@@ -256,6 +248,24 @@ namespace NW.WIDJobs.UnitTests
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
+        [TestCaseSource(nameof(createForBulletPointsJsonTestCases))]
+        public void CreateForBulletPointsJson_ShouldReturnExpectedString_WhenInvoked
+            (Func<string> func, string expected)
+        {
+
+            // Arrange
+            // Act
+            string actual = func.Invoke();
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+
+        }
+        [TestCaseSource(nameof(createForBulletPointsJsonExceptionTestCases))]
+        public void CreateForBulletPointsJson_ShouldThrowACertainException_WhenUnproperArguments
+            (TestDelegate del, Type expectedType, string expectedMessage)
+                => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
+
         // TearDown		
 
     }
@@ -263,5 +273,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 12.06.2021
+    Last Update: 30.08.2021
 */

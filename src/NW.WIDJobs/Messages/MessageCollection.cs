@@ -73,6 +73,8 @@ namespace NW.WIDJobs.Messages
             = (jobPostingId) => $"JobPostingId:'{jobPostingId}'.";
         public static Func<Stages, string> WIDExplorer_StageIs
             = (stage) => $"Stage:'{stage}'.";
+        public static Func<int, string> WIDExplorer_BulletPointsAre
+            = (bulletPoints) => $"BulletPoints:'{bulletPoints}'.";
         public static Func<Stages, string> WIDExplorer_ExecutionStageStarted
             = (stage) => $"The execution of the '{stage}' has been started.";
         public static Func<ushort, string> WIDExplorer_JobPageSuccessfullyRetrieved
@@ -138,10 +140,14 @@ namespace NW.WIDJobs.Messages
 
         public static string WIDExplorer_SavingExplorationToJsonFile
             = $"Saving the provided {nameof(Exploration)} object to a JSON file...";
-        public static Func<IFileInfoAdapter, string> WIDExplorer_JSONFileIs
-            = (jsonFile) => $"JSONFile: '{jsonFile.FullName}'.";
         public static string WIDExplorer_ExplorationSavedToJsonFile
             = $"The provided {nameof(Exploration)} object has been successfully saved to a JSON file.";
+        public static Func<IFileInfoAdapter, string> WIDExplorer_JSONFileIs
+            = (jsonFile) => $"JSONFile: '{jsonFile.FullName}'.";
+        public static string WIDExplorer_SavingBulletPointsToJsonFile
+            = $"Saving the provided {nameof(BulletPoint)} objects to a JSON file...";
+        public static string WIDExplorer_BulletPointsSavedToJsonFile
+            = $"The provided {nameof(BulletPoint)} objects have been successfully saved to a JSON file.";
 
         public static string WIDExplorer_SavingMetricCollectionToJsonFile
             = $"Saving the provided {nameof(MetricCollection)} object to a JSON file...";
@@ -174,6 +180,11 @@ namespace NW.WIDJobs.Messages
             = $"If {nameof(Stages.Stage3_UpToAllJobPostingsExtended)}, {nameof(JobPosting)} objects are not serialized.";
         public static string WIDExplorer_ConvertedExplorationToJsonString
             = $"The provided {nameof(Exploration)} object has been successfully converted to a JSON string.";
+
+        public static string WIDExplorer_ConvertingBulletPointsToJsonString
+            = $"Converting the provided {nameof(BulletPoint)} objects to a JSON string...";
+        public static string WIDExplorer_ConvertedBulletPointsToJsonString
+            = $"The provided {nameof(BulletPoint)} objects have been successfully converted to a JSON string.";
 
         public static string WIDExplorer_ConvertingMetricCollectionToJsonString
             = $"Converting the provided {nameof(MetricCollection)} object to a JSON string...";

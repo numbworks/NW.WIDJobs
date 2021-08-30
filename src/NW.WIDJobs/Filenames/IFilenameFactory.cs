@@ -31,16 +31,10 @@ namespace NW.WIDJobs.Filenames
         string CreateForDatabase(string filePath, string token, DateTime now);
 
         /// <summary>
-        /// Returns a dated filename based on <paramref name="filePath"/> and <see cref="FilenameFactory.DefaultMetricsJsonToken"/> (or <see cref="FilenameFactory.DefaultMetricsPctJsonToken"/>).
+        /// Returns a dated filename based on <paramref name="filePath"/> and <see cref="FilenameFactory.DefaultMetricCollectionJsonToken"/> (or <see cref="FilenameFactory.DefaultMetricCollectionPctJsonToken"/>).
         /// </summary>
         /// <exception cref="ArgumentNullException"/>
         string CreateForMetricCollectionJson(string filePath, DateTime now, bool numbersAsPercentages);
-
-        /// <summary>
-        /// Returns a dated filename based on <paramref name="filePath"/> and <paramref name="token"/>.
-        /// </summary>
-        /// <exception cref="ArgumentNullException"/>
-        string CreateForMetricsJson(string filePath, string token, DateTime now);
 
         /// <summary>
         /// Returns a dated filename based on <paramref name="filePath"/> and <see cref="FilenameFactory.DefaultExplorationJsonToken"/>.
@@ -49,15 +43,15 @@ namespace NW.WIDJobs.Filenames
         string CreateForExplorationJson(string filePath, DateTime now);
 
         /// <summary>
-        /// Returns a dated filename based on <paramref name="filePath"/> and <paramref name="token"/>.
+        /// Returns a dated filename based on <paramref name="filePath"/> and <see cref="FilenameFactory.DefaultBulletPointsToken"/>.
         /// </summary>
-        /// <exception cref="ArgumentNullException"/>        
-        string CreateForExplorationJson(string filePath, string token, DateTime now);
-        
+        /// <exception cref="ArgumentNullException"/>
+        string CreateForBulletPointsJson(string filePath, DateTime now);
+
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 12.06.2021
+    Last Update: 30.08.2021
 */

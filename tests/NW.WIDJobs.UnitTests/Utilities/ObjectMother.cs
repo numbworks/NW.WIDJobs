@@ -3087,19 +3087,19 @@ namespace NW.WIDJobs.UnitTests
                         FilenameFactory.DefaultDatabaseExtension
                         );
 
-        public static string FileNameFactory_MetricsJsonIfTrue
+        public static string FileNameFactory_MetricCollectionJsonIfTrue
             = string.Concat(
                         FileNameFactory_FakeFilePath,
-                        FilenameFactory.DefaultMetricsPctJsonToken,
+                        FilenameFactory.DefaultMetricCollectionPctJsonToken,
                         "_",
                         FileNameFactory_FakeNowString,
                         ".",
                         FilenameFactory.DefaultJsonExtension
                         );
-        public static string FileNameFactory_MetricsJsonIfFalse
+        public static string FileNameFactory_MetricCollectionJsonIfFalse
             = string.Concat(
                         FileNameFactory_FakeFilePath,
-                        FilenameFactory.DefaultMetricsJsonToken,
+                        FilenameFactory.DefaultMetricCollectionJsonToken,
                         "_",
                         FileNameFactory_FakeNowString,
                         ".",
@@ -3115,15 +3115,16 @@ namespace NW.WIDJobs.UnitTests
                         ".",
                         FilenameFactory.DefaultJsonExtension
                         );
-        public static string FileNameFactory_ExplorationJsonIfFilePathTokenNow
+        public static string FileNameFactory_BulletPointsJsonIfFilePathNow
             = string.Concat(
                         FileNameFactory_FakeFilePath,
-                        FileNameFactory_FakeToken,
+                        FilenameFactory.DefaultBulletPointsToken,
                         "_",
                         FileNameFactory_FakeNowString,
                         ".",
                         FilenameFactory.DefaultJsonExtension
                         );
+
 
         #endregion
 
