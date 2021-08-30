@@ -10,6 +10,7 @@ using NW.WIDJobsClient.CommandLineAccepts;
 using NW.WIDJobsClient.CommandLineValidators;
 using McMaster.Extensions.CommandLineUtils;
 using NW.WIDJobsClient.CommandLine;
+using System.Reflection;
 
 namespace NW.WIDJobsClient.UnitTests
 {
@@ -127,6 +128,76 @@ namespace NW.WIDJobsClient.UnitTests
             ).SetArgDisplayNames($"{nameof(executeExceptionTestCases)}_02")
 
         };
+        private static TestCaseData[] createOptionValueExceptionExceptionTestCases =
+        {
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => ObjectMother.CallPrivateMethod<CommandLineManager, CalculateOutputs>(new CommandLineManager(), "ConvertToCalculateOutputs", new object[1] { "nonexistantvalue" })
+                ),
+                typeof(Exception),
+                MessageCollection.CommandLineManager_OptionValueCantBeConvertedTo.Invoke("nonexistantvalue", typeof(CalculateOutputs))
+            ).SetArgDisplayNames($"{nameof(createOptionValueExceptionExceptionTestCases)}_01"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => ObjectMother.CallPrivateMethod<CommandLineManager, DescribeOutputs>(new CommandLineManager(), "ConvertToDescribeOutputs", new object[1] { "nonexistantvalue" })
+                ),
+                typeof(Exception),
+                MessageCollection.CommandLineManager_OptionValueCantBeConvertedTo.Invoke("nonexistantvalue", typeof(DescribeOutputs))
+            ).SetArgDisplayNames($"{nameof(createOptionValueExceptionExceptionTestCases)}_02"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => ObjectMother.CallPrivateMethod<CommandLineManager, MetricsOutputs>(new CommandLineManager(), "ConvertToMetricsOutputs", new object[1] { "nonexistantvalue" })
+                ),
+                typeof(Exception),
+                MessageCollection.CommandLineManager_OptionValueCantBeConvertedTo.Invoke("nonexistantvalue", typeof(MetricsOutputs))
+            ).SetArgDisplayNames($"{nameof(createOptionValueExceptionExceptionTestCases)}_03"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => ObjectMother.CallPrivateMethod<CommandLineManager, ConvertOutputs>(new CommandLineManager(), "ConvertToConvertOutputs", new object[1] { "nonexistantvalue" })
+                ),
+                typeof(Exception),
+                MessageCollection.CommandLineManager_OptionValueCantBeConvertedTo.Invoke("nonexistantvalue", typeof(ConvertOutputs))
+            ).SetArgDisplayNames($"{nameof(createOptionValueExceptionExceptionTestCases)}_04"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => ObjectMother.CallPrivateMethod<CommandLineManager, ExploreOutputs>(new CommandLineManager(), "ConvertToExploreOutputs", new object[1] { "nonexistantvalue" })
+                ),
+                typeof(Exception),
+                MessageCollection.CommandLineManager_OptionValueCantBeConvertedTo.Invoke("nonexistantvalue", typeof(ExploreOutputs))
+            ).SetArgDisplayNames($"{nameof(createOptionValueExceptionExceptionTestCases)}_05"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => ObjectMother.CallPrivateMethod<CommandLineManager, ExploreStages>(new CommandLineManager(), "ConvertToExploreStages", new object[1] { "nonexistantvalue" })
+                ),
+                typeof(Exception),
+                MessageCollection.CommandLineManager_OptionValueCantBeConvertedTo.Invoke("nonexistantvalue", typeof(ExploreStages))
+            ).SetArgDisplayNames($"{nameof(createOptionValueExceptionExceptionTestCases)}_06"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => ObjectMother.CallPrivateMethod<CommandLineManager, ThresholdTypes>(new CommandLineManager(), "ConvertToThresholdTypes", new object[1] { "nonexistantvalue" })
+                ),
+                typeof(Exception),
+                MessageCollection.CommandLineManager_OptionValueCantBeConvertedTo.Invoke("nonexistantvalue", typeof(ThresholdTypes))
+            ).SetArgDisplayNames($"{nameof(createOptionValueExceptionExceptionTestCases)}_07"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => ObjectMother.CallPrivateMethod<CommandLineManager, Stages>(new CommandLineManager(), "ConvertToStages", new object[1] { (ExploreStages)(-1) })
+                ),
+                typeof(Exception),
+                MessageCollection.CommandLineManager_OptionValueCantBeConvertedTo.Invoke("-1", typeof(Stages))
+            ).SetArgDisplayNames($"{nameof(createOptionValueExceptionExceptionTestCases)}_08")
+
+        };
+
+        // 
 
         #endregion
 
@@ -173,6 +244,11 @@ namespace NW.WIDJobsClient.UnitTests
         public void Execute_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
+
+        [TestCaseSource(nameof(createOptionValueExceptionExceptionTestCases))]
+        public void CreateOptionValueException_ShouldThrowACertainInnerException_WhenUnproperArguments
+            (TestDelegate del, Type expectedInnerType, string expectedInnerMessage)
+                => ObjectMother.Method_ShouldThrowACertainInnnerException_WhenCallPrivateMethodAndUnproperArguments(del, expectedInnerType, expectedInnerMessage);
 
         #endregion
 

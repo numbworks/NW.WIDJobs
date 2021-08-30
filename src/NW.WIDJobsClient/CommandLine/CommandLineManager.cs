@@ -621,7 +621,7 @@ namespace NW.WIDJobsClient.CommandLine
         }
         private Exception CreateMappingException<TInput, TOutput>(string value)
            => new Exception(MessageCollection.CommandLineManager_FirstEnumCantBeMapped.Invoke(typeof(TInput), typeof(TOutput), value));
-        private MetricsOutputs Map(CalculateOutputs output)
+        private MetricsOutputs MapCalculateToMetrics(CalculateOutputs output)
         {
 
             if (output.ToString() == nameof(CalculateOutputs.jsonfile))
@@ -796,7 +796,7 @@ namespace NW.WIDJobsClient.CommandLine
 
         }
         private int OrchestrateMetricCollection(WIDExplorer widExplorer, Exploration exploration, CalculateOutputs output, bool numbersAsPercentages)
-            => OrchestrateMetricCollection(widExplorer, exploration, Map(output), numbersAsPercentages);
+            => OrchestrateMetricCollection(widExplorer, exploration, MapCalculateToMetrics(output), numbersAsPercentages);
         private int OrchestrateExploration(WIDExplorer widExplorer, Exploration exploration, ExploreOutputs explorationOutput, MetricsOutputs metricsOutput, bool numbersAsPercentages)
         {
 
