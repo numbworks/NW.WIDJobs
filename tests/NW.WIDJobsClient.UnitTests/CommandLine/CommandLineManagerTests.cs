@@ -107,6 +107,26 @@ namespace NW.WIDJobsClient.UnitTests
             // The option:argument pairs can be tested because they rely on the internal FileExistance() validators.
 
         };
+        private static TestCaseData[] executeExceptionTestCases =
+        {
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new CommandLineManager().Execute( new string[] { "session", "calculate", "--jsonpath" } )
+                ),
+                typeof(CommandParsingException),
+                "Missing value for option 'jsonpath'"
+            ).SetArgDisplayNames($"{nameof(executeExceptionTestCases)}_01"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new CommandLineManager().Execute( new string[] { "session", "calculate", "--jsonpath:'F:\\exploration.json'", "--output" } )
+                ),
+                typeof(CommandParsingException),
+                "Missing value for option 'output'"
+            ).SetArgDisplayNames($"{nameof(executeExceptionTestCases)}_02")
+
+        };
 
         #endregion
 
@@ -148,6 +168,11 @@ namespace NW.WIDJobsClient.UnitTests
             Assert.AreEqual(expected, actual);
 
         }
+
+        [TestCaseSource(nameof(executeExceptionTestCases))]
+        public void Execute_ShouldThrowACertainException_WhenUnproperArguments
+            (TestDelegate del, Type expectedType, string expectedMessage)
+                => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
         #endregion
 
