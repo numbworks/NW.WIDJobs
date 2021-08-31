@@ -26,7 +26,7 @@ The command-line interface for of `NW.WIDJobsClient`:
 |service|||Success|
 |service|explore|...|Success<br />Failure|
 |extra|||Success|
-|extra|getprelabeledbulletpoints|--output:{jsonfile\|console\|both}<br />*--folderpath:{path}*|Success<br />Failure|
+|extra|prelabeledbulletpoints|--output:{jsonfile\|console\|both}<br />*--folderpath:{path}*|Success<br />Failure|
 
 # Exit codes
 

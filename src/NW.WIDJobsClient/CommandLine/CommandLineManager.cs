@@ -8,6 +8,8 @@ using NW.WIDJobsClient.Messages;
 using NW.WIDJobsClient.CommandLineAccepts;
 using NW.WIDJobsClient.CommandLineValidators;
 using McMaster.Extensions.CommandLineUtils;
+using NW.WIDJobs.BulletPoints;
+using System.Collections.Generic;
 
 namespace NW.WIDJobsClient.CommandLine
 {
@@ -36,15 +38,19 @@ namespace NW.WIDJobsClient.CommandLine
         public static string Command_Session_Description { get; } = "Groups all the features related to a single WorkInDenmark.dk exploration session.";
         public static string Command_Service_Name { get; } = "service";
         public static string Command_Service_Description { get; } = "Groups all the features related to a continuous WorkInDenmark.dk exploration.";
+        public static string Command_Extra_Name { get; } = "extra";
+        public static string Command_Extra_Description { get; } = "All the extra features that don't fit in the two main groups.";
 
         public static string SubCommand_Calculate_Name { get; } = "calculate";
         public static string SubCommand_Calculate_Description { get; } = $"Loads an {nameof(Exploration)} from a JSON file and calculates the metrics.";
         public static string SubCommand_Convert_Name { get; } = "convert";
         public static string SubCommand_Convert_Description { get; } = $"Loads an {nameof(Exploration)} from a JSON file and convert it to a SQLite database.";
         public static string SubCommand_Describe_Name { get; } = "describe";
-        public static string SubCommand_Describe_Description { get; } = $"Describes the current state of WorkInDenmark.dk. It requires internet connection to work.";
+        public static string SubCommand_Describe_Description { get; } = "Describes the current state of WorkInDenmark.dk. It requires internet connection to work.";
         public static string SubCommand_Explore_Name { get; } = "explore";
-        public static string SubCommand_Explore_Description { get; } = $"Fetches data from WorkInDenmark.dk. It requires internet connection to work.";
+        public static string SubCommand_Explore_Description { get; } = "Fetches data from WorkInDenmark.dk. It requires internet connection to work.";
+        public static string SubCommand_PreLabeledBulletPoints_Name { get; } = "prelabeledbulletpoints";
+        public static string SubCommand_PreLabeledBulletPoints_Description { get; } = "Pre-labeled examples that can be helpful to automatically categorize new bullet points via additional software.";
 
         public static string Option_JsonPath_Template { get; } = "--jsonpath";
         public static string Option_JsonPath_Description { get; } = $"The file path to the required JSON file.";
@@ -139,6 +145,7 @@ namespace NW.WIDJobsClient.CommandLine
             AddAbout(app);
             AddSession(app);
             AddService(app);
+            AddExtra(app);
 
             app.HelpOption(inherited: true);
 
@@ -377,6 +384,62 @@ namespace NW.WIDJobsClient.CommandLine
             return serviceCommand;
 
         }
+        private CommandLineApplication AddExtra(CommandLineApplication app)
+        {
+
+            app.Command(Command_Extra_Name, extraCommand =>
+            {
+
+                extraCommand = AddExtraMain(extraCommand);
+                extraCommand = AddExtraPreLabeledBulletPoints(extraCommand);
+
+            });
+
+            return app;
+
+        }
+        private CommandLineApplication AddExtraMain(CommandLineApplication extraCommand)
+        {
+
+            extraCommand.Description = Command_Extra_Description;
+            extraCommand.OnExecute(() =>
+            {
+
+                int exitCode = GenericCommand();
+                extraCommand.ShowHelp();
+
+                return exitCode;
+
+            });
+
+            return extraCommand;
+
+        }
+        private CommandLineApplication AddExtraPreLabeledBulletPoints(CommandLineApplication extraCommand)
+        {
+
+            extraCommand.Command(SubCommand_PreLabeledBulletPoints_Name, preLabeledBulletPointsSubCommand =>
+            {
+
+                preLabeledBulletPointsSubCommand.Description = SubCommand_PreLabeledBulletPoints_Description;
+
+                CommandOption outputOption = CreateRequiredPreLabeledBulletPointsOutputOption(preLabeledBulletPointsSubCommand);
+                CommandOption folderPathOption = CreateOptionalFolderPathOption(preLabeledBulletPointsSubCommand);
+
+                preLabeledBulletPointsSubCommand.OnExecute(() =>
+                {
+
+                    return ExtraPreLabeledBulletPoints(
+                                ConvertToPreLabeledBulletPointsOutputs(outputOption.Value()),
+                                folderPathOption.Value());
+
+                });
+
+            });
+
+            return extraCommand;
+
+        }
 
         private CommandOption CreateRequiredCalculateOutputOption(CommandLineApplication subCommand)
         {
@@ -419,7 +482,17 @@ namespace NW.WIDJobsClient.CommandLine
 
             return subCommand
                     .Option(Option_MetricsOutput_Template, Option_MetricsOutput_Description, CommandOptionType.SingleValue)
-                    .Accepts(validator => validator.Enum<MetricsOutputs>());
+                    .Accepts(validator => validator.Enum<MetricsOutputs>())
+                    .IsRequired(false, Option_ExplorationOutput_ErrorMessage);
+
+        }
+        private CommandOption CreateRequiredPreLabeledBulletPointsOutputOption(CommandLineApplication subCommand)
+        {
+
+            return subCommand
+                    .Option(Option_Output_Template, Option_Output_Description, CommandOptionType.SingleValue)
+                    .Accepts(validator => validator.Enum<PreLabeledBulletPointsOutputs>())
+                    .IsRequired(false, Option_Output_ErrorMessage);
 
         }
         private CommandOption CreateRequiredJsonPathOption(CommandLineApplication subCommand)
@@ -580,6 +653,21 @@ namespace NW.WIDJobsClient.CommandLine
             throw CreateOptionValueException<ExploreOutputs>(optionValue);
 
         }
+        private PreLabeledBulletPointsOutputs ConvertToPreLabeledBulletPointsOutputs(string optionValue)
+        {
+
+            if (optionValue == nameof(PreLabeledBulletPointsOutputs.jsonfile))
+                return PreLabeledBulletPointsOutputs.jsonfile;
+
+            if (optionValue == nameof(PreLabeledBulletPointsOutputs.console))
+                return PreLabeledBulletPointsOutputs.console;
+
+            if (optionValue == nameof(PreLabeledBulletPointsOutputs.both))
+                return PreLabeledBulletPointsOutputs.both;
+
+            throw CreateOptionValueException<PreLabeledBulletPointsOutputs>(optionValue);
+
+        }
         private ExploreStages ConvertToExploreStages(string optionValue)
         {
 
@@ -698,6 +786,16 @@ namespace NW.WIDJobsClient.CommandLine
             return Success;
 
         }
+        private int DumpBulletPointsToConsole(WIDExplorer widExplorer, List<BulletPoint> bulletPoints)
+        {
+
+            string json = widExplorer.ConvertToJson(bulletPoints);
+            DumpJsonToConsole(json);
+            _defaultComponents.LoggingActionAsciiBanner.Invoke(string.Empty);
+
+            return Success;
+
+        }
         private int DumpExplorationToConsoleAndSaveToJsonFile(WIDExplorer widExplorer, Exploration exploration)
         {
 
@@ -735,6 +833,14 @@ namespace NW.WIDJobsClient.CommandLine
             return SaveMetricCollectionToJsonFile(widExplorer, metricCollection, numbersAsPercentages);
 
         }
+        private int DumpBulletPointsToConsoleAndSaveToJsonFile(WIDExplorer widExplorer, List<BulletPoint> bulletPoints)
+        {
+
+            DumpBulletPointsToConsole(widExplorer, bulletPoints);
+
+            return SaveBulletPointsToJsonFile(widExplorer, bulletPoints);
+
+        }
         private int SaveExplorationToJsonFile(WIDExplorer widExplorer, Exploration exploration)
         {
 
@@ -764,6 +870,14 @@ namespace NW.WIDJobsClient.CommandLine
         {
 
             IFileInfoAdapter fileInfoAdapter = widExplorer.SaveToJsonFile(metricCollection, numbersAsPercentages);
+
+            return HandleFileExistance(fileInfoAdapter);
+
+        }
+        private int SaveBulletPointsToJsonFile(WIDExplorer widExplorer, List<BulletPoint> bulletPoints)
+        {
+
+            IFileInfoAdapter fileInfoAdapter = widExplorer.SaveToJsonFile(bulletPoints);
 
             return HandleFileExistance(fileInfoAdapter);
 
@@ -862,6 +976,21 @@ namespace NW.WIDJobsClient.CommandLine
             }
 
             throw CreateOptionValueException<ExploreOutputs>(explorationOutput.ToString());
+
+        }
+        private int OrchestrateBulletPoints(WIDExplorer widExplorer, PreLabeledBulletPointsOutputs output, List<BulletPoint> bulletPoints)
+        {
+
+            if (output == PreLabeledBulletPointsOutputs.console)
+                return DumpBulletPointsToConsole(widExplorer, bulletPoints);
+
+            if (output == PreLabeledBulletPointsOutputs.jsonfile)
+                return SaveBulletPointsToJsonFile(widExplorer, bulletPoints);
+
+            if (output == PreLabeledBulletPointsOutputs.both)
+                return DumpBulletPointsToConsoleAndSaveToJsonFile(widExplorer, bulletPoints);
+
+            throw CreateOptionValueException<PreLabeledBulletPointsOutputs>(output.ToString());
 
         }
 
@@ -1027,6 +1156,29 @@ namespace NW.WIDJobsClient.CommandLine
             }
 
         }
+        private int ExtraPreLabeledBulletPoints(PreLabeledBulletPointsOutputs output, string folderPath)
+        {
+
+            try
+            {
+
+                LogAsciiBanner();
+
+                WIDExplorerSettings settings = _settingsFactory.Create(folderPath: folderPath);
+                WIDExplorer widExplorer = Create(_defaultComponents, settings);
+                List<BulletPoint> bulletPoints = widExplorer.GetPreLabeledBulletPoints();
+
+                return OrchestrateBulletPoints(widExplorer, output, bulletPoints);
+
+            }
+            catch (Exception e)
+            {
+
+                return DumpExceptionToConsole(e);
+
+            }
+
+        }
 
         #endregion
 
@@ -1035,5 +1187,5 @@ namespace NW.WIDJobsClient.CommandLine
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 28.08.2021
+    Last Update: 31.08.2021
 */
