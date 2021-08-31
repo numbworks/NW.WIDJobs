@@ -4,6 +4,22 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
 
     <IsPackable>false</IsPackable>
+
+    <Authors>numbworks</Authors>
+
+    <Company>numbworks</Company>
+
+    <Copyright>numbworks 2021</Copyright>
+
+    <PackageProjectUrl>https://github.com/numbworks/NW.WIDJobs</PackageProjectUrl>
+
+    <RepositoryUrl>https://github.com/numbworks/NW.WIDJobs</RepositoryUrl>
+
+    <PackageTags>library csharp commandline opendata jobs jobsads</PackageTags>
+
+    <PackageIcon>numbworks_logo_128x128px.png</PackageIcon>
+
+    <PackageIconUrl />
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,6 +29,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\NW.WIDJobsClient\NW.WIDJobsClient.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\numbworks_logo_128x128px.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

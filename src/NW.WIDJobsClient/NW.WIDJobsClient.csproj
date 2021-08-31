@@ -3,6 +3,17 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Authors>numbworks</Authors>
+    <Company>numbworks</Company>
+    <Copyright>numbworks 2021</Copyright>
+    <PackageProjectUrl>https://github.com/numbworks/NW.WIDJobs</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/numbworks/NW.WIDJobs</RepositoryUrl>
+    <AssemblyName>widjobs</AssemblyName>
+    <PackageIcon>numbworks_logo_128x128px.png</PackageIcon>
+    <PackageIconUrl />
+    <Description>NW.WIDJobsClient (widjobs.exe) is an unofficial command-line client for WorkInDenmark.dk, based on the NW.WIDJobs library.</Description>
+    <PackageTags>library csharp commandline opendata jobs jobsads</PackageTags>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,6 +23,13 @@
   <ItemGroup>
     <ProjectReference Include="..\..\tests\NW.WIDJobs.UnitTests\NW.WIDJobs.UnitTests.csproj" />
     <ProjectReference Include="..\NW.WIDJobs\NW.WIDJobs.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\numbworks_logo_128x128px.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

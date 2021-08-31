@@ -9,7 +9,7 @@ Contact: numbworks@gmail.com
 
 ## Introduction
 
-`NW.WIDJobsClient` is an unofficial command-line client for `WorkInDenmark.dk`, based on the `NW.WIDJobs` library.
+`NW.WIDJobsClient` (`widjobs.exe`) is an unofficial command-line client for `WorkInDenmark.dk`, based on the `NW.WIDJobs` library.
 
 # The CLI
 

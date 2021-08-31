@@ -9,7 +9,7 @@ Contact: numbworks@gmail.com
 
 ## Introduction
 
-`NW.WIDJobs` is a `.NET Standard 2.0` library written in `C#` to explore `WorkInDenmark.dk` and fetch the most recent job ads published.
+`NW.WIDJobs` is a `.NET Standard 2.1` library written in `C#` to explore `WorkInDenmark.dk` and fetch the most recent job ads.
 
 # The URLs
 
