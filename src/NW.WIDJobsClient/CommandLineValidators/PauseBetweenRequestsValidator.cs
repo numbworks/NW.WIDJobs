@@ -42,6 +42,10 @@ namespace NW.WIDJobsClient.CommandLineValidators
         public ValidationResult GetValidationResult(CommandOption option, ValidationContext context)
         {
 
+            // We need to accept also nulls because --pausebetweenrequestsms is optional.
+            if (string.IsNullOrWhiteSpace(option.Value()))
+                return ValidationResult.Success;
+
             if (_pauseBetweenRequestsManager.IsValid(option.Value()))
                 return ValidationResult.Success;
 
