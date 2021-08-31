@@ -10,6 +10,7 @@
     <Copyright>numbworks 2021</Copyright>
     <Company>numbworks</Company>
     <Authors>numbworks</Authors>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>

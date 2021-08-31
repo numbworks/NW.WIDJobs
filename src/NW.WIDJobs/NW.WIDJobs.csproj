@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+			<PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Authors>numbworks</Authors>
     <Company>numbworks</Company>
     <Copyright>numbworks 2021</Copyright>

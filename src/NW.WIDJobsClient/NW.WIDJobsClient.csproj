@@ -14,6 +14,7 @@
     <Description>NW.WIDJobsClient (widjobs.exe) is an unofficial command-line client for WorkInDenmark.dk, based on the NW.WIDJobs library.</Description>
     <PackageTags>library csharp commandline opendata jobs jobsads</PackageTags>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+			<PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PublishTrimmed>false</PublishTrimmed>
     <PublishReadyToRun>true</PublishReadyToRun>
     <PublishSingleFile>true</PublishSingleFile>
