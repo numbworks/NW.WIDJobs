@@ -193,8 +193,8 @@ namespace NW.WIDJobs.Messages
 
         public static string WIDExplorer_RetrievingPreLabeledBulletPoints
             = $"Retrieving pre-labeled {nameof(BulletPoint)} objects...";
-        public static Func<List<BulletPoint>, string> WIDExplorer_PreLabeledBulletPointsRetrieved
-            = (bulletPoints) => $"'{bulletPoints.Count}' {nameof(BulletPoint)} objects has been successfully retrieved.";
+        public static Func<int, string> WIDExplorer_PreLabeledBulletPointsRetrieved
+            = (bulletPoints) => $"'{bulletPoints}' {nameof(BulletPoint)} objects has been successfully retrieved.";
 
         #endregion
 

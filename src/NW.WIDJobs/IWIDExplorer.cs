@@ -28,6 +28,9 @@ namespace NW.WIDJobs
         /// <summary>Converts the provided <see cref="MetricCollection"/> to JSON format.</summary>
         string ConvertToJson(MetricCollection metricCollection, bool numbersAsPercentages);
 
+        /// <summary>Converts the provided collection of <see cref="BulletPoint"/> objects to JSON format.</summary>
+        string ConvertToJson(List<BulletPoint> bulletPoints);
+
         /// <summary>Converts the provided JSON format to a collection of <see cref="JobPosting"/> objects.</summary>
         List<JobPosting> LoadJobPostingsFromJsonFile(IFileInfoAdapter jsonFile);
 
@@ -51,6 +54,12 @@ namespace NW.WIDJobs
 
         /// <summary>Save the provided <see cref="MetricCollection"/> to a JSON file.</summary>
         IFileInfoAdapter SaveToJsonFile(MetricCollection metricCollection, bool numbersAsPercentages, IFileInfoAdapter jsonFile);
+
+        /// <summary>Save the provided collection of <see cref="BulletPoint"/> objects to a JSON file.</summary>
+        IFileInfoAdapter SaveToJsonFile(List<BulletPoint> bulletPoints, IFileInfoAdapter jsonFile);
+
+        /// <summary>Save the provided collection of <see cref="BulletPoint"/> objects to a JSON file using a default filename and path</summary>
+        IFileInfoAdapter SaveToJsonFile(List<BulletPoint> bulletPoints);
 
         /// <summary>Save the provided <see cref="JobPostingExtended"/> objects to a SQLite database using a default filename and path.</summary>
         IFileInfoAdapter SaveToSQLiteDatabase(List<JobPostingExtended> jobPostingsExtended);
@@ -87,5 +96,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 24.08.2021
+    Last Update: 31.08.2021
 */

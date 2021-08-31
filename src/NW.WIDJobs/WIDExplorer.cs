@@ -79,7 +79,7 @@ namespace NW.WIDJobs
 
             List<BulletPoint> bulletPoints = _components.BulletPointManager.GetPreLabeledExamples();
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PreLabeledBulletPointsRetrieved.Invoke(bulletPoints));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PreLabeledBulletPointsRetrieved.Invoke(bulletPoints.Count));
 
             return bulletPoints;
 
@@ -100,7 +100,7 @@ namespace NW.WIDJobs
 
             return metricCollection;
 
-        }
+        }      
         public string ConvertToJson(Exploration exploration)
         {
 
@@ -134,6 +134,21 @@ namespace NW.WIDJobs
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ConvertedMetricsCollectionToJsonString);
 
             return JsonSerializer.Serialize(dyn, CreateJsonSerializerOptions());
+
+        }
+        public string ConvertToJson(List<BulletPoint> bulletPoints)
+        {
+
+            Validator.ValidateList(bulletPoints, nameof(bulletPoints));
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ConvertingBulletPointsToJsonString);
+            LogSharedSerializationOptions();
+
+            string json = JsonSerializer.Serialize(bulletPoints, CreateJsonSerializerOptions());
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ConvertedBulletPointsToJsonString);
+
+            return json;
 
         }
         public List<JobPosting> LoadJobPostingsFromJsonFile(IFileInfoAdapter jsonFile)
@@ -205,10 +220,7 @@ namespace NW.WIDJobs
             string fullName = _components.FilenameFactory.CreateForMetricCollectionJson(_settings.FolderPath, now, numbersAsPercentages);
             IFileInfoAdapter jsonFile = new FileInfoAdapter(fullName);
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_MethodCalledWithoutIFileInfoAdapter.Invoke(nameof(SaveToJsonFile)));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DefaultValuesCreateIFileInfoAdapter);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FolderPathIs.Invoke(_settings.FolderPath));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_NowIs.Invoke(now));
+            LogSharedSaveTo(nameof(SaveToJsonFile), now);
 
             return SaveToJsonFile(metricCollection, numbersAsPercentages, jsonFile);
 
@@ -238,12 +250,39 @@ namespace NW.WIDJobs
             string fullName = _components.FilenameFactory.CreateForExplorationJson(_settings.FolderPath, now);
             IFileInfoAdapter jsonFile = new FileInfoAdapter(fullName);
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_MethodCalledWithoutIFileInfoAdapter.Invoke(nameof(SaveToJsonFile)));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DefaultValuesCreateIFileInfoAdapter);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FolderPathIs.Invoke(_settings.FolderPath));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_NowIs.Invoke(now));
+            LogSharedSaveTo(nameof(SaveToJsonFile), now);
 
             return SaveToJsonFile(exploration, jsonFile);
+
+        }
+        public IFileInfoAdapter SaveToJsonFile(List<BulletPoint> bulletPoints, IFileInfoAdapter jsonFile)
+        {
+
+            Validator.ValidateList(bulletPoints, nameof(bulletPoints));
+            Validator.ValidateObject(jsonFile, nameof(jsonFile));
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SavingBulletPointsToJsonFile);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_BulletPointsAre.Invoke(bulletPoints.Count));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JSONFileIs.Invoke(jsonFile));
+
+            string json = ConvertToJson(bulletPoints);
+            _components.FileManager.WriteAllText(jsonFile, json);
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_BulletPointsSavedToJsonFile);
+
+            return jsonFile;
+
+        }
+        public IFileInfoAdapter SaveToJsonFile(List<BulletPoint> bulletPoints)
+        {
+
+            DateTime now = _components.NowFunction.Invoke();
+            string fullName = _components.FilenameFactory.CreateForBulletPointsJson(_settings.FolderPath, now);
+            IFileInfoAdapter jsonFile = new FileInfoAdapter(fullName);
+
+            LogSharedSaveTo(nameof(SaveToJsonFile), now);
+
+            return SaveToJsonFile(bulletPoints, jsonFile);
 
         }
         public IFileInfoAdapter SaveToSQLiteDatabase(List<JobPostingExtended> jobPostingsExtended, IFileInfoAdapter databaseFile, bool deleteAndRecreateDatabase)
@@ -276,10 +315,7 @@ namespace NW.WIDJobs
             string fullName = _components.FilenameFactory.CreateForDatabase(_settings.FolderPath, now);
             IFileInfoAdapter databaseFile = new FileInfoAdapter(fullName);
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_MethodCalledWithoutIFileInfoAdapter.Invoke(nameof(SaveToJsonFile)));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DefaultValuesCreateIFileInfoAdapter);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FolderPathIs.Invoke(_settings.FolderPath));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_NowIs.Invoke(now));
+            LogSharedSaveTo(nameof(SaveToJsonFile), now);
 
             return SaveToSQLiteDatabase(jobPostingsExtended, databaseFile, _settings.DeleteAndRecreateDatabase);
 
@@ -543,6 +579,15 @@ namespace NW.WIDJobs
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationCompleted);
 
             return exploration;
+
+        }
+        private void LogSharedSaveTo(string methodName, DateTime now)
+        {
+
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_MethodCalledWithoutIFileInfoAdapter.Invoke(methodName));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DefaultValuesCreateIFileInfoAdapter);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FolderPathIs.Invoke(_settings.FolderPath));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_NowIs.Invoke(now));
 
         }
 
@@ -950,5 +995,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 24.08.2021
+    Last Update: 31.08.2021
 */

@@ -3999,6 +3999,8 @@ namespace NW.WIDJobs.UnitTests
             = Properties.Resources.ExplorationStage3MCNumbersAsJson;
         public static string WIDExplorer_ExplorationStage3MetricCollectionPercentagesAsJson_Content
             = Properties.Resources.ExplorationStage3MCPercentagesAsJson;
+        public static string WIDExplorer_PreLabeledBulletPointsAsJson_Content
+            = Properties.Resources.PreLabeledBulletPointsAsJson;
 
         public static string WIDExplorer_JobPage01_FakeFilePath = @"C:\JobPage01.json";
         public static string WIDExplorer_FakeFolderPath = @"C:\";

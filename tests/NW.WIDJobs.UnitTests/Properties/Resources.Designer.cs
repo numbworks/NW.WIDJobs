@@ -65,22 +65,23 @@ namespace NW.WIDJobs.UnitTests.Properties {
         ///  &quot;RunId&quot;: &quot;FakeRunId&quot;,
         ///  &quot;TotalResultCount&quot;: 2177,
         ///  &quot;TotalJobPages&quot;: 109,
-        ///  &quot;Stage&quot;: 2,
+        ///  &quot;Stage&quot;: &quot;Stage3_UpToAllJobPostingsExtended&quot;,
         ///  &quot;IsCompleted&quot;: true,
         ///  &quot;JobPages&quot;: [
         ///    {
         ///      &quot;RunId&quot;: &quot;FakeRunId&quot;,
         ///      &quot;PageNumber&quot;: 1,
-        ///      &quot;Response&quot;: &quot;This item has been exluded from the serializazion.&quot;
+        ///      &quot;Response&quot;: &quot;This item has been exluded from the serialization.&quot;
         ///    },
         ///    {
         ///      &quot;RunId&quot;: &quot;FakeRunId&quot;,
         ///      &quot;PageNumber&quot;: 2,
-        ///      &quot;Response&quot;: &quot;This item has been exluded from the serializazion.&quot;
+        ///      &quot;Response&quot;: &quot;This item has been exluded from the serialization.&quot;
         ///    }
         ///  ],
-        ///  &quot;JobPostings&quot;: &quot;This item has been exluded from the serializazion.&quot;,
-        ///  &quot;JobPostingsExt [rest of string was truncated]&quot;;.
+        ///  &quot;JobPostings&quot;: [
+        ///    {
+        ///      &quot;RunId&quot;: &quot;FakeRunId&quot;,        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ExplorationStage3AsJson {
             get {
@@ -1226,8 +1227,7 @@ namespace NW.WIDJobs.UnitTests.Properties {
         ///
         ///	&lt;!-- OneTrust Cookie Consent - START --&gt;
         ///	&lt;!-- OneTrust Cookies Consent Notice start for www.novonordisk.dk --&gt;
-        ///&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdn.cookielaw.org/consent/ef63df1a-7968-4c59-944c-931160f6fff8/OtAutoBlock.js&quot;&gt;&lt;/script&gt;
-        ///&lt;script  [rest of string was truncated]&quot;;.
+        ///&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdn.cookielaw.org/consent/ef63df1a-7968-4c59-944c-931160f6fff8/OtAutoBlock.js&quot;&gt;&lt;/ [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string JobPage02_JobPostingExtended10 {
             get {
@@ -1254,8 +1254,7 @@ namespace NW.WIDJobs.UnitTests.Properties {
         ///
         ///	&lt;!-- OneTrust Cookie Consent - START --&gt;
         ///	&lt;!-- OneTrust Cookies Consent Notice start for www.novonordisk.dk --&gt;
-        ///&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdn.cookielaw.org/consent/ef63df1a-7968-4c59-944c-931160f6fff8/OtAutoBlock.js&quot;&gt;&lt;/script&gt;
-        ///&lt;script  [rest of string was truncated]&quot;;.
+        ///&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdn.cookielaw.org/consent/ef63df1a-7968-4c59-944c-931160f6fff8/OtAutoBlock.js&quot;&gt;&lt;/ [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string JobPage02_JobPostingExtended11 {
             get {
@@ -1279,7 +1278,7 @@ namespace NW.WIDJobs.UnitTests.Properties {
         ///  &lt;script src=&quot;https://cms.ku.dk/scripts_js/cookies/cookie_filters.js?ku_rollout_2021_07_01_version763&quot;&gt;&lt;/script&gt;
         ///
         ///
-        ///  &lt;title&gt;Two postdoctoral positions in field-based  [rest of string was truncated]&quot;;.
+        ///  &lt;title&gt;Two postdoctoral positions  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string JobPage02_JobPostingExtended12 {
             get {
@@ -1326,7 +1325,7 @@ namespace NW.WIDJobs.UnitTests.Properties {
         ///	&lt;link rel=&quot;icon&quot; href=&quot;/assets/images/favicon.ico&quot;&gt;
         ///
         ///    &lt;!-- Stylesheets --&gt;
-        ///    &lt;style type=&quot;text [rest of string was truncated]&quot;;.
+        ///    &lt; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string JobPage02_JobPostingExtended14 {
             get {
@@ -1415,7 +1414,7 @@ namespace NW.WIDJobs.UnitTests.Properties {
         ///            &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
         ///                &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
         ///                        &lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;/platform/bootstrap/3.4.1/css/bootstrap.min.css&quot; /&gt;
-        ///                        [rest of string was truncated]&quot;;.
+        ///                [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string JobPage02_JobPostingExtended19 {
             get {
@@ -1440,7 +1439,7 @@ namespace NW.WIDJobs.UnitTests.Properties {
         ///	&lt;link rel=&quot;icon&quot; href=&quot;/assets/images/favicon.ico&quot;&gt;
         ///
         ///    &lt;!-- Stylesheets --&gt;
-        ///    &lt;style type=&quot;text [rest of string was truncated]&quot;;.
+        ///    &lt; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string JobPage02_JobPostingExtended20 {
             get {
@@ -1472,6 +1471,34 @@ namespace NW.WIDJobs.UnitTests.Properties {
         internal static string JobPage02_json {
             get {
                 return ResourceManager.GetString("JobPage02_json", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [
+        ///  {
+        ///    &quot;Label&quot;: &quot;JobDuty&quot;,
+        ///    &quot;Text&quot;: &quot;Flexible working hours are occasionally required&quot;
+        ///  },
+        ///  {
+        ///    &quot;Label&quot;: &quot;JobDuty&quot;,
+        ///    &quot;Text&quot;: &quot;Setting up tests and data acquisition for NVH testing.&quot;
+        ///  },
+        ///  {
+        ///    &quot;Label&quot;: &quot;JobDuty&quot;,
+        ///    &quot;Text&quot;: &quot;Carry out hot vibration testing on exhaust aftertreatment systems.&quot;
+        ///  },
+        ///  {
+        ///    &quot;Label&quot;: &quot;JobDuty&quot;,
+        ///    &quot;Text&quot;: &quot;Analyze road load data and extract vibration profiles for subsequent use in vibration testing.&quot;
+        ///  },
+        ///  {
+        ///    &quot;Label&quot;: &quot;JobDuty&quot;,
+        ///    &quot;Text [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string PreLabeledBulletPointsAsJson {
+            get {
+                return ResourceManager.GetString("PreLabeledBulletPointsAsJson", resourceCulture);
             }
         }
     }

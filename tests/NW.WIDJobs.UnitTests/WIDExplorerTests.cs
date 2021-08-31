@@ -168,7 +168,7 @@ namespace NW.WIDJobs.UnitTests
             ).SetArgDisplayNames($"{nameof(loadExplorationFromJsonExceptionTestCases)}_03")
 
         };
-        private static TestCaseData[] saveAsSQLiteExceptionTestCases =
+        private static TestCaseData[] saveToSQLiteDatabaseExceptionTestCases =
         {
 
             new TestCaseData(
@@ -181,7 +181,7 @@ namespace NW.WIDJobs.UnitTests
                         )),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("jobPostingsExtended").Message
-            ).SetArgDisplayNames($"{nameof(saveAsSQLiteExceptionTestCases)}_01"),
+            ).SetArgDisplayNames($"{nameof(saveToSQLiteDatabaseExceptionTestCases)}_01"),
 
             new TestCaseData(
                 new TestDelegate(
@@ -193,22 +193,22 @@ namespace NW.WIDJobs.UnitTests
                         )),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("databaseFile").Message
-            ).SetArgDisplayNames($"{nameof(saveAsSQLiteExceptionTestCases)}_02")
+            ).SetArgDisplayNames($"{nameof(saveToSQLiteDatabaseExceptionTestCases)}_02")
 
         };
-        private static TestCaseData[] saveAsJsonExceptionTestCases =
+        private static TestCaseData[] saveToJsonFileExceptionTestCases =
         {
 
             new TestCaseData(
                 new TestDelegate(
                     () => new WIDExplorer()
                                 .SaveToJsonFile(
-                                    null,
-                                    ObjectMother.FileManager_FileInfoAdapterDoesntExist
+                                    (Exploration)null,
+                                    ObjectMother.FileManager_FileInfoAdapterExists
                         )),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("exploration").Message
-            ).SetArgDisplayNames($"{nameof(saveAsJsonExceptionTestCases)}_01"),
+            ).SetArgDisplayNames($"{nameof(saveToJsonFileExceptionTestCases)}_01"),
 
             new TestCaseData(
                 new TestDelegate(
@@ -219,7 +219,7 @@ namespace NW.WIDJobs.UnitTests
                         )),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("jsonFile").Message
-            ).SetArgDisplayNames($"{nameof(saveAsJsonExceptionTestCases)}_02"),
+            ).SetArgDisplayNames($"{nameof(saveToJsonFileExceptionTestCases)}_02"),
 
             new TestCaseData(
                 new TestDelegate(
@@ -227,11 +227,11 @@ namespace NW.WIDJobs.UnitTests
                                 .SaveToJsonFile(
                                     null,
                                     true,
-                                    ObjectMother.FileManager_FileInfoAdapterDoesntExist
+                                    ObjectMother.FileManager_FileInfoAdapterExists
                         )),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("metricCollection").Message
-            ).SetArgDisplayNames($"{nameof(saveAsJsonExceptionTestCases)}_03"),
+            ).SetArgDisplayNames($"{nameof(saveToJsonFileExceptionTestCases)}_03"),
 
             new TestCaseData(
                 new TestDelegate(
@@ -243,7 +243,29 @@ namespace NW.WIDJobs.UnitTests
                         )),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("jsonFile").Message
-            ).SetArgDisplayNames($"{nameof(saveAsJsonExceptionTestCases)}_04")
+            ).SetArgDisplayNames($"{nameof(saveToJsonFileExceptionTestCases)}_04"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new WIDExplorer()
+                                .SaveToJsonFile(
+                                    (List<BulletPoint>)null,
+                                    null
+                        )),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("bulletPoints").Message
+            ).SetArgDisplayNames($"{nameof(saveToJsonFileExceptionTestCases)}_05"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new WIDExplorer()
+                                .SaveToJsonFile(
+                                    new BulletPointManager().GetPreLabeledExamples(),
+                                    null
+                        )),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("jsonFile").Message
+            ).SetArgDisplayNames($"{nameof(saveToJsonFileExceptionTestCases)}_06")
 
         };
         private static TestCaseData[] convertToJsonExceptionTestCases =
@@ -251,7 +273,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new WIDExplorer().ConvertToJson(null)),
+                    () => new WIDExplorer().ConvertToJson((Exploration)null)),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("exploration").Message
             ).SetArgDisplayNames($"{nameof(convertToJsonExceptionTestCases)}_01"),
@@ -261,7 +283,14 @@ namespace NW.WIDJobs.UnitTests
                     () => new WIDExplorer().ConvertToJson(null, true)),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("metricCollection").Message
-            ).SetArgDisplayNames($"{nameof(convertToJsonExceptionTestCases)}_02")
+            ).SetArgDisplayNames($"{nameof(convertToJsonExceptionTestCases)}_02"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new WIDExplorer().ConvertToJson((List<BulletPoint>)null)),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("bulletPoints").Message
+            ).SetArgDisplayNames($"{nameof(convertToJsonExceptionTestCases)}_03")
 
         };
         private static TestCaseData[] convertToMetricCollectionExceptionTestCases =
@@ -323,13 +352,13 @@ namespace NW.WIDJobs.UnitTests
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
-        [TestCaseSource(nameof(saveAsSQLiteExceptionTestCases))]
-        public void SaveAsSQLite_ShouldThrowACertainException_WhenUnproperArguments
+        [TestCaseSource(nameof(saveToSQLiteDatabaseExceptionTestCases))]
+        public void SaveToSQLiteDatabase_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
-        [TestCaseSource(nameof(saveAsJsonExceptionTestCases))]
-        public void SaveAsJson_ShouldThrowACertainException_WhenUnproperArguments
+        [TestCaseSource(nameof(saveToJsonFileExceptionTestCases))]
+        public void SaveToJsonFile_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
@@ -399,7 +428,7 @@ namespace NW.WIDJobs.UnitTests
             {
 
                 MessageCollection.WIDExplorer_RetrievingPreLabeledBulletPoints,
-                MessageCollection.WIDExplorer_PreLabeledBulletPointsRetrieved.Invoke(expected)
+                MessageCollection.WIDExplorer_PreLabeledBulletPointsRetrieved.Invoke(expected.Count)
 
             };
 
@@ -644,6 +673,61 @@ namespace NW.WIDJobs.UnitTests
 
             // Act
             string actual = widExplorer.ConvertToJson(ObjectMother.MetricCollection_ExplorationStage3, numbersAsPercentages);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
+
+        }
+
+        [Test]
+        public void ConvertToJson_ShouldReturnExpectedStringAndLogExpectedMessages_WhenProperBulletPoints()
+        {
+
+            // Arrange
+            int expectedCount = 379;
+            string expected = ObjectMother.WIDExplorer_PreLabeledBulletPointsAsJson_Content;
+            List<string> expectedLogMessages = new List<string>()
+            {
+
+                MessageCollection.WIDExplorer_RetrievingPreLabeledBulletPoints,
+                MessageCollection.WIDExplorer_PreLabeledBulletPointsRetrieved.Invoke(expectedCount),
+                MessageCollection.WIDExplorer_ConvertingBulletPointsToJsonString,
+                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
+                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
+                MessageCollection.WIDExplorer_ConvertedBulletPointsToJsonString
+
+            };
+
+            FakeLogger fakeLogger = new FakeLogger();
+            Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
+            FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
+            Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
+            WIDExplorerComponents components = new WIDExplorerComponents(
+                    loggingAction: fakeLoggingAction,
+                    loggingActionAsciiBanner: fakeLoggingActionAsciiBanner,
+                    xpathManager: new XPathManager(),
+                    getRequestManager: new GetRequestManager(),
+                    jobPageDeserializer: new JobPageDeserializer(),
+                    jobPageManager: new JobPageManager(),
+                    jobPostingDeserializer: new JobPostingDeserializer(),
+                    jobPostingManager: new JobPostingManager(),
+                    jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
+                    jobPostingExtendedManager: new JobPostingExtendedManager(),
+                    runIdManager: new RunIdManager(),
+                    metricCollectionManager: new MetricCollectionManager(),
+                    fileManager: new FileManager(),
+                    repositoryFactory: new RepositoryFactory(),
+                    asciiBannerManager: new AsciiBannerManager(),
+                    filenameFactory: new FilenameFactory(),
+                    bulletPointManager: new BulletPointManager(),
+                    nowFunction: WIDExplorerComponents.DefaultNowFunction
+                  );
+            WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
+
+            // Act
+            List<BulletPoint> bulletPoints = widExplorer.GetPreLabeledBulletPoints();
+            string actual = widExplorer.ConvertToJson(bulletPoints);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -1189,6 +1273,78 @@ namespace NW.WIDJobs.UnitTests
 
             // Act
             IFileInfoAdapter actual = widExplorer.SaveToJsonFile(exploration);
+
+            // Assert
+            Assert.AreEqual(expected.FullName, actual.FullName);
+            Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
+
+        }
+
+        [Test]
+        public void SaveToJsonFile_ShouldWriteJsonFileToDiskAndLogExpectedMessages_WhenProperBulletPoints()
+        {
+
+            // Arrange
+            List<BulletPoint> bulletPoints = new BulletPointManager().GetPreLabeledExamples();
+            DateTime now = ObjectMother.WIDExplorer_FakeNowFunction.Invoke();
+            string fakeFullName = new FilenameFactory().CreateForBulletPointsJson(ObjectMother.WIDExplorer_FakeFolderPath, now);
+            IFileInfoAdapter expected = new FakeFileInfoAdapter(false, fakeFullName);
+            List<string> expectedLogMessages = new List<string>()
+            {
+
+                MessageCollection.WIDExplorer_MethodCalledWithoutIFileInfoAdapter.Invoke("SaveToJsonFile"),
+                MessageCollection.WIDExplorer_DefaultValuesCreateIFileInfoAdapter,
+                MessageCollection.WIDExplorer_FolderPathIs.Invoke(ObjectMother.WIDExplorer_FakeFolderPath),
+                MessageCollection.WIDExplorer_NowIs.Invoke(now),
+
+                MessageCollection.WIDExplorer_SavingBulletPointsToJsonFile,
+                MessageCollection.WIDExplorer_BulletPointsAre.Invoke(bulletPoints.Count),
+                MessageCollection.WIDExplorer_JSONFileIs.Invoke(expected),
+
+                // ConvertToJson
+                MessageCollection.WIDExplorer_ConvertingBulletPointsToJsonString,
+                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
+                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
+                MessageCollection.WIDExplorer_ConvertedBulletPointsToJsonString,
+
+                MessageCollection.WIDExplorer_BulletPointsSavedToJsonFile
+
+            };
+
+            FakeLogger fakeLogger = new FakeLogger();
+            Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
+            FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
+            Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
+            WIDExplorerSettings fakeExplorerSettings = new WIDExplorerSettings(
+                    parallelRequests: WIDExplorerSettings.DefaultParallelRequests,
+                    pauseBetweenRequestsMs: WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
+                    folderPath: ObjectMother.WIDExplorer_FakeFolderPath,
+                    deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
+                );
+            WIDExplorerComponents components = new WIDExplorerComponents(
+                    loggingAction: fakeLoggingAction,
+                    loggingActionAsciiBanner: fakeLoggingActionAsciiBanner,
+                    xpathManager: new XPathManager(),
+                    getRequestManager: new GetRequestManager(),
+                    jobPageDeserializer: new JobPageDeserializer(),
+                    jobPageManager: new JobPageManager(),
+                    jobPostingDeserializer: new JobPostingDeserializer(),
+                    jobPostingManager: new JobPostingManager(),
+                    jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
+                    jobPostingExtendedManager: new JobPostingExtendedManager(),
+                    runIdManager: new RunIdManager(),
+                    metricCollectionManager: new MetricCollectionManager(),
+                    fileManager: new FakeFileManager(null), // Content is not relevant, we'll just use this fake to simulate writing.
+                    repositoryFactory: new RepositoryFactory(),
+                    asciiBannerManager: new AsciiBannerManager(),
+                    filenameFactory: new FilenameFactory(),
+                    bulletPointManager: new BulletPointManager(),
+                    nowFunction: ObjectMother.WIDExplorer_FakeNowFunction
+                  );
+            WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
+
+            // Act
+            IFileInfoAdapter actual = widExplorer.SaveToJsonFile(bulletPoints);
 
             // Assert
             Assert.AreEqual(expected.FullName, actual.FullName);
@@ -1814,5 +1970,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 24.08.2021
+    Last Update: 31.08.2021
 */

@@ -1,5 +1,8 @@
 ﻿using System;
 using NW.WIDJobsClient.CommandLine;
+using NW.WIDJobs;
+using NW.WIDJobs.BulletPoints;
+using System.Collections.Generic;
 
 namespace NW.WIDJobsClient
 {
@@ -12,10 +15,16 @@ namespace NW.WIDJobsClient
         static int Main(string[] args)
         {
 
-            CommandLineManager commandLineManager = new CommandLineManager();
-            
-            return commandLineManager.Execute(args);
+            //CommandLineManager commandLineManager = new CommandLineManager();
 
+            //return commandLineManager.Execute(args);
+
+            WIDExplorer widExplorer = new WIDExplorer();
+            List<BulletPoint> bulletPoints = widExplorer.GetPreLabeledBulletPoints();
+            widExplorer.SaveToJsonFile(bulletPoints);
+
+
+            return 0;
         }
 
         // Methods_Private
