@@ -11,7 +11,7 @@
     <RepositoryUrl>https://github.com/numbworks/NW.WIDJobs</RepositoryUrl>
     <PackageIcon>numbworks_logo_128x128px.png</PackageIcon>
     <PackageIconUrl />
-    <Description>NW.WIDJobs is a .NET Standard 2.1 library written in C# to explore WorkInDenmark.dk and fetch the most recent job ads.</Description>
+    <Description>NW.WIDJobs is a .NET Standard library written in C# to explore WorkInDenmark.dk and fetch the most recent job ads.</Description>
     <PackageTags>library csharp netstandard opendata jobs jobsads</PackageTags>
   </PropertyGroup>
 

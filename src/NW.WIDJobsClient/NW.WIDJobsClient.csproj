@@ -11,7 +11,7 @@
     <AssemblyName>widjobs</AssemblyName>
     <PackageIcon>numbworks_logo_128x128px.png</PackageIcon>
     <PackageIconUrl />
-    <Description>NW.WIDJobsClient (widjobs.exe) is an unofficial command-line client for WorkInDenmark.dk, based on the NW.WIDJobs library.</Description>
+    <Description>NW.WIDJobsClient (widjobs.exe) is an unofficial command-line client for WorkInDenmark.dk, based on the NW.WIDJobs library and written in C# (.NET Core).</Description>
     <PackageTags>library csharp commandline opendata jobs jobsads</PackageTags>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 			<PackageLicenseExpression>MIT</PackageLicenseExpression>
