@@ -4,7 +4,7 @@ using NW.WIDJobs.HttpRequests;
 namespace NW.WIDJobs.UnitTests
 {
     [TestFixture]
-    public class GetRequestManagerFactoryTests
+    public class PostRequestManagerFactoryTests
     {
 
         #region Fields
@@ -17,15 +17,15 @@ namespace NW.WIDJobs.UnitTests
         #region Tests
 
         [Test]
-        public void GetRequestManagerFactory_ShouldCreateAnObjectOfTypeIGetRequestManager_WhenInvoked()
+        public void PostRequestManagerFactory_ShouldCreateAnObjectOfTypeIPostRequestManager_WhenInvoked()
         {
 
             // Arrange
             // Act
-            IGetRequestManager actual = new GetRequestManagerFactory().Create(null, null, null, null);
+            IPostRequestManager actual = new PostRequestManagerFactory().Create(null, null, null, null, null, null, null);
 
             // Assert
-            Assert.IsInstanceOf<IGetRequestManager>(actual);
+            Assert.IsInstanceOf<IPostRequestManager>(actual);
 
         }
 
