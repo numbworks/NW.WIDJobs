@@ -14,7 +14,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new GetRequestManager(null, null, null, null, null, null)
+                    () => new GetRequestManager(null, null, null, null, null)
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("httpWebRequestFactory").Message
@@ -53,5 +53,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 15.05.2021
+    Last Update: 02.09.2021
 */

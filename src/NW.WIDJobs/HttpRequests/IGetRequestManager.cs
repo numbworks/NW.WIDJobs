@@ -13,7 +13,6 @@ namespace NW.WIDJobs.HttpRequests
         IHttpWebRequestFactory HttpWebRequestFactory { get; }
         string Method { get; }
         Version ProtocolVersion { get; }
-        string UserAgent { get; }
 
         /// <summary>Sends a HTTP GET request.</summary>
         /// <exception cref="ArgumentNullException"/>
@@ -23,5 +22,5 @@ namespace NW.WIDJobs.HttpRequests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 22.05.2021
+    Last Update: 02.09.2021
 */

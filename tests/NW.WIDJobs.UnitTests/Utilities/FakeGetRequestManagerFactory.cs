@@ -31,7 +31,7 @@ namespace NW.WIDJobs.UnitTests
         #region Methods_public
 
         public IGetRequestManager Create
-            (WebHeaderCollection headers, string contentType, CookieContainer cookieContainer, string userAgent, Version protocolVersion)
+            (WebHeaderCollection headers, string contentType, CookieContainer cookieContainer, Version protocolVersion)
         {
 
             return FakeGetRequestManager;
@@ -49,5 +49,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 19.08.2021
+    Last Update: 02.09.2021
 */

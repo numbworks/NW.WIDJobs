@@ -20,7 +20,6 @@ namespace NW.WIDJobs.HttpRequests
         public WebHeaderCollection Headers { get; }
         public string ContentType { get; }
         public CookieContainer CookieContainer { get; }
-        public string UserAgent { get; }
         public Version ProtocolVersion { get; }
 
         #endregion
@@ -34,7 +33,6 @@ namespace NW.WIDJobs.HttpRequests
             WebHeaderCollection headers,
             string contentType,
             CookieContainer cookieContainer,
-            string userAgent,
             Version protocolVersion
             )
         {
@@ -45,14 +43,13 @@ namespace NW.WIDJobs.HttpRequests
             Headers = headers;
             ContentType = contentType;
             CookieContainer = cookieContainer;
-            UserAgent = userAgent;
             ProtocolVersion = protocolVersion;
 
         }
 
         /// <summary>Initializes a <see cref="GetRequestManager"/> instance using default parameters.</summary>
         public GetRequestManager()
-            : this(new HttpWebRequestFactory(), null, null, null, null, null) { }
+            : this(new HttpWebRequestFactory(), null, null, null, null) { }
 
         #endregion
 
@@ -89,9 +86,6 @@ namespace NW.WIDJobs.HttpRequests
             if (ContentType != null)
                 httpWebRequest.ContentType = ContentType;
 
-            if (UserAgent != null)
-                httpWebRequest.UserAgent = UserAgent;
-
             if (ProtocolVersion == null)
                 httpWebRequest.ProtocolVersion = HttpVersion.Version11;
             else
@@ -124,5 +118,5 @@ namespace NW.WIDJobs.HttpRequests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 22.05.2021
+    Last Update: 02.09.2021
 */

@@ -60,7 +60,7 @@ namespace NW.WIDJobs.JobPostingsExtended
             Validator.ValidateObject(jobPosting, nameof(jobPosting));
 
             IGetRequestManager getRequestManager
-                = _getRequestManagerFactory.Create(null, null, null, null, null);
+                = _getRequestManagerFactory.Create(null, null, null, null);
 
             return getRequestManager.Send(jobPosting.Url);
 
