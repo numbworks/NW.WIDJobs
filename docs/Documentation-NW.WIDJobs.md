@@ -64,9 +64,15 @@ Side note: the names of the API endpoints are arbitrary and adapted to our objec
 
 **Request:**
 
-|Method|Url|Authentication|Body|
-|---|---|---|---|
-|`POST`|`https://job.jobnet.dk/CV/FindWork/SearchWIDK`|No|Yes|
+|Method|Url|Authentication|Headers|Body|
+|---|---|---|---|---|
+|`POST`|`https://job.jobnet.dk/CV/FindWork/SearchWIDK`|No|Optional|Yes|
+
+**Headers:**
+
+|Type|Name|Value|
+|---|---|---|
+|Optional|User Agent|`Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101 Firefox/91.0`|
 
 **Body:**
 
@@ -111,26 +117,17 @@ This example retrieves the first `JobPage` (which equals to the first twenty `Jo
 }
 ```
 
+The `url` field in the `Body` changes according to the following schema:
+
+|Page|Offset|Url|
+|---|---|---|
+|1|0|`https://job.jobnet.dk/CV/FindWork?Offset=0&SortValue=CreationDate&widk=true`|
+|2|20|`https://job.jobnet.dk/CV/FindWork?Offset=20&SortValue=CreationDate&widk=true`|
+|...|...|...|
+
+The `Offset` field identifies the starting point and can only be 0 or a number that can be divided by 20.
+
 The `Count` field accepts only `20` as value. You can change it to whatever value you want, but it will return 20 job postings anyway.
-
-The `Offset` field identifies the starting point and can only be 0 or a number that can be divided by 20:
-
-```json
-...
-        "Offset": "0",
-...
-```
-```json
-...
-        "Offset": "20",
-...
-```
-
-```json
-...
-        "Offset": "2260",
-...
-```
 
 **Response:**
 
