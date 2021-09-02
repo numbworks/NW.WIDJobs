@@ -53,7 +53,9 @@ namespace NW.WIDJobs.HttpRequests
                 ProtocolVersion = HttpVersion.Version11;
 
             PostData = postData;
-            PostDataEncoding = postDataEncoding;
+
+            if (postDataEncoding == null)
+                PostDataEncoding = Encoding.ASCII;
 
         }
 
@@ -124,14 +126,7 @@ namespace NW.WIDJobs.HttpRequests
 
         }
         private byte[] Encode(string postData, Encoding postDataEncoding)
-        {
-
-            if (postDataEncoding == null)
-                postDataEncoding = Encoding.ASCII;
-
-            return postDataEncoding.GetBytes(postData);
-
-        }
+            => postDataEncoding.GetBytes(postData);
 
         #endregion
 

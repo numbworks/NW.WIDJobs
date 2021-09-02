@@ -2,24 +2,26 @@
 using System;
 using NW.WIDJobs.HttpRequests;
 using System.Net;
+using System.Text;
 
 namespace NW.WIDJobs.UnitTests
 {
     [TestFixture]
-    public class GetRequestManagerTests
+    public class PostRequestManagerTests
     {
 
-        // Fields
-        private static TestCaseData[] getRequestManagerExceptionTestCases =
+        #region Fields
+
+        private static TestCaseData[] postRequestManagerExceptionTestCases =
         {
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new GetRequestManager(null, null, null, null, null)
+                    () => new PostRequestManager(null, null, null, null, null, null, null)
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("httpWebRequestFactory").Message
-            ).SetArgDisplayNames($"{nameof(getRequestManagerExceptionTestCases)}_01")
+            ).SetArgDisplayNames($"{nameof(postRequestManagerExceptionTestCases)}_01")
 
         };
         private static TestCaseData[] sendExceptionTestCases =
@@ -27,7 +29,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new GetRequestManager().Send(null)
+                    () => new PostRequestManager().Send(null)
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("url").Message
@@ -35,10 +37,16 @@ namespace NW.WIDJobs.UnitTests
 
         };
 
-        // SetUp
-        // Tests
-        [TestCaseSource(nameof(getRequestManagerExceptionTestCases))]
-        public void GetRequestManager_ShouldThrowACertainException_WhenUnproperArguments
+        #endregion
+
+        #region SetUp
+
+        #endregion
+
+        #region Tests
+
+        [TestCaseSource(nameof(postRequestManagerExceptionTestCases))]
+        public void PostRequestManager_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
@@ -48,28 +56,37 @@ namespace NW.WIDJobs.UnitTests
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
         [Test]
-        public void GetRequestManager_ShouldCreateAnObjectOfTypeGetRequestManager_WhenInvoked()
+        public void PostRequestManager_ShouldCreateAnObjectOfTypePostRequestManager_WhenInvoked()
         {
 
             // Arrange
             HttpWebRequestFactory httpWebRequestFactory = new HttpWebRequestFactory();
 
             // Act
-            GetRequestManager actual = new GetRequestManager(httpWebRequestFactory, null, null, null, null);
+            PostRequestManager actual = new PostRequestManager(httpWebRequestFactory, null, null, null, null, null, null);
 
             // Assert
-            Assert.IsInstanceOf<GetRequestManager>(actual);
-            Assert.AreEqual("GET", actual.Method);
+            Assert.IsInstanceOf<PostRequestManager>(actual);
+            Assert.AreEqual("POST", actual.Method);
             Assert.AreEqual(httpWebRequestFactory, actual.HttpWebRequestFactory);
             Assert.AreEqual(null, actual.Headers);
             Assert.AreEqual(null, actual.ContentType);
             Assert.AreEqual(null, actual.CookieContainer);
             Assert.AreEqual(HttpVersion.Version11, actual.ProtocolVersion);
-
+            Assert.AreEqual(null, actual.PostData);
+            Assert.AreEqual(Encoding.ASCII, actual.PostDataEncoding);
 
         }
 
-        // TearDown		
+        #endregion
+
+        #region TearDown
+
+        #endregion
+
+        #region Support_methods
+
+        #endregion
 
     }
 }
