@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using System;
 using NW.WIDJobs.HttpRequests;
+using System.Net;
 
 namespace NW.WIDJobs.UnitTests
 {
@@ -45,6 +46,27 @@ namespace NW.WIDJobs.UnitTests
         public void Send_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
+
+        [Test]
+        public void GetRequestManager_ShouldCreateAnObjectOfTypeGetRequestManager_WhenInvoked()
+        {
+
+            // Arrange
+            HttpWebRequestFactory httpWebRequestFactory = new HttpWebRequestFactory();
+
+            // Act
+            GetRequestManager actual = new GetRequestManager(httpWebRequestFactory, null, null, null, null);
+
+            // Assert
+            Assert.IsInstanceOf<GetRequestManager>(actual);
+            Assert.AreEqual(httpWebRequestFactory, actual.HttpWebRequestFactory);
+            Assert.AreEqual(null, actual.Headers);
+            Assert.AreEqual(null, actual.ContentType);
+            Assert.AreEqual(null, actual.CookieContainer);
+            Assert.AreEqual(HttpVersion.Version11, actual.ProtocolVersion);
+
+
+        }
 
         // TearDown		
 

@@ -43,7 +43,10 @@ namespace NW.WIDJobs.HttpRequests
             Headers = headers;
             ContentType = contentType;
             CookieContainer = cookieContainer;
+
             ProtocolVersion = protocolVersion;
+            if (ProtocolVersion == null)
+                ProtocolVersion = HttpVersion.Version11;
 
         }
 
