@@ -17,6 +17,7 @@ using NW.WIDJobs.Metrics;
 using NW.WIDJobs.JsonSerializerConverters;
 using NW.WIDJobs.Runs;
 using NW.WIDJobs.XPath;
+using NW.WIDJobs.Headers;
 
 namespace NW.WIDJobs.UnitTests
 {
@@ -1526,7 +1527,7 @@ namespace NW.WIDJobs.UnitTests
                     xpathManager: new XPathManager(),
                     getRequestManager: new GetRequestManager(),
                     jobPageDeserializer: new JobPageDeserializer(),
-                    jobPageManager: new JobPageManager(postRequestManagerFactory: ObjectMother.WIDExplorer_JobPage0102_FakePostRequestManagerFactory),
+                    jobPageManager: new JobPageManager(postRequestManagerFactory: ObjectMother.WIDExplorer_JobPage0102_FakePostRequestManagerFactory, headerFactory: new HeaderFactory()),
                     jobPostingDeserializer: new JobPostingDeserializer(),
                     jobPostingManager: new JobPostingManager(),
                     jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
@@ -1612,7 +1613,7 @@ namespace NW.WIDJobs.UnitTests
                     xpathManager: new XPathManager(),
                     getRequestManager: new GetRequestManager(),
                     jobPageDeserializer: new JobPageDeserializer(),
-                    jobPageManager: new JobPageManager(postRequestManagerFactory: ObjectMother.WIDExplorer_JobPage0102_FakePostRequestManagerFactory),
+                    jobPageManager: new JobPageManager(postRequestManagerFactory: ObjectMother.WIDExplorer_JobPage0102_FakePostRequestManagerFactory, headerFactory: new HeaderFactory()),
                     jobPostingDeserializer: new JobPostingDeserializer(),
                     jobPostingManager: new JobPostingManager(),
                     jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
@@ -1742,7 +1743,7 @@ namespace NW.WIDJobs.UnitTests
                     xpathManager: new XPathManager(),
                     getRequestManager: new GetRequestManager(),
                     jobPageDeserializer: new JobPageDeserializer(),
-                    jobPageManager: new JobPageManager(postRequestManagerFactory: ObjectMother.WIDExplorer_JobPage0102_FakePostRequestManagerFactory),
+                    jobPageManager: new JobPageManager(postRequestManagerFactory: ObjectMother.WIDExplorer_JobPage0102_FakePostRequestManagerFactory, headerFactory: new HeaderFactory()),
                     jobPostingDeserializer: new JobPostingDeserializer(),
                     jobPostingManager: new JobPostingManager(),
                     jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
@@ -1840,7 +1841,7 @@ namespace NW.WIDJobs.UnitTests
                     xpathManager: new XPathManager(),
                     getRequestManager: new GetRequestManager(),
                     jobPageDeserializer: new JobPageDeserializer(),
-                    jobPageManager: new JobPageManager(postRequestManagerFactory: ObjectMother.WIDExplorer_JobPage01Alt_FakePostRequestManagerFactory),
+                    jobPageManager: new JobPageManager(postRequestManagerFactory: ObjectMother.WIDExplorer_JobPage01Alt_FakePostRequestManagerFactory, headerFactory: new HeaderFactory()),
                     jobPostingDeserializer: new JobPostingDeserializer(),
                     jobPostingManager: new JobPostingManager(),
                     jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
@@ -1938,7 +1939,7 @@ namespace NW.WIDJobs.UnitTests
                     xpathManager: new XPathManager(),
                     getRequestManager: new GetRequestManager(),
                     jobPageDeserializer: new JobPageDeserializer(),
-                    jobPageManager: new JobPageManager(postRequestManagerFactory: ObjectMother.WIDExplorer_JobPage0102_FakePostRequestManagerFactory),
+                    jobPageManager: new JobPageManager(postRequestManagerFactory: ObjectMother.WIDExplorer_JobPage0102_FakePostRequestManagerFactory, headerFactory: new HeaderFactory()),
                     jobPostingDeserializer: new JobPostingDeserializer(),
                     jobPostingManager: new JobPostingManager(),
                     jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),

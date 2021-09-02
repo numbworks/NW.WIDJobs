@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Net;
+using NW.WIDJobs.Headers;
 using NW.WIDJobs.HttpRequests;
 using NW.WIDJobs.Validation;
 
@@ -11,6 +13,7 @@ namespace NW.WIDJobs.JobPages
         #region Fields
 
         private IPostRequestManagerFactory _postRequestManagerFactory;
+        private IHeaderFactory _headerFactory;
 
         #endregion
 
@@ -26,18 +29,20 @@ namespace NW.WIDJobs.JobPages
 
         /// <summary>Initializes a <see cref="JobPageManager"/> instance.</summary>
         /// <exception cref="ArgumentNullException"/>
-        public JobPageManager(IPostRequestManagerFactory postRequestManagerFactory)
+        public JobPageManager(IPostRequestManagerFactory postRequestManagerFactory, IHeaderFactory headerFactory)
         {
 
             Validator.ValidateObject(postRequestManagerFactory, nameof(postRequestManagerFactory));
+            Validator.ValidateObject(headerFactory, nameof(headerFactory));
 
             _postRequestManagerFactory = postRequestManagerFactory;
+            _headerFactory = headerFactory;
 
         }
 
         /// <summary>Initializes a <see cref="JobPageManager"/> instance using default parameters.</summary>
         public JobPageManager()
-            : this(new PostRequestManagerFactory()) { }
+            : this(new PostRequestManagerFactory(), new HeaderFactory()) { }
 
         #endregion
 
@@ -84,9 +89,10 @@ namespace NW.WIDJobs.JobPages
 
             ushort offset = GetOffset(pageNumber);
             string body = CreateBody(offset);
+            WebHeaderCollection headers = _headerFactory.Create();
 
             IPostRequestManager postRequestManager
-                = _postRequestManagerFactory.Create(null, null, null, null, null, body, null);
+                = _postRequestManagerFactory.Create(headers, null, null, null, null, body, null);
 
             return postRequestManager.Send(Url);
 

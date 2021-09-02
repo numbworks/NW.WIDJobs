@@ -14,6 +14,7 @@ using NW.WIDJobs.Filenames;
 using NW.WIDJobs.BulletPoints;
 using NW.WIDJobs.UnitTests;
 using NW.WIDJobsClient.CommandLine;
+using NW.WIDJobs.Headers;
 
 namespace NW.WIDJobsClient.UnitTests
 {
@@ -63,7 +64,7 @@ namespace NW.WIDJobsClient.UnitTests
                 return CreateFake(
                             loggingAction,
                             loggingActionAsciiBanner,
-                            new JobPageManager(postRequestManagerFactory: WIDJobs.UnitTests.ObjectMother.WIDExplorer_JobPage0102_FakePostRequestManagerFactory),
+                            new JobPageManager(postRequestManagerFactory: WIDJobs.UnitTests.ObjectMother.WIDExplorer_JobPage0102_FakePostRequestManagerFactory, headerFactory: new HeaderFactory()),
                             new JobPostingExtendedManager(WIDJobs.UnitTests.ObjectMother.WIDExplorer_JobPage0102_FakeGetRequestManagerFactory, new JobPostingExtendedDeserializer()),
                             new FakeFileManager("some content"),
                             new FakeRepositoryFactory(467),

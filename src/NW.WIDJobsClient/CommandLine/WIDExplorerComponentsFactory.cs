@@ -12,6 +12,7 @@ using NW.WIDJobs.AsciiBanner;
 using NW.WIDJobs.Filenames;
 using NW.WIDJobs.BulletPoints;
 using NW.WIDJobs.UnitTests;
+using NW.WIDJobs.Headers;
 
 namespace NW.WIDJobsClient.CommandLine
 {
@@ -46,7 +47,7 @@ namespace NW.WIDJobsClient.CommandLine
                     xpathManager: new XPathManager(),
                     getRequestManager: new GetRequestManager(),
                     jobPageDeserializer: new JobPageDeserializer(),
-                    jobPageManager: new JobPageManager(postRequestManagerFactory: ObjectMother.WIDExplorer_JobPage0102_FakePostRequestManagerFactory),
+                    jobPageManager: new JobPageManager(postRequestManagerFactory: ObjectMother.WIDExplorer_JobPage0102_FakePostRequestManagerFactory, headerFactory: new HeaderFactory()),
                     jobPostingDeserializer: new JobPostingDeserializer(),
                     jobPostingManager: new JobPostingManager(),
                     jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),

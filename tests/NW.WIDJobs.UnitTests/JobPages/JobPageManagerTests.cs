@@ -1,8 +1,10 @@
 ﻿using NUnit.Framework;
 using System;
+using NW.WIDJobs.Headers;
 using NW.WIDJobs.JobPages;
 using NW.WIDJobs.Messages;
 using System.Collections.Generic;
+using NW.WIDJobs.HttpRequests;
 
 namespace NW.WIDJobs.UnitTests
 {
@@ -17,11 +19,19 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new JobPageManager(null)
+                    () => new JobPageManager(null, new HeaderFactory())
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("postRequestManagerFactory").Message
-            ).SetArgDisplayNames($"{nameof(jobPageManagerExceptionTestCases)}_01")
+            ).SetArgDisplayNames($"{nameof(jobPageManagerExceptionTestCases)}_01"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new JobPageManager(new PostRequestManagerFactory(), null)
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("headerFactory").Message
+            ).SetArgDisplayNames($"{nameof(jobPageManagerExceptionTestCases)}_02")
 
         };
         private static TestCaseData[] getJobPageExceptionTestCases =
@@ -114,7 +124,8 @@ namespace NW.WIDJobs.UnitTests
             FakePostRequestManagerFactory fakePostRequestManagerFactory = new FakePostRequestManagerFactory(fakePostRequestManager);
 
             // Act
-            JobPage actualJobPage = new JobPageManager(fakePostRequestManagerFactory).GetJobPage(runId, pageNumber);
+            JobPage actualJobPage 
+                = new JobPageManager(fakePostRequestManagerFactory, new HeaderFactory()).GetJobPage(runId, pageNumber);
 
             // Assert
             Assert.IsTrue(
