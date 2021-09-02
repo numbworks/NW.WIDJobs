@@ -19,21 +19,15 @@ namespace NW.WIDJobs.JobPages
         ushort GetTotalJobPages(uint totalJobPostings);
 
         /// <summary>
-        /// Creates urls for <see href="http://www.workindenmark.dk">WorkInDenmark</see> pages.
-        /// </summary>
-        /// <exception cref="ArgumentException"/>
-        string CreateUrl(ushort pageNumber);
-
-        /// <summary>
         /// Sends a HTTP POST Request for a <see href="http://www.workindenmark.dk">WorkInDenmark</see>'s page and returns a JSON string.
         /// </summary>
         /// <exception cref="ArgumentNullException"/>
-        string SendPostRequest(string url);
+        string SendPostRequest(ushort pageNumber);
 
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 25.06.2021
+    Last Update: 02.09.2021
 */

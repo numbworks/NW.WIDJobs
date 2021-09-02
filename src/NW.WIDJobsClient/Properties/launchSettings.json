@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "NW.WIDJobsClient": {
+      "commandName": "Project",
+      "commandLineArgs": "session describe --output:both"
+    }
+  }
+}

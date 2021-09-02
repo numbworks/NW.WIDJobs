@@ -13,11 +13,14 @@ Contact: numbworks@gmail.com
 
 # The URLs
 
-The exploration of `WorkInDenmark.dk` starts from an initial page and then it continues for x subsequent pages. The page URLs have have different schema according to given criteria:
+The exploration of `WorkInDenmark.dk` starts from an initial page and then it continues for x subsequent pages. 
+
+The page URLs have a different schema according to a given criteria:
 
 |Type|Criteria|Page|Url|
 |---|---|---|---|
-|Search|`Default`|1|`...`|
+|Search|`Default`|1|`https://job.jobnet.dk/CV/FindWork?Offset=0&SortValue=BestMatch&widk=true`|
+|...|...|...|...|
 |Search|`OrderByCreationDate`|1|`https://job.jobnet.dk/CV/FindWork?Offset=0&SortValue=CreationDate&widk=true`|
 |Search|`OrderByCreationDate`|2|`https://job.jobnet.dk/CV/FindWork?Offset=20&SortValue=CreationDate&widk=true`|
 |...|...|...|...|

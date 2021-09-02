@@ -207,13 +207,6 @@ namespace NW.WIDJobs.Messages
 
         #endregion
 
-        #region JobPageManager
-
-        public static Func<string, string> JobPageManager_NotPossibleExtractOffset
-            = (url) => $"It's not possible to extract offset from \"{url}\".";
-
-        #endregion 
-
         #region Methods_private
 
         private static string RollOutCollection(List<double> coll)

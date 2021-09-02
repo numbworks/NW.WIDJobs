@@ -19,8 +19,7 @@ namespace NW.WIDJobs.JobPages
         #region Properties
 
         public static ushort JobPostingsPerPage = 20;
-        public static Func<ushort, string> UrlTemplate
-            = (offset) => $"https://job.jobnet.dk/CV/FindWork?Offset={offset}&SortValue=CreationDate&widk=true";
+        public static string Url = "https://job.jobnet.dk/CV/FindWork/SearchWIDK";
         public static string OffsetPattern = "(?<=Offset=)[0-9]{1,}";
 
         #endregion
@@ -52,8 +51,7 @@ namespace NW.WIDJobs.JobPages
             Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
             Validator.ThrowIfLessThanOne(pageNumber, nameof(pageNumber));
 
-            string url = CreateUrl(pageNumber);
-            string response = SendPostRequest(url);
+            string response = SendPostRequest(pageNumber);
 
             JobPage jobPage = new JobPage(runId, pageNumber, response);
 
@@ -81,30 +79,18 @@ namespace NW.WIDJobs.JobPages
             return (ushort)totalJobPages;
 
         }
-        public string CreateUrl(ushort pageNumber)
+        public string SendPostRequest(ushort pageNumber)
         {
 
             Validator.ThrowIfLessThanOne(pageNumber, nameof(pageNumber));
 
             ushort offset = GetOffset(pageNumber);
-            string url = UrlTemplate.Invoke(offset);
-
-            return url;
-
-        }
-        public string SendPostRequest(string url)
-        {
-
-            Validator.ValidateStringNullOrWhiteSpace(url, nameof(url));
-            ValidateUrl(url, OffsetPattern);
-
-            string offset = ExtractOffset(url, OffsetPattern);
             string body = CreateBody(offset);
 
             IPostRequestManager postRequestManager
                 = _postRequestManagerFactory.Create(null, null, null, null, null, body, null);
 
-            return postRequestManager.Send(url);
+            return postRequestManager.Send(Url);
 
         }
 
@@ -135,7 +121,7 @@ namespace NW.WIDJobs.JobPages
             return offset;
 
         }
-        private string CreateBody(string offset)
+        private string CreateBody(ushort offset)
         {
 
             string body
@@ -182,28 +168,6 @@ namespace NW.WIDJobs.JobPages
             return body;
 
         }
-        private void ValidateUrl(string url, string pattern)
-        {
-
-            if (!Regex.IsMatch(url, pattern))
-                throw new Exception(MessageCollection.JobPageManager_NotPossibleExtractOffset.Invoke(url));
-
-        }
-        private string ExtractOffset(string url, string pattern)
-        {
-
-            /*
-                "https://job.jobnet.dk/CV/FindWork?Offset=0&SortValue=CreationDate&widk=true"
-                    => "Offset=0" => "0"
-                "https://job.jobnet.dk/CV/FindWork?Offset=20&SortValue=CreationDate&widk=true"
-                    => "Offset=20" => "20"
-            */
-
-            string offset = Regex.Match(url, pattern).ToString();
-
-            return offset;
-
-        }
 
         #endregion
 
@@ -212,5 +176,5 @@ namespace NW.WIDJobs.JobPages
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 06.08.2021
+    Last Update: 02.09.2021
 */

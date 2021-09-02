@@ -44,43 +44,23 @@ namespace NW.WIDJobs.UnitTests
             ).SetArgDisplayNames($"{nameof(getJobPageExceptionTestCases)}_02")
 
         };
-        private static TestCaseData[] createUrlExceptionTestCases =
-        {
-
-            new TestCaseData(
-                new TestDelegate(
-                        () => new JobPageManager().CreateUrl(0)
-                    ),
-                typeof(ArgumentException),
-                MessageCollection.Validator_VariableCantBeLessThanOne.Invoke("pageNumber")
-            ).SetArgDisplayNames($"{nameof(createUrlExceptionTestCases)}_01")
-
-        };
         private static TestCaseData[] sendPostRequestExceptionTestCases =
         {
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new JobPageManager().SendPostRequest(null)
+                    () => new JobPageManager().SendPostRequest(0)
                 ),
-                typeof(ArgumentNullException),
-                new ArgumentNullException("url").Message
-            ).SetArgDisplayNames($"{nameof(sendPostRequestExceptionTestCases)}_01"),
-
-            new TestCaseData(
-                new TestDelegate(
-                    () => new JobPageManager().SendPostRequest("http://www.gooogle.com")
-                ),
-                typeof(Exception),
-                MessageCollection.JobPageManager_NotPossibleExtractOffset.Invoke("http://www.gooogle.com")
-            ).SetArgDisplayNames($"{nameof(sendPostRequestExceptionTestCases)}_02")
+                typeof(ArgumentException),
+                MessageCollection.Validator_VariableCantBeLessThanOne.Invoke("pageNumber")
+            ).SetArgDisplayNames($"{nameof(sendPostRequestExceptionTestCases)}_01")
 
         };
         private static TestCaseData[] getJobPageTestCases =
         {
 
             new TestCaseData(
-                JobPageManager.UrlTemplate.Invoke((ushort)0),
+                JobPageManager.Url,
                     ObjectMother.Shared_JobPage01_Content,
                     ObjectMother.Shared_FakeRunId,
                     (ushort)1,
@@ -88,7 +68,7 @@ namespace NW.WIDJobs.UnitTests
                 ).SetArgDisplayNames($"{nameof(getJobPageTestCases)}_01"),
 
             new TestCaseData(
-                   JobPageManager.UrlTemplate.Invoke((ushort)20),
+                   JobPageManager.Url,
                     ObjectMother.Shared_JobPage02_Content,
                     ObjectMother.Shared_FakeRunId,
                     (ushort)2,
@@ -112,11 +92,6 @@ namespace NW.WIDJobs.UnitTests
 
         [TestCaseSource(nameof(getJobPageExceptionTestCases))]
         public void GetJobPage_ShouldThrowACertainException_WhenUnproperArguments
-            (TestDelegate del, Type expectedType, string expectedMessage)
-                => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
-
-        [TestCaseSource(nameof(createUrlExceptionTestCases))]
-        public void CreateUrl_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
@@ -170,14 +145,13 @@ namespace NW.WIDJobs.UnitTests
 
             // Arrange
             ushort expectedJobPostingsPerPage = 20;
-            ushort offset = 20;
-            string expectedUrlTemplate = $"https://job.jobnet.dk/CV/FindWork?Offset={offset}&SortValue=CreationDate&widk=true";
+            string expectedUrlTemplate = $"https://job.jobnet.dk/CV/FindWork/SearchWIDK";
             string expectedOffsetPattern = "(?<=Offset=)[0-9]{1,}";
 
             // Act
             // Assert
             Assert.AreEqual(expectedJobPostingsPerPage, JobPageManager.JobPostingsPerPage);
-            Assert.AreEqual(expectedUrlTemplate, JobPageManager.UrlTemplate.Invoke(offset));
+            Assert.AreEqual(expectedUrlTemplate, JobPageManager.Url);
             Assert.AreEqual(expectedOffsetPattern, JobPageManager.OffsetPattern);
 
         }
@@ -193,5 +167,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 18.08.2021
+    Last Update: 02.09.2021
 */
