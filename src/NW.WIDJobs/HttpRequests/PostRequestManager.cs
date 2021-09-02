@@ -89,20 +89,24 @@ namespace NW.WIDJobs.HttpRequests
 
         #region Methods_public
 
-        private byte[] Encode(string postData, Encoding postDataEncoding)
-        {
-
-            if (postDataEncoding == null)
-                postDataEncoding = Encoding.ASCII;
-
-            return postDataEncoding.GetBytes(postData);
-
-        }
         private HttpWebRequest CreateHttpWebRequest(string url)
         {
 
             HttpWebRequest httpWebRequest = HttpWebRequestFactory.Create(url);
             httpWebRequest.Method = Method;
+
+            if (Headers != null)
+                httpWebRequest.Headers = Headers;
+
+            if (!string.IsNullOrWhiteSpace(ContentType))
+                httpWebRequest.ContentType = ContentType;
+
+            if (CookieContainer != null)
+                httpWebRequest.CookieContainer = CookieContainer;
+
+            if (UserAgent != null)
+                httpWebRequest.UserAgent = UserAgent;
+
             httpWebRequest.ProtocolVersion = ProtocolVersion;
 
             byte[] postDataBytes = null;
@@ -116,12 +120,22 @@ namespace NW.WIDJobs.HttpRequests
             Stream stream = httpWebRequest.GetRequestStream();
             if (PostData != null)
             {
+
                 stream.Write(postDataBytes, 0, postDataBytes.Length);
                 stream.Close();
-
+            
             }
 
             return httpWebRequest;
+
+        }
+        private byte[] Encode(string postData, Encoding postDataEncoding)
+        {
+
+            if (postDataEncoding == null)
+                postDataEncoding = Encoding.ASCII;
+
+            return postDataEncoding.GetBytes(postData);
 
         }
 
@@ -132,5 +146,5 @@ namespace NW.WIDJobs.HttpRequests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 25.06.2021
+    Last Update: 02.09.2021
 */
