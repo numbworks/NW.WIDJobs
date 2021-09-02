@@ -16,35 +16,48 @@ namespace NW.WIDJobs.UnitTests
 
         #region Properties
 
-        public string ContentType
-            => throw new NotImplementedException();
-        public CookieContainer CookieContainer
-            => throw new NotImplementedException();
-        public WebHeaderCollection Headers
-            => throw new NotImplementedException();
-        public IHttpWebRequestFactory HttpWebRequestFactory
-            => throw new NotImplementedException();
-        public string Method
-            => throw new NotImplementedException();
-        public string PostData
-            => throw new NotImplementedException();
-        public Encoding PostDataEncoding
-            => throw new NotImplementedException();
-        public Version ProtocolVersion
-            => throw new NotImplementedException();
-        public string UserAgent
-            => throw new NotImplementedException();
+        public string Method { get; } = "POST";
+        public IHttpWebRequestFactory HttpWebRequestFactory { get; }
+        public WebHeaderCollection Headers { get; }
+        public string ContentType { get; }
+        public CookieContainer CookieContainer { get; }
+        public string UserAgent { get; }
+        public Version ProtocolVersion { get; }
+        public string PostData { get; }
+        public Encoding PostDataEncoding { get; }
 
-        public Dictionary<string, string> UrlsResponses { get; private set; }
+        public List<(string bodyUrl, string response)> BodyUrlResponses { get; }
 
         #endregion
 
         #region Constructors
 
-        public FakePostRequestManager(Dictionary<string, string> urlsResponses) 
+        public FakePostRequestManager(
+            IHttpWebRequestFactory httpWebRequestFactory,
+            WebHeaderCollection headers,
+            string contentType,
+            CookieContainer cookieContainer,
+            string userAgent,
+            Version protocolVersion,
+            string postData,
+            Encoding postDataEncoding,
+            List<(string bodyUrl, string response)> bodyUrlResponses) 
         {
 
-            UrlsResponses = urlsResponses;
+            HttpWebRequestFactory = httpWebRequestFactory;
+            Headers = headers;
+            ContentType = contentType;
+            CookieContainer = cookieContainer;
+            UserAgent = userAgent;
+
+            ProtocolVersion = protocolVersion;
+            if (ProtocolVersion == null)
+                ProtocolVersion = HttpVersion.Version11;
+
+            PostData = postData;
+            PostDataEncoding = postDataEncoding;
+
+            BodyUrlResponses = bodyUrlResponses;
         
         }
 
@@ -55,9 +68,11 @@ namespace NW.WIDJobs.UnitTests
         public string Send(string url)
         {
 
-            string response = UrlsResponses[url]; // We don't consider the "not found" case.
+            foreach ((string bodyUrl, string response) tuple in BodyUrlResponses)
+                if (PostData.Contains(tuple.bodyUrl))
+                    return tuple.response;
 
-            return response;
+            throw new Exception($"'{PostData}' has a 'url' field that is not available in '{BodyUrlResponses}'. No response to send.");
 
         }
 

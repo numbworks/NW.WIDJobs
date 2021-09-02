@@ -70,7 +70,7 @@ namespace NW.WIDJobs.UnitTests
         {
 
             new TestCaseData(
-                JobPageManager.Url,
+                    ObjectMother.Shared_JobPage01_BodyUrl,
                     ObjectMother.Shared_JobPage01_Content,
                     ObjectMother.Shared_FakeRunId,
                     (ushort)1,
@@ -78,7 +78,7 @@ namespace NW.WIDJobs.UnitTests
                 ).SetArgDisplayNames($"{nameof(getJobPageTestCases)}_01"),
 
             new TestCaseData(
-                   JobPageManager.Url,
+                    ObjectMother.Shared_JobPage02_BodyUrl,
                     ObjectMother.Shared_JobPage02_Content,
                     ObjectMother.Shared_FakeRunId,
                     (ushort)2,
@@ -112,16 +112,15 @@ namespace NW.WIDJobs.UnitTests
 
         [TestCaseSource(nameof(getJobPageTestCases))]
         public void GetJobPage_ShouldReturnExpectedJobPage_WhenInvoked
-            (string url, string response, string runId, ushort pageNumber, JobPage expectedJobPage)
+            (string bodyUrl, string response, string runId, ushort pageNumber, JobPage expectedJobPage)
         {
 
             // Arrange
-            Dictionary<string, string> urlsResponses = new Dictionary<string, string>() 
+            List<(string bodyUrl, string response)> bodyUrlResponses = new List<(string bodyUrl, string response)>() 
             { 
-                { url, response } 
+                ( bodyUrl, response ) 
             };
-            FakePostRequestManager fakePostRequestManager = new FakePostRequestManager(urlsResponses);
-            FakePostRequestManagerFactory fakePostRequestManagerFactory = new FakePostRequestManagerFactory(fakePostRequestManager);
+            FakePostRequestManagerFactory fakePostRequestManagerFactory = new FakePostRequestManagerFactory(bodyUrlResponses);
 
             // Act
             JobPage actualJobPage 

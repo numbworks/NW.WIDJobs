@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Text;
 using NW.WIDJobs.HttpRequests;
@@ -15,16 +16,16 @@ namespace NW.WIDJobs.UnitTests
 
         #region Properties
 
-        public IPostRequestManager FakePostRequestManager { get; private set; }
+        public List<(string bodyUrl, string response)> BodyUrlResponses { get; }
 
         #endregion
 
         #region Constructors
 
-        public FakePostRequestManagerFactory(IPostRequestManager fakePostRequestManager) 
+        public FakePostRequestManagerFactory(List<(string bodyUrl, string response)> bodyUrlResponses)
         {
 
-            FakePostRequestManager = fakePostRequestManager;
+            BodyUrlResponses = bodyUrlResponses;
 
         }
 
@@ -35,7 +36,22 @@ namespace NW.WIDJobs.UnitTests
         public IPostRequestManager Create
             (WebHeaderCollection headers, string contentType, CookieContainer cookieContainer,
             string userAgent, Version protocolVersion, string postData, Encoding postDataEncoding)
-            => FakePostRequestManager;
+        {
+
+            return
+                new FakePostRequestManager(
+                        new HttpWebRequestFactory(),
+                        headers,
+                        contentType,
+                        cookieContainer,
+                        userAgent,
+                        protocolVersion,
+                        postData,
+                        postDataEncoding,
+                        BodyUrlResponses
+                );
+
+        }
 
         #endregion
 

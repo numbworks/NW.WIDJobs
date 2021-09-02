@@ -34,7 +34,7 @@ namespace NW.WIDJobs.UnitTests
 
         public static string Shared_FakeResponse = "Fake response";
         public static string Shared_FakePurpose = "Fake purpose";
-        public static string Shared_JobPage01_Url = "https://job.jobnet.dk/CV/FindWork?Offset=0&SortValue=CreationDate&widk=true";
+        public static string Shared_JobPage01_BodyUrl = "/CV/FindWork?Offset=0&SortValue=CreationDate&widk=true";
 
         public static string Shared_JobPage01_Content 
             = Properties.Resources.JobPage01_json;
@@ -1340,7 +1340,7 @@ namespace NW.WIDJobs.UnitTests
 
         #region Shared_JobPage02
 
-        public static string Shared_JobPage02_Url = "https://job.jobnet.dk/CV/FindWork?Offset=20&SortValue=CreationDate&widk=true";
+        public static string Shared_JobPage02_BodyUrl = "/CV/FindWork?Offset=20&SortValue=CreationDate&widk=true";
 
         public static string Shared_JobPage02_Content
             = Properties.Resources.JobPage02_json;
@@ -2587,7 +2587,7 @@ namespace NW.WIDJobs.UnitTests
 
         #region Shared_JobPage01Alt
 
-        public static string Shared_JobPage01Alt_Url = Shared_JobPage01_Url;
+        public static string Shared_JobPage01Alt_Url = Shared_JobPage01_BodyUrl;
         public static string Shared_JobPage01Alt_Content = Properties.Resources.JobPage01Alt_json;
 
         public static JobPosting Shared_JobPage01Alt_JobPosting01 = Shared_JobPage01_JobPosting01; // 2021-07-02
@@ -4011,18 +4011,16 @@ namespace NW.WIDJobs.UnitTests
         public static DateTime WIDExplorer_FakeNow = new DateTime(2021, 05, 01);
         public static Func<DateTime> WIDExplorer_FakeNowFunction = () => WIDExplorer_FakeNow;
 
-        public static Dictionary<string, string> WIDExplorer_JobPage0102_PostUrlsResponses
-            = new Dictionary<string, string>()
+        public static List<(string bodyUrl, string response)> WIDExplorer_JobPage0102_BodyUrlResponses
+            = new List<(string bodyUrl, string response)>()
             {
 
-                { Shared_JobPage01_Url, Shared_JobPage01_Content },
-                { Shared_JobPage02_Url, Shared_JobPage02_Content }
+                ( Shared_JobPage01_BodyUrl, Shared_JobPage01_Content ),
+                ( Shared_JobPage02_BodyUrl, Shared_JobPage02_Content )
 
             };
-        public static IPostRequestManager WIDExplorer_JobPage0102_FakePostRequestManager
-            = new FakePostRequestManager(WIDExplorer_JobPage0102_PostUrlsResponses);
         public static IPostRequestManagerFactory WIDExplorer_JobPage0102_FakePostRequestManagerFactory
-            = new FakePostRequestManagerFactory(WIDExplorer_JobPage0102_FakePostRequestManager);
+            = new FakePostRequestManagerFactory(WIDExplorer_JobPage0102_BodyUrlResponses);
 
         public static Dictionary<string, string> WIDExplorer_JobPage0102_GetUrlsResponses
             = new Dictionary<string, string>()
@@ -4076,17 +4074,15 @@ namespace NW.WIDJobs.UnitTests
         public static IGetRequestManagerFactory WIDExplorer_JobPage0102_FakeGetRequestManagerFactory
             = new FakeGetRequestManagerFactory(WIDExplorer_JobPage0102_FakeGetRequestManager);
 
-        public static Dictionary<string, string> WIDExplorer_JobPage01Alt_PostUrlsResponses
-            = new Dictionary<string, string>()
+        public static List<(string bodyUrl, string response)> WIDExplorer_JobPage01Alt_BodyUrlResponses
+            = new List<(string bodyUrl, string response)>()
             {
 
-                { Shared_JobPage01_Url, Shared_JobPage01Alt_Content }
+                ( Shared_JobPage01_BodyUrl, Shared_JobPage01Alt_Content )
 
             };
-        public static IPostRequestManager WIDExplorer_JobPage01Alt_FakePostRequestManager
-            = new FakePostRequestManager(WIDExplorer_JobPage01Alt_PostUrlsResponses);
         public static IPostRequestManagerFactory WIDExplorer_JobPage01Alt_FakePostRequestManagerFactory
-            = new FakePostRequestManagerFactory(WIDExplorer_JobPage01Alt_FakePostRequestManager);
+            = new FakePostRequestManagerFactory(WIDExplorer_JobPage01Alt_BodyUrlResponses);
 
         #endregion
 
