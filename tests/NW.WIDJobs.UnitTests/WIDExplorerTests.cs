@@ -1747,7 +1747,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingDeserializer: new JobPostingDeserializer(),
                     jobPostingManager: new JobPostingManager(),
                     jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
-                    jobPostingExtendedManager: new JobPostingExtendedManager(ObjectMother.WIDExplorer_JobPage0102_FakeGetRequestManagerFactory, new JobPostingExtendedDeserializer()),
+                    jobPostingExtendedManager: new JobPostingExtendedManager(ObjectMother.WIDExplorer_JobPage0102_FakeGetRequestManagerFactory, new JobPostingExtendedDeserializer(), new HeaderFactory()),
                     runIdManager: new RunIdManager(),
                     metricCollectionManager: new MetricCollectionManager(),
                     fileManager: new FileManager(),

@@ -65,7 +65,7 @@ namespace NW.WIDJobsClient.UnitTests
                             loggingAction,
                             loggingActionAsciiBanner,
                             new JobPageManager(postRequestManagerFactory: WIDJobs.UnitTests.ObjectMother.WIDExplorer_JobPage0102_FakePostRequestManagerFactory, headerFactory: new HeaderFactory()),
-                            new JobPostingExtendedManager(WIDJobs.UnitTests.ObjectMother.WIDExplorer_JobPage0102_FakeGetRequestManagerFactory, new JobPostingExtendedDeserializer()),
+                            new JobPostingExtendedManager(WIDJobs.UnitTests.ObjectMother.WIDExplorer_JobPage0102_FakeGetRequestManagerFactory, new JobPostingExtendedDeserializer(), new HeaderFactory()),
                             new FakeFileManager("some content"),
                             new FakeRepositoryFactory(467),
                             WIDExplorerComponents.DefaultNowFunction

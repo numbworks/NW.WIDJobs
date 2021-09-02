@@ -4,6 +4,7 @@ using NW.WIDJobs.HttpRequests;
 using NW.WIDJobs.JobPostings;
 using NW.WIDJobs.JobPostingsExtended;
 using System.Collections.Generic;
+using NW.WIDJobs.Headers;
 
 namespace NW.WIDJobs.UnitTests
 {
@@ -18,7 +19,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new JobPostingExtendedManager(null, new JobPostingExtendedDeserializer())
+                    () => new JobPostingExtendedManager(null, new JobPostingExtendedDeserializer(), new HeaderFactory())
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("getRequestManagerFactory").Message
@@ -26,11 +27,19 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new JobPostingExtendedManager(new GetRequestManagerFactory(), null)
+                    () => new JobPostingExtendedManager(new GetRequestManagerFactory(), null, new HeaderFactory())
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("jobPostingExtendedDeserializer").Message
-            ).SetArgDisplayNames($"{nameof(jobPostingExtendedManagerExceptionTestCases)}_02")
+            ).SetArgDisplayNames($"{nameof(jobPostingExtendedManagerExceptionTestCases)}_02"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new JobPostingExtendedManager(new GetRequestManagerFactory(), new JobPostingExtendedDeserializer(), null)
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("headerFactory").Message
+            ).SetArgDisplayNames($"{nameof(jobPostingExtendedManagerExceptionTestCases)}_03")
 
         };
         private static TestCaseData[] getJobPostingExtendedExceptionTestCases =
@@ -106,7 +115,7 @@ namespace NW.WIDJobs.UnitTests
 
             // Act
             JobPostingExtended actual 
-                = new JobPostingExtendedManager(fakeGetRequestManagerFactory, new JobPostingExtendedDeserializer()).GetJobPostingExtended(jobPosting);
+                = new JobPostingExtendedManager(fakeGetRequestManagerFactory, new JobPostingExtendedDeserializer(), new HeaderFactory()).GetJobPostingExtended(jobPosting);
 
             // Assert
             Assert.IsTrue(
@@ -126,5 +135,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 19.08.2021
+    Last Update: 02.09.2021
 */

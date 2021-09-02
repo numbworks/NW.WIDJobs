@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Net;
+using NW.WIDJobs.Headers;
 using NW.WIDJobs.HttpRequests;
 using NW.WIDJobs.JobPostings;
 using NW.WIDJobs.Validation;
@@ -13,6 +15,7 @@ namespace NW.WIDJobs.JobPostingsExtended
 
         private IGetRequestManagerFactory _getRequestManagerFactory;
         private IJobPostingExtendedDeserializer _jobPostingExtendedDeserializer;
+        private IHeaderFactory _headerFactory;
 
         #endregion
 
@@ -24,20 +27,22 @@ namespace NW.WIDJobs.JobPostingsExtended
         /// <summary>Initializes a <see cref="JobPostingExtendedManager"/> instance.</summary>
         /// <exception cref="ArgumentNullException"/>
         public JobPostingExtendedManager
-            (IGetRequestManagerFactory getRequestManagerFactory, IJobPostingExtendedDeserializer jobPostingExtendedDeserializer)
+            (IGetRequestManagerFactory getRequestManagerFactory, IJobPostingExtendedDeserializer jobPostingExtendedDeserializer, IHeaderFactory headerFactory)
         {
 
             Validator.ValidateObject(getRequestManagerFactory, nameof(getRequestManagerFactory));
             Validator.ValidateObject(jobPostingExtendedDeserializer, nameof(jobPostingExtendedDeserializer));
+            Validator.ValidateObject(headerFactory, nameof(headerFactory));
 
             _getRequestManagerFactory = getRequestManagerFactory;
             _jobPostingExtendedDeserializer = jobPostingExtendedDeserializer;
+            _headerFactory = headerFactory;
 
         }
 
         /// <summary>Initializes a <see cref="JobPostingExtendedManager"/> instance using default parameters.</summary>
         public JobPostingExtendedManager()
-            : this(new GetRequestManagerFactory(), new JobPostingExtendedDeserializer()) { }
+            : this(new GetRequestManagerFactory(), new JobPostingExtendedDeserializer(), new HeaderFactory()) { }
 
         #endregion
 
@@ -59,8 +64,9 @@ namespace NW.WIDJobs.JobPostingsExtended
 
             Validator.ValidateObject(jobPosting, nameof(jobPosting));
 
+            WebHeaderCollection headers = _headerFactory.Create();
             IGetRequestManager getRequestManager
-                = _getRequestManagerFactory.Create(null, null, null, null);
+                = _getRequestManagerFactory.Create(headers, null, null, null);
 
             return getRequestManager.Send(jobPosting.Url);
 
@@ -73,5 +79,5 @@ namespace NW.WIDJobs.JobPostingsExtended
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 07.08.2021
+    Last Update: 02.09.2021
 */
