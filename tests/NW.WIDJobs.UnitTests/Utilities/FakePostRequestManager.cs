@@ -21,7 +21,6 @@ namespace NW.WIDJobs.UnitTests
         public WebHeaderCollection Headers { get; }
         public string ContentType { get; }
         public CookieContainer CookieContainer { get; }
-        public string UserAgent { get; }
         public Version ProtocolVersion { get; }
         public string PostData { get; }
         public Encoding PostDataEncoding { get; }
@@ -37,7 +36,6 @@ namespace NW.WIDJobs.UnitTests
             WebHeaderCollection headers,
             string contentType,
             CookieContainer cookieContainer,
-            string userAgent,
             Version protocolVersion,
             string postData,
             Encoding postDataEncoding,
@@ -48,7 +46,6 @@ namespace NW.WIDJobs.UnitTests
             Headers = headers;
             ContentType = contentType;
             CookieContainer = cookieContainer;
-            UserAgent = userAgent;
 
             ProtocolVersion = protocolVersion;
             if (ProtocolVersion == null)
@@ -87,5 +84,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 18.08.2021
+    Last Update: 02.09.2021
 */

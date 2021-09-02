@@ -16,7 +16,6 @@ namespace NW.WIDJobs.HttpRequests
         string PostData { get; }
         Encoding PostDataEncoding { get; }
         Version ProtocolVersion { get; }
-        string UserAgent { get; }
 
         /// <summary>Sends a HTTP POST request.</summary>
         /// <exception cref="ArgumentNullException"/>
@@ -27,5 +26,5 @@ namespace NW.WIDJobs.HttpRequests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 25.06.2021
+    Last Update: 02.09.2021
 */

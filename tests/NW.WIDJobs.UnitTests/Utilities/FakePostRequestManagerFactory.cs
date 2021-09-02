@@ -33,9 +33,13 @@ namespace NW.WIDJobs.UnitTests
 
         #region Methods_public
 
-        public IPostRequestManager Create
-            (WebHeaderCollection headers, string contentType, CookieContainer cookieContainer,
-            string userAgent, Version protocolVersion, string postData, Encoding postDataEncoding)
+        public IPostRequestManager Create(
+            WebHeaderCollection headers, 
+            string contentType, 
+            CookieContainer cookieContainer,
+            Version protocolVersion, 
+            string postData, 
+            Encoding postDataEncoding)
         {
 
             return
@@ -44,7 +48,6 @@ namespace NW.WIDJobs.UnitTests
                         headers,
                         contentType,
                         cookieContainer,
-                        userAgent,
                         protocolVersion,
                         postData,
                         postDataEncoding,

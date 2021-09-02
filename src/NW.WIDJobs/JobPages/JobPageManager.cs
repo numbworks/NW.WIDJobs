@@ -92,7 +92,7 @@ namespace NW.WIDJobs.JobPages
             WebHeaderCollection headers = _headerFactory.Create();
 
             IPostRequestManager postRequestManager
-                = _postRequestManagerFactory.Create(headers, null, null, null, null, body, null);
+                = _postRequestManagerFactory.Create(headers, null, null, null, body, null);
 
             return postRequestManager.Send(Url);
 

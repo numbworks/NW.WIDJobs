@@ -20,7 +20,6 @@ namespace NW.WIDJobs.HttpRequests
         public WebHeaderCollection Headers { get; }
         public string ContentType { get; }
         public CookieContainer CookieContainer { get; }
-        public string UserAgent { get; }
         public Version ProtocolVersion { get; }
         public string PostData { get; }
         public Encoding PostDataEncoding { get; }
@@ -36,7 +35,6 @@ namespace NW.WIDJobs.HttpRequests
             WebHeaderCollection headers,
             string contentType,
             CookieContainer cookieContainer,
-            string userAgent,
             Version protocolVersion,
             string postData,
             Encoding postDataEncoding
@@ -49,7 +47,6 @@ namespace NW.WIDJobs.HttpRequests
             Headers = headers;
             ContentType = contentType;
             CookieContainer = cookieContainer;
-            UserAgent = userAgent;
 
             ProtocolVersion = protocolVersion;
             if (ProtocolVersion == null)
@@ -62,7 +59,7 @@ namespace NW.WIDJobs.HttpRequests
 
         /// <summary>Initializes a <see cref="PostRequestManager"/> instance using default parameters.</summary>
         public PostRequestManager()
-            : this(new HttpWebRequestFactory(), null, null, null, null, null, null, null) { }
+            : this(new HttpWebRequestFactory(), null, null, null, null, null, null) { }
 
         #endregion
 
@@ -103,9 +100,6 @@ namespace NW.WIDJobs.HttpRequests
 
             if (CookieContainer != null)
                 httpWebRequest.CookieContainer = CookieContainer;
-
-            if (UserAgent != null)
-                httpWebRequest.UserAgent = UserAgent;
 
             httpWebRequest.ProtocolVersion = ProtocolVersion;
 

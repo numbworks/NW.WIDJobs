@@ -15,7 +15,6 @@ namespace NW.WIDJobs.HttpRequests
             WebHeaderCollection headers, 
             string contentType, 
             CookieContainer cookieContainer, 
-            string userAgent, 
             Version protocolVersion, 
             string postData, 
             Encoding postDataEncoding
@@ -26,5 +25,5 @@ namespace NW.WIDJobs.HttpRequests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 25.06.2021
+    Last Update: 02.09.2021
 */

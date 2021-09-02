@@ -22,7 +22,7 @@ namespace NW.WIDJobs.UnitTests
 
             // Arrange
             // Act
-            IPostRequestManager actual = new PostRequestManagerFactory().Create(null, null, null, null, null, null, null);
+            IPostRequestManager actual = new PostRequestManagerFactory().Create(null, null, null, null, null, null);
 
             // Assert
             Assert.IsInstanceOf<IPostRequestManager>(actual);
