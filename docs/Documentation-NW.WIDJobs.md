@@ -17,7 +17,7 @@ On the perspective of this library, the website is structured as in the followin
 
 ![Diagram-TheWebsiteStructure](Diagrams/Diagram-TheWebsiteStructure.png)
 
-The red boxes highlight the piece of information and the relationships we are interested into.
+The red boxes highlight the pieces of information we are interested into.
 
 ## The object model
 
@@ -27,9 +27,89 @@ The three objects that have been identified during the exploration of `WorkInDen
 - `JobPosting`
 - `JobPostingExtended`
 
-The relationship between these objects is summarized in the diagram below:
+The relationship between these objects is summarized by the diagram below:
 
 ![Diagram-TheObjectModel](Diagrams/Diagram-TheObjectModel.png)
+
+Every `JobPage` contains also additional information, such as `TotalResultCount` (the total amount of `JobPostings` on the website in that given moment) and `TotalJobPages`.
+
+## The exploration
+
+The output of each exploration is collected into an `Exploration` object, which contains more or less items according to the depth of the exploration itself, decided by the user beforehand and described by a `Stage`.
+
+The available `Stages` are the following ones:
+
+|Name|Description|
+|---|---|
+|`Stage1_OnlyMetrics`|Retrieves the `TotalResultCount` and the `TotalJobPages`. Useful to describe the domain.|
+|`Stage2_UpToAllJobPostings`|Retrieves all the items for the previous stage, plus all the `JobPostings`.|
+|`Stage3_UpToAllJobPostingsExtended`|Retrieves all the items for the previous stages, plus all the `JobPostingsExtended`.|
+
+The exploration can be delimited by providing a desired value for one of the available thresold criteria:
+
+|Name|Description|
+|---|---|
+|`FinalPageNumber`|The exploration will go from the first page to this one.|
+|`ThresholdDate`|The exploration will continue until `CreatedDate` is greater than `ThresholdDate`.|
+|`JobPostingId`|The exploration will continue until `JobPostingId` is not found.|
+
+## Getting started
+
+Now that you know the basics, the first task we might be interested to perform is to describe the domain thru a `Stage1` exploration:
+
+```csharp
+using System;
+using NW.WIDJobs;
+using NW.WIDJobs.Explorations;
+
+/* ... */
+
+WIDExplorer explorer = new WIDExplorer();
+Exploration exploration = explorer.Explore(1, Stages.Stage1_OnlyMetrics);
+Console.WriteLine(exploration);
+```
+
+These few lines of code will output a log that includes `TotalResultCount` and `TotalJobPages`:
+
+```
+...
+[2021-09-03 11:27:34:436] TotalResultCount:'2476'.
+[2021-09-03 11:27:34:437] TotalJobPages:'124'.
+...
+```
+
+Once you got a preliminary idea of the domain, you can decide until which page number you want to explore. Let's say we want to explore only the first page, but fetch the maximum amount of data (`Stage3`):
+
+```csharp
+/* ... */
+
+WIDExplorer explorer = new WIDExplorer();
+Exploration exploration = explorer.Explore(1, Stages.Stage3_UpToAllJobPostingsExtended);
+Console.WriteLine(exploration);
+```
+
+These few lines of code will output a log that includes a textual summarization of the `Exploration` object:
+
+```
+...
+[2021-09-03 15:47:26:811] An anti-flooding strategy based on the provided settings is now in use.
+[2021-09-03 15:47:26:812] ParallelRequests:'3'.
+[2021-09-03 15:47:26:812] PauseBetweenRequestsMs:'25000'.
+[2021-09-03 15:47:26:812] '20' 'JobPosting' objects have been scraped in total.
+[2021-09-03 15:47:26:813] The execution of the 'Stage3_UpToAllJobPostingsExtended' has been started.
+[2021-09-03 15:47:27:348] JobPage '1', PageItem '1' - A 'JobPostingExtended' object has been scraped.
+[2021-09-03 15:47:27:617] JobPage '1', PageItem '2' - A 'JobPostingExtended' object has been scraped.
+[2021-09-03 15:47:27:879] JobPage '1', PageItem '3' - A 'JobPostingExtended' object has been scraped.
+...
+[2021-09-03 15:50:02:498] JobPage '1', PageItem '20' - A 'JobPostingExtended' object has been scraped.
+[2021-09-03 15:50:02:499] '20' 'JobPostingExtended' objects have been scraped in total.
+[2021-09-03 15:50:02:499] The exploration has been completed.
+{ 'RunId':'ID:20210903174724286|FROM:1|TO:1', 'TotalResultCount':'2496', 'TotalJobPages':'125', 'Stage':'Stage3_UpToAllJobPostingsExtended', 'IsCompleted':'True', 'JobPages':'1', 'JobPostings':'20', 'JobPostingsExtended':'20' }
+...
+```
+
+
+...
 
 # The URLs
 
@@ -311,9 +391,15 @@ The `WorkPlaceCityWithoutZone` field is required, because in many cases `WorkPla
 
 **Request:**
 
-|Method|Url|Authentication|Body|
-|---|---|---|---|
-|`GET`|`https://job.jobnet.dk/CV/FindWork/JobDetailJsonWIDK?id={ID}`|No|No|
+|Method|Url|Authentication|Headers| Body|
+|---|---|---|---|---|
+|`GET`|`https://job.jobnet.dk/CV/FindWork/JobDetailJsonWIDK?id={ID}`|No|Optional| No|
+
+**Headers:**
+
+|Type|Name|Value|
+|---|---|---|
+|Optional|User Agent|`Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101 Firefox/91.0`|
 
 **Response:**
 
