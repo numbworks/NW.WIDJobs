@@ -11,31 +11,13 @@ Contact: numbworks@gmail.com
 
 `NW.WIDJobs` is a `.NET Standard` library written in `C#` to explore `WorkInDenmark.dk` and fetch the most recent job ads.
 
-# The URLs
+## The website structure
 
-The exploration of `WorkInDenmark.dk` starts from an initial page and then it continues for x subsequent pages. 
+On the perspective of this library, the website is structured as in the following diagram: 
 
-The page URLs have a different schema according to a given criteria:
+![Diagram-TheWebsiteStructure](Diagrams/Diagram-TheWebsiteStructure.png)
 
-|Type|Criteria|Page|Url|
-|---|---|---|---|
-|Search|`Default`|1|`https://job.jobnet.dk/CV/FindWork?Offset=0&SortValue=BestMatch&widk=true`|
-|...|...|...|...|
-|Search|`OrderByCreationDate`|1|`https://job.jobnet.dk/CV/FindWork?Offset=0&SortValue=CreationDate&widk=true`|
-|Search|`OrderByCreationDate`|2|`https://job.jobnet.dk/CV/FindWork?Offset=20&SortValue=CreationDate&widk=true`|
-|...|...|...|...|
-
-For the scope of this library we do use the the `OrderByCreationDate` variants.
-
-The detail pages for each job have the following URLs instead:
-
-|Type|Criteria|Url|
-|---|---|---|
-|JobDetails|`Standard`|`https://job.jobnet.dk/CV/FindWork/JobDetailJsonWIDK?id={ID}`|
-|JobDetails|`PreviewToken`|`https://job.jobnet.dk/CV/FindWork/JobDetailJsonWIDK?id={ID}&previewtoken=`|
-|JobDetails|`Alternative`|`https://job.jobnet.dk/CV/FindWork/DetailsWidk/{ID}`|
-
-For the scope of this library we do use the the `Standard` variant.
+The red boxes highlight the piece of information and the relationships we are interested into.
 
 ## The object model
 
@@ -48,6 +30,36 @@ The three objects that have been identified during the exploration of `WorkInDen
 The relationship between these objects is summarized in the diagram below:
 
 ![Diagram-TheObjectModel](Diagrams/Diagram-TheObjectModel.png)
+
+# The URLs
+
+The exploration of `WorkInDenmark.dk` starts from an landing page and then it continues for x subsequent pages. 
+
+The page URLs have a different schema according to a given criteria:
+
+|Type|Criteria|Page|Url|
+|---|---|---|---|
+|Search|`Default`|1|`https://job.jobnet.dk/CV/FindWork?Offset=0&SortValue=BestMatch&widk=true`|
+|...|...|...|...|
+|Search|`OrderByCreationDate`|1|`https://job.jobnet.dk/CV/FindWork?Offset=0&SortValue=CreationDate&widk=true`|
+|Search|`OrderByCreationDate`|2|`https://job.jobnet.dk/CV/FindWork?Offset=20&SortValue=CreationDate&widk=true`|
+|...|...|...|...|
+
+But for the scope of this library we do use the generic page URL:
+
+|Type|Url|
+|---|---|
+|Search|`https://job.jobnet.dk/CV/FindWork/SearchWIDK`|
+
+The detail pages for each job have the following URLs instead:
+
+|Type|Criteria|Url|
+|---|---|---|
+|JobDetails|`Standard`|`https://job.jobnet.dk/CV/FindWork/JobDetailJsonWIDK?id={ID}`|
+|JobDetails|`PreviewToken`|`https://job.jobnet.dk/CV/FindWork/JobDetailJsonWIDK?id={ID}&previewtoken=`|
+|JobDetails|`Alternative`|`https://job.jobnet.dk/CV/FindWork/DetailsWidk/{ID}`|
+
+For the scope of this library we do use the the `Standard` variant.
 
 ## The API endpoints
 
