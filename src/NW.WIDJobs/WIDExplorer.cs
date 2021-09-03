@@ -285,14 +285,15 @@ namespace NW.WIDJobs
             return SaveToJsonFile(bulletPoints, jsonFile);
 
         }
-        public IFileInfoAdapter SaveToSQLiteDatabase(List<JobPostingExtended> jobPostingsExtended, IFileInfoAdapter databaseFile, bool deleteAndRecreateDatabase)
+        public IFileInfoAdapter SaveToSQLiteDatabase(Exploration exploration, IFileInfoAdapter databaseFile, bool deleteAndRecreateDatabase)
         {
 
-            Validator.ValidateList(jobPostingsExtended, nameof(jobPostingsExtended));
+            Validator.ValidateObject(exploration, nameof(exploration));
+            Validator.ValidateObject(exploration.JobPostings, nameof(exploration.JobPostings));
             Validator.ValidateObject(databaseFile, nameof(databaseFile));
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SavingJobPostingsExtendedToSQLiteDatabase);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingsExtendedAre.Invoke(jobPostingsExtended));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SavingExplorationToSQLiteDatabase);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationIs.Invoke(exploration));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DatabaseFileIs.Invoke(databaseFile.FullName));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DeleteAndRecreateDatabaseIs.Invoke(deleteAndRecreateDatabase));
 
@@ -300,7 +301,11 @@ namespace NW.WIDJobs
                 _components.RepositoryFactory
                     .Create(databaseFile.DirectoryName, databaseFile.Name, _settings.DeleteAndRecreateDatabase);
 
-            int affectedRows = repository.ConditionallyInsert(jobPostingsExtended);
+            int affectedRows = 0;
+            if (exploration.JobPostingsExtended != null)
+                affectedRows = repository.ConditionallyInsert(exploration.JobPostingsExtended);
+            else
+                affectedRows = repository.ConditionallyInsert(exploration.JobPostings);
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_AffectedRowsAre.Invoke(affectedRows));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationSavedToSQLiteDatabase);
@@ -308,16 +313,16 @@ namespace NW.WIDJobs
             return databaseFile;
 
         }
-        public IFileInfoAdapter SaveToSQLiteDatabase(List<JobPostingExtended> jobPostingsExtended)
+        public IFileInfoAdapter SaveToSQLiteDatabase(Exploration exploration)
         {
 
             DateTime now = _components.NowFunction.Invoke();
             string fullName = _components.FilenameFactory.CreateForDatabase(_settings.FolderPath, now);
             IFileInfoAdapter databaseFile = new FileInfoAdapter(fullName);
 
-            LogSharedSaveTo(nameof(SaveToJsonFile), now);
+            LogSharedSaveTo(nameof(SaveToSQLiteDatabase), now);
 
-            return SaveToSQLiteDatabase(jobPostingsExtended, databaseFile, _settings.DeleteAndRecreateDatabase);
+            return SaveToSQLiteDatabase(exploration, databaseFile, _settings.DeleteAndRecreateDatabase);
 
         }
 

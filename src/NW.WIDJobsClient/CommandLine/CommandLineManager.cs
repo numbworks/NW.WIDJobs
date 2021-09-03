@@ -852,7 +852,7 @@ namespace NW.WIDJobsClient.CommandLine
         private int SaveExplorationToDatabaseFile(WIDExplorer widExplorer, Exploration exploration)
         {
 
-            IFileInfoAdapter fileInfoAdapter = widExplorer.SaveToSQLiteDatabase(exploration.JobPostingsExtended);
+            IFileInfoAdapter fileInfoAdapter = widExplorer.SaveToSQLiteDatabase(exploration);
 
             return HandleFileExistance(fileInfoAdapter);
 

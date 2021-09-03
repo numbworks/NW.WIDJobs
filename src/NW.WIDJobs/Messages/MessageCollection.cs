@@ -125,10 +125,10 @@ namespace NW.WIDJobs.Messages
         public static string WIDExplorer_SomeDefaultValuesUsedJsonFile
             = $"Some default values need to be used in order to perform this extraction directly from a Json file.";
 
-        public static string WIDExplorer_SavingJobPostingsExtendedToSQLiteDatabase
-            =  $"Saving the provided {nameof(JobPostingExtended)} objects to a SQLite database...";
-        public static Func<List<JobPostingExtended>, string> WIDExplorer_JobPostingsExtendedAre
-            = (jobPostingsExtended) => $"JobPostingsExtended: '{jobPostingsExtended.Count}'.";
+        public static string WIDExplorer_SavingExplorationToSQLiteDatabase
+            =  $"Saving the provided {nameof(Exploration)} object to a SQLite database...";
+        public static Func<Exploration, string> WIDExplorer_ExplorationIs
+            = (exploration) => $"Exploration: '{exploration}'.";
         public static Func<string, string> WIDExplorer_DatabaseFileIs
             = (databaseFile) => $"DatabaseFile: '{databaseFile}'.";
         public static Func<bool, string> WIDExplorer_DeleteAndRecreateDatabaseIs

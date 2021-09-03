@@ -61,11 +61,11 @@ namespace NW.WIDJobs
         /// <summary>Save the provided collection of <see cref="BulletPoint"/> objects to a JSON file using a default filename and path</summary>
         IFileInfoAdapter SaveToJsonFile(List<BulletPoint> bulletPoints);
 
-        /// <summary>Save the provided <see cref="JobPostingExtended"/> objects to a SQLite database using a default filename and path.</summary>
-        IFileInfoAdapter SaveToSQLiteDatabase(List<JobPostingExtended> jobPostingsExtended);
+        /// <summary>Save the provided <see cref="Exploration"/> objects to a SQLite database using a default filename and path.</summary>
+        IFileInfoAdapter SaveToSQLiteDatabase(Exploration exploration);
 
-        /// <summary>Save the provided <see cref="JobPostingExtended"/> objects to a SQLite database.</summary>
-        IFileInfoAdapter SaveToSQLiteDatabase(List<JobPostingExtended> jobPostingsExtended, IFileInfoAdapter databaseFile, bool deleteAndRecreateDatabase);
+        /// <summary>Save the provided <see cref="Exploration"/> objects to a SQLite database.</summary>
+        IFileInfoAdapter SaveToSQLiteDatabase(Exploration exploration, IFileInfoAdapter databaseFile, bool deleteAndRecreateDatabase);
 
         /// <summary>Explores <see href="WorkInDenmark.dk"/> until <paramref name="finalPageNumber"/> using an automatically generated <paramref name="runId"/>.</summary>
         Exploration Explore(ushort finalPageNumber, Stages stage);

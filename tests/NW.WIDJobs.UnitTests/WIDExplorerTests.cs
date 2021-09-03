@@ -181,20 +181,32 @@ namespace NW.WIDJobs.UnitTests
                                     true
                         )),
                 typeof(ArgumentNullException),
-                new ArgumentNullException("jobPostingsExtended").Message
+                new ArgumentNullException("exploration").Message
             ).SetArgDisplayNames($"{nameof(saveToSQLiteDatabaseExceptionTestCases)}_01"),
 
             new TestCaseData(
                 new TestDelegate(
                     () => new WIDExplorer()
                                 .SaveToSQLiteDatabase(
-                                    ObjectMother.Shared_JobPage01_JobPostingsExtended,
+                                    ObjectMother.Shared_ExplorationStage1,
+                                    ObjectMother.FileManager_FileInfoAdapterDoesntExist,
+                                    true
+                        )),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("JobPostings").Message
+            ).SetArgDisplayNames($"{nameof(saveToSQLiteDatabaseExceptionTestCases)}_02"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new WIDExplorer()
+                                .SaveToSQLiteDatabase(
+                                    ObjectMother.Shared_ExplorationStage3,
                                     null,
                                     true
                         )),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("databaseFile").Message
-            ).SetArgDisplayNames($"{nameof(saveToSQLiteDatabaseExceptionTestCases)}_02")
+            ).SetArgDisplayNames($"{nameof(saveToSQLiteDatabaseExceptionTestCases)}_03")
 
         };
         private static TestCaseData[] saveToJsonFileExceptionTestCases =
@@ -1354,19 +1366,19 @@ namespace NW.WIDJobs.UnitTests
         }
 
         [Test]
-        public void SaveToSQLiteDatabase_ShouldWriteDatabaseFileToDiskAndLogExpectedMessages_WhenProperJobPostingsExtendedAndFileInfoAdapter()
+        public void SaveToSQLiteDatabase_ShouldWriteDatabaseFileToDiskAndLogExpectedMessages_WhenProperExplorationAndFileInfoAdapter()
         {
 
             // Arrange
-            List<JobPostingExtended> jobPostingsExtended = ObjectMother.Shared_JobPage01_JobPostingsExtended;
+            Exploration exploration = ObjectMother.Shared_ExplorationStage3;
             bool deleteAndRecreateDatabase = true;
             IFileInfoAdapter fakeFileInfoAdapter = new FakeFileInfoAdapter(false, ObjectMother.WIDExplorer_FakeSQLiteDatabaseFilePath);
             int affectedRows = 467;
             List<string> expectedLogMessages = new List<string>()
             {
 
-                MessageCollection.WIDExplorer_SavingJobPostingsExtendedToSQLiteDatabase,
-                MessageCollection.WIDExplorer_JobPostingsExtendedAre.Invoke(jobPostingsExtended),
+                MessageCollection.WIDExplorer_SavingExplorationToSQLiteDatabase,
+                MessageCollection.WIDExplorer_ExplorationIs.Invoke(exploration),
                 MessageCollection.WIDExplorer_DatabaseFileIs.Invoke(fakeFileInfoAdapter.FullName),
                 MessageCollection.WIDExplorer_DeleteAndRecreateDatabaseIs.Invoke(deleteAndRecreateDatabase),
                 MessageCollection.WIDExplorer_AffectedRowsAre.Invoke(affectedRows),
@@ -1401,7 +1413,7 @@ namespace NW.WIDJobs.UnitTests
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
             // Act
-            IFileInfoAdapter actual = widExplorer.SaveToSQLiteDatabase(jobPostingsExtended, fakeFileInfoAdapter, deleteAndRecreateDatabase);
+            IFileInfoAdapter actual = widExplorer.SaveToSQLiteDatabase(exploration, fakeFileInfoAdapter, deleteAndRecreateDatabase);
 
             // Assert
             Assert.AreEqual(fakeFileInfoAdapter.FullName, actual.FullName);
@@ -1410,11 +1422,11 @@ namespace NW.WIDJobs.UnitTests
         }
 
         [Test]
-        public void SaveToSQLiteDatabase_ShouldWriteDatabaseFileToDiskAndLogExpectedMessages_WhenProperJobPostingsExtended()
+        public void SaveToSQLiteDatabase_ShouldWriteDatabaseFileToDiskAndLogExpectedMessages_WhenProperExploration()
         {
 
             // Arrange
-            List<JobPostingExtended> jobPostingsExtended = ObjectMother.Shared_JobPage01_JobPostingsExtended;
+            Exploration exploration = ObjectMother.Shared_ExplorationStage3;
             bool deleteAndRecreateDatabase = false;
             DateTime now = ObjectMother.WIDExplorer_FakeNowFunction.Invoke();
             string fakeFullName = new FilenameFactory().CreateForDatabase(ObjectMother.WIDExplorer_FakeFolderPath, now);
@@ -1423,14 +1435,14 @@ namespace NW.WIDJobs.UnitTests
             List<string> expectedLogMessages = new List<string>()
             {
 
-                MessageCollection.WIDExplorer_MethodCalledWithoutIFileInfoAdapter.Invoke("SaveToJsonFile"),
+                MessageCollection.WIDExplorer_MethodCalledWithoutIFileInfoAdapter.Invoke("SaveToSQLiteDatabase"),
                 MessageCollection.WIDExplorer_DefaultValuesCreateIFileInfoAdapter,
                 MessageCollection.WIDExplorer_FolderPathIs.Invoke(ObjectMother.WIDExplorer_FakeFolderPath),
                 MessageCollection.WIDExplorer_NowIs.Invoke(now),
 
                 // SaveToSQLiteDatabase
-                MessageCollection.WIDExplorer_SavingJobPostingsExtendedToSQLiteDatabase,
-                MessageCollection.WIDExplorer_JobPostingsExtendedAre.Invoke(jobPostingsExtended),
+                MessageCollection.WIDExplorer_SavingExplorationToSQLiteDatabase,
+                MessageCollection.WIDExplorer_ExplorationIs.Invoke(exploration),
                 MessageCollection.WIDExplorer_DatabaseFileIs.Invoke(expected.FullName),
                 MessageCollection.WIDExplorer_DeleteAndRecreateDatabaseIs.Invoke(deleteAndRecreateDatabase),
                 MessageCollection.WIDExplorer_AffectedRowsAre.Invoke(affectedRows),
@@ -1471,7 +1483,7 @@ namespace NW.WIDJobs.UnitTests
             WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
 
             // Act
-            IFileInfoAdapter actual = widExplorer.SaveToSQLiteDatabase(jobPostingsExtended);
+            IFileInfoAdapter actual = widExplorer.SaveToSQLiteDatabase(exploration);
 
             // Assert
             Assert.AreEqual(expected.FullName, actual.FullName);
