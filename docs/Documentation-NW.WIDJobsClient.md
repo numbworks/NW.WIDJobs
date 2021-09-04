@@ -60,6 +60,145 @@ The following command will provide some essential information about the applicat
 PS C:\widjobs>.\widjobs.exe about
 ```
 
+The following command will:
+- take a previously saved exploration (in JSON format) as input;
+- calculate a bunch of metrics out of it
+- save it as JSON in the application's folder
+
+```powershell
+PS C:\widjobs>.\widjobs.exe session calculate --jsonpath:"C:\widjobs_exploration_20210904205304333.json" --output:jsonfile
+```
+
+An exploration file looks like this:
+
+```json
+{
+  "RunId": "ID:20210904221249647|FROM:1|TO:1",
+  "TotalResultCount": 2177,
+  "TotalJobPages": 109,
+  "Stage": "Stage3_UpToAllJobPostingsExtended",
+  "IsCompleted": true,
+  "JobPages": [
+    {
+      "RunId": "ID:20210904221249647|FROM:1|TO:1",
+      "PageNumber": 1,
+      "Response": "This item has been exluded from the serialization."
+    }
+  ],
+  "JobPostings": [
+    {
+      "RunId": "ID:20210904221249647|FROM:1|TO:1",
+      "PageNumber": 1,
+      "Response": "This item has been exluded from the serialization.",
+      "Title": "Linux Specialist",
+      "Presentation": "This item has been exluded from the serialization.",
+      "HiringOrgName": "Keepit A/S",
+      "WorkPlaceAddress": "Per Henrik Lings Allé 4 7",
+      "WorkPlacePostalCode": 2100,
+      "WorkPlaceCity": "København Ø",
+      "PostingCreated": "2021-07-02",
+      "LastDateApplication": "2021-08-27",
+      "Url": "https://job.jobnet.dk/CV/FindWork/Details/5332213",
+      "Region": "Hovedstaden og Bornholm",
+      "Municipality": "København",
+      "Country": "Danmark",
+      "EmploymentType": "",
+      "WorkHours": "Fuldtid",
+      "Occupation": "Programmør og systemudvikler",
+      "WorkplaceId": 133543,
+      "OrganisationId": 117090,
+      "HiringOrgCVR": 30806883,
+      "Id": 5332213,
+      "WorkPlaceCityWithoutZone": "København",
+      "JobPostingNumber": 1,
+      "JobPostingId": "5332213linuxspecialist"
+    },
+    ...
+  ],
+  "JobPostingsExtended": [
+    {
+      "JobPosting": {
+        "RunId": "ID:20210904221249647|FROM:1|TO:1",
+        "PageNumber": 1,
+        "Response": "This item has been exluded from the serialization.",
+        "Title": "Linux Specialist",
+        "Presentation": "This item has been exluded from the serialization.",
+        "HiringOrgName": "Keepit A/S",
+        "WorkPlaceAddress": "Per Henrik Lings Allé 4 7",
+        "WorkPlacePostalCode": 2100,
+        "WorkPlaceCity": "København Ø",
+        "PostingCreated": "2021-07-02",
+        "LastDateApplication": "2021-08-27",
+        "Url": "https://job.jobnet.dk/CV/FindWork/Details/5332213",
+        "Region": "Hovedstaden og Bornholm",
+        "Municipality": "København",
+        "Country": "Danmark",
+        "EmploymentType": "",
+        "WorkHours": "Fuldtid",
+        "Occupation": "Programmør og systemudvikler",
+        "WorkplaceId": 133543,
+        "OrganisationId": 117090,
+        "HiringOrgCVR": 30806883,
+        "Id": 5332213,
+        "WorkPlaceCityWithoutZone": "København",
+        "JobPostingNumber": 1,
+        "JobPostingId": "5332213linuxspecialist"
+      },
+      "Response": "This item has been exluded from the serialization.",
+      "HiringOrgDescription": null,
+      "PublicationStartDate": "2021-07-02",
+      "PublicationEndDate": "2021-08-27",
+      "Purpose": "This item has been exluded from the serialization.",
+      "NumberToFill": 1,
+      "ContactEmail": "edc@keepit.com",
+      "ContactPersonName": "Emil Daniel Christensen",
+      "EmploymentDate": null,
+      "ApplicationDeadlineDate": "2021-08-27",
+      "BulletPoints": [
+        "Performance troubleshooting - if a service is not performing as expected, troubleshooting the process interactions on a live server in order to identify the root cause and propose a remedy, possibly in collaboration with the development team.",
+        "Planning, testing, and executing Postgres database cluster migration from an older version to a newer version with little or no user-visible interruptions.",
+        "Designing the next iteration of our network infrastructure for high-performance multi-site communication, and planning and executing the transition from the previous iteration with no customer visible downtime."
+      ],
+      "BulletPointScenario": "keepit"
+    },
+    ...
+  ]
+}        
+```
+An metrics file looks like this:
+
+```json
+{
+  "RunId": "ID:20210904221249647|FROM:1|TO:1",
+  "TotalJobPages": 1,
+  "TotalJobPostings": 20,
+  "JobPostingsByHiringOrgName": {
+    "TeamVikaren.dk, Århus ApS, Horsens Afdeling": 12,
+    "Aarhus Universitet": 3,
+    "Keepit A/S": 2,
+    "Copenhagen Business School": 2,
+    "RANDSTAD A/S": 1
+  },
+  "JobPostingsByWorkPlaceAddress": {
+    "": 12,
+    "Per Henrik Lings Allé 4 7": 2,
+    "Solbjerg Plads 3": 2,
+    "Strandpromenaden 6": 1,
+    "Blichers Alle 20": 1,
+    "Ag": 1,
+    "Agro Food Park 48": 1
+  },
+  ...
+}  
+```
+
+You can specify a folder into which you want the output file to be saved and if you prefere to have numbers as percentages by using the following optional options:
+
+```powershell
+PS C:\widjobs>.\widjobs.exe session calculate --jsonpath:"C:\widjobs_exploration_20210904205304333.json" --output:jsonfile --folderpath:"C:\" --aspercentages
+```
+
+
 ...
 
 ## Markdown Toolset
