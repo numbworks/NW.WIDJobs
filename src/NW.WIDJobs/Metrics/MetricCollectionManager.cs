@@ -152,7 +152,7 @@ namespace NW.WIDJobs.Metrics
             return metrics;
 
         }
-        public Dictionary<string, string> ConvertToPercentages(Dictionary<string, uint> dict)
+        public Dictionary<string, string> TryConvertToPercentages(Dictionary<string, uint> dict)
         {
 
             /*
@@ -164,7 +164,8 @@ namespace NW.WIDJobs.Metrics
                 % = Value / TotalValue * 100             
              */
 
-            Validator.ValidateList(dict?.ToList(), nameof(dict));
+            if (dict == null)
+                return null;
 
             uint totalValue = (uint)dict.Sum(item => item.Value);
 

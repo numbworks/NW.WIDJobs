@@ -17,16 +17,15 @@ namespace NW.WIDJobs.Metrics
         MetricCollection Calculate(Exploration exploration);
 
         /// <summary>
-        /// Convert each value in <paramref name="dict"/> to the corresponding percentage.
+        /// Convert each value in <paramref name="dict"/> to the corresponding percentage. Returns null when <paramref name="dict"/> is null.
         /// <para>Intended to be executed against <see cref="MetricCollection"/> dictionaries.</para>
         /// </summary>
-        /// <exception cref="ArgumentNullException"/>
-        Dictionary<string, string> ConvertToPercentages(Dictionary<string, uint> dict);
+        Dictionary<string, string> TryConvertToPercentages(Dictionary<string, uint> dict);
     
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 27.05.2021
+    Last Update: 04.09.2021
 */

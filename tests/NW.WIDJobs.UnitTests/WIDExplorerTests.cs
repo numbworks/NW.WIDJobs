@@ -683,7 +683,113 @@ namespace NW.WIDJobs.UnitTests
         }
 
         [Test]
-        public void ConvertToJson_ShouldReturnExpectedStringAndLogExpectedMessages_WhenProperMetricCollectionAndNumbers()
+        public void ConvertToJson_ShouldReturnExpectedStringAndLogExpectedMessages_WhenMetricCollectionStage2AndNumbers()
+        {
+
+            // Arrange
+            bool numbersAsPercentages = false;
+            string expected = ObjectMother.WIDExplorer_ExplorationStage2MetricCollectionNumbersAsJson_Content;
+            List<string> expectedLogMessages = new List<string>()
+            {
+
+                MessageCollection.WIDExplorer_ConvertingMetricCollectionToJsonString,
+                MessageCollection.WIDExplorer_NumbersAsPercentagesIs.Invoke(numbersAsPercentages),
+                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
+                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
+                MessageCollection.WIDExplorer_ConvertedMetricsCollectionToJsonString
+
+            };
+
+            FakeLogger fakeLogger = new FakeLogger();
+            Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
+            FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
+            Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
+            WIDExplorerComponents components = new WIDExplorerComponents(
+                    loggingAction: fakeLoggingAction,
+                    loggingActionAsciiBanner: fakeLoggingActionAsciiBanner,
+                    xpathManager: new XPathManager(),
+                    getRequestManager: new GetRequestManager(),
+                    jobPageDeserializer: new JobPageDeserializer(),
+                    jobPageManager: new JobPageManager(),
+                    jobPostingDeserializer: new JobPostingDeserializer(),
+                    jobPostingManager: new JobPostingManager(),
+                    jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
+                    jobPostingExtendedManager: new JobPostingExtendedManager(),
+                    runIdManager: new RunIdManager(),
+                    metricCollectionManager: new MetricCollectionManager(),
+                    fileManager: new FileManager(),
+                    repositoryFactory: new RepositoryFactory(),
+                    asciiBannerManager: new AsciiBannerManager(),
+                    filenameFactory: new FilenameFactory(),
+                    bulletPointManager: new BulletPointManager(),
+                    nowFunction: WIDExplorerComponents.DefaultNowFunction
+                  );
+            WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
+
+            // Act
+            string actual = widExplorer.ConvertToJson(ObjectMother.MetricCollection_ExplorationStage2, numbersAsPercentages);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
+
+        }
+
+        [Test]
+        public void ConvertToJson_ShouldReturnExpectedStringAndLogExpectedMessages_WhenMetricCollectionStage2AndPercentages()
+        {
+
+            // Arrange
+            bool numbersAsPercentages = true;
+            string expected = ObjectMother.WIDExplorer_ExplorationStage2MetricCollectionPercentagesAsJson_Content;
+            List<string> expectedLogMessages = new List<string>()
+            {
+
+                MessageCollection.WIDExplorer_ConvertingMetricCollectionToJsonString,
+                MessageCollection.WIDExplorer_NumbersAsPercentagesIs.Invoke(numbersAsPercentages),
+                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
+                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
+                MessageCollection.WIDExplorer_ConvertedMetricsCollectionToJsonString
+
+            };
+
+            FakeLogger fakeLogger = new FakeLogger();
+            Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
+            FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
+            Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
+            WIDExplorerComponents components = new WIDExplorerComponents(
+                    loggingAction: fakeLoggingAction,
+                    loggingActionAsciiBanner: fakeLoggingActionAsciiBanner,
+                    xpathManager: new XPathManager(),
+                    getRequestManager: new GetRequestManager(),
+                    jobPageDeserializer: new JobPageDeserializer(),
+                    jobPageManager: new JobPageManager(),
+                    jobPostingDeserializer: new JobPostingDeserializer(),
+                    jobPostingManager: new JobPostingManager(),
+                    jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
+                    jobPostingExtendedManager: new JobPostingExtendedManager(),
+                    runIdManager: new RunIdManager(),
+                    metricCollectionManager: new MetricCollectionManager(),
+                    fileManager: new FileManager(),
+                    repositoryFactory: new RepositoryFactory(),
+                    asciiBannerManager: new AsciiBannerManager(),
+                    filenameFactory: new FilenameFactory(),
+                    bulletPointManager: new BulletPointManager(),
+                    nowFunction: WIDExplorerComponents.DefaultNowFunction
+                  );
+            WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
+
+            // Act
+            string actual = widExplorer.ConvertToJson(ObjectMother.MetricCollection_ExplorationStage2, numbersAsPercentages);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
+
+        }
+
+        [Test]
+        public void ConvertToJson_ShouldReturnExpectedStringAndLogExpectedMessages_WhenMetricCollectionStage3AndNumbers()
         {
 
             // Arrange
@@ -736,7 +842,7 @@ namespace NW.WIDJobs.UnitTests
         }
 
         [Test]
-        public void ConvertToJson_ShouldReturnExpectedStringAndLogExpectedMessages_WhenProperMetricCollectionAndPercentages()
+        public void ConvertToJson_ShouldReturnExpectedStringAndLogExpectedMessages_WhenMetricCollectionStage3AndPercentages()
         {
 
             // Arrange

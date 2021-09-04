@@ -31,19 +31,6 @@ namespace NW.WIDJobs.UnitTests
             ).SetArgDisplayNames($"{nameof(calculateExceptionTestCases)}_02")
 
         };
-        private static TestCaseData[] convertToPercentagesExceptionTestCases =
-        {
-
-
-            new TestCaseData(
-                new TestDelegate(
-                    () => new MetricCollectionManager().ConvertToPercentages(null)
-                ),
-                typeof(ArgumentNullException),
-                new ArgumentNullException("dict").Message
-            ).SetArgDisplayNames($"{nameof(convertToPercentagesExceptionTestCases)}_01")
-
-        };
         private static TestCaseData[] calculatePercentageTestCases =
         {
 
@@ -93,13 +80,13 @@ namespace NW.WIDJobs.UnitTests
         }
 
         [Test]
-        public void ConvertToPercentages_ShouldReturnExpectedPercentages_WhenInvoked()
+        public void TryConvertToPercentages_ShouldReturnExpectedPercentages_WhenProperDictionary()
         {
 
             // Arrange
             // Act
             Dictionary<string, string> actual
-                = new MetricCollectionManager().ConvertToPercentages(ObjectMother.MetricCollectionManager_WorkPlaceCityWithoutZones);
+                = new MetricCollectionManager().TryConvertToPercentages(ObjectMother.MetricCollectionManager_WorkPlaceCityWithoutZones);
 
             // Assert
             Assert.IsTrue(
@@ -108,13 +95,24 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
+        [Test]
+        public void TryConvertToPercentages_ShouldReturnNull_WhenDictionaryIsNull()
+        {
+
+            // Arrange
+            // Act
+            Dictionary<string, string> actual
+                = new MetricCollectionManager().TryConvertToPercentages(null);
+
+            // Assert
+            Assert.IsTrue(
+                ObjectMother.AreEqual(null, actual)
+                );
+
+        }
+
         [TestCaseSource(nameof(calculateExceptionTestCases))]
         public void Calculate_ShouldThrowACertainException_WhenUnproperArguments
-            (TestDelegate del, Type expectedType, string expectedMessage)
-                => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
-
-        [TestCaseSource(nameof(convertToPercentagesExceptionTestCases))]
-        public void ConvertToPercentages_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 

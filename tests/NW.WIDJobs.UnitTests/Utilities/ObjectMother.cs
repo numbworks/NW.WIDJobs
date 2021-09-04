@@ -4020,6 +4020,10 @@ namespace NW.WIDJobs.UnitTests
 
         public static string WIDExplorer_ExplorationStage2AsJson_Content
             = Properties.Resources.ExplorationStage2AsJson;
+        public static string WIDExplorer_ExplorationStage2MetricCollectionNumbersAsJson_Content
+            = Properties.Resources.ExplorationStage2MCNumbersAsJson;
+        public static string WIDExplorer_ExplorationStage2MetricCollectionPercentagesAsJson_Content
+            = Properties.Resources.ExplorationStage2MCPercentagesAsJson;
 
         public static string WIDExplorer_ExplorationStage3AsJson_Content
             = Properties.Resources.ExplorationStage3AsJson;

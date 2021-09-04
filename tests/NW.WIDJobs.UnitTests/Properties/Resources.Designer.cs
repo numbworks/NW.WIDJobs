@@ -65,7 +65,7 @@ namespace NW.WIDJobs.UnitTests.Properties {
         ///  &quot;RunId&quot;: &quot;FakeRunId&quot;,
         ///  &quot;TotalResultCount&quot;: 2177,
         ///  &quot;TotalJobPages&quot;: 109,
-        ///  &quot;Stage&quot;: &quot;Stage3_UpToAllJobPostingsExtended&quot;,
+        ///  &quot;Stage&quot;: &quot;Stage2_UpToAllJobPostings&quot;,
         ///  &quot;IsCompleted&quot;: true,
         ///  &quot;JobPages&quot;: [
         ///    {
@@ -81,11 +81,62 @@ namespace NW.WIDJobs.UnitTests.Properties {
         ///  ],
         ///  &quot;JobPostings&quot;: [
         ///    {
-        ///      &quot;RunId&quot;: &quot;FakeRunId&quot;,        /// [rest of string was truncated]&quot;;.
+        ///      &quot;RunId&quot;: &quot;FakeRunId&quot;,
+        ///      &quot; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ExplorationStage2AsJson {
             get {
                 return ResourceManager.GetString("ExplorationStage2AsJson", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
+        ///  &quot;RunId&quot;: &quot;FakeRunId&quot;,
+        ///  &quot;TotalJobPages&quot;: 2,
+        ///  &quot;TotalJobPostings&quot;: 40,
+        ///  &quot;JobPostingsByHiringOrgName&quot;: {
+        ///    &quot;TeamVikaren.dk, Århus ApS, Horsens Afdeling&quot;: 12,
+        ///    &quot;Aarhus Universitet&quot;: 4,
+        ///    &quot;Keepit A/S&quot;: 2,
+        ///    &quot;Copenhagen Business School&quot;: 2,
+        ///    &quot;RANDSTAD A/S&quot;: 2,
+        ///    &quot;Plecto ApS&quot;: 2,
+        ///    &quot;Novo Nordisk A/S&quot;: 2,
+        ///    &quot;A.P. Møller - Mærsk A/S&quot;: 2,
+        ///    &quot;Lokal Boligservice ApS&quot;: 1,
+        ///    &quot;Danmarks Tekniske Universitet&quot;: 1,
+        ///    &quot;BH HotelService ApS&quot;: 1,
+        ///    &quot;Vikar DK A/S&quot;: 1,
+        ///    &quot;KU - SCIE [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ExplorationStage2MCNumbersAsJson {
+            get {
+                return ResourceManager.GetString("ExplorationStage2MCNumbersAsJson", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
+        ///  &quot;RunId&quot;: &quot;FakeRunId&quot;,
+        ///  &quot;TotalJobPages&quot;: 2,
+        ///  &quot;TotalJobPostings&quot;: 40,
+        ///  &quot;JobPostingsByHiringOrgName&quot;: {
+        ///    &quot;TeamVikaren.dk, Århus ApS, Horsens Afdeling&quot;: &quot;30%&quot;,
+        ///    &quot;Aarhus Universitet&quot;: &quot;10%&quot;,
+        ///    &quot;Keepit A/S&quot;: &quot;5%&quot;,
+        ///    &quot;Copenhagen Business School&quot;: &quot;5%&quot;,
+        ///    &quot;RANDSTAD A/S&quot;: &quot;5%&quot;,
+        ///    &quot;Plecto ApS&quot;: &quot;5%&quot;,
+        ///    &quot;Novo Nordisk A/S&quot;: &quot;5%&quot;,
+        ///    &quot;A.P. Møller - Mærsk A/S&quot;: &quot;5%&quot;,
+        ///    &quot;Lokal Boligservice ApS&quot;: &quot;2.5%&quot;,
+        ///    &quot;Danmarks Tekniske Universitet&quot;: &quot;2.5%&quot;,
+        ///    &quot;BH HotelService ApS&quot;: &quot;2.5%&quot;, [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ExplorationStage2MCPercentagesAsJson {
+            get {
+                return ResourceManager.GetString("ExplorationStage2MCPercentagesAsJson", resourceCulture);
             }
         }
         

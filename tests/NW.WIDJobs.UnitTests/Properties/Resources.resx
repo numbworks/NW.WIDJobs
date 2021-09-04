@@ -121,6 +121,12 @@
   <data name="ExplorationStage2AsJson" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\explorationstage2asjson.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="ExplorationStage2MCNumbersAsJson" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\explorationstage2mcnumbersasjson.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="ExplorationStage2MCPercentagesAsJson" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\explorationstage2mcpercentagesasjson.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
   <data name="ExplorationStage3AsJson" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\explorationstage3asjson.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
