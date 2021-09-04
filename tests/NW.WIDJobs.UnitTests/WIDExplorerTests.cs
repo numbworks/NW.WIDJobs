@@ -588,8 +588,7 @@ namespace NW.WIDJobs.UnitTests
                 MessageCollection.WIDExplorer_ConvertingExplorationToJsonString,
                 MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
                 MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(MessageCollection.WIDExplorer_NotSerializedJobPageContent),
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(MessageCollection.WIDExplorer_NotSerializedJobPostings),
+                MessageCollection.WIDExplorer_VerboseSerializationIs.Invoke(false),
                 MessageCollection.WIDExplorer_ConvertedExplorationToJsonString
 
             };
@@ -641,8 +640,7 @@ namespace NW.WIDJobs.UnitTests
                 MessageCollection.WIDExplorer_ConvertingExplorationToJsonString,
                 MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
                 MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(MessageCollection.WIDExplorer_NotSerializedJobPageContent),
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(MessageCollection.WIDExplorer_NotSerializedJobPostings),
+                MessageCollection.WIDExplorer_VerboseSerializationIs.Invoke(false),
                 MessageCollection.WIDExplorer_ConvertedExplorationToJsonString
 
             };
@@ -694,8 +692,7 @@ namespace NW.WIDJobs.UnitTests
                 MessageCollection.WIDExplorer_ConvertingExplorationToJsonString,
                 MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
                 MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(MessageCollection.WIDExplorer_NotSerializedJobPageContent),
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(MessageCollection.WIDExplorer_NotSerializedJobPostings),
+                MessageCollection.WIDExplorer_VerboseSerializationIs.Invoke(false),
                 MessageCollection.WIDExplorer_ConvertedExplorationToJsonString
 
             };
@@ -1429,8 +1426,7 @@ namespace NW.WIDJobs.UnitTests
                 MessageCollection.WIDExplorer_ConvertingExplorationToJsonString,
                 MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
                 MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(MessageCollection.WIDExplorer_NotSerializedJobPageContent),
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(MessageCollection.WIDExplorer_NotSerializedJobPostings),
+                MessageCollection.WIDExplorer_VerboseSerializationIs.Invoke(false),
                 MessageCollection.WIDExplorer_ConvertedExplorationToJsonString,
 
                 MessageCollection.WIDExplorer_ExplorationSavedToJsonFile
@@ -1498,8 +1494,7 @@ namespace NW.WIDJobs.UnitTests
                 MessageCollection.WIDExplorer_ConvertingExplorationToJsonString,
                 MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
                 MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(MessageCollection.WIDExplorer_NotSerializedJobPageContent),
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(MessageCollection.WIDExplorer_NotSerializedJobPostings),
+                MessageCollection.WIDExplorer_VerboseSerializationIs.Invoke(false),
                 MessageCollection.WIDExplorer_ConvertedExplorationToJsonString,
 
                 MessageCollection.WIDExplorer_ExplorationSavedToJsonFile

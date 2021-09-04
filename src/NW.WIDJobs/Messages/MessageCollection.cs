@@ -174,10 +174,8 @@ namespace NW.WIDJobs.Messages
             = $"Converting the provided {nameof(Exploration)} object to a JSON string...";
         public static Func<string, string> WIDExplorer_SerializationOptionIs
             = (serializationOption) => $"SerializationOption: '{serializationOption}'.";
-        public static string WIDExplorer_NotSerializedJobPageContent 
-            = $"{nameof(JobPage)} content is not serialized.";
-        public static string WIDExplorer_NotSerializedJobPostings 
-            = $"If {nameof(Stages.Stage3_UpToAllJobPostingsExtended)}, {nameof(JobPosting)} objects are not serialized.";
+        public static Func<bool, string> WIDExplorer_VerboseSerializationIs 
+            = (verboseSerialization) => $"VerboseSerialization: '{verboseSerialization}'.";
         public static string WIDExplorer_ConvertedExplorationToJsonString
             = $"The provided {nameof(Exploration)} object has been successfully converted to a JSON string.";
 

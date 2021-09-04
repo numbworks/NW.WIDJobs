@@ -77,6 +77,8 @@ namespace NW.WIDJobsClient.CommandLine
         public static string Option_ExplorationOutput_Template { get; } = "--explorationoutput";
         public static string Option_ExplorationOutput_Description { get; } = "The output(s) for the exploration.";
         public static string Option_ExplorationOutput_ErrorMessage { get; } = $"{Option_ExplorationOutput_Template} is mandatory.";
+        public static string Option_VerboseSerialization_Template { get; } = "--verboseserialization";
+        public static string Option_VerboseSerialization_Description { get; } = $"By default, some fields in the {nameof(Exploration)} JSONs are replaced with '{WIDExplorer.DefaultNotSerialized}' to increase readability. Use it option to disable the default behaviour.";
         public static string Option_MetricsOutput_Template { get; } = "--metricsoutput";
         public static string Option_MetricsOutput_Description { get; } = "The output(s) for the metric calculation.";
         public static string Option_ParallelRequests_Template { get; } = "--parallelrequests";
@@ -295,6 +297,7 @@ namespace NW.WIDJobsClient.CommandLine
 
                 CommandOption outputOption = CreateRequiredDescribeOutputOption(describeSubCommand);
                 CommandOption folderPathOption = CreateOptionalFolderPathOption(describeSubCommand);
+                CommandOption verboseSerialization = CreateOptionalVerboseSerializationOption(describeSubCommand);
                 CommandOption useDemoDataOption = CreateOptionalUseDemoDataOption(describeSubCommand);
 
                 describeSubCommand.OnExecute(() =>
@@ -303,7 +306,9 @@ namespace NW.WIDJobsClient.CommandLine
                     return SessionDescribe(
                                 ConvertToDescribeOutputs(outputOption.Value()),
                                 folderPathOption.Value(),
-                                useDemoDataOption.HasValue());
+                                useDemoDataOption.HasValue(),
+                                verboseSerialization: verboseSerialization.HasValue()
+                                );
 
                 });
 
@@ -325,6 +330,7 @@ namespace NW.WIDJobsClient.CommandLine
                 CommandOption thresholdValueOption = CreateRequiredThresholdValueOption(exploreSubCommand);
                 CommandOption explorationOutputOption = CreateRequiredExplorationOutputOption(exploreSubCommand);
                 CommandOption folderPathOption = CreateOptionalFolderPathOption(exploreSubCommand);
+                CommandOption verboseSerialization = CreateOptionalVerboseSerializationOption(exploreSubCommand);
                 CommandOption metricsOutputOption = CreateRequiredMetricsOutputOption(exploreSubCommand);
                 CommandOption asPercentagesOption = CreateOptionalAsPercentagesOption(exploreSubCommand);
                 CommandOption parallelRequestsOption = CreateOptionalParallelRequestsOption(exploreSubCommand);
@@ -344,7 +350,8 @@ namespace NW.WIDJobsClient.CommandLine
                                 exploreStage: ConvertToExploreStages(stageFromInputOption.Value()),
                                 explorationOutput: ConvertToExploreOutputs(explorationOutputOption.Value()),
                                 metricsOutput: ConvertToMetricsOutputs(metricsOutputOption.Value()),
-                                numbersAsPercentages: asPercentagesOption.HasValue()
+                                numbersAsPercentages: asPercentagesOption.HasValue(),
+                                verboseSerialization: verboseSerialization.HasValue()
                                 );
 
                 });
@@ -540,6 +547,13 @@ namespace NW.WIDJobsClient.CommandLine
             return subCommand
                     .Option(Option_FolderPath_Template, Option_FolderPath_Description, CommandOptionType.SingleValue)
                     .Accepts(validator => validator.ExistingDirectory());
+
+        }
+        private CommandOption CreateOptionalVerboseSerializationOption(CommandLineApplication subCommand)
+        {
+
+            return subCommand
+                    .Option(Option_VerboseSerialization_Template, Option_VerboseSerialization_Description, CommandOptionType.NoValue);
 
         }
         private CommandOption CreateOptionalAsPercentagesOption(CommandLineApplication subCommand)
@@ -776,10 +790,10 @@ namespace NW.WIDJobsClient.CommandLine
             return Failure;
 
         }
-        private int DumpExplorationToConsole(WIDExplorer widExplorer, Exploration exploration)
+        private int DumpExplorationToConsole(WIDExplorer widExplorer, Exploration exploration, bool verboseSerialization)
         {
 
-            string json = widExplorer.ConvertToJson(exploration);
+            string json = widExplorer.ConvertToJson(exploration, verboseSerialization);
             DumpJsonToConsole(json);
             _defaultComponents.LoggingActionAsciiBanner.Invoke(string.Empty);
 
@@ -796,20 +810,20 @@ namespace NW.WIDJobsClient.CommandLine
             return Success;
 
         }
-        private int DumpExplorationToConsoleAndSaveToJsonFile(WIDExplorer widExplorer, Exploration exploration)
+        private int DumpExplorationToConsoleAndSaveToJsonFile(WIDExplorer widExplorer, Exploration exploration, bool verboseSerialization)
         {
 
-            DumpExplorationToConsole(widExplorer, exploration);
+            DumpExplorationToConsole(widExplorer, exploration, verboseSerialization);
 
-            return SaveExplorationToJsonFile(widExplorer, exploration);
+            return SaveExplorationToJsonFile(widExplorer, exploration, verboseSerialization);
 
         }
-        private int DumpExplorationToConsoleAndSaveToJsonDatabaseFiles(WIDExplorer widExplorer, Exploration exploration)
+        private int DumpExplorationToConsoleAndSaveToJsonDatabaseFiles(WIDExplorer widExplorer, Exploration exploration, bool verboseSerialization)
         {
 
-            DumpExplorationToConsole(widExplorer, exploration);
+            DumpExplorationToConsole(widExplorer, exploration, verboseSerialization);
 
-            int exitCode1 = SaveExplorationToJsonFile(widExplorer, exploration);
+            int exitCode1 = SaveExplorationToJsonFile(widExplorer, exploration, verboseSerialization);
             int exitCode2 = SaveExplorationToDatabaseFile(widExplorer, exploration);
 
             return OrchestrateExitCodes(exitCode1, exitCode2);
@@ -841,10 +855,10 @@ namespace NW.WIDJobsClient.CommandLine
             return SaveBulletPointsToJsonFile(widExplorer, bulletPoints);
 
         }
-        private int SaveExplorationToJsonFile(WIDExplorer widExplorer, Exploration exploration)
+        private int SaveExplorationToJsonFile(WIDExplorer widExplorer, Exploration exploration, bool verboseSerialization)
         {
 
-            IFileInfoAdapter fileInfoAdapter = widExplorer.SaveToJsonFile(exploration);
+            IFileInfoAdapter fileInfoAdapter = widExplorer.SaveToJsonFile(exploration, verboseSerialization);
 
             return HandleFileExistance(fileInfoAdapter);
 
@@ -857,10 +871,10 @@ namespace NW.WIDJobsClient.CommandLine
             return HandleFileExistance(fileInfoAdapter);
 
         }
-        private int SaveExplorationToJsonDatabaseFiles(WIDExplorer widExplorer, Exploration exploration)
+        private int SaveExplorationToJsonDatabaseFiles(WIDExplorer widExplorer, Exploration exploration, bool verboseSerialization)
         {
 
-            int exitCode1 = SaveExplorationToJsonFile(widExplorer, exploration);
+            int exitCode1 = SaveExplorationToJsonFile(widExplorer, exploration, verboseSerialization);
             int exitCode2 = SaveExplorationToDatabaseFile(widExplorer, exploration);
 
             return OrchestrateExitCodes(exitCode1, exitCode2);
@@ -911,13 +925,14 @@ namespace NW.WIDJobsClient.CommandLine
         }
         private int OrchestrateMetricCollection(WIDExplorer widExplorer, Exploration exploration, CalculateOutputs output, bool numbersAsPercentages)
             => OrchestrateMetricCollection(widExplorer, exploration, MapCalculateToMetrics(output), numbersAsPercentages);
-        private int OrchestrateExploration(WIDExplorer widExplorer, Exploration exploration, ExploreOutputs explorationOutput, MetricsOutputs metricsOutput, bool numbersAsPercentages)
+        private int OrchestrateExploration
+            (WIDExplorer widExplorer, Exploration exploration, ExploreOutputs explorationOutput, MetricsOutputs metricsOutput, bool numbersAsPercentages, bool verboseSerialization)
         {
 
             if (explorationOutput == ExploreOutputs.console)
             {
 
-                int exitCode1 = DumpExplorationToConsole(widExplorer, exploration);
+                int exitCode1 = DumpExplorationToConsole(widExplorer, exploration, verboseSerialization);
 
                 int exitCode2 = ((int)ExitCodes.Success);
                 if (metricsOutput != MetricsOutputs.none)
@@ -929,7 +944,7 @@ namespace NW.WIDJobsClient.CommandLine
             if (explorationOutput == ExploreOutputs.jsonfile)
             {
 
-                int exitCode1 = SaveExplorationToJsonFile(widExplorer, exploration);
+                int exitCode1 = SaveExplorationToJsonFile(widExplorer, exploration, verboseSerialization);
 
                 int exitCode2 = ((int)ExitCodes.Success);
                 if (metricsOutput != MetricsOutputs.none)
@@ -953,7 +968,7 @@ namespace NW.WIDJobsClient.CommandLine
             if (explorationOutput == ExploreOutputs.onlyfiles)
             {
 
-                int exitCode1 = SaveExplorationToJsonDatabaseFiles(widExplorer, exploration);
+                int exitCode1 = SaveExplorationToJsonDatabaseFiles(widExplorer, exploration, verboseSerialization);
 
                 int exitCode2 = ((int)ExitCodes.Success);
                 if (metricsOutput != MetricsOutputs.none)
@@ -965,7 +980,7 @@ namespace NW.WIDJobsClient.CommandLine
             if (explorationOutput == ExploreOutputs.all)
             {
 
-                int exitCode1 = DumpExplorationToConsoleAndSaveToJsonDatabaseFiles(widExplorer, exploration);
+                int exitCode1 = DumpExplorationToConsoleAndSaveToJsonDatabaseFiles(widExplorer, exploration, verboseSerialization);
 
                 int exitCode2 = ((int)ExitCodes.Success);
                 if (metricsOutput != MetricsOutputs.none)
@@ -1075,7 +1090,7 @@ namespace NW.WIDJobsClient.CommandLine
             }
 
         }
-        private int SessionDescribe(DescribeOutputs output, string folderPath, bool useDemoData)
+        private int SessionDescribe(DescribeOutputs output, string folderPath, bool useDemoData, bool verboseSerialization)
         {
 
             try
@@ -1089,13 +1104,13 @@ namespace NW.WIDJobsClient.CommandLine
                 Exploration exploration = widExplorer.Explore(1, Stages.Stage1_OnlyMetrics);
 
                 if (output == DescribeOutputs.console)
-                    return DumpExplorationToConsole(widExplorer, exploration);
+                    return DumpExplorationToConsole(widExplorer, exploration, verboseSerialization);
 
                 else if (output == DescribeOutputs.jsonfile)
-                    return SaveExplorationToJsonFile(widExplorer, exploration);
+                    return SaveExplorationToJsonFile(widExplorer, exploration, verboseSerialization);
 
                 else if (output == DescribeOutputs.both)
-                    return DumpExplorationToConsoleAndSaveToJsonFile(widExplorer, exploration);
+                    return DumpExplorationToConsoleAndSaveToJsonFile(widExplorer, exploration, verboseSerialization);
 
                 else
                     throw CreateOptionValueException<DescribeOutputs>(output.ToString());
@@ -1119,7 +1134,9 @@ namespace NW.WIDJobsClient.CommandLine
             ExploreStages exploreStage,
             ExploreOutputs explorationOutput,
             MetricsOutputs metricsOutput,
-            bool numbersAsPercentages)
+            bool numbersAsPercentages,
+            bool verboseSerialization
+            )
         {
 
             try
@@ -1145,7 +1162,7 @@ namespace NW.WIDJobsClient.CommandLine
                 else
                     throw CreateOptionValueException<ThresholdTypes>(thresholdType.ToString());
 
-                return OrchestrateExploration(widExplorer, exploration, explorationOutput, metricsOutput, numbersAsPercentages);
+                return OrchestrateExploration(widExplorer, exploration, explorationOutput, metricsOutput, numbersAsPercentages, verboseSerialization);
 
             }
             catch (Exception e)
@@ -1187,5 +1204,5 @@ namespace NW.WIDJobsClient.CommandLine
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 31.08.2021
+    Last Update: 04.09.2021
 */

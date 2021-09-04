@@ -24,9 +24,9 @@ namespace NW.WIDJobs
 
         /// <summary>
         /// Converts the provided <see cref="Exploration"/> to JSON format. 
-        /// <para> If <paramref name="optimizeSerialization"/> is true, some fields are replaced with <see cref="WIDExplorer.DefaultNotSerialized"/> to increase readability.</para> 
+        /// <para> If <paramref name="verboseSerialization"/> is false, some fields are replaced with <see cref="WIDExplorer.DefaultNotSerialized"/> to increase readability.</para> 
         /// </summary>
-        string ConvertToJson(Exploration exploration, bool optimizeSerialization = true);
+        string ConvertToJson(Exploration exploration, bool verboseSerialization = false);
 
         /// <summary>Converts the provided <see cref="MetricCollection"/> to JSON format.</summary>
         string ConvertToJson(MetricCollection metricCollection, bool numbersAsPercentages);
@@ -46,11 +46,17 @@ namespace NW.WIDJobs
         /// <summary>Converts the provided JSON format to a <see cref="Exploration"/> object.</summary>
         Exploration LoadExplorationFromJsonFile(string filePath);
 
-        /// <summary>Save the provided <see cref="Exploration"/> to a JSON file using a default filename and path.</summary>
-        IFileInfoAdapter SaveToJsonFile(Exploration exploration);
+        /// <summary>
+        /// Save the provided <see cref="Exploration"/> to a JSON file using a default filename and path.
+        /// <para> If <paramref name="verboseSerialization"/> is false, some fields are replaced with <see cref="WIDExplorer.DefaultNotSerialized"/> to increase readability.</para> 
+        /// </summary>
+        IFileInfoAdapter SaveToJsonFile(Exploration exploration, bool verboseSerialization = false);
 
-        /// <summary>Save the provided <see cref="Exploration"/> to a JSON file.</summary>
-        IFileInfoAdapter SaveToJsonFile(Exploration exploration, IFileInfoAdapter jsonFile);
+        /// <summary>
+        /// Save the provided <see cref="Exploration"/> to a JSON file.
+        /// <para> If <paramref name="verboseSerialization"/> is false, some fields are replaced with <see cref="WIDExplorer.DefaultNotSerialized"/> to increase readability.</para> 
+        /// </summary>
+        IFileInfoAdapter SaveToJsonFile(Exploration exploration, IFileInfoAdapter jsonFile, bool verboseSerialization = false);
 
         /// <summary>Save the provided <see cref="MetricCollection"/> to a JSON file using a default filename and path.</summary>
         IFileInfoAdapter SaveToJsonFile(MetricCollection metricCollection, bool numbersAsPercentages);

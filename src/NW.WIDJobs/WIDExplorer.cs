@@ -100,18 +100,18 @@ namespace NW.WIDJobs
             return metricCollection;
 
         }      
-        public string ConvertToJson(Exploration exploration, bool optimizeSerialization = true)
+        public string ConvertToJson(Exploration exploration, bool verboseSerialization = false)
         {
 
             Validator.ValidateObject(exploration, nameof(exploration));
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ConvertingExplorationToJsonString);
             LogSharedSerializationOptions();
-            LogExplorationSerializationOptions();
+            LogExplorationVerboseSerializationOption(verboseSerialization);
 
-            string json = Serialize(exploration);
-            if (optimizeSerialization)
-                json = SerializeWithOptimization(exploration);
+            string json = SerializeSuccintly(exploration);
+            if (verboseSerialization)
+                json = SerializeVerbosely(exploration);
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ConvertedExplorationToJsonString);
 
@@ -225,7 +225,7 @@ namespace NW.WIDJobs
             return SaveToJsonFile(metricCollection, numbersAsPercentages, jsonFile);
 
         }
-        public IFileInfoAdapter SaveToJsonFile(Exploration exploration, IFileInfoAdapter jsonFile)
+        public IFileInfoAdapter SaveToJsonFile(Exploration exploration, IFileInfoAdapter jsonFile, bool verboseSerialization = false)
         {
 
             Validator.ValidateObject(exploration, nameof(exploration));
@@ -235,7 +235,7 @@ namespace NW.WIDJobs
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs.Invoke(exploration.RunId));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JSONFileIs.Invoke(jsonFile));
 
-            string json = ConvertToJson(exploration);
+            string json = ConvertToJson(exploration, verboseSerialization);
             _components.FileManager.WriteAllText(jsonFile, json);
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationSavedToJsonFile);
@@ -243,7 +243,7 @@ namespace NW.WIDJobs
             return jsonFile;
 
         }
-        public IFileInfoAdapter SaveToJsonFile(Exploration exploration)
+        public IFileInfoAdapter SaveToJsonFile(Exploration exploration, bool verboseSerialization = false)
         {
 
             DateTime now = _components.NowFunction.Invoke();
@@ -252,7 +252,7 @@ namespace NW.WIDJobs
 
             LogSharedSaveTo(nameof(SaveToJsonFile), now);
 
-            return SaveToJsonFile(exploration, jsonFile);
+            return SaveToJsonFile(exploration, jsonFile, verboseSerialization);
 
         }
         public IFileInfoAdapter SaveToJsonFile(List<BulletPoint> bulletPoints, IFileInfoAdapter jsonFile)
@@ -569,11 +569,10 @@ namespace NW.WIDJobs
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)));
 
         }
-        private void LogExplorationSerializationOptions()
+        private void LogExplorationVerboseSerializationOption(bool verboseSerialization)
         {
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(MessageCollection.WIDExplorer_NotSerializedJobPageContent));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(MessageCollection.WIDExplorer_NotSerializedJobPostings));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_VerboseSerializationIs.Invoke(verboseSerialization));
 
         }
         private Exploration LogCompletionMessageAndReturn(Exploration exploration)
@@ -688,7 +687,7 @@ namespace NW.WIDJobs
             return optimized;
 
         }
-        private string SerializeWithOptimization(Exploration exploration)
+        private string SerializeSuccintly(Exploration exploration)
         {
 
             dynamic dyn = new ExpandoObject();
@@ -713,7 +712,7 @@ namespace NW.WIDJobs
             return json;
 
         }
-        private string Serialize(Exploration exploration)
+        private string SerializeVerbosely(Exploration exploration)
         {
 
             dynamic dyn = new ExpandoObject();
