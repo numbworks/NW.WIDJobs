@@ -11,9 +11,9 @@ Contact: numbworks@gmail.com
 
 `NW.WIDJobsClient` (`widjobs.exe`) is an unofficial command-line client for `WorkInDenmark.dk`, based on the `NW.WIDJobs` library and written in in C# (`.NET Core`).
 
-# The CLI
+## The CLI
 
-The command-line interface for of `NW.WIDJobsClient`:
+The command-line interface for `NW.WIDJobsClient` is summarized in the following table:
 
 |Command|Sub Command|Options|Exit Codes|
 |---|---|---|---|
@@ -28,14 +28,39 @@ The command-line interface for of `NW.WIDJobsClient`:
 |extra|||Success|
 |extra|prelabeledbulletpoints|--output:{jsonfile\|console\|both}<br />*--folderpath:{path}*|Success<br />Failure|
 
-# Exit codes
+The regular font indicates the mandatory options, while the *italic*  font indicates an optional ones.
 
-Here the exit codes:
+The exit codes are summarized below:
 
 |Label|Value|
 |---|---|
 |Success|0|
 |Failure|1|
+
+## Getting started
+
+Once you downloaded the application, open a command prompt (such as Windows Terminal) and navigate to the application folder.
+
+The following commands will provide information about each `Command`, `Sub Command` and `Option`:
+
+```powershell
+PS C:\widjobs>.\widjobs.exe
+PS C:\widjobs>.\widjobs.exe session
+PS C:\widjobs>.\widjobs.exe session calculate --help
+PS C:\widjobs>.\widjobs.exe session convert --help
+PS C:\widjobs>.\widjobs.exe session describe --help
+PS C:\widjobs>.\widjobs.exe session explore --help
+PS C:\widjobs>.\widjobs.exe service
+PS C:\widjobs>.\widjobs.exe extra
+PS C:\widjobs>.\widjobs.exe extra prelabeledbulletpoints --help
+```
+The following command will provide some essential information about the application itself:
+
+```powershell
+PS C:\widjobs>.\widjobs.exe about
+```
+
+...
 
 ## Markdown Toolset
 
