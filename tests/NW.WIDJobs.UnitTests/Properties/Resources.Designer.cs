@@ -83,6 +83,35 @@ namespace NW.WIDJobs.UnitTests.Properties {
         ///    {
         ///      &quot;RunId&quot;: &quot;FakeRunId&quot;,        /// [rest of string was truncated]&quot;;.
         /// </summary>
+        internal static string ExplorationStage2AsJson {
+            get {
+                return ResourceManager.GetString("ExplorationStage2AsJson", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
+        ///  &quot;RunId&quot;: &quot;FakeRunId&quot;,
+        ///  &quot;TotalResultCount&quot;: 2177,
+        ///  &quot;TotalJobPages&quot;: 109,
+        ///  &quot;Stage&quot;: &quot;Stage3_UpToAllJobPostingsExtended&quot;,
+        ///  &quot;IsCompleted&quot;: true,
+        ///  &quot;JobPages&quot;: [
+        ///    {
+        ///      &quot;RunId&quot;: &quot;FakeRunId&quot;,
+        ///      &quot;PageNumber&quot;: 1,
+        ///      &quot;Response&quot;: &quot;This item has been exluded from the serialization.&quot;
+        ///    },
+        ///    {
+        ///      &quot;RunId&quot;: &quot;FakeRunId&quot;,
+        ///      &quot;PageNumber&quot;: 2,
+        ///      &quot;Response&quot;: &quot;This item has been exluded from the serialization.&quot;
+        ///    }
+        ///  ],
+        ///  &quot;JobPostings&quot;: [
+        ///    {
+        ///      &quot;RunId&quot;: &quot;FakeRunId&quot;,        /// [rest of string was truncated]&quot;;.
+        /// </summary>
         internal static string ExplorationStage3AsJson {
             get {
                 return ResourceManager.GetString("ExplorationStage3AsJson", resourceCulture);
