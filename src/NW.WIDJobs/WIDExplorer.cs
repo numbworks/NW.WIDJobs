@@ -100,7 +100,7 @@ namespace NW.WIDJobs
             return metricCollection;
 
         }      
-        public string ConvertToJson(Exploration exploration)
+        public string ConvertToJson(Exploration exploration, bool optimizeSerialization = true)
         {
 
             Validator.ValidateObject(exploration, nameof(exploration));
@@ -109,8 +109,9 @@ namespace NW.WIDJobs
             LogSharedSerializationOptions();
             LogExplorationSerializationOptions();
 
-            dynamic dyn = OptimizeExplorationForSerialization(exploration);
-            string json = JsonSerializer.Serialize(dyn, CreateJsonSerializerOptions());
+            string json = Serialize(exploration);
+            if (optimizeSerialization)
+                json = SerializeWithOptimization(exploration);
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ConvertedExplorationToJsonString);
 
@@ -687,7 +688,7 @@ namespace NW.WIDJobs
             return optimized;
 
         }
-        private dynamic OptimizeExplorationForSerialization(Exploration exploration)
+        private string SerializeWithOptimization(Exploration exploration)
         {
 
             dynamic dyn = new ExpandoObject();
@@ -707,7 +708,34 @@ namespace NW.WIDJobs
             if (exploration.JobPostingsExtended != null)
                 dyn.JobPostingsExtended = OptimizeJobPostingsExtendedForSerialization(exploration.JobPostingsExtended);
 
-            return dyn;
+            string json = JsonSerializer.Serialize(dyn, CreateJsonSerializerOptions());
+
+            return json;
+
+        }
+        private string Serialize(Exploration exploration)
+        {
+
+            dynamic dyn = new ExpandoObject();
+
+            dyn.RunId = exploration.RunId;
+            dyn.TotalResultCount = exploration.TotalResultCount;
+            dyn.TotalJobPages = exploration.TotalJobPages;
+            dyn.Stage = exploration.Stage;
+            dyn.IsCompleted = exploration.IsCompleted;
+
+            if (exploration.JobPages != null)
+                dyn.JobPages = exploration.JobPages;
+
+            if (exploration.JobPostings != null)
+                dyn.JobPostings = exploration.JobPostings;
+
+            if (exploration.JobPostingsExtended != null)
+                dyn.JobPostingsExtended = exploration.JobPostingsExtended;
+
+            string json = JsonSerializer.Serialize(dyn, CreateJsonSerializerOptions());
+
+            return json;
 
         }
 
@@ -997,5 +1025,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 31.08.2021
+    Last Update: 04.09.2021
 */

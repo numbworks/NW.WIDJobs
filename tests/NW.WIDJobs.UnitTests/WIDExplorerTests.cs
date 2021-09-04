@@ -286,14 +286,14 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new WIDExplorer().ConvertToJson((Exploration)null)),
+                    () => new WIDExplorer().ConvertToJson(exploration: (Exploration)null)),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("exploration").Message
             ).SetArgDisplayNames($"{nameof(convertToJsonExceptionTestCases)}_01"),
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new WIDExplorer().ConvertToJson(null, true)),
+                    () => new WIDExplorer().ConvertToJson(metricCollection: null, true)),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("metricCollection").Message
             ).SetArgDisplayNames($"{nameof(convertToJsonExceptionTestCases)}_02"),

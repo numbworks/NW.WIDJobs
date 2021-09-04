@@ -22,8 +22,11 @@ namespace NW.WIDJobs
         /// <summary>Converts the provided <see cref="Exploration"/> to <see cref="MetricCollection"/>.</summary>
         MetricCollection ConvertToMetricCollection(Exploration exploration);
 
-        /// <summary>Converts the provided <see cref="Exploration"/> to JSON format.</summary>
-        string ConvertToJson(Exploration exploration);
+        /// <summary>
+        /// Converts the provided <see cref="Exploration"/> to JSON format. 
+        /// <para> If <paramref name="optimizeSerialization"/> is true, some fields are replaced with <see cref="WIDExplorer.DefaultNotSerialized"/> to increase readability.</para> 
+        /// </summary>
+        string ConvertToJson(Exploration exploration, bool optimizeSerialization = true);
 
         /// <summary>Converts the provided <see cref="MetricCollection"/> to JSON format.</summary>
         string ConvertToJson(MetricCollection metricCollection, bool numbersAsPercentages);
