@@ -11,9 +11,9 @@ Contact: numbworks@gmail.com
 
 `NW.WIDJobsClient` (`widjobs.exe`) is an unofficial command-line client for `WorkInDenmark.dk`, based on the `NW.WIDJobs` library and written in in C# (`.NET Core`).
 
-## The CLI
+## Overview
 
-The command-line interface for `NW.WIDJobsClient` is summarized in the following table:
+The command-line interface for `NW.WIDJobsClient` is summarized by the following table:
 
 |Command|Sub Command|Options|Exit Codes|
 |---|---|---|---|
@@ -39,7 +39,7 @@ The exit codes are summarized below:
 
 ## Getting started
 
-Once you downloaded the application, open a command prompt (such as Windows Terminal) and navigate to the application folder.
+Once you have downloaded the application, open a command prompt (such as Windows Terminal) and navigate to the application folder.
 
 The following commands will provide information about each `Command`, `Sub Command` and `Option`:
 
@@ -54,6 +54,7 @@ PS C:\widjobs>.\widjobs.exe service
 PS C:\widjobs>.\widjobs.exe extra
 PS C:\widjobs>.\widjobs.exe extra prelabeledbulletpoints --help
 ```
+
 The following command will provide some essential information about the application itself:
 
 ```powershell
@@ -165,7 +166,7 @@ An exploration file looks like this:
   ]
 }        
 ```
-An metrics file looks like this:
+A metrics file looks like this:
 
 ```json
 {
@@ -197,6 +198,54 @@ You can specify a folder into which you want the output file to be saved and if 
 ```powershell
 PS C:\widjobs>.\widjobs.exe session calculate --jsonpath:"C:\widjobs_exploration_20210904205304333.json" --output:jsonfile --folderpath:"C:\" --aspercentages
 ```
+A metrics file with percentages looks like this:
+
+```json
+{
+  "RunId": "ID:20210904221249647|FROM:1|TO:1",
+  "TotalJobPages": 1,
+  "TotalJobPostings": 20,
+  "JobPostingsByHiringOrgName": {
+    "TeamVikaren.dk, Århus ApS, Horsens Afdeling": "60%",
+    "Aarhus Universitet": "15%",
+    "Keepit A/S": "10%",
+    "Copenhagen Business School": "10%",
+    "RANDSTAD A/S": "5%"
+  },
+  "JobPostingsByWorkPlaceAddress": {
+    "": "60%",
+    "Per Henrik Lings Allé 4 7": "10%",
+    "Solbjerg Plads 3": "10%",
+    "Strandpromenaden 6": "5%",
+    "Blichers Alle 20": "5%",
+    "Ag": "5%",
+    "Agro Food Park 48": "5%"
+  },
+  ...
+}  
+```
+
+The following command will call `WorkInDenmark.dk` and describe the domain:
+
+```powershell
+PS C:\widjobs>.\widjobs.exe session describe --output:console
+```
+
+The command requires a working connection and it will return `TotalResultCount` (the total amount of `JobPostings` on the website in that given moment) and `TotalJobPages`:
+
+```
+...
+[2021-09-03 11:27:34:436] TotalResultCount:'2476'.
+[2021-09-03 11:27:34:437] TotalJobPages:'124'.
+...
+```
+
+The command above supports a demo mode, which can be used to play out with demo data or showcase the command without the need of an internet connection:
+
+```powershell
+PS C:\widjobs>.\widjobs.exe session describe --output:console --usedemodata
+```
+
 
 
 ...
