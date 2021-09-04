@@ -65,7 +65,7 @@ The following command will:
 
 - take a previously saved exploration (in JSON format) as input;
 - calculate a bunch of metrics out of it
-- save it as JSON in the application's folder
+- save it to a JSON file in the application's folder
 
 ```powershell
 PS C:\widjobs>.\widjobs.exe session calculate --jsonpath:"C:\widjobs_exploration_20210904205304333.json" --output:jsonfile
@@ -229,7 +229,7 @@ A metrics file with percentages looks like this:
 The following command will:
 
 - take a previously saved exploration (in JSON format) as input;
-- save it as SQLite database in the application's folder
+- save it to a SQLite database file in the application's folder
 
 ```powershell
 PS C:\widjobs>.\widjobs.exe session convert --jsonpath:"C:\widjobs_exploration_20210904221249959.json" --output:databasefile
@@ -262,7 +262,73 @@ The command above supports a demo mode, which can be used to play out with demo 
 PS C:\widjobs>.\widjobs.exe session describe --output:console --usedemodata
 ```
 
-...
+The following command will: 
+
+- call `WorkInDenmark.dk` 
+- begins a `Stage3` exploration from page 1 to page 3
+- save the exploration to a JSON file and to a SQLite database file
+- calculate metrics out of it
+- save metrics to a JSON file
+
+```powershell
+PS C:\widjobs>.\widjobs.exe session explore --stage:S3 --thresholdtype:finalpagenumber --thresholdvalue:3 --explorationoutput:onlyfiles --metricsoutput:jsonfile
+```
+
+The command above supports a demo mode (up to page 2), which can be used to play out with demo data or showcase the command without the need of an internet connection.
+
+In this case it could be useful to override the default anti-flooding options with the lowest allowed values, since you are not really calling a website with this.
+
+```powershell
+PS C:\widjobs>.\widjobs.exe session explore --stage:S3 --thresholdtype:finalpagenumber --thresholdvalue:3 --explorationoutput:onlyfiles --metricsoutput:jsonfile --usedemodata --pausebetweenrequestsms:0 --parallelrequests:1
+```
+
+The following command will save a bunch of pre-labeled bullet point examples to a JSON file:
+
+```powershell
+PS C:\widjobs>.\widjobs.exe extra prelabeledbulletpoints --output:jsonfile
+```
+Pre-labeled examples that can be helpful to automatically categorize new bullet points via additional software, and the output JSON looks like:
+
+```json
+[
+  {
+    "Label": "JobDuty",
+    "Text": "Flexible working hours are occasionally required"
+  },
+  {
+    "Label": "JobDuty",
+    "Text": "Setting up tests and data acquisition for NVH testing."
+  },
+  ...
+  {
+    "Label": "JobRequirement",
+    "Text": "Engineering degree within acoustics & vibration"
+  },
+  {
+    "Label": "JobRequirement",
+    "Text": "Detailed knowledge of material testing and dynamic vibration testing"
+  },
+  ...
+  {
+    "Label": "JobTechnology",
+    "Text": "Good level with MS Office package"
+  },
+  {
+    "Label": "JobTechnology",
+    "Text": "is an expert in HTML/CSS"
+  },
+  ...
+  {
+    "Label": "JobBenefit",
+    "Text": "Contribute to a truly important cause - work with purpose."
+  },
+  {
+    "Label": "JobBenefit",
+    "Text": "A real impact on the company’s growth and evolution."
+  },
+  ...
+]    
+```
 
 ## Markdown Toolset
 
