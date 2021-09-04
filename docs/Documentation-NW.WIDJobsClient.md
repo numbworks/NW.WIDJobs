@@ -62,6 +62,7 @@ PS C:\widjobs>.\widjobs.exe about
 ```
 
 The following command will:
+
 - take a previously saved exploration (in JSON format) as input;
 - calculate a bunch of metrics out of it
 - save it as JSON in the application's folder
@@ -225,6 +226,21 @@ A metrics file with percentages looks like this:
 }  
 ```
 
+The following command will:
+
+- take a previously saved exploration (in JSON format) as input;
+- save it as SQLite database in the application's folder
+
+```powershell
+PS C:\widjobs>.\widjobs.exe session convert --jsonpath:"C:\widjobs_exploration_20210904221249959.json" --output:databasefile
+```
+
+You can specify a folder into which you want the output file to be saved:
+
+```powershell
+PS C:\widjobs>.\widjobs.exe session convert --jsonpath:"C:\widjobs_exploration_20210904221249959.json" --output:databasefile --folderpath:"C:\"
+```
+
 The following command will call `WorkInDenmark.dk` and describe the domain:
 
 ```powershell
@@ -245,8 +261,6 @@ The command above supports a demo mode, which can be used to play out with demo 
 ```powershell
 PS C:\widjobs>.\widjobs.exe session describe --output:console --usedemodata
 ```
-
-
 
 ...
 
