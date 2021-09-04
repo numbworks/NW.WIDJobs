@@ -3807,6 +3807,8 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingsByOrganisationId: MetricCollection_ExplorationStage3_JobPostingsByOrganisationId,
                     jobPostingsByHiringOrgCVR: MetricCollection_ExplorationStage3_JobPostingsByHiringOrgCVR,
                     jobPostingsByWorkPlaceCityWithoutZone: MetricCollection_ExplorationStage3_JobPostingsByWorkPlaceCityWithoutZone,
+                    responseLengthByJobPostingId: MetricCollection_ExplorationStage3_ResponseLengthByJobPostingId,
+                    presentationLengthByJobPostingId: MetricCollection_ExplorationStage3_PresentationLengthByJobPostingId,
                     jobPostingsByPublicationStartDate: MetricCollection_ExplorationStage3_JobPostingsByPublicationStartDate,
                     jobPostingsByPublicationEndDate: MetricCollection_ExplorationStage3_JobPostingsByPublicationEndDate,
                     jobPostingsByNumberToFill: MetricCollection_ExplorationStage3_JobPostingsByNumberToFill,
@@ -3815,13 +3817,36 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingsByEmploymentDate: MetricCollection_ExplorationStage3_JobPostingsByEmploymentDate,
                     jobPostingsByApplicationDeadlineDate: MetricCollection_ExplorationStage3_JobPostingsByApplicationDeadlineDate,
                     jobPostingsByBulletPointScenario: MetricCollection_ExplorationStage3_JobPostingsByBulletPointScenario,
-                    responseLengthByJobPostingId: MetricCollection_ExplorationStage3_ResponseLengthByJobPostingId,
-                    presentationLengthByJobPostingId: MetricCollection_ExplorationStage3_PresentationLengthByJobPostingId,
                     extendedResponseLengthByJobPostingId: MetricCollection_ExplorationStage3_ExtendedResponseLengthByJobPostingId,
                     hiringOrgDescriptionLengthByJobPostingId: MetricCollection_ExplorationStage3_HiringOrgDescriptionLengthByJobPostingId,
                     purposeLengthByJobPostingId: MetricCollection_ExplorationStage3_PurposeLengthByJobPostingId,
                     bulletPointsByJobPostingId: MetricCollection_ExplorationStage3_BulletPointsByJobPostingId,
                     totalBulletPoints: MetricCollection_ExplorationStage3_TotalBulletPoints
+                );
+
+        public static MetricCollection MetricCollection_ExplorationStage2 =
+            new MetricCollection(
+                    runId: MetricCollection_ExplorationStage3_RunId,
+                    totalJobPages: MetricCollection_ExplorationStage3_TotalJobPages,
+                    totalJobPostings: MetricCollection_ExplorationStage3_TotalJobPostings,
+                    jobPostingsByHiringOrgName: MetricCollection_ExplorationStage3_JobPostingsByHiringOrgName,
+                    jobPostingsByWorkPlaceAddress: MetricCollection_ExplorationStage3_JobPostingsByWorkPlaceAddress,
+                    jobPostingsByWorkPlacePostalCode: MetricCollection_ExplorationStage3_JobPostingsByWorkPlacePostalCode,
+                    jobPostingsByWorkPlaceCity: MetricCollection_ExplorationStage3_JobPostingsByWorkPlaceCity,
+                    jobPostingsByPostingCreated: MetricCollection_ExplorationStage3_JobPostingsByPostingCreated,
+                    jobPostingsByLastDateApplication: MetricCollection_ExplorationStage3_JobPostingsByLastDateApplication,
+                    jobPostingsByRegion: MetricCollection_ExplorationStage3_JobPostingsByRegion,
+                    jobPostingsByMunicipality: MetricCollection_ExplorationStage3_JobPostingsByMunicipality,
+                    jobPostingsByCountry: MetricCollection_ExplorationStage3_JobPostingsByCountry,
+                    jobPostingsByEmploymentType: MetricCollection_ExplorationStage3_JobPostingsByEmploymentType,
+                    jobPostingsByWorkHours: MetricCollection_ExplorationStage3_JobPostingsByWorkHours,
+                    jobPostingsByOccupation: MetricCollection_ExplorationStage3_JobPostingsByOccupation,
+                    jobPostingsByWorkplaceId: MetricCollection_ExplorationStage3_JobPostingsByWorkplaceId,
+                    jobPostingsByOrganisationId: MetricCollection_ExplorationStage3_JobPostingsByOrganisationId,
+                    jobPostingsByHiringOrgCVR: MetricCollection_ExplorationStage3_JobPostingsByHiringOrgCVR,
+                    jobPostingsByWorkPlaceCityWithoutZone: MetricCollection_ExplorationStage3_JobPostingsByWorkPlaceCityWithoutZone,
+                    responseLengthByJobPostingId: MetricCollection_ExplorationStage3_ResponseLengthByJobPostingId,
+                    presentationLengthByJobPostingId: MetricCollection_ExplorationStage3_PresentationLengthByJobPostingId
                 );
 
         #endregion
@@ -4155,6 +4180,9 @@ namespace NW.WIDJobs.UnitTests
         public static bool AreEqual<TKey, TValue>(Dictionary<TKey, TValue> dict1, Dictionary<TKey, TValue> dict2)
         {
 
+            if (dict1 == null && dict2 == null)
+                return true;
+
             IEqualityComparer<TValue> valueComparer = EqualityComparer<TValue>.Default;
 
             return dict1.Count == dict2.Count
@@ -4430,6 +4458,8 @@ namespace NW.WIDJobs.UnitTests
                         && AreEqual(metricCollection1.JobPostingsByOrganisationId, metricCollection2.JobPostingsByOrganisationId)
                         && AreEqual(metricCollection1.JobPostingsByHiringOrgCVR, metricCollection2.JobPostingsByHiringOrgCVR)
                         && AreEqual(metricCollection1.JobPostingsByWorkPlaceCityWithoutZone, metricCollection2.JobPostingsByWorkPlaceCityWithoutZone)
+                        && AreEqual(metricCollection1.ResponseLengthByJobPostingId, metricCollection2.ResponseLengthByJobPostingId)
+                        && AreEqual(metricCollection1.PresentationLengthByJobPostingId, metricCollection2.PresentationLengthByJobPostingId)
                         && AreEqual(metricCollection1.JobPostingsByPublicationStartDate, metricCollection2.JobPostingsByPublicationStartDate)
                         && AreEqual(metricCollection1.JobPostingsByPublicationEndDate, metricCollection2.JobPostingsByPublicationEndDate)
                         && AreEqual(metricCollection1.JobPostingsByNumberToFill, metricCollection2.JobPostingsByNumberToFill)
@@ -4438,8 +4468,6 @@ namespace NW.WIDJobs.UnitTests
                         && AreEqual(metricCollection1.JobPostingsByEmploymentDate, metricCollection2.JobPostingsByEmploymentDate)
                         && AreEqual(metricCollection1.JobPostingsByApplicationDeadlineDate, metricCollection2.JobPostingsByApplicationDeadlineDate)
                         && AreEqual(metricCollection1.JobPostingsByBulletPointScenario, metricCollection2.JobPostingsByBulletPointScenario)
-                        && AreEqual(metricCollection1.ResponseLengthByJobPostingId, metricCollection2.ResponseLengthByJobPostingId)
-                        && AreEqual(metricCollection1.PresentationLengthByJobPostingId, metricCollection2.PresentationLengthByJobPostingId)
                         && AreEqual(metricCollection1.ExtendedResponseLengthByJobPostingId, metricCollection2.ExtendedResponseLengthByJobPostingId)
                         && AreEqual(metricCollection1.HiringOrgDescriptionLengthByJobPostingId, metricCollection2.HiringOrgDescriptionLengthByJobPostingId)
                         && AreEqual(metricCollection1.PurposeLengthByJobPostingId, metricCollection2.PurposeLengthByJobPostingId)
@@ -4671,5 +4699,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 19.08.2021
+    Last Update: 04.09.2021
 */

@@ -238,85 +238,6 @@
     "Middelfart": 1,
     "Humlebæk": 1
   },
-  "JobPostingsByPublicationStartDate": {
-    "2021-07-02": 22,
-    "null": 18
-  },
-  "JobPostingsByPublicationEndDate": {
-    "null": 18,
-    "2021-08-27": 9,
-    "2021-08-19": 2,
-    "2021-07-30": 2,
-    "2021-08-04": 1,
-    "2021-08-13": 1,
-    "2021-08-24": 1,
-    "2021-07-15": 1,
-    "2021-07-29": 1,
-    "2021-07-28": 1,
-    "2021-07-12": 1,
-    "2021-07-16": 1,
-    "2021-08-05": 1
-  },
-  "JobPostingsByNumberToFill": {
-    "null": 18,
-    "1": 10,
-    "5": 3,
-    "2": 2,
-    "20": 2,
-    "12": 2,
-    "10": 2,
-    "6": 1
-  },
-  "JobPostingsByContactEmail": {
-    "null": 31,
-    "edc@keepit.com": 2,
-    "justyna@plecto.com": 2,
-    "charlotte.meck@randstad.dk": 1,
-    "kontakt@lokalboligservice.dk": 1,
-    "claus.kjaerbo@randstad.dk": 1,
-    "anja@bh-hotelservice.dk": 1,
-    "bbo@vikardk.dk": 1
-  },
-  "JobPostingsByContactPersonName": {
-    "null": 18,
-    "Majken Lorentzen": 12,
-    "Emil Daniel Christensen": 2,
-    "Justyna Płaczkiewicz": 2,
-    "Charlotte Meck": 1,
-    "Emil Bertelsen": 1,
-    "Henry Neufeldt": 1,
-    "Claus Kjærbo": 1,
-    "Anja Løvhøj": 1,
-    "Bettina Bonde Thygesen": 1
-  },
-  "JobPostingsByEmploymentDate": {
-    "null": 40
-  },
-  "JobPostingsByApplicationDeadlineDate": {
-    "null": 18,
-    "2021-08-27": 9,
-    "2021-08-19": 2,
-    "2021-07-30": 2,
-    "2021-08-04": 1,
-    "2021-08-13": 1,
-    "2021-08-24": 1,
-    "2021-07-15": 1,
-    "2021-07-29": 1,
-    "2021-07-28": 1,
-    "2021-07-12": 1,
-    "2021-07-16": 1,
-    "2021-08-05": 1
-  },
-  "JobPostingsByBulletPointScenario": {
-    "generic": 29,
-    "null": 5,
-    "keepit": 1,
-    "randstad": 1,
-    "novonordisk": 1,
-    "jobportal": 1,
-    "easycruit": 1,
-    "coloplast": 1
-  },
   "ResponseLengthByJobPostingId": {
     "5379659erfarenogselvstndigtruckf": 2625,
     "5383165lagermedarbejderetilpakkeopgaverpdaghold": 2625,
@@ -400,6 +321,85 @@
     "5382367solutionarchitect": 1,
     "5345782bbsalesspecialist": 1,
     "5316797carpenter": 0
+  },
+  "JobPostingsByPublicationStartDate": {
+    "2021-07-02": 22,
+    "null": 18
+  },
+  "JobPostingsByPublicationEndDate": {
+    "null": 18,
+    "2021-08-27": 9,
+    "2021-08-19": 2,
+    "2021-07-30": 2,
+    "2021-08-04": 1,
+    "2021-08-13": 1,
+    "2021-08-24": 1,
+    "2021-07-15": 1,
+    "2021-07-29": 1,
+    "2021-07-28": 1,
+    "2021-07-12": 1,
+    "2021-07-16": 1,
+    "2021-08-05": 1
+  },
+  "JobPostingsByNumberToFill": {
+    "null": 18,
+    "1": 10,
+    "5": 3,
+    "2": 2,
+    "20": 2,
+    "12": 2,
+    "10": 2,
+    "6": 1
+  },
+  "JobPostingsByContactEmail": {
+    "null": 31,
+    "edc@keepit.com": 2,
+    "justyna@plecto.com": 2,
+    "charlotte.meck@randstad.dk": 1,
+    "kontakt@lokalboligservice.dk": 1,
+    "claus.kjaerbo@randstad.dk": 1,
+    "anja@bh-hotelservice.dk": 1,
+    "bbo@vikardk.dk": 1
+  },
+  "JobPostingsByContactPersonName": {
+    "null": 18,
+    "Majken Lorentzen": 12,
+    "Emil Daniel Christensen": 2,
+    "Justyna Płaczkiewicz": 2,
+    "Charlotte Meck": 1,
+    "Emil Bertelsen": 1,
+    "Henry Neufeldt": 1,
+    "Claus Kjærbo": 1,
+    "Anja Løvhøj": 1,
+    "Bettina Bonde Thygesen": 1
+  },
+  "JobPostingsByEmploymentDate": {
+    "null": 40
+  },
+  "JobPostingsByApplicationDeadlineDate": {
+    "null": 18,
+    "2021-08-27": 9,
+    "2021-08-19": 2,
+    "2021-07-30": 2,
+    "2021-08-04": 1,
+    "2021-08-13": 1,
+    "2021-08-24": 1,
+    "2021-07-15": 1,
+    "2021-07-29": 1,
+    "2021-07-28": 1,
+    "2021-07-12": 1,
+    "2021-07-16": 1,
+    "2021-08-05": 1
+  },
+  "JobPostingsByBulletPointScenario": {
+    "generic": 29,
+    "null": 5,
+    "keepit": 1,
+    "randstad": 1,
+    "novonordisk": 1,
+    "jobportal": 1,
+    "easycruit": 1,
+    "coloplast": 1
   },
   "ExtendedResponseLengthByJobPostingId": {
     "5332213linuxspecialist": 13,

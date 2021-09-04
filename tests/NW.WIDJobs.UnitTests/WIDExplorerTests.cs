@@ -324,17 +324,7 @@ namespace NW.WIDJobs.UnitTests
                     ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("JobPostings").Message
-            ).SetArgDisplayNames($"{nameof(convertToMetricCollectionExceptionTestCases)}_02"),
-
-            new TestCaseData(
-                new TestDelegate(
-                    () => new WIDExplorer()
-                            .ConvertToMetricCollection
-                                (ObjectMother.Shared_ExplorationStage3WithNullJobPostingsExtended)
-                    ),
-                typeof(ArgumentNullException),
-                new ArgumentNullException("JobPostingsExtended").Message
-            ).SetArgDisplayNames($"{nameof(convertToMetricCollectionExceptionTestCases)}_03")
+            ).SetArgDisplayNames($"{nameof(convertToMetricCollectionExceptionTestCases)}_02")
 
         };
 
@@ -1983,5 +1973,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 31.08.2021
+    Last Update: 04.09.2021
 */

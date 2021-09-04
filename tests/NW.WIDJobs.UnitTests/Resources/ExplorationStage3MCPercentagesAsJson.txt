@@ -238,85 +238,6 @@
     "Middelfart": "2.5%",
     "Humlebæk": "2.5%"
   },
-  "JobPostingsByPublicationStartDate": {
-    "2021-07-02": "55%",
-    "null": "45%"
-  },
-  "JobPostingsByPublicationEndDate": {
-    "null": "45%",
-    "2021-08-27": "22.5%",
-    "2021-08-19": "5%",
-    "2021-07-30": "5%",
-    "2021-08-04": "2.5%",
-    "2021-08-13": "2.5%",
-    "2021-08-24": "2.5%",
-    "2021-07-15": "2.5%",
-    "2021-07-29": "2.5%",
-    "2021-07-28": "2.5%",
-    "2021-07-12": "2.5%",
-    "2021-07-16": "2.5%",
-    "2021-08-05": "2.5%"
-  },
-  "JobPostingsByNumberToFill": {
-    "null": "45%",
-    "1": "25%",
-    "5": "7.5%",
-    "2": "5%",
-    "20": "5%",
-    "12": "5%",
-    "10": "5%",
-    "6": "2.5%"
-  },
-  "JobPostingsByContactEmail": {
-    "null": "77.5%",
-    "edc@keepit.com": "5%",
-    "justyna@plecto.com": "5%",
-    "charlotte.meck@randstad.dk": "2.5%",
-    "kontakt@lokalboligservice.dk": "2.5%",
-    "claus.kjaerbo@randstad.dk": "2.5%",
-    "anja@bh-hotelservice.dk": "2.5%",
-    "bbo@vikardk.dk": "2.5%"
-  },
-  "JobPostingsByContactPersonName": {
-    "null": "45%",
-    "Majken Lorentzen": "30%",
-    "Emil Daniel Christensen": "5%",
-    "Justyna Płaczkiewicz": "5%",
-    "Charlotte Meck": "2.5%",
-    "Emil Bertelsen": "2.5%",
-    "Henry Neufeldt": "2.5%",
-    "Claus Kjærbo": "2.5%",
-    "Anja Løvhøj": "2.5%",
-    "Bettina Bonde Thygesen": "2.5%"
-  },
-  "JobPostingsByEmploymentDate": {
-    "null": "100%"
-  },
-  "JobPostingsByApplicationDeadlineDate": {
-    "null": "45%",
-    "2021-08-27": "22.5%",
-    "2021-08-19": "5%",
-    "2021-07-30": "5%",
-    "2021-08-04": "2.5%",
-    "2021-08-13": "2.5%",
-    "2021-08-24": "2.5%",
-    "2021-07-15": "2.5%",
-    "2021-07-29": "2.5%",
-    "2021-07-28": "2.5%",
-    "2021-07-12": "2.5%",
-    "2021-07-16": "2.5%",
-    "2021-08-05": "2.5%"
-  },
-  "JobPostingsByBulletPointScenario": {
-    "generic": "72.5%",
-    "null": "12.5%",
-    "keepit": "2.5%",
-    "randstad": "2.5%",
-    "novonordisk": "2.5%",
-    "jobportal": "2.5%",
-    "easycruit": "2.5%",
-    "coloplast": "2.5%"
-  },
   "ResponseLengthByJobPostingId": {
     "5379659erfarenogselvstndigtruckf": "2.66%",
     "5383165lagermedarbejderetilpakkeopgaverpdaghold": "2.66%",
@@ -400,6 +321,85 @@
     "5382367solutionarchitect": "0.02%",
     "5345782bbsalesspecialist": "0.02%",
     "5316797carpenter": "0%"
+  },
+  "JobPostingsByPublicationStartDate": {
+    "2021-07-02": "55%",
+    "null": "45%"
+  },
+  "JobPostingsByPublicationEndDate": {
+    "null": "45%",
+    "2021-08-27": "22.5%",
+    "2021-08-19": "5%",
+    "2021-07-30": "5%",
+    "2021-08-04": "2.5%",
+    "2021-08-13": "2.5%",
+    "2021-08-24": "2.5%",
+    "2021-07-15": "2.5%",
+    "2021-07-29": "2.5%",
+    "2021-07-28": "2.5%",
+    "2021-07-12": "2.5%",
+    "2021-07-16": "2.5%",
+    "2021-08-05": "2.5%"
+  },
+  "JobPostingsByNumberToFill": {
+    "null": "45%",
+    "1": "25%",
+    "5": "7.5%",
+    "2": "5%",
+    "20": "5%",
+    "12": "5%",
+    "10": "5%",
+    "6": "2.5%"
+  },
+  "JobPostingsByContactEmail": {
+    "null": "77.5%",
+    "edc@keepit.com": "5%",
+    "justyna@plecto.com": "5%",
+    "charlotte.meck@randstad.dk": "2.5%",
+    "kontakt@lokalboligservice.dk": "2.5%",
+    "claus.kjaerbo@randstad.dk": "2.5%",
+    "anja@bh-hotelservice.dk": "2.5%",
+    "bbo@vikardk.dk": "2.5%"
+  },
+  "JobPostingsByContactPersonName": {
+    "null": "45%",
+    "Majken Lorentzen": "30%",
+    "Emil Daniel Christensen": "5%",
+    "Justyna Płaczkiewicz": "5%",
+    "Charlotte Meck": "2.5%",
+    "Emil Bertelsen": "2.5%",
+    "Henry Neufeldt": "2.5%",
+    "Claus Kjærbo": "2.5%",
+    "Anja Løvhøj": "2.5%",
+    "Bettina Bonde Thygesen": "2.5%"
+  },
+  "JobPostingsByEmploymentDate": {
+    "null": "100%"
+  },
+  "JobPostingsByApplicationDeadlineDate": {
+    "null": "45%",
+    "2021-08-27": "22.5%",
+    "2021-08-19": "5%",
+    "2021-07-30": "5%",
+    "2021-08-04": "2.5%",
+    "2021-08-13": "2.5%",
+    "2021-08-24": "2.5%",
+    "2021-07-15": "2.5%",
+    "2021-07-29": "2.5%",
+    "2021-07-28": "2.5%",
+    "2021-07-12": "2.5%",
+    "2021-07-16": "2.5%",
+    "2021-08-05": "2.5%"
+  },
+  "JobPostingsByBulletPointScenario": {
+    "generic": "72.5%",
+    "null": "12.5%",
+    "keepit": "2.5%",
+    "randstad": "2.5%",
+    "novonordisk": "2.5%",
+    "jobportal": "2.5%",
+    "easycruit": "2.5%",
+    "coloplast": "2.5%"
   },
   "ExtendedResponseLengthByJobPostingId": {
     "5332213linuxspecialist": "2.5%",

@@ -2,7 +2,7 @@
   "profiles": {
     "NW.WIDJobsClient": {
       "commandName": "Project",
-      "commandLineArgs": "session describe --output:both"
+      "commandLineArgs": "session explore --stage:S2 --thresholdtype:finalpagenumber --thresholdvalue:1 --explorationoutput:onlyfiles --metricsoutput:both --usedemodata"
     }
   }
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using NW.WIDJobs.Validation;
 
@@ -34,6 +33,8 @@ namespace NW.WIDJobs.Metrics
         public Dictionary<string, uint> JobPostingsByOrganisationId { get; }
         public Dictionary<string, uint> JobPostingsByHiringOrgCVR { get; }
         public Dictionary<string, uint> JobPostingsByWorkPlaceCityWithoutZone { get; }
+        public Dictionary<string, uint> ResponseLengthByJobPostingId { get; }
+        public Dictionary<string, uint> PresentationLengthByJobPostingId { get; }
 
         public Dictionary<string, uint> JobPostingsByPublicationStartDate { get; }
         public Dictionary<string, uint> JobPostingsByPublicationEndDate { get; }
@@ -43,15 +44,11 @@ namespace NW.WIDJobs.Metrics
         public Dictionary<string, uint> JobPostingsByEmploymentDate { get; }
         public Dictionary<string, uint> JobPostingsByApplicationDeadlineDate { get; }
         public Dictionary<string, uint> JobPostingsByBulletPointScenario { get; }
-
-        public Dictionary<string, uint> ResponseLengthByJobPostingId { get; }
-        public Dictionary<string, uint> PresentationLengthByJobPostingId { get; }
         public Dictionary<string, uint> ExtendedResponseLengthByJobPostingId { get; }
         public Dictionary<string, uint> HiringOrgDescriptionLengthByJobPostingId { get; }
         public Dictionary<string, uint> PurposeLengthByJobPostingId { get; }
         public Dictionary<string, uint> BulletPointsByJobPostingId { get; }
-
-        public uint TotalBulletPoints { get; }
+        public uint? TotalBulletPoints { get; }
 
         #endregion
 
@@ -78,21 +75,21 @@ namespace NW.WIDJobs.Metrics
             Dictionary<string, uint> jobPostingsByOrganisationId,
             Dictionary<string, uint> jobPostingsByHiringOrgCVR,
             Dictionary<string, uint> jobPostingsByWorkPlaceCityWithoutZone,
-            Dictionary<string, uint> jobPostingsByPublicationStartDate,
-            Dictionary<string, uint> jobPostingsByPublicationEndDate,
-            Dictionary<string, uint> jobPostingsByNumberToFill,
-            Dictionary<string, uint> jobPostingsByContactEmail,
-            Dictionary<string, uint> jobPostingsByContactPersonName,
-            Dictionary<string, uint> jobPostingsByEmploymentDate,
-            Dictionary<string, uint> jobPostingsByApplicationDeadlineDate,
-            Dictionary<string, uint> jobPostingsByBulletPointScenario,
             Dictionary<string, uint> responseLengthByJobPostingId,
             Dictionary<string, uint> presentationLengthByJobPostingId,
-            Dictionary<string, uint> extendedResponseLengthByJobPostingId,
-            Dictionary<string, uint> hiringOrgDescriptionLengthByJobPostingId,
-            Dictionary<string, uint> purposeLengthByJobPostingId,
-            Dictionary<string, uint> bulletPointsByJobPostingId,
-            uint totalBulletPoints
+            Dictionary<string, uint> jobPostingsByPublicationStartDate = null,
+            Dictionary<string, uint> jobPostingsByPublicationEndDate = null,
+            Dictionary<string, uint> jobPostingsByNumberToFill = null,
+            Dictionary<string, uint> jobPostingsByContactEmail = null,
+            Dictionary<string, uint> jobPostingsByContactPersonName = null,
+            Dictionary<string, uint> jobPostingsByEmploymentDate = null,
+            Dictionary<string, uint> jobPostingsByApplicationDeadlineDate = null,
+            Dictionary<string, uint> jobPostingsByBulletPointScenario = null,
+            Dictionary<string, uint> extendedResponseLengthByJobPostingId = null,
+            Dictionary<string, uint> hiringOrgDescriptionLengthByJobPostingId = null,
+            Dictionary<string, uint> purposeLengthByJobPostingId = null,
+            Dictionary<string, uint> bulletPointsByJobPostingId = null,
+            uint? totalBulletPoints = null
             ) 
         {
 
@@ -116,22 +113,8 @@ namespace NW.WIDJobs.Metrics
             Validator.ValidateList(jobPostingsByOrganisationId?.ToList(), nameof(jobPostingsByOrganisationId));
             Validator.ValidateList(jobPostingsByHiringOrgCVR?.ToList(), nameof(jobPostingsByHiringOrgCVR));
             Validator.ValidateList(jobPostingsByWorkPlaceCityWithoutZone?.ToList(), nameof(jobPostingsByWorkPlaceCityWithoutZone));
-
-            Validator.ValidateList(jobPostingsByPublicationStartDate?.ToList(), nameof(jobPostingsByPublicationStartDate));
-            Validator.ValidateList(jobPostingsByPublicationEndDate?.ToList(), nameof(jobPostingsByPublicationEndDate));
-            Validator.ValidateList(jobPostingsByNumberToFill?.ToList(), nameof(jobPostingsByNumberToFill));
-            Validator.ValidateList(jobPostingsByContactEmail?.ToList(), nameof(jobPostingsByContactEmail));
-            Validator.ValidateList(jobPostingsByContactPersonName?.ToList(), nameof(jobPostingsByContactPersonName));
-            Validator.ValidateList(jobPostingsByEmploymentDate?.ToList(), nameof(jobPostingsByEmploymentDate));
-            Validator.ValidateList(jobPostingsByApplicationDeadlineDate?.ToList(), nameof(jobPostingsByApplicationDeadlineDate));
-            Validator.ValidateList(jobPostingsByBulletPointScenario?.ToList(), nameof(jobPostingsByBulletPointScenario));
-
             Validator.ValidateList(responseLengthByJobPostingId?.ToList(), nameof(responseLengthByJobPostingId));
             Validator.ValidateList(presentationLengthByJobPostingId?.ToList(), nameof(presentationLengthByJobPostingId));
-            Validator.ValidateList(extendedResponseLengthByJobPostingId?.ToList(), nameof(extendedResponseLengthByJobPostingId));
-            Validator.ValidateList(hiringOrgDescriptionLengthByJobPostingId?.ToList(), nameof(hiringOrgDescriptionLengthByJobPostingId));
-            Validator.ValidateList(purposeLengthByJobPostingId?.ToList(), nameof(purposeLengthByJobPostingId));
-            Validator.ValidateList(bulletPointsByJobPostingId?.ToList(), nameof(bulletPointsByJobPostingId));
 
             RunId = runId;
             TotalJobPages = totalJobPages;
@@ -153,6 +136,8 @@ namespace NW.WIDJobs.Metrics
             JobPostingsByOrganisationId = jobPostingsByOrganisationId;
             JobPostingsByHiringOrgCVR = jobPostingsByHiringOrgCVR;
             JobPostingsByWorkPlaceCityWithoutZone = jobPostingsByWorkPlaceCityWithoutZone;
+            ResponseLengthByJobPostingId = responseLengthByJobPostingId;
+            PresentationLengthByJobPostingId = presentationLengthByJobPostingId;
 
             JobPostingsByPublicationStartDate = jobPostingsByPublicationStartDate;
             JobPostingsByPublicationEndDate = jobPostingsByPublicationEndDate;
@@ -162,14 +147,10 @@ namespace NW.WIDJobs.Metrics
             JobPostingsByEmploymentDate = jobPostingsByEmploymentDate;
             JobPostingsByApplicationDeadlineDate = jobPostingsByApplicationDeadlineDate;
             JobPostingsByBulletPointScenario = jobPostingsByBulletPointScenario;
-
-            ResponseLengthByJobPostingId = responseLengthByJobPostingId;
-            PresentationLengthByJobPostingId = presentationLengthByJobPostingId;
             ExtendedResponseLengthByJobPostingId = extendedResponseLengthByJobPostingId;
             HiringOrgDescriptionLengthByJobPostingId = hiringOrgDescriptionLengthByJobPostingId;
             PurposeLengthByJobPostingId = purposeLengthByJobPostingId;
             BulletPointsByJobPostingId = bulletPointsByJobPostingId;
-
             TotalBulletPoints = totalBulletPoints;
 
         }
@@ -184,5 +165,5 @@ namespace NW.WIDJobs.Metrics
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 08.08.2021
+    Last Update: 04.09.2021
 */

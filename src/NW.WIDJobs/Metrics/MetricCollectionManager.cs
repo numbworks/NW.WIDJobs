@@ -57,7 +57,6 @@ namespace NW.WIDJobs.Metrics
 
             Validator.ValidateObject(exploration, nameof(exploration));
             Validator.ValidateList(exploration.JobPostings, nameof(exploration.JobPostings));
-            Validator.ValidateList(exploration.JobPostingsExtended, nameof(exploration.JobPostingsExtended));
 
             Dictionary<string, uint> jobPostingsByHiringOrgName = GroupJobPostingsByHiringOrgName(exploration.JobPostings);
             Dictionary< string, uint> jobPostingsByWorkPlaceAddress = GroupJobPostingsByWorkPlaceAddress(exploration.JobPostings);
@@ -74,25 +73,44 @@ namespace NW.WIDJobs.Metrics
             Dictionary<string, uint> jobPostingsByWorkplaceId = GroupJobPostingsByWorkplaceId(exploration.JobPostings);
             Dictionary< string, uint> jobPostingsByOrganisationId = GroupJobPostingsByOrganisationId(exploration.JobPostings);
             Dictionary<string, uint> jobPostingsByHiringOrgCVR = GroupJobPostingsByHiringOrgCVR(exploration.JobPostings);
-            Dictionary< string, uint> jobPostingsByWorkPlaceCityWithoutZone = GroupJobPostingsByWorkPlaceCityWithoutZone(exploration.JobPostings);
-
-            Dictionary<string, uint> jobPostingsByPublicationStartDate = GroupJobPostingsByPublicationStartDate(exploration.JobPostingsExtended);
-            Dictionary< string, uint> jobPostingsByPublicationEndDate = GroupJobPostingsByPublicationEndDate(exploration.JobPostingsExtended);
-            Dictionary<string, uint> jobPostingsByNumberToFill = GroupJobPostingsByNumberToFill(exploration.JobPostingsExtended);
-            Dictionary< string, uint> jobPostingsByContactEmail = GroupJobPostingsByContactEmail(exploration.JobPostingsExtended);
-            Dictionary<string, uint> jobPostingsByContactPersonName = GroupJobPostingsByContactPersonName(exploration.JobPostingsExtended);
-            Dictionary< string, uint> jobPostingsByEmploymentDate = GroupJobPostingsByEmploymentDate(exploration.JobPostingsExtended);
-            Dictionary<string, uint> jobPostingsByApplicationDeadlineDate = GroupJobPostingsByApplicationDeadlineDate(exploration.JobPostingsExtended);
-            Dictionary< string, uint> jobPostingsByBulletPointScenario = GroupJobPostingsByBulletPointScenario(exploration.JobPostingsExtended);
-
+            Dictionary< string, uint> jobPostingsByWorkPlaceCityWithoutZone = GroupJobPostingsByWorkPlaceCityWithoutZone(exploration.JobPostings);           
             Dictionary<string, uint> responseLengthByJobPostingId = SumResponseLengthByJobPostingId(exploration.JobPostings);
-            Dictionary< string, uint> presentationLengthByJobPostingId = SumPresentationLengthByJobPostingId(exploration.JobPostings);
-            Dictionary<string, uint> extendedResponseLengthByJobPostingId = SumExtendedResponseLengthByJobPostingId(exploration.JobPostingsExtended);
-            Dictionary< string, uint> hiringOrgDescriptionLengthByJobPostingId = SumHiringOrgDescriptionLengthByJobPostingId(exploration.JobPostingsExtended);
-            Dictionary<string, uint> purposeLengthByJobPostingId = SumPurposeLengthByJobPostingId(exploration.JobPostingsExtended);
-            Dictionary< string, uint> bulletPointsByJobPostingId = SumBulletPointsByJobPostingId(exploration.JobPostingsExtended);
+            Dictionary<string, uint> presentationLengthByJobPostingId = SumPresentationLengthByJobPostingId(exploration.JobPostings);
 
-            uint totalBulletPoints = SumBulletPoints(exploration.JobPostingsExtended);
+            Dictionary<string, uint> jobPostingsByPublicationStartDate = null;
+            Dictionary<string, uint> jobPostingsByPublicationEndDate = null;
+            Dictionary<string, uint> jobPostingsByNumberToFill = null;
+            Dictionary<string, uint> jobPostingsByContactEmail = null;
+            Dictionary<string, uint> jobPostingsByContactPersonName = null;
+            Dictionary<string, uint> jobPostingsByEmploymentDate = null;
+            Dictionary<string, uint> jobPostingsByApplicationDeadlineDate = null;
+            Dictionary<string, uint> jobPostingsByBulletPointScenario = null;
+            Dictionary<string, uint> extendedResponseLengthByJobPostingId = null;
+            Dictionary<string, uint> hiringOrgDescriptionLengthByJobPostingId = null;
+            Dictionary<string, uint> purposeLengthByJobPostingId = null;
+            Dictionary<string, uint> bulletPointsByJobPostingId = null;
+            uint? totalBulletPoints = null;
+
+            if (exploration.JobPostingsExtended != null)
+            {
+
+                jobPostingsByPublicationStartDate = GroupJobPostingsByPublicationStartDate(exploration.JobPostingsExtended);
+                jobPostingsByPublicationEndDate = GroupJobPostingsByPublicationEndDate(exploration.JobPostingsExtended);
+                jobPostingsByNumberToFill = GroupJobPostingsByNumberToFill(exploration.JobPostingsExtended);
+                jobPostingsByContactEmail = GroupJobPostingsByContactEmail(exploration.JobPostingsExtended);
+                jobPostingsByContactPersonName = GroupJobPostingsByContactPersonName(exploration.JobPostingsExtended);
+                jobPostingsByEmploymentDate = GroupJobPostingsByEmploymentDate(exploration.JobPostingsExtended);
+                jobPostingsByApplicationDeadlineDate = GroupJobPostingsByApplicationDeadlineDate(exploration.JobPostingsExtended);
+                jobPostingsByBulletPointScenario = GroupJobPostingsByBulletPointScenario(exploration.JobPostingsExtended);
+
+                extendedResponseLengthByJobPostingId = SumExtendedResponseLengthByJobPostingId(exploration.JobPostingsExtended);
+                hiringOrgDescriptionLengthByJobPostingId = SumHiringOrgDescriptionLengthByJobPostingId(exploration.JobPostingsExtended);
+                purposeLengthByJobPostingId = SumPurposeLengthByJobPostingId(exploration.JobPostingsExtended);
+                bulletPointsByJobPostingId = SumBulletPointsByJobPostingId(exploration.JobPostingsExtended);
+
+                totalBulletPoints = SumBulletPoints(exploration.JobPostingsExtended);
+
+            }
 
             MetricCollection metrics = new MetricCollection(
                 runId: exploration.RunId,
@@ -114,6 +132,8 @@ namespace NW.WIDJobs.Metrics
                 jobPostingsByOrganisationId: jobPostingsByOrganisationId,
                 jobPostingsByHiringOrgCVR: jobPostingsByHiringOrgCVR,
                 jobPostingsByWorkPlaceCityWithoutZone: jobPostingsByWorkPlaceCityWithoutZone,
+                responseLengthByJobPostingId: responseLengthByJobPostingId,
+                presentationLengthByJobPostingId: presentationLengthByJobPostingId,
                 jobPostingsByPublicationStartDate: jobPostingsByPublicationStartDate,
                 jobPostingsByPublicationEndDate: jobPostingsByPublicationEndDate,
                 jobPostingsByNumberToFill: jobPostingsByNumberToFill,
@@ -122,8 +142,6 @@ namespace NW.WIDJobs.Metrics
                 jobPostingsByEmploymentDate: jobPostingsByEmploymentDate,
                 jobPostingsByApplicationDeadlineDate: jobPostingsByApplicationDeadlineDate,
                 jobPostingsByBulletPointScenario: jobPostingsByBulletPointScenario,
-                responseLengthByJobPostingId: responseLengthByJobPostingId,
-                presentationLengthByJobPostingId: presentationLengthByJobPostingId,
                 extendedResponseLengthByJobPostingId: extendedResponseLengthByJobPostingId,
                 hiringOrgDescriptionLengthByJobPostingId: hiringOrgDescriptionLengthByJobPostingId,
                 purposeLengthByJobPostingId: purposeLengthByJobPostingId,
@@ -173,7 +191,10 @@ namespace NW.WIDJobs.Metrics
         {
 
             /*
-                - ...
+                "TeamVikaren.dk, Århus ApS, Horsens Afdeling": 12,
+                "Aarhus Universitet": 4,
+                "Keepit A/S": 2,
+                ...
             */
 
             var results =
@@ -199,7 +220,10 @@ namespace NW.WIDJobs.Metrics
         {
 
             /*
-                - ...
+                "": 19,
+                "Per Henrik Lings Allé 4 7": 2,
+                "Solbjerg Plads 3": 2,
+                ...
             */
 
             var results =
@@ -225,7 +249,10 @@ namespace NW.WIDJobs.Metrics
         {
 
             /*
-                - ...
+                "8700": 6,
+                "null": 5,
+                "6000": 3,
+                ...
             */
 
             var results =
@@ -251,7 +278,10 @@ namespace NW.WIDJobs.Metrics
         {
 
             /*
-                - ...
+                "Horsens": 6,
+                "": 5,
+                "Kolding": 3,
+                ...
             */
 
             var results =
@@ -277,9 +307,9 @@ namespace NW.WIDJobs.Metrics
         {
 
             /*
-    			- ("2021-05-21", 57)
-			    - ("2021-05-10", 23)
-			    - ...
+                "2021-08-27": 9,
+                "2021-08-13": 2,
+			    ...
             */
 
             var results =
@@ -305,9 +335,9 @@ namespace NW.WIDJobs.Metrics
         {
 
             /*
-    			- ("2021-05-21", 57)
-			    - ("2021-05-10", 23)
-			    - ...
+                "2021-08-27": 9,
+                "2021-08-13": 2,
+			    ...
             */
 
             var results =
@@ -333,7 +363,9 @@ namespace NW.WIDJobs.Metrics
         {
 
             /*
-                - ...
+                "Hovedstaden og Bornholm": 17,
+                "Midtjylland": 14,
+                ...
             */
 
             var results =
@@ -359,7 +391,9 @@ namespace NW.WIDJobs.Metrics
         {
 
             /*
-                - ...
+                "København": 9,
+                "Horsens": 6,
+                ...
             */
 
             var results =
@@ -385,7 +419,8 @@ namespace NW.WIDJobs.Metrics
         {
 
             /*
-                - ...
+                "Danmark": 29,
+                "": 11
             */
 
             var results =
@@ -411,7 +446,9 @@ namespace NW.WIDJobs.Metrics
         {
 
             /*
-                - ...
+                "": 29,
+                "Fastansættelse": 8,
+                "Tidsbegrænset ansættelse": 3
             */
 
             var results =
@@ -437,7 +474,8 @@ namespace NW.WIDJobs.Metrics
         {
 
             /*
-                - ...
+                "Fuldtid": 36,
+                "Deltid": 4
             */
 
             var results =
@@ -463,7 +501,9 @@ namespace NW.WIDJobs.Metrics
         {
 
             /*
-                - ...
+                "": 11,
+                "Lager- og logistikmedarbejder": 10,
+                ...
             */
 
             var results =
@@ -489,7 +529,9 @@ namespace NW.WIDJobs.Metrics
         {
 
             /*
-                - ...
+                "0": 13,
+                "126565": 12,
+                ...
             */
 
             var results =
@@ -515,7 +557,9 @@ namespace NW.WIDJobs.Metrics
         {
 
             /*
-                - ...
+                "71174": 12,
+                "null": 11,
+                ...
             */
 
             var results =
@@ -541,7 +585,9 @@ namespace NW.WIDJobs.Metrics
         {
 
             /*
-                - ...
+                "30899695": 12,
+                "0": 11,
+                ...
             */
 
             var results =
@@ -567,7 +613,9 @@ namespace NW.WIDJobs.Metrics
         {
 
             /*
-                - ...
+                "Horsens": 6,
+                "København": 5,
+                ...
             */
 
             var results =
@@ -589,15 +637,69 @@ namespace NW.WIDJobs.Metrics
             return grouped;
 
         }
+        private Dictionary<string, uint> SumResponseLengthByJobPostingId(List<JobPosting> jobPostings)
+        {
+
+            /*
+                "5379659erfarenogselvstndigtruckf": 2625,
+                "5383165lagermedarbejderetilpakkeopgaverpdaghold": 2625,
+                ...
+            */
+
+            var results =
+                    from jobPosting in jobPostings
+                    group jobPosting.Response.Length by jobPosting.JobPostingId into groups
+                    select new
+                    {
+                        JobPostingId = groups.Key, // This is never null, so we don't handle that case.
+                        ResponseLength = groups.Sum()
+                    };
+
+            results = results.OrderByDescending(result => result.ResponseLength);
+
+            Dictionary<string, uint> grouped
+                = results.ToDictionary(
+                                result => result.JobPostingId,
+                                result => (uint)result.ResponseLength);
+
+            return grouped;
+
+        }
+        private Dictionary<string, uint> SumPresentationLengthByJobPostingId(List<JobPosting> jobPostings)
+        {
+
+            /*
+                "5383201laboratorytechnicianforplantanalysis": 200,
+                "5383195laboratorytechnicianforfoodprocessing": 200,
+                ...
+            */
+
+            var results =
+                    from jobPosting in jobPostings
+                    group jobPosting.Presentation?.Length ?? 0 by jobPosting.JobPostingId into groups // When null, then 0.
+                    select new
+                    {
+                        JobPostingId = groups.Key ?? FormatNull,
+                        PresentationLength = groups.Sum()
+                    };
+
+            results = results.OrderByDescending(result => result.PresentationLength);
+
+            Dictionary<string, uint> grouped
+                = results.ToDictionary(
+                                result => result.JobPostingId,
+                                result => (uint)result.PresentationLength);
+
+            return grouped;
+
+        }
 
         private Dictionary<string, uint> GroupJobPostingsByPublicationStartDate(List<JobPostingExtended> jobPostingsExtended)
         {
 
             /*
-    			- ("2021-05-21", 57)
-			    - ("2021-05-10", 23)
-                - ("null", 4)
-			    - ...
+                "2021-07-02": 22,
+                "null": 18
             */
 
             var results =
@@ -623,10 +725,8 @@ namespace NW.WIDJobs.Metrics
         {
 
             /*
-    			- ("2021-05-21", 57)
-			    - ("2021-05-10", 23)
-                - ("null", 4)
-			    - ...
+                "2021-07-02": 22,
+                "null": 18
             */
 
             var results =
@@ -678,7 +778,9 @@ namespace NW.WIDJobs.Metrics
         {
 
             /*
-			    - ...
+                "null": 31,
+                "edc@keepit.com": 2,
+                ...
             */
 
             var results =
@@ -704,7 +806,9 @@ namespace NW.WIDJobs.Metrics
         {
 
             /*
-			    - ...
+                "null": 18,
+                "Majken Lorentzen": 12,
+                ...
             */
 
             var results =
@@ -759,10 +863,8 @@ namespace NW.WIDJobs.Metrics
         {
 
             /*
-    			- ("2021-05-21", 57)
-			    - ("2021-05-10", 23)
-                - ("null", 4)
-			    - ...
+                "2021-07-02": 22,
+                "null": 18
             */
 
             var results =
@@ -788,7 +890,9 @@ namespace NW.WIDJobs.Metrics
         {
 
             /*
-			    - ...
+                "generic": 29,
+                "null": 5,
+                ...
             */
 
             var results =
@@ -810,74 +914,12 @@ namespace NW.WIDJobs.Metrics
             return grouped;
 
         }
-
-        private Dictionary<string, uint> SumResponseLengthByJobPostingId(List<JobPosting> jobPostings)
-        {
-
-            /*
-                - ("8144099sitereliabilityengineer", 985)
-                - ("8144114unpaidinternshipsales", 992)
-                - ("8144115learningsalesfulltimestudentposition", 1003)
-                - ...
-            */
-
-            var results =
-                    from jobPosting in jobPostings
-                    group jobPosting.Response.Length by jobPosting.JobPostingId into groups
-                    select new
-                    {
-                        JobPostingId = groups.Key, // This is never null, so we don't handle that case.
-                        ResponseLength = groups.Sum()
-                    };
-
-            results = results.OrderByDescending(result => result.ResponseLength);
-
-            Dictionary<string, uint> grouped
-                = results.ToDictionary(
-                                result => result.JobPostingId,
-                                result => (uint)result.ResponseLength);
-
-            return grouped;
-
-        }
-        private Dictionary<string, uint> SumPresentationLengthByJobPostingId(List<JobPosting> jobPostings)
-        {
-
-            /*
-                - ("8144099sitereliabilityengineer", 985)
-                - ("8144114unpaidinternshipsales", 992)
-                - ("8144115learningsalesfulltimestudentposition", 1003)
-                - ("null", 4)
-                - ...
-            */
-
-            var results =
-                    from jobPosting in jobPostings
-                    group jobPosting.Presentation?.Length ?? 0 by jobPosting.JobPostingId into groups // When null, then 0.
-                    select new
-                    {
-                        JobPostingId = groups.Key ?? FormatNull,
-                        PresentationLength = groups.Sum()
-                    };
-
-            results = results.OrderByDescending(result => result.PresentationLength);
-
-            Dictionary<string, uint> grouped
-                = results.ToDictionary(
-                                result => result.JobPostingId,
-                                result => (uint)result.PresentationLength);
-
-            return grouped;
-
-        }
         private Dictionary<string, uint> SumExtendedResponseLengthByJobPostingId(List<JobPostingExtended> jobPostingsExtended)
         {
 
             /*
-                - ("8144099sitereliabilityengineer", 985)
-                - ("8144114unpaidinternshipsales", 992)
-                - ("8144115learningsalesfulltimestudentposition", 1003)
-                - ("null", 4)
+                "5332213linuxspecialist": 13,
+                "5365786motivatedforkliftdriversfortemporary": 13,
                 - ...
             */
 
@@ -904,11 +946,9 @@ namespace NW.WIDJobs.Metrics
         {
 
             /*
-                - ("8144099sitereliabilityengineer", 985)
-                - ("8144114unpaidinternshipsales", 992)
-                - ("8144115learningsalesfulltimestudentposition", 1003)
-                - ("null", 4)
-                - ...
+                "5382781warehouseemployee": 442,
+                "5382226warehouseworkers": 442,
+                ...
             */
 
             var results =
@@ -960,16 +1000,13 @@ namespace NW.WIDJobs.Metrics
             return grouped;
 
         }
-
         private Dictionary<string, uint> SumBulletPointsByJobPostingId(List<JobPostingExtended> jobPostingsExtended)
         {
 
             /*
-                - ("8144099sitereliabilityengineer", 10)
-                - ("8144114unpaidinternshipsales", 6)
-                - ("8144115learningsalesfulltimestudentposition", 0)
-                - ("null", 4)
-                - ...
+                "5332213linuxspecialist": 12,
+                "5365786motivatedforkliftdriversfortemporary": 12,
+                ...
             */
 
             var results =
@@ -1010,5 +1047,5 @@ namespace NW.WIDJobs.Metrics
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 13.08.2021
+    Last Update: 04.09.2021
 */

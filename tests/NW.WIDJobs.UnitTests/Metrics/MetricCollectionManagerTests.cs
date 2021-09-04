@@ -28,15 +28,7 @@ namespace NW.WIDJobs.UnitTests
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("JobPostings").Message
-            ).SetArgDisplayNames($"{nameof(calculateExceptionTestCases)}_02"),
-
-            new TestCaseData(
-                new TestDelegate(
-                    () => new MetricCollectionManager().Calculate(ObjectMother.Shared_ExplorationStage3WithNullJobPostingsExtended)
-                ),
-                typeof(ArgumentNullException),
-                new ArgumentNullException("JobPostingsExtended").Message
-            ).SetArgDisplayNames($"{nameof(calculateExceptionTestCases)}_03")
+            ).SetArgDisplayNames($"{nameof(calculateExceptionTestCases)}_02")
 
         };
         private static TestCaseData[] convertToPercentagesExceptionTestCases =
@@ -141,7 +133,7 @@ namespace NW.WIDJobs.UnitTests
         }
 
         [Test]
-        public void Calculate_ShouldReturnExpectedMetrics_WhenInvoked()
+        public void Calculate_ShouldReturnExpectedMetrics_WhenExplorationStage3()
         {
 
             // Arrange
@@ -155,10 +147,25 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
+        [Test]
+        public void Calculate_ShouldReturnExpectedMetrics_WhenExplorationStage2()
+        {
+
+            // Arrange
+            // Act        
+            MetricCollection actual = new MetricCollectionManager().Calculate(ObjectMother.Shared_ExplorationStage2);
+
+            // Assert
+            Assert.IsTrue(
+                ObjectMother.AreEqual(ObjectMother.MetricCollection_ExplorationStage2, actual)
+                );
+
+        }
+
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 09.08.2021
+    Last Update: 04.09.2021
 */

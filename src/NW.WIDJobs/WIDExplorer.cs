@@ -89,7 +89,6 @@ namespace NW.WIDJobs
 
             Validator.ValidateObject(exploration, nameof(exploration));
             Validator.ValidateList(exploration.JobPostings, nameof(exploration.JobPostings));
-            Validator.ValidateList(exploration.JobPostingsExtended, nameof(exploration.JobPostingsExtended));
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ConvertingExplorationToMetricCollection);
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs.Invoke(exploration.RunId));
@@ -501,6 +500,8 @@ namespace NW.WIDJobs
             dyn.JobPostingsByOrganisationId = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.JobPostingsByOrganisationId);
             dyn.JobPostingsByHiringOrgCVR = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.JobPostingsByHiringOrgCVR);
             dyn.JobPostingsByWorkPlaceCityWithoutZone = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.JobPostingsByWorkPlaceCityWithoutZone);
+            dyn.ResponseLengthByJobPostingId = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.ResponseLengthByJobPostingId);
+            dyn.PresentationLengthByJobPostingId = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.PresentationLengthByJobPostingId);
 
             dyn.JobPostingsByPublicationStartDate = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.JobPostingsByPublicationStartDate);
             dyn.JobPostingsByPublicationEndDate = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.JobPostingsByPublicationEndDate);
@@ -510,14 +511,10 @@ namespace NW.WIDJobs
             dyn.JobPostingsByEmploymentDate = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.JobPostingsByEmploymentDate);
             dyn.JobPostingsByApplicationDeadlineDate = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.JobPostingsByApplicationDeadlineDate);
             dyn.JobPostingsByBulletPointScenario = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.JobPostingsByBulletPointScenario);
-
-            dyn.ResponseLengthByJobPostingId = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.ResponseLengthByJobPostingId);
-            dyn.PresentationLengthByJobPostingId = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.PresentationLengthByJobPostingId);
             dyn.ExtendedResponseLengthByJobPostingId = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.ExtendedResponseLengthByJobPostingId);
             dyn.HiringOrgDescriptionLengthByJobPostingId = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.HiringOrgDescriptionLengthByJobPostingId);
             dyn.PurposeLengthByJobPostingId = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.PurposeLengthByJobPostingId);
             dyn.BulletPointsByJobPostingId = _components.MetricCollectionManager.ConvertToPercentages(metricCollection.BulletPointsByJobPostingId);
-
             dyn.TotalBulletPoints = metricCollection.TotalBulletPoints;
 
             return dyn;
