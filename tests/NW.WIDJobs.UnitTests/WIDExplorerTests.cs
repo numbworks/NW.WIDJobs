@@ -577,6 +577,59 @@ namespace NW.WIDJobs.UnitTests
         }
 
         [Test]
+        public void ConvertToJson_ShouldReturnExpectedStringAndLogExpectedMessages_WhenProperExplorationStage1()
+        {
+
+            // Arrange
+            string expected = ObjectMother.WIDExplorer_ExplorationStage1AsJson_Content;
+            List<string> expectedLogMessages = new List<string>()
+            {
+
+                MessageCollection.WIDExplorer_ConvertingExplorationToJsonString,
+                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
+                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
+                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(MessageCollection.WIDExplorer_NotSerializedJobPageContent),
+                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(MessageCollection.WIDExplorer_NotSerializedJobPostings),
+                MessageCollection.WIDExplorer_ConvertedExplorationToJsonString
+
+            };
+
+            FakeLogger fakeLogger = new FakeLogger();
+            Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
+            FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
+            Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
+            WIDExplorerComponents components = new WIDExplorerComponents(
+                    loggingAction: fakeLoggingAction,
+                    loggingActionAsciiBanner: fakeLoggingActionAsciiBanner,
+                    xpathManager: new XPathManager(),
+                    getRequestManager: new GetRequestManager(),
+                    jobPageDeserializer: new JobPageDeserializer(),
+                    jobPageManager: new JobPageManager(),
+                    jobPostingDeserializer: new JobPostingDeserializer(),
+                    jobPostingManager: new JobPostingManager(),
+                    jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
+                    jobPostingExtendedManager: new JobPostingExtendedManager(),
+                    runIdManager: new RunIdManager(),
+                    metricCollectionManager: new MetricCollectionManager(),
+                    fileManager: new FileManager(),
+                    repositoryFactory: new RepositoryFactory(),
+                    asciiBannerManager: new AsciiBannerManager(),
+                    filenameFactory: new FilenameFactory(),
+                    bulletPointManager: new BulletPointManager(),
+                    nowFunction: WIDExplorerComponents.DefaultNowFunction
+                  );
+            WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
+
+            // Act
+            string actual = widExplorer.ConvertToJson(ObjectMother.Shared_ExplorationStage1);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
+
+        }
+
+        [Test]
         public void ConvertToJson_ShouldReturnExpectedStringAndLogExpectedMessages_WhenProperExplorationStage2()
         {
 

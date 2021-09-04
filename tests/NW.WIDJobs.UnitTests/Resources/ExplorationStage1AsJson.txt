@@ -1,0 +1,14 @@
+{
+  "RunId": "FakeRunId",
+  "TotalResultCount": 2177,
+  "TotalJobPages": 109,
+  "Stage": "Stage1_OnlyMetrics",
+  "IsCompleted": true,
+  "JobPages": [
+    {
+      "RunId": "FakeRunId",
+      "PageNumber": 1,
+      "Response": "This item has been exluded from the serialization."
+    }
+  ]
+}

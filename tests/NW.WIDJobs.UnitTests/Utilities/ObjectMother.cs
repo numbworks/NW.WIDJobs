@@ -4018,6 +4018,9 @@ namespace NW.WIDJobs.UnitTests
 
         #region WIDExplorerTests
 
+        public static string WIDExplorer_ExplorationStage1AsJson_Content
+            = Properties.Resources.ExplorationStage1AsJson;
+
         public static string WIDExplorer_ExplorationStage2AsJson_Content
             = Properties.Resources.ExplorationStage2AsJson;
         public static string WIDExplorer_ExplorationStage2MetricCollectionNumbersAsJson_Content

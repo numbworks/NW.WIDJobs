@@ -65,6 +65,28 @@ namespace NW.WIDJobs.UnitTests.Properties {
         ///  &quot;RunId&quot;: &quot;FakeRunId&quot;,
         ///  &quot;TotalResultCount&quot;: 2177,
         ///  &quot;TotalJobPages&quot;: 109,
+        ///  &quot;Stage&quot;: &quot;Stage1_OnlyMetrics&quot;,
+        ///  &quot;IsCompleted&quot;: true,
+        ///  &quot;JobPages&quot;: [
+        ///    {
+        ///      &quot;RunId&quot;: &quot;FakeRunId&quot;,
+        ///      &quot;PageNumber&quot;: 1,
+        ///      &quot;Response&quot;: &quot;This item has been exluded from the serialization.&quot;
+        ///    }
+        ///  ]
+        ///}.
+        /// </summary>
+        internal static string ExplorationStage1AsJson {
+            get {
+                return ResourceManager.GetString("ExplorationStage1AsJson", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
+        ///  &quot;RunId&quot;: &quot;FakeRunId&quot;,
+        ///  &quot;TotalResultCount&quot;: 2177,
+        ///  &quot;TotalJobPages&quot;: 109,
         ///  &quot;Stage&quot;: &quot;Stage2_UpToAllJobPostings&quot;,
         ///  &quot;IsCompleted&quot;: true,
         ///  &quot;JobPages&quot;: [
