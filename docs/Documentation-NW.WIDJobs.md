@@ -11,31 +11,27 @@ Contact: numbworks@gmail.com
 
 `NW.WIDJobs` is a `.NET Standard` library written in `C#` to explore `WorkInDenmark.dk` and fetch the most recent job ads.
 
-## The website structure
+## Overview
 
-On the perspective of this library, the website is structured as in the following diagram: 
+On the perspective of this library, `WorkInDenmark.dk` is structured as in the following diagram: 
 
 ![Diagram-TheWebsiteStructure](Diagrams/Diagram-TheWebsiteStructure.png)
 
 The red boxes highlight the pieces of information we are interested into.
 
-## The object model
-
-The three objects that have been identified during the exploration of `WorkInDenmark.dk` are the following ones:
+The three objects that have been identified in the diagram above are the following ones:
 
 - `JobPage`
 - `JobPosting`
 - `JobPostingExtended`
 
-The relationship between these objects is summarized by the diagram below:
+The relationship between these objects is summarized by the object model below:
 
 ![Diagram-TheObjectModel](Diagrams/Diagram-TheObjectModel.png)
 
 Every `JobPage` contains also additional information, such as `TotalResultCount` (the total amount of `JobPostings` on the website in that given moment) and `TotalJobPages`.
 
-## The exploration
-
-The output of each exploration is collected into an `Exploration` object, which contains more or less items according to the depth of the exploration itself, decided by the user beforehand and described by a `Stage`.
+The output of every `WorkInDenmark.dk` exploration is collected into an `Exploration` object, which contains more or less items according to the depth of the exploration itself, decided by the user beforehand and described by a `Stage`.
 
 The available `Stages` are the following ones:
 
