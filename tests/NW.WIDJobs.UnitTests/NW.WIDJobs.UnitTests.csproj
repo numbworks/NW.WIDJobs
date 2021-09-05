@@ -46,4 +46,8 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Formatting\" />
+  </ItemGroup>
+
 </Project>
