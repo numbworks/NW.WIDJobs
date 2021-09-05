@@ -4128,8 +4128,9 @@ namespace NW.WIDJobs.UnitTests
 
             // Arrange
             // Act
-            // Assert
             Exception actual = Assert.Throws(expectedType, del);
+
+            // Assert
             Assert.AreEqual(expectedMessage, actual.Message);
 
         }
