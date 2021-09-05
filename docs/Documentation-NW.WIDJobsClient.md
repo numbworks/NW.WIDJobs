@@ -11,6 +11,10 @@ Contact: numbworks@gmail.com
 
 `NW.WIDJobsClient` (`widjobs.exe`) is an unofficial command-line client for `WorkInDenmark.dk`, based on the `NW.WIDJobs` library and written in in C# (`.NET Core`).
 
+## Disclaimer
+
+This software is the outcome of a personal research project about data analysis, data science and usability in command-line interfaces. Web scraping may be illegal in your country, may be against the website's Terms of Service (ToS) or may unexpectely increase the load of the website if used in an unwise way. You are warmly adviced to use this software only if you know exactly what you are doing.
+
 ## Overview
 
 The command-line interface for `NW.WIDJobsClient` is summarized by the following table:

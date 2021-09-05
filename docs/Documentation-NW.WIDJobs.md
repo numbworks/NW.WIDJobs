@@ -11,6 +11,10 @@ Contact: numbworks@gmail.com
 
 `NW.WIDJobs` is a `.NET Standard` library written in `C#` to explore `WorkInDenmark.dk` and fetch the most recent job ads.
 
+## Disclaimer
+
+This software is the outcome of a personal research project about data analysis, data science and usability in command-line interfaces. Web scraping may be illegal in your country, may be against the website's Terms of Service (ToS) or may unexpectely increase the load of the website if used in an unwise way. You are warmly adviced to use this software only if you know exactly what you are doing.
+
 ## Overview
 
 On the perspective of this library, `WorkInDenmark.dk` is structured as in the following diagram: 
@@ -19,7 +23,7 @@ On the perspective of this library, `WorkInDenmark.dk` is structured as in the f
 
 The red boxes highlight the pieces of information we are interested into.
 
-The three objects that have been identified in the diagram above are the following ones:
+The three objects that have been identified from the diagram above are the following ones:
 
 - `JobPage`
 - `JobPosting`
