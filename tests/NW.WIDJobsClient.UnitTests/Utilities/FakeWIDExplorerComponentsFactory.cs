@@ -15,6 +15,7 @@ using NW.WIDJobs.BulletPoints;
 using NW.WIDJobs.UnitTests;
 using NW.WIDJobsClient.CommandLine;
 using NW.WIDJobs.Headers;
+using NW.WIDJobs.Formatting;
 
 namespace NW.WIDJobsClient.UnitTests
 {
@@ -103,7 +104,8 @@ namespace NW.WIDJobsClient.UnitTests
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
                     bulletPointManager: new BulletPointManager(),
-                    nowFunction: nowFunction
+                    nowFunction: nowFunction,
+                    formatter: new Formatter()
                   );
 
         }
@@ -115,5 +117,5 @@ namespace NW.WIDJobsClient.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: xx.xx.2021
+    Last Update: 05.09.2021
 */

@@ -18,6 +18,7 @@ using NW.WIDJobs.JsonSerializerConverters;
 using NW.WIDJobs.Runs;
 using NW.WIDJobs.XPath;
 using NW.WIDJobs.Headers;
+using NW.WIDJobs.Formatting;
 
 namespace NW.WIDJobs.UnitTests
 {
@@ -402,7 +403,8 @@ namespace NW.WIDJobs.UnitTests
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
                     bulletPointManager: new BulletPointManager(),
-                    nowFunction: WIDExplorerComponents.DefaultNowFunction
+                    nowFunction: WIDExplorerComponents.DefaultNowFunction,
+                    formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -457,7 +459,8 @@ namespace NW.WIDJobs.UnitTests
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
                     bulletPointManager: new BulletPointManager(),
-                    nowFunction: WIDExplorerComponents.DefaultNowFunction
+                    nowFunction: WIDExplorerComponents.DefaultNowFunction,
+                    formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -509,7 +512,8 @@ namespace NW.WIDJobs.UnitTests
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
                     bulletPointManager: new BulletPointManager(),
-                    nowFunction: WIDExplorerComponents.DefaultNowFunction
+                    nowFunction: WIDExplorerComponents.DefaultNowFunction,
+                    formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -561,7 +565,8 @@ namespace NW.WIDJobs.UnitTests
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
                     bulletPointManager: new BulletPointManager(),
-                    nowFunction: WIDExplorerComponents.DefaultNowFunction
+                    nowFunction: WIDExplorerComponents.DefaultNowFunction,
+                    formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
             
@@ -615,7 +620,8 @@ namespace NW.WIDJobs.UnitTests
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
                     bulletPointManager: new BulletPointManager(),
-                    nowFunction: WIDExplorerComponents.DefaultNowFunction
+                    nowFunction: WIDExplorerComponents.DefaultNowFunction,
+                    formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -667,7 +673,8 @@ namespace NW.WIDJobs.UnitTests
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
                     bulletPointManager: new BulletPointManager(),
-                    nowFunction: WIDExplorerComponents.DefaultNowFunction
+                    nowFunction: WIDExplorerComponents.DefaultNowFunction,
+                    formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -719,7 +726,8 @@ namespace NW.WIDJobs.UnitTests
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
                     bulletPointManager: new BulletPointManager(),
-                    nowFunction: WIDExplorerComponents.DefaultNowFunction
+                    nowFunction: WIDExplorerComponents.DefaultNowFunction,
+                    formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -772,7 +780,8 @@ namespace NW.WIDJobs.UnitTests
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
                     bulletPointManager: new BulletPointManager(),
-                    nowFunction: WIDExplorerComponents.DefaultNowFunction
+                    nowFunction: WIDExplorerComponents.DefaultNowFunction,
+                    formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -825,7 +834,8 @@ namespace NW.WIDJobs.UnitTests
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
                     bulletPointManager: new BulletPointManager(),
-                    nowFunction: WIDExplorerComponents.DefaultNowFunction
+                    nowFunction: WIDExplorerComponents.DefaultNowFunction,
+                    formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -878,7 +888,8 @@ namespace NW.WIDJobs.UnitTests
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
                     bulletPointManager: new BulletPointManager(),
-                    nowFunction: WIDExplorerComponents.DefaultNowFunction
+                    nowFunction: WIDExplorerComponents.DefaultNowFunction,
+                    formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -931,7 +942,8 @@ namespace NW.WIDJobs.UnitTests
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
                     bulletPointManager: new BulletPointManager(),
-                    nowFunction: WIDExplorerComponents.DefaultNowFunction
+                    nowFunction: WIDExplorerComponents.DefaultNowFunction,
+                    formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -985,7 +997,8 @@ namespace NW.WIDJobs.UnitTests
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
                     bulletPointManager: new BulletPointManager(),
-                    nowFunction: WIDExplorerComponents.DefaultNowFunction
+                    nowFunction: WIDExplorerComponents.DefaultNowFunction,
+                    formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -1067,7 +1080,8 @@ namespace NW.WIDJobs.UnitTests
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
                     bulletPointManager: new BulletPointManager(),
-                    nowFunction: ObjectMother.WIDExplorer_FakeNowFunction
+                    nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
+                    formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -1150,7 +1164,8 @@ namespace NW.WIDJobs.UnitTests
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
                     bulletPointManager: new BulletPointManager(),
-                    nowFunction: ObjectMother.WIDExplorer_FakeNowFunction
+                    nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
+                    formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -1202,7 +1217,8 @@ namespace NW.WIDJobs.UnitTests
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
                     bulletPointManager: new BulletPointManager(),
-                    nowFunction: WIDExplorerComponents.DefaultNowFunction
+                    nowFunction: WIDExplorerComponents.DefaultNowFunction,
+                    formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -1254,7 +1270,8 @@ namespace NW.WIDJobs.UnitTests
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
                     bulletPointManager: new BulletPointManager(),
-                    nowFunction: WIDExplorerComponents.DefaultNowFunction
+                    nowFunction: WIDExplorerComponents.DefaultNowFunction,
+                    formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -1318,7 +1335,8 @@ namespace NW.WIDJobs.UnitTests
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
                     bulletPointManager: new BulletPointManager(),
-                    nowFunction: WIDExplorerComponents.DefaultNowFunction
+                    nowFunction: WIDExplorerComponents.DefaultNowFunction,
+                    formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -1395,7 +1413,8 @@ namespace NW.WIDJobs.UnitTests
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
                     bulletPointManager: new BulletPointManager(),
-                    nowFunction: ObjectMother.WIDExplorer_FakeNowFunction
+                    nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
+                    formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
 
@@ -1455,7 +1474,8 @@ namespace NW.WIDJobs.UnitTests
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
                     bulletPointManager: new BulletPointManager(),
-                    nowFunction: WIDExplorerComponents.DefaultNowFunction
+                    nowFunction: WIDExplorerComponents.DefaultNowFunction,
+                    formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -1529,7 +1549,8 @@ namespace NW.WIDJobs.UnitTests
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
                     bulletPointManager: new BulletPointManager(),
-                    nowFunction: ObjectMother.WIDExplorer_FakeNowFunction
+                    nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
+                    formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
 
@@ -1601,7 +1622,8 @@ namespace NW.WIDJobs.UnitTests
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
                     bulletPointManager: new BulletPointManager(),
-                    nowFunction: ObjectMother.WIDExplorer_FakeNowFunction
+                    nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
+                    formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
 
@@ -1657,7 +1679,8 @@ namespace NW.WIDJobs.UnitTests
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
                     bulletPointManager: new BulletPointManager(),
-                    nowFunction: WIDExplorerComponents.DefaultNowFunction
+                    nowFunction: WIDExplorerComponents.DefaultNowFunction,
+                    formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -1727,7 +1750,8 @@ namespace NW.WIDJobs.UnitTests
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
                     bulletPointManager: new BulletPointManager(),
-                    nowFunction: ObjectMother.WIDExplorer_FakeNowFunction
+                    nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
+                    formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
 
@@ -1800,7 +1824,8 @@ namespace NW.WIDJobs.UnitTests
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
                     bulletPointManager: new BulletPointManager(),
-                    nowFunction: ObjectMother.WIDExplorer_FakeNowFunction
+                    nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
+                    formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
 
@@ -1886,7 +1911,8 @@ namespace NW.WIDJobs.UnitTests
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
                     bulletPointManager: new BulletPointManager(),
-                    nowFunction: ObjectMother.WIDExplorer_FakeNowFunction
+                    nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
+                    formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
 
@@ -2016,7 +2042,8 @@ namespace NW.WIDJobs.UnitTests
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
                     bulletPointManager: new BulletPointManager(),
-                    nowFunction: ObjectMother.WIDExplorer_FakeNowFunction
+                    nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
+                    formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
 
@@ -2114,7 +2141,8 @@ namespace NW.WIDJobs.UnitTests
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
                     bulletPointManager: new BulletPointManager(),
-                    nowFunction: ObjectMother.WIDExplorer_FakeNowFunction
+                    nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
+                    formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
 
@@ -2212,7 +2240,8 @@ namespace NW.WIDJobs.UnitTests
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
                     bulletPointManager: new BulletPointManager(),
-                    nowFunction: ObjectMother.WIDExplorer_FakeNowFunction
+                    nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
+                    formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
 
@@ -2232,5 +2261,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 04.09.2021
+    Last Update: 05.09.2021
 */
