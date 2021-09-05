@@ -49,7 +49,7 @@ namespace NW.WIDJobs.UnitTests
                                 hiringOrgDescriptionLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_HiringOrgDescriptionLengthByJobPostingId,
                                 purposeLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_PurposeLengthByJobPostingId,
                                 bulletPointsByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_BulletPointsByJobPostingId,
-                                totalBulletPoints: ObjectMother.MetricCollection_ExplorationStage3_TotalBulletPoints
+                                totalBulletPoints: ObjectMother.Shared_ExplorationStage3_TotalBulletPoints
                             )
 				),
                 typeof(ArgumentNullException),
@@ -92,7 +92,7 @@ namespace NW.WIDJobs.UnitTests
                                 hiringOrgDescriptionLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_HiringOrgDescriptionLengthByJobPostingId,
                                 purposeLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_PurposeLengthByJobPostingId,
                                 bulletPointsByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_BulletPointsByJobPostingId,
-                                totalBulletPoints: ObjectMother.MetricCollection_ExplorationStage3_TotalBulletPoints
+                                totalBulletPoints: ObjectMother.Shared_ExplorationStage3_TotalBulletPoints
                             )
                 ),
                 typeof(ArgumentException),
@@ -135,7 +135,7 @@ namespace NW.WIDJobs.UnitTests
                                 hiringOrgDescriptionLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_HiringOrgDescriptionLengthByJobPostingId,
                                 purposeLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_PurposeLengthByJobPostingId,
                                 bulletPointsByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_BulletPointsByJobPostingId,
-                                totalBulletPoints: ObjectMother.MetricCollection_ExplorationStage3_TotalBulletPoints
+                                totalBulletPoints: ObjectMother.Shared_ExplorationStage3_TotalBulletPoints
                             )
                 ),
                 typeof(ArgumentException),
@@ -178,7 +178,7 @@ namespace NW.WIDJobs.UnitTests
                                 hiringOrgDescriptionLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_HiringOrgDescriptionLengthByJobPostingId,
                                 purposeLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_PurposeLengthByJobPostingId,
                                 bulletPointsByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_BulletPointsByJobPostingId,
-                                totalBulletPoints: ObjectMother.MetricCollection_ExplorationStage3_TotalBulletPoints
+                                totalBulletPoints: ObjectMother.Shared_ExplorationStage3_TotalBulletPoints
                             )
                 ),
                 typeof(ArgumentNullException),
@@ -221,7 +221,7 @@ namespace NW.WIDJobs.UnitTests
                                 hiringOrgDescriptionLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_HiringOrgDescriptionLengthByJobPostingId,
                                 purposeLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_PurposeLengthByJobPostingId,
                                 bulletPointsByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_BulletPointsByJobPostingId,
-                                totalBulletPoints: ObjectMother.MetricCollection_ExplorationStage3_TotalBulletPoints
+                                totalBulletPoints: ObjectMother.Shared_ExplorationStage3_TotalBulletPoints
                             )
                 ),
                 typeof(ArgumentNullException),
@@ -264,7 +264,7 @@ namespace NW.WIDJobs.UnitTests
                                 hiringOrgDescriptionLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_HiringOrgDescriptionLengthByJobPostingId,
                                 purposeLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_PurposeLengthByJobPostingId,
                                 bulletPointsByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_BulletPointsByJobPostingId,
-                                totalBulletPoints: ObjectMother.MetricCollection_ExplorationStage3_TotalBulletPoints
+                                totalBulletPoints: ObjectMother.Shared_ExplorationStage3_TotalBulletPoints
                             )
                 ),
                 typeof(ArgumentNullException),
@@ -307,7 +307,7 @@ namespace NW.WIDJobs.UnitTests
                                 hiringOrgDescriptionLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_HiringOrgDescriptionLengthByJobPostingId,
                                 purposeLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_PurposeLengthByJobPostingId,
                                 bulletPointsByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_BulletPointsByJobPostingId,
-                                totalBulletPoints: ObjectMother.MetricCollection_ExplorationStage3_TotalBulletPoints
+                                totalBulletPoints: ObjectMother.Shared_ExplorationStage3_TotalBulletPoints
                             )
                 ),
                 typeof(ArgumentNullException),
@@ -350,7 +350,7 @@ namespace NW.WIDJobs.UnitTests
                                 hiringOrgDescriptionLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_HiringOrgDescriptionLengthByJobPostingId,
                                 purposeLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_PurposeLengthByJobPostingId,
                                 bulletPointsByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_BulletPointsByJobPostingId,
-                                totalBulletPoints: ObjectMother.MetricCollection_ExplorationStage3_TotalBulletPoints
+                                totalBulletPoints: ObjectMother.Shared_ExplorationStage3_TotalBulletPoints
                             )
                 ),
                 typeof(ArgumentNullException),
@@ -393,7 +393,7 @@ namespace NW.WIDJobs.UnitTests
                                 hiringOrgDescriptionLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_HiringOrgDescriptionLengthByJobPostingId,
                                 purposeLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_PurposeLengthByJobPostingId,
                                 bulletPointsByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_BulletPointsByJobPostingId,
-                                totalBulletPoints: ObjectMother.MetricCollection_ExplorationStage3_TotalBulletPoints
+                                totalBulletPoints: ObjectMother.Shared_ExplorationStage3_TotalBulletPoints
                             )
                 ),
                 typeof(ArgumentNullException),
@@ -436,7 +436,7 @@ namespace NW.WIDJobs.UnitTests
                                 hiringOrgDescriptionLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_HiringOrgDescriptionLengthByJobPostingId,
                                 purposeLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_PurposeLengthByJobPostingId,
                                 bulletPointsByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_BulletPointsByJobPostingId,
-                                totalBulletPoints: ObjectMother.MetricCollection_ExplorationStage3_TotalBulletPoints
+                                totalBulletPoints: ObjectMother.Shared_ExplorationStage3_TotalBulletPoints
                             )
                 ),
                 typeof(ArgumentNullException),
@@ -479,7 +479,7 @@ namespace NW.WIDJobs.UnitTests
                                 hiringOrgDescriptionLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_HiringOrgDescriptionLengthByJobPostingId,
                                 purposeLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_PurposeLengthByJobPostingId,
                                 bulletPointsByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_BulletPointsByJobPostingId,
-                                totalBulletPoints: ObjectMother.MetricCollection_ExplorationStage3_TotalBulletPoints
+                                totalBulletPoints: ObjectMother.Shared_ExplorationStage3_TotalBulletPoints
                             )
                 ),
                 typeof(ArgumentNullException),
@@ -522,7 +522,7 @@ namespace NW.WIDJobs.UnitTests
                                 hiringOrgDescriptionLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_HiringOrgDescriptionLengthByJobPostingId,
                                 purposeLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_PurposeLengthByJobPostingId,
                                 bulletPointsByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_BulletPointsByJobPostingId,
-                                totalBulletPoints: ObjectMother.MetricCollection_ExplorationStage3_TotalBulletPoints
+                                totalBulletPoints: ObjectMother.Shared_ExplorationStage3_TotalBulletPoints
                             )
                 ),
                 typeof(ArgumentNullException),
@@ -565,7 +565,7 @@ namespace NW.WIDJobs.UnitTests
                                 hiringOrgDescriptionLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_HiringOrgDescriptionLengthByJobPostingId,
                                 purposeLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_PurposeLengthByJobPostingId,
                                 bulletPointsByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_BulletPointsByJobPostingId,
-                                totalBulletPoints: ObjectMother.MetricCollection_ExplorationStage3_TotalBulletPoints
+                                totalBulletPoints: ObjectMother.Shared_ExplorationStage3_TotalBulletPoints
                             )
                 ),
                 typeof(ArgumentNullException),
@@ -608,7 +608,7 @@ namespace NW.WIDJobs.UnitTests
                                 hiringOrgDescriptionLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_HiringOrgDescriptionLengthByJobPostingId,
                                 purposeLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_PurposeLengthByJobPostingId,
                                 bulletPointsByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_BulletPointsByJobPostingId,
-                                totalBulletPoints: ObjectMother.MetricCollection_ExplorationStage3_TotalBulletPoints
+                                totalBulletPoints: ObjectMother.Shared_ExplorationStage3_TotalBulletPoints
                             )
                 ),
                 typeof(ArgumentNullException),
@@ -651,7 +651,7 @@ namespace NW.WIDJobs.UnitTests
                                 hiringOrgDescriptionLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_HiringOrgDescriptionLengthByJobPostingId,
                                 purposeLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_PurposeLengthByJobPostingId,
                                 bulletPointsByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_BulletPointsByJobPostingId,
-                                totalBulletPoints: ObjectMother.MetricCollection_ExplorationStage3_TotalBulletPoints
+                                totalBulletPoints: ObjectMother.Shared_ExplorationStage3_TotalBulletPoints
                             )
                 ),
                 typeof(ArgumentNullException),
@@ -694,7 +694,7 @@ namespace NW.WIDJobs.UnitTests
                                 hiringOrgDescriptionLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_HiringOrgDescriptionLengthByJobPostingId,
                                 purposeLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_PurposeLengthByJobPostingId,
                                 bulletPointsByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_BulletPointsByJobPostingId,
-                                totalBulletPoints: ObjectMother.MetricCollection_ExplorationStage3_TotalBulletPoints
+                                totalBulletPoints: ObjectMother.Shared_ExplorationStage3_TotalBulletPoints
                             )
                 ),
                 typeof(ArgumentNullException),
@@ -737,7 +737,7 @@ namespace NW.WIDJobs.UnitTests
                                 hiringOrgDescriptionLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_HiringOrgDescriptionLengthByJobPostingId,
                                 purposeLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_PurposeLengthByJobPostingId,
                                 bulletPointsByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_BulletPointsByJobPostingId,
-                                totalBulletPoints: ObjectMother.MetricCollection_ExplorationStage3_TotalBulletPoints
+                                totalBulletPoints: ObjectMother.Shared_ExplorationStage3_TotalBulletPoints
                             )
                 ),
                 typeof(ArgumentNullException),
@@ -780,7 +780,7 @@ namespace NW.WIDJobs.UnitTests
                                 hiringOrgDescriptionLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_HiringOrgDescriptionLengthByJobPostingId,
                                 purposeLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_PurposeLengthByJobPostingId,
                                 bulletPointsByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_BulletPointsByJobPostingId,
-                                totalBulletPoints: ObjectMother.MetricCollection_ExplorationStage3_TotalBulletPoints
+                                totalBulletPoints: ObjectMother.Shared_ExplorationStage3_TotalBulletPoints
                             )
                 ),
                 typeof(ArgumentNullException),
@@ -823,7 +823,7 @@ namespace NW.WIDJobs.UnitTests
                                 hiringOrgDescriptionLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_HiringOrgDescriptionLengthByJobPostingId,
                                 purposeLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_PurposeLengthByJobPostingId,
                                 bulletPointsByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_BulletPointsByJobPostingId,
-                                totalBulletPoints: ObjectMother.MetricCollection_ExplorationStage3_TotalBulletPoints
+                                totalBulletPoints: ObjectMother.Shared_ExplorationStage3_TotalBulletPoints
                             )
                 ),
                 typeof(ArgumentNullException),
@@ -866,7 +866,7 @@ namespace NW.WIDJobs.UnitTests
                                 hiringOrgDescriptionLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_HiringOrgDescriptionLengthByJobPostingId,
                                 purposeLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_PurposeLengthByJobPostingId,
                                 bulletPointsByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_BulletPointsByJobPostingId,
-                                totalBulletPoints: ObjectMother.MetricCollection_ExplorationStage3_TotalBulletPoints
+                                totalBulletPoints: ObjectMother.Shared_ExplorationStage3_TotalBulletPoints
                             )
                 ),
                 typeof(ArgumentNullException),
@@ -909,7 +909,7 @@ namespace NW.WIDJobs.UnitTests
                                 hiringOrgDescriptionLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_HiringOrgDescriptionLengthByJobPostingId,
                                 purposeLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_PurposeLengthByJobPostingId,
                                 bulletPointsByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_BulletPointsByJobPostingId,
-                                totalBulletPoints: ObjectMother.MetricCollection_ExplorationStage3_TotalBulletPoints
+                                totalBulletPoints: ObjectMother.Shared_ExplorationStage3_TotalBulletPoints
                             )
                 ),
                 typeof(ArgumentNullException),
@@ -966,7 +966,7 @@ namespace NW.WIDJobs.UnitTests
                         hiringOrgDescriptionLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_HiringOrgDescriptionLengthByJobPostingId,
                         purposeLengthByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_PurposeLengthByJobPostingId,
                         bulletPointsByJobPostingId: ObjectMother.MetricCollection_ExplorationStage3_BulletPointsByJobPostingId,
-                        totalBulletPoints: ObjectMother.MetricCollection_ExplorationStage3_TotalBulletPoints
+                        totalBulletPoints: ObjectMother.Shared_ExplorationStage3_TotalBulletPoints
                     );
 
             // Assert

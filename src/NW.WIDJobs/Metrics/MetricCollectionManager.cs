@@ -183,6 +183,18 @@ namespace NW.WIDJobs.Metrics
             return percentages;
 
         }
+        public uint? TrySumBulletPoints(Exploration exploration)
+        {
+
+            if (exploration == null)
+                return null;
+
+            if (exploration.JobPostingsExtended == null)
+                return null;
+
+            return SumBulletPoints(exploration.JobPostingsExtended);
+
+        }
 
         #endregion
 
@@ -1048,5 +1060,5 @@ namespace NW.WIDJobs.Metrics
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 04.09.2021
+    Last Update: 05.09.2021
 */

@@ -80,22 +80,6 @@ namespace NW.WIDJobs.UnitTests
         }
 
         [Test]
-        public void TryConvertToPercentages_ShouldReturnExpectedPercentages_WhenProperDictionary()
-        {
-
-            // Arrange
-            // Act
-            Dictionary<string, string> actual
-                = new MetricCollectionManager().TryConvertToPercentages(ObjectMother.MetricCollectionManager_WorkPlaceCityWithoutZones);
-
-            // Assert
-            Assert.IsTrue(
-                ObjectMother.AreEqual(ObjectMother.MetricCollectionManager_WorkPlaceCityWithoutZonesAsPercentages, actual)
-                );
-
-        }
-
-        [Test]
         public void TryConvertToPercentages_ShouldReturnNull_WhenDictionaryIsNull()
         {
 
@@ -107,6 +91,22 @@ namespace NW.WIDJobs.UnitTests
             // Assert
             Assert.IsTrue(
                 ObjectMother.AreEqual(null, actual)
+                );
+
+        }
+
+        [Test]
+        public void TryConvertToPercentages_ShouldReturnExpectedPercentages_WhenProperDictionary()
+        {
+
+            // Arrange
+            // Act
+            Dictionary<string, string> actual
+                = new MetricCollectionManager().TryConvertToPercentages(ObjectMother.MetricCollectionManager_WorkPlaceCityWithoutZones);
+
+            // Assert
+            Assert.IsTrue(
+                ObjectMother.AreEqual(ObjectMother.MetricCollectionManager_WorkPlaceCityWithoutZonesAsPercentages, actual)
                 );
 
         }
@@ -160,10 +160,36 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
+        [Test]
+        public void TrySumBulletPoints_ShouldReturnNull_WhenExplorationIsNull()
+        {
+
+            // Arrange
+            // Act
+            uint? actual = new MetricCollectionManager().TrySumBulletPoints(null);
+
+            // Assert
+            Assert.AreEqual(null, actual);
+
+        }
+
+        [Test]
+        public void TrySumBulletPoints_ShouldReturnExpectedValue_WhenExplorationStage3()
+        {
+
+            // Arrange
+            // Act
+            uint? actual = new MetricCollectionManager().TrySumBulletPoints(ObjectMother.Shared_ExplorationStage3);
+
+            // Assert
+            Assert.AreEqual(ObjectMother.Shared_ExplorationStage3_TotalBulletPoints, actual);
+
+        }
+
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 04.09.2021
+    Last Update: 05.09.2021
 */

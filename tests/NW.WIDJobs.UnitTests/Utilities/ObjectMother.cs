@@ -2991,6 +2991,7 @@ namespace NW.WIDJobs.UnitTests
                 $"'{nameof(Exploration.JobPostingsExtended)}':'{Shared_ExplorationStage3_JobPostingsExtended.Count}'",
                 " }"
                 );
+        public static uint Shared_ExplorationStage3_TotalBulletPoints = 469;
 
         #endregion
 
@@ -3784,8 +3785,6 @@ namespace NW.WIDJobs.UnitTests
                 { "8251029businessintelligenceanalyst", 0 }
             };
 
-        public static uint MetricCollection_ExplorationStage3_TotalBulletPoints = 469;
-
         public static MetricCollection MetricCollection_ExplorationStage3 =
             new MetricCollection(
                     runId: MetricCollection_ExplorationStage3_RunId,
@@ -3821,7 +3820,7 @@ namespace NW.WIDJobs.UnitTests
                     hiringOrgDescriptionLengthByJobPostingId: MetricCollection_ExplorationStage3_HiringOrgDescriptionLengthByJobPostingId,
                     purposeLengthByJobPostingId: MetricCollection_ExplorationStage3_PurposeLengthByJobPostingId,
                     bulletPointsByJobPostingId: MetricCollection_ExplorationStage3_BulletPointsByJobPostingId,
-                    totalBulletPoints: MetricCollection_ExplorationStage3_TotalBulletPoints
+                    totalBulletPoints: Shared_ExplorationStage3_TotalBulletPoints
                 );
 
         public static MetricCollection MetricCollection_ExplorationStage2 =

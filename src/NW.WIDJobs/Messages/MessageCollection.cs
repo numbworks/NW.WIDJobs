@@ -205,6 +205,13 @@ namespace NW.WIDJobs.Messages
 
         #endregion
 
+        #region Formatter
+
+        public static Func<string, string> Formatter_NoFormattingStrategyAvailableFor
+            = (value) => $"No formatting strategy available for ('{value}').";
+
+        #endregion
+
         #region Methods_private
 
         private static string RollOutCollection(List<double> coll)
@@ -227,8 +234,6 @@ namespace NW.WIDJobs.Messages
 }
 
 /*
-
     Author: numbworks@gmail.com
-    Last Update: 24.08.2021
-
+    Last Update: 05.09.2021
 */
