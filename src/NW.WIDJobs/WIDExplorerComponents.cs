@@ -12,6 +12,7 @@ using NW.WIDJobs.Metrics;
 using NW.WIDJobs.Runs;
 using NW.WIDJobs.Validation;
 using NW.WIDJobs.XPath;
+using NW.WIDJobs.Formatting;
 
 namespace NW.WIDJobs
 {
@@ -48,6 +49,7 @@ namespace NW.WIDJobs
         public IFilenameFactory FilenameFactory { get; }
         public IBulletPointManager BulletPointManager { get; }
         public Func<DateTime> NowFunction { get; }
+        public IFormatter Formatter { get; }
 
         #endregion
 
@@ -73,7 +75,8 @@ namespace NW.WIDJobs
             IAsciiBannerManager asciiBannerManager,
             IFilenameFactory filenameFactory,
             IBulletPointManager bulletPointManager,
-            Func<DateTime> nowFunction
+            Func<DateTime> nowFunction,
+            IFormatter formatter
             )
         {
 
@@ -95,6 +98,7 @@ namespace NW.WIDJobs
             Validator.ValidateObject(filenameFactory, nameof(filenameFactory));
             Validator.ValidateObject(bulletPointManager, nameof(bulletPointManager));
             Validator.ValidateObject(nowFunction, nameof(nowFunction));
+            Validator.ValidateObject(formatter, nameof(formatter));
 
             LoggingAction = loggingAction;
             LoggingActionAsciiBanner = loggingActionAsciiBanner;
@@ -114,6 +118,7 @@ namespace NW.WIDJobs
             FilenameFactory = filenameFactory;
             BulletPointManager = bulletPointManager;
             NowFunction = nowFunction;
+            Formatter = formatter;
 
         }
 
@@ -137,7 +142,8 @@ namespace NW.WIDJobs
                   new AsciiBannerManager(),
                   new FilenameFactory(),
                   new BulletPointManager(),
-                  DefaultNowFunction
+                  DefaultNowFunction,
+                  new Formatter()
                   )
         { }
 

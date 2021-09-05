@@ -12,6 +12,7 @@ using NW.WIDJobs.JobPostingsExtended;
 using NW.WIDJobs.Metrics;
 using NW.WIDJobs.Runs;
 using NW.WIDJobs.XPath;
+using NW.WIDJobs.Formatting;
 
 namespace NW.WIDJobs.UnitTests
 {
@@ -43,7 +44,8 @@ namespace NW.WIDJobs.UnitTests
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
                                 new BulletPointManager(),
-                                WIDExplorerComponents.DefaultNowFunction
+                                WIDExplorerComponents.DefaultNowFunction,
+                                new Formatter()
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -70,7 +72,8 @@ namespace NW.WIDJobs.UnitTests
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
                                 new BulletPointManager(),
-                                WIDExplorerComponents.DefaultNowFunction
+                                WIDExplorerComponents.DefaultNowFunction,
+                                new Formatter()
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -97,7 +100,8 @@ namespace NW.WIDJobs.UnitTests
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
                                 new BulletPointManager(),
-                                WIDExplorerComponents.DefaultNowFunction
+                                WIDExplorerComponents.DefaultNowFunction,
+                                new Formatter()
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -124,7 +128,8 @@ namespace NW.WIDJobs.UnitTests
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
                                 new BulletPointManager(),
-                                WIDExplorerComponents.DefaultNowFunction
+                                WIDExplorerComponents.DefaultNowFunction,
+                                new Formatter()
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -151,7 +156,8 @@ namespace NW.WIDJobs.UnitTests
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
                                 new BulletPointManager(),
-                                WIDExplorerComponents.DefaultNowFunction
+                                WIDExplorerComponents.DefaultNowFunction,
+                                new Formatter()
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -180,7 +186,8 @@ namespace NW.WIDJobs.UnitTests
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
                                 new BulletPointManager(),
-                                WIDExplorerComponents.DefaultNowFunction
+                                WIDExplorerComponents.DefaultNowFunction,
+                                new Formatter()
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -207,7 +214,8 @@ namespace NW.WIDJobs.UnitTests
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
                                 new BulletPointManager(),
-                                WIDExplorerComponents.DefaultNowFunction
+                                WIDExplorerComponents.DefaultNowFunction,
+                                new Formatter()
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -234,7 +242,8 @@ namespace NW.WIDJobs.UnitTests
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
                                 new BulletPointManager(),
-                                WIDExplorerComponents.DefaultNowFunction
+                                WIDExplorerComponents.DefaultNowFunction,
+                                new Formatter()
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -261,7 +270,8 @@ namespace NW.WIDJobs.UnitTests
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
                                 new BulletPointManager(),
-                                WIDExplorerComponents.DefaultNowFunction
+                                WIDExplorerComponents.DefaultNowFunction,
+                                new Formatter()
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -288,7 +298,8 @@ namespace NW.WIDJobs.UnitTests
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
                                 new BulletPointManager(),
-                                WIDExplorerComponents.DefaultNowFunction
+                                WIDExplorerComponents.DefaultNowFunction,
+                                new Formatter()
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -315,7 +326,8 @@ namespace NW.WIDJobs.UnitTests
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
                                 new BulletPointManager(),
-                                WIDExplorerComponents.DefaultNowFunction
+                                WIDExplorerComponents.DefaultNowFunction,
+                                new Formatter()
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -342,7 +354,8 @@ namespace NW.WIDJobs.UnitTests
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
                                 new BulletPointManager(),
-                                WIDExplorerComponents.DefaultNowFunction
+                                WIDExplorerComponents.DefaultNowFunction,
+                                new Formatter()
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -369,7 +382,8 @@ namespace NW.WIDJobs.UnitTests
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
                                 new BulletPointManager(),
-                                WIDExplorerComponents.DefaultNowFunction
+                                WIDExplorerComponents.DefaultNowFunction,
+                                new Formatter()
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -396,7 +410,8 @@ namespace NW.WIDJobs.UnitTests
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
                                 new BulletPointManager(),
-                                WIDExplorerComponents.DefaultNowFunction
+                                WIDExplorerComponents.DefaultNowFunction,
+                                new Formatter()
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -423,7 +438,8 @@ namespace NW.WIDJobs.UnitTests
                                 null,
                                 new FilenameFactory(),
                                 new BulletPointManager(),
-                                WIDExplorerComponents.DefaultNowFunction
+                                WIDExplorerComponents.DefaultNowFunction,
+                                new Formatter()
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -450,7 +466,8 @@ namespace NW.WIDJobs.UnitTests
                                 new AsciiBannerManager(),
                                 null,
                                 new BulletPointManager(),
-                                WIDExplorerComponents.DefaultNowFunction
+                                WIDExplorerComponents.DefaultNowFunction,
+                                new Formatter()
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -477,7 +494,8 @@ namespace NW.WIDJobs.UnitTests
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
                                 null,
-                                WIDExplorerComponents.DefaultNowFunction
+                                WIDExplorerComponents.DefaultNowFunction,
+                                new Formatter()
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -504,12 +522,41 @@ namespace NW.WIDJobs.UnitTests
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
                                 new BulletPointManager(),
-                                null
+                                null,
+                                new Formatter()
                         )
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("nowFunction").Message
-            ).SetArgDisplayNames($"{nameof(widExplorerComponentsExceptionTestCases)}_18")
+            ).SetArgDisplayNames($"{nameof(widExplorerComponentsExceptionTestCases)}_18"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new WIDExplorerComponents(
+                                WIDExplorerComponents.DefaultLoggingAction,
+                                WIDExplorerComponents.DefaultLoggingActionAsciiBanner,
+                                new XPathManager(),
+                                new GetRequestManager(),
+                                new JobPageDeserializer(),
+                                new JobPageManager(),
+                                new JobPostingDeserializer(),
+                                new JobPostingManager(),
+                                new JobPostingExtendedDeserializer(),
+                                new JobPostingExtendedManager(),
+                                new RunIdManager(),
+                                new MetricCollectionManager(),
+                                new FileManager(),
+                                new RepositoryFactory(),
+                                new AsciiBannerManager(),
+                                new FilenameFactory(),
+                                new BulletPointManager(),
+                                WIDExplorerComponents.DefaultNowFunction,
+                                null
+                        )
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("formatter").Message
+            ).SetArgDisplayNames($"{nameof(widExplorerComponentsExceptionTestCases)}_19"),
 
         };
 
@@ -540,7 +587,8 @@ namespace NW.WIDJobs.UnitTests
                             new AsciiBannerManager(),
                             new FilenameFactory(),
                             new BulletPointManager(),
-                            WIDExplorerComponents.DefaultNowFunction
+                            WIDExplorerComponents.DefaultNowFunction,
+                            new Formatter()
                         );
 
             // Assert
@@ -562,6 +610,7 @@ namespace NW.WIDJobs.UnitTests
             Assert.IsInstanceOf<AsciiBannerManager>(actual.AsciiBannerManager);
             Assert.IsInstanceOf<FilenameFactory>(actual.FilenameFactory);
             Assert.IsInstanceOf<BulletPointManager>(actual.BulletPointManager);
+            Assert.IsInstanceOf<Formatter>(actual.Formatter);
 
         }
 
@@ -592,6 +641,7 @@ namespace NW.WIDJobs.UnitTests
             Assert.IsInstanceOf<AsciiBannerManager>(actual.AsciiBannerManager);
             Assert.IsInstanceOf<FilenameFactory>(actual.FilenameFactory);
             Assert.IsInstanceOf<BulletPointManager>(actual.BulletPointManager);
+            Assert.IsInstanceOf<Formatter>(actual.Formatter);
 
         }
 
@@ -607,5 +657,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 13.08.2021
+    Last Update: 05.09.2021
 */
