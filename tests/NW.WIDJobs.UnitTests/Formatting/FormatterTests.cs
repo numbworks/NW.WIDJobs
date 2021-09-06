@@ -89,8 +89,9 @@ namespace NW.WIDJobs.UnitTests
                     ),
                     string.Concat(
                         $"{nameof(JobPosting)}: ",
-                        $"'{ObjectMother.Shared_JobPage01_JobPosting01.JobPostingId}', ",
-                        $"'{ObjectMother.Shared_JobPage01_JobPosting01.HiringOrgName}', ",
+                        $"'{ObjectMother.Shared_JobPage01_JobPosting01.Id}', ",
+                        $"'{new Formatter().Format(ObjectMother.Shared_JobPage01_JobPosting01.Title)}', ",
+                        $"'{new Formatter().Format(ObjectMother.Shared_JobPage01_JobPosting01.HiringOrgName)}', ",
                         $"'{ObjectMother.Shared_JobPage01_JobPosting01.WorkPlaceCityWithoutZone}'."
                     )
                 ).SetArgDisplayNames($"{nameof(formatTestCases)}_01"),
@@ -101,9 +102,8 @@ namespace NW.WIDJobs.UnitTests
                     ),
                     string.Concat(
                         $"{nameof(JobPostingExtended)}: ",
-                        $"'{ObjectMother.Shared_JobPage01_JobPostingExtended01.JobPosting.JobPostingId}', ",
-                        $"'{ObjectMother.Shared_JobPage01_JobPostingExtended01.JobPosting.HiringOrgName}', ",
-                        $"'{ObjectMother.Shared_JobPage01_JobPostingExtended01.JobPosting.WorkPlaceCityWithoutZone}', ",
+                        $"'{ObjectMother.Shared_JobPage01_JobPostingExtended01.JobPosting.Id}', ",
+                        $"'{new Formatter().Format(ObjectMother.Shared_JobPage01_JobPosting01.Title)}', ",
                         $"'{ObjectMother.Shared_JobPage01_JobPostingExtended01.BulletPoints?.Count.ToString() ?? Formatter.ZeroString}' {Formatter.BulletPointsString}."
                     )
                 ).SetArgDisplayNames($"{nameof(formatTestCases)}_02"),

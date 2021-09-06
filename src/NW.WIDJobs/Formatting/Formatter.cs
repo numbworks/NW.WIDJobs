@@ -5,6 +5,8 @@ using NW.WIDJobs.Metrics;
 using NW.WIDJobs.Messages;
 using NW.WIDJobs.JobPostingsExtended;
 using NW.WIDJobs.JobPostings;
+using System.Text.RegularExpressions;
+using System.Linq;
 
 namespace NW.WIDJobs.Formatting
 {
@@ -53,8 +55,9 @@ namespace NW.WIDJobs.Formatting
 
             return string.Concat(
                         $"{nameof(JobPosting)}: ",
-                        $"'{jobPosting.JobPostingId}', ",
-                        $"'{jobPosting.HiringOrgName}', ",
+                        $"'{jobPosting.Id}', ",
+                        $"'{Format(jobPosting.Title)}', ",
+                        $"'{Format(jobPosting.HiringOrgName)}', ",
                         $"'{jobPosting.WorkPlaceCityWithoutZone}'."
                     );
 
@@ -66,9 +69,8 @@ namespace NW.WIDJobs.Formatting
 
             return string.Concat(
                         $"{nameof(JobPostingExtended)}: ",
-                        $"'{jobPostingExtended.JobPosting.JobPostingId}', ",
-                        $"'{jobPostingExtended.JobPosting.HiringOrgName}', ",
-                        $"'{jobPostingExtended.JobPosting.WorkPlaceCityWithoutZone}', ",
+                        $"'{jobPostingExtended.JobPosting.Id}', ",
+                        $"'{Format(jobPostingExtended.JobPosting.Title)}', ",
                         $"'{jobPostingExtended.BulletPoints?.Count.ToString() ?? ZeroString}' {BulletPointsString}."
                     );
 
@@ -123,6 +125,32 @@ namespace NW.WIDJobs.Formatting
                 return $"{0}{value}";
 
             return value.ToString();
+
+        }
+        public string Format(string longString)
+        {
+
+            /*
+                "Motivated forklift drivers for temporary positions during the summer in Skanderborg"
+                    => "Motivated forklift drivers for temporary..."
+            */
+
+            if (string.IsNullOrWhiteSpace(longString))
+                return longString;
+
+            string pattern = "[a-zA-Z]{1,}";
+            string[] words = Regex.Matches(longString, pattern).Cast<Match>().Select(m => m.Value).ToArray();
+
+            int threshold = 5;
+            if (words.Length <= threshold)
+                return longString;
+
+            words = words.Take(threshold).ToArray();
+
+            string result = string.Join(" ", words);
+            result = $"{result}...";
+
+            return result;
 
         }
 

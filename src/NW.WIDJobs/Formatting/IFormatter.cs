@@ -30,6 +30,9 @@ namespace NW.WIDJobs.Formatting
         /// <summary>Add a leading zero to one-digit numbers.</summary>
         string Format(uint value);
 
+        /// <summary>Shortens a long string to make it more readable in one-liners.</summary>
+        string Format(string longString);
+
     }
 }
 
