@@ -919,13 +919,12 @@ namespace NW.WIDJobs
         {
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage2_UpToAllJobPostings));
-
-            List<JobPage> stage2JobPages = new List<JobPage>() { exploration.JobPages[0] };
-            List<JobPosting> stage2JobPostings = new List<JobPosting>();
-
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_AntiFloodingStrategy);
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ParallelRequestsAre(_settings.ParallelRequests));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PauseBetweenRequestsIs(_settings.PauseBetweenRequestsMs));
+
+            List<JobPage> stage2JobPages = new List<JobPage>() { exploration.JobPages[0] };
+            List<JobPosting> stage2JobPostings = new List<JobPosting>();
 
             ushort finalPageNumber = exploration.TotalJobPages;
             for (ushort currentPageNumber = 1; currentPageNumber <= exploration.TotalJobPages; currentPageNumber++)
@@ -937,7 +936,9 @@ namespace NW.WIDJobs
                 {
 
                     currentJobPostings = _components.JobPostingDeserializer.Do(exploration.JobPages[0]);
-                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingCreatedInitial(currentJobPostings));
+
+                    LogJobPostings(currentJobPostings);
+                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPageProcessed(DefaultInitialPageNumber, finalPageNumber, currentJobPostings));
 
                 }
                 else
@@ -947,7 +948,9 @@ namespace NW.WIDJobs
                     currentJobPostings = _components.JobPostingDeserializer.Do(currentJobPage);
 
                     stage2JobPages.Add(currentJobPage);
-                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPageProcessed(currentPageNumber, exploration.TotalJobPages, currentJobPostings));
+
+                    LogJobPostings(currentJobPostings);
+                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPageProcessed(DefaultInitialPageNumber, finalPageNumber, currentJobPostings));
 
                 }
 
@@ -963,6 +966,8 @@ namespace NW.WIDJobs
 
                     stage2JobPostings.AddRange(currentJobPostings);
                     finalPageNumber = currentPageNumber;
+
+                    LogJobPostings(currentJobPostings);
 
                     break;
 
