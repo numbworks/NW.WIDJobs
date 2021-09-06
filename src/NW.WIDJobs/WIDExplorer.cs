@@ -994,13 +994,14 @@ namespace NW.WIDJobs
                 JobPostingExtended current = _components.JobPostingExtendedManager.GetJobPostingExtended(jobPosting);
                 jobPostingsExtended.Add(current);
 
-                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingExtendedScraped(jobPosting));
+                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingExtendedCreated(jobPosting));
+                _components.LoggingAction.Invoke(_components.Formatter.Format(current));
 
                 ConditionallySleep(jobPosting.JobPostingNumber, _settings.ParallelRequests, _settings.PauseBetweenRequestsMs);
 
             }
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingExtendedScrapedTotal(jobPostingsExtended));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingExtendedCreatedTotal(jobPostingsExtended));
 
             bool isCompleted = true;
 

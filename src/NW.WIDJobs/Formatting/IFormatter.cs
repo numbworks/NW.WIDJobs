@@ -27,10 +27,13 @@ namespace NW.WIDJobs.Formatting
         /// <exception cref="ArgumentNullException"/>
         string Format(MetricCollection metricCollection);
 
+        /// <summary>Add a leading zero to one-digit numbers.</summary>
+        string Format(uint value);
+
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 05.09.2021
+    Last Update: 06.09.2021
 */

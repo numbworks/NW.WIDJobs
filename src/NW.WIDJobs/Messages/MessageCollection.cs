@@ -4,6 +4,7 @@ using System.Linq;
 using NW.WIDJobs.BulletPoints;
 using NW.WIDJobs.Explorations;
 using NW.WIDJobs.Files;
+using NW.WIDJobs.Formatting;
 using NW.WIDJobs.JobPages;
 using NW.WIDJobs.JobPostings;
 using NW.WIDJobs.JobPostingsExtended;
@@ -99,10 +100,10 @@ namespace NW.WIDJobs.Messages
             = (i, currentJobPostings) => $"Page '{i}' - '{currentJobPostings.Count}' '{nameof(JobPosting)}' objects have been scraped.";
         public static Func<List<JobPosting>, string> WIDExplorer_JobPostingObjectsScrapedTotal
             = (jobPostings) => $"'{jobPostings.Count}' '{nameof(JobPosting)}' objects have been scraped in total.";
-        public static Func<JobPosting, string> WIDExplorer_JobPostingExtendedScraped
-            = (jobPosting) => $"JobPage '{jobPosting.PageNumber}', PageItem '{jobPosting.JobPostingNumber}' - A '{nameof(JobPostingExtended)}' object has been scraped.";
-        public static Func<List<JobPostingExtended>, string> WIDExplorer_JobPostingExtendedScrapedTotal
-            = (jobPostingExtended) => $"'{jobPostingExtended.Count}' '{nameof(JobPostingExtended)}' objects have been scraped in total.";
+        public static Func<JobPosting, string> WIDExplorer_JobPostingExtendedCreated
+            = (jobPosting) => $"JobPosting {Format(jobPosting.PageNumber)}/{Format(jobPosting.JobPostingNumber)} processed. The corresponding '{nameof(JobPostingExtended)}' object has been created.";
+        public static Func<List<JobPostingExtended>, string> WIDExplorer_JobPostingExtendedCreatedTotal
+            = (jobPostingExtended) => $"'{jobPostingExtended.Count}' '{nameof(JobPostingExtended)}' objects have been created in total.";
         public static string WIDExplorer_ExplorationCompleted
             = "The exploration has been completed.";
         public static Func<DateTime, ushort, string> WIDExplorer_ThresholdDateFoundJobPageNr 
@@ -213,7 +214,8 @@ namespace NW.WIDJobs.Messages
         #endregion
 
         #region Methods_private
-
+        private static string Format(uint value)
+            => new Formatter().Format(value);
         private static string RollOutCollection(List<double> coll)
             => RollOutCollection(coll.Cast<object>().ToList());
         private static string RollOutCollection(IEnumerable<object> coll)

@@ -104,7 +104,7 @@ namespace NW.WIDJobs.UnitTests
                         $"'{ObjectMother.Shared_JobPage01_JobPostingExtended01.JobPosting.JobPostingId}', ",
                         $"'{ObjectMother.Shared_JobPage01_JobPostingExtended01.JobPosting.HiringOrgName}', ",
                         $"'{ObjectMother.Shared_JobPage01_JobPostingExtended01.JobPosting.WorkPlaceCityWithoutZone}', ",
-                        $"'{(uint)ObjectMother.Shared_JobPage01_JobPostingExtended01.BulletPoints.Count}' {Formatter.BulletPointsString}."
+                        $"'{ObjectMother.Shared_JobPage01_JobPostingExtended01.BulletPoints?.Count.ToString() ?? Formatter.ZeroString}' {Formatter.BulletPointsString}."
                     )
                 ).SetArgDisplayNames($"{nameof(formatTestCases)}_02"),
 
@@ -125,8 +125,8 @@ namespace NW.WIDJobs.UnitTests
                     ),
                     string.Concat(
                             $"{nameof(Exploration)}: ",
-                            $"'{ObjectMother.Shared_ExplorationStage2.JobPages?.Count.ToString() ?? Formatter.NullString}' {nameof(Exploration.JobPages)}, ",
-                            $"'{ObjectMother.Shared_ExplorationStage2.JobPostings?.Count.ToString() ?? Formatter.NullString}' {nameof(Exploration.JobPostings)}."
+                            $"'{ObjectMother.Shared_ExplorationStage2.JobPages?.Count.ToString() ?? Formatter.ZeroString}' {nameof(Exploration.JobPages)}, ",
+                            $"'{ObjectMother.Shared_ExplorationStage2.JobPostings?.Count.ToString() ?? Formatter.ZeroString}' {nameof(Exploration.JobPostings)}."
                         )
                 ).SetArgDisplayNames($"{nameof(formatTestCases)}_04"),
 
@@ -136,9 +136,9 @@ namespace NW.WIDJobs.UnitTests
                     ),
                     string.Concat(
                             $"{nameof(Exploration)}: ",
-                            $"'{ObjectMother.Shared_ExplorationStage3.JobPages?.Count.ToString() ?? Formatter.NullString}' {nameof(Exploration.JobPages)}, ",
-                            $"'{ObjectMother.Shared_ExplorationStage3.JobPostingsExtended?.Count.ToString() ?? Formatter.NullString}' {nameof(Exploration.JobPostingsExtended)}, ",
-                            $"'{new MetricCollectionManager().TrySumBulletPoints(ObjectMother.Shared_ExplorationStage3)?.ToString() ?? Formatter.NullString}' {Formatter.BulletPointsString}."
+                            $"'{ObjectMother.Shared_ExplorationStage3.JobPages?.Count.ToString() ?? Formatter.ZeroString}' {nameof(Exploration.JobPages)}, ",
+                            $"'{ObjectMother.Shared_ExplorationStage3.JobPostingsExtended?.Count.ToString() ?? Formatter.ZeroString}' {nameof(Exploration.JobPostingsExtended)}, ",
+                            $"'{new MetricCollectionManager().TrySumBulletPoints(ObjectMother.Shared_ExplorationStage3)?.ToString() ?? Formatter.ZeroString}' {Formatter.BulletPointsString}."
                         )
                 ).SetArgDisplayNames($"{nameof(formatTestCases)}_05"),
 
@@ -198,7 +198,7 @@ namespace NW.WIDJobs.UnitTests
             // Assert
             Assert.IsInstanceOf<Formatter>(actual);
             Assert.AreEqual("BulletPoints", Formatter.BulletPointsString);
-            Assert.AreEqual("null", Formatter.NullString);
+            Assert.AreEqual("0", Formatter.ZeroString);
 
         }
 
@@ -213,5 +213,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 05.09.2021
+    Last Update: 06.09.2021
 */

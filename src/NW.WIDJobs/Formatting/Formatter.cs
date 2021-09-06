@@ -20,7 +20,7 @@ namespace NW.WIDJobs.Formatting
 
         #region Properties
 
-        public static string NullString { get; } = "null";
+        public static string ZeroString { get; } = "0";
         public static string BulletPointsString { get; } = "BulletPoints";
 
         #endregion
@@ -69,7 +69,7 @@ namespace NW.WIDJobs.Formatting
                         $"'{jobPostingExtended.JobPosting.JobPostingId}', ",
                         $"'{jobPostingExtended.JobPosting.HiringOrgName}', ",
                         $"'{jobPostingExtended.JobPosting.WorkPlaceCityWithoutZone}', ",
-                        $"'{(uint)jobPostingExtended.BulletPoints.Count}' {BulletPointsString}."
+                        $"'{jobPostingExtended.BulletPoints?.Count.ToString() ?? ZeroString}' {BulletPointsString}."
                     );
 
         }
@@ -88,16 +88,16 @@ namespace NW.WIDJobs.Formatting
             if (exploration.Stage == Stages.Stage2_UpToAllJobPostings)
                 return string.Concat(
                             $"{nameof(Exploration)}: ",
-                            $"'{exploration.JobPages?.Count.ToString() ?? NullString}' {nameof(Exploration.JobPages)}, ",
-                            $"'{exploration.JobPostings?.Count.ToString() ?? NullString}' {nameof(Exploration.JobPostings)}."
+                            $"'{exploration.JobPages?.Count.ToString() ?? ZeroString}' {nameof(Exploration.JobPages)}, ",
+                            $"'{exploration.JobPostings?.Count.ToString() ?? ZeroString}' {nameof(Exploration.JobPostings)}."
                         );
 
             if (exploration.Stage == Stages.Stage3_UpToAllJobPostingsExtended)
                 return string.Concat(
                             $"{nameof(Exploration)}: ",
-                            $"'{exploration.JobPages?.Count.ToString() ?? NullString}' {nameof(Exploration.JobPages)}, ",
-                            $"'{exploration.JobPostingsExtended?.Count.ToString() ?? NullString}' {nameof(Exploration.JobPostingsExtended)}, ",
-                            $"'{_metricCollectionManager.TrySumBulletPoints(exploration)?.ToString() ?? NullString}' {BulletPointsString}."
+                            $"'{exploration.JobPages?.Count.ToString() ?? ZeroString}' {nameof(Exploration.JobPages)}, ",
+                            $"'{exploration.JobPostingsExtended?.Count.ToString() ?? ZeroString}' {nameof(Exploration.JobPostingsExtended)}, ",
+                            $"'{_metricCollectionManager.TrySumBulletPoints(exploration)?.ToString() ?? ZeroString}' {BulletPointsString}."
                         );
 
             throw new Exception(MessageCollection.Formatter_NoFormattingStrategyAvailableFor(exploration.Stage.ToString()));
@@ -116,6 +116,15 @@ namespace NW.WIDJobs.Formatting
                     );
 
         }
+        public string Format(uint value)
+        {
+
+            if (value < 10)
+                return $"{0}{value}";
+
+            return value.ToString();
+
+        }
 
         #endregion
 
@@ -128,5 +137,5 @@ namespace NW.WIDJobs.Formatting
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 05.09.2021
+    Last Update: 06.09.2021
 */
