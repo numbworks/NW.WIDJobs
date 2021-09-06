@@ -791,7 +791,7 @@ namespace NW.WIDJobs
 
             List<JobPosting> jobPostings = _components.JobPostingDeserializer.Do(exploration.JobPages[0]);
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingScrapedInitial(jobPostings));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingCreatedInitial(jobPostings));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_AntiFloodingStrategy);
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ParallelRequestsAre(_settings.ParallelRequests));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PauseBetweenRequestsIs(_settings.PauseBetweenRequestsMs));
@@ -806,13 +806,13 @@ namespace NW.WIDJobs
                 stage2JobPages.Add(currentJobPage);
                 jobPostings.AddRange(currentJobPostings);
 
-                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingObjectsScraped(i, currentJobPostings));
+                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingObjectsCreated(i, currentJobPostings));
 
                 ConditionallySleep(i, _settings.ParallelRequests, _settings.PauseBetweenRequestsMs);
 
             }
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingObjectsScrapedTotal(jobPostings));
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingObjectsCreatedTotal(jobPostings));
 
             bool isCompleted = false;
             if (stage == Stages.Stage2_UpToAllJobPostings)
@@ -851,7 +851,7 @@ namespace NW.WIDJobs
                 {
 
                     currentJobPostings = _components.JobPostingDeserializer.Do(exploration.JobPages[0]);
-                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingScrapedInitial(currentJobPostings));
+                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingCreatedInitial(currentJobPostings));
 
                 }
                 else
@@ -861,7 +861,7 @@ namespace NW.WIDJobs
                     currentJobPostings = _components.JobPostingDeserializer.Do(currentJobPage);
 
                     stage2JobPages.Add(currentJobPage);
-                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingObjectsScraped(i, currentJobPostings));
+                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingObjectsCreated(i, currentJobPostings));
 
                 }
 
@@ -928,7 +928,7 @@ namespace NW.WIDJobs
                 {
 
                     currentJobPostings = _components.JobPostingDeserializer.Do(exploration.JobPages[0]);
-                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingScrapedInitial(currentJobPostings));
+                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingCreatedInitial(currentJobPostings));
 
                 }
                 else
@@ -938,7 +938,7 @@ namespace NW.WIDJobs
                     currentJobPostings = _components.JobPostingDeserializer.Do(currentJobPage);
 
                     stage2JobPages.Add(currentJobPage);
-                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingObjectsScraped(i, currentJobPostings));
+                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingObjectsCreated(i, currentJobPostings));
 
                 }
 

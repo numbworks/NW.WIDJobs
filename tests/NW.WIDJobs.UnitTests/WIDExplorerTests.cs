@@ -1872,12 +1872,12 @@ namespace NW.WIDJobs.UnitTests
 
                 // ProcessStage2
                 MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage2_UpToAllJobPostings),
-                MessageCollection.WIDExplorer_JobPostingScrapedInitial(jobPostingsStage1),
+                MessageCollection.WIDExplorer_JobPostingCreatedInitial(jobPostingsStage1),
                 MessageCollection.WIDExplorer_AntiFloodingStrategy,
                 MessageCollection.WIDExplorer_ParallelRequestsAre(parallelRequests),
                 MessageCollection.WIDExplorer_PauseBetweenRequestsIs(pauseBetweenRequestsMs),
-                MessageCollection.WIDExplorer_JobPostingObjectsScraped(2, jobPostingsStage2),
-                MessageCollection.WIDExplorer_JobPostingObjectsScrapedTotal(expected.JobPostings),
+                MessageCollection.WIDExplorer_JobPostingObjectsCreated(2, jobPostingsStage2),
+                MessageCollection.WIDExplorer_JobPostingObjectsCreatedTotal(expected.JobPostings),
 
                 MessageCollection.WIDExplorer_ExplorationCompleted
 
@@ -1960,12 +1960,12 @@ namespace NW.WIDJobs.UnitTests
 
                 // ProcessStage2
                 MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage2_UpToAllJobPostings),
-                MessageCollection.WIDExplorer_JobPostingScrapedInitial(jobPostingsStage1),
+                MessageCollection.WIDExplorer_JobPostingCreatedInitial(jobPostingsStage1),
                 MessageCollection.WIDExplorer_AntiFloodingStrategy,
                 MessageCollection.WIDExplorer_ParallelRequestsAre(parallelRequests),
                 MessageCollection.WIDExplorer_PauseBetweenRequestsIs(pauseBetweenRequestsMs),
-                MessageCollection.WIDExplorer_JobPostingObjectsScraped(2, jobPostingsStage2),
-                MessageCollection.WIDExplorer_JobPostingObjectsScrapedTotal(expected.JobPostings),
+                MessageCollection.WIDExplorer_JobPostingObjectsCreated(2, jobPostingsStage2),
+                MessageCollection.WIDExplorer_JobPostingObjectsCreatedTotal(expected.JobPostings),
 
                 // ProcessStage3
                 MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage3_UpToAllJobPostingsExtended),
@@ -2145,7 +2145,7 @@ namespace NW.WIDJobs.UnitTests
                 MessageCollection.WIDExplorer_AntiFloodingStrategy,
                 MessageCollection.WIDExplorer_ParallelRequestsAre(parallelRequests),
                 MessageCollection.WIDExplorer_PauseBetweenRequestsIs(pauseBetweenRequestsMs),
-                MessageCollection.WIDExplorer_JobPostingScrapedInitial(ObjectMother.Shared_JobPage01Alt_JobPostings),
+                MessageCollection.WIDExplorer_JobPostingCreatedInitial(ObjectMother.Shared_JobPage01Alt_JobPostings),
                 MessageCollection.WIDExplorer_ThresholdDateFoundJobPageNr(thresholdDate, 1),
                 MessageCollection.WIDExplorer_XJobPostingsRemovedJobPageNr(ObjectMother.Shared_JobPage01Alt_RangeForThresholdDate01.Count, 1),
                 MessageCollection.WIDExplorer_FinalPageNumberThresholdDate(1),
@@ -2244,7 +2244,7 @@ namespace NW.WIDJobs.UnitTests
                 MessageCollection.WIDExplorer_AntiFloodingStrategy,
                 MessageCollection.WIDExplorer_ParallelRequestsAre(parallelRequests),
                 MessageCollection.WIDExplorer_PauseBetweenRequestsIs(pauseBetweenRequestsMs),
-                MessageCollection.WIDExplorer_JobPostingScrapedInitial(ObjectMother.Shared_JobPage01_JobPostings),
+                MessageCollection.WIDExplorer_JobPostingCreatedInitial(ObjectMother.Shared_JobPage01_JobPostings),
                 MessageCollection.WIDExplorer_JobPostingIdFoundJobPageNr(jobPostingId, 1),
                 MessageCollection.WIDExplorer_XJobPostingsRemovedJobPageNr(ObjectMother.Shared_JobPage01_RangeForJobPostingId01.Count, 1),
                 MessageCollection.WIDExplorer_FinalPageNumberJobPostingId(1),
