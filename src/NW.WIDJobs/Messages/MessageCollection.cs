@@ -107,7 +107,7 @@ namespace NW.WIDJobs.Messages
         public static string WIDExplorer_ExplorationCompleted
             = "The exploration has been completed.";
         public static Func<DateTime, ushort, string> WIDExplorer_ThresholdDateFoundJobPageNr 
-            = (thresholdDate, i) => $"'{thresholdDate}' has been found in {nameof(JobPage)} nr. '{i}'.";
+            = (thresholdDate, i) => $"'{thresholdDate.ToString(WIDExplorer.DefaultFormatDate)}' has been found in {nameof(JobPage)} nr. '{i}'.";
         public static Func<string, ushort, string> WIDExplorer_JobPostingIdFoundJobPageNr
             = (jobPostingId, i) => $"'{jobPostingId}' has been found in {nameof(JobPage)} nr. '{i}'.";
         public static Func<int, ushort, string> WIDExplorer_XJobPostingsRemovedJobPageNr

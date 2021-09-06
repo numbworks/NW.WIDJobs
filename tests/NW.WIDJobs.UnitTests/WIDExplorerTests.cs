@@ -2195,6 +2195,7 @@ namespace NW.WIDJobs.UnitTests
             {
                 ObjectMother.Shared_JobPage01Alt_Object
             };
+
             Exploration expected = new Exploration(
                     runId: runId,
                     totalResultCount: ObjectMother.Shared_JobPage01_TotalResultCount,
@@ -2205,6 +2206,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostings: ObjectMother.UpdateRunIds(ObjectMother.Shared_JobPage01Alt_RangeForThresholdDate01, runId),
                     jobPostingsExtended: null
                 );
+            IFormatter formatter = new Formatter();
 
             List<string> expectedLogMessages = new List<string>()
             {
@@ -2226,9 +2228,40 @@ namespace NW.WIDJobs.UnitTests
                 MessageCollection.WIDExplorer_AntiFloodingStrategy,
                 MessageCollection.WIDExplorer_ParallelRequestsAre(parallelRequests),
                 MessageCollection.WIDExplorer_PauseBetweenRequestsIs(pauseBetweenRequestsMs),
-                MessageCollection.WIDExplorer_JobPostingCreatedInitial(ObjectMother.Shared_JobPage01Alt_JobPostings),
+                formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting01),
+                formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting02),
+                formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting03),
+                formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting04),
+                formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting05),
+                formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting06),
+                formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting07),
+                formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting08),
+                formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting09),
+                formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting10),
+                formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting11),
+                formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting12),
+                formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting13),
+                formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting14),
+                formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting15),
+                formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting16),
+                formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting17),
+                formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting18),
+                formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting19),
+                formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting20),
+                MessageCollection.WIDExplorer_JobPageProcessed(1, expected.TotalJobPages, ObjectMother.Shared_JobPage01Alt_JobPostings),
                 MessageCollection.WIDExplorer_ThresholdDateFoundJobPageNr(thresholdDate, 1),
                 MessageCollection.WIDExplorer_XJobPostingsRemovedJobPageNr(ObjectMother.Shared_JobPage01Alt_RangeForThresholdDate01.Count, 1),
+                formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting01),
+                formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting02),
+                formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting03),
+                formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting04),
+                formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting05),
+                formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting06),
+                formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting07),
+                formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting08),
+                formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting09),
+                formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting10),
+                formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting11),
                 MessageCollection.WIDExplorer_FinalPageNumberThresholdDate(1),
 
                 MessageCollection.WIDExplorer_ExplorationCompleted
