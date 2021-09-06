@@ -84,8 +84,8 @@ namespace NW.WIDJobs.Messages
             = (totalResultCount) => $"TotalResultCount:'{totalResultCount}'.";
         public static Func<ushort, string> WIDExplorer_TotalJobPagesIs
             = (totalJobPages) => $"TotalJobPages:'{totalJobPages}'.";
-        public static Func<List<JobPosting>, string> WIDExplorer_JobPostingScrapedInitial
-            = (jobPostings) => $"'{jobPostings.Count}' '{nameof(JobPosting)}' objects have been scraped out of the initial page.";
+        public static Func<List<JobPosting>, string> WIDExplorer_JobPostingCreatedInitial
+            = (jobPostings) => $"'{jobPostings.Count}' '{nameof(JobPosting)}' objects have been created out of the initial page.";
         public static Func<ushort, ushort, string> WIDExplorer_FinalPageNumberIsHigher
             = (finalPageNumber, totalEstimatedPages) => $"'FinalPageNumber' ('{finalPageNumber}') is higher than 'TotalEstimatedPages' ('{totalEstimatedPages}').";
         public static Func<ushort, string> WIDExplorer_FinalPageNumberWillBeNow
@@ -96,10 +96,10 @@ namespace NW.WIDJobs.Messages
             = (parallelRequests) => $"ParallelRequests:'{parallelRequests}'.";
         public static Func<uint, string> WIDExplorer_PauseBetweenRequestsIs
             = (pauseBetweenRequestsMs) => $"PauseBetweenRequestsMs:'{pauseBetweenRequestsMs}'.";
-        public static Func<ushort, List<JobPosting>, string> WIDExplorer_JobPostingObjectsScraped
-            = (i, currentJobPostings) => $"Page '{i}' - '{currentJobPostings.Count}' '{nameof(JobPosting)}' objects have been scraped.";
-        public static Func<List<JobPosting>, string> WIDExplorer_JobPostingObjectsScrapedTotal
-            = (jobPostings) => $"'{jobPostings.Count}' '{nameof(JobPosting)}' objects have been scraped in total.";
+        public static Func<ushort, List<JobPosting>, string> WIDExplorer_JobPostingObjectsCreated
+            = (i, currentJobPostings) => $"Page '{i}' - '{currentJobPostings.Count}' '{nameof(JobPosting)}' objects have been created.";
+        public static Func<List<JobPosting>, string> WIDExplorer_JobPostingObjectsCreatedTotal
+            = (jobPostings) => $"'{jobPostings.Count}' '{nameof(JobPosting)}' objects have been created in total.";
         public static Func<JobPosting, string> WIDExplorer_JobPostingExtendedCreated
             = (jobPosting) => $"JobPosting {Format(jobPosting.PageNumber)}/{Format(jobPosting.JobPostingNumber)} processed. The corresponding '{nameof(JobPostingExtended)}' object has been created.";
         public static Func<List<JobPostingExtended>, string> WIDExplorer_JobPostingExtendedCreatedTotal
