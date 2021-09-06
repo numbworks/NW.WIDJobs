@@ -13,7 +13,7 @@ Contact: numbworks@gmail.com
 
 ## Disclaimer
 
-This software is the outcome of a personal research project about data analysis, data science and usability in command-line interfaces. Web scraping may be illegal in your country, may be against the website's Terms of Service (ToS) or may unexpectely increase the load of the website if used in an unwise way. You are warmly adviced to use this software only if you know exactly what you are doing.
+This software is the outcome of a personal research project about data analysis, data science, modular software packaging and usability in command-line interfaces. At the moment of writing, `WorkInDenmark.dk` doesn't provide a public API and their Terms of Service (ToS) don't state anything against automated data retrieval, but in the future the situation may change. Web scraping may also unnecessarily increase the load of the website if used unwisely. You are warmly adviced to use this software only if you know exactly what you are doing.
 
 ## Overview
 
