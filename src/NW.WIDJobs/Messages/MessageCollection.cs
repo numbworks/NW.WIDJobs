@@ -96,11 +96,11 @@ namespace NW.WIDJobs.Messages
             = (parallelRequests) => $"ParallelRequests:'{parallelRequests}'.";
         public static Func<uint, string> WIDExplorer_PauseBetweenRequestsIs
             = (pauseBetweenRequestsMs) => $"PauseBetweenRequestsMs:'{pauseBetweenRequestsMs}'.";
-        public static Func<ushort, List<JobPosting>, string> WIDExplorer_JobPostingObjectsCreated
-            = (i, currentJobPostings) => $"Page '{i}' - '{currentJobPostings.Count}' '{nameof(JobPosting)}' objects have been created.";
+        public static Func<ushort, ushort?, List<JobPosting>, string> WIDExplorer_JobPageProcessed
+            = (jobPage, jobPages, jobPostings) => $"JobPage {Format(jobPage)}/{TryFormat(jobPages)} processed. '{jobPostings.Count}' '{nameof(JobPosting)}' objects have been created.";
         public static Func<List<JobPosting>, string> WIDExplorer_JobPostingObjectsCreatedTotal
             = (jobPostings) => $"'{jobPostings.Count}' '{nameof(JobPosting)}' objects have been created in total.";
-        public static Func<JobPosting, string> WIDExplorer_JobPostingExtendedCreated
+        public static Func<JobPosting, string> WIDExplorer_JobPostingProcessed
             = (jobPosting) => $"JobPosting {Format(jobPosting.PageNumber)}/{Format(jobPosting.JobPostingNumber)} processed. The corresponding '{nameof(JobPostingExtended)}' object has been created.";
         public static Func<List<JobPostingExtended>, string> WIDExplorer_JobPostingExtendedCreatedTotal
             = (jobPostingExtended) => $"'{jobPostingExtended.Count}' '{nameof(JobPostingExtended)}' objects have been created in total.";
@@ -214,8 +214,18 @@ namespace NW.WIDJobs.Messages
         #endregion
 
         #region Methods_private
+
         private static string Format(uint value)
             => new Formatter().Format(value);
+        private static string TryFormat(uint? value)
+        {
+
+            if (value != null)
+                return Format((uint)value);
+
+            return "?";
+
+        }
         private static string RollOutCollection(List<double> coll)
             => RollOutCollection(coll.Cast<object>().ToList());
         private static string RollOutCollection(IEnumerable<object> coll)

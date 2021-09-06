@@ -592,6 +592,8 @@ namespace NW.WIDJobs
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_NowIs.Invoke(now));
 
         }
+        private void LogJobPostings(List<JobPosting> jobPostings)
+            => jobPostings.ForEach((jobPosting) => _components.LoggingAction.Invoke(_components.Formatter.Format(jobPosting)));
 
         private JobPage OptimizeJobPageForSerialization(JobPage jobPage)
         {
@@ -788,27 +790,29 @@ namespace NW.WIDJobs
         {
 
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage2_UpToAllJobPostings));
-
-            List<JobPosting> jobPostings = _components.JobPostingDeserializer.Do(exploration.JobPages[0]);
-
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingCreatedInitial(jobPostings));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_AntiFloodingStrategy);
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ParallelRequestsAre(_settings.ParallelRequests));
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PauseBetweenRequestsIs(_settings.PauseBetweenRequestsMs));
 
+            List<JobPosting> jobPostings = _components.JobPostingDeserializer.Do(exploration.JobPages[0]);
+            
+            LogJobPostings(jobPostings);
+            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPageProcessed(DefaultInitialPageNumber, finalPageNumber, jobPostings));
+
             List<JobPage> stage2JobPages = new List<JobPage>(exploration.JobPages);
-            for (ushort i = 2; i <= finalPageNumber; i++)
+            for (ushort currentPageNumber = 2; currentPageNumber <= finalPageNumber; currentPageNumber++)
             {
 
-                JobPage currentJobPage = _components.JobPageManager.GetJobPage(exploration.RunId, i);
+                JobPage currentJobPage = _components.JobPageManager.GetJobPage(exploration.RunId, currentPageNumber);
                 List<JobPosting> currentJobPostings = _components.JobPostingDeserializer.Do(currentJobPage);
 
                 stage2JobPages.Add(currentJobPage);
                 jobPostings.AddRange(currentJobPostings);
 
-                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingObjectsCreated(i, currentJobPostings));
+                LogJobPostings(currentJobPostings);
+                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPageProcessed(currentPageNumber, finalPageNumber, currentJobPostings));
 
-                ConditionallySleep(i, _settings.ParallelRequests, _settings.PauseBetweenRequestsMs);
+                ConditionallySleep(currentPageNumber, _settings.ParallelRequests, _settings.PauseBetweenRequestsMs);
 
             }
 
@@ -842,12 +846,12 @@ namespace NW.WIDJobs
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PauseBetweenRequestsIs(_settings.PauseBetweenRequestsMs));
 
             ushort finalPageNumber = exploration.TotalJobPages;
-            for (ushort i = 1; i <= exploration.TotalJobPages; i++)
+            for (ushort currentPageNumber = 1; currentPageNumber <= exploration.TotalJobPages; currentPageNumber++)
             {
 
                 List<JobPosting> currentJobPostings = new List<JobPosting>();
 
-                if (i == 1)
+                if (currentPageNumber == 1)
                 {
 
                     currentJobPostings = _components.JobPostingDeserializer.Do(exploration.JobPages[0]);
@@ -857,11 +861,11 @@ namespace NW.WIDJobs
                 else
                 {
 
-                    JobPage currentJobPage = _components.JobPageManager.GetJobPage(exploration.RunId, i);
+                    JobPage currentJobPage = _components.JobPageManager.GetJobPage(exploration.RunId, currentPageNumber);
                     currentJobPostings = _components.JobPostingDeserializer.Do(currentJobPage);
 
                     stage2JobPages.Add(currentJobPage);
-                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingObjectsCreated(i, currentJobPostings));
+                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPageProcessed(currentPageNumber, exploration.TotalJobPages, currentJobPostings));
 
                 }
 
@@ -871,13 +875,13 @@ namespace NW.WIDJobs
                 if (isThresholdConditionMet)
                 {
 
-                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ThresholdDateFoundJobPageNr(thresholdDate, i));
+                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ThresholdDateFoundJobPageNr(thresholdDate, currentPageNumber));
 
                     currentJobPostings = _components.JobPostingManager.RemoveUnsuitable(thresholdDate, currentJobPostings);
-                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_XJobPostingsRemovedJobPageNr(currentJobPostings.Count, i));
+                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_XJobPostingsRemovedJobPageNr(currentJobPostings.Count, currentPageNumber));
 
                     stage2JobPostings.AddRange(currentJobPostings);
-                    finalPageNumber = i;
+                    finalPageNumber = currentPageNumber;
 
                     break;
 
@@ -885,7 +889,7 @@ namespace NW.WIDJobs
                 else
                     stage2JobPostings.AddRange(currentJobPostings);
 
-                ConditionallySleep(i, _settings.ParallelRequests, _settings.PauseBetweenRequestsMs);
+                ConditionallySleep(currentPageNumber, _settings.ParallelRequests, _settings.PauseBetweenRequestsMs);
 
             }
 
@@ -919,12 +923,12 @@ namespace NW.WIDJobs
             _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PauseBetweenRequestsIs(_settings.PauseBetweenRequestsMs));
 
             ushort finalPageNumber = exploration.TotalJobPages;
-            for (ushort i = 1; i <= exploration.TotalJobPages; i++)
+            for (ushort currentPageNumber = 1; currentPageNumber <= exploration.TotalJobPages; currentPageNumber++)
             {
 
                 List<JobPosting> currentJobPostings = new List<JobPosting>();
 
-                if (i == 1)
+                if (currentPageNumber == 1)
                 {
 
                     currentJobPostings = _components.JobPostingDeserializer.Do(exploration.JobPages[0]);
@@ -934,11 +938,11 @@ namespace NW.WIDJobs
                 else
                 {
 
-                    JobPage currentJobPage = _components.JobPageManager.GetJobPage(exploration.RunId, i);
+                    JobPage currentJobPage = _components.JobPageManager.GetJobPage(exploration.RunId, currentPageNumber);
                     currentJobPostings = _components.JobPostingDeserializer.Do(currentJobPage);
 
                     stage2JobPages.Add(currentJobPage);
-                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingObjectsCreated(i, currentJobPostings));
+                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPageProcessed(currentPageNumber, exploration.TotalJobPages, currentJobPostings));
 
                 }
 
@@ -947,13 +951,13 @@ namespace NW.WIDJobs
                 if (isThresholdConditionMet)
                 {
 
-                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingIdFoundJobPageNr(jobPostingId, i));
+                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingIdFoundJobPageNr(jobPostingId, currentPageNumber));
 
                     currentJobPostings = _components.JobPostingManager.RemoveUnsuitable(jobPostingId, currentJobPostings);
-                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_XJobPostingsRemovedJobPageNr(currentJobPostings.Count, i));
+                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_XJobPostingsRemovedJobPageNr(currentJobPostings.Count, currentPageNumber));
 
                     stage2JobPostings.AddRange(currentJobPostings);
-                    finalPageNumber = i;
+                    finalPageNumber = currentPageNumber;
 
                     break;
 
@@ -961,7 +965,7 @@ namespace NW.WIDJobs
                 else
                     stage2JobPostings.AddRange(currentJobPostings);
 
-                ConditionallySleep(i, _settings.ParallelRequests, _settings.PauseBetweenRequestsMs);
+                ConditionallySleep(currentPageNumber, _settings.ParallelRequests, _settings.PauseBetweenRequestsMs);
 
             }
 
@@ -994,7 +998,7 @@ namespace NW.WIDJobs
                 JobPostingExtended current = _components.JobPostingExtendedManager.GetJobPostingExtended(jobPosting);
                 jobPostingsExtended.Add(current);
 
-                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingExtendedCreated(jobPosting));
+                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingProcessed(jobPosting));
                 _components.LoggingAction.Invoke(_components.Formatter.Format(current));
 
                 ConditionallySleep(jobPosting.JobPostingNumber, _settings.ParallelRequests, _settings.PauseBetweenRequestsMs);
@@ -1025,5 +1029,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 04.09.2021
+    Last Update: 06.09.2021
 */
