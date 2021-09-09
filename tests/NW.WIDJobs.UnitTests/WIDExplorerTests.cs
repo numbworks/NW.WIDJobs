@@ -1047,6 +1047,7 @@ namespace NW.WIDJobs.UnitTests
                 ObjectMother.UpdateRunIdPageNumber(ObjectMother.Shared_JobPage01_JobPostings[19], runId, pageNumber)
 
             };
+            expected = ObjectMother.TranslateOccupations(expected);
             List<string> expectedLogMessages = new List<string>()
             {
 
@@ -1131,6 +1132,7 @@ namespace NW.WIDJobs.UnitTests
                 ObjectMother.UpdateRunIdPageNumber(ObjectMother.Shared_JobPage01_JobPostings[19], runId, pageNumber)
 
             };
+            expected = ObjectMother.TranslateOccupations(expected);
             List<string> expectedLogMessages = new List<string>()
             {
 
@@ -1775,7 +1777,7 @@ namespace NW.WIDJobs.UnitTests
             string runId = new RunIdManager().Create(now, WIDExplorer.DefaultInitialPageNumber, finalPageNumber);
             ushort parallelRequests = 3;
             uint pauseBetweenRequestsMs = 0;
-            Exploration expected = ObjectMother.UpdateRunId(ObjectMother.Shared_ExplorationStage1, runId);
+            Exploration expected = ObjectMother.UpdateRunIds(ObjectMother.Shared_ExplorationStage1, runId);
             
             List<string> expectedLogMessages = new List<string>()
             {
@@ -1851,10 +1853,13 @@ namespace NW.WIDJobs.UnitTests
             string runId = new RunIdManager().Create(now, WIDExplorer.DefaultInitialPageNumber, finalPageNumber);
             ushort parallelRequests = 3;
             uint pauseBetweenRequestsMs = 0;
-            Exploration expected = ObjectMother.UpdateRunId(ObjectMother.Shared_ExplorationStage2, runId);
+            IFormatter formatter = new Formatter();
+            Exploration expected = ObjectMother.UpdateRunIds(ObjectMother.Shared_ExplorationStage2, runId);
+            expected = ObjectMother.TranslateOccupations(expected);
+
+            // No need to run these thru TranslateOccupations(), we use it only for logging reasons
             List<JobPosting> jobPostingsStage1 = ObjectMother.UpdateRunIds(ObjectMother.Shared_JobPage01_JobPostings, runId);
             List<JobPosting> jobPostingsStage2 = ObjectMother.UpdateRunIds(ObjectMother.Shared_JobPage02_JobPostings, runId);
-            IFormatter formatter = new Formatter();
 
             List<string> expectedLogMessages = new List<string>()
             {
@@ -1979,10 +1984,13 @@ namespace NW.WIDJobs.UnitTests
             string runId = new RunIdManager().Create(now, WIDExplorer.DefaultInitialPageNumber, finalPageNumber);
             ushort parallelRequests = 3;
             uint pauseBetweenRequestsMs = 0;
-            Exploration expected = ObjectMother.UpdateRunId(ObjectMother.Shared_ExplorationStage3, runId);
+            IFormatter formatter = new Formatter();
+            Exploration expected = ObjectMother.UpdateRunIds(ObjectMother.Shared_ExplorationStage3, runId);
+            expected = ObjectMother.TranslateOccupations(expected);
+
+            // No need to run these thru TranslateOccupations(), we use it only for logging reasons
             List<JobPosting> jobPostingsStage1 = ObjectMother.UpdateRunIds(ObjectMother.Shared_JobPage01_JobPostings, runId);
             List<JobPosting> jobPostingsStage2 = ObjectMother.UpdateRunIds(ObjectMother.Shared_JobPage02_JobPostings, runId);
-            IFormatter formatter = new Formatter();
 
             List<string> expectedLogMessages = new List<string>()
             {
@@ -2195,6 +2203,9 @@ namespace NW.WIDJobs.UnitTests
             {
                 ObjectMother.Shared_JobPage01Alt_Object
             };
+            jobPages = ObjectMother.UpdateRunIds(jobPages, runId);
+            List<JobPosting> jobPostings = ObjectMother.UpdateRunIds(ObjectMother.Shared_JobPage01Alt_RangeForThresholdDate01, runId);
+            jobPostings = ObjectMother.TranslateOccupations(jobPostings);
 
             Exploration expected = new Exploration(
                     runId: runId,
@@ -2202,8 +2213,8 @@ namespace NW.WIDJobs.UnitTests
                     totalJobPages: ObjectMother.Shared_JobPage01_TotalJobPages,
                     stage: Stages.Stage2_UpToAllJobPostings,
                     isCompleted: true,
-                    jobPages: ObjectMother.UpdateRunIds(jobPages, runId),
-                    jobPostings: ObjectMother.UpdateRunIds(ObjectMother.Shared_JobPage01Alt_RangeForThresholdDate01, runId),
+                    jobPages: jobPages,
+                    jobPostings: jobPostings,
                     jobPostingsExtended: null
                 );
             IFormatter formatter = new Formatter();
@@ -2327,14 +2338,17 @@ namespace NW.WIDJobs.UnitTests
             {
                 ObjectMother.Shared_JobPage01_Object
             };
+            jobPages = ObjectMother.UpdateRunIds(jobPages, runId);
+            List<JobPosting> jobPostings = ObjectMother.UpdateRunIds(ObjectMother.Shared_JobPage01_RangeForJobPostingId01, runId);
+            jobPostings = ObjectMother.TranslateOccupations(jobPostings);
             Exploration expected = new Exploration(
                     runId: runId,
                     totalResultCount: ObjectMother.Shared_JobPage01_TotalResultCount,
                     totalJobPages: ObjectMother.Shared_JobPage01_TotalJobPages,
                     stage: Stages.Stage2_UpToAllJobPostings,
                     isCompleted: true,
-                    jobPages: ObjectMother.UpdateRunIds(jobPages, runId),
-                    jobPostings: ObjectMother.UpdateRunIds(ObjectMother.Shared_JobPage01_RangeForJobPostingId01, runId),
+                    jobPages: jobPages,
+                    jobPostings: jobPostings,
                     jobPostingsExtended: null
                 );
             IFormatter formatter = new Formatter();

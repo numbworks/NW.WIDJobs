@@ -51,8 +51,7 @@ namespace NW.WIDJobs.UnitTests
                     ObjectMother.Shared_JobPage01_Object,
                     true,
                     ObjectMother.TranslateOccupations(
-                        ObjectMother.Shared_JobPage01_JobPostings, 
-                        new OccupationTranslator()
+                        ObjectMother.Shared_JobPage01_JobPostings
                     )
                 ).SetArgDisplayNames($"{nameof(doTestCases)}_03")
 

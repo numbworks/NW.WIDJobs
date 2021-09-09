@@ -4610,51 +4610,6 @@ namespace NW.WIDJobs.UnitTests
             );
 
         }
-        public static JobPosting TranslateOccupation(JobPosting jobPosting, IOccupationTranslator occupationTranslator)
-        {
-
-            return new JobPosting(
-                runId: jobPosting.RunId,
-                pageNumber: jobPosting.PageNumber,
-                response: jobPosting.Response,
-                title: jobPosting.Title,
-                presentation: jobPosting.Presentation,
-                hiringOrgName: jobPosting.HiringOrgName,
-                workPlaceAddress: jobPosting.WorkPlaceAddress,
-                workPlacePostalCode: jobPosting.WorkPlacePostalCode,
-                workPlaceCity: jobPosting.WorkPlaceCity,
-                postingCreated: jobPosting.PostingCreated,
-                lastDateApplication: jobPosting.LastDateApplication,
-                url: jobPosting.Url,
-                region: jobPosting.Region,
-                municipality: jobPosting.Municipality,
-                country: jobPosting.Country,
-                employmentType: jobPosting.EmploymentType,
-                workHours: jobPosting.WorkHours,
-                occupation: occupationTranslator.Translate(jobPosting.Occupation),
-                workplaceId: jobPosting.WorkplaceId,
-                organisationId: jobPosting.OrganisationId,
-                hiringOrgCVR: jobPosting.HiringOrgCVR,
-                id: jobPosting.Id,
-                workPlaceCityWithoutZone: jobPosting.WorkPlaceCityWithoutZone,
-                jobPostingNumber: jobPosting.JobPostingNumber,
-                jobPostingId: jobPosting.JobPostingId
-            );
-
-        }
-        public static List<JobPosting> TranslateOccupations(List<JobPosting> jobPostings, IOccupationTranslator occupationTranslator)
-        {
-
-            if (jobPostings == null)
-                return jobPostings;
-
-            List<JobPosting> updated = new List<JobPosting>();
-            foreach (JobPosting jobPosting in jobPostings)
-                updated.Add(TranslateOccupation(jobPosting, occupationTranslator));
-
-            return updated;
-
-        }
         public static List<JobPosting> UpdateRunIds(List<JobPosting> jobPostings, string runId)
         {
 
@@ -4701,7 +4656,7 @@ namespace NW.WIDJobs.UnitTests
             return updated;
 
         }
-        public static Exploration UpdateRunId(Exploration exploration, string runId)
+        public static Exploration UpdateRunIds(Exploration exploration, string runId)
         {
 
             return new Exploration(
@@ -4716,6 +4671,103 @@ namespace NW.WIDJobs.UnitTests
                     );
 
         }
+        
+        public static JobPosting TranslateOccupation(JobPosting jobPosting)
+        {
+
+            IOccupationTranslator occupationTranslator = new OccupationTranslator();
+
+            return new JobPosting(
+                runId: jobPosting.RunId,
+                pageNumber: jobPosting.PageNumber,
+                response: jobPosting.Response,
+                title: jobPosting.Title,
+                presentation: jobPosting.Presentation,
+                hiringOrgName: jobPosting.HiringOrgName,
+                workPlaceAddress: jobPosting.WorkPlaceAddress,
+                workPlacePostalCode: jobPosting.WorkPlacePostalCode,
+                workPlaceCity: jobPosting.WorkPlaceCity,
+                postingCreated: jobPosting.PostingCreated,
+                lastDateApplication: jobPosting.LastDateApplication,
+                url: jobPosting.Url,
+                region: jobPosting.Region,
+                municipality: jobPosting.Municipality,
+                country: jobPosting.Country,
+                employmentType: jobPosting.EmploymentType,
+                workHours: jobPosting.WorkHours,
+                occupation: occupationTranslator.Translate(jobPosting.Occupation),
+                workplaceId: jobPosting.WorkplaceId,
+                organisationId: jobPosting.OrganisationId,
+                hiringOrgCVR: jobPosting.HiringOrgCVR,
+                id: jobPosting.Id,
+                workPlaceCityWithoutZone: jobPosting.WorkPlaceCityWithoutZone,
+                jobPostingNumber: jobPosting.JobPostingNumber,
+                jobPostingId: jobPosting.JobPostingId
+            );
+
+        }
+        public static List<JobPosting> TranslateOccupations(List<JobPosting> jobPostings)
+        {
+
+            if (jobPostings == null)
+                return jobPostings;
+
+            List<JobPosting> updated = new List<JobPosting>();
+            foreach (JobPosting jobPosting in jobPostings)
+                updated.Add(TranslateOccupation(jobPosting));
+
+            return updated;
+
+        }
+        public static JobPostingExtended TranslateOccupation(JobPostingExtended jobPostingExtended)
+        {
+
+            return new JobPostingExtended(
+                jobPosting: TranslateOccupation(jobPostingExtended.JobPosting),
+                response: jobPostingExtended.Response,
+                hiringOrgDescription: jobPostingExtended.HiringOrgDescription,
+                publicationStartDate: jobPostingExtended.PublicationStartDate,
+                publicationEndDate: jobPostingExtended.PublicationEndDate,
+                purpose: jobPostingExtended.Purpose,
+                numberToFill: jobPostingExtended.NumberToFill,
+                contactEmail: jobPostingExtended.ContactEmail,
+                contactPersonName: jobPostingExtended.ContactPersonName,
+                employmentDate: jobPostingExtended.EmploymentDate,
+                applicationDeadlineDate: jobPostingExtended.ApplicationDeadlineDate,
+                bulletPoints: jobPostingExtended.BulletPoints,
+                bulletPointScenario: jobPostingExtended.BulletPointScenario
+            );
+
+        }
+        public static List<JobPostingExtended> TranslateOccupations(List<JobPostingExtended> jobPostingsExtended)
+        {
+
+            if (jobPostingsExtended == null)
+                return jobPostingsExtended;
+
+            List<JobPostingExtended> updated = new List<JobPostingExtended>();
+            foreach (JobPostingExtended jobPostingExtended in jobPostingsExtended)
+                updated.Add(TranslateOccupation(jobPostingExtended));
+
+            return updated;
+
+        }
+        public static Exploration TranslateOccupations(Exploration exploration)
+        {
+
+            return new Exploration(
+                        runId: exploration.RunId,
+                        totalResultCount: exploration.TotalResultCount,
+                        totalJobPages: exploration.TotalJobPages,
+                        stage: exploration.Stage,
+                        isCompleted: exploration.IsCompleted,
+                        jobPages: exploration.JobPages,
+                        jobPostings: TranslateOccupations(exploration.JobPostings),
+                        jobPostingsExtended: TranslateOccupations(exploration.JobPostingsExtended)
+                    );
+
+        }
+
         public static Exploration ConvertToDeserializedExploration(Exploration exploration)
         {
 
