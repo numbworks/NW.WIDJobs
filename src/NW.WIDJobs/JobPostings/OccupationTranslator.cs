@@ -51,7 +51,7 @@ namespace NW.WIDJobs.JobPostings
                 { "Programmør og systemudvikler", "Programmer and Systems Developer" },
                 { "Forsker, sundhedsvidenskab", "Researcher, Health Science" },
                 { "Forsker, naturvidenskab og teknik", "Researcher, Science and Technology" },
-                { "Rengøringsassistent, hotel", "Cleaning assistant, Hotel" },
+                { "Rengøringsassistent, hotel", "Cleaning Assistant, Hotel" },
                 { "Tjener", "Serving" },
                 { "Ph.d., samfundsvidenskab", "PhD, Social Sciences" },
                 { "Studentermedhjælp", "Student Assistant" },
