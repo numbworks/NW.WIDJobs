@@ -1,6 +1,5 @@
 ﻿using NUnit.Framework;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using NW.WIDJobs.JobPages;
 using NW.WIDJobs.JobPostings;
@@ -38,13 +37,24 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                     ObjectMother.Shared_JobPage01_Object,
+                    false,
                     ObjectMother.Shared_JobPage01_JobPostings
                 ).SetArgDisplayNames($"{nameof(doTestCases)}_01"),
 
             new TestCaseData(
                     ObjectMother.Shared_JobPage02_Object,
+                    false,
                     ObjectMother.Shared_JobPage02_JobPostings
-                ).SetArgDisplayNames($"{nameof(doTestCases)}_02")
+                ).SetArgDisplayNames($"{nameof(doTestCases)}_02"),
+
+            new TestCaseData(
+                    ObjectMother.Shared_JobPage01_Object,
+                    true,
+                    ObjectMother.TranslateOccupations(
+                        ObjectMother.Shared_JobPage01_JobPostings, 
+                        new OccupationTranslator()
+                    )
+                ).SetArgDisplayNames($"{nameof(doTestCases)}_03")
 
         };
 
@@ -63,12 +73,12 @@ namespace NW.WIDJobs.UnitTests
 
         [TestCaseSource(nameof(doTestCases))]
         public void Do_ShouldReturnAListofJobPostingObjects_WhenProperArguments
-            (JobPage jobPage, List<JobPosting> expected)
+            (JobPage jobPage, bool translateOccupation, List<JobPosting> expected)
         {
 
             // Arrange
             // Act
-            List<JobPosting> actual = new JobPostingDeserializer().Do(jobPage);
+            List<JobPosting> actual = new JobPostingDeserializer().Do(jobPage, translateOccupation);
 
             // Assert
             Assert.IsTrue(
@@ -88,5 +98,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 04.08.2021
+    Last Update: 09.09.2021
 */
