@@ -200,7 +200,11 @@ namespace NW.WIDJobs.JobPostings
                 { "Pizzabager", "Pizza Baker" },
                 { "Av tekniker", "AV Technician" },
                 { "Automationsingeniør", "Automation Engineer" },
-                { "Ph.d., professionshøjskole og erhvervsakademi", "PhD, Vocational College and Business Academy " }
+                { "Ph.d., professionshøjskole og erhvervsakademi", "PhD, Vocational College and Business Academy " },
+
+                // Below the ones missing from in the GetJobPage() response
+                { "Laboratorietekniker", "Laboratory Technician" },
+                { "Miljøingeniør", "Enviromental Engineer" }                
 
             };
 
@@ -232,5 +236,5 @@ namespace NW.WIDJobs.JobPostings
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 08.09.2021
+    Last Update: 09.09.2021
 */
