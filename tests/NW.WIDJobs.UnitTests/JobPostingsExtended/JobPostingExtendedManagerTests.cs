@@ -59,7 +59,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new JobPostingExtendedManager().SendGetRequest(null)
+                    () => new JobPostingExtendedManager().SendGetRequest((JobPosting)null)
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("jobPosting").Message
@@ -72,7 +72,8 @@ namespace NW.WIDJobs.UnitTests
             new TestCaseData(
                     new Dictionary<string, string>() 
                     { 
-                        { ObjectMother.Shared_JobPage01_JobPostingExtended01.JobPosting.Url, ObjectMother.Shared_JobPage01_JobPostingExtended01_Content} 
+                        { ObjectMother.Shared_JobPage01_JobPostingExtended01.JobPosting.Url, ObjectMother.Shared_JobPage01_JobPostingExtended01_Content },
+                        { new JobPostingExtendedManager().CreateRequesttUrl(ObjectMother.Shared_JobPage01_JobPostingExtended01.JobPosting.Id), ObjectMother.Shared_JobPage01_JobPostingExtended01_Content }
                     
                     }, 
                     ObjectMother.Shared_JobPage01_JobPosting01,
@@ -135,5 +136,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 02.09.2021
+    Last Update: 10.09.2021
 */

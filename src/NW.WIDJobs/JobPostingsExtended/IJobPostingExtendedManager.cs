@@ -14,15 +14,21 @@ namespace NW.WIDJobs.JobPostingsExtended
         JobPostingExtended GetJobPostingExtended(JobPosting jobPosting);
 
         /// <summary>
-        /// Sends a HTTP GET Request for <see cref="JobPosting.Url"/> and returns a JSON string.
+        /// Sends a HTTP GET Request for <see cref="JobPosting.Url"/> using custom parameters and returns the response as string.
         /// </summary>
         /// <exception cref="ArgumentNullException"/>        
         string SendGetRequest(JobPosting jobPosting);
-    
+
+        /// <summary>
+        /// Sends a HTTP GET Request for <paramref name="url"/> using custom parameters and returns the response as string.
+        /// </summary>
+        /// <exception cref="ArgumentNullException"/>        
+        string SendGetRequest(string url);
+
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 01.07.2021
+    Last Update: 10.09.2021
 */

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net;
+using System.Text.RegularExpressions;
 using NW.WIDJobs.Headers;
 using NW.WIDJobs.HttpRequests;
 using NW.WIDJobs.JobPostings;
@@ -20,6 +21,10 @@ namespace NW.WIDJobs.JobPostingsExtended
         #endregion
 
         #region Properties
+
+        public static string JobnetWebpageUrlPattern { get; } = "(https://job.jobnet.dk/CV/FindWork/Details/)[0-9]{7,}";
+        public static string JobnetRequestUrlTemplate { get; } = "https://job.jobnet.dk/CV/FindWork/JobDetailJsonWIDK?id={0}";
+
         #endregion
 
         #region Constructors
@@ -53,7 +58,22 @@ namespace NW.WIDJobs.JobPostingsExtended
 
             Validator.ValidateObject(jobPosting, nameof(jobPosting));
 
-            string response = SendGetRequest(jobPosting);
+            string response = string.Empty;
+            if (HasWebpageUrl(jobPosting))
+            {
+
+                // We use the Request Url instead of the Webpage Url to fetch the response. 
+                string requestUrl = CreateRequesttUrl(jobPosting.Id);
+                response = SendGetRequest(requestUrl);
+
+            }
+            else
+            {
+
+                response = SendGetRequest(jobPosting);
+
+            }
+
             JobPostingExtended jobPostingExtended = _jobPostingExtendedDeserializer.Do(jobPosting, response);
 
             return jobPostingExtended;
@@ -64,13 +84,52 @@ namespace NW.WIDJobs.JobPostingsExtended
 
             Validator.ValidateObject(jobPosting, nameof(jobPosting));
 
-            WebHeaderCollection headers = _headerFactory.Create();
-            IGetRequestManager getRequestManager
-                = _getRequestManagerFactory.Create(headers, null, null, null);
-
-            return getRequestManager.Send(jobPosting.Url);
+            return SendGetRequest(jobPosting.Url);
 
         }
+        public string SendGetRequest(string url)
+        {
+
+            Validator.ValidateStringNullOrEmpty(url, nameof(url));
+
+            WebHeaderCollection headers = _headerFactory.Create();
+            IGetRequestManager getRequestManager = _getRequestManagerFactory.Create(headers, null, null, null);
+
+            return getRequestManager.Send(url);
+
+        }
+        public string CreateRequesttUrl(ulong id)
+        {
+
+            /*	
+                Webpage Url: https://job.jobnet.dk/CV/FindWork/Details/5424719
+                Request Url: https://job.jobnet.dk/CV/FindWork/JobDetailJsonWIDK?id=5424719
+
+                The Request Url is always easier to parse, because it returns a Json.		
+            */
+
+            string requestUrl = string.Format(JobnetRequestUrlTemplate, id);
+
+            return requestUrl;
+
+        }
+
+        #endregion
+
+        #region Methods_private
+
+        private bool IsWebpageUrl(string webpageUrl)
+            => Regex.IsMatch(webpageUrl, JobnetWebpageUrlPattern);
+        private bool HasWebpageUrl(JobPosting jobPosting)
+        {
+
+            if (jobPosting == null)
+                return false;
+
+            return IsWebpageUrl(jobPosting.Url);
+
+        }
+
 
         #endregion
 
@@ -79,5 +138,5 @@ namespace NW.WIDJobs.JobPostingsExtended
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 02.09.2021
+    Last Update: 10.09.2021
 */

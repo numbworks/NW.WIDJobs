@@ -4100,7 +4100,49 @@ namespace NW.WIDJobs.UnitTests
                     {Shared_JobPage02_JobPostingExtended17.JobPosting.Url, Shared_JobPage02_JobPostingExtended17_Content},
                     {Shared_JobPage02_JobPostingExtended18.JobPosting.Url, Shared_JobPage02_JobPostingExtended18_Content},
                     {Shared_JobPage02_JobPostingExtended19.JobPosting.Url, Shared_JobPage02_JobPostingExtended19_Content},
-                    {Shared_JobPage02_JobPostingExtended20.JobPosting.Url, Shared_JobPage02_JobPostingExtended20_Content}
+                    {Shared_JobPage02_JobPostingExtended20.JobPosting.Url, Shared_JobPage02_JobPostingExtended20_Content},
+
+                    {new JobPostingExtendedManager().CreateRequesttUrl(Shared_JobPage01_JobPostingExtended01.JobPosting.Id), Shared_JobPage01_JobPostingExtended01_Content},
+                    {new JobPostingExtendedManager().CreateRequesttUrl(Shared_JobPage01_JobPostingExtended02.JobPosting.Id), Shared_JobPage01_JobPostingExtended02_Content},
+                    {new JobPostingExtendedManager().CreateRequesttUrl(Shared_JobPage01_JobPostingExtended03.JobPosting.Id), Shared_JobPage01_JobPostingExtended03_Content},
+                    {new JobPostingExtendedManager().CreateRequesttUrl(Shared_JobPage01_JobPostingExtended04.JobPosting.Id), Shared_JobPage01_JobPostingExtended04_Content},
+                    {new JobPostingExtendedManager().CreateRequesttUrl(Shared_JobPage01_JobPostingExtended05.JobPosting.Id), Shared_JobPage01_JobPostingExtended05_Content},
+                    {new JobPostingExtendedManager().CreateRequesttUrl(Shared_JobPage01_JobPostingExtended06.JobPosting.Id), Shared_JobPage01_JobPostingExtended06_Content},
+                    {new JobPostingExtendedManager().CreateRequesttUrl(Shared_JobPage01_JobPostingExtended07.JobPosting.Id), Shared_JobPage01_JobPostingExtended07_Content},
+                    {new JobPostingExtendedManager().CreateRequesttUrl(Shared_JobPage01_JobPostingExtended08.JobPosting.Id), Shared_JobPage01_JobPostingExtended08_Content},
+                    {new JobPostingExtendedManager().CreateRequesttUrl(Shared_JobPage01_JobPostingExtended09.JobPosting.Id), Shared_JobPage01_JobPostingExtended09_Content},
+                    {new JobPostingExtendedManager().CreateRequesttUrl(Shared_JobPage01_JobPostingExtended10.JobPosting.Id), Shared_JobPage01_JobPostingExtended10_Content},
+                    {new JobPostingExtendedManager().CreateRequesttUrl(Shared_JobPage01_JobPostingExtended11.JobPosting.Id), Shared_JobPage01_JobPostingExtended11_Content},
+                    {new JobPostingExtendedManager().CreateRequesttUrl(Shared_JobPage01_JobPostingExtended12.JobPosting.Id), Shared_JobPage01_JobPostingExtended12_Content},
+                    {new JobPostingExtendedManager().CreateRequesttUrl(Shared_JobPage01_JobPostingExtended13.JobPosting.Id), Shared_JobPage01_JobPostingExtended13_Content},
+                    {new JobPostingExtendedManager().CreateRequesttUrl(Shared_JobPage01_JobPostingExtended14.JobPosting.Id), Shared_JobPage01_JobPostingExtended14_Content},
+                    {new JobPostingExtendedManager().CreateRequesttUrl(Shared_JobPage01_JobPostingExtended15.JobPosting.Id), Shared_JobPage01_JobPostingExtended15_Content},
+                    {new JobPostingExtendedManager().CreateRequesttUrl(Shared_JobPage01_JobPostingExtended16.JobPosting.Id), Shared_JobPage01_JobPostingExtended16_Content},
+                    {new JobPostingExtendedManager().CreateRequesttUrl(Shared_JobPage01_JobPostingExtended17.JobPosting.Id), Shared_JobPage01_JobPostingExtended17_Content},
+                    {new JobPostingExtendedManager().CreateRequesttUrl(Shared_JobPage01_JobPostingExtended18.JobPosting.Id), Shared_JobPage01_JobPostingExtended18_Content},
+                    {new JobPostingExtendedManager().CreateRequesttUrl(Shared_JobPage01_JobPostingExtended19.JobPosting.Id), Shared_JobPage01_JobPostingExtended19_Content},
+                    {new JobPostingExtendedManager().CreateRequesttUrl(Shared_JobPage01_JobPostingExtended20.JobPosting.Id), Shared_JobPage01_JobPostingExtended20_Content},
+
+                    {new JobPostingExtendedManager().CreateRequesttUrl(Shared_JobPage02_JobPostingExtended01.JobPosting.Id), Shared_JobPage02_JobPostingExtended01_Content},
+                    {new JobPostingExtendedManager().CreateRequesttUrl(Shared_JobPage02_JobPostingExtended02.JobPosting.Id), Shared_JobPage02_JobPostingExtended02_Content},
+                    {new JobPostingExtendedManager().CreateRequesttUrl(Shared_JobPage02_JobPostingExtended03.JobPosting.Id), Shared_JobPage02_JobPostingExtended03_Content},
+                    {new JobPostingExtendedManager().CreateRequesttUrl(Shared_JobPage02_JobPostingExtended04.JobPosting.Id), Shared_JobPage02_JobPostingExtended04_Content},
+                    {new JobPostingExtendedManager().CreateRequesttUrl(Shared_JobPage02_JobPostingExtended05.JobPosting.Id), Shared_JobPage02_JobPostingExtended05_Content},
+                    {new JobPostingExtendedManager().CreateRequesttUrl(Shared_JobPage02_JobPostingExtended06.JobPosting.Id), Shared_JobPage02_JobPostingExtended06_Content},
+                    {new JobPostingExtendedManager().CreateRequesttUrl(Shared_JobPage02_JobPostingExtended07.JobPosting.Id), Shared_JobPage02_JobPostingExtended07_Content},
+                    {new JobPostingExtendedManager().CreateRequesttUrl(Shared_JobPage02_JobPostingExtended08.JobPosting.Id), Shared_JobPage02_JobPostingExtended08_Content},
+                    {new JobPostingExtendedManager().CreateRequesttUrl(Shared_JobPage02_JobPostingExtended09.JobPosting.Id), Shared_JobPage02_JobPostingExtended09_Content},
+                    {new JobPostingExtendedManager().CreateRequesttUrl(Shared_JobPage02_JobPostingExtended10.JobPosting.Id), Shared_JobPage02_JobPostingExtended10_Content},
+                    {new JobPostingExtendedManager().CreateRequesttUrl(Shared_JobPage02_JobPostingExtended11.JobPosting.Id), Shared_JobPage02_JobPostingExtended11_Content},
+                    {new JobPostingExtendedManager().CreateRequesttUrl(Shared_JobPage02_JobPostingExtended12.JobPosting.Id), Shared_JobPage02_JobPostingExtended12_Content},
+                    {new JobPostingExtendedManager().CreateRequesttUrl(Shared_JobPage02_JobPostingExtended13.JobPosting.Id), Shared_JobPage02_JobPostingExtended13_Content},
+                    {new JobPostingExtendedManager().CreateRequesttUrl(Shared_JobPage02_JobPostingExtended14.JobPosting.Id), Shared_JobPage02_JobPostingExtended14_Content},
+                    {new JobPostingExtendedManager().CreateRequesttUrl(Shared_JobPage02_JobPostingExtended15.JobPosting.Id), Shared_JobPage02_JobPostingExtended15_Content},
+                    {new JobPostingExtendedManager().CreateRequesttUrl(Shared_JobPage02_JobPostingExtended16.JobPosting.Id), Shared_JobPage02_JobPostingExtended16_Content},
+                    {new JobPostingExtendedManager().CreateRequesttUrl(Shared_JobPage02_JobPostingExtended17.JobPosting.Id), Shared_JobPage02_JobPostingExtended17_Content},
+                    {new JobPostingExtendedManager().CreateRequesttUrl(Shared_JobPage02_JobPostingExtended18.JobPosting.Id), Shared_JobPage02_JobPostingExtended18_Content},
+                    {new JobPostingExtendedManager().CreateRequesttUrl(Shared_JobPage02_JobPostingExtended19.JobPosting.Id), Shared_JobPage02_JobPostingExtended19_Content},
+                    {new JobPostingExtendedManager().CreateRequesttUrl(Shared_JobPage02_JobPostingExtended20.JobPosting.Id), Shared_JobPage02_JobPostingExtended20_Content}
 
             };
         public static IGetRequestManager WIDExplorer_JobPage0102_FakeGetRequestManager
@@ -4806,5 +4848,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 09.09.2021
+    Last Update: 10.09.2021
 */
