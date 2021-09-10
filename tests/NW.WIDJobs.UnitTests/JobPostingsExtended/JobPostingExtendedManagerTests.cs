@@ -109,7 +109,7 @@ namespace NW.WIDJobs.UnitTests
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
         [TestCaseSource(nameof(sendGetRequestExceptionTestCases))]
-        public void SendPostRequest_ShouldThrowACertainException_WhenUnproperArguments
+        public void SendGetRequest_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
@@ -130,6 +130,22 @@ namespace NW.WIDJobs.UnitTests
             Assert.IsTrue(
                 ObjectMother.AreEqual(expected, actual)
                 );
+
+        }
+
+        [Test]
+        public void CreateRequestUrl_ShouldReturnExpectedRequestUrl_WhenInvoked()
+        {
+
+            // Arrange
+            ulong id = 1234567;
+            string expected = string.Format(JobPostingExtendedManager.JobnetRequestUrlTemplate, id);
+
+            // Act
+            string actual = new JobPostingExtendedManager().CreateRequesttUrl(id);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
 
         }
 
