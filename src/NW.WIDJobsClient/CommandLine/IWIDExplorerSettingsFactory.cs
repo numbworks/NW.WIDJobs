@@ -7,13 +7,18 @@ namespace NW.WIDJobsClient.CommandLine
     {
 
         /// <summary>Creates a <see cref="WIDExplorerSettings"/> instance with provided parameters or default parameters when null.</summary>
-        WIDExplorerSettings Create
-            (string parallelRequests = null, string pauseBetweenRequestsMs = null, string folderPath = null, bool? deleteAndRecreateDatabase = null);
+        WIDExplorerSettings Create(
+            string parallelRequests = null, 
+            string pauseBetweenRequestsMs = null, 
+            string folderPath = null, 
+            bool? deleteAndRecreateDatabase = null,
+            bool? translateOccupation = null
+            );
     
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 28.08.2021
+    Last Update: 10.09.2021
 */

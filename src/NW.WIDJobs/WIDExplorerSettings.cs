@@ -17,11 +17,13 @@ namespace NW.WIDJobs
         public static uint DefaultPauseBetweenRequestsMs { get; } = 25000; // 25 seconds
         public static string DefaultFolderPath { get; } = Directory.GetCurrentDirectory();
         public static bool DefaultDeleteAndRecreateDatabase { get; } = true;
+        public static bool DefaultTranslateOccupation { get; } = true;
 
         public ushort ParallelRequests { get; }
         public uint PauseBetweenRequestsMs { get; }
         public string FolderPath { get; }
         public bool DeleteAndRecreateDatabase { get; }
+        public bool TranslateOccupation { get; }
 
         #endregion
 
@@ -33,7 +35,8 @@ namespace NW.WIDJobs
             ushort parallelRequests,
             uint pauseBetweenRequestsMs,
             string folderPath,
-            bool deleteAndRecreateDatabase
+            bool deleteAndRecreateDatabase,
+            bool translateOccupation
             )
         {
 
@@ -44,6 +47,7 @@ namespace NW.WIDJobs
             PauseBetweenRequestsMs = pauseBetweenRequestsMs;
             FolderPath = folderPath;
             DeleteAndRecreateDatabase = deleteAndRecreateDatabase;
+            TranslateOccupation = translateOccupation;
 
         }
 
@@ -53,7 +57,8 @@ namespace NW.WIDJobs
                   DefaultParallelRequests,
                   DefaultPauseBetweenRequestsMs,
                   DefaultFolderPath,
-                  DefaultDeleteAndRecreateDatabase
+                  DefaultDeleteAndRecreateDatabase,
+                  DefaultTranslateOccupation
                   ) { }
 
         #endregion
@@ -66,5 +71,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 12.06.2021
+    Last Update: 10.09.2021
 */

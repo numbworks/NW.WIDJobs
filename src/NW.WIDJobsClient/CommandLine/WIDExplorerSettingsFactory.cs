@@ -24,15 +24,21 @@ namespace NW.WIDJobsClient.CommandLine
 
         #region Methods_public
 
-        public WIDExplorerSettings Create
-            (string parallelRequests = null, string pauseBetweenRequestsMs = null, string folderPath = null, bool? deleteAndRecreateDatabase = null)
+        public WIDExplorerSettings Create(
+            string parallelRequests = null, 
+            string pauseBetweenRequestsMs = null, 
+            string folderPath = null, 
+            bool? deleteAndRecreateDatabase = null,
+            bool? translateOccupation = null
+            )
         {
 
             return new WIDExplorerSettings(
                             parallelRequests: TryParseParallelRequests(parallelRequests) ?? WIDExplorerSettings.DefaultParallelRequests,
                             pauseBetweenRequestsMs: TryParsePauseBetweenRequestsMs(pauseBetweenRequestsMs) ?? WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
                             folderPath: folderPath ?? WIDExplorerSettings.DefaultFolderPath,
-                            deleteAndRecreateDatabase: deleteAndRecreateDatabase ?? WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
+                            deleteAndRecreateDatabase: deleteAndRecreateDatabase ?? WIDExplorerSettings.DefaultDeleteAndRecreateDatabase,
+                            translateOccupation: translateOccupation ?? WIDExplorerSettings.DefaultTranslateOccupation
                         );
 
         }
@@ -67,5 +73,5 @@ namespace NW.WIDJobsClient.CommandLine
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 28.08.2021
+    Last Update: 10.09.2021
 */

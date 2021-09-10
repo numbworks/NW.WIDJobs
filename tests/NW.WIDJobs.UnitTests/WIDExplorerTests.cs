@@ -1395,7 +1395,8 @@ namespace NW.WIDJobs.UnitTests
                     parallelRequests: WIDExplorerSettings.DefaultParallelRequests,
                     pauseBetweenRequestsMs: WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
                     folderPath: ObjectMother.WIDExplorer_FakeFolderPath,
-                    deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
+                    deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase,
+                    translateOccupation: WIDExplorerSettings.DefaultTranslateOccupation
                 );
             WIDExplorerComponents components = new WIDExplorerComponents(
                     loggingAction: fakeLoggingAction,
@@ -1531,7 +1532,8 @@ namespace NW.WIDJobs.UnitTests
                     parallelRequests: WIDExplorerSettings.DefaultParallelRequests,
                     pauseBetweenRequestsMs: WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
                     folderPath: ObjectMother.WIDExplorer_FakeFolderPath,
-                    deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
+                    deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase,
+                    translateOccupation: WIDExplorerSettings.DefaultTranslateOccupation
                 );
             WIDExplorerComponents components = new WIDExplorerComponents(
                     loggingAction: fakeLoggingAction,
@@ -1604,7 +1606,8 @@ namespace NW.WIDJobs.UnitTests
                     parallelRequests: WIDExplorerSettings.DefaultParallelRequests,
                     pauseBetweenRequestsMs: WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
                     folderPath: ObjectMother.WIDExplorer_FakeFolderPath,
-                    deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
+                    deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase,
+                    translateOccupation: WIDExplorerSettings.DefaultTranslateOccupation
                 );
             WIDExplorerComponents components = new WIDExplorerComponents(
                     loggingAction: fakeLoggingAction,
@@ -1732,7 +1735,8 @@ namespace NW.WIDJobs.UnitTests
                     parallelRequests: WIDExplorerSettings.DefaultParallelRequests,
                     pauseBetweenRequestsMs: WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
                     folderPath: ObjectMother.WIDExplorer_FakeFolderPath,
-                    deleteAndRecreateDatabase: deleteAndRecreateDatabase
+                    deleteAndRecreateDatabase: deleteAndRecreateDatabase,
+                    translateOccupation: WIDExplorerSettings.DefaultTranslateOccupation
                 );
             WIDExplorerComponents components = new WIDExplorerComponents(
                     loggingAction: fakeLoggingAction,
@@ -1806,7 +1810,8 @@ namespace NW.WIDJobs.UnitTests
                     parallelRequests: parallelRequests,
                     pauseBetweenRequestsMs: pauseBetweenRequestsMs,
                     folderPath: WIDExplorerSettings.DefaultFolderPath,
-                    deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
+                    deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase,
+                    translateOccupation: WIDExplorerSettings.DefaultTranslateOccupation
                 );
             WIDExplorerComponents components = new WIDExplorerComponents(
                     loggingAction: fakeLoggingAction,
@@ -1937,7 +1942,8 @@ namespace NW.WIDJobs.UnitTests
                     parallelRequests: parallelRequests,
                     pauseBetweenRequestsMs: pauseBetweenRequestsMs,
                     folderPath: WIDExplorerSettings.DefaultFolderPath,
-                    deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
+                    deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase,
+                    translateOccupation: WIDExplorerSettings.DefaultTranslateOccupation
                 );
             WIDExplorerComponents components = new WIDExplorerComponents(
                     loggingAction: fakeLoggingAction,
@@ -2152,7 +2158,8 @@ namespace NW.WIDJobs.UnitTests
                     parallelRequests: parallelRequests,
                     pauseBetweenRequestsMs: pauseBetweenRequestsMs,
                     folderPath: WIDExplorerSettings.DefaultFolderPath,
-                    deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
+                    deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase,
+                    translateOccupation: WIDExplorerSettings.DefaultTranslateOccupation
                 );
             WIDExplorerComponents components = new WIDExplorerComponents(
                     loggingAction: fakeLoggingAction,
@@ -2287,7 +2294,8 @@ namespace NW.WIDJobs.UnitTests
                     parallelRequests: parallelRequests,
                     pauseBetweenRequestsMs: pauseBetweenRequestsMs,
                     folderPath: WIDExplorerSettings.DefaultFolderPath,
-                    deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
+                    deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase,
+                    translateOccupation: WIDExplorerSettings.DefaultTranslateOccupation
                 );
             WIDExplorerComponents components = new WIDExplorerComponents(
                     loggingAction: fakeLoggingAction,
@@ -2420,7 +2428,8 @@ namespace NW.WIDJobs.UnitTests
                     parallelRequests: parallelRequests,
                     pauseBetweenRequestsMs: pauseBetweenRequestsMs,
                     folderPath: WIDExplorerSettings.DefaultFolderPath,
-                    deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
+                    deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase,
+                    translateOccupation: WIDExplorerSettings.DefaultTranslateOccupation
                 );
             WIDExplorerComponents components = new WIDExplorerComponents(
                     loggingAction: fakeLoggingAction,
@@ -2461,5 +2470,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 06.09.2021
+    Last Update: 10.09.2021
 */

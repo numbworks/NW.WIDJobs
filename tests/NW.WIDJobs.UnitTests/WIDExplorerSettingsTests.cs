@@ -15,10 +15,11 @@ namespace NW.WIDJobs.UnitTests
             new TestCaseData(
                 new TestDelegate(
                         () => new WIDExplorerSettings(
-                                        0, 
-                                        WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
-                                        WIDExplorerSettings.DefaultFolderPath,
-                                        WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
+                                        parallelRequests: 0,
+                                        pauseBetweenRequestsMs: WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
+                                        folderPath: WIDExplorerSettings.DefaultFolderPath,
+                                        deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase,
+                                        translateOccupation: WIDExplorerSettings.DefaultTranslateOccupation
                                         )
                 ),
                 typeof(ArgumentException),
@@ -28,10 +29,11 @@ namespace NW.WIDJobs.UnitTests
             new TestCaseData(
                 new TestDelegate(
                         () => new WIDExplorerSettings(
-                                        1,
-                                        WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
-                                        null,
-                                        WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
+                                        parallelRequests: 1,
+                                        pauseBetweenRequestsMs: WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
+                                        folderPath: null,
+                                        deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase,
+                                        translateOccupation: WIDExplorerSettings.DefaultTranslateOccupation
                                         )
                 ),
                 typeof(ArgumentNullException),
@@ -53,10 +55,11 @@ namespace NW.WIDJobs.UnitTests
             // Act
             WIDExplorerSettings actual 
                 = new WIDExplorerSettings(
-                            parallelRequests, 
-                            pauseBetweenRequestsMs,
-                            WIDExplorerSettings.DefaultFolderPath,
-                            WIDExplorerSettings.DefaultDeleteAndRecreateDatabase
+                            parallelRequests: parallelRequests,
+                            pauseBetweenRequestsMs: pauseBetweenRequestsMs,
+                            folderPath: WIDExplorerSettings.DefaultFolderPath,
+                            deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase,
+                            translateOccupation: WIDExplorerSettings.DefaultTranslateOccupation
                         );
 
             // Assert
@@ -93,5 +96,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 12.06.2021
+    Last Update: 10.09.2021
 */
