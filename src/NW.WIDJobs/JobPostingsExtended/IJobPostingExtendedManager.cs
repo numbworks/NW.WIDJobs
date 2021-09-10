@@ -25,6 +25,11 @@ namespace NW.WIDJobs.JobPostingsExtended
         /// <exception cref="ArgumentNullException"/>        
         string SendGetRequest(string url);
 
+        /// <summary>
+        /// Creates a Jobnet's Request Url our of the provided <see cref="JobPosting.Id"/> and <see cref="JobPostingExtendedManager.JobnetRequestUrlTemplate"/>.
+        /// </summary>
+        string CreateRequesttUrl(ulong id);
+
     }
 }
 
