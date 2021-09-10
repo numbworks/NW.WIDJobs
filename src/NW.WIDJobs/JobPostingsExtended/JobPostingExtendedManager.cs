@@ -59,7 +59,7 @@ namespace NW.WIDJobs.JobPostingsExtended
             Validator.ValidateObject(jobPosting, nameof(jobPosting));
 
             string response = string.Empty;
-            if (HasWebpageUrl(jobPosting))
+            if (IsWebpageUrl(jobPosting.Url))
             {
 
                 // We use the Request Url instead of the Webpage Url to fetch the response. 
@@ -120,16 +120,6 @@ namespace NW.WIDJobs.JobPostingsExtended
 
         private bool IsWebpageUrl(string webpageUrl)
             => Regex.IsMatch(webpageUrl, JobnetWebpageUrlPattern);
-        private bool HasWebpageUrl(JobPosting jobPosting)
-        {
-
-            if (jobPosting == null)
-                return false;
-
-            return IsWebpageUrl(jobPosting.Url);
-
-        }
-
 
         #endregion
 
