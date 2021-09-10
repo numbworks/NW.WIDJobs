@@ -63,7 +63,15 @@ namespace NW.WIDJobs.UnitTests
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("jobPosting").Message
-            ).SetArgDisplayNames($"{nameof(sendGetRequestExceptionTestCases)}_01")
+            ).SetArgDisplayNames($"{nameof(sendGetRequestExceptionTestCases)}_01"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new JobPostingExtendedManager().SendGetRequest((string)null)
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("url").Message
+            ).SetArgDisplayNames($"{nameof(sendGetRequestExceptionTestCases)}_02")
 
         };
         private static TestCaseData[] getJobPostingExtendedTestCases =
