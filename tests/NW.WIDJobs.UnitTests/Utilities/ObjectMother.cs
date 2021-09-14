@@ -4439,6 +4439,7 @@ namespace NW.WIDJobs.UnitTests
                         && string.Equals(jobPosting.WorkPlaceCityWithoutZone, jobPostingEntity.WorkPlaceCityWithoutZone, StringComparison.InvariantCulture)
                         && (jobPosting.WorkplaceId == jobPostingEntity.WorkplaceId)
                         && (jobPosting.WorkPlacePostalCode == jobPostingEntity.WorkPlacePostalCode)
+                        && (jobPosting.Language == jobPostingEntity.Language)
                         && (jobPostingEntity.RowId == default(uint))
                         && (jobPostingEntity.RowCreatedOn == default(DateTime))
                         && (jobPostingEntity.RowModifiedOn == default(DateTime));

@@ -126,6 +126,10 @@ namespace NW.WIDJobs.Database
         [DataType("varchar(250)")]
         public string JobPostingId { get; }
 
+        [MaxLength(10)]
+        [DataType("varchar(10)")]
+        public string Language { get; }
+
         [Required]
         [DataType("datetime")]
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
@@ -175,6 +179,7 @@ namespace NW.WIDJobs.Database
             WorkPlaceCityWithoutZone = jobPosting.WorkPlaceCityWithoutZone;
             JobPostingNumber = jobPosting.JobPostingNumber;
             JobPostingId = jobPosting.JobPostingId;
+            Language = jobPosting.Language;
 
         }
 
@@ -193,5 +198,5 @@ namespace NW.WIDJobs.Database
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 25.08.2021
+    Last Update: 14.09.2021
 */

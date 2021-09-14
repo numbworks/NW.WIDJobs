@@ -196,6 +196,10 @@ namespace NW.WIDJobs.Database
                 .Property(entity => entity.JobPostingId)
                 .HasColumnType("varchar(250)")
                 .IsRequired(true);
+            modelBuilder.Entity<JobPostingEntity>()
+                .Property(entity => entity.Language)
+                .HasColumnType("varchar(10)")
+                .IsRequired(false);
 
             modelBuilder.Entity<JobPostingEntity>()
                 .Property(entity => entity.RowCreatedOn)
@@ -321,5 +325,5 @@ namespace NW.WIDJobs.Database
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 25.08.2021
+    Last Update: 14.09.2021
 */
