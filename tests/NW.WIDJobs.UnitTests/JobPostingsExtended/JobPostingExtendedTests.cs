@@ -77,6 +77,8 @@ namespace NW.WIDJobs.UnitTests
         {
 
             // Arrange
+            bool compareLanguage = true;
+
             // Act
             JobPostingExtended actual 
                 = new JobPostingExtended(
@@ -97,7 +99,7 @@ namespace NW.WIDJobs.UnitTests
 
             // Assert
             Assert.IsTrue(
-                    ObjectMother.AreEqual(ObjectMother.Shared_JobPage01_JobPostingExtended01, actual)
+                    ObjectMother.AreEqual(ObjectMother.Shared_JobPage01_JobPostingExtended01, actual, compareLanguage)
                 );
 
         }

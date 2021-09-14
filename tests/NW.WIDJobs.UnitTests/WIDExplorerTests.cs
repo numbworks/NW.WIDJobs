@@ -1085,13 +1085,14 @@ namespace NW.WIDJobs.UnitTests
                     formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
+            bool compareLanguage = true;
 
             // Act
             List<JobPosting> actual = widExplorer.LoadJobPostingsFromJsonFile(fakeFileInfoAdapter);
 
             // Assert
             Assert.IsTrue(
-                ObjectMother.AreEqual(expected, actual)
+                ObjectMother.AreEqual(expected, actual, compareLanguage)
                 );
             Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
 
@@ -1170,13 +1171,14 @@ namespace NW.WIDJobs.UnitTests
                     formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
+            bool compareLanguage = true;
 
             // Act
             List<JobPosting> actual = widExplorer.LoadJobPostingsFromJsonFile(ObjectMother.WIDExplorer_JobPage01_FakeFilePath);
 
             // Assert
             Assert.IsTrue(
-                ObjectMother.AreEqual(expected, actual)
+                ObjectMother.AreEqual(expected, actual, compareLanguage)
                 );
             Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
 
@@ -1223,13 +1225,14 @@ namespace NW.WIDJobs.UnitTests
                     formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
+            bool compareLanguage = true;
 
             // Act
             Exploration actual = widExplorer.LoadExplorationFromJsonFile(fakeFileInfoAdapter);
 
             // Assert
             Assert.IsTrue(
-                ObjectMother.AreEqual(expected, actual)
+                ObjectMother.AreEqual(expected, actual, compareLanguage)
                 );
             Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
 
@@ -1276,13 +1279,14 @@ namespace NW.WIDJobs.UnitTests
                     formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
+            bool compareLanguage = true;
 
             // Act
             Exploration actual = widExplorer.LoadExplorationFromJsonFile(ObjectMother.WIDExplorer_FakeJsonFilePath);
 
             // Assert
             Assert.IsTrue(
-                ObjectMother.AreEqual(expected, actual)
+                ObjectMother.AreEqual(expected, actual, compareLanguage)
                 );
             Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
 
@@ -1835,13 +1839,14 @@ namespace NW.WIDJobs.UnitTests
                     formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
+            bool compareLanguage = true;
 
             // Act
             Exploration actual = widExplorer.Explore(finalPageNumber, stage);
 
             // Assert
             Assert.IsTrue(
-                ObjectMother.AreEqual(expected, actual)
+                ObjectMother.AreEqual(expected, actual, compareLanguage)
                 );
             Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
 
@@ -1967,13 +1972,14 @@ namespace NW.WIDJobs.UnitTests
                     formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
+            bool compareLanguage = true;
 
             // Act
             Exploration actual = widExplorer.Explore(finalPageNumber, stage);
 
             // Assert
             Assert.IsTrue(
-                ObjectMother.AreEqual(expected, actual)
+                ObjectMother.AreEqual(expected, actual, compareLanguage)
                 );
             Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
 
@@ -2183,13 +2189,14 @@ namespace NW.WIDJobs.UnitTests
                     formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
+            bool compareLanguage = true;
 
             // Act
             Exploration actual = widExplorer.Explore(finalPageNumber, stage);
 
             // Assert
             Assert.IsTrue(
-                ObjectMother.AreEqual(expected, actual)
+                ObjectMother.AreEqual(expected, actual, compareLanguage)
                 );
             Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
 
@@ -2319,13 +2326,14 @@ namespace NW.WIDJobs.UnitTests
                     formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
+            bool compareLanguage = true;
 
             // Act
             Exploration actual = widExplorer.Explore(thresholdDate, stage);
 
             // Assert
             Assert.IsTrue(
-                ObjectMother.AreEqual(expected, actual)
+                ObjectMother.AreEqual(expected, actual, compareLanguage)
                 );
             Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
 
@@ -2453,13 +2461,14 @@ namespace NW.WIDJobs.UnitTests
                     formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
+            bool compareLanguage = true;
 
             // Act
             Exploration actual = widExplorer.Explore(jobPostingId, stage);
 
             // Assert
             Assert.IsTrue(
-                ObjectMother.AreEqual(expected, actual)
+                ObjectMother.AreEqual(expected, actual, compareLanguage)
                 );
             Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
 
@@ -2470,5 +2479,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 10.09.2021
+    Last Update: 14.09.2021
 */

@@ -309,12 +309,14 @@ namespace NW.WIDJobs.UnitTests
         {
 
             // Arrange
+            bool compareLanguage = true;
+
             // Act
             JobPostingExtended actual = new JobPostingExtendedDeserializer().Do(jobPosting, response);
 
             // Assert
             Assert.IsTrue(
-                    ObjectMother.AreEqual(expected, actual)
+                    ObjectMother.AreEqual(expected, actual, compareLanguage)
                 );
 
         }

@@ -48,12 +48,12 @@ namespace NW.WIDJobs.JobPostings
 
         #region Methods_public
 
-        public List<JobPosting> Do(JobPage jobPage, bool translateOccupation = true)
+        public List<JobPosting> Do(JobPage jobPage, bool translateOccupation = true, bool predictLanguage = true)
         {
 
             Validator.ValidateObject(jobPage, nameof(jobPage));
 
-            List<JobPosting> jobPostings = Extract(jobPage, translateOccupation);
+            List<JobPosting> jobPostings = Extract(jobPage, translateOccupation, predictLanguage);
 
             return jobPostings;
 
@@ -63,7 +63,7 @@ namespace NW.WIDJobs.JobPostings
 
         #region Methods_private
 
-        private List<JobPosting> Extract(JobPage jobPage, bool translateOccupation)
+        private List<JobPosting> Extract(JobPage jobPage, bool translateOccupation, bool predictLanguage)
         {
 
             using JsonDocument jsonRoot = JsonDocument.Parse(jobPage.Response);
@@ -77,7 +77,7 @@ namespace NW.WIDJobs.JobPostings
                 ushort jobPostingNumber = (ushort)(i + 1);
 
                 JobPosting jobPosting
-                    = ExtractJobPosting(jobPage.RunId, jobPage.PageNumber, jsonElement, jobPostingNumber, translateOccupation);
+                    = ExtractJobPosting(jobPage.RunId, jobPage.PageNumber, jsonElement, jobPostingNumber, translateOccupation, predictLanguage);
 
                 jobPostings.Add(jobPosting);
 
@@ -88,7 +88,7 @@ namespace NW.WIDJobs.JobPostings
         }
 
         private JobPosting ExtractJobPosting
-            (string runId, ushort pageNumber, JsonElement jsonElement, ushort jobPostingNumber, bool translateOccupation)
+            (string runId, ushort pageNumber, JsonElement jsonElement, ushort jobPostingNumber, bool translateOccupation, bool predictLanguage)
         {
 
             string title = ExtractTitle(jsonElement);
@@ -118,7 +118,9 @@ namespace NW.WIDJobs.JobPostings
             string workPlaceCityWithoutZone = CreateWorkPlaceCityWithoutZone(workPlaceCity);
             string jobPostingId = CreateJobPostingId(id, title);
 
-            string language = TryPredictLanguage(title, presentation);
+            string language = null;
+            if (predictLanguage) 
+                language = TryPredictLanguage(title, presentation);
 
             JobPosting jobPosting
                 = new JobPosting(

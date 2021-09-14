@@ -39,11 +39,13 @@ namespace NW.WIDJobs.UnitTests
             new TestCaseData(
                     ObjectMother.Shared_JobPage01_Object,
                     false,
+                    true,
                     ObjectMother.Shared_JobPage01_JobPostings
                 ).SetArgDisplayNames($"{nameof(doTestCases)}_01"),
 
             new TestCaseData(
                     ObjectMother.Shared_JobPage02_Object,
+                    false,
                     false,
                     ObjectMother.Shared_JobPage02_JobPostings
                 ).SetArgDisplayNames($"{nameof(doTestCases)}_02"),
@@ -51,6 +53,7 @@ namespace NW.WIDJobs.UnitTests
             new TestCaseData(
                     ObjectMother.Shared_JobPage01_Object,
                     true,
+                    false,
                     ObjectMother.TranslateOccupations(
                         ObjectMother.Shared_JobPage01_JobPostings
                     )
@@ -93,16 +96,18 @@ namespace NW.WIDJobs.UnitTests
 
         [TestCaseSource(nameof(doTestCases))]
         public void Do_ShouldReturnAListofJobPostingObjects_WhenProperArguments
-            (JobPage jobPage, bool translateOccupation, List<JobPosting> expected)
+            (JobPage jobPage, bool translateOccupation, bool predictLanguage, List <JobPosting> expected)
         {
 
             // Arrange
+            bool compareLanguage = predictLanguage; // If we predict it, we compare it.
+
             // Act
-            List<JobPosting> actual = new JobPostingDeserializer().Do(jobPage, translateOccupation);
+            List<JobPosting> actual = new JobPostingDeserializer().Do(jobPage, translateOccupation, predictLanguage);
 
             // Assert
             Assert.IsTrue(
-                    ObjectMother.AreEqual(expected, actual)
+                    ObjectMother.AreEqual(expected, actual, compareLanguage)
                 );
 
         }

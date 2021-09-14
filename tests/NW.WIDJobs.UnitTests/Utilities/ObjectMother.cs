@@ -4310,8 +4310,36 @@ namespace NW.WIDJobs.UnitTests
             return true;
 
         }
-        public static bool AreEqual(JobPosting jobPosting1, JobPosting jobPosting2)
+        public static bool AreEqual(JobPosting jobPosting1, JobPosting jobPosting2, bool compareLanguage)
         {
+
+            if (compareLanguage)
+                return string.Equals(jobPosting1.Country, jobPosting2.Country, StringComparison.InvariantCulture)
+                            && string.Equals(jobPosting1.EmploymentType, jobPosting2.EmploymentType, StringComparison.InvariantCulture)
+                            && (jobPosting1.HiringOrgCVR == jobPosting2.HiringOrgCVR)
+                            && string.Equals(jobPosting1.HiringOrgName, jobPosting2.HiringOrgName, StringComparison.InvariantCulture)
+                            && (jobPosting1.Id == jobPosting2.Id)
+                            && string.Equals(jobPosting1.JobPostingId, jobPosting2.JobPostingId, StringComparison.InvariantCulture)
+                            && (jobPosting1.JobPostingNumber == jobPosting2.JobPostingNumber)
+                            && (jobPosting1.LastDateApplication == jobPosting2.LastDateApplication)
+                            && string.Equals(jobPosting1.Municipality, jobPosting2.Municipality, StringComparison.InvariantCulture)
+                            && string.Equals(jobPosting1.Occupation, jobPosting2.Occupation, StringComparison.InvariantCulture)
+                            && (jobPosting1.OrganisationId == jobPosting2.OrganisationId)
+                            && (jobPosting1.PageNumber == jobPosting2.PageNumber)
+                            && (jobPosting1.PostingCreated == jobPosting2.PostingCreated)
+                            && string.Equals(jobPosting1.Presentation, jobPosting2.Presentation, StringComparison.InvariantCulture)
+                            && string.Equals(jobPosting1.Region, jobPosting2.Region, StringComparison.InvariantCulture)
+                            && string.Equals(jobPosting1.Response, jobPosting2.Response, StringComparison.InvariantCulture)
+                            && string.Equals(jobPosting1.RunId, jobPosting2.RunId, StringComparison.InvariantCulture)
+                            && string.Equals(jobPosting1.Title, jobPosting2.Title, StringComparison.InvariantCulture)
+                            && string.Equals(jobPosting1.Url, jobPosting2.Url, StringComparison.InvariantCulture)
+                            && string.Equals(jobPosting1.WorkHours, jobPosting2.WorkHours, StringComparison.InvariantCulture)
+                            && string.Equals(jobPosting1.WorkPlaceAddress, jobPosting2.WorkPlaceAddress, StringComparison.InvariantCulture)
+                            && string.Equals(jobPosting1.WorkPlaceCity, jobPosting2.WorkPlaceCity, StringComparison.InvariantCulture)
+                            && string.Equals(jobPosting1.WorkPlaceCityWithoutZone, jobPosting2.WorkPlaceCityWithoutZone, StringComparison.InvariantCulture)
+                            && (jobPosting1.WorkplaceId == jobPosting2.WorkplaceId)
+                            && (jobPosting1.WorkPlacePostalCode == jobPosting2.WorkPlacePostalCode)
+                            && string.Equals(jobPosting1.Language, jobPosting2.Language, StringComparison.InvariantCulture);
 
             return string.Equals(jobPosting1.Country, jobPosting2.Country, StringComparison.InvariantCulture)
                         && string.Equals(jobPosting1.EmploymentType, jobPosting2.EmploymentType, StringComparison.InvariantCulture)
@@ -4337,11 +4365,10 @@ namespace NW.WIDJobs.UnitTests
                         && string.Equals(jobPosting1.WorkPlaceCity, jobPosting2.WorkPlaceCity, StringComparison.InvariantCulture)
                         && string.Equals(jobPosting1.WorkPlaceCityWithoutZone, jobPosting2.WorkPlaceCityWithoutZone, StringComparison.InvariantCulture)
                         && (jobPosting1.WorkplaceId == jobPosting2.WorkplaceId)
-                        && (jobPosting1.WorkPlacePostalCode == jobPosting2.WorkPlacePostalCode)
-                        && string.Equals(jobPosting1.Language, jobPosting2.Language, StringComparison.InvariantCulture);
+                        && (jobPosting1.WorkPlacePostalCode == jobPosting2.WorkPlacePostalCode);
 
         }
-        public static bool AreEqual(List<JobPosting> list1, List<JobPosting> list2)
+        public static bool AreEqual(List<JobPosting> list1, List<JobPosting> list2, bool compareLanguage)
         {
 
             if (list1 == null && list2 == null)
@@ -4354,13 +4381,13 @@ namespace NW.WIDJobs.UnitTests
                 return false;
 
             for (int i = 0; i < list1.Count; i++)
-                if (AreEqual(list1[i], list2[i]) == false)
+                if (AreEqual(list1[i], list2[i], compareLanguage) == false)
                     return false;
 
             return true;
 
         }
-        public static bool AreEqual(JobPostingExtended jobPostingExtended1, JobPostingExtended jobPostingExtended2, bool ignorePurposeResponse = true)
+        public static bool AreEqual(JobPostingExtended jobPostingExtended1, JobPostingExtended jobPostingExtended2, bool compareLanguage, bool ignorePurposeResponse = true)
         {
 
             if (ignorePurposeResponse)
@@ -4371,7 +4398,7 @@ namespace NW.WIDJobs.UnitTests
                             && string.Equals(jobPostingExtended1.ContactPersonName, jobPostingExtended2.ContactPersonName, StringComparison.InvariantCulture)
                             && (jobPostingExtended1.EmploymentDate == jobPostingExtended2.EmploymentDate)
                             && string.Equals(jobPostingExtended1.HiringOrgDescription, jobPostingExtended2.HiringOrgDescription, StringComparison.InvariantCulture)
-                            && AreEqual(jobPostingExtended1.JobPosting, jobPostingExtended2.JobPosting)
+                            && AreEqual(jobPostingExtended1.JobPosting, jobPostingExtended2.JobPosting, compareLanguage)
                             && (jobPostingExtended1.NumberToFill == jobPostingExtended2.NumberToFill)
                             && (jobPostingExtended1.PublicationStartDate == jobPostingExtended2.PublicationStartDate)
                             && (jobPostingExtended1.PublicationEndDate == jobPostingExtended2.PublicationEndDate);
@@ -4383,7 +4410,7 @@ namespace NW.WIDJobs.UnitTests
                         && string.Equals(jobPostingExtended1.ContactPersonName, jobPostingExtended2.ContactPersonName, StringComparison.InvariantCulture)
                         && (jobPostingExtended1.EmploymentDate == jobPostingExtended2.EmploymentDate)
                         && string.Equals(jobPostingExtended1.HiringOrgDescription, jobPostingExtended2.HiringOrgDescription, StringComparison.InvariantCulture)
-                        && AreEqual(jobPostingExtended1.JobPosting, jobPostingExtended2.JobPosting)
+                        && AreEqual(jobPostingExtended1.JobPosting, jobPostingExtended2.JobPosting, compareLanguage)
                         && (jobPostingExtended1.NumberToFill == jobPostingExtended2.NumberToFill)
                         && (jobPostingExtended1.PublicationStartDate == jobPostingExtended2.PublicationStartDate)
                         && (jobPostingExtended1.PublicationEndDate == jobPostingExtended2.PublicationEndDate)
@@ -4517,7 +4544,7 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
-        public static bool AreEqual(Exploration exploration1, Exploration exploration2)
+        public static bool AreEqual(Exploration exploration1, Exploration exploration2, bool compareLanguage)
         {
 
             return string.Equals(exploration1.RunId, exploration2.RunId, StringComparison.InvariantCulture)
@@ -4526,7 +4553,7 @@ namespace NW.WIDJobs.UnitTests
                         && (exploration1.Stage == exploration2.Stage)
                         && (exploration1.IsCompleted == exploration2.IsCompleted)
                         && AreEqual(exploration1.JobPages, exploration2.JobPages)
-                        && AreEqual(exploration1.JobPostings, exploration2.JobPostings)
+                        && AreEqual(exploration1.JobPostings, exploration2.JobPostings, compareLanguage)
                         && AreEqual(exploration1.JobPostingsExtended, exploration2.JobPostingsExtended);
 
         }

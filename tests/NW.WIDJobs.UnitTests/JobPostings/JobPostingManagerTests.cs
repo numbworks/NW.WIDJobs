@@ -238,12 +238,14 @@ namespace NW.WIDJobs.UnitTests
         {
 
             // Arrange
+            bool compareLanguage = true;
+
             // Act
             List<JobPosting> actual = new JobPostingManager().RemoveUnsuitable(thresholdDate, jobPostings);
 
             // Assert
             Assert.IsTrue(
-                    ObjectMother.AreEqual(expected, actual)
+                    ObjectMother.AreEqual(expected, actual, compareLanguage)
                 );
 
         }
@@ -254,12 +256,14 @@ namespace NW.WIDJobs.UnitTests
         {
 
             // Arrange
+            bool compareLanguage = true;
+
             // Act
             List<JobPosting> actual = new JobPostingManager().RemoveUnsuitable(jobPostingId, jobPostings);
 
             // Assert
             Assert.IsTrue(
-                    ObjectMother.AreEqual(expected, actual)
+                    ObjectMother.AreEqual(expected, actual, compareLanguage)
                 );
 
         }
