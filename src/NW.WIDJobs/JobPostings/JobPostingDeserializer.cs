@@ -381,7 +381,7 @@ namespace NW.WIDJobs.JobPostings
         private string CreateJobPostingText(string title, string presentation)
         {
 
-            string text = string.Format("{0} {1}", title, presentation);
+            string text = string.Format("{0} {1}", title, RemoveHTMLTags(presentation));
 
             return text;
 
@@ -400,13 +400,8 @@ namespace NW.WIDJobs.JobPostings
 
             HtmlDocument document = new HtmlDocument();
             document.LoadHtml(presentation);
-            IEnumerable<string> nodes = document.DocumentNode.SelectNodes("//body//text()").Select(node => node.InnerText);
 
-            StringBuilder stringBuilder = new StringBuilder();
-            foreach (string node in nodes)
-                stringBuilder.AppendLine(node);
-
-            string clean = HttpUtility.HtmlDecode(stringBuilder.ToString());
+            string clean = document.DocumentNode.InnerText;
 
             return clean;
 

@@ -157,7 +157,7 @@ namespace NW.WIDJobs.UnitTests
                     workPlaceCityWithoutZone: "Skanderborg",
                     jobPostingNumber: 2,
                     jobPostingId: "5365786motivatedforkliftdriversfortemporary",
-                    language: "en"
+                    language: "dk/en" // To-do: this prediction must be improved (ClassificationManager).
                 );
         public static JobPostingExtended Shared_JobPage01_JobPostingExtended02
             = new JobPostingExtended(
@@ -705,7 +705,7 @@ namespace NW.WIDJobs.UnitTests
                     workPlaceCityWithoutZone: "Hedensted",
                     jobPostingNumber: 11,
                     jobPostingId: "5361275committedemployeesforassemblingdisplays",
-                    language: "en"
+                    language: "dk/en" // To-do: this prediction must be improved (ClassificationManager).
                 );
         public static JobPostingExtended Shared_JobPage01_JobPostingExtended11
             = new JobPostingExtended(
@@ -762,7 +762,7 @@ namespace NW.WIDJobs.UnitTests
                     workPlaceCityWithoutZone: "Horsens",
                     jobPostingNumber: 12,
                     jobPostingId: "5359775wearelookingforforklift",
-                    language: "en"
+                    language: "dk/en" // To-do: this prediction must be improved (ClassificationManager).
                 );
         public static JobPostingExtended Shared_JobPage01_JobPostingExtended12
             = new JobPostingExtended(
@@ -1003,7 +1003,7 @@ namespace NW.WIDJobs.UnitTests
                     workPlaceCityWithoutZone: "Horsens",
                     jobPostingNumber: 16,
                     jobPostingId: "5346333motivatedemployeeforemptyingcontainers",
-                    language: "en"
+                    language: "dk/en" // To-do: this prediction must be improved (ClassificationManager).
                 );
         public static JobPostingExtended Shared_JobPage01_JobPostingExtended16
             = new JobPostingExtended(
@@ -4894,5 +4894,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 10.09.2021
+    Last Update: 14.09.2021
 */
