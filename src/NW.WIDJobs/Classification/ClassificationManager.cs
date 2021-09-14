@@ -10,12 +10,16 @@ namespace NW.WIDJobs.Classification
 
 		#region Fields
 
+		private ITextClassifier _textClassifier;
+		private ILabeledExampleFactory _labeledExampleFactory;
+
 		#endregion
 
 		#region Properties
 
-		private ITextClassifier _textClassifier;
-		private ILabeledExampleFactory _labeledExampleFactory;
+		/// <summary>Does nothing. By default we aren't interested into the <see cref="ITextClassifier"/> log.</summary>
+		public static Action<string> DefaultTextClassifierLoggingAction { get; } 
+			= (message) => { }; // 
 
 		#endregion
 
@@ -35,7 +39,7 @@ namespace NW.WIDJobs.Classification
 
 		/// <summary>Initializes a <see cref="ClassificationManager"/> instance using default parameters.</summary>	
 		public ClassificationManager()
-		 : this (new LabeledExampleFactory(), new TextClassifier()) { }
+		 : this (new LabeledExampleFactory(), CreateTextClassifier(DefaultTextClassifierLoggingAction)) { }
 
 		#endregion
 
@@ -738,6 +742,24 @@ namespace NW.WIDJobs.Classification
 
 		#region Methods_private
 
+		private static ITextClassifier CreateTextClassifier(Action<string> textClassifierLoggingAction)
+        {
+
+			TextClassifierComponents components 
+				= new TextClassifierComponents(
+						nGramsTokenizer: new NGramTokenizer(),
+						similarityIndexCalculator: new SimilarityIndexCalculatorJaccard(),
+						roundingFunction: TextClassifierComponents.DefaultRoundingFunction,
+						textTruncatingFunction: TextClassifierComponents.DefaultTextTruncatingFunction,
+						loggingAction: textClassifierLoggingAction
+						);
+
+			return new TextClassifier(
+							components: components, 
+							settings: new TextClassifierSettings()
+							);
+
+        }
 		private string Predict(string text, List<LabeledExample> labeledExamples)
 		{
 

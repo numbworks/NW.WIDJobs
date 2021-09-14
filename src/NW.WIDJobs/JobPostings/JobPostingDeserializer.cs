@@ -354,7 +354,7 @@ namespace NW.WIDJobs.JobPostings
         private string CreateJobPostingText(string title, string presentation)
         {
 
-            string text = string.Format("{0} {1}", title, RemoveHTMLTags(presentation));
+            string text = string.Format("{0} {1}", title, presentation);
 
             return text;
 
