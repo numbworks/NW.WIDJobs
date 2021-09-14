@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text.Json;
 using NW.WIDJobs.JobPages;
 using NW.WIDJobs.Validation;
+using NW.WIDJobs.Classification;
 
 namespace NW.WIDJobs.JobPostings
 {
@@ -16,6 +17,7 @@ namespace NW.WIDJobs.JobPostings
         #region Fields
 
         private IOccupationTranslator _occupationTranslator;
+        private IClassificationManager _classificationManager;
 
         #endregion
 
@@ -25,18 +27,20 @@ namespace NW.WIDJobs.JobPostings
         #region Constructors
 
         /// <summary>Initializes a <see cref="JobPostingDeserializer"/> instance.</summary>
-        public JobPostingDeserializer(IOccupationTranslator occupationTranslator) 
+        public JobPostingDeserializer(IOccupationTranslator occupationTranslator, IClassificationManager classificationManager) 
         {
 
             Validator.ValidateObject(occupationTranslator, nameof(occupationTranslator));
+            Validator.ValidateObject(classificationManager, nameof(classificationManager));
 
             _occupationTranslator = occupationTranslator;
+            _classificationManager = classificationManager;
 
         }
 
         /// <summary>Initializes a <see cref="JobPostingDeserializer"/> instance using default parameters.</summary>
         public JobPostingDeserializer()
-            : this(new OccupationTranslator()) { }
+            : this(new OccupationTranslator(), new ClassificationManager()) { }
 
         #endregion
 
@@ -112,6 +116,9 @@ namespace NW.WIDJobs.JobPostings
             string workPlaceCityWithoutZone = CreateWorkPlaceCityWithoutZone(workPlaceCity);
             string jobPostingId = CreateJobPostingId(id, title);
 
+            string text = CreateJobPostingText(title, presentation);
+            string language = _classificationManager.EstimateLanguage(text);
+
             JobPosting jobPosting
                 = new JobPosting(
                         runId: runId,
@@ -138,7 +145,8 @@ namespace NW.WIDJobs.JobPostings
                         id: id,
                         workPlaceCityWithoutZone: workPlaceCityWithoutZone,
                         jobPostingNumber: jobPostingNumber,
-                        jobPostingId: jobPostingId
+                        jobPostingId: jobPostingId,
+                        language: language
                 );
 
             return jobPosting;
@@ -341,6 +349,17 @@ namespace NW.WIDJobs.JobPostings
 
         }
 
+        private string CreateJobPostingText(string title, string presentation)
+        {
+
+            // To-do: add DecodeHTML
+
+            string text = string.Format("{0} {1}", title, presentation);
+
+            return text;
+
+        }
+
         #endregion
 
     }
@@ -348,5 +367,5 @@ namespace NW.WIDJobs.JobPostings
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 08.09.2021
+    Last Update: 14.09.2021
 */

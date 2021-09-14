@@ -105,7 +105,8 @@ namespace NW.WIDJobs.UnitTests
                     id: 5332213,
                     workPlaceCityWithoutZone: "København",
                     jobPostingNumber: 1,
-                    jobPostingId: "5332213linuxspecialist"
+                    jobPostingId: "5332213linuxspecialist",
+                    language: "en"
                 );
         public static JobPostingExtended Shared_JobPage01_JobPostingExtended01
             = new JobPostingExtended(
@@ -155,7 +156,8 @@ namespace NW.WIDJobs.UnitTests
                     id: 5365786,
                     workPlaceCityWithoutZone: "Skanderborg",
                     jobPostingNumber: 2,
-                    jobPostingId: "5365786motivatedforkliftdriversfortemporary"
+                    jobPostingId: "5365786motivatedforkliftdriversfortemporary",
+                    language: "en"
                 );
         public static JobPostingExtended Shared_JobPage01_JobPostingExtended02
             = new JobPostingExtended(
@@ -211,7 +213,8 @@ namespace NW.WIDJobs.UnitTests
                     id: 5372675,
                     workPlaceCityWithoutZone: "Kolding",
                     jobPostingNumber: 3,
-                    jobPostingId: "5372675selvstndigetruckfreretil"
+                    jobPostingId: "5372675selvstndigetruckfreretil",
+                    language: "dk/en"
                 );
         public static JobPostingExtended Shared_JobPage01_JobPostingExtended03
             = new JobPostingExtended(
@@ -277,7 +280,8 @@ namespace NW.WIDJobs.UnitTests
                     id: 5379659,
                     workPlaceCityWithoutZone: "Skanderborg",
                     jobPostingNumber: 4,
-                    jobPostingId: "5379659erfarenogselvstndigtruckf"
+                    jobPostingId: "5379659erfarenogselvstndigtruckf",
+                    language: "dk/en"
                 );
         public static JobPostingExtended Shared_JobPage01_JobPostingExtended04
             = new JobPostingExtended(
@@ -334,7 +338,8 @@ namespace NW.WIDJobs.UnitTests
                     id: 5376524,
                     workPlaceCityWithoutZone: "Vejers Strand",
                     jobPostingNumber: 5,
-                    jobPostingId: "5376524visgerrengringsassistenter"
+                    jobPostingId: "5376524visgerrengringsassistenter",
+                    language: "dk/en"
                 );
         public static JobPostingExtended Shared_JobPage01_JobPostingExtended05
             = new JobPostingExtended(
@@ -399,7 +404,8 @@ namespace NW.WIDJobs.UnitTests
                     id: 5303321,
                     workPlaceCityWithoutZone: "Vejen",
                     jobPostingNumber: 6,
-                    jobPostingId: "5303321motivatedemployeesforwarehousework"
+                    jobPostingId: "5303321motivatedemployeesforwarehousework",
+                    language: "en"
                 );
         public static JobPostingExtended Shared_JobPage01_JobPostingExtended06
             = new JobPostingExtended(
@@ -455,7 +461,8 @@ namespace NW.WIDJobs.UnitTests
                     id: 5290988,
                     workPlaceCityWithoutZone: "Kolding",
                     jobPostingNumber: 7,
-                    jobPostingId: "5290988motivatedemployeesforwarehousework"
+                    jobPostingId: "5290988motivatedemployeesforwarehousework",
+                    language: "en"
                 );
         public static JobPostingExtended Shared_JobPage01_JobPostingExtended07
             = new JobPostingExtended(
@@ -512,7 +519,8 @@ namespace NW.WIDJobs.UnitTests
                     id: 5383229,
                     workPlaceCityWithoutZone: "København",
                     jobPostingNumber: 8,
-                    jobPostingId: "5383229vicepresidentofproductmarketing"
+                    jobPostingId: "5383229vicepresidentofproductmarketing",
+                    language: "en"
                 );
         public static JobPostingExtended Shared_JobPage01_JobPostingExtended08
                 = new JobPostingExtended(
@@ -568,7 +576,8 @@ namespace NW.WIDJobs.UnitTests
                     id: 5331002,
                     workPlaceCityWithoutZone: "Horsens",
                     jobPostingNumber: 9,
-                    jobPostingId: "5331002friskeogoplagtemedarbejderetil"
+                    jobPostingId: "5331002friskeogoplagtemedarbejderetil",
+                    language: "dk/en"
                 );
         public static JobPostingExtended Shared_JobPage01_JobPostingExtended09
             = new JobPostingExtended(
@@ -635,7 +644,8 @@ namespace NW.WIDJobs.UnitTests
                     id: 5383212,
                     workPlaceCityWithoutZone: "Tjele",
                     jobPostingNumber: 10,
-                    jobPostingId: "5383212tenuretrackassistantprofessorin"
+                    jobPostingId: "5383212tenuretrackassistantprofessorin",
+                    language: "en"
                 );
         public static JobPostingExtended Shared_JobPage01_JobPostingExtended10
             = new JobPostingExtended(
@@ -694,7 +704,8 @@ namespace NW.WIDJobs.UnitTests
                     id: 5361275,
                     workPlaceCityWithoutZone: "Hedensted",
                     jobPostingNumber: 11,
-                    jobPostingId: "5361275committedemployeesforassemblingdisplays"
+                    jobPostingId: "5361275committedemployeesforassemblingdisplays",
+                    language: "en"
                 );
         public static JobPostingExtended Shared_JobPage01_JobPostingExtended11
             = new JobPostingExtended(
@@ -750,7 +761,8 @@ namespace NW.WIDJobs.UnitTests
                     id: 5359775,
                     workPlaceCityWithoutZone: "Horsens",
                     jobPostingNumber: 12,
-                    jobPostingId: "5359775wearelookingforforklift"
+                    jobPostingId: "5359775wearelookingforforklift",
+                    language: "en"
                 );
         public static JobPostingExtended Shared_JobPage01_JobPostingExtended12
             = new JobPostingExtended(
@@ -834,7 +846,8 @@ namespace NW.WIDJobs.UnitTests
                     id: 5383201,
                     workPlaceCityWithoutZone: "Aarhus",
                     jobPostingNumber: 13,
-                    jobPostingId: "5383201laboratorytechnicianforplantanalysis"
+                    jobPostingId: "5383201laboratorytechnicianforplantanalysis",
+                    language: "en"
                 );
         public static JobPostingExtended Shared_JobPage01_JobPostingExtended13
             = new JobPostingExtended(
@@ -888,7 +901,8 @@ namespace NW.WIDJobs.UnitTests
                     id: 5383195,
                     workPlaceCityWithoutZone: "Aarhus",
                     jobPostingNumber: 14,
-                    jobPostingId: "5383195laboratorytechnicianforfoodprocessing"
+                    jobPostingId: "5383195laboratorytechnicianforfoodprocessing",
+                    language: "en"
                 );
         public static JobPostingExtended Shared_JobPage01_JobPostingExtended14
             = new JobPostingExtended(
@@ -942,7 +956,8 @@ namespace NW.WIDJobs.UnitTests
                     id: 5383165,
                     workPlaceCityWithoutZone: "Horsens",
                     jobPostingNumber: 15,
-                    jobPostingId: "5383165lagermedarbejderetilpakkeopgaverpdaghold"
+                    jobPostingId: "5383165lagermedarbejderetilpakkeopgaverpdaghold",
+                    language: "dk/en"
                 );
         public static JobPostingExtended Shared_JobPage01_JobPostingExtended15
             = new JobPostingExtended(
@@ -987,7 +1002,8 @@ namespace NW.WIDJobs.UnitTests
                     id: 5346333,
                     workPlaceCityWithoutZone: "Horsens",
                     jobPostingNumber: 16,
-                    jobPostingId: "5346333motivatedemployeeforemptyingcontainers"
+                    jobPostingId: "5346333motivatedemployeeforemptyingcontainers",
+                    language: "en"
                 );
         public static JobPostingExtended Shared_JobPage01_JobPostingExtended16
             = new JobPostingExtended(
@@ -1043,7 +1059,8 @@ namespace NW.WIDJobs.UnitTests
                     id: 5376709,
                     workPlaceCityWithoutZone: "Kolding",
                     jobPostingNumber: 17,
-                    jobPostingId: "5376709medarbejderetilsommervikariaterp"
+                    jobPostingId: "5376709medarbejderetilsommervikariaterp",
+                    language: "dk/en"
                 );
         public static JobPostingExtended Shared_JobPage01_JobPostingExtended17
             = new JobPostingExtended(
@@ -1110,7 +1127,8 @@ namespace NW.WIDJobs.UnitTests
                     id: 5382809,
                     workPlaceCityWithoutZone: "Frederiksberg",
                     jobPostingNumber: 18,
-                    jobPostingId: "5382809tenuretrackassistantprofessorshipsin"
+                    jobPostingId: "5382809tenuretrackassistantprofessorshipsin",
+                    language: "en"
                 );
         public static JobPostingExtended Shared_JobPage01_JobPostingExtended18
             = new JobPostingExtended(
@@ -1170,7 +1188,8 @@ namespace NW.WIDJobs.UnitTests
                     id: 5382781,
                     workPlaceCityWithoutZone: "Horsens",
                     jobPostingNumber: 19,
-                    jobPostingId: "5382781warehouseemployee"
+                    jobPostingId: "5382781warehouseemployee",
+                    language: "en"
                 );
         public static JobPostingExtended Shared_JobPage01_JobPostingExtended19
             = new JobPostingExtended(
@@ -1236,7 +1255,8 @@ namespace NW.WIDJobs.UnitTests
                     id: 5382486,
                     workPlaceCityWithoutZone: "Frederiksberg",
                     jobPostingNumber: 20,
-                    jobPostingId: "5382486postdocondigitalplatformsand"
+                    jobPostingId: "5382486postdocondigitalplatformsand",
+                    language: "en"
                 );
         public static JobPostingExtended Shared_JobPage01_JobPostingExtended20
             = new JobPostingExtended(
@@ -1411,7 +1431,8 @@ namespace NW.WIDJobs.UnitTests
                     id: 5382440,
                     workPlaceCityWithoutZone: "København",
                     jobPostingNumber: 1,
-                    jobPostingId: "5382440assistantorassociateprofessorshipin"
+                    jobPostingId: "5382440assistantorassociateprofessorshipin",
+                    language: "en"
                 );
         public static JobPostingExtended Shared_JobPage02_JobPostingExtended01
             = new JobPostingExtended(
@@ -1493,7 +1514,8 @@ namespace NW.WIDJobs.UnitTests
                     id: 5316797,
                     workPlaceCityWithoutZone: "",
                     jobPostingNumber: 2,
-                    jobPostingId: "5316797carpenter"
+                    jobPostingId: "5316797carpenter",
+                    language: "en"
                 );
         public static JobPostingExtended Shared_JobPage02_JobPostingExtended02
             = new JobPostingExtended(
@@ -1538,7 +1560,8 @@ namespace NW.WIDJobs.UnitTests
                     id: 5382367,
                     workPlaceCityWithoutZone: "Viby",
                     jobPostingNumber: 3,
-                    jobPostingId: "5382367solutionarchitect"
+                    jobPostingId: "5382367solutionarchitect",
+                    language: "en"
                 );
         public static JobPostingExtended Shared_JobPage02_JobPostingExtended03
             = new JobPostingExtended(
@@ -1602,7 +1625,8 @@ namespace NW.WIDJobs.UnitTests
                     id: 5382358,
                     workPlaceCityWithoutZone: "Kongens Lyngby",
                     jobPostingNumber: 4,
-                    jobPostingId: "5382358projectofficerimpactassessmentand"
+                    jobPostingId: "5382358projectofficerimpactassessmentand",
+                    language: "en"
                 );
         public static JobPostingExtended Shared_JobPage02_JobPostingExtended04
             = new JobPostingExtended(
@@ -1671,7 +1695,8 @@ namespace NW.WIDJobs.UnitTests
                     id: 5382226,
                     workPlaceCityWithoutZone: "Middelfart",
                     jobPostingNumber: 5,
-                    jobPostingId: "5382226warehouseworkers"
+                    jobPostingId: "5382226warehouseworkers",
+                    language: "en"
                 );
         public static JobPostingExtended Shared_JobPage02_JobPostingExtended05
             = new JobPostingExtended(
@@ -1721,7 +1746,8 @@ namespace NW.WIDJobs.UnitTests
                     id: 5339477,
                     workPlaceCityWithoutZone: "København",
                     jobPostingNumber: 6,
-                    jobPostingId: "5339477cleaninghousekeeping"
+                    jobPostingId: "5339477cleaninghousekeeping",
+                    language: "en"
                 );
         public static JobPostingExtended Shared_JobPage02_JobPostingExtended06
             = new JobPostingExtended(
@@ -1779,7 +1805,8 @@ namespace NW.WIDJobs.UnitTests
                     id: 5345782,
                     workPlaceCityWithoutZone: "Viby",
                     jobPostingNumber: 7,
-                    jobPostingId: "5345782bbsalesspecialist"
+                    jobPostingId: "5345782bbsalesspecialist",
+                    language: "en"
                 );
         public static JobPostingExtended Shared_JobPage02_JobPostingExtended07
             = new JobPostingExtended(
@@ -1837,7 +1864,8 @@ namespace NW.WIDJobs.UnitTests
                     id: 5366564,
                     workPlaceCityWithoutZone: "Horsens",
                     jobPostingNumber: 8,
-                    jobPostingId: "5366564warwhoseworkerwithinexperince"
+                    jobPostingId: "5366564warwhoseworkerwithinexperince",
+                    language: "en"
                 );
         public static JobPostingExtended Shared_JobPage02_JobPostingExtended08
             = new JobPostingExtended(
@@ -1882,7 +1910,8 @@ namespace NW.WIDJobs.UnitTests
                     id: 5363343,
                     workPlaceCityWithoutZone: "København",
                     jobPostingNumber: 9,
-                    jobPostingId: "5363343tenuretrackassistantprofessorin"
+                    jobPostingId: "5363343tenuretrackassistantprofessorin",
+                    language: "en"
                 );
         public static JobPostingExtended Shared_JobPage02_JobPostingExtended09
             = new JobPostingExtended(
@@ -1943,7 +1972,8 @@ namespace NW.WIDJobs.UnitTests
                     id: 8251052,
                     workPlaceCityWithoutZone: "Bagsværd",
                     jobPostingNumber: 10,
-                    jobPostingId: "8251052receptionist"
+                    jobPostingId: "8251052receptionist",
+                    language: "dk/en"
                 );
         public static JobPostingExtended Shared_JobPage02_JobPostingExtended10
             = new JobPostingExtended(
@@ -1996,7 +2026,8 @@ namespace NW.WIDJobs.UnitTests
                     id: 8251051,
                     workPlaceCityWithoutZone: "Bagsværd",
                     jobPostingNumber: 11,
-                    jobPostingId: "8251051securityofficer"
+                    jobPostingId: "8251051securityofficer",
+                    language: "dk/en"
                 );
         public static JobPostingExtended Shared_JobPage02_JobPostingExtended11
             = new JobPostingExtended(
@@ -2053,7 +2084,8 @@ namespace NW.WIDJobs.UnitTests
                     id: 8251042,
                     workPlaceCityWithoutZone: "",
                     jobPostingNumber: 12,
-                    jobPostingId: "8251042phd"
+                    jobPostingId: "8251042phd",
+                    language: "en"
                 );
         public static JobPostingExtended Shared_JobPage02_JobPostingExtended12
             = new JobPostingExtended(
@@ -2111,7 +2143,8 @@ namespace NW.WIDJobs.UnitTests
                     id: 8251041,
                     workPlaceCityWithoutZone: "Ballerup",
                     jobPostingNumber: 13,
-                    jobPostingId: "8251041specialist"
+                    jobPostingId: "8251041specialist",
+                    language: "en"
                 );
         public static JobPostingExtended Shared_JobPage02_JobPostingExtended13
             = new JobPostingExtended(
@@ -2165,7 +2198,8 @@ namespace NW.WIDJobs.UnitTests
                     id: 8251039,
                     workPlaceCityWithoutZone: "Aalborg",
                     jobPostingNumber: 14,
-                    jobPostingId: "8251039supportengineer"
+                    jobPostingId: "8251039supportengineer",
+                    language: "en"
                 );
         public static JobPostingExtended Shared_JobPage02_JobPostingExtended14
             = new JobPostingExtended(
@@ -2210,7 +2244,8 @@ namespace NW.WIDJobs.UnitTests
                     id: 8251038,
                     workPlaceCityWithoutZone: "",
                     jobPostingNumber: 15,
-                    jobPostingId: "8251038softwaredeveloper"
+                    jobPostingId: "8251038softwaredeveloper",
+                    language: "en"
                 );
         public static JobPostingExtended Shared_JobPage02_JobPostingExtended15
             = new JobPostingExtended(
@@ -2264,7 +2299,8 @@ namespace NW.WIDJobs.UnitTests
                     id: 8251036,
                     workPlaceCityWithoutZone: "Aalborg",
                     jobPostingNumber: 16,
-                    jobPostingId: "8251036phd"
+                    jobPostingId: "8251036phd",
+                    language: "en"
                 );
         public static JobPostingExtended Shared_JobPage02_JobPostingExtended16
             = new JobPostingExtended(
@@ -2346,7 +2382,8 @@ namespace NW.WIDJobs.UnitTests
                     id: 8251035,
                     workPlaceCityWithoutZone: "",
                     jobPostingNumber: 17,
-                    jobPostingId: "8251035leader"
+                    jobPostingId: "8251035leader",
+                    language: "en"
                 );
         public static JobPostingExtended Shared_JobPage02_JobPostingExtended17
             = new JobPostingExtended(
@@ -2400,7 +2437,8 @@ namespace NW.WIDJobs.UnitTests
                     id: 8251034,
                     workPlaceCityWithoutZone: "",
                     jobPostingNumber: 18,
-                    jobPostingId: "8251034productowner"
+                    jobPostingId: "8251034productowner",
+                    language: "en"
                 );
         public static JobPostingExtended Shared_JobPage02_JobPostingExtended18
             = new JobPostingExtended(
@@ -2454,7 +2492,8 @@ namespace NW.WIDJobs.UnitTests
                     id: 8251030,
                     workPlaceCityWithoutZone: "Humlebæk",
                     jobPostingNumber: 19,
-                    jobPostingId: "8251030seniormanager"
+                    jobPostingId: "8251030seniormanager",
+                    language: "en"
                 );
         public static JobPostingExtended Shared_JobPage02_JobPostingExtended19
             = new JobPostingExtended(
@@ -2510,7 +2549,8 @@ namespace NW.WIDJobs.UnitTests
                     id: 8251029,
                     workPlaceCityWithoutZone: "Ballerup",
                     jobPostingNumber: 20,
-                    jobPostingId: "8251029businessintelligenceanalyst"
+                    jobPostingId: "8251029businessintelligenceanalyst",
+                    language: "en"
                 );
         public static JobPostingExtended Shared_JobPage02_JobPostingExtended20
             = new JobPostingExtended(
@@ -4297,7 +4337,8 @@ namespace NW.WIDJobs.UnitTests
                         && string.Equals(jobPosting1.WorkPlaceCity, jobPosting2.WorkPlaceCity, StringComparison.InvariantCulture)
                         && string.Equals(jobPosting1.WorkPlaceCityWithoutZone, jobPosting2.WorkPlaceCityWithoutZone, StringComparison.InvariantCulture)
                         && (jobPosting1.WorkplaceId == jobPosting2.WorkplaceId)
-                        && (jobPosting1.WorkPlacePostalCode == jobPosting2.WorkPlacePostalCode);
+                        && (jobPosting1.WorkPlacePostalCode == jobPosting2.WorkPlacePostalCode)
+                        && string.Equals(jobPosting1.Language, jobPosting2.Language, StringComparison.InvariantCulture);
 
         }
         public static bool AreEqual(List<JobPosting> list1, List<JobPosting> list2)
@@ -4584,7 +4625,8 @@ namespace NW.WIDJobs.UnitTests
                 id: jobPosting.Id,
                 workPlaceCityWithoutZone: jobPosting.WorkPlaceCityWithoutZone,
                 jobPostingNumber: jobPosting.JobPostingNumber,
-                jobPostingId: jobPosting.JobPostingId
+                jobPostingId: jobPosting.JobPostingId,
+                language: jobPosting.Language
             );
 
         }
@@ -4616,7 +4658,8 @@ namespace NW.WIDJobs.UnitTests
                 id: jobPosting.Id,
                 workPlaceCityWithoutZone: jobPosting.WorkPlaceCityWithoutZone,
                 jobPostingNumber: jobPosting.JobPostingNumber,
-                jobPostingId: jobPosting.JobPostingId
+                jobPostingId: jobPosting.JobPostingId,
+                language: jobPosting.Language
             );
 
         }
@@ -4648,7 +4691,8 @@ namespace NW.WIDJobs.UnitTests
                 id: jobPosting.Id,
                 workPlaceCityWithoutZone: jobPosting.WorkPlaceCityWithoutZone,
                 jobPostingNumber: jobPosting.JobPostingNumber,
-                jobPostingId: jobPosting.JobPostingId
+                jobPostingId: jobPosting.JobPostingId,
+                language: jobPosting.Language
             );
 
         }
@@ -4744,7 +4788,8 @@ namespace NW.WIDJobs.UnitTests
                 id: jobPosting.Id,
                 workPlaceCityWithoutZone: jobPosting.WorkPlaceCityWithoutZone,
                 jobPostingNumber: jobPosting.JobPostingNumber,
-                jobPostingId: jobPosting.JobPostingId
+                jobPostingId: jobPosting.JobPostingId,
+                language: jobPosting.Language
             );
 
         }

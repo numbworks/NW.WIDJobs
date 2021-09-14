@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using NW.WIDJobs.JobPages;
 using NW.WIDJobs.JobPostings;
+using NW.WIDJobs.Classification;
 
 namespace NW.WIDJobs.UnitTests
 {
@@ -61,11 +62,19 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new JobPostingDeserializer(null)
+                    () => new JobPostingDeserializer(null, new ClassificationManager())
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("occupationTranslator").Message
-            ).SetArgDisplayNames($"{nameof(jobPostingDeserializerExceptionTestCases)}_01")
+            ).SetArgDisplayNames($"{nameof(jobPostingDeserializerExceptionTestCases)}_01"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new JobPostingDeserializer(new OccupationTranslator(), null)
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("classificationManager").Message
+            ).SetArgDisplayNames($"{nameof(jobPostingDeserializerExceptionTestCases)}_02"),
 
         };
 
@@ -114,5 +123,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 09.09.2021
+    Last Update: 14.09.2021
 */

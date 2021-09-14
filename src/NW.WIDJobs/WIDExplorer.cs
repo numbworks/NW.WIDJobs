@@ -642,7 +642,8 @@ namespace NW.WIDJobs
                         id: jobPosting.Id,
                         workPlaceCityWithoutZone: jobPosting.WorkPlaceCityWithoutZone,
                         jobPostingNumber: jobPosting.JobPostingNumber,
-                        jobPostingId: jobPosting.JobPostingId
+                        jobPostingId: jobPosting.JobPostingId,
+                        language: jobPosting.Language
                     );
 
             return optimized;
@@ -1039,5 +1040,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 06.09.2021
+    Last Update: 14.09.2021
 */

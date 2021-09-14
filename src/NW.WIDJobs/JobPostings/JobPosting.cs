@@ -38,6 +38,7 @@ namespace NW.WIDJobs.JobPostings
         public string WorkPlaceCityWithoutZone { get; }
         public ushort JobPostingNumber { get; }
         public string JobPostingId { get; }
+        public string Language { get; }
 
         #endregion
 
@@ -71,7 +72,8 @@ namespace NW.WIDJobs.JobPostings
             ulong id,
             string workPlaceCityWithoutZone,
             ushort jobPostingNumber,
-            string jobPostingId
+            string jobPostingId,
+            string language
             )
         {
 
@@ -109,6 +111,7 @@ namespace NW.WIDJobs.JobPostings
             WorkPlaceCityWithoutZone = workPlaceCityWithoutZone;
             JobPostingNumber = jobPostingNumber;
             JobPostingId = jobPostingId;
+            Language = language;
 
         }
 
@@ -122,5 +125,5 @@ namespace NW.WIDJobs.JobPostings
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 25.06.2021
+    Last Update: 14.09.2021
 */
