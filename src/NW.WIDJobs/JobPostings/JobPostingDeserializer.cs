@@ -117,7 +117,7 @@ namespace NW.WIDJobs.JobPostings
             string jobPostingId = CreateJobPostingId(id, title);
 
             string text = CreateJobPostingText(title, presentation);
-            string language = _classificationManager.EstimateLanguage(text);
+            string language = _classificationManager.PredictLanguage(text);
 
             JobPosting jobPosting
                 = new JobPosting(

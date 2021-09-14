@@ -8,10 +8,11 @@ namespace NW.WIDJobs.Classification
     public interface IClassificationManager
     {
 
-        string EstimateLanguage(string text);
-        string EstimateBulletPointLabel(string text);
+        string PredictLanguage(string text);
+        string PredictBulletPointType(string text);
 
         List<LabeledExample> GetPreLabeledExamplesForLanguage();
+        List<LabeledExample> GetPreLabeledExamplesForBulletPointType();
 
     }
 }
