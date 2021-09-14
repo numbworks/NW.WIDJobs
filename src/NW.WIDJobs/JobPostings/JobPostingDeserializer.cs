@@ -7,6 +7,8 @@ using System.Text.Json;
 using NW.WIDJobs.JobPages;
 using NW.WIDJobs.Validation;
 using NW.WIDJobs.Classification;
+using HtmlAgilityPack;
+using System.Web;
 
 namespace NW.WIDJobs.JobPostings
 {
@@ -352,11 +354,34 @@ namespace NW.WIDJobs.JobPostings
         private string CreateJobPostingText(string title, string presentation)
         {
 
-            // To-do: add DecodeHTML
-
-            string text = string.Format("{0} {1}", title, presentation);
+            string text = string.Format("{0} {1}", title, RemoveHTMLTags(presentation));
 
             return text;
+
+        }
+        private string RemoveHTMLTags(string presentation)
+        {
+
+            /*
+                Some JobPosting.Presentation fields contains HTML tags, such as:
+
+                    "<p><strong>German speaking Customer Service Representative for an international company in Copenhagen</strong></p>"
+            */
+
+            if (string.IsNullOrWhiteSpace(presentation))
+                return presentation;
+
+            HtmlDocument document = new HtmlDocument();
+            document.LoadHtml(presentation);
+            IEnumerable<string> nodes = document.DocumentNode.SelectNodes("//body//text()").Select(node => node.InnerText);
+
+            StringBuilder stringBuilder = new StringBuilder();
+            foreach (string node in nodes)
+                stringBuilder.AppendLine(node);
+
+            string clean = HttpUtility.HtmlDecode(stringBuilder.ToString());
+
+            return clean;
 
         }
 
