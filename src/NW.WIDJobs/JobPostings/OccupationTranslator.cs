@@ -204,7 +204,8 @@ namespace NW.WIDJobs.JobPostings
 
                 // Below the ones missing from in the GetJobPage() response
                 { "Laboratorietekniker", "Laboratory Technician" },
-                { "Miljøingeniør", "Enviromental Engineer" }                
+                { "Miljøingeniør", "Enviromental Engineer" },
+                { "Specialsygeplejerske", "Nurse Specialist" }
 
             };
 
@@ -236,5 +237,5 @@ namespace NW.WIDJobs.JobPostings
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 09.09.2021
+    Last Update: 14.09.2021
 */
