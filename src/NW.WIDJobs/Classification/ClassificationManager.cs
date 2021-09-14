@@ -47,8 +47,8 @@ namespace NW.WIDJobs.Classification
 
 		public string PredictLanguage(string text)
 			=> Predict(text, GetPreLabeledExamplesForLanguage());
-        public string PredictBulletPointType(string text)
-			=> Predict(text, GetPreLabeledExamplesForBulletPointType());
+        public string PredictBulletPointType(string bulletPoint)
+			=> Predict(bulletPoint, GetPreLabeledExamplesForBulletPointType());
 
 		public List<LabeledExample> GetPreLabeledExamplesForLanguage()
         {
