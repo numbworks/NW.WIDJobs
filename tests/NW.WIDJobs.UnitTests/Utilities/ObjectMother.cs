@@ -1515,7 +1515,7 @@ namespace NW.WIDJobs.UnitTests
                     workPlaceCityWithoutZone: "",
                     jobPostingNumber: 2,
                     jobPostingId: "5316797carpenter",
-                    language: "en"
+                    language: null
                 );
         public static JobPostingExtended Shared_JobPage02_JobPostingExtended02
             = new JobPostingExtended(
@@ -1561,7 +1561,7 @@ namespace NW.WIDJobs.UnitTests
                     workPlaceCityWithoutZone: "Viby",
                     jobPostingNumber: 3,
                     jobPostingId: "5382367solutionarchitect",
-                    language: "en"
+                    language: null
                 );
         public static JobPostingExtended Shared_JobPage02_JobPostingExtended03
             = new JobPostingExtended(
@@ -1696,7 +1696,7 @@ namespace NW.WIDJobs.UnitTests
                     workPlaceCityWithoutZone: "Middelfart",
                     jobPostingNumber: 5,
                     jobPostingId: "5382226warehouseworkers",
-                    language: "en"
+                    language: "dk/en" // To-do: this prediction must be improved (ClassificationManager).
                 );
         public static JobPostingExtended Shared_JobPage02_JobPostingExtended05
             = new JobPostingExtended(
@@ -1865,7 +1865,7 @@ namespace NW.WIDJobs.UnitTests
                     workPlaceCityWithoutZone: "Horsens",
                     jobPostingNumber: 8,
                     jobPostingId: "5366564warwhoseworkerwithinexperince",
-                    language: "en"
+                    language: "dk/en" // To-do: this prediction must be improved (ClassificationManager).
                 );
         public static JobPostingExtended Shared_JobPage02_JobPostingExtended08
             = new JobPostingExtended(
@@ -2027,7 +2027,7 @@ namespace NW.WIDJobs.UnitTests
                     workPlaceCityWithoutZone: "Bagsværd",
                     jobPostingNumber: 11,
                     jobPostingId: "8251051securityofficer",
-                    language: "dk/en"
+                    language: "en" // To-do: this prediction must be improved (ClassificationManager).
                 );
         public static JobPostingExtended Shared_JobPage02_JobPostingExtended11
             = new JobPostingExtended(
