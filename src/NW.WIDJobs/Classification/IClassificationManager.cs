@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
+using NW.NGramTextClassification;
 
 namespace NW.WIDJobs.Classification
 {
@@ -10,7 +10,8 @@ namespace NW.WIDJobs.Classification
 
         string EstimateLanguage(string text);
         string EstimateBulletPointLabel(string text);
-        Dictionary<string, string> GetLanguageTrainingDataset();
+
+        List<LabeledExample> GetPreLabeledExamplesForLanguage();
 
     }
 }
