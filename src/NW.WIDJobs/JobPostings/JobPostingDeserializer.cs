@@ -118,8 +118,7 @@ namespace NW.WIDJobs.JobPostings
             string workPlaceCityWithoutZone = CreateWorkPlaceCityWithoutZone(workPlaceCity);
             string jobPostingId = CreateJobPostingId(id, title);
 
-            string text = CreateJobPostingText(title, presentation);
-            string language = _classificationManager.PredictLanguage(text);
+            string language = TryPredictLanguage(title, presentation);
 
             JobPosting jobPosting
                 = new JobPosting(
@@ -351,6 +350,34 @@ namespace NW.WIDJobs.JobPostings
 
         }
 
+        private string TryPredictLanguage(string title, string presentation)
+        {
+
+            /*
+             
+                The try...catch is to handle cases such as:
+
+                    "System.Exception : The 'DoForBigrams' rule can't be applied to the provided string: 'carpenter '."
+
+            */
+
+            try
+            {
+
+                string text = CreateJobPostingText(title, presentation);
+                string language = _classificationManager.PredictLanguage(text);
+
+                return language;
+
+            }
+            catch
+            {
+
+                return null;
+
+            }
+
+        }
         private string CreateJobPostingText(string title, string presentation)
         {
 
