@@ -1815,13 +1815,16 @@ namespace NW.WIDJobs.UnitTests
             Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
             FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
             Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
+            bool predictJobPostingLanguage = false; // To sensibly speed up the unit test
+            bool compareJobPostingLanguage = predictJobPostingLanguage;
+
             WIDExplorerSettings fakeExplorerSettings = new WIDExplorerSettings(
                     parallelRequests: parallelRequests,
                     pauseBetweenRequestsMs: pauseBetweenRequestsMs,
                     folderPath: WIDExplorerSettings.DefaultFolderPath,
                     deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase,
                     translateJobPostingOccupation: WIDExplorerSettings.DefaultTranslateJobPostingOccupation,
-                    predictJobPostingLanguage: WIDExplorerSettings.DefaultPredictJobPostingLanguage
+                    predictJobPostingLanguage: predictJobPostingLanguage
                 );
             WIDExplorerComponents components = new WIDExplorerComponents(
                     loggingAction: fakeLoggingAction,
@@ -1830,7 +1833,13 @@ namespace NW.WIDJobs.UnitTests
                     getRequestManager: new GetRequestManager(),
                     jobPageDeserializer: new JobPageDeserializer(),
                     jobPageManager: new JobPageManager(postRequestManagerFactory: ObjectMother.WIDExplorer_JobPage0102_FakePostRequestManagerFactory, headerFactory: new HeaderFactory()),
-                    jobPostingDeserializer: new JobPostingDeserializer(),
+                    jobPostingDeserializer: 
+                        new JobPostingDeserializer(
+                            occupationTranslator: new OccupationTranslator(),
+                            classificationManager: new ClassificationManager(),
+                            translateJobPostingOccupation: fakeExplorerSettings.TranslateJobPostingOccupation,
+                            predictJobPostingLanguage: fakeExplorerSettings.PredictJobPostingLanguage
+                    ),
                     jobPostingManager: new JobPostingManager(),
                     jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
                     jobPostingExtendedManager: new JobPostingExtendedManager(),
@@ -1845,14 +1854,13 @@ namespace NW.WIDJobs.UnitTests
                     formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
-            bool compareLanguage = true;
 
             // Act
             Exploration actual = widExplorer.Explore(finalPageNumber, stage);
 
             // Assert
             Assert.IsTrue(
-                ObjectMother.AreEqual(expected, actual, compareLanguage)
+                ObjectMother.AreEqual(expected, actual, compareJobPostingLanguage)
                 );
             Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
 
@@ -1949,13 +1957,16 @@ namespace NW.WIDJobs.UnitTests
             Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
             FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
             Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
+            bool predictJobPostingLanguage = false; // To sensibly speed up the unit test
+            bool compareJobPostingLanguage = predictJobPostingLanguage;
+
             WIDExplorerSettings fakeExplorerSettings = new WIDExplorerSettings(
                     parallelRequests: parallelRequests,
                     pauseBetweenRequestsMs: pauseBetweenRequestsMs,
                     folderPath: WIDExplorerSettings.DefaultFolderPath,
                     deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase,
                     translateJobPostingOccupation: WIDExplorerSettings.DefaultTranslateJobPostingOccupation,
-                    predictJobPostingLanguage: WIDExplorerSettings.DefaultPredictJobPostingLanguage
+                    predictJobPostingLanguage: predictJobPostingLanguage
                 );
             WIDExplorerComponents components = new WIDExplorerComponents(
                     loggingAction: fakeLoggingAction,
@@ -1964,7 +1975,13 @@ namespace NW.WIDJobs.UnitTests
                     getRequestManager: new GetRequestManager(),
                     jobPageDeserializer: new JobPageDeserializer(),
                     jobPageManager: new JobPageManager(postRequestManagerFactory: ObjectMother.WIDExplorer_JobPage0102_FakePostRequestManagerFactory, headerFactory: new HeaderFactory()),
-                    jobPostingDeserializer: new JobPostingDeserializer(),
+                    jobPostingDeserializer:
+                        new JobPostingDeserializer(
+                            occupationTranslator: new OccupationTranslator(),
+                            classificationManager: new ClassificationManager(),
+                            translateJobPostingOccupation: fakeExplorerSettings.TranslateJobPostingOccupation,
+                            predictJobPostingLanguage: fakeExplorerSettings.PredictJobPostingLanguage
+                    ),
                     jobPostingManager: new JobPostingManager(),
                     jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
                     jobPostingExtendedManager: new JobPostingExtendedManager(),
@@ -1979,14 +1996,13 @@ namespace NW.WIDJobs.UnitTests
                     formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
-            bool compareLanguage = true;
 
             // Act
             Exploration actual = widExplorer.Explore(finalPageNumber, stage);
 
             // Assert
             Assert.IsTrue(
-                ObjectMother.AreEqual(expected, actual, compareLanguage)
+                ObjectMother.AreEqual(expected, actual, compareJobPostingLanguage)
                 );
             Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
 
@@ -2167,13 +2183,16 @@ namespace NW.WIDJobs.UnitTests
             Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
             FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
             Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
+            bool predictJobPostingLanguage = false; // To sensibly speed up the unit test
+            bool compareJobPostingLanguage = predictJobPostingLanguage;
+
             WIDExplorerSettings fakeExplorerSettings = new WIDExplorerSettings(
                     parallelRequests: parallelRequests,
                     pauseBetweenRequestsMs: pauseBetweenRequestsMs,
                     folderPath: WIDExplorerSettings.DefaultFolderPath,
                     deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase,
                     translateJobPostingOccupation: WIDExplorerSettings.DefaultTranslateJobPostingOccupation,
-                    predictJobPostingLanguage: WIDExplorerSettings.DefaultPredictJobPostingLanguage
+                    predictJobPostingLanguage: predictJobPostingLanguage
                 );
             WIDExplorerComponents components = new WIDExplorerComponents(
                     loggingAction: fakeLoggingAction,
@@ -2182,7 +2201,13 @@ namespace NW.WIDJobs.UnitTests
                     getRequestManager: new GetRequestManager(),
                     jobPageDeserializer: new JobPageDeserializer(),
                     jobPageManager: new JobPageManager(postRequestManagerFactory: ObjectMother.WIDExplorer_JobPage0102_FakePostRequestManagerFactory, headerFactory: new HeaderFactory()),
-                    jobPostingDeserializer: new JobPostingDeserializer(),
+                    jobPostingDeserializer:
+                        new JobPostingDeserializer(
+                            occupationTranslator: new OccupationTranslator(),
+                            classificationManager: new ClassificationManager(),
+                            translateJobPostingOccupation: fakeExplorerSettings.TranslateJobPostingOccupation,
+                            predictJobPostingLanguage: fakeExplorerSettings.PredictJobPostingLanguage
+                    ),
                     jobPostingManager: new JobPostingManager(),
                     jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
                     jobPostingExtendedManager: new JobPostingExtendedManager(ObjectMother.WIDExplorer_JobPage0102_FakeGetRequestManagerFactory, new JobPostingExtendedDeserializer(), new HeaderFactory()),
@@ -2197,14 +2222,13 @@ namespace NW.WIDJobs.UnitTests
                     formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
-            bool compareLanguage = true;
 
             // Act
             Exploration actual = widExplorer.Explore(finalPageNumber, stage);
 
             // Assert
             Assert.IsTrue(
-                ObjectMother.AreEqual(expected, actual, compareLanguage)
+                ObjectMother.AreEqual(expected, actual, compareJobPostingLanguage)
                 );
             Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
 
@@ -2305,13 +2329,16 @@ namespace NW.WIDJobs.UnitTests
             Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
             FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
             Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
+            bool predictJobPostingLanguage = false; // To sensibly speed up the unit test
+            bool compareJobPostingLanguage = predictJobPostingLanguage;
+
             WIDExplorerSettings fakeExplorerSettings = new WIDExplorerSettings(
                     parallelRequests: parallelRequests,
                     pauseBetweenRequestsMs: pauseBetweenRequestsMs,
                     folderPath: WIDExplorerSettings.DefaultFolderPath,
                     deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase,
                     translateJobPostingOccupation: WIDExplorerSettings.DefaultTranslateJobPostingOccupation,
-                    predictJobPostingLanguage: WIDExplorerSettings.DefaultPredictJobPostingLanguage
+                    predictJobPostingLanguage: predictJobPostingLanguage
                 );
             WIDExplorerComponents components = new WIDExplorerComponents(
                     loggingAction: fakeLoggingAction,
@@ -2320,7 +2347,13 @@ namespace NW.WIDJobs.UnitTests
                     getRequestManager: new GetRequestManager(),
                     jobPageDeserializer: new JobPageDeserializer(),
                     jobPageManager: new JobPageManager(postRequestManagerFactory: ObjectMother.WIDExplorer_JobPage01Alt_FakePostRequestManagerFactory, headerFactory: new HeaderFactory()),
-                    jobPostingDeserializer: new JobPostingDeserializer(),
+                    jobPostingDeserializer:
+                        new JobPostingDeserializer(
+                            occupationTranslator: new OccupationTranslator(),
+                            classificationManager: new ClassificationManager(),
+                            translateJobPostingOccupation: fakeExplorerSettings.TranslateJobPostingOccupation,
+                            predictJobPostingLanguage: fakeExplorerSettings.PredictJobPostingLanguage
+                    ),
                     jobPostingManager: new JobPostingManager(),
                     jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
                     jobPostingExtendedManager: new JobPostingExtendedManager(),
@@ -2335,14 +2368,13 @@ namespace NW.WIDJobs.UnitTests
                     formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
-            bool compareLanguage = true;
 
             // Act
             Exploration actual = widExplorer.Explore(thresholdDate, stage);
 
             // Assert
             Assert.IsTrue(
-                ObjectMother.AreEqual(expected, actual, compareLanguage)
+                ObjectMother.AreEqual(expected, actual, compareJobPostingLanguage)
                 );
             Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
 
@@ -2441,13 +2473,16 @@ namespace NW.WIDJobs.UnitTests
             Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
             FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
             Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
+            bool predictJobPostingLanguage = false; // To sensibly speed up the unit test
+            bool compareJobPostingLanguage = predictJobPostingLanguage;
+
             WIDExplorerSettings fakeExplorerSettings = new WIDExplorerSettings(
                     parallelRequests: parallelRequests,
                     pauseBetweenRequestsMs: pauseBetweenRequestsMs,
                     folderPath: WIDExplorerSettings.DefaultFolderPath,
                     deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase,
                     translateJobPostingOccupation: WIDExplorerSettings.DefaultTranslateJobPostingOccupation,
-                    predictJobPostingLanguage: WIDExplorerSettings.DefaultPredictJobPostingLanguage
+                    predictJobPostingLanguage: predictJobPostingLanguage
                 );
             WIDExplorerComponents components = new WIDExplorerComponents(
                     loggingAction: fakeLoggingAction,
@@ -2456,7 +2491,13 @@ namespace NW.WIDJobs.UnitTests
                     getRequestManager: new GetRequestManager(),
                     jobPageDeserializer: new JobPageDeserializer(),
                     jobPageManager: new JobPageManager(postRequestManagerFactory: ObjectMother.WIDExplorer_JobPage0102_FakePostRequestManagerFactory, headerFactory: new HeaderFactory()),
-                    jobPostingDeserializer: new JobPostingDeserializer(),
+                    jobPostingDeserializer:
+                        new JobPostingDeserializer(
+                            occupationTranslator: new OccupationTranslator(),
+                            classificationManager: new ClassificationManager(),
+                            translateJobPostingOccupation: fakeExplorerSettings.TranslateJobPostingOccupation,
+                            predictJobPostingLanguage: fakeExplorerSettings.PredictJobPostingLanguage
+                    ),
                     jobPostingManager: new JobPostingManager(),
                     jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
                     jobPostingExtendedManager: new JobPostingExtendedManager(),
@@ -2471,14 +2512,13 @@ namespace NW.WIDJobs.UnitTests
                     formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
-            bool compareLanguage = true;
 
             // Act
             Exploration actual = widExplorer.Explore(jobPostingId, stage);
 
             // Assert
             Assert.IsTrue(
-                ObjectMother.AreEqual(expected, actual, compareLanguage)
+                ObjectMother.AreEqual(expected, actual, compareJobPostingLanguage)
                 );
             Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
 
@@ -2489,5 +2529,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 14.09.2021
+    Last Update: 15.09.2021
 */

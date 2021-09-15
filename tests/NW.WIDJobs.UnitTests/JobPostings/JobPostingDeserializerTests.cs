@@ -66,8 +66,8 @@ namespace NW.WIDJobs.UnitTests
             new TestCaseData(
                 new TestDelegate(
                     () => new JobPostingDeserializer(
-                                    null, 
-                                    new ClassificationManager(),
+                                    occupationTranslator: null,
+                                    classificationManager: new ClassificationManager(),
                                     JobPostingDeserializer.DefaultTranslateJobPostingOccupation,
                                     JobPostingDeserializer.DefaultPredictJobPostingLanguage
                                 )
@@ -79,10 +79,10 @@ namespace NW.WIDJobs.UnitTests
             new TestCaseData(
                 new TestDelegate(
                     () => new JobPostingDeserializer(
-                                    new OccupationTranslator(), 
-                                    null,
-                                    JobPostingDeserializer.DefaultTranslateJobPostingOccupation,
-                                    JobPostingDeserializer.DefaultPredictJobPostingLanguage
+                                    occupationTranslator: new OccupationTranslator(),
+                                    classificationManager: null,
+                                    translateJobPostingOccupation: JobPostingDeserializer.DefaultTranslateJobPostingOccupation,
+                                    predictJobPostingLanguage: JobPostingDeserializer.DefaultPredictJobPostingLanguage
                                 )
                 ),
                 typeof(ArgumentNullException),
