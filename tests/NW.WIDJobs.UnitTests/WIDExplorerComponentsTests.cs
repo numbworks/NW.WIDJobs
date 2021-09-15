@@ -1,7 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
 using NW.WIDJobs.AsciiBanner;
-using NW.WIDJobs.BulletPoints;
 using NW.WIDJobs.Database;
 using NW.WIDJobs.Filenames;
 using NW.WIDJobs.Files;
@@ -13,6 +12,7 @@ using NW.WIDJobs.Metrics;
 using NW.WIDJobs.Runs;
 using NW.WIDJobs.XPath;
 using NW.WIDJobs.Formatting;
+using NW.WIDJobs.Classification;
 
 namespace NW.WIDJobs.UnitTests
 {
@@ -43,7 +43,7 @@ namespace NW.WIDJobs.UnitTests
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
-                                new BulletPointManager(),
+                                new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
                                 new Formatter()
                         )
@@ -71,7 +71,7 @@ namespace NW.WIDJobs.UnitTests
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
-                                new BulletPointManager(),
+                                new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
                                 new Formatter()
                         )
@@ -99,7 +99,7 @@ namespace NW.WIDJobs.UnitTests
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
-                                new BulletPointManager(),
+                                new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
                                 new Formatter()
                         )
@@ -127,7 +127,7 @@ namespace NW.WIDJobs.UnitTests
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
-                                new BulletPointManager(),
+                                new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
                                 new Formatter()
                         )
@@ -155,7 +155,7 @@ namespace NW.WIDJobs.UnitTests
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
-                                new BulletPointManager(),
+                                new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
                                 new Formatter()
                         )
@@ -185,7 +185,7 @@ namespace NW.WIDJobs.UnitTests
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
-                                new BulletPointManager(),
+                                new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
                                 new Formatter()
                         )
@@ -213,7 +213,7 @@ namespace NW.WIDJobs.UnitTests
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
-                                new BulletPointManager(),
+                                new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
                                 new Formatter()
                         )
@@ -241,7 +241,7 @@ namespace NW.WIDJobs.UnitTests
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
-                                new BulletPointManager(),
+                                new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
                                 new Formatter()
                         )
@@ -269,7 +269,7 @@ namespace NW.WIDJobs.UnitTests
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
-                                new BulletPointManager(),
+                                new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
                                 new Formatter()
                         )
@@ -297,7 +297,7 @@ namespace NW.WIDJobs.UnitTests
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
-                                new BulletPointManager(),
+                                new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
                                 new Formatter()
                         )
@@ -325,7 +325,7 @@ namespace NW.WIDJobs.UnitTests
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
-                                new BulletPointManager(),
+                                new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
                                 new Formatter()
                         )
@@ -353,7 +353,7 @@ namespace NW.WIDJobs.UnitTests
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
-                                new BulletPointManager(),
+                                new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
                                 new Formatter()
                         )
@@ -381,7 +381,7 @@ namespace NW.WIDJobs.UnitTests
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
-                                new BulletPointManager(),
+                                new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
                                 new Formatter()
                         )
@@ -409,7 +409,7 @@ namespace NW.WIDJobs.UnitTests
                                 null,
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
-                                new BulletPointManager(),
+                                new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
                                 new Formatter()
                         )
@@ -437,7 +437,7 @@ namespace NW.WIDJobs.UnitTests
                                 new RepositoryFactory(),
                                 null,
                                 new FilenameFactory(),
-                                new BulletPointManager(),
+                                new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
                                 new Formatter()
                         )
@@ -465,7 +465,7 @@ namespace NW.WIDJobs.UnitTests
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
                                 null,
-                                new BulletPointManager(),
+                                new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
                                 new Formatter()
                         )
@@ -499,7 +499,7 @@ namespace NW.WIDJobs.UnitTests
                         )
                 ),
                 typeof(ArgumentNullException),
-                new ArgumentNullException("bulletPointManager").Message
+                new ArgumentNullException("classificationManager").Message
             ).SetArgDisplayNames($"{nameof(widExplorerComponentsExceptionTestCases)}_17"),
 
             new TestCaseData(
@@ -521,7 +521,7 @@ namespace NW.WIDJobs.UnitTests
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
-                                new BulletPointManager(),
+                                new ClassificationManager(),
                                 null,
                                 new Formatter()
                         )
@@ -549,7 +549,7 @@ namespace NW.WIDJobs.UnitTests
                                 new RepositoryFactory(),
                                 new AsciiBannerManager(),
                                 new FilenameFactory(),
-                                new BulletPointManager(),
+                                new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
                                 null
                         )
@@ -586,7 +586,7 @@ namespace NW.WIDJobs.UnitTests
                             new RepositoryFactory(),
                             new AsciiBannerManager(),
                             new FilenameFactory(),
-                            new BulletPointManager(),
+                            new ClassificationManager(),
                             WIDExplorerComponents.DefaultNowFunction,
                             new Formatter()
                         );
@@ -609,7 +609,7 @@ namespace NW.WIDJobs.UnitTests
             Assert.IsInstanceOf<RepositoryFactory>(actual.RepositoryFactory);
             Assert.IsInstanceOf<AsciiBannerManager>(actual.AsciiBannerManager);
             Assert.IsInstanceOf<FilenameFactory>(actual.FilenameFactory);
-            Assert.IsInstanceOf<BulletPointManager>(actual.BulletPointManager);
+            Assert.IsInstanceOf<ClassificationManager>(actual.ClassificationManager);
             Assert.IsInstanceOf<Formatter>(actual.Formatter);
 
         }
@@ -640,7 +640,7 @@ namespace NW.WIDJobs.UnitTests
             Assert.IsInstanceOf<RepositoryFactory>(actual.RepositoryFactory);
             Assert.IsInstanceOf<AsciiBannerManager>(actual.AsciiBannerManager);
             Assert.IsInstanceOf<FilenameFactory>(actual.FilenameFactory);
-            Assert.IsInstanceOf<BulletPointManager>(actual.BulletPointManager);
+            Assert.IsInstanceOf<ClassificationManager>(actual.ClassificationManager);
             Assert.IsInstanceOf<Formatter>(actual.Formatter);
 
         }
@@ -657,5 +657,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 05.09.2021
+    Last Update: 14.09.2021
 */

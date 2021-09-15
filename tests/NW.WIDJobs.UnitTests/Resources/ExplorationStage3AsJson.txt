@@ -42,7 +42,8 @@
       "Id": 5332213,
       "WorkPlaceCityWithoutZone": "København",
       "JobPostingNumber": 1,
-      "JobPostingId": "5332213linuxspecialist"
+      "JobPostingId": "5332213linuxspecialist",
+      "Language": "en"
     },
     {
       "RunId": "FakeRunId",
@@ -69,7 +70,8 @@
       "Id": 5365786,
       "WorkPlaceCityWithoutZone": "Skanderborg",
       "JobPostingNumber": 2,
-      "JobPostingId": "5365786motivatedforkliftdriversfortemporary"
+      "JobPostingId": "5365786motivatedforkliftdriversfortemporary",
+      "Language": "dk/en"
     },
     {
       "RunId": "FakeRunId",
@@ -96,7 +98,8 @@
       "Id": 5372675,
       "WorkPlaceCityWithoutZone": "Kolding",
       "JobPostingNumber": 3,
-      "JobPostingId": "5372675selvstndigetruckfreretil"
+      "JobPostingId": "5372675selvstndigetruckfreretil",
+      "Language": "dk/en"
     },
     {
       "RunId": "FakeRunId",
@@ -123,7 +126,8 @@
       "Id": 5379659,
       "WorkPlaceCityWithoutZone": "Skanderborg",
       "JobPostingNumber": 4,
-      "JobPostingId": "5379659erfarenogselvstndigtruckf"
+      "JobPostingId": "5379659erfarenogselvstndigtruckf",
+      "Language": "dk/en"
     },
     {
       "RunId": "FakeRunId",
@@ -150,7 +154,8 @@
       "Id": 5376524,
       "WorkPlaceCityWithoutZone": "Vejers Strand",
       "JobPostingNumber": 5,
-      "JobPostingId": "5376524visgerrengringsassistenter"
+      "JobPostingId": "5376524visgerrengringsassistenter",
+      "Language": "dk/en"
     },
     {
       "RunId": "FakeRunId",
@@ -177,7 +182,8 @@
       "Id": 5303321,
       "WorkPlaceCityWithoutZone": "Vejen",
       "JobPostingNumber": 6,
-      "JobPostingId": "5303321motivatedemployeesforwarehousework"
+      "JobPostingId": "5303321motivatedemployeesforwarehousework",
+      "Language": "en"
     },
     {
       "RunId": "FakeRunId",
@@ -204,7 +210,8 @@
       "Id": 5290988,
       "WorkPlaceCityWithoutZone": "Kolding",
       "JobPostingNumber": 7,
-      "JobPostingId": "5290988motivatedemployeesforwarehousework"
+      "JobPostingId": "5290988motivatedemployeesforwarehousework",
+      "Language": "en"
     },
     {
       "RunId": "FakeRunId",
@@ -231,7 +238,8 @@
       "Id": 5383229,
       "WorkPlaceCityWithoutZone": "København",
       "JobPostingNumber": 8,
-      "JobPostingId": "5383229vicepresidentofproductmarketing"
+      "JobPostingId": "5383229vicepresidentofproductmarketing",
+      "Language": "en"
     },
     {
       "RunId": "FakeRunId",
@@ -258,7 +266,8 @@
       "Id": 5331002,
       "WorkPlaceCityWithoutZone": "Horsens",
       "JobPostingNumber": 9,
-      "JobPostingId": "5331002friskeogoplagtemedarbejderetil"
+      "JobPostingId": "5331002friskeogoplagtemedarbejderetil",
+      "Language": "dk/en"
     },
     {
       "RunId": "FakeRunId",
@@ -285,7 +294,8 @@
       "Id": 5383212,
       "WorkPlaceCityWithoutZone": "Tjele",
       "JobPostingNumber": 10,
-      "JobPostingId": "5383212tenuretrackassistantprofessorin"
+      "JobPostingId": "5383212tenuretrackassistantprofessorin",
+      "Language": "en"
     },
     {
       "RunId": "FakeRunId",
@@ -312,7 +322,8 @@
       "Id": 5361275,
       "WorkPlaceCityWithoutZone": "Hedensted",
       "JobPostingNumber": 11,
-      "JobPostingId": "5361275committedemployeesforassemblingdisplays"
+      "JobPostingId": "5361275committedemployeesforassemblingdisplays",
+      "Language": "dk/en"
     },
     {
       "RunId": "FakeRunId",
@@ -339,7 +350,8 @@
       "Id": 5359775,
       "WorkPlaceCityWithoutZone": "Horsens",
       "JobPostingNumber": 12,
-      "JobPostingId": "5359775wearelookingforforklift"
+      "JobPostingId": "5359775wearelookingforforklift",
+      "Language": "dk/en"
     },
     {
       "RunId": "FakeRunId",
@@ -366,7 +378,8 @@
       "Id": 5383201,
       "WorkPlaceCityWithoutZone": "Aarhus",
       "JobPostingNumber": 13,
-      "JobPostingId": "5383201laboratorytechnicianforplantanalysis"
+      "JobPostingId": "5383201laboratorytechnicianforplantanalysis",
+      "Language": "en"
     },
     {
       "RunId": "FakeRunId",
@@ -393,7 +406,8 @@
       "Id": 5383195,
       "WorkPlaceCityWithoutZone": "Aarhus",
       "JobPostingNumber": 14,
-      "JobPostingId": "5383195laboratorytechnicianforfoodprocessing"
+      "JobPostingId": "5383195laboratorytechnicianforfoodprocessing",
+      "Language": "en"
     },
     {
       "RunId": "FakeRunId",
@@ -420,7 +434,8 @@
       "Id": 5383165,
       "WorkPlaceCityWithoutZone": "Horsens",
       "JobPostingNumber": 15,
-      "JobPostingId": "5383165lagermedarbejderetilpakkeopgaverpdaghold"
+      "JobPostingId": "5383165lagermedarbejderetilpakkeopgaverpdaghold",
+      "Language": "dk/en"
     },
     {
       "RunId": "FakeRunId",
@@ -447,7 +462,8 @@
       "Id": 5346333,
       "WorkPlaceCityWithoutZone": "Horsens",
       "JobPostingNumber": 16,
-      "JobPostingId": "5346333motivatedemployeeforemptyingcontainers"
+      "JobPostingId": "5346333motivatedemployeeforemptyingcontainers",
+      "Language": "dk/en"
     },
     {
       "RunId": "FakeRunId",
@@ -474,7 +490,8 @@
       "Id": 5376709,
       "WorkPlaceCityWithoutZone": "Kolding",
       "JobPostingNumber": 17,
-      "JobPostingId": "5376709medarbejderetilsommervikariaterp"
+      "JobPostingId": "5376709medarbejderetilsommervikariaterp",
+      "Language": "dk/en"
     },
     {
       "RunId": "FakeRunId",
@@ -501,7 +518,8 @@
       "Id": 5382809,
       "WorkPlaceCityWithoutZone": "Frederiksberg",
       "JobPostingNumber": 18,
-      "JobPostingId": "5382809tenuretrackassistantprofessorshipsin"
+      "JobPostingId": "5382809tenuretrackassistantprofessorshipsin",
+      "Language": "en"
     },
     {
       "RunId": "FakeRunId",
@@ -528,7 +546,8 @@
       "Id": 5382781,
       "WorkPlaceCityWithoutZone": "Horsens",
       "JobPostingNumber": 19,
-      "JobPostingId": "5382781warehouseemployee"
+      "JobPostingId": "5382781warehouseemployee",
+      "Language": "en"
     },
     {
       "RunId": "FakeRunId",
@@ -555,7 +574,8 @@
       "Id": 5382486,
       "WorkPlaceCityWithoutZone": "Frederiksberg",
       "JobPostingNumber": 20,
-      "JobPostingId": "5382486postdocondigitalplatformsand"
+      "JobPostingId": "5382486postdocondigitalplatformsand",
+      "Language": "en"
     },
     {
       "RunId": "FakeRunId",
@@ -582,7 +602,8 @@
       "Id": 5382440,
       "WorkPlaceCityWithoutZone": "København",
       "JobPostingNumber": 1,
-      "JobPostingId": "5382440assistantorassociateprofessorshipin"
+      "JobPostingId": "5382440assistantorassociateprofessorshipin",
+      "Language": "en"
     },
     {
       "RunId": "FakeRunId",
@@ -609,7 +630,8 @@
       "Id": 5316797,
       "WorkPlaceCityWithoutZone": "",
       "JobPostingNumber": 2,
-      "JobPostingId": "5316797carpenter"
+      "JobPostingId": "5316797carpenter",
+      "Language": null
     },
     {
       "RunId": "FakeRunId",
@@ -636,7 +658,8 @@
       "Id": 5382367,
       "WorkPlaceCityWithoutZone": "Viby",
       "JobPostingNumber": 3,
-      "JobPostingId": "5382367solutionarchitect"
+      "JobPostingId": "5382367solutionarchitect",
+      "Language": null
     },
     {
       "RunId": "FakeRunId",
@@ -663,7 +686,8 @@
       "Id": 5382358,
       "WorkPlaceCityWithoutZone": "Kongens Lyngby",
       "JobPostingNumber": 4,
-      "JobPostingId": "5382358projectofficerimpactassessmentand"
+      "JobPostingId": "5382358projectofficerimpactassessmentand",
+      "Language": "en"
     },
     {
       "RunId": "FakeRunId",
@@ -690,7 +714,8 @@
       "Id": 5382226,
       "WorkPlaceCityWithoutZone": "Middelfart",
       "JobPostingNumber": 5,
-      "JobPostingId": "5382226warehouseworkers"
+      "JobPostingId": "5382226warehouseworkers",
+      "Language": "dk/en"
     },
     {
       "RunId": "FakeRunId",
@@ -717,7 +742,8 @@
       "Id": 5339477,
       "WorkPlaceCityWithoutZone": "København",
       "JobPostingNumber": 6,
-      "JobPostingId": "5339477cleaninghousekeeping"
+      "JobPostingId": "5339477cleaninghousekeeping",
+      "Language": "en"
     },
     {
       "RunId": "FakeRunId",
@@ -744,7 +770,8 @@
       "Id": 5345782,
       "WorkPlaceCityWithoutZone": "Viby",
       "JobPostingNumber": 7,
-      "JobPostingId": "5345782bbsalesspecialist"
+      "JobPostingId": "5345782bbsalesspecialist",
+      "Language": "en"
     },
     {
       "RunId": "FakeRunId",
@@ -771,7 +798,8 @@
       "Id": 5366564,
       "WorkPlaceCityWithoutZone": "Horsens",
       "JobPostingNumber": 8,
-      "JobPostingId": "5366564warwhoseworkerwithinexperince"
+      "JobPostingId": "5366564warwhoseworkerwithinexperince",
+      "Language": "dk/en"
     },
     {
       "RunId": "FakeRunId",
@@ -798,7 +826,8 @@
       "Id": 5363343,
       "WorkPlaceCityWithoutZone": "København",
       "JobPostingNumber": 9,
-      "JobPostingId": "5363343tenuretrackassistantprofessorin"
+      "JobPostingId": "5363343tenuretrackassistantprofessorin",
+      "Language": "en"
     },
     {
       "RunId": "FakeRunId",
@@ -825,7 +854,8 @@
       "Id": 8251052,
       "WorkPlaceCityWithoutZone": "Bagsværd",
       "JobPostingNumber": 10,
-      "JobPostingId": "8251052receptionist"
+      "JobPostingId": "8251052receptionist",
+      "Language": "dk/en"
     },
     {
       "RunId": "FakeRunId",
@@ -852,7 +882,8 @@
       "Id": 8251051,
       "WorkPlaceCityWithoutZone": "Bagsværd",
       "JobPostingNumber": 11,
-      "JobPostingId": "8251051securityofficer"
+      "JobPostingId": "8251051securityofficer",
+      "Language": "en"
     },
     {
       "RunId": "FakeRunId",
@@ -879,7 +910,8 @@
       "Id": 8251042,
       "WorkPlaceCityWithoutZone": "",
       "JobPostingNumber": 12,
-      "JobPostingId": "8251042phd"
+      "JobPostingId": "8251042phd",
+      "Language": "en"
     },
     {
       "RunId": "FakeRunId",
@@ -906,7 +938,8 @@
       "Id": 8251041,
       "WorkPlaceCityWithoutZone": "Ballerup",
       "JobPostingNumber": 13,
-      "JobPostingId": "8251041specialist"
+      "JobPostingId": "8251041specialist",
+      "Language": "en"
     },
     {
       "RunId": "FakeRunId",
@@ -933,7 +966,8 @@
       "Id": 8251039,
       "WorkPlaceCityWithoutZone": "Aalborg",
       "JobPostingNumber": 14,
-      "JobPostingId": "8251039supportengineer"
+      "JobPostingId": "8251039supportengineer",
+      "Language": "en"
     },
     {
       "RunId": "FakeRunId",
@@ -960,7 +994,8 @@
       "Id": 8251038,
       "WorkPlaceCityWithoutZone": "",
       "JobPostingNumber": 15,
-      "JobPostingId": "8251038softwaredeveloper"
+      "JobPostingId": "8251038softwaredeveloper",
+      "Language": "en"
     },
     {
       "RunId": "FakeRunId",
@@ -987,7 +1022,8 @@
       "Id": 8251036,
       "WorkPlaceCityWithoutZone": "Aalborg",
       "JobPostingNumber": 16,
-      "JobPostingId": "8251036phd"
+      "JobPostingId": "8251036phd",
+      "Language": "en"
     },
     {
       "RunId": "FakeRunId",
@@ -1014,7 +1050,8 @@
       "Id": 8251035,
       "WorkPlaceCityWithoutZone": "",
       "JobPostingNumber": 17,
-      "JobPostingId": "8251035leader"
+      "JobPostingId": "8251035leader",
+      "Language": "en"
     },
     {
       "RunId": "FakeRunId",
@@ -1041,7 +1078,8 @@
       "Id": 8251034,
       "WorkPlaceCityWithoutZone": "",
       "JobPostingNumber": 18,
-      "JobPostingId": "8251034productowner"
+      "JobPostingId": "8251034productowner",
+      "Language": "en"
     },
     {
       "RunId": "FakeRunId",
@@ -1068,7 +1106,8 @@
       "Id": 8251030,
       "WorkPlaceCityWithoutZone": "Humlebæk",
       "JobPostingNumber": 19,
-      "JobPostingId": "8251030seniormanager"
+      "JobPostingId": "8251030seniormanager",
+      "Language": "en"
     },
     {
       "RunId": "FakeRunId",
@@ -1095,7 +1134,8 @@
       "Id": 8251029,
       "WorkPlaceCityWithoutZone": "Ballerup",
       "JobPostingNumber": 20,
-      "JobPostingId": "8251029businessintelligenceanalyst"
+      "JobPostingId": "8251029businessintelligenceanalyst",
+      "Language": "en"
     }
   ],
   "JobPostingsExtended": [
@@ -1125,7 +1165,8 @@
         "Id": 5332213,
         "WorkPlaceCityWithoutZone": "København",
         "JobPostingNumber": 1,
-        "JobPostingId": "5332213linuxspecialist"
+        "JobPostingId": "5332213linuxspecialist",
+        "Language": "en"
       },
       "Response": "This item has been exluded from the serialization.",
       "HiringOrgDescription": null,
@@ -1170,7 +1211,8 @@
         "Id": 5365786,
         "WorkPlaceCityWithoutZone": "Skanderborg",
         "JobPostingNumber": 2,
-        "JobPostingId": "5365786motivatedforkliftdriversfortemporary"
+        "JobPostingId": "5365786motivatedforkliftdriversfortemporary",
+        "Language": "dk/en"
       },
       "Response": "This item has been exluded from the serialization.",
       "HiringOrgDescription": null,
@@ -1221,7 +1263,8 @@
         "Id": 5372675,
         "WorkPlaceCityWithoutZone": "Kolding",
         "JobPostingNumber": 3,
-        "JobPostingId": "5372675selvstndigetruckfreretil"
+        "JobPostingId": "5372675selvstndigetruckfreretil",
+        "Language": "dk/en"
       },
       "Response": "This item has been exluded from the serialization.",
       "HiringOrgDescription": null,
@@ -1282,7 +1325,8 @@
         "Id": 5379659,
         "WorkPlaceCityWithoutZone": "Skanderborg",
         "JobPostingNumber": 4,
-        "JobPostingId": "5379659erfarenogselvstndigtruckf"
+        "JobPostingId": "5379659erfarenogselvstndigtruckf",
+        "Language": "dk/en"
       },
       "Response": "This item has been exluded from the serialization.",
       "HiringOrgDescription": null,
@@ -1334,7 +1378,8 @@
         "Id": 5376524,
         "WorkPlaceCityWithoutZone": "Vejers Strand",
         "JobPostingNumber": 5,
-        "JobPostingId": "5376524visgerrengringsassistenter"
+        "JobPostingId": "5376524visgerrengringsassistenter",
+        "Language": "dk/en"
       },
       "Response": "This item has been exluded from the serialization.",
       "HiringOrgDescription": null,
@@ -1394,7 +1439,8 @@
         "Id": 5303321,
         "WorkPlaceCityWithoutZone": "Vejen",
         "JobPostingNumber": 6,
-        "JobPostingId": "5303321motivatedemployeesforwarehousework"
+        "JobPostingId": "5303321motivatedemployeesforwarehousework",
+        "Language": "en"
       },
       "Response": "This item has been exluded from the serialization.",
       "HiringOrgDescription": null,
@@ -1445,7 +1491,8 @@
         "Id": 5290988,
         "WorkPlaceCityWithoutZone": "Kolding",
         "JobPostingNumber": 7,
-        "JobPostingId": "5290988motivatedemployeesforwarehousework"
+        "JobPostingId": "5290988motivatedemployeesforwarehousework",
+        "Language": "en"
       },
       "Response": "This item has been exluded from the serialization.",
       "HiringOrgDescription": null,
@@ -1497,7 +1544,8 @@
         "Id": 5383229,
         "WorkPlaceCityWithoutZone": "København",
         "JobPostingNumber": 8,
-        "JobPostingId": "5383229vicepresidentofproductmarketing"
+        "JobPostingId": "5383229vicepresidentofproductmarketing",
+        "Language": "en"
       },
       "Response": "This item has been exluded from the serialization.",
       "HiringOrgDescription": null,
@@ -1548,7 +1596,8 @@
         "Id": 5331002,
         "WorkPlaceCityWithoutZone": "Horsens",
         "JobPostingNumber": 9,
-        "JobPostingId": "5331002friskeogoplagtemedarbejderetil"
+        "JobPostingId": "5331002friskeogoplagtemedarbejderetil",
+        "Language": "dk/en"
       },
       "Response": "This item has been exluded from the serialization.",
       "HiringOrgDescription": null,
@@ -1610,7 +1659,8 @@
         "Id": 5383212,
         "WorkPlaceCityWithoutZone": "Tjele",
         "JobPostingNumber": 10,
-        "JobPostingId": "5383212tenuretrackassistantprofessorin"
+        "JobPostingId": "5383212tenuretrackassistantprofessorin",
+        "Language": "en"
       },
       "Response": "This item has been exluded from the serialization.",
       "HiringOrgDescription": null,
@@ -1664,7 +1714,8 @@
         "Id": 5361275,
         "WorkPlaceCityWithoutZone": "Hedensted",
         "JobPostingNumber": 11,
-        "JobPostingId": "5361275committedemployeesforassemblingdisplays"
+        "JobPostingId": "5361275committedemployeesforassemblingdisplays",
+        "Language": "dk/en"
       },
       "Response": "This item has been exluded from the serialization.",
       "HiringOrgDescription": null,
@@ -1715,7 +1766,8 @@
         "Id": 5359775,
         "WorkPlaceCityWithoutZone": "Horsens",
         "JobPostingNumber": 12,
-        "JobPostingId": "5359775wearelookingforforklift"
+        "JobPostingId": "5359775wearelookingforforklift",
+        "Language": "dk/en"
       },
       "Response": "This item has been exluded from the serialization.",
       "HiringOrgDescription": null,
@@ -1794,7 +1846,8 @@
         "Id": 5383201,
         "WorkPlaceCityWithoutZone": "Aarhus",
         "JobPostingNumber": 13,
-        "JobPostingId": "5383201laboratorytechnicianforplantanalysis"
+        "JobPostingId": "5383201laboratorytechnicianforplantanalysis",
+        "Language": "en"
       },
       "Response": "This item has been exluded from the serialization.",
       "HiringOrgDescription": null,
@@ -1843,7 +1896,8 @@
         "Id": 5383195,
         "WorkPlaceCityWithoutZone": "Aarhus",
         "JobPostingNumber": 14,
-        "JobPostingId": "5383195laboratorytechnicianforfoodprocessing"
+        "JobPostingId": "5383195laboratorytechnicianforfoodprocessing",
+        "Language": "en"
       },
       "Response": "This item has been exluded from the serialization.",
       "HiringOrgDescription": null,
@@ -1892,7 +1946,8 @@
         "Id": 5383165,
         "WorkPlaceCityWithoutZone": "Horsens",
         "JobPostingNumber": 15,
-        "JobPostingId": "5383165lagermedarbejderetilpakkeopgaverpdaghold"
+        "JobPostingId": "5383165lagermedarbejderetilpakkeopgaverpdaghold",
+        "Language": "dk/en"
       },
       "Response": "This item has been exluded from the serialization.",
       "HiringOrgDescription": null,
@@ -1933,7 +1988,8 @@
         "Id": 5346333,
         "WorkPlaceCityWithoutZone": "Horsens",
         "JobPostingNumber": 16,
-        "JobPostingId": "5346333motivatedemployeeforemptyingcontainers"
+        "JobPostingId": "5346333motivatedemployeeforemptyingcontainers",
+        "Language": "dk/en"
       },
       "Response": "This item has been exluded from the serialization.",
       "HiringOrgDescription": null,
@@ -1984,7 +2040,8 @@
         "Id": 5376709,
         "WorkPlaceCityWithoutZone": "Kolding",
         "JobPostingNumber": 17,
-        "JobPostingId": "5376709medarbejderetilsommervikariaterp"
+        "JobPostingId": "5376709medarbejderetilsommervikariaterp",
+        "Language": "dk/en"
       },
       "Response": "This item has been exluded from the serialization.",
       "HiringOrgDescription": null,
@@ -2046,7 +2103,8 @@
         "Id": 5382809,
         "WorkPlaceCityWithoutZone": "Frederiksberg",
         "JobPostingNumber": 18,
-        "JobPostingId": "5382809tenuretrackassistantprofessorshipsin"
+        "JobPostingId": "5382809tenuretrackassistantprofessorshipsin",
+        "Language": "en"
       },
       "Response": "This item has been exluded from the serialization.",
       "HiringOrgDescription": null,
@@ -2101,7 +2159,8 @@
         "Id": 5382781,
         "WorkPlaceCityWithoutZone": "Horsens",
         "JobPostingNumber": 19,
-        "JobPostingId": "5382781warehouseemployee"
+        "JobPostingId": "5382781warehouseemployee",
+        "Language": "en"
       },
       "Response": "This item has been exluded from the serialization.",
       "HiringOrgDescription": "Randstad er en del af den internationale Randstad Group, der er verdens andenstørste udbyder af HR-løsninger. Hver dag formidler Randstad arbejde til mere end 500.000 mennesker i hele verden. I Danmark er vi blandt de førende vikar- og rekrutteringsbureauer med fire afdelinger fordelt over hele landet. En position vi har opnået, fordi vi som eksperter på arbejdsmarkedet formår at matche kvalificerede kandidater med de rette jobmuligheder.",
@@ -2162,7 +2221,8 @@
         "Id": 5382486,
         "WorkPlaceCityWithoutZone": "Frederiksberg",
         "JobPostingNumber": 20,
-        "JobPostingId": "5382486postdocondigitalplatformsand"
+        "JobPostingId": "5382486postdocondigitalplatformsand",
+        "Language": "en"
       },
       "Response": "This item has been exluded from the serialization.",
       "HiringOrgDescription": null,
@@ -2221,7 +2281,8 @@
         "Id": 5382440,
         "WorkPlaceCityWithoutZone": "København",
         "JobPostingNumber": 1,
-        "JobPostingId": "5382440assistantorassociateprofessorshipin"
+        "JobPostingId": "5382440assistantorassociateprofessorshipin",
+        "Language": "en"
       },
       "Response": "This item has been exluded from the serialization.",
       "HiringOrgDescription": null,
@@ -2298,7 +2359,8 @@
         "Id": 5316797,
         "WorkPlaceCityWithoutZone": "",
         "JobPostingNumber": 2,
-        "JobPostingId": "5316797carpenter"
+        "JobPostingId": "5316797carpenter",
+        "Language": null
       },
       "Response": "This item has been exluded from the serialization.",
       "HiringOrgDescription": null,
@@ -2339,7 +2401,8 @@
         "Id": 5382367,
         "WorkPlaceCityWithoutZone": "Viby",
         "JobPostingNumber": 3,
-        "JobPostingId": "5382367solutionarchitect"
+        "JobPostingId": "5382367solutionarchitect",
+        "Language": null
       },
       "Response": "This item has been exluded from the serialization.",
       "HiringOrgDescription": null,
@@ -2398,7 +2461,8 @@
         "Id": 5382358,
         "WorkPlaceCityWithoutZone": "Kongens Lyngby",
         "JobPostingNumber": 4,
-        "JobPostingId": "5382358projectofficerimpactassessmentand"
+        "JobPostingId": "5382358projectofficerimpactassessmentand",
+        "Language": "en"
       },
       "Response": "This item has been exluded from the serialization.",
       "HiringOrgDescription": null,
@@ -2462,7 +2526,8 @@
         "Id": 5382226,
         "WorkPlaceCityWithoutZone": "Middelfart",
         "JobPostingNumber": 5,
-        "JobPostingId": "5382226warehouseworkers"
+        "JobPostingId": "5382226warehouseworkers",
+        "Language": "dk/en"
       },
       "Response": "This item has been exluded from the serialization.",
       "HiringOrgDescription": "Randstad er en del af den internationale Randstad Group, der er verdens andenstørste udbyder af HR-løsninger. Hver dag formidler Randstad arbejde til mere end 500.000 mennesker i hele verden. I Danmark er vi blandt de førende vikar- og rekrutteringsbureauer med fire afdelinger fordelt over hele landet. En position vi har opnået, fordi vi som eksperter på arbejdsmarkedet formår at matche kvalificerede kandidater med de rette jobmuligheder.",
@@ -2507,7 +2572,8 @@
         "Id": 5339477,
         "WorkPlaceCityWithoutZone": "København",
         "JobPostingNumber": 6,
-        "JobPostingId": "5339477cleaninghousekeeping"
+        "JobPostingId": "5339477cleaninghousekeeping",
+        "Language": "en"
       },
       "Response": "This item has been exluded from the serialization.",
       "HiringOrgDescription": null,
@@ -2560,7 +2626,8 @@
         "Id": 5345782,
         "WorkPlaceCityWithoutZone": "Viby",
         "JobPostingNumber": 7,
-        "JobPostingId": "5345782bbsalesspecialist"
+        "JobPostingId": "5345782bbsalesspecialist",
+        "Language": "en"
       },
       "Response": "This item has been exluded from the serialization.",
       "HiringOrgDescription": null,
@@ -2613,7 +2680,8 @@
         "Id": 5366564,
         "WorkPlaceCityWithoutZone": "Horsens",
         "JobPostingNumber": 8,
-        "JobPostingId": "5366564warwhoseworkerwithinexperince"
+        "JobPostingId": "5366564warwhoseworkerwithinexperince",
+        "Language": "dk/en"
       },
       "Response": "This item has been exluded from the serialization.",
       "HiringOrgDescription": null,
@@ -2654,7 +2722,8 @@
         "Id": 5363343,
         "WorkPlaceCityWithoutZone": "København",
         "JobPostingNumber": 9,
-        "JobPostingId": "5363343tenuretrackassistantprofessorin"
+        "JobPostingId": "5363343tenuretrackassistantprofessorin",
+        "Language": "en"
       },
       "Response": "This item has been exluded from the serialization.",
       "HiringOrgDescription": null,
@@ -2710,7 +2779,8 @@
         "Id": 8251052,
         "WorkPlaceCityWithoutZone": "Bagsværd",
         "JobPostingNumber": 10,
-        "JobPostingId": "8251052receptionist"
+        "JobPostingId": "8251052receptionist",
+        "Language": "dk/en"
       },
       "Response": "This item has been exluded from the serialization.",
       "HiringOrgDescription": null,
@@ -2758,7 +2828,8 @@
         "Id": 8251051,
         "WorkPlaceCityWithoutZone": "Bagsværd",
         "JobPostingNumber": 11,
-        "JobPostingId": "8251051securityofficer"
+        "JobPostingId": "8251051securityofficer",
+        "Language": "en"
       },
       "Response": "This item has been exluded from the serialization.",
       "HiringOrgDescription": null,
@@ -2810,7 +2881,8 @@
         "Id": 8251042,
         "WorkPlaceCityWithoutZone": "",
         "JobPostingNumber": 12,
-        "JobPostingId": "8251042phd"
+        "JobPostingId": "8251042phd",
+        "Language": "en"
       },
       "Response": "This item has been exluded from the serialization.",
       "HiringOrgDescription": null,
@@ -2863,7 +2935,8 @@
         "Id": 8251041,
         "WorkPlaceCityWithoutZone": "Ballerup",
         "JobPostingNumber": 13,
-        "JobPostingId": "8251041specialist"
+        "JobPostingId": "8251041specialist",
+        "Language": "en"
       },
       "Response": "This item has been exluded from the serialization.",
       "HiringOrgDescription": null,
@@ -2912,7 +2985,8 @@
         "Id": 8251039,
         "WorkPlaceCityWithoutZone": "Aalborg",
         "JobPostingNumber": 14,
-        "JobPostingId": "8251039supportengineer"
+        "JobPostingId": "8251039supportengineer",
+        "Language": "en"
       },
       "Response": "This item has been exluded from the serialization.",
       "HiringOrgDescription": null,
@@ -2953,7 +3027,8 @@
         "Id": 8251038,
         "WorkPlaceCityWithoutZone": "",
         "JobPostingNumber": 15,
-        "JobPostingId": "8251038softwaredeveloper"
+        "JobPostingId": "8251038softwaredeveloper",
+        "Language": "en"
       },
       "Response": "This item has been exluded from the serialization.",
       "HiringOrgDescription": null,
@@ -3002,7 +3077,8 @@
         "Id": 8251036,
         "WorkPlaceCityWithoutZone": "Aalborg",
         "JobPostingNumber": 16,
-        "JobPostingId": "8251036phd"
+        "JobPostingId": "8251036phd",
+        "Language": "en"
       },
       "Response": "This item has been exluded from the serialization.",
       "HiringOrgDescription": null,
@@ -3079,7 +3155,8 @@
         "Id": 8251035,
         "WorkPlaceCityWithoutZone": "",
         "JobPostingNumber": 17,
-        "JobPostingId": "8251035leader"
+        "JobPostingId": "8251035leader",
+        "Language": "en"
       },
       "Response": "This item has been exluded from the serialization.",
       "HiringOrgDescription": null,
@@ -3128,7 +3205,8 @@
         "Id": 8251034,
         "WorkPlaceCityWithoutZone": "",
         "JobPostingNumber": 18,
-        "JobPostingId": "8251034productowner"
+        "JobPostingId": "8251034productowner",
+        "Language": "en"
       },
       "Response": "This item has been exluded from the serialization.",
       "HiringOrgDescription": null,
@@ -3177,7 +3255,8 @@
         "Id": 8251030,
         "WorkPlaceCityWithoutZone": "Humlebæk",
         "JobPostingNumber": 19,
-        "JobPostingId": "8251030seniormanager"
+        "JobPostingId": "8251030seniormanager",
+        "Language": "en"
       },
       "Response": "This item has been exluded from the serialization.",
       "HiringOrgDescription": null,
@@ -3228,7 +3307,8 @@
         "Id": 8251029,
         "WorkPlaceCityWithoutZone": "Ballerup",
         "JobPostingNumber": 20,
-        "JobPostingId": "8251029businessintelligenceanalyst"
+        "JobPostingId": "8251029businessintelligenceanalyst",
+        "Language": "en"
       },
       "Response": "This item has been exluded from the serialization.",
       "HiringOrgDescription": null,

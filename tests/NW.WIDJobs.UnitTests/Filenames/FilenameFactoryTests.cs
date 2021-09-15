@@ -167,7 +167,7 @@ namespace NW.WIDJobs.UnitTests
             new TestCaseData(
                     new Func<string>(
                             () => new FilenameFactory()
-                                        .CreateForBulletPointsJson(
+                                        .CreateForBulletPointTypesJson(
                                             ObjectMother.FileNameFactory_FakeFilePath,
                                             ObjectMother.FileNameFactory_FakeNow)
                         ),
@@ -181,7 +181,7 @@ namespace NW.WIDJobs.UnitTests
             new TestCaseData(
                 new TestDelegate(
                     () => new FilenameFactory()
-                                .CreateForBulletPointsJson(
+                                .CreateForBulletPointTypesJson(
                                     null,
                                     ObjectMother.FileNameFactory_FakeNow)
                 ),

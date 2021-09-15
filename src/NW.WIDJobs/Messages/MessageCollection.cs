@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using NW.WIDJobs.BulletPoints;
 using NW.WIDJobs.Explorations;
 using NW.WIDJobs.Files;
 using NW.WIDJobs.Formatting;
@@ -9,6 +8,8 @@ using NW.WIDJobs.JobPages;
 using NW.WIDJobs.JobPostings;
 using NW.WIDJobs.JobPostingsExtended;
 using NW.WIDJobs.Metrics;
+using NW.WIDJobs.Database;
+using NW.NGramTextClassification;
 
 namespace NW.WIDJobs.Messages
 {
@@ -74,8 +75,8 @@ namespace NW.WIDJobs.Messages
             = (jobPostingId) => $"JobPostingId:'{jobPostingId}'.";
         public static Func<Stages, string> WIDExplorer_StageIs
             = (stage) => $"Stage:'{stage}'.";
-        public static Func<int, string> WIDExplorer_BulletPointsAre
-            = (bulletPoints) => $"BulletPoints:'{bulletPoints}'.";
+        public static Func<int, string> WIDExplorer_LabeledExamplesAre
+            = (labeledExamples) => $"LabeledExamples:'{labeledExamples}'.";
         public static Func<Stages, string> WIDExplorer_ExecutionStageStarted
             = (stage) => $"The execution of the '{stage}' has been started.";
         public static Func<ushort, string> WIDExplorer_JobPageSuccessfullyRetrieved
@@ -145,10 +146,10 @@ namespace NW.WIDJobs.Messages
             = $"The provided {nameof(Exploration)} object has been successfully saved to a JSON file.";
         public static Func<IFileInfoAdapter, string> WIDExplorer_JSONFileIs
             = (jsonFile) => $"JSONFile: '{jsonFile.FullName}'.";
-        public static string WIDExplorer_SavingBulletPointsToJsonFile
-            = $"Saving the provided {nameof(BulletPoint)} objects to a JSON file...";
-        public static string WIDExplorer_BulletPointsSavedToJsonFile
-            = $"The provided {nameof(BulletPoint)} objects have been successfully saved to a JSON file.";
+        public static string WIDExplorer_SavingLabeledExamplesToJsonFile
+            = $"Saving the provided {nameof(LabeledExample)} objects to a JSON file...";
+        public static string WIDExplorer_LabeledExamplesSavedToJsonFile
+            = $"The provided {nameof(LabeledExample)} objects have been successfully saved to a JSON file.";
 
         public static string WIDExplorer_SavingMetricCollectionToJsonFile
             = $"Saving the provided {nameof(MetricCollection)} object to a JSON file...";
@@ -180,20 +181,20 @@ namespace NW.WIDJobs.Messages
         public static string WIDExplorer_ConvertedExplorationToJsonString
             = $"The provided {nameof(Exploration)} object has been successfully converted to a JSON string.";
 
-        public static string WIDExplorer_ConvertingBulletPointsToJsonString
-            = $"Converting the provided {nameof(BulletPoint)} objects to a JSON string...";
-        public static string WIDExplorer_ConvertedBulletPointsToJsonString
-            = $"The provided {nameof(BulletPoint)} objects have been successfully converted to a JSON string.";
+        public static string WIDExplorer_ConvertingLabeledExamplesToJsonString
+            = $"Converting the provided {nameof(LabeledExample)} objects to a JSON string...";
+        public static string WIDExplorer_ConvertedLabeledExamplesToJsonString
+            = $"The provided {nameof(LabeledExample)} objects have been successfully converted to a JSON string.";
 
         public static string WIDExplorer_ConvertingMetricCollectionToJsonString
             = $"Converting the provided {nameof(MetricCollection)} object to a JSON string...";
         public static string WIDExplorer_ConvertedMetricsCollectionToJsonString
             = $"The provided {nameof(MetricCollection)} object has been successfully converted to a JSON string.";
 
-        public static string WIDExplorer_RetrievingPreLabeledBulletPoints
-            = $"Retrieving pre-labeled {nameof(BulletPoint)} objects...";
-        public static Func<int, string> WIDExplorer_PreLabeledBulletPointsRetrieved
-            = (bulletPoints) => $"'{bulletPoints}' {nameof(BulletPoint)} objects has been successfully retrieved.";
+        public static string WIDExplorer_RetrievingPreLabeledExamplesForBulletPointType
+            = $"Retrieving {nameof(LabeledExample)} objects for {nameof(BulletPointEntity.Type)}...";
+        public static Func<int, string> WIDExplorer_PreLabeledExamplesForBulletPointTypeRetrieved
+            = (labeledExamples) => $"'{labeledExamples}' {nameof(LabeledExample)} objects for {nameof(BulletPointEntity.Type)} have been successfully retrieved.";
 
         #endregion
 
@@ -210,6 +211,13 @@ namespace NW.WIDJobs.Messages
 
         public static Func<string, string> Formatter_NoFormattingStrategyAvailableFor
             = (value) => $"No formatting strategy available for ('{value}').";
+
+        #endregion
+
+        #region ClassificatioNmanager
+
+        public static Func<string, string> ClassificationManager_TextCantBeNgrammed
+            = (text) => $"'{text}' can't be ngrammed, therefore a {nameof(LabeledExample)} object can't be created out of it.";
 
         #endregion
 
@@ -247,5 +255,5 @@ namespace NW.WIDJobs.Messages
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 05.09.2021
+    Last Update: 15.09.2021
 */

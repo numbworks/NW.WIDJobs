@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using NW.WIDJobs.Explorations;
-using NW.WIDJobs.BulletPoints;
 
 namespace NW.WIDJobs.Metrics
 {
@@ -24,7 +23,7 @@ namespace NW.WIDJobs.Metrics
         Dictionary<string, string> TryConvertToPercentages(Dictionary<string, uint> dict);
 
         /// <summary>
-        /// Returns the total amount of <see cref="BulletPoint"/> objects.
+        /// Returns the total amount of bulletpoints.
         /// <para>Returns null when <paramref name="exploration"/> or <see cref="Exploration.JobPostingsExtended"/> are null.</para>
         /// </summary>
         uint? TrySumBulletPoints(Exploration exploration);
@@ -34,5 +33,5 @@ namespace NW.WIDJobs.Metrics
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 05.09.2021
+    Last Update: 14.09.2021
 */

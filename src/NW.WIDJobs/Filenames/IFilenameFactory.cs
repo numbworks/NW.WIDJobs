@@ -43,10 +43,10 @@ namespace NW.WIDJobs.Filenames
         string CreateForExplorationJson(string filePath, DateTime now);
 
         /// <summary>
-        /// Returns a dated filename based on <paramref name="filePath"/> and <see cref="FilenameFactory.DefaultBulletPointsToken"/>.
+        /// Returns a dated filename based on <paramref name="filePath"/> and <see cref="FilenameFactory.DefaultBulletPointTypesToken"/>.
         /// </summary>
         /// <exception cref="ArgumentNullException"/>
-        string CreateForBulletPointsJson(string filePath, DateTime now);
+        string CreateForBulletPointTypesJson(string filePath, DateTime now);
 
     }
 }

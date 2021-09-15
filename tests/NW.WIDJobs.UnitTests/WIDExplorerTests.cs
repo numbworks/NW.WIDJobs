@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Text.Encodings.Web;
 using NUnit.Framework;
 using NW.WIDJobs.AsciiBanner;
-using NW.WIDJobs.BulletPoints;
 using NW.WIDJobs.Database;
 using NW.WIDJobs.Explorations;
 using NW.WIDJobs.Filenames;
@@ -19,6 +18,8 @@ using NW.WIDJobs.Runs;
 using NW.WIDJobs.XPath;
 using NW.WIDJobs.Headers;
 using NW.WIDJobs.Formatting;
+using NW.WIDJobs.Classification;
+using NW.NGramTextClassification;
 
 namespace NW.WIDJobs.UnitTests
 {
@@ -71,7 +72,7 @@ namespace NW.WIDJobs.UnitTests
                                 Stages.Stage1_OnlyMetrics
                         )),
                 typeof(ArgumentException),
-                MessageCollection.Validator_VariableCantBeLessThanOne.Invoke("finalPageNumber")
+                Messages.MessageCollection.Validator_VariableCantBeLessThanOne.Invoke("finalPageNumber")
             ).SetArgDisplayNames($"{nameof(widExplorerExceptionTestCases)}_02"),
 
             new TestCaseData(
@@ -130,7 +131,7 @@ namespace NW.WIDJobs.UnitTests
                         () => new WIDExplorer().LoadJobPostingsFromJsonFile(ObjectMother.FileManager_FileInfoAdapterDoesntExist)
                     ),
                 typeof(ArgumentException),
-                MessageCollection.Validator_ProvidedPathDoesntExist.Invoke(ObjectMother.FileManager_FileInfoAdapterDoesntExist)
+                Messages.MessageCollection.Validator_ProvidedPathDoesntExist.Invoke(ObjectMother.FileManager_FileInfoAdapterDoesntExist)
             ).SetArgDisplayNames($"{nameof(loadJobPostingsFromJsonExceptionTestCases)}_02"),           
 
             new TestCaseData(
@@ -158,7 +159,7 @@ namespace NW.WIDJobs.UnitTests
                         () => new WIDExplorer().LoadExplorationFromJsonFile(ObjectMother.FileManager_FileInfoAdapterDoesntExist)
                     ),
                 typeof(ArgumentException),
-                MessageCollection.Validator_ProvidedPathDoesntExist.Invoke(ObjectMother.FileManager_FileInfoAdapterDoesntExist)
+                Messages.MessageCollection.Validator_ProvidedPathDoesntExist.Invoke(ObjectMother.FileManager_FileInfoAdapterDoesntExist)
             ).SetArgDisplayNames($"{nameof(loadExplorationFromJsonExceptionTestCases)}_02"),
 
             new TestCaseData(
@@ -263,18 +264,18 @@ namespace NW.WIDJobs.UnitTests
                 new TestDelegate(
                     () => new WIDExplorer()
                                 .SaveToJsonFile(
-                                    (List<BulletPoint>)null,
+                                    (List<LabeledExample>)null,
                                     null
                         )),
                 typeof(ArgumentNullException),
-                new ArgumentNullException("bulletPoints").Message
+                new ArgumentNullException("labeledExamples").Message
             ).SetArgDisplayNames($"{nameof(saveToJsonFileExceptionTestCases)}_05"),
 
             new TestCaseData(
                 new TestDelegate(
                     () => new WIDExplorer()
                                 .SaveToJsonFile(
-                                    new BulletPointManager().GetPreLabeledExamples(),
+                                    new ClassificationManager().GetPreLabeledExamplesForBulletPointType(),
                                     null
                         )),
                 typeof(ArgumentNullException),
@@ -301,9 +302,9 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new WIDExplorer().ConvertToJson((List<BulletPoint>)null)),
+                    () => new WIDExplorer().ConvertToJson((List<LabeledExample>)null)),
                 typeof(ArgumentNullException),
-                new ArgumentNullException("bulletPoints").Message
+                new ArgumentNullException("labeledExamples").Message
             ).SetArgDisplayNames($"{nameof(convertToJsonExceptionTestCases)}_03")
 
         };
@@ -402,7 +403,7 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager(),
+                    classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
                     formatter: new Formatter()
                   );
@@ -424,16 +425,16 @@ namespace NW.WIDJobs.UnitTests
         }
 
         [Test]
-        public void GetPreLabeledBulletPoints_ShouldReturnExpectedBulletPointsObjectAndLogExpectedMessages_WhenInvoked()
+        public void GetPreLabeledExamplesForBulletPointType_ShouldReturnExpectedLabeledExamplesObjectAndLogExpectedMessages_WhenInvoked()
         {
 
             // Arrange
-            List<BulletPoint> expected = new BulletPointManager().GetPreLabeledExamples();
+            List<LabeledExample> expected = new ClassificationManager().GetPreLabeledExamplesForBulletPointType();
             List<string> expectedLogMessages = new List<string>()
             {
 
-                MessageCollection.WIDExplorer_RetrievingPreLabeledBulletPoints,
-                MessageCollection.WIDExplorer_PreLabeledBulletPointsRetrieved.Invoke(expected.Count)
+                Messages.MessageCollection.WIDExplorer_RetrievingPreLabeledExamplesForBulletPointType,
+                Messages.MessageCollection.WIDExplorer_PreLabeledExamplesForBulletPointTypeRetrieved.Invoke(expected.Count)
 
             };
 
@@ -458,14 +459,14 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager(),
+                    classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
                     formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
             // Act
-            List<BulletPoint> actual = widExplorer.GetPreLabeledBulletPoints();
+            List<LabeledExample> actual = widExplorer.GetPreLabeledExamplesForBulletPointType();
 
             // Assert
             Assert.IsTrue(
@@ -484,9 +485,9 @@ namespace NW.WIDJobs.UnitTests
             List<string> expectedLogMessages = new List<string>()
             {
 
-                MessageCollection.WIDExplorer_ConvertingExplorationToMetricCollection,
-                MessageCollection.WIDExplorer_RunIdIs.Invoke(ObjectMother.Shared_ExplorationStage3.RunId),
-                MessageCollection.WIDExplorer_ExplorationConvertedToMetricCollection
+                Messages.MessageCollection.WIDExplorer_ConvertingExplorationToMetricCollection,
+                Messages.MessageCollection.WIDExplorer_RunIdIs.Invoke(ObjectMother.Shared_ExplorationStage3.RunId),
+                Messages.MessageCollection.WIDExplorer_ExplorationConvertedToMetricCollection
 
             };
 
@@ -511,7 +512,7 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager(),
+                    classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
                     formatter: new Formatter()
                   );
@@ -537,9 +538,9 @@ namespace NW.WIDJobs.UnitTests
             List<string> expectedLogMessages = new List<string>()
             {
 
-                MessageCollection.WIDExplorer_ConvertingExplorationToMetricCollection,
-                MessageCollection.WIDExplorer_RunIdIs.Invoke(ObjectMother.Shared_ExplorationStage3.RunId),
-                MessageCollection.WIDExplorer_ExplorationConvertedToMetricCollection
+                Messages.MessageCollection.WIDExplorer_ConvertingExplorationToMetricCollection,
+                Messages.MessageCollection.WIDExplorer_RunIdIs.Invoke(ObjectMother.Shared_ExplorationStage3.RunId),
+                Messages.MessageCollection.WIDExplorer_ExplorationConvertedToMetricCollection
 
             };
 
@@ -564,7 +565,7 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager(),
+                    classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
                     formatter: new Formatter()
                   );
@@ -590,11 +591,11 @@ namespace NW.WIDJobs.UnitTests
             List<string> expectedLogMessages = new List<string>()
             {
 
-                MessageCollection.WIDExplorer_ConvertingExplorationToJsonString,
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
-                MessageCollection.WIDExplorer_VerboseSerializationIs.Invoke(false),
-                MessageCollection.WIDExplorer_ConvertedExplorationToJsonString
+                Messages.MessageCollection.WIDExplorer_ConvertingExplorationToJsonString,
+                Messages.MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
+                Messages.MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
+                Messages.MessageCollection.WIDExplorer_VerboseSerializationIs.Invoke(false),
+                Messages.MessageCollection.WIDExplorer_ConvertedExplorationToJsonString
 
             };
 
@@ -619,7 +620,7 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager(),
+                    classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
                     formatter: new Formatter()
                   );
@@ -643,11 +644,11 @@ namespace NW.WIDJobs.UnitTests
             List<string> expectedLogMessages = new List<string>()
             {
 
-                MessageCollection.WIDExplorer_ConvertingExplorationToJsonString,
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
-                MessageCollection.WIDExplorer_VerboseSerializationIs.Invoke(false),
-                MessageCollection.WIDExplorer_ConvertedExplorationToJsonString
+                Messages.MessageCollection.WIDExplorer_ConvertingExplorationToJsonString,
+                Messages.MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
+                Messages.MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
+                Messages.MessageCollection.WIDExplorer_VerboseSerializationIs.Invoke(false),
+                Messages.MessageCollection.WIDExplorer_ConvertedExplorationToJsonString
 
             };
 
@@ -672,7 +673,7 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager(),
+                    classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
                     formatter: new Formatter()
                   );
@@ -696,11 +697,11 @@ namespace NW.WIDJobs.UnitTests
             List<string> expectedLogMessages = new List<string>()
             {
 
-                MessageCollection.WIDExplorer_ConvertingExplorationToJsonString,
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
-                MessageCollection.WIDExplorer_VerboseSerializationIs.Invoke(false),
-                MessageCollection.WIDExplorer_ConvertedExplorationToJsonString
+                Messages.MessageCollection.WIDExplorer_ConvertingExplorationToJsonString,
+                Messages.MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
+                Messages.MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
+                Messages.MessageCollection.WIDExplorer_VerboseSerializationIs.Invoke(false),
+                Messages.MessageCollection.WIDExplorer_ConvertedExplorationToJsonString
 
             };
 
@@ -725,7 +726,7 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager(),
+                    classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
                     formatter: new Formatter()
                   );
@@ -750,11 +751,11 @@ namespace NW.WIDJobs.UnitTests
             List<string> expectedLogMessages = new List<string>()
             {
 
-                MessageCollection.WIDExplorer_ConvertingMetricCollectionToJsonString,
-                MessageCollection.WIDExplorer_NumbersAsPercentagesIs.Invoke(numbersAsPercentages),
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
-                MessageCollection.WIDExplorer_ConvertedMetricsCollectionToJsonString
+                Messages.MessageCollection.WIDExplorer_ConvertingMetricCollectionToJsonString,
+                Messages.MessageCollection.WIDExplorer_NumbersAsPercentagesIs.Invoke(numbersAsPercentages),
+                Messages.MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
+                Messages.MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
+                Messages.MessageCollection.WIDExplorer_ConvertedMetricsCollectionToJsonString
 
             };
 
@@ -779,7 +780,7 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager(),
+                    classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
                     formatter: new Formatter()
                   );
@@ -804,11 +805,11 @@ namespace NW.WIDJobs.UnitTests
             List<string> expectedLogMessages = new List<string>()
             {
 
-                MessageCollection.WIDExplorer_ConvertingMetricCollectionToJsonString,
-                MessageCollection.WIDExplorer_NumbersAsPercentagesIs.Invoke(numbersAsPercentages),
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
-                MessageCollection.WIDExplorer_ConvertedMetricsCollectionToJsonString
+                Messages.MessageCollection.WIDExplorer_ConvertingMetricCollectionToJsonString,
+                Messages.MessageCollection.WIDExplorer_NumbersAsPercentagesIs.Invoke(numbersAsPercentages),
+                Messages.MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
+                Messages.MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
+                Messages.MessageCollection.WIDExplorer_ConvertedMetricsCollectionToJsonString
 
             };
 
@@ -833,7 +834,7 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager(),
+                    classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
                     formatter: new Formatter()
                   );
@@ -858,11 +859,11 @@ namespace NW.WIDJobs.UnitTests
             List<string> expectedLogMessages = new List<string>()
             {
 
-                MessageCollection.WIDExplorer_ConvertingMetricCollectionToJsonString,
-                MessageCollection.WIDExplorer_NumbersAsPercentagesIs.Invoke(numbersAsPercentages),
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
-                MessageCollection.WIDExplorer_ConvertedMetricsCollectionToJsonString
+                Messages.MessageCollection.WIDExplorer_ConvertingMetricCollectionToJsonString,
+                Messages.MessageCollection.WIDExplorer_NumbersAsPercentagesIs.Invoke(numbersAsPercentages),
+                Messages.MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
+                Messages.MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
+                Messages.MessageCollection.WIDExplorer_ConvertedMetricsCollectionToJsonString
 
             };
 
@@ -887,7 +888,7 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager(),
+                    classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
                     formatter: new Formatter()
                   );
@@ -912,11 +913,11 @@ namespace NW.WIDJobs.UnitTests
             List<string> expectedLogMessages = new List<string>()
             {
 
-                MessageCollection.WIDExplorer_ConvertingMetricCollectionToJsonString,
-                MessageCollection.WIDExplorer_NumbersAsPercentagesIs.Invoke(numbersAsPercentages),
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
-                MessageCollection.WIDExplorer_ConvertedMetricsCollectionToJsonString
+                Messages.MessageCollection.WIDExplorer_ConvertingMetricCollectionToJsonString,
+                Messages.MessageCollection.WIDExplorer_NumbersAsPercentagesIs.Invoke(numbersAsPercentages),
+                Messages.MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
+                Messages.MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
+                Messages.MessageCollection.WIDExplorer_ConvertedMetricsCollectionToJsonString
 
             };
 
@@ -941,7 +942,7 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager(),
+                    classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
                     formatter: new Formatter()
                   );
@@ -957,21 +958,21 @@ namespace NW.WIDJobs.UnitTests
         }
 
         [Test]
-        public void ConvertToJson_ShouldReturnExpectedStringAndLogExpectedMessages_WhenProperBulletPoints()
+        public void ConvertToJson_ShouldReturnExpectedStringAndLogExpectedMessages_WhenProperLabeledExamples()
         {
 
             // Arrange
-            int expectedCount = 379;
-            string expected = ObjectMother.WIDExplorer_PreLabeledBulletPointsAsJson_Content;
+            int expectedCount = 395;
+            string expected = ObjectMother.WIDExplorer_PreLabeledExamplesForBulletPointTypeAsJson_Content;
             List<string> expectedLogMessages = new List<string>()
             {
 
-                MessageCollection.WIDExplorer_RetrievingPreLabeledBulletPoints,
-                MessageCollection.WIDExplorer_PreLabeledBulletPointsRetrieved.Invoke(expectedCount),
-                MessageCollection.WIDExplorer_ConvertingBulletPointsToJsonString,
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
-                MessageCollection.WIDExplorer_ConvertedBulletPointsToJsonString
+                Messages.MessageCollection.WIDExplorer_RetrievingPreLabeledExamplesForBulletPointType,
+                Messages.MessageCollection.WIDExplorer_PreLabeledExamplesForBulletPointTypeRetrieved.Invoke(expectedCount),
+                Messages.MessageCollection.WIDExplorer_ConvertingLabeledExamplesToJsonString,
+                Messages.MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
+                Messages.MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
+                Messages.MessageCollection.WIDExplorer_ConvertedLabeledExamplesToJsonString
 
             };
 
@@ -996,15 +997,15 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager(),
+                    classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
                     formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
             // Act
-            List<BulletPoint> bulletPoints = widExplorer.GetPreLabeledBulletPoints();
-            string actual = widExplorer.ConvertToJson(bulletPoints);
+            List<LabeledExample> labeledExamples = widExplorer.GetPreLabeledExamplesForBulletPointType();
+            string actual = widExplorer.ConvertToJson(labeledExamples);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -1051,11 +1052,11 @@ namespace NW.WIDJobs.UnitTests
             List<string> expectedLogMessages = new List<string>()
             {
 
-                MessageCollection.WIDExplorer_LoadingJobPostingsFromJsonFile,
-                MessageCollection.WIDExplorer_SomeDefaultValuesUsedJsonFile,
-                MessageCollection.WIDExplorer_RunIdIs.Invoke(runId),
-                MessageCollection.WIDExplorer_PageNumberIs.Invoke(pageNumber),
-                MessageCollection.WIDExplorer_JobPostingsExtractedFromJsonFile.Invoke(expected)
+                Messages.MessageCollection.WIDExplorer_LoadingJobPostingsFromJsonFile,
+                Messages.MessageCollection.WIDExplorer_SomeDefaultValuesUsedJsonFile,
+                Messages.MessageCollection.WIDExplorer_RunIdIs.Invoke(runId),
+                Messages.MessageCollection.WIDExplorer_PageNumberIs.Invoke(pageNumber),
+                Messages.MessageCollection.WIDExplorer_JobPostingsExtractedFromJsonFile.Invoke(expected)
 
             };
 
@@ -1080,7 +1081,7 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager(),
+                    classificationManager: new ClassificationManager(),
                     nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
                     formatter: new Formatter()
                   );
@@ -1137,11 +1138,11 @@ namespace NW.WIDJobs.UnitTests
             List<string> expectedLogMessages = new List<string>()
             {
 
-                MessageCollection.WIDExplorer_LoadingJobPostingsFromJsonFile,
-                MessageCollection.WIDExplorer_SomeDefaultValuesUsedJsonFile,
-                MessageCollection.WIDExplorer_RunIdIs.Invoke(runId),
-                MessageCollection.WIDExplorer_PageNumberIs.Invoke(pageNumber),
-                MessageCollection.WIDExplorer_JobPostingsExtractedFromJsonFile.Invoke(expected)
+                Messages.MessageCollection.WIDExplorer_LoadingJobPostingsFromJsonFile,
+                Messages.MessageCollection.WIDExplorer_SomeDefaultValuesUsedJsonFile,
+                Messages.MessageCollection.WIDExplorer_RunIdIs.Invoke(runId),
+                Messages.MessageCollection.WIDExplorer_PageNumberIs.Invoke(pageNumber),
+                Messages.MessageCollection.WIDExplorer_JobPostingsExtractedFromJsonFile.Invoke(expected)
 
             };
 
@@ -1166,7 +1167,7 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager(),
+                    classificationManager: new ClassificationManager(),
                     nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
                     formatter: new Formatter()
                   );
@@ -1195,7 +1196,7 @@ namespace NW.WIDJobs.UnitTests
             List<string> expectedLogMessages = new List<string>()
             {
 
-               MessageCollection.WIDExplorer_LoadingExplorationFromJsonFile
+               Messages.MessageCollection.WIDExplorer_LoadingExplorationFromJsonFile
 
             };
 
@@ -1220,7 +1221,7 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager(),
+                    classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
                     formatter: new Formatter()
                   );
@@ -1249,7 +1250,7 @@ namespace NW.WIDJobs.UnitTests
             List<string> expectedLogMessages = new List<string>()
             {
 
-               MessageCollection.WIDExplorer_LoadingExplorationFromJsonFile
+               Messages.MessageCollection.WIDExplorer_LoadingExplorationFromJsonFile
 
             };
 
@@ -1274,7 +1275,7 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager(),
+                    classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
                     formatter: new Formatter()
                   );
@@ -1303,19 +1304,19 @@ namespace NW.WIDJobs.UnitTests
             List<string> expectedLogMessages = new List<string>()
             {
 
-                MessageCollection.WIDExplorer_SavingMetricCollectionToJsonFile,
-                MessageCollection.WIDExplorer_RunIdIs.Invoke(metricCollection.RunId),
-                MessageCollection.WIDExplorer_NumbersAsPercentagesIs.Invoke(numbersAsPercentages),
-                MessageCollection.WIDExplorer_JSONFileIs.Invoke(fakeFileInfoAdapter),
+                Messages.MessageCollection.WIDExplorer_SavingMetricCollectionToJsonFile,
+                Messages.MessageCollection.WIDExplorer_RunIdIs.Invoke(metricCollection.RunId),
+                Messages.MessageCollection.WIDExplorer_NumbersAsPercentagesIs.Invoke(numbersAsPercentages),
+                Messages.MessageCollection.WIDExplorer_JSONFileIs.Invoke(fakeFileInfoAdapter),
 
                 // ConvertToJson
-                MessageCollection.WIDExplorer_ConvertingMetricCollectionToJsonString,
-                MessageCollection.WIDExplorer_NumbersAsPercentagesIs.Invoke(numbersAsPercentages),
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
-                MessageCollection.WIDExplorer_ConvertedMetricsCollectionToJsonString,
+                Messages.MessageCollection.WIDExplorer_ConvertingMetricCollectionToJsonString,
+                Messages.MessageCollection.WIDExplorer_NumbersAsPercentagesIs.Invoke(numbersAsPercentages),
+                Messages.MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
+                Messages.MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
+                Messages.MessageCollection.WIDExplorer_ConvertedMetricsCollectionToJsonString,
 
-                MessageCollection.WIDExplorer_MetricCollectionSavedToJsonFile
+                Messages.MessageCollection.WIDExplorer_MetricCollectionSavedToJsonFile
 
             };
 
@@ -1340,7 +1341,7 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager(),
+                    classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
                     formatter: new Formatter()
                   );
@@ -1368,25 +1369,25 @@ namespace NW.WIDJobs.UnitTests
             List<string> expectedLogMessages = new List<string>()
             {
 
-                MessageCollection.WIDExplorer_MethodCalledWithoutIFileInfoAdapter.Invoke("SaveToJsonFile"),
-                MessageCollection.WIDExplorer_DefaultValuesCreateIFileInfoAdapter,
-                MessageCollection.WIDExplorer_FolderPathIs.Invoke(ObjectMother.WIDExplorer_FakeFolderPath),
-                MessageCollection.WIDExplorer_NowIs.Invoke(now),
+                Messages.MessageCollection.WIDExplorer_MethodCalledWithoutIFileInfoAdapter.Invoke("SaveToJsonFile"),
+                Messages.MessageCollection.WIDExplorer_DefaultValuesCreateIFileInfoAdapter,
+                Messages.MessageCollection.WIDExplorer_FolderPathIs.Invoke(ObjectMother.WIDExplorer_FakeFolderPath),
+                Messages.MessageCollection.WIDExplorer_NowIs.Invoke(now),
 
                 // SaveToJsonFile
-                MessageCollection.WIDExplorer_SavingMetricCollectionToJsonFile,
-                MessageCollection.WIDExplorer_RunIdIs.Invoke(metricCollection.RunId),
-                MessageCollection.WIDExplorer_NumbersAsPercentagesIs.Invoke(numbersAsPercentages),
-                MessageCollection.WIDExplorer_JSONFileIs.Invoke(expected),
+                Messages.MessageCollection.WIDExplorer_SavingMetricCollectionToJsonFile,
+                Messages.MessageCollection.WIDExplorer_RunIdIs.Invoke(metricCollection.RunId),
+                Messages.MessageCollection.WIDExplorer_NumbersAsPercentagesIs.Invoke(numbersAsPercentages),
+                Messages.MessageCollection.WIDExplorer_JSONFileIs.Invoke(expected),
 
                 // ConvertToJson
-                MessageCollection.WIDExplorer_ConvertingMetricCollectionToJsonString,
-                MessageCollection.WIDExplorer_NumbersAsPercentagesIs.Invoke(numbersAsPercentages),
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
-                MessageCollection.WIDExplorer_ConvertedMetricsCollectionToJsonString,
+                Messages.MessageCollection.WIDExplorer_ConvertingMetricCollectionToJsonString,
+                Messages.MessageCollection.WIDExplorer_NumbersAsPercentagesIs.Invoke(numbersAsPercentages),
+                Messages.MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
+                Messages.MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
+                Messages.MessageCollection.WIDExplorer_ConvertedMetricsCollectionToJsonString,
 
-                MessageCollection.WIDExplorer_MetricCollectionSavedToJsonFile
+                Messages.MessageCollection.WIDExplorer_MetricCollectionSavedToJsonFile
 
 
             };
@@ -1419,7 +1420,7 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager(),
+                    classificationManager: new ClassificationManager(),
                     nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
                     formatter: new Formatter()
                   );
@@ -1444,18 +1445,18 @@ namespace NW.WIDJobs.UnitTests
             List<string> expectedLogMessages = new List<string>()
             {
 
-                MessageCollection.WIDExplorer_SavingExplorationToJsonFile,
-                MessageCollection.WIDExplorer_RunIdIs.Invoke(exploration.RunId),
-                MessageCollection.WIDExplorer_JSONFileIs.Invoke(fakeFileInfoAdapter),
+                Messages.MessageCollection.WIDExplorer_SavingExplorationToJsonFile,
+                Messages.MessageCollection.WIDExplorer_RunIdIs.Invoke(exploration.RunId),
+                Messages.MessageCollection.WIDExplorer_JSONFileIs.Invoke(fakeFileInfoAdapter),
 
                 // ConvertToJson
-                MessageCollection.WIDExplorer_ConvertingExplorationToJsonString,
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
-                MessageCollection.WIDExplorer_VerboseSerializationIs.Invoke(false),
-                MessageCollection.WIDExplorer_ConvertedExplorationToJsonString,
+                Messages.MessageCollection.WIDExplorer_ConvertingExplorationToJsonString,
+                Messages.MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
+                Messages.MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
+                Messages.MessageCollection.WIDExplorer_VerboseSerializationIs.Invoke(false),
+                Messages.MessageCollection.WIDExplorer_ConvertedExplorationToJsonString,
 
-                MessageCollection.WIDExplorer_ExplorationSavedToJsonFile
+                Messages.MessageCollection.WIDExplorer_ExplorationSavedToJsonFile
 
             };
 
@@ -1480,7 +1481,7 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager(),
+                    classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
                     formatter: new Formatter()
                   );
@@ -1507,24 +1508,24 @@ namespace NW.WIDJobs.UnitTests
             List<string> expectedLogMessages = new List<string>()
             {
 
-                MessageCollection.WIDExplorer_MethodCalledWithoutIFileInfoAdapter.Invoke("SaveToJsonFile"),
-                MessageCollection.WIDExplorer_DefaultValuesCreateIFileInfoAdapter,
-                MessageCollection.WIDExplorer_FolderPathIs.Invoke(ObjectMother.WIDExplorer_FakeFolderPath),
-                MessageCollection.WIDExplorer_NowIs.Invoke(now),
+                Messages.MessageCollection.WIDExplorer_MethodCalledWithoutIFileInfoAdapter.Invoke("SaveToJsonFile"),
+                Messages.MessageCollection.WIDExplorer_DefaultValuesCreateIFileInfoAdapter,
+                Messages.MessageCollection.WIDExplorer_FolderPathIs.Invoke(ObjectMother.WIDExplorer_FakeFolderPath),
+                Messages.MessageCollection.WIDExplorer_NowIs.Invoke(now),
 
                 // SaveToJsonFile
-                MessageCollection.WIDExplorer_SavingExplorationToJsonFile,
-                MessageCollection.WIDExplorer_RunIdIs.Invoke(exploration.RunId),
-                MessageCollection.WIDExplorer_JSONFileIs.Invoke(expected),
+                Messages.MessageCollection.WIDExplorer_SavingExplorationToJsonFile,
+                Messages.MessageCollection.WIDExplorer_RunIdIs.Invoke(exploration.RunId),
+                Messages.MessageCollection.WIDExplorer_JSONFileIs.Invoke(expected),
 
                 // ConvertToJson
-                MessageCollection.WIDExplorer_ConvertingExplorationToJsonString,
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
-                MessageCollection.WIDExplorer_VerboseSerializationIs.Invoke(false),
-                MessageCollection.WIDExplorer_ConvertedExplorationToJsonString,
+                Messages.MessageCollection.WIDExplorer_ConvertingExplorationToJsonString,
+                Messages.MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
+                Messages.MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
+                Messages.MessageCollection.WIDExplorer_VerboseSerializationIs.Invoke(false),
+                Messages.MessageCollection.WIDExplorer_ConvertedExplorationToJsonString,
 
-                MessageCollection.WIDExplorer_ExplorationSavedToJsonFile
+                Messages.MessageCollection.WIDExplorer_ExplorationSavedToJsonFile
 
             };
 
@@ -1556,7 +1557,7 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager(),
+                    classificationManager: new ClassificationManager(),
                     nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
                     formatter: new Formatter()
                   );
@@ -1572,33 +1573,33 @@ namespace NW.WIDJobs.UnitTests
         }
 
         [Test]
-        public void SaveToJsonFile_ShouldWriteJsonFileToDiskAndLogExpectedMessages_WhenProperBulletPoints()
+        public void SaveToJsonFile_ShouldWriteJsonFileToDiskAndLogExpectedMessages_WhenProperLabeledExamples()
         {
 
             // Arrange
-            List<BulletPoint> bulletPoints = new BulletPointManager().GetPreLabeledExamples();
+            List<LabeledExample> labeledExamples = new ClassificationManager().GetPreLabeledExamplesForBulletPointType();
             DateTime now = ObjectMother.WIDExplorer_FakeNowFunction.Invoke();
-            string fakeFullName = new FilenameFactory().CreateForBulletPointsJson(ObjectMother.WIDExplorer_FakeFolderPath, now);
+            string fakeFullName = new FilenameFactory().CreateForBulletPointTypesJson(ObjectMother.WIDExplorer_FakeFolderPath, now);
             IFileInfoAdapter expected = new FakeFileInfoAdapter(false, fakeFullName);
             List<string> expectedLogMessages = new List<string>()
             {
 
-                MessageCollection.WIDExplorer_MethodCalledWithoutIFileInfoAdapter.Invoke("SaveToJsonFile"),
-                MessageCollection.WIDExplorer_DefaultValuesCreateIFileInfoAdapter,
-                MessageCollection.WIDExplorer_FolderPathIs.Invoke(ObjectMother.WIDExplorer_FakeFolderPath),
-                MessageCollection.WIDExplorer_NowIs.Invoke(now),
+                Messages.MessageCollection.WIDExplorer_MethodCalledWithoutIFileInfoAdapter.Invoke("SaveToJsonFile"),
+                Messages.MessageCollection.WIDExplorer_DefaultValuesCreateIFileInfoAdapter,
+                Messages.MessageCollection.WIDExplorer_FolderPathIs.Invoke(ObjectMother.WIDExplorer_FakeFolderPath),
+                Messages.MessageCollection.WIDExplorer_NowIs.Invoke(now),
 
-                MessageCollection.WIDExplorer_SavingBulletPointsToJsonFile,
-                MessageCollection.WIDExplorer_BulletPointsAre.Invoke(bulletPoints.Count),
-                MessageCollection.WIDExplorer_JSONFileIs.Invoke(expected),
+                Messages.MessageCollection.WIDExplorer_SavingLabeledExamplesToJsonFile,
+                Messages.MessageCollection.WIDExplorer_LabeledExamplesAre.Invoke(labeledExamples.Count),
+                Messages.MessageCollection.WIDExplorer_JSONFileIs.Invoke(expected),
 
                 // ConvertToJson
-                MessageCollection.WIDExplorer_ConvertingBulletPointsToJsonString,
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
-                MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
-                MessageCollection.WIDExplorer_ConvertedBulletPointsToJsonString,
+                Messages.MessageCollection.WIDExplorer_ConvertingLabeledExamplesToJsonString,
+                Messages.MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)),
+                Messages.MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)),
+                Messages.MessageCollection.WIDExplorer_ConvertedLabeledExamplesToJsonString,
 
-                MessageCollection.WIDExplorer_BulletPointsSavedToJsonFile
+                Messages.MessageCollection.WIDExplorer_LabeledExamplesSavedToJsonFile
 
             };
 
@@ -1630,14 +1631,14 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager(),
+                    classificationManager: new ClassificationManager(),
                     nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
                     formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
 
             // Act
-            IFileInfoAdapter actual = widExplorer.SaveToJsonFile(bulletPoints);
+            IFileInfoAdapter actual = widExplorer.SaveToJsonFile(labeledExamples);
 
             // Assert
             Assert.AreEqual(expected.FullName, actual.FullName);
@@ -1657,12 +1658,12 @@ namespace NW.WIDJobs.UnitTests
             List<string> expectedLogMessages = new List<string>()
             {
 
-                MessageCollection.WIDExplorer_SavingExplorationToSQLiteDatabase,
-                MessageCollection.WIDExplorer_ExplorationIs.Invoke(exploration),
-                MessageCollection.WIDExplorer_DatabaseFileIs.Invoke(fakeFileInfoAdapter.FullName),
-                MessageCollection.WIDExplorer_DeleteAndRecreateDatabaseIs.Invoke(deleteAndRecreateDatabase),
-                MessageCollection.WIDExplorer_AffectedRowsAre.Invoke(affectedRows),
-                MessageCollection.WIDExplorer_ExplorationSavedToSQLiteDatabase
+                Messages.MessageCollection.WIDExplorer_SavingExplorationToSQLiteDatabase,
+                Messages.MessageCollection.WIDExplorer_ExplorationIs.Invoke(exploration),
+                Messages.MessageCollection.WIDExplorer_DatabaseFileIs.Invoke(fakeFileInfoAdapter.FullName),
+                Messages.MessageCollection.WIDExplorer_DeleteAndRecreateDatabaseIs.Invoke(deleteAndRecreateDatabase),
+                Messages.MessageCollection.WIDExplorer_AffectedRowsAre.Invoke(affectedRows),
+                Messages.MessageCollection.WIDExplorer_ExplorationSavedToSQLiteDatabase
 
             };
 
@@ -1687,7 +1688,7 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new FakeRepositoryFactory(affectedRows),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager(),
+                    classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
                     formatter: new Formatter()
                   );
@@ -1716,18 +1717,18 @@ namespace NW.WIDJobs.UnitTests
             List<string> expectedLogMessages = new List<string>()
             {
 
-                MessageCollection.WIDExplorer_MethodCalledWithoutIFileInfoAdapter.Invoke("SaveToSQLiteDatabase"),
-                MessageCollection.WIDExplorer_DefaultValuesCreateIFileInfoAdapter,
-                MessageCollection.WIDExplorer_FolderPathIs.Invoke(ObjectMother.WIDExplorer_FakeFolderPath),
-                MessageCollection.WIDExplorer_NowIs.Invoke(now),
+                Messages.MessageCollection.WIDExplorer_MethodCalledWithoutIFileInfoAdapter.Invoke("SaveToSQLiteDatabase"),
+                Messages.MessageCollection.WIDExplorer_DefaultValuesCreateIFileInfoAdapter,
+                Messages.MessageCollection.WIDExplorer_FolderPathIs.Invoke(ObjectMother.WIDExplorer_FakeFolderPath),
+                Messages.MessageCollection.WIDExplorer_NowIs.Invoke(now),
 
                 // SaveToSQLiteDatabase
-                MessageCollection.WIDExplorer_SavingExplorationToSQLiteDatabase,
-                MessageCollection.WIDExplorer_ExplorationIs.Invoke(exploration),
-                MessageCollection.WIDExplorer_DatabaseFileIs.Invoke(expected.FullName),
-                MessageCollection.WIDExplorer_DeleteAndRecreateDatabaseIs.Invoke(deleteAndRecreateDatabase),
-                MessageCollection.WIDExplorer_AffectedRowsAre.Invoke(affectedRows),
-                MessageCollection.WIDExplorer_ExplorationSavedToSQLiteDatabase
+                Messages.MessageCollection.WIDExplorer_SavingExplorationToSQLiteDatabase,
+                Messages.MessageCollection.WIDExplorer_ExplorationIs.Invoke(exploration),
+                Messages.MessageCollection.WIDExplorer_DatabaseFileIs.Invoke(expected.FullName),
+                Messages.MessageCollection.WIDExplorer_DeleteAndRecreateDatabaseIs.Invoke(deleteAndRecreateDatabase),
+                Messages.MessageCollection.WIDExplorer_AffectedRowsAre.Invoke(affectedRows),
+                Messages.MessageCollection.WIDExplorer_ExplorationSavedToSQLiteDatabase
 
             };
 
@@ -1759,7 +1760,7 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new FakeRepositoryFactory(affectedRows),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager(),
+                    classificationManager: new ClassificationManager(),
                     nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
                     formatter: new Formatter()
                   );
@@ -1790,19 +1791,19 @@ namespace NW.WIDJobs.UnitTests
             List<string> expectedLogMessages = new List<string>()
             {
 
-                MessageCollection.WIDExplorer_ExplorationStarted,
-                MessageCollection.WIDExplorer_RunIdIs(runId),
-                MessageCollection.WIDExplorer_DefaultInitialPageNumberIs(WIDExplorer.DefaultInitialPageNumber),
-                MessageCollection.WIDExplorer_FinalPageNumberIs(finalPageNumber),
-                MessageCollection.WIDExplorer_StageIs(stage),
+                Messages.MessageCollection.WIDExplorer_ExplorationStarted,
+                Messages.MessageCollection.WIDExplorer_RunIdIs(runId),
+                Messages.MessageCollection.WIDExplorer_DefaultInitialPageNumberIs(WIDExplorer.DefaultInitialPageNumber),
+                Messages.MessageCollection.WIDExplorer_FinalPageNumberIs(finalPageNumber),
+                Messages.MessageCollection.WIDExplorer_StageIs(stage),
 
                 // ProcessStage1
-                MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage1_OnlyMetrics),
-                MessageCollection.WIDExplorer_JobPageSuccessfullyRetrieved.Invoke((ushort)1),
-                MessageCollection.WIDExplorer_TotalResultCountIs(expected.TotalResultCount),
-                MessageCollection.WIDExplorer_TotalJobPagesIs(expected.TotalJobPages),
+                Messages.MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage1_OnlyMetrics),
+                Messages.MessageCollection.WIDExplorer_JobPageSuccessfullyRetrieved.Invoke((ushort)1),
+                Messages.MessageCollection.WIDExplorer_TotalResultCountIs(expected.TotalResultCount),
+                Messages.MessageCollection.WIDExplorer_TotalJobPagesIs(expected.TotalJobPages),
 
-                MessageCollection.WIDExplorer_ExplorationCompleted
+                Messages.MessageCollection.WIDExplorer_ExplorationCompleted
 
             };
 
@@ -1834,7 +1835,7 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager(),
+                    classificationManager: new ClassificationManager(),
                     nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
                     formatter: new Formatter()
                   );
@@ -1874,23 +1875,23 @@ namespace NW.WIDJobs.UnitTests
             List<string> expectedLogMessages = new List<string>()
             {
 
-                MessageCollection.WIDExplorer_ExplorationStarted,
-                MessageCollection.WIDExplorer_RunIdIs(runId),
-                MessageCollection.WIDExplorer_DefaultInitialPageNumberIs(WIDExplorer.DefaultInitialPageNumber),
-                MessageCollection.WIDExplorer_FinalPageNumberIs(finalPageNumber),
-                MessageCollection.WIDExplorer_StageIs(Stages.Stage2_UpToAllJobPostings),
+                Messages.MessageCollection.WIDExplorer_ExplorationStarted,
+                Messages.MessageCollection.WIDExplorer_RunIdIs(runId),
+                Messages.MessageCollection.WIDExplorer_DefaultInitialPageNumberIs(WIDExplorer.DefaultInitialPageNumber),
+                Messages.MessageCollection.WIDExplorer_FinalPageNumberIs(finalPageNumber),
+                Messages.MessageCollection.WIDExplorer_StageIs(Stages.Stage2_UpToAllJobPostings),
 
                 // ProcessStage1
-                MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage1_OnlyMetrics),
-                MessageCollection.WIDExplorer_JobPageSuccessfullyRetrieved.Invoke((ushort)1),
-                MessageCollection.WIDExplorer_TotalResultCountIs(expected.TotalResultCount),
-                MessageCollection.WIDExplorer_TotalJobPagesIs(expected.TotalJobPages),
+                Messages.MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage1_OnlyMetrics),
+                Messages.MessageCollection.WIDExplorer_JobPageSuccessfullyRetrieved.Invoke((ushort)1),
+                Messages.MessageCollection.WIDExplorer_TotalResultCountIs(expected.TotalResultCount),
+                Messages.MessageCollection.WIDExplorer_TotalJobPagesIs(expected.TotalJobPages),
 
                 // ProcessStage2
-                MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage2_UpToAllJobPostings),
-                MessageCollection.WIDExplorer_AntiFloodingStrategy,
-                MessageCollection.WIDExplorer_ParallelRequestsAre(parallelRequests),
-                MessageCollection.WIDExplorer_PauseBetweenRequestsIs(pauseBetweenRequestsMs),
+                Messages.MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage2_UpToAllJobPostings),
+                Messages.MessageCollection.WIDExplorer_AntiFloodingStrategy,
+                Messages.MessageCollection.WIDExplorer_ParallelRequestsAre(parallelRequests),
+                Messages.MessageCollection.WIDExplorer_PauseBetweenRequestsIs(pauseBetweenRequestsMs),
                 formatter.Format(jobPostingsStage1[0]),
                 formatter.Format(jobPostingsStage1[1]),
                 formatter.Format(jobPostingsStage1[2]),
@@ -1911,7 +1912,7 @@ namespace NW.WIDJobs.UnitTests
                 formatter.Format(jobPostingsStage1[17]),
                 formatter.Format(jobPostingsStage1[18]),
                 formatter.Format(jobPostingsStage1[19]),
-                MessageCollection.WIDExplorer_JobPageProcessed(1, 2, jobPostingsStage2),
+                Messages.MessageCollection.WIDExplorer_JobPageProcessed(1, 2, jobPostingsStage2),
                 formatter.Format(jobPostingsStage2[0]),
                 formatter.Format(jobPostingsStage2[1]),
                 formatter.Format(jobPostingsStage2[2]),
@@ -1932,10 +1933,10 @@ namespace NW.WIDJobs.UnitTests
                 formatter.Format(jobPostingsStage2[17]),
                 formatter.Format(jobPostingsStage2[18]),
                 formatter.Format(jobPostingsStage2[19]),
-                MessageCollection.WIDExplorer_JobPageProcessed(2, 2, jobPostingsStage2),
-                MessageCollection.WIDExplorer_JobPostingObjectsCreatedTotal(expected.JobPostings),
+                Messages.MessageCollection.WIDExplorer_JobPageProcessed(2, 2, jobPostingsStage2),
+                Messages.MessageCollection.WIDExplorer_JobPostingObjectsCreatedTotal(expected.JobPostings),
 
-                MessageCollection.WIDExplorer_ExplorationCompleted
+                Messages.MessageCollection.WIDExplorer_ExplorationCompleted
 
             };
 
@@ -1967,7 +1968,7 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager(),
+                    classificationManager: new ClassificationManager(),
                     nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
                     formatter: new Formatter()
                   );
@@ -2007,23 +2008,23 @@ namespace NW.WIDJobs.UnitTests
             List<string> expectedLogMessages = new List<string>()
             {
 
-                MessageCollection.WIDExplorer_ExplorationStarted,
-                MessageCollection.WIDExplorer_RunIdIs(runId),
-                MessageCollection.WIDExplorer_DefaultInitialPageNumberIs(WIDExplorer.DefaultInitialPageNumber),
-                MessageCollection.WIDExplorer_FinalPageNumberIs(finalPageNumber),
-                MessageCollection.WIDExplorer_StageIs(Stages.Stage3_UpToAllJobPostingsExtended),
+                Messages.MessageCollection.WIDExplorer_ExplorationStarted,
+                Messages.MessageCollection.WIDExplorer_RunIdIs(runId),
+                Messages.MessageCollection.WIDExplorer_DefaultInitialPageNumberIs(WIDExplorer.DefaultInitialPageNumber),
+                Messages.MessageCollection.WIDExplorer_FinalPageNumberIs(finalPageNumber),
+                Messages.MessageCollection.WIDExplorer_StageIs(Stages.Stage3_UpToAllJobPostingsExtended),
 
                 // ProcessStage1
-                MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage1_OnlyMetrics),
-                MessageCollection.WIDExplorer_JobPageSuccessfullyRetrieved.Invoke((ushort)1),
-                MessageCollection.WIDExplorer_TotalResultCountIs(expected.TotalResultCount),
-                MessageCollection.WIDExplorer_TotalJobPagesIs(expected.TotalJobPages),
+                Messages.MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage1_OnlyMetrics),
+                Messages.MessageCollection.WIDExplorer_JobPageSuccessfullyRetrieved.Invoke((ushort)1),
+                Messages.MessageCollection.WIDExplorer_TotalResultCountIs(expected.TotalResultCount),
+                Messages.MessageCollection.WIDExplorer_TotalJobPagesIs(expected.TotalJobPages),
 
                 // ProcessStage2
-                MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage2_UpToAllJobPostings),
-                MessageCollection.WIDExplorer_AntiFloodingStrategy,
-                MessageCollection.WIDExplorer_ParallelRequestsAre(parallelRequests),
-                MessageCollection.WIDExplorer_PauseBetweenRequestsIs(pauseBetweenRequestsMs),
+                Messages.MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage2_UpToAllJobPostings),
+                Messages.MessageCollection.WIDExplorer_AntiFloodingStrategy,
+                Messages.MessageCollection.WIDExplorer_ParallelRequestsAre(parallelRequests),
+                Messages.MessageCollection.WIDExplorer_PauseBetweenRequestsIs(pauseBetweenRequestsMs),
                 formatter.Format(jobPostingsStage1[0]),
                 formatter.Format(jobPostingsStage1[1]),
                 formatter.Format(jobPostingsStage1[2]),
@@ -2044,7 +2045,7 @@ namespace NW.WIDJobs.UnitTests
                 formatter.Format(jobPostingsStage1[17]),
                 formatter.Format(jobPostingsStage1[18]),
                 formatter.Format(jobPostingsStage1[19]),
-                MessageCollection.WIDExplorer_JobPageProcessed(1, 2, jobPostingsStage2),
+                Messages.MessageCollection.WIDExplorer_JobPageProcessed(1, 2, jobPostingsStage2),
                 formatter.Format(jobPostingsStage2[0]),
                 formatter.Format(jobPostingsStage2[1]),
                 formatter.Format(jobPostingsStage2[2]),
@@ -2065,94 +2066,94 @@ namespace NW.WIDJobs.UnitTests
                 formatter.Format(jobPostingsStage2[17]),
                 formatter.Format(jobPostingsStage2[18]),
                 formatter.Format(jobPostingsStage2[19]),
-                MessageCollection.WIDExplorer_JobPageProcessed(2, 2, jobPostingsStage2),
-                MessageCollection.WIDExplorer_JobPostingObjectsCreatedTotal(expected.JobPostings),
+                Messages.MessageCollection.WIDExplorer_JobPageProcessed(2, 2, jobPostingsStage2),
+                Messages.MessageCollection.WIDExplorer_JobPostingObjectsCreatedTotal(expected.JobPostings),
 
                 // ProcessStage3
-                MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage3_UpToAllJobPostingsExtended),
-                MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage01_JobPosting01),
+                Messages.MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage3_UpToAllJobPostingsExtended),
+                Messages.MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage01_JobPosting01),
                 formatter.Format(ObjectMother.Shared_JobPage01_JobPostingExtended01),
-                MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage01_JobPosting02),
+                Messages.MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage01_JobPosting02),
                 formatter.Format(ObjectMother.Shared_JobPage01_JobPostingExtended02),
-                MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage01_JobPosting03),
+                Messages.MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage01_JobPosting03),
                 formatter.Format(ObjectMother.Shared_JobPage01_JobPostingExtended03),
-                MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage01_JobPosting04),
+                Messages.MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage01_JobPosting04),
                 formatter.Format(ObjectMother.Shared_JobPage01_JobPostingExtended04),
-                MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage01_JobPosting05),
+                Messages.MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage01_JobPosting05),
                 formatter.Format(ObjectMother.Shared_JobPage01_JobPostingExtended05),
-                MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage01_JobPosting06),
+                Messages.MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage01_JobPosting06),
                 formatter.Format(ObjectMother.Shared_JobPage01_JobPostingExtended06),
-                MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage01_JobPosting07),
+                Messages.MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage01_JobPosting07),
                 formatter.Format(ObjectMother.Shared_JobPage01_JobPostingExtended07),
-                MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage01_JobPosting08),
+                Messages.MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage01_JobPosting08),
                 formatter.Format(ObjectMother.Shared_JobPage01_JobPostingExtended08),
-                MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage01_JobPosting09),
+                Messages.MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage01_JobPosting09),
                 formatter.Format(ObjectMother.Shared_JobPage01_JobPostingExtended09),
-                MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage01_JobPosting10),
+                Messages.MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage01_JobPosting10),
                 formatter.Format(ObjectMother.Shared_JobPage01_JobPostingExtended10),
-                MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage01_JobPosting11),
+                Messages.MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage01_JobPosting11),
                 formatter.Format(ObjectMother.Shared_JobPage01_JobPostingExtended11),
-                MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage01_JobPosting12),
+                Messages.MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage01_JobPosting12),
                 formatter.Format(ObjectMother.Shared_JobPage01_JobPostingExtended12),
-                MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage01_JobPosting13),
+                Messages.MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage01_JobPosting13),
                 formatter.Format(ObjectMother.Shared_JobPage01_JobPostingExtended13),
-                MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage01_JobPosting14),
+                Messages.MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage01_JobPosting14),
                 formatter.Format(ObjectMother.Shared_JobPage01_JobPostingExtended14),
-                MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage01_JobPosting15),
+                Messages.MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage01_JobPosting15),
                 formatter.Format(ObjectMother.Shared_JobPage01_JobPostingExtended15),
-                MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage01_JobPosting16),
+                Messages.MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage01_JobPosting16),
                 formatter.Format(ObjectMother.Shared_JobPage01_JobPostingExtended16),
-                MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage01_JobPosting17),
+                Messages.MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage01_JobPosting17),
                 formatter.Format(ObjectMother.Shared_JobPage01_JobPostingExtended17),
-                MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage01_JobPosting18),
+                Messages.MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage01_JobPosting18),
                 formatter.Format(ObjectMother.Shared_JobPage01_JobPostingExtended18),
-                MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage01_JobPosting19),
+                Messages.MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage01_JobPosting19),
                 formatter.Format(ObjectMother.Shared_JobPage01_JobPostingExtended19),
-                MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage01_JobPosting20),
+                Messages.MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage01_JobPosting20),
                 formatter.Format(ObjectMother.Shared_JobPage01_JobPostingExtended20),
-                MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage02_JobPosting01),
+                Messages.MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage02_JobPosting01),
                 formatter.Format(ObjectMother.Shared_JobPage02_JobPostingExtended01),
-                MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage02_JobPosting02),
+                Messages.MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage02_JobPosting02),
                 formatter.Format(ObjectMother.Shared_JobPage02_JobPostingExtended02),
-                MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage02_JobPosting03),
+                Messages.MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage02_JobPosting03),
                 formatter.Format(ObjectMother.Shared_JobPage02_JobPostingExtended03),
-                MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage02_JobPosting04),
+                Messages.MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage02_JobPosting04),
                 formatter.Format(ObjectMother.Shared_JobPage02_JobPostingExtended04),
-                MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage02_JobPosting05),
+                Messages.MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage02_JobPosting05),
                 formatter.Format(ObjectMother.Shared_JobPage02_JobPostingExtended05),
-                MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage02_JobPosting06),
+                Messages.MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage02_JobPosting06),
                 formatter.Format(ObjectMother.Shared_JobPage02_JobPostingExtended06),
-                MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage02_JobPosting07),
+                Messages.MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage02_JobPosting07),
                 formatter.Format(ObjectMother.Shared_JobPage02_JobPostingExtended07),
-                MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage02_JobPosting08),
+                Messages.MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage02_JobPosting08),
                 formatter.Format(ObjectMother.Shared_JobPage02_JobPostingExtended08),
-                MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage02_JobPosting09),
+                Messages.MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage02_JobPosting09),
                 formatter.Format(ObjectMother.Shared_JobPage02_JobPostingExtended09),
-                MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage02_JobPosting10),
+                Messages.MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage02_JobPosting10),
                 formatter.Format(ObjectMother.Shared_JobPage02_JobPostingExtended10),
-                MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage02_JobPosting11),
+                Messages.MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage02_JobPosting11),
                 formatter.Format(ObjectMother.Shared_JobPage02_JobPostingExtended11),
-                MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage02_JobPosting12),
+                Messages.MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage02_JobPosting12),
                 formatter.Format(ObjectMother.Shared_JobPage02_JobPostingExtended12),
-                MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage02_JobPosting13),
+                Messages.MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage02_JobPosting13),
                 formatter.Format(ObjectMother.Shared_JobPage02_JobPostingExtended13),
-                MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage02_JobPosting14),
+                Messages.MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage02_JobPosting14),
                 formatter.Format(ObjectMother.Shared_JobPage02_JobPostingExtended14),
-                MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage02_JobPosting15),
+                Messages.MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage02_JobPosting15),
                 formatter.Format(ObjectMother.Shared_JobPage02_JobPostingExtended15),
-                MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage02_JobPosting16),
+                Messages.MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage02_JobPosting16),
                 formatter.Format(ObjectMother.Shared_JobPage02_JobPostingExtended16),
-                MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage02_JobPosting17),
+                Messages.MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage02_JobPosting17),
                 formatter.Format(ObjectMother.Shared_JobPage02_JobPostingExtended17),
-                MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage02_JobPosting18),
+                Messages.MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage02_JobPosting18),
                 formatter.Format(ObjectMother.Shared_JobPage02_JobPostingExtended18),
-                MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage02_JobPosting19),
+                Messages.MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage02_JobPosting19),
                 formatter.Format(ObjectMother.Shared_JobPage02_JobPostingExtended19),
-                MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage02_JobPosting20),
+                Messages.MessageCollection.WIDExplorer_JobPostingProcessed(ObjectMother.Shared_JobPage02_JobPosting20),
                 formatter.Format(ObjectMother.Shared_JobPage02_JobPostingExtended20),
-                MessageCollection.WIDExplorer_JobPostingExtendedCreatedTotal(expected.JobPostingsExtended),
+                Messages.MessageCollection.WIDExplorer_JobPostingExtendedCreatedTotal(expected.JobPostingsExtended),
 
-                MessageCollection.WIDExplorer_ExplorationCompleted
+                Messages.MessageCollection.WIDExplorer_ExplorationCompleted
 
             };
 
@@ -2184,7 +2185,7 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager(),
+                    classificationManager: new ClassificationManager(),
                     nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
                     formatter: new Formatter()
                   );
@@ -2236,23 +2237,23 @@ namespace NW.WIDJobs.UnitTests
             List<string> expectedLogMessages = new List<string>()
             {
 
-                MessageCollection.WIDExplorer_ExplorationStarted,
-                MessageCollection.WIDExplorer_RunIdIs(runId),
-                MessageCollection.WIDExplorer_DefaultInitialPageNumberIs(WIDExplorer.DefaultInitialPageNumber),
-                MessageCollection.WIDExplorer_ThresholdDateIs(thresholdDate),
-                MessageCollection.WIDExplorer_StageIs(Stages.Stage2_UpToAllJobPostings),
+                Messages.MessageCollection.WIDExplorer_ExplorationStarted,
+                Messages.MessageCollection.WIDExplorer_RunIdIs(runId),
+                Messages.MessageCollection.WIDExplorer_DefaultInitialPageNumberIs(WIDExplorer.DefaultInitialPageNumber),
+                Messages.MessageCollection.WIDExplorer_ThresholdDateIs(thresholdDate),
+                Messages.MessageCollection.WIDExplorer_StageIs(Stages.Stage2_UpToAllJobPostings),
 
                 // ProcessStage1
-                MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage1_OnlyMetrics),
-                MessageCollection.WIDExplorer_JobPageSuccessfullyRetrieved.Invoke((ushort)1),
-                MessageCollection.WIDExplorer_TotalResultCountIs(expected.TotalResultCount),
-                MessageCollection.WIDExplorer_TotalJobPagesIs(expected.TotalJobPages),
+                Messages.MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage1_OnlyMetrics),
+                Messages.MessageCollection.WIDExplorer_JobPageSuccessfullyRetrieved.Invoke((ushort)1),
+                Messages.MessageCollection.WIDExplorer_TotalResultCountIs(expected.TotalResultCount),
+                Messages.MessageCollection.WIDExplorer_TotalJobPagesIs(expected.TotalJobPages),
 
                 // ProcessStage2WhenThresholdDate
-                MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage2_UpToAllJobPostings),
-                MessageCollection.WIDExplorer_AntiFloodingStrategy,
-                MessageCollection.WIDExplorer_ParallelRequestsAre(parallelRequests),
-                MessageCollection.WIDExplorer_PauseBetweenRequestsIs(pauseBetweenRequestsMs),
+                Messages.MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage2_UpToAllJobPostings),
+                Messages.MessageCollection.WIDExplorer_AntiFloodingStrategy,
+                Messages.MessageCollection.WIDExplorer_ParallelRequestsAre(parallelRequests),
+                Messages.MessageCollection.WIDExplorer_PauseBetweenRequestsIs(pauseBetweenRequestsMs),
                 formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting01),
                 formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting02),
                 formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting03),
@@ -2273,9 +2274,9 @@ namespace NW.WIDJobs.UnitTests
                 formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting18),
                 formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting19),
                 formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting20),
-                MessageCollection.WIDExplorer_JobPageProcessed(1, expected.TotalJobPages, ObjectMother.Shared_JobPage01Alt_JobPostings),
-                MessageCollection.WIDExplorer_ThresholdDateFoundJobPageNr(thresholdDate, 1),
-                MessageCollection.WIDExplorer_XJobPostingsRemovedJobPageNr(ObjectMother.Shared_JobPage01Alt_RangeForThresholdDate01.Count, 1),
+                Messages.MessageCollection.WIDExplorer_JobPageProcessed(1, expected.TotalJobPages, ObjectMother.Shared_JobPage01Alt_JobPostings),
+                Messages.MessageCollection.WIDExplorer_ThresholdDateFoundJobPageNr(thresholdDate, 1),
+                Messages.MessageCollection.WIDExplorer_XJobPostingsRemovedJobPageNr(ObjectMother.Shared_JobPage01Alt_RangeForThresholdDate01.Count, 1),
                 formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting01),
                 formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting02),
                 formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting03),
@@ -2287,9 +2288,9 @@ namespace NW.WIDJobs.UnitTests
                 formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting09),
                 formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting10),
                 formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting11),
-                MessageCollection.WIDExplorer_FinalPageNumberThresholdDate(1),
+                Messages.MessageCollection.WIDExplorer_FinalPageNumberThresholdDate(1),
 
-                MessageCollection.WIDExplorer_ExplorationCompleted
+                Messages.MessageCollection.WIDExplorer_ExplorationCompleted
 
             };
 
@@ -2321,7 +2322,7 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager(),
+                    classificationManager: new ClassificationManager(),
                     nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
                     formatter: new Formatter()
                   );
@@ -2372,23 +2373,23 @@ namespace NW.WIDJobs.UnitTests
             List<string> expectedLogMessages = new List<string>()
             {
 
-                MessageCollection.WIDExplorer_ExplorationStarted,
-                MessageCollection.WIDExplorer_RunIdIs(runId),
-                MessageCollection.WIDExplorer_DefaultInitialPageNumberIs(WIDExplorer.DefaultInitialPageNumber),
-                MessageCollection.WIDExplorer_JobPostingIdIs(jobPostingId),
-                MessageCollection.WIDExplorer_StageIs(Stages.Stage2_UpToAllJobPostings),
+                Messages.MessageCollection.WIDExplorer_ExplorationStarted,
+                Messages.MessageCollection.WIDExplorer_RunIdIs(runId),
+                Messages.MessageCollection.WIDExplorer_DefaultInitialPageNumberIs(WIDExplorer.DefaultInitialPageNumber),
+                Messages.MessageCollection.WIDExplorer_JobPostingIdIs(jobPostingId),
+                Messages.MessageCollection.WIDExplorer_StageIs(Stages.Stage2_UpToAllJobPostings),
 
                 // ProcessStage1
-                MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage1_OnlyMetrics),
-                MessageCollection.WIDExplorer_JobPageSuccessfullyRetrieved.Invoke((ushort)1),
-                MessageCollection.WIDExplorer_TotalResultCountIs(expected.TotalResultCount),
-                MessageCollection.WIDExplorer_TotalJobPagesIs(expected.TotalJobPages),
+                Messages.MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage1_OnlyMetrics),
+                Messages.MessageCollection.WIDExplorer_JobPageSuccessfullyRetrieved.Invoke((ushort)1),
+                Messages.MessageCollection.WIDExplorer_TotalResultCountIs(expected.TotalResultCount),
+                Messages.MessageCollection.WIDExplorer_TotalJobPagesIs(expected.TotalJobPages),
 
                 // ProcessStage2WhenThresholdDate
-                MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage2_UpToAllJobPostings),
-                MessageCollection.WIDExplorer_AntiFloodingStrategy,
-                MessageCollection.WIDExplorer_ParallelRequestsAre(parallelRequests),
-                MessageCollection.WIDExplorer_PauseBetweenRequestsIs(pauseBetweenRequestsMs),
+                Messages.MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage2_UpToAllJobPostings),
+                Messages.MessageCollection.WIDExplorer_AntiFloodingStrategy,
+                Messages.MessageCollection.WIDExplorer_ParallelRequestsAre(parallelRequests),
+                Messages.MessageCollection.WIDExplorer_PauseBetweenRequestsIs(pauseBetweenRequestsMs),
                 formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting01),
                 formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting02),
                 formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting03),
@@ -2409,9 +2410,9 @@ namespace NW.WIDJobs.UnitTests
                 formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting18),
                 formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting19),
                 formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting20),
-                MessageCollection.WIDExplorer_JobPageProcessed(1, expected.TotalJobPages, ObjectMother.Shared_JobPage01Alt_JobPostings),
-                MessageCollection.WIDExplorer_JobPostingIdFoundJobPageNr(jobPostingId, 1),
-                MessageCollection.WIDExplorer_XJobPostingsRemovedJobPageNr(ObjectMother.Shared_JobPage01_RangeForJobPostingId01.Count, 1),
+                Messages.MessageCollection.WIDExplorer_JobPageProcessed(1, expected.TotalJobPages, ObjectMother.Shared_JobPage01Alt_JobPostings),
+                Messages.MessageCollection.WIDExplorer_JobPostingIdFoundJobPageNr(jobPostingId, 1),
+                Messages.MessageCollection.WIDExplorer_XJobPostingsRemovedJobPageNr(ObjectMother.Shared_JobPage01_RangeForJobPostingId01.Count, 1),
                 formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting01),
                 formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting02),
                 formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting03),
@@ -2422,9 +2423,9 @@ namespace NW.WIDJobs.UnitTests
                 formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting08),
                 formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting09),
                 formatter.Format(ObjectMother.Shared_JobPage01Alt_JobPosting10),
-                MessageCollection.WIDExplorer_FinalPageNumberJobPostingId(1),
+                Messages.MessageCollection.WIDExplorer_FinalPageNumberJobPostingId(1),
 
-                MessageCollection.WIDExplorer_ExplorationCompleted
+                Messages.MessageCollection.WIDExplorer_ExplorationCompleted
 
             };
 
@@ -2456,7 +2457,7 @@ namespace NW.WIDJobs.UnitTests
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager(),
+                    classificationManager: new ClassificationManager(),
                     nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
                     formatter: new Formatter()
                   );

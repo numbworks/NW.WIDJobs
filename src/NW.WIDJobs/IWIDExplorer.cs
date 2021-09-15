@@ -1,11 +1,10 @@
-﻿using NW.WIDJobs.BulletPoints;
+﻿using System;
+using System.Collections.Generic;
 using NW.WIDJobs.Explorations;
 using NW.WIDJobs.Files;
 using NW.WIDJobs.JobPostings;
-using NW.WIDJobs.JobPostingsExtended;
 using NW.WIDJobs.Metrics;
-using System;
-using System.Collections.Generic;
+using NW.NGramTextClassification;
 
 namespace NW.WIDJobs
 {
@@ -16,8 +15,8 @@ namespace NW.WIDJobs
         /// <summary>Logs the library's ascii banner.</summary>
         void LogAsciiBanner();
 
-        /// <summary>Returns a collection of pre-labeled <see cref="BulletPoint"/> objects for further machine learning applications.</summary>
-        List<BulletPoint> GetPreLabeledBulletPoints();
+        /// <summary>Returns a collection of <see cref="LabeledExample"/> objects for further machine learning applications.</summary>
+        List<LabeledExample> GetPreLabeledExamplesForBulletPointType();
 
         /// <summary>Converts the provided <see cref="Exploration"/> to <see cref="MetricCollection"/>.</summary>
         MetricCollection ConvertToMetricCollection(Exploration exploration);
@@ -31,8 +30,8 @@ namespace NW.WIDJobs
         /// <summary>Converts the provided <see cref="MetricCollection"/> to JSON format.</summary>
         string ConvertToJson(MetricCollection metricCollection, bool numbersAsPercentages);
 
-        /// <summary>Converts the provided collection of <see cref="BulletPoint"/> objects to JSON format.</summary>
-        string ConvertToJson(List<BulletPoint> bulletPoints);
+        /// <summary>Returns a collection of <see cref="LabeledExample"/> objects to JSON format.</summary>
+        string ConvertToJson(List<LabeledExample> bulletPoints);
 
         /// <summary>Converts the provided JSON format to a collection of <see cref="JobPosting"/> objects.</summary>
         List<JobPosting> LoadJobPostingsFromJsonFile(IFileInfoAdapter jsonFile);
@@ -64,11 +63,11 @@ namespace NW.WIDJobs
         /// <summary>Save the provided <see cref="MetricCollection"/> to a JSON file.</summary>
         IFileInfoAdapter SaveToJsonFile(MetricCollection metricCollection, bool numbersAsPercentages, IFileInfoAdapter jsonFile);
 
-        /// <summary>Save the provided collection of <see cref="BulletPoint"/> objects to a JSON file.</summary>
-        IFileInfoAdapter SaveToJsonFile(List<BulletPoint> bulletPoints, IFileInfoAdapter jsonFile);
+        /// <summary>Save the provided collection of <see cref="LabeledExample"/> objects to a JSON file.</summary>
+        IFileInfoAdapter SaveToJsonFile(List<LabeledExample> labeledExamples, IFileInfoAdapter jsonFile);
 
-        /// <summary>Save the provided collection of <see cref="BulletPoint"/> objects to a JSON file using a default filename and path</summary>
-        IFileInfoAdapter SaveToJsonFile(List<BulletPoint> bulletPoints);
+        /// <summary>Save the provided collection of <see cref="LabeledExample"/> objects to a JSON file using a default filename and path</summary>
+        IFileInfoAdapter SaveToJsonFile(List<LabeledExample> labeledExamples);
 
         /// <summary>Save the provided <see cref="Exploration"/> objects to a SQLite database using a default filename and path.</summary>
         IFileInfoAdapter SaveToSQLiteDatabase(Exploration exploration);
@@ -105,5 +104,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 31.08.2021
+    Last Update: 14.09.2021
 */

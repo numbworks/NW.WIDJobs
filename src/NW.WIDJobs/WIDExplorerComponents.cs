@@ -1,6 +1,6 @@
 ﻿using System;
 using NW.WIDJobs.AsciiBanner;
-using NW.WIDJobs.BulletPoints;
+using NW.WIDJobs.Classification;
 using NW.WIDJobs.Database;
 using NW.WIDJobs.Filenames;
 using NW.WIDJobs.Files;
@@ -47,7 +47,7 @@ namespace NW.WIDJobs
         public IRepositoryFactory RepositoryFactory { get; }
         public IAsciiBannerManager AsciiBannerManager { get; }
         public IFilenameFactory FilenameFactory { get; }
-        public IBulletPointManager BulletPointManager { get; }
+        public IClassificationManager ClassificationManager { get; }
         public Func<DateTime> NowFunction { get; }
         public IFormatter Formatter { get; }
 
@@ -74,7 +74,7 @@ namespace NW.WIDJobs
             IRepositoryFactory repositoryFactory,
             IAsciiBannerManager asciiBannerManager,
             IFilenameFactory filenameFactory,
-            IBulletPointManager bulletPointManager,
+            IClassificationManager classificationManager,
             Func<DateTime> nowFunction,
             IFormatter formatter
             )
@@ -96,7 +96,7 @@ namespace NW.WIDJobs
             Validator.ValidateObject(repositoryFactory, nameof(repositoryFactory));
             Validator.ValidateObject(asciiBannerManager, nameof(asciiBannerManager));
             Validator.ValidateObject(filenameFactory, nameof(filenameFactory));
-            Validator.ValidateObject(bulletPointManager, nameof(bulletPointManager));
+            Validator.ValidateObject(classificationManager, nameof(classificationManager));
             Validator.ValidateObject(nowFunction, nameof(nowFunction));
             Validator.ValidateObject(formatter, nameof(formatter));
 
@@ -116,7 +116,7 @@ namespace NW.WIDJobs
             RepositoryFactory = repositoryFactory;
             AsciiBannerManager = asciiBannerManager;
             FilenameFactory = filenameFactory;
-            BulletPointManager = bulletPointManager;
+            ClassificationManager = classificationManager;
             NowFunction = nowFunction;
             Formatter = formatter;
 
@@ -141,7 +141,7 @@ namespace NW.WIDJobs
                   new RepositoryFactory(),
                   new AsciiBannerManager(),
                   new FilenameFactory(),
-                  new BulletPointManager(),
+                  new ClassificationManager(),
                   DefaultNowFunction,
                   new Formatter()
                   )

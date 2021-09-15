@@ -3,13 +3,11 @@ using NW.WIDJobs;
 using NW.WIDJobs.Explorations;
 using NW.WIDJobs.Metrics;
 using NW.WIDJobs.Files;
-using NW.WIDJobs.Validation;
-using NW.WIDJobsClient.Messages;
 using NW.WIDJobsClient.CommandLineAccepts;
 using NW.WIDJobsClient.CommandLineValidators;
 using McMaster.Extensions.CommandLineUtils;
-using NW.WIDJobs.BulletPoints;
 using System.Collections.Generic;
+using NW.NGramTextClassification;
 
 namespace NW.WIDJobsClient.CommandLine
 {
@@ -98,9 +96,9 @@ namespace NW.WIDJobsClient.CommandLine
             (IThresholdValueManager thresholdValueManager, IWIDExplorerComponentsFactory componentsFactory, IWIDExplorerSettingsFactory settingsFactory)
         {
 
-            Validator.ValidateObject(thresholdValueManager, nameof(thresholdValueManager));
-            Validator.ValidateObject(componentsFactory, nameof(componentsFactory));
-            Validator.ValidateObject(settingsFactory, nameof(settingsFactory));
+            WIDJobs.Validation.Validator.ValidateObject(thresholdValueManager, nameof(thresholdValueManager));
+            WIDJobs.Validation.Validator.ValidateObject(componentsFactory, nameof(componentsFactory));
+            WIDJobs.Validation.Validator.ValidateObject(settingsFactory, nameof(settingsFactory));
 
             _thresholdValueManager = thresholdValueManager;
             _componentsFactory = componentsFactory;
@@ -588,7 +586,7 @@ namespace NW.WIDJobsClient.CommandLine
         }
 
         private Exception CreateOptionValueException<T>(string optionValue)
-           => new Exception(MessageCollection.CommandLineManager_OptionValueCantBeConvertedTo.Invoke(optionValue, typeof(T)));
+           => new Exception(Messages.MessageCollection.CommandLineManager_OptionValueCantBeConvertedTo.Invoke(optionValue, typeof(T)));
         private CalculateOutputs ConvertToCalculateOutputs(string optionValue)
         {
 
@@ -722,7 +720,7 @@ namespace NW.WIDJobsClient.CommandLine
 
         }
         private Exception CreateMappingException<TInput, TOutput>(string value)
-           => new Exception(MessageCollection.CommandLineManager_FirstEnumCantBeMapped.Invoke(typeof(TInput), typeof(TOutput), value));
+           => new Exception(Messages.MessageCollection.CommandLineManager_FirstEnumCantBeMapped.Invoke(typeof(TInput), typeof(TOutput), value));
         private MetricsOutputs MapCalculateToMetrics(CalculateOutputs output)
         {
 
@@ -759,7 +757,7 @@ namespace NW.WIDJobsClient.CommandLine
             if (!fileInfoAdapter.Exists)
             {
 
-                _defaultComponents.LoggingAction.Invoke(MessageCollection.CommandLineManager_FileHasNotBeenCreated.Invoke(fileInfoAdapter.FullName));
+                _defaultComponents.LoggingAction.Invoke(Messages.MessageCollection.CommandLineManager_FileHasNotBeenCreated.Invoke(fileInfoAdapter.FullName));
                 _defaultComponents.LoggingActionAsciiBanner.Invoke(string.Empty);
 
                 return Failure;
@@ -775,7 +773,7 @@ namespace NW.WIDJobsClient.CommandLine
         private void DumpJsonToConsole(string json)
         {
 
-            _defaultComponents.LoggingAction.Invoke(MessageCollection.CommandLineManager_DumpingJsonToConsole);
+            _defaultComponents.LoggingAction.Invoke(Messages.MessageCollection.CommandLineManager_DumpingJsonToConsole);
             _defaultComponents.LoggingActionAsciiBanner.Invoke(string.Empty);
             _defaultComponents.LoggingActionAsciiBanner.Invoke(json);
             _defaultComponents.LoggingActionAsciiBanner.Invoke(string.Empty);
@@ -784,7 +782,7 @@ namespace NW.WIDJobsClient.CommandLine
         private int DumpExceptionToConsole(Exception e)
         {
 
-            _defaultComponents.LoggingAction.Invoke(MessageCollection.CommandLineManager_FormattedErrorMessage.Invoke(e.Message));
+            _defaultComponents.LoggingAction.Invoke(Messages.MessageCollection.CommandLineManager_FormattedErrorMessage.Invoke(e.Message));
             _defaultComponents.LoggingActionAsciiBanner.Invoke(string.Empty);
 
             return Failure;
@@ -800,10 +798,10 @@ namespace NW.WIDJobsClient.CommandLine
             return Success;
 
         }
-        private int DumpBulletPointsToConsole(WIDExplorer widExplorer, List<BulletPoint> bulletPoints)
+        private int DumpLabeledExamplesToConsole(WIDExplorer widExplorer, List<LabeledExample> labeledExamples)
         {
 
-            string json = widExplorer.ConvertToJson(bulletPoints);
+            string json = widExplorer.ConvertToJson(labeledExamples);
             DumpJsonToConsole(json);
             _defaultComponents.LoggingActionAsciiBanner.Invoke(string.Empty);
 
@@ -847,12 +845,12 @@ namespace NW.WIDJobsClient.CommandLine
             return SaveMetricCollectionToJsonFile(widExplorer, metricCollection, numbersAsPercentages);
 
         }
-        private int DumpBulletPointsToConsoleAndSaveToJsonFile(WIDExplorer widExplorer, List<BulletPoint> bulletPoints)
+        private int DumpBulletPointsToConsoleAndSaveToJsonFile(WIDExplorer widExplorer, List<LabeledExample> labeledExamples)
         {
 
-            DumpBulletPointsToConsole(widExplorer, bulletPoints);
+            DumpLabeledExamplesToConsole(widExplorer, labeledExamples);
 
-            return SaveBulletPointsToJsonFile(widExplorer, bulletPoints);
+            return SaveBulletPointsToJsonFile(widExplorer, labeledExamples);
 
         }
         private int SaveExplorationToJsonFile(WIDExplorer widExplorer, Exploration exploration, bool verboseSerialization)
@@ -888,10 +886,10 @@ namespace NW.WIDJobsClient.CommandLine
             return HandleFileExistance(fileInfoAdapter);
 
         }
-        private int SaveBulletPointsToJsonFile(WIDExplorer widExplorer, List<BulletPoint> bulletPoints)
+        private int SaveBulletPointsToJsonFile(WIDExplorer widExplorer, List<LabeledExample> labeledExamples)
         {
 
-            IFileInfoAdapter fileInfoAdapter = widExplorer.SaveToJsonFile(bulletPoints);
+            IFileInfoAdapter fileInfoAdapter = widExplorer.SaveToJsonFile(labeledExamples);
 
             return HandleFileExistance(fileInfoAdapter);
 
@@ -993,17 +991,17 @@ namespace NW.WIDJobsClient.CommandLine
             throw CreateOptionValueException<ExploreOutputs>(explorationOutput.ToString());
 
         }
-        private int OrchestrateBulletPoints(WIDExplorer widExplorer, PreLabeledBulletPointsOutputs output, List<BulletPoint> bulletPoints)
+        private int OrchestrateBulletPoints(WIDExplorer widExplorer, PreLabeledBulletPointsOutputs output, List<LabeledExample> labeledExamples)
         {
 
             if (output == PreLabeledBulletPointsOutputs.console)
-                return DumpBulletPointsToConsole(widExplorer, bulletPoints);
+                return DumpLabeledExamplesToConsole(widExplorer, labeledExamples);
 
             if (output == PreLabeledBulletPointsOutputs.jsonfile)
-                return SaveBulletPointsToJsonFile(widExplorer, bulletPoints);
+                return SaveBulletPointsToJsonFile(widExplorer, labeledExamples);
 
             if (output == PreLabeledBulletPointsOutputs.both)
-                return DumpBulletPointsToConsoleAndSaveToJsonFile(widExplorer, bulletPoints);
+                return DumpBulletPointsToConsoleAndSaveToJsonFile(widExplorer, labeledExamples);
 
             throw CreateOptionValueException<PreLabeledBulletPointsOutputs>(output.ToString());
 
@@ -1033,10 +1031,10 @@ namespace NW.WIDJobsClient.CommandLine
 
             _defaultComponents.LoggingActionAsciiBanner(Application_Description);
             _defaultComponents.LoggingActionAsciiBanner(string.Empty);
-            _defaultComponents.LoggingActionAsciiBanner(MessageCollection.CommandLineManager_ApplicationAuthor);
-            _defaultComponents.LoggingActionAsciiBanner(MessageCollection.CommandLineManager_ApplicationEmail);
-            _defaultComponents.LoggingActionAsciiBanner(MessageCollection.CommandLineManager_ApplicationUrl);
-            _defaultComponents.LoggingActionAsciiBanner(MessageCollection.CommandLineManager_ApplicationLicense);
+            _defaultComponents.LoggingActionAsciiBanner(Messages.MessageCollection.CommandLineManager_ApplicationAuthor);
+            _defaultComponents.LoggingActionAsciiBanner(Messages.MessageCollection.CommandLineManager_ApplicationEmail);
+            _defaultComponents.LoggingActionAsciiBanner(Messages.MessageCollection.CommandLineManager_ApplicationUrl);
+            _defaultComponents.LoggingActionAsciiBanner(Messages.MessageCollection.CommandLineManager_ApplicationLicense);
 
             _defaultComponents.LoggingActionAsciiBanner(string.Empty);
 
@@ -1183,9 +1181,9 @@ namespace NW.WIDJobsClient.CommandLine
 
                 WIDExplorerSettings settings = _settingsFactory.Create(folderPath: folderPath);
                 WIDExplorer widExplorer = Create(_defaultComponents, settings);
-                List<BulletPoint> bulletPoints = widExplorer.GetPreLabeledBulletPoints();
+                List<LabeledExample> labeledExamples = widExplorer.GetPreLabeledExamplesForBulletPointType();
 
-                return OrchestrateBulletPoints(widExplorer, output, bulletPoints);
+                return OrchestrateBulletPoints(widExplorer, output, labeledExamples);
 
             }
             catch (Exception e)
@@ -1204,5 +1202,5 @@ namespace NW.WIDJobsClient.CommandLine
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 04.09.2021
+    Last Update: 15.09.2021
 */

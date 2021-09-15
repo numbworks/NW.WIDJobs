@@ -5,8 +5,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using NW.WIDJobs.BulletPoints;
 using NW.WIDJobs.Database;
 using NW.WIDJobs.Explorations;
 using NW.WIDJobs.Filenames;
@@ -17,6 +15,7 @@ using NW.WIDJobs.JobPostings;
 using NW.WIDJobs.JobPostingsExtended;
 using NW.WIDJobs.Metrics;
 using NW.WIDJobs.Runs;
+using NW.NGramTextClassification;
 
 namespace NW.WIDJobs.UnitTests
 {
@@ -3159,7 +3158,7 @@ namespace NW.WIDJobs.UnitTests
         public static string FileNameFactory_BulletPointsJsonIfFilePathNow
             = string.Concat(
                         FileNameFactory_FakeFilePath,
-                        FilenameFactory.DefaultBulletPointsToken,
+                        FilenameFactory.DefaultBulletPointTypesToken,
                         "_",
                         FileNameFactory_FakeNowString,
                         ".",
@@ -4073,8 +4072,8 @@ namespace NW.WIDJobs.UnitTests
             = Properties.Resources.ExplorationStage3MCNumbersAsJson;
         public static string WIDExplorer_ExplorationStage3MetricCollectionPercentagesAsJson_Content
             = Properties.Resources.ExplorationStage3MCPercentagesAsJson;
-        public static string WIDExplorer_PreLabeledBulletPointsAsJson_Content
-            = Properties.Resources.PreLabeledBulletPointsAsJson;
+        public static string WIDExplorer_PreLabeledExamplesForBulletPointTypeAsJson_Content
+            = Properties.Resources.PreLabeledExamplesForBulletPointTypeAsJson;
 
         public static string WIDExplorer_JobPage01_FakeFilePath = @"C:\JobPage01.json";
         public static string WIDExplorer_FakeFolderPath = @"C:\";
@@ -4517,32 +4516,6 @@ namespace NW.WIDJobs.UnitTests
                     && (bulletPointEntity1.RowModifiedOn == bulletPointEntity2.RowModifiedOn);
 
         }
-        public static bool AreEqual(BulletPoint bulletPoint1, BulletPoint bulletPoint2)
-        {
-
-            return string.Equals(bulletPoint1.Label, bulletPoint2.Label, StringComparison.InvariantCulture)
-                    && string.Equals(bulletPoint1.Text, bulletPoint2.Text, StringComparison.InvariantCulture);
-
-        }
-        public static bool AreEqual(List<BulletPoint> list1, List<BulletPoint> list2)
-        {
-
-            if (list1 == null && list2 == null)
-                return true;
-
-            if (list1 == null || list2 == null)
-                return false;
-
-            if (list1.Count != list2.Count)
-                return false;
-
-            for (int i = 0; i < list1.Count; i++)
-                if (AreEqual(list1[i], list2[i]) == false)
-                    return false;
-
-            return true;
-
-        }
 
         public static bool AreEqual(Exploration exploration1, Exploration exploration2, bool compareLanguage)
         {
@@ -4595,6 +4568,70 @@ namespace NW.WIDJobs.UnitTests
                         && AreEqual(metricCollection1.BulletPointsByJobPostingId, metricCollection2.BulletPointsByJobPostingId)
                         && AreEqual(metricCollection1.BulletPointsByJobPostingId, metricCollection2.BulletPointsByJobPostingId)
                         && (metricCollection1.TotalBulletPoints == metricCollection2.TotalBulletPoints);
+
+        }
+
+        public static bool AreEqual(ITokenizationStrategy tokenizationStrategy1, ITokenizationStrategy tokenizationStrategy2)
+        {
+
+            return string.Equals(tokenizationStrategy1.Delimiter, tokenizationStrategy2.Delimiter, StringComparison.InvariantCulture)
+                    && string.Equals(tokenizationStrategy1.Pattern, tokenizationStrategy2.Pattern, StringComparison.InvariantCulture)
+                    && (tokenizationStrategy1.ToLowercase == tokenizationStrategy2.ToLowercase);
+
+        }
+        public static bool AreEqual(INGram ngram1, INGram ngram2)
+        {
+
+            return (ngram1.N == ngram2.N)
+                    && AreEqual(ngram1.Strategy, ngram2.Strategy)
+                    && string.Equals(ngram1.Value, ngram2.Value, StringComparison.InvariantCulture);
+
+        }
+        public static bool AreEqual(List<INGram> list1, List<INGram> list2)
+        {
+
+            if (list1 == null && list2 == null)
+                return true;
+
+            if (list1 == null || list2 == null)
+                return false;
+
+            if (list1.Count != list2.Count)
+                return false;
+
+            for (int i = 0; i < list1.Count; i++)
+                if (AreEqual(list1[i], list2[i]) == false)
+                    return false;
+
+            return true;
+
+        }
+        public static bool AreEqual(LabeledExample labeledExample1, LabeledExample labeledExample2)
+        {
+
+            return (labeledExample1.Id == labeledExample2.Id)
+                    && string.Equals(labeledExample1.Label, labeledExample2.Label, StringComparison.InvariantCulture)
+                    && string.Equals(labeledExample1.Text, labeledExample2.Text, StringComparison.InvariantCulture)
+                    && AreEqual(labeledExample1.TextAsNGrams, labeledExample2.TextAsNGrams);
+
+        }
+        public static bool AreEqual(List<LabeledExample> list1, List<LabeledExample> list2)
+        {
+
+            if (list1 == null && list2 == null)
+                return true;
+
+            if (list1 == null || list2 == null)
+                return false;
+
+            if (list1.Count != list2.Count)
+                return false;
+
+            for (int i = 0; i < list1.Count; i++)
+                if (AreEqual(list1[i], list2[i]) == false)
+                    return false;
+
+            return true;
 
         }
 

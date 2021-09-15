@@ -1579,28 +1579,31 @@ namespace NW.WIDJobs.UnitTests.Properties {
         /// <summary>
         ///   Looks up a localized string similar to [
         ///  {
+        ///    &quot;Id&quot;: 1,
         ///    &quot;Label&quot;: &quot;JobDuty&quot;,
-        ///    &quot;Text&quot;: &quot;Flexible working hours are occasionally required&quot;
-        ///  },
-        ///  {
-        ///    &quot;Label&quot;: &quot;JobDuty&quot;,
-        ///    &quot;Text&quot;: &quot;Setting up tests and data acquisition for NVH testing.&quot;
-        ///  },
-        ///  {
-        ///    &quot;Label&quot;: &quot;JobDuty&quot;,
-        ///    &quot;Text&quot;: &quot;Carry out hot vibration testing on exhaust aftertreatment systems.&quot;
-        ///  },
-        ///  {
-        ///    &quot;Label&quot;: &quot;JobDuty&quot;,
-        ///    &quot;Text&quot;: &quot;Analyze road load data and extract vibration profiles for subsequent use in vibration testing.&quot;
-        ///  },
-        ///  {
-        ///    &quot;Label&quot;: &quot;JobDuty&quot;,
-        ///    &quot;Text [rest of string was truncated]&quot;;.
+        ///    &quot;Text&quot;: &quot;Flexible working hours are occasionally required&quot;,
+        ///    &quot;TextAsNGrams&quot;: [
+        ///      {
+        ///        &quot;N&quot;: 1,
+        ///        &quot;Strategy&quot;: {
+        ///          &quot;Pattern&quot;: &quot;[\\w0-9_]{1,}&quot;,
+        ///          &quot;Delimiter&quot;: &quot; &quot;,
+        ///          &quot;ToLowercase&quot;: true
+        ///        },
+        ///        &quot;Value&quot;: &quot;flexible&quot;
+        ///      },
+        ///      {
+        ///        &quot;N&quot;: 1,
+        ///        &quot;Strategy&quot;: {
+        ///          &quot;Pattern&quot;: &quot;[\\w0-9_]{1,}&quot;,
+        ///          &quot;Delimiter&quot;: &quot; &quot;,
+        ///          &quot;ToLowercase&quot;: true
+        ///        },
+        ///        &quot;Value&quot;: &quot; [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string PreLabeledBulletPointsAsJson {
+        internal static string PreLabeledExamplesForBulletPointTypeAsJson {
             get {
-                return ResourceManager.GetString("PreLabeledBulletPointsAsJson", resourceCulture);
+                return ResourceManager.GetString("PreLabeledExamplesForBulletPointTypeAsJson", resourceCulture);
             }
         }
     }

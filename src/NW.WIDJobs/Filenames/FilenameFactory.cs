@@ -20,7 +20,7 @@ namespace NW.WIDJobs.Filenames
         public static string DefaultMetricCollectionJsonToken { get; } = "widjobs_metrics";
         public static string DefaultMetricCollectionPctJsonToken { get; } = "widjobs_metricspct";
         public static string DefaultDatabaseToken { get; } = "widjobs_exploration";
-        public static string DefaultBulletPointsToken { get; } = "widjobs_bulletpoints";
+        public static string DefaultBulletPointTypesToken { get; } = "widjobs_bulletpointtypes";
         public static string DefaultJsonExtension { get; } = "json";
         public static string DefaultDatabaseExtension { get; } = "db";
 
@@ -57,8 +57,8 @@ namespace NW.WIDJobs.Filenames
         }
         public string CreateForExplorationJson(string filePath, DateTime now)
             => ValidateAndCreate(filePath, DefaultExplorationJsonToken, now, DefaultJsonExtension);
-        public string CreateForBulletPointsJson(string filePath, DateTime now)
-            => ValidateAndCreate(filePath, DefaultBulletPointsToken, now, DefaultJsonExtension);
+        public string CreateForBulletPointTypesJson(string filePath, DateTime now)
+            => ValidateAndCreate(filePath, DefaultBulletPointTypesToken, now, DefaultJsonExtension);
 
         #endregion
 
@@ -98,5 +98,5 @@ namespace NW.WIDJobs.Filenames
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 30.08.2021
+    Last Update: 14.09.2021
 */

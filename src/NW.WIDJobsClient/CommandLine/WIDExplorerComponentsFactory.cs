@@ -10,7 +10,7 @@ using NW.WIDJobs.Files;
 using NW.WIDJobs.Database;
 using NW.WIDJobs.AsciiBanner;
 using NW.WIDJobs.Filenames;
-using NW.WIDJobs.BulletPoints;
+using NW.WIDJobs.Classification;
 using NW.WIDJobs.UnitTests;
 using NW.WIDJobs.Headers;
 using NW.WIDJobs.Formatting;
@@ -59,7 +59,7 @@ namespace NW.WIDJobsClient.CommandLine
                     repositoryFactory: new RepositoryFactory(),
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager(),
+                    classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
                     formatter: new Formatter()
                   );

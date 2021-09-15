@@ -7,17 +7,15 @@ using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading;
-using NW.WIDJobs.BulletPoints;
 using NW.WIDJobs.Database;
 using NW.WIDJobs.Explorations;
 using NW.WIDJobs.Files;
 using NW.WIDJobs.JobPages;
 using NW.WIDJobs.JobPostings;
 using NW.WIDJobs.JobPostingsExtended;
-using NW.WIDJobs.Messages;
 using NW.WIDJobs.Metrics;
 using NW.WIDJobs.JsonSerializerConverters;
-using NW.WIDJobs.Validation;
+using NW.NGramTextClassification;
 
 namespace NW.WIDJobs
 {
@@ -51,8 +49,8 @@ namespace NW.WIDJobs
             (WIDExplorerComponents components, WIDExplorerSettings settings)
         {
 
-            Validator.ValidateObject(components, nameof(components));
-            Validator.ValidateObject(settings, nameof(settings));
+            Validation.Validator.ValidateObject(components, nameof(components));
+            Validation.Validator.ValidateObject(settings, nameof(settings));
 
             _components = components;
             _settings = settings;
@@ -72,30 +70,31 @@ namespace NW.WIDJobs
 
         public void LogAsciiBanner()
             => _components.LoggingActionAsciiBanner.Invoke(AsciiBanner);
-        public List<BulletPoint> GetPreLabeledBulletPoints()
+        public List<LabeledExample> GetPreLabeledExamplesForBulletPointType()
         {
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RetrievingPreLabeledBulletPoints);
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_RetrievingPreLabeledExamplesForBulletPointType);
 
-            List<BulletPoint> bulletPoints = _components.BulletPointManager.GetPreLabeledExamples();
+            List<LabeledExample> labeledExamples = _components.ClassificationManager.GetPreLabeledExamplesForBulletPointType();
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PreLabeledBulletPointsRetrieved.Invoke(bulletPoints.Count));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_PreLabeledExamplesForBulletPointTypeRetrieved.Invoke(labeledExamples.Count));
 
-            return bulletPoints;
+            return labeledExamples;
 
         }
+
         public MetricCollection ConvertToMetricCollection(Exploration exploration)
         {
 
-            Validator.ValidateObject(exploration, nameof(exploration));
-            Validator.ValidateList(exploration.JobPostings, nameof(exploration.JobPostings));
+            Validation.Validator.ValidateObject(exploration, nameof(exploration));
+            Validation.Validator.ValidateList(exploration.JobPostings, nameof(exploration.JobPostings));
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ConvertingExplorationToMetricCollection);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs.Invoke(exploration.RunId));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_ConvertingExplorationToMetricCollection);
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_RunIdIs.Invoke(exploration.RunId));
 
             MetricCollection metricCollection = _components.MetricCollectionManager.Calculate(exploration);
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationConvertedToMetricCollection);
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_ExplorationConvertedToMetricCollection);
 
             return metricCollection;
 
@@ -103,9 +102,9 @@ namespace NW.WIDJobs
         public string ConvertToJson(Exploration exploration, bool verboseSerialization = false)
         {
 
-            Validator.ValidateObject(exploration, nameof(exploration));
+            Validation.Validator.ValidateObject(exploration, nameof(exploration));
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ConvertingExplorationToJsonString);
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_ConvertingExplorationToJsonString);
             LogSharedSerializationOptions();
             LogExplorationVerboseSerializationOption(verboseSerialization);
 
@@ -113,7 +112,7 @@ namespace NW.WIDJobs
             if (verboseSerialization)
                 json = SerializeVerbosely(exploration);
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ConvertedExplorationToJsonString);
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_ConvertedExplorationToJsonString);
 
             return json;
 
@@ -121,32 +120,32 @@ namespace NW.WIDJobs
         public string ConvertToJson(MetricCollection metricCollection, bool numbersAsPercentages)
         {
 
-            Validator.ValidateObject(metricCollection, nameof(metricCollection));
+            Validation.Validator.ValidateObject(metricCollection, nameof(metricCollection));
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ConvertingMetricCollectionToJsonString);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_NumbersAsPercentagesIs.Invoke(numbersAsPercentages));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_ConvertingMetricCollectionToJsonString);
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_NumbersAsPercentagesIs.Invoke(numbersAsPercentages));
             LogSharedSerializationOptions();
 
             dynamic dyn = metricCollection;
             if (numbersAsPercentages)
                 dyn = ConvertNumbersToPercentages(metricCollection);
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ConvertedMetricsCollectionToJsonString);
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_ConvertedMetricsCollectionToJsonString);
 
             return JsonSerializer.Serialize(dyn, CreateJsonSerializerOptions());
 
         }
-        public string ConvertToJson(List<BulletPoint> bulletPoints)
+        public string ConvertToJson(List<LabeledExample> labeledExamples)
         {
 
-            Validator.ValidateList(bulletPoints, nameof(bulletPoints));
+            Validation.Validator.ValidateList(labeledExamples, nameof(labeledExamples));
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ConvertingBulletPointsToJsonString);
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_ConvertingLabeledExamplesToJsonString);
             LogSharedSerializationOptions();
 
-            string json = JsonSerializer.Serialize(bulletPoints, CreateJsonSerializerOptions());
+            string json = JsonSerializer.Serialize(labeledExamples, CreateJsonSerializerOptions());
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ConvertedBulletPointsToJsonString);
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_ConvertedLabeledExamplesToJsonString);
 
             return json;
 
@@ -154,24 +153,24 @@ namespace NW.WIDJobs
         public List<JobPosting> LoadJobPostingsFromJsonFile(IFileInfoAdapter jsonFile)
         {
 
-            Validator.ValidateObject(jsonFile, nameof(jsonFile));
-            Validator.ValidateFileExistance(jsonFile);
+            Validation.Validator.ValidateObject(jsonFile, nameof(jsonFile));
+            Validation.Validator.ValidateFileExistance(jsonFile);
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_LoadingJobPostingsFromJsonFile);
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_LoadingJobPostingsFromJsonFile);
 
             DateTime now = _components.NowFunction.Invoke();
             string runId = _components.RunIdManager.Create(now);
             ushort pageNumber = 1;
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SomeDefaultValuesUsedJsonFile);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs.Invoke(runId));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PageNumberIs.Invoke(pageNumber));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_SomeDefaultValuesUsedJsonFile);
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_RunIdIs.Invoke(runId));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_PageNumberIs.Invoke(pageNumber));
 
             string content = _components.FileManager.ReadAllText(jsonFile);
             JobPage jobPage = new JobPage(runId, pageNumber, content);
             List<JobPosting> jobPostings = _components.JobPostingDeserializer.Do(jobPage);
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingsExtractedFromJsonFile.Invoke(jobPostings));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_JobPostingsExtractedFromJsonFile.Invoke(jobPostings));
 
             return jobPostings;
 
@@ -181,10 +180,10 @@ namespace NW.WIDJobs
         public Exploration LoadExplorationFromJsonFile(IFileInfoAdapter jsonFile)
         {
 
-            Validator.ValidateObject(jsonFile, nameof(jsonFile));
-            Validator.ValidateFileExistance(jsonFile);
+            Validation.Validator.ValidateObject(jsonFile, nameof(jsonFile));
+            Validation.Validator.ValidateFileExistance(jsonFile);
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_LoadingExplorationFromJsonFile);
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_LoadingExplorationFromJsonFile);
 
             string json = _components.FileManager.ReadAllText(jsonFile);
             Exploration exploration = JsonSerializer.Deserialize<Exploration>(json, CreateJsonSerializerOptions());
@@ -197,18 +196,18 @@ namespace NW.WIDJobs
         public IFileInfoAdapter SaveToJsonFile(MetricCollection metricCollection, bool numbersAsPercentages, IFileInfoAdapter jsonFile)
         {
 
-            Validator.ValidateObject(metricCollection, nameof(metricCollection));
-            Validator.ValidateObject(jsonFile, nameof(jsonFile));
+            Validation.Validator.ValidateObject(metricCollection, nameof(metricCollection));
+            Validation.Validator.ValidateObject(jsonFile, nameof(jsonFile));
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SavingMetricCollectionToJsonFile);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs.Invoke(metricCollection.RunId));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_NumbersAsPercentagesIs.Invoke(numbersAsPercentages));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JSONFileIs.Invoke(jsonFile));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_SavingMetricCollectionToJsonFile);
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_RunIdIs.Invoke(metricCollection.RunId));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_NumbersAsPercentagesIs.Invoke(numbersAsPercentages));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_JSONFileIs.Invoke(jsonFile));
 
             string json = ConvertToJson(metricCollection, numbersAsPercentages);
             _components.FileManager.WriteAllText(jsonFile, json);
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_MetricCollectionSavedToJsonFile);
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_MetricCollectionSavedToJsonFile);
 
             return jsonFile;
 
@@ -228,17 +227,17 @@ namespace NW.WIDJobs
         public IFileInfoAdapter SaveToJsonFile(Exploration exploration, IFileInfoAdapter jsonFile, bool verboseSerialization = false)
         {
 
-            Validator.ValidateObject(exploration, nameof(exploration));
-            Validator.ValidateObject(jsonFile, nameof(jsonFile));
+            Validation.Validator.ValidateObject(exploration, nameof(exploration));
+            Validation.Validator.ValidateObject(jsonFile, nameof(jsonFile));
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SavingExplorationToJsonFile);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs.Invoke(exploration.RunId));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JSONFileIs.Invoke(jsonFile));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_SavingExplorationToJsonFile);
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_RunIdIs.Invoke(exploration.RunId));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_JSONFileIs.Invoke(jsonFile));
 
             string json = ConvertToJson(exploration, verboseSerialization);
             _components.FileManager.WriteAllText(jsonFile, json);
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationSavedToJsonFile);
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_ExplorationSavedToJsonFile);
 
             return jsonFile;
 
@@ -255,47 +254,47 @@ namespace NW.WIDJobs
             return SaveToJsonFile(exploration, jsonFile, verboseSerialization);
 
         }
-        public IFileInfoAdapter SaveToJsonFile(List<BulletPoint> bulletPoints, IFileInfoAdapter jsonFile)
+        public IFileInfoAdapter SaveToJsonFile(List<LabeledExample> labeledExamples, IFileInfoAdapter jsonFile)
         {
 
-            Validator.ValidateList(bulletPoints, nameof(bulletPoints));
-            Validator.ValidateObject(jsonFile, nameof(jsonFile));
+            Validation.Validator.ValidateList(labeledExamples, nameof(labeledExamples));
+            Validation.Validator.ValidateObject(jsonFile, nameof(jsonFile));
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SavingBulletPointsToJsonFile);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_BulletPointsAre.Invoke(bulletPoints.Count));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JSONFileIs.Invoke(jsonFile));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_SavingLabeledExamplesToJsonFile);
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_LabeledExamplesAre.Invoke(labeledExamples.Count));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_JSONFileIs.Invoke(jsonFile));
 
-            string json = ConvertToJson(bulletPoints);
+            string json = ConvertToJson(labeledExamples);
             _components.FileManager.WriteAllText(jsonFile, json);
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_BulletPointsSavedToJsonFile);
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_LabeledExamplesSavedToJsonFile);
 
             return jsonFile;
 
         }
-        public IFileInfoAdapter SaveToJsonFile(List<BulletPoint> bulletPoints)
+        public IFileInfoAdapter SaveToJsonFile(List<LabeledExample> labeledExamples)
         {
 
             DateTime now = _components.NowFunction.Invoke();
-            string fullName = _components.FilenameFactory.CreateForBulletPointsJson(_settings.FolderPath, now);
+            string fullName = _components.FilenameFactory.CreateForBulletPointTypesJson(_settings.FolderPath, now);
             IFileInfoAdapter jsonFile = new FileInfoAdapter(fullName);
 
             LogSharedSaveTo(nameof(SaveToJsonFile), now);
 
-            return SaveToJsonFile(bulletPoints, jsonFile);
+            return SaveToJsonFile(labeledExamples, jsonFile);
 
         }
         public IFileInfoAdapter SaveToSQLiteDatabase(Exploration exploration, IFileInfoAdapter databaseFile, bool deleteAndRecreateDatabase)
         {
 
-            Validator.ValidateObject(exploration, nameof(exploration));
-            Validator.ValidateObject(exploration.JobPostings, nameof(exploration.JobPostings));
-            Validator.ValidateObject(databaseFile, nameof(databaseFile));
+            Validation.Validator.ValidateObject(exploration, nameof(exploration));
+            Validation.Validator.ValidateObject(exploration.JobPostings, nameof(exploration.JobPostings));
+            Validation.Validator.ValidateObject(databaseFile, nameof(databaseFile));
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SavingExplorationToSQLiteDatabase);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationIs.Invoke(exploration));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DatabaseFileIs.Invoke(databaseFile.FullName));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DeleteAndRecreateDatabaseIs.Invoke(deleteAndRecreateDatabase));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_SavingExplorationToSQLiteDatabase);
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_ExplorationIs.Invoke(exploration));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_DatabaseFileIs.Invoke(databaseFile.FullName));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_DeleteAndRecreateDatabaseIs.Invoke(deleteAndRecreateDatabase));
 
             IRepository repository =
                 _components.RepositoryFactory
@@ -307,8 +306,8 @@ namespace NW.WIDJobs
             else
                 affectedRows = repository.ConditionallyInsert(exploration.JobPostings);
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_AffectedRowsAre.Invoke(affectedRows));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationSavedToSQLiteDatabase);
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_AffectedRowsAre.Invoke(affectedRows));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_ExplorationSavedToSQLiteDatabase);
 
             return databaseFile;
 
@@ -338,8 +337,8 @@ namespace NW.WIDJobs
         public Exploration Explore(string runId, ushort finalPageNumber, Stages stage)
         {
 
-            Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
-            Validator.ThrowIfLessThanOne(finalPageNumber, nameof(finalPageNumber));
+            Validation.Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
+            Validation.Validator.ThrowIfLessThanOne(finalPageNumber, nameof(finalPageNumber));
 
             LogInitializationMessage(runId, finalPageNumber, stage);
 
@@ -370,7 +369,7 @@ namespace NW.WIDJobs
         public Exploration Explore(string runId, DateTime thresholdDate, Stages stage)
         {
 
-            Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
+            Validation.Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
 
             LogInitializationMessage(runId, thresholdDate, stage);
 
@@ -399,8 +398,8 @@ namespace NW.WIDJobs
         public Exploration Explore(string runId, string jobPostingId, Stages stage)
         {
 
-            Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
-            Validator.ValidateStringNullOrWhiteSpace(jobPostingId, nameof(jobPostingId));
+            Validation.Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
+            Validation.Validator.ValidateStringNullOrWhiteSpace(jobPostingId, nameof(jobPostingId));
 
             LogInitializationMessage(runId, jobPostingId, stage);
 
@@ -430,7 +429,7 @@ namespace NW.WIDJobs
         public Exploration ExploreAll(string runId, Stages stage)
         {
 
-            Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
+            Validation.Validator.ValidateStringNullOrWhiteSpace(runId, nameof(runId));
 
             LogInitializationMessage(runId, stage);
 
@@ -525,60 +524,60 @@ namespace NW.WIDJobs
         private void LogInitializationMessage(string runId, ushort finalPageNumber, Stages stage)
         {
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationStarted);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs(runId));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DefaultInitialPageNumberIs(DefaultInitialPageNumber));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FinalPageNumberIs(finalPageNumber));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_StageIs(stage));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_ExplorationStarted);
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_RunIdIs(runId));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_DefaultInitialPageNumberIs(DefaultInitialPageNumber));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_FinalPageNumberIs(finalPageNumber));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_StageIs(stage));
 
         }
         private void LogInitializationMessage(string runId, DateTime thresholdDate, Stages stage)
         {
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationStarted);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs(runId));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DefaultInitialPageNumberIs(DefaultInitialPageNumber));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ThresholdDateIs(thresholdDate));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_StageIs(stage));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_ExplorationStarted);
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_RunIdIs(runId));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_DefaultInitialPageNumberIs(DefaultInitialPageNumber));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_ThresholdDateIs(thresholdDate));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_StageIs(stage));
 
         }
         private void LogInitializationMessage(string runId, string jobPostingId, Stages stage)
         {
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationStarted);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs(runId));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DefaultInitialPageNumberIs(DefaultInitialPageNumber));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingIdIs(jobPostingId));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_StageIs(stage));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_ExplorationStarted);
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_RunIdIs(runId));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_DefaultInitialPageNumberIs(DefaultInitialPageNumber));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_JobPostingIdIs(jobPostingId));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_StageIs(stage));
 
         }
         private void LogInitializationMessage(string runId, Stages stage)
         {
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationStarted);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_RunIdIs(runId));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DefaultInitialPageNumberIs(DefaultInitialPageNumber));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FinalPageNumberIsLastPage);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_StageIs(stage));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_ExplorationStarted);
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_RunIdIs(runId));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_DefaultInitialPageNumberIs(DefaultInitialPageNumber));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_FinalPageNumberIsLastPage);
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_StageIs(stage));
 
         }
         private void LogSharedSerializationOptions()
         {
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(JavaScriptEncoder.UnsafeRelaxedJsonEscaping)));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_SerializationOptionIs.Invoke(nameof(DateTimeToDateConverter)));
 
         }
         private void LogExplorationVerboseSerializationOption(bool verboseSerialization)
         {
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_VerboseSerializationIs.Invoke(verboseSerialization));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_VerboseSerializationIs.Invoke(verboseSerialization));
 
         }
         private Exploration LogCompletionMessageAndReturn(Exploration exploration)
         {
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExplorationCompleted);
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_ExplorationCompleted);
 
             return exploration;
 
@@ -586,10 +585,10 @@ namespace NW.WIDJobs
         private void LogSharedSaveTo(string methodName, DateTime now)
         {
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_MethodCalledWithoutIFileInfoAdapter.Invoke(methodName));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_DefaultValuesCreateIFileInfoAdapter);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FolderPathIs.Invoke(_settings.FolderPath));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_NowIs.Invoke(now));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_MethodCalledWithoutIFileInfoAdapter.Invoke(methodName));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_DefaultValuesCreateIFileInfoAdapter);
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_FolderPathIs.Invoke(_settings.FolderPath));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_NowIs.Invoke(now));
 
         }
         private void LogJobPostings(List<JobPosting> jobPostings)
@@ -690,6 +689,7 @@ namespace NW.WIDJobs
             return optimized;
 
         }
+        
         private string SerializeSuccintly(Exploration exploration)
         {
 
@@ -744,16 +744,16 @@ namespace NW.WIDJobs
         private Exploration ProcessStage1(string runId, ushort initialPageNumber, Stages stage)
         {
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage1_OnlyMetrics));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage1_OnlyMetrics));
 
             JobPage jobPage = _components.JobPageManager.GetJobPage(runId, initialPageNumber);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPageSuccessfullyRetrieved.Invoke(jobPage.PageNumber));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_JobPageSuccessfullyRetrieved.Invoke(jobPage.PageNumber));
 
             ushort totalResultCount = _components.JobPageDeserializer.GetTotalResultCount(jobPage.Response);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_TotalResultCountIs(totalResultCount));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_TotalResultCountIs(totalResultCount));
 
             ushort totalJobPages = _components.JobPageManager.GetTotalJobPages(totalResultCount);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_TotalJobPagesIs(totalJobPages));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_TotalJobPagesIs(totalJobPages));
 
             bool isCompleted = false;
             if (stage == Stages.Stage1_OnlyMetrics)
@@ -777,8 +777,8 @@ namespace NW.WIDJobs
             if (finalPageNumber > totalJobPages)
             {
 
-                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FinalPageNumberIsHigher(finalPageNumber, totalJobPages));
-                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FinalPageNumberWillBeNow(totalJobPages));
+                _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_FinalPageNumberIsHigher(finalPageNumber, totalJobPages));
+                _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_FinalPageNumberWillBeNow(totalJobPages));
 
                 return totalJobPages;
 
@@ -790,15 +790,15 @@ namespace NW.WIDJobs
         private Exploration ProcessStage2(Exploration exploration, ushort finalPageNumber, Stages stage)
         {
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage2_UpToAllJobPostings));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_AntiFloodingStrategy);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ParallelRequestsAre(_settings.ParallelRequests));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PauseBetweenRequestsIs(_settings.PauseBetweenRequestsMs));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage2_UpToAllJobPostings));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_AntiFloodingStrategy);
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_ParallelRequestsAre(_settings.ParallelRequests));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_PauseBetweenRequestsIs(_settings.PauseBetweenRequestsMs));
 
             List<JobPosting> jobPostings = _components.JobPostingDeserializer.Do(exploration.JobPages[0]);
             
             LogJobPostings(jobPostings);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPageProcessed(DefaultInitialPageNumber, finalPageNumber, jobPostings));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_JobPageProcessed(DefaultInitialPageNumber, finalPageNumber, jobPostings));
 
             List<JobPage> stage2JobPages = new List<JobPage>(exploration.JobPages);
             for (ushort currentPageNumber = 2; currentPageNumber <= finalPageNumber; currentPageNumber++)
@@ -811,13 +811,13 @@ namespace NW.WIDJobs
                 jobPostings.AddRange(currentJobPostings);
 
                 LogJobPostings(currentJobPostings);
-                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPageProcessed(currentPageNumber, finalPageNumber, currentJobPostings));
+                _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_JobPageProcessed(currentPageNumber, finalPageNumber, currentJobPostings));
 
                 ConditionallySleep(currentPageNumber, _settings.ParallelRequests, _settings.PauseBetweenRequestsMs);
 
             }
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingObjectsCreatedTotal(jobPostings));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_JobPostingObjectsCreatedTotal(jobPostings));
 
             bool isCompleted = false;
             if (stage == Stages.Stage2_UpToAllJobPostings)
@@ -837,10 +837,10 @@ namespace NW.WIDJobs
         private Exploration ProcessStage2WhenThresholdDate(Exploration exploration, Stages stage, DateTime thresholdDate)
         {
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage2_UpToAllJobPostings));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_AntiFloodingStrategy);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ParallelRequestsAre(_settings.ParallelRequests));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PauseBetweenRequestsIs(_settings.PauseBetweenRequestsMs));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage2_UpToAllJobPostings));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_AntiFloodingStrategy);
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_ParallelRequestsAre(_settings.ParallelRequests));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_PauseBetweenRequestsIs(_settings.PauseBetweenRequestsMs));
 
             List<JobPage> stage2JobPages = new List<JobPage>() { exploration.JobPages[0] };
             List<JobPosting> stage2JobPostings = new List<JobPosting>();
@@ -857,7 +857,7 @@ namespace NW.WIDJobs
                     currentJobPostings = _components.JobPostingDeserializer.Do(exploration.JobPages[0]);
 
                     LogJobPostings(currentJobPostings);
-                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPageProcessed(DefaultInitialPageNumber, finalPageNumber, currentJobPostings));
+                    _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_JobPageProcessed(DefaultInitialPageNumber, finalPageNumber, currentJobPostings));
 
                 }
                 else
@@ -869,7 +869,7 @@ namespace NW.WIDJobs
                     stage2JobPages.Add(currentJobPage);
 
                     LogJobPostings(currentJobPostings);
-                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPageProcessed(currentPageNumber, finalPageNumber, currentJobPostings));
+                    _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_JobPageProcessed(currentPageNumber, finalPageNumber, currentJobPostings));
 
                 }
 
@@ -879,10 +879,10 @@ namespace NW.WIDJobs
                 if (isThresholdConditionMet)
                 {
 
-                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ThresholdDateFoundJobPageNr(thresholdDate, currentPageNumber));
+                    _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_ThresholdDateFoundJobPageNr(thresholdDate, currentPageNumber));
 
                     currentJobPostings = _components.JobPostingManager.RemoveUnsuitable(thresholdDate, currentJobPostings);
-                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_XJobPostingsRemovedJobPageNr(currentJobPostings.Count, currentPageNumber));
+                    _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_XJobPostingsRemovedJobPageNr(currentJobPostings.Count, currentPageNumber));
 
                     stage2JobPostings.AddRange(currentJobPostings);
                     finalPageNumber = currentPageNumber;
@@ -899,7 +899,7 @@ namespace NW.WIDJobs
 
             }
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FinalPageNumberThresholdDate(finalPageNumber));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_FinalPageNumberThresholdDate(finalPageNumber));
 
             bool isCompleted = false;
             if (stage == Stages.Stage2_UpToAllJobPostings)
@@ -919,10 +919,10 @@ namespace NW.WIDJobs
         private Exploration ProcessStage2WhenJobPostingId(Exploration exploration, Stages stage, string jobPostingId)
         {
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage2_UpToAllJobPostings));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_AntiFloodingStrategy);
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ParallelRequestsAre(_settings.ParallelRequests));
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_PauseBetweenRequestsIs(_settings.PauseBetweenRequestsMs));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage2_UpToAllJobPostings));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_AntiFloodingStrategy);
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_ParallelRequestsAre(_settings.ParallelRequests));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_PauseBetweenRequestsIs(_settings.PauseBetweenRequestsMs));
 
             List<JobPage> stage2JobPages = new List<JobPage>() { exploration.JobPages[0] };
             List<JobPosting> stage2JobPostings = new List<JobPosting>();
@@ -939,7 +939,7 @@ namespace NW.WIDJobs
                     currentJobPostings = _components.JobPostingDeserializer.Do(exploration.JobPages[0]);
 
                     LogJobPostings(currentJobPostings);
-                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPageProcessed(DefaultInitialPageNumber, finalPageNumber, currentJobPostings));
+                    _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_JobPageProcessed(DefaultInitialPageNumber, finalPageNumber, currentJobPostings));
 
                 }
                 else
@@ -951,7 +951,7 @@ namespace NW.WIDJobs
                     stage2JobPages.Add(currentJobPage);
 
                     LogJobPostings(currentJobPostings);
-                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPageProcessed(DefaultInitialPageNumber, finalPageNumber, currentJobPostings));
+                    _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_JobPageProcessed(DefaultInitialPageNumber, finalPageNumber, currentJobPostings));
 
                 }
 
@@ -960,10 +960,10 @@ namespace NW.WIDJobs
                 if (isThresholdConditionMet)
                 {
 
-                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingIdFoundJobPageNr(jobPostingId, currentPageNumber));
+                    _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_JobPostingIdFoundJobPageNr(jobPostingId, currentPageNumber));
 
                     currentJobPostings = _components.JobPostingManager.RemoveUnsuitable(jobPostingId, currentJobPostings);
-                    _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_XJobPostingsRemovedJobPageNr(currentJobPostings.Count, currentPageNumber));
+                    _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_XJobPostingsRemovedJobPageNr(currentJobPostings.Count, currentPageNumber));
 
                     stage2JobPostings.AddRange(currentJobPostings);
                     finalPageNumber = currentPageNumber;
@@ -980,7 +980,7 @@ namespace NW.WIDJobs
 
             }
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_FinalPageNumberJobPostingId(finalPageNumber));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_FinalPageNumberJobPostingId(finalPageNumber));
 
             bool isCompleted = false;
             if (stage == Stages.Stage2_UpToAllJobPostings)
@@ -1000,7 +1000,7 @@ namespace NW.WIDJobs
         private Exploration ProcessStage3(Exploration exploration, Stages stage)
         {
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage3_UpToAllJobPostingsExtended));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_ExecutionStageStarted(Stages.Stage3_UpToAllJobPostingsExtended));
 
             List<JobPostingExtended> jobPostingsExtended = new List<JobPostingExtended>();
             foreach (JobPosting jobPosting in exploration.JobPostings)
@@ -1009,14 +1009,14 @@ namespace NW.WIDJobs
                 JobPostingExtended current = _components.JobPostingExtendedManager.GetJobPostingExtended(jobPosting);
                 jobPostingsExtended.Add(current);
 
-                _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingProcessed(jobPosting));
+                _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_JobPostingProcessed(jobPosting));
                 _components.LoggingAction.Invoke(_components.Formatter.Format(current));
 
                 ConditionallySleep(jobPosting.JobPostingNumber, _settings.ParallelRequests, _settings.PauseBetweenRequestsMs);
 
             }
 
-            _components.LoggingAction.Invoke(MessageCollection.WIDExplorer_JobPostingExtendedCreatedTotal(jobPostingsExtended));
+            _components.LoggingAction.Invoke(Messages.MessageCollection.WIDExplorer_JobPostingExtendedCreatedTotal(jobPostingsExtended));
 
             bool isCompleted = true;
 
@@ -1040,5 +1040,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 14.09.2021
+    Last Update: 15.09.2021
 */

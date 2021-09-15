@@ -30,6 +30,10 @@ namespace NW.WIDJobs.Database
         [DataType("varchar(250)")]
         public string BulletPoint { get; }
 
+        [MaxLength(50)]
+        [DataType("varchar(50)")]
+        public string Type { get; }
+
         [Required]
         [DataType("datetime")]
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]

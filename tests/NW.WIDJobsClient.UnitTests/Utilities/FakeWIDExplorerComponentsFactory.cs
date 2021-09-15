@@ -11,7 +11,7 @@ using NW.WIDJobs.Files;
 using NW.WIDJobs.Database;
 using NW.WIDJobs.AsciiBanner;
 using NW.WIDJobs.Filenames;
-using NW.WIDJobs.BulletPoints;
+using NW.WIDJobs.Classification;
 using NW.WIDJobs.UnitTests;
 using NW.WIDJobsClient.CommandLine;
 using NW.WIDJobs.Headers;
@@ -103,7 +103,7 @@ namespace NW.WIDJobsClient.UnitTests
                     repositoryFactory: repositoryFactory,
                     asciiBannerManager: new AsciiBannerManager(),
                     filenameFactory: new FilenameFactory(),
-                    bulletPointManager: new BulletPointManager(),
+                    classificationManager: new ClassificationManager(),
                     nowFunction: nowFunction,
                     formatter: new Formatter()
                   );
@@ -117,5 +117,5 @@ namespace NW.WIDJobsClient.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 05.09.2021
+    Last Update: 15.09.2021
 */
