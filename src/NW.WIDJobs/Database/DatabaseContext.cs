@@ -304,6 +304,10 @@ namespace NW.WIDJobs.Database
                 .Property(entity => entity.BulletPoint)
                 .HasColumnType("varchar(250)")
                 .IsRequired(true);
+            modelBuilder.Entity<BulletPointEntity>()
+                .Property(entity => entity.Type)
+                .HasColumnType("varchar(50)")
+                .IsRequired(false);
 
             modelBuilder.Entity<BulletPointEntity>()
                 .Property(entity => entity.RowCreatedOn)
@@ -325,5 +329,5 @@ namespace NW.WIDJobs.Database
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 14.09.2021
+    Last Update: 15.09.2021
 */

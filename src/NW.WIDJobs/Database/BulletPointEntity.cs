@@ -48,10 +48,10 @@ namespace NW.WIDJobs.Database
 
         #region Constructors
 
-        ///<summary>Initializes a <see cref="BulletPointEntity"/> instance.</summary>
+        ///<summary>Initializes an empty <see cref="BulletPointEntity"/> instance.</summary>
         public BulletPointEntity() { }
 
-        ///<summary>Initializes a <see cref="BulletPointEntity"/> instance out of <paramref name="jobPostingId"/> and <paramref name="bulletPoint"/>.</summary>
+        ///<summary>Initializes a <see cref="BulletPointEntity"/> instance.</summary>
         /// <exception cref="ArgumentNullException"/>
         public BulletPointEntity(string jobPostingId, string bulletPoint)
         {
@@ -74,5 +74,5 @@ namespace NW.WIDJobs.Database
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 08.08.2021
+    Last Update: 15.09.2021
 */
