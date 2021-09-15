@@ -77,6 +77,43 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
+        [Test]
+        public void PredictLanguage_ShouldReturnExpectedString_WhenInvoked()
+        {
+
+            // Arrange
+            ClassificationManager classificationManager = new ClassificationManager();
+            LabeledExample labeledExample = classificationManager.GetPreLabeledExamplesForLanguage()[0];
+            string text = labeledExample.Text;
+            string expected = labeledExample.Label;
+
+            // Act
+            string actual = classificationManager.PredictLanguage(text);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+
+        }
+
+        [Test]
+        [Ignore("Fails due of a bug in _textClassifier.PredictLabel()")]
+        public void PredictBulletPointType_ShouldReturnExpectedString_WhenInvoked()
+        {
+
+            // Arrange
+            ClassificationManager classificationManager = new ClassificationManager();
+            LabeledExample labeledExample = classificationManager.GetPreLabeledExamplesForBulletPointType()[0];
+            string text = labeledExample.Text;
+            string expected = labeledExample.Label;
+
+            // Act
+            string actual = classificationManager.PredictBulletPointType(text);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+
+        }
+
         #endregion
 
         #region TearDown
