@@ -77,7 +77,8 @@ namespace NW.WIDJobs.UnitTests
         {
 
             // Arrange
-            bool compareLanguage = true;
+            bool compareJobPostingLanguage = true;
+            bool ignorePurposeResponse = true;
 
             // Act
             JobPostingExtended actual 
@@ -99,7 +100,7 @@ namespace NW.WIDJobs.UnitTests
 
             // Assert
             Assert.IsTrue(
-                    ObjectMother.AreEqual(ObjectMother.Shared_JobPage01_JobPostingExtended01, actual, compareLanguage)
+                    ObjectMother.AreEqual(ObjectMother.Shared_JobPage01_JobPostingExtended01, actual, compareJobPostingLanguage, ignorePurposeResponse)
                 );
 
         }

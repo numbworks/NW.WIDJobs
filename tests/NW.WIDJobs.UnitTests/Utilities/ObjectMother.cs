@@ -4386,7 +4386,7 @@ namespace NW.WIDJobs.UnitTests
             return true;
 
         }
-        public static bool AreEqual(JobPostingExtended jobPostingExtended1, JobPostingExtended jobPostingExtended2, bool compareJobPostingLanguage, bool ignorePurposeResponse = true)
+        public static bool AreEqual(JobPostingExtended jobPostingExtended1, JobPostingExtended jobPostingExtended2, bool compareJobPostingLanguage, bool ignorePurposeResponse)
         {
 
             if (ignorePurposeResponse)
@@ -4417,7 +4417,7 @@ namespace NW.WIDJobs.UnitTests
                         && string.Equals(jobPostingExtended1.Response, jobPostingExtended2.Response, StringComparison.InvariantCulture);
 
         }
-        public static bool AreEqual(List<JobPostingExtended> list1, List<JobPostingExtended> list2, bool ignorePurposeResponse = true)
+        public static bool AreEqual(List<JobPostingExtended> list1, List<JobPostingExtended> list2, bool compareJobPostingLanguage, bool ignorePurposeResponse)
         {
 
             if (list1 == null && list2 == null)
@@ -4430,7 +4430,7 @@ namespace NW.WIDJobs.UnitTests
                 return false;
 
             for (int i = 0; i < list1.Count; i++)
-                if (AreEqual(list1[i], list2[i], ignorePurposeResponse) == false)
+                if (AreEqual(list1[i], list2[i], compareJobPostingLanguage, ignorePurposeResponse) == false)
                     return false;
 
             return true;
@@ -4471,7 +4471,7 @@ namespace NW.WIDJobs.UnitTests
                         && (jobPostingEntity.RowModifiedOn == default(DateTime));
 
         }
-        public static bool AreEqual(JobPostingExtended jobPostingExtended, JobPostingExtendedEntity jobPostingExtendedEntity, bool ignorePurposeResponse = true)
+        public static bool AreEqual(JobPostingExtended jobPostingExtended, JobPostingExtendedEntity jobPostingExtendedEntity, bool ignorePurposeResponse)
         {
 
             if (ignorePurposeResponse)
@@ -4517,7 +4517,7 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
-        public static bool AreEqual(Exploration exploration1, Exploration exploration2, bool compareLanguage)
+        public static bool AreEqual(Exploration exploration1, Exploration exploration2, bool compareJobPostingLanguage, bool ignorePurposeResponse)
         {
 
             return string.Equals(exploration1.RunId, exploration2.RunId, StringComparison.InvariantCulture)
@@ -4526,8 +4526,8 @@ namespace NW.WIDJobs.UnitTests
                         && (exploration1.Stage == exploration2.Stage)
                         && (exploration1.IsCompleted == exploration2.IsCompleted)
                         && AreEqual(exploration1.JobPages, exploration2.JobPages)
-                        && AreEqual(exploration1.JobPostings, exploration2.JobPostings, compareLanguage)
-                        && AreEqual(exploration1.JobPostingsExtended, exploration2.JobPostingsExtended);
+                        && AreEqual(exploration1.JobPostings, exploration2.JobPostings, compareJobPostingLanguage)
+                        && AreEqual(exploration1.JobPostingsExtended, exploration2.JobPostingsExtended, compareJobPostingLanguage, ignorePurposeResponse);
 
         }
         public static bool AreEqual(MetricCollection metricCollection1, MetricCollection metricCollection2)

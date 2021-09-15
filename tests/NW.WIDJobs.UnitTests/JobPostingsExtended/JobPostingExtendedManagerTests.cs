@@ -121,7 +121,8 @@ namespace NW.WIDJobs.UnitTests
             // Arrange
             FakeGetRequestManager fakeGetRequestManager = new FakeGetRequestManager(urlsResponses);
             FakeGetRequestManagerFactory fakeGetRequestManagerFactory = new FakeGetRequestManagerFactory(fakeGetRequestManager);
-            bool compareLanguage = true;
+            bool compareJobPostingLanguage = true;
+            bool ignorePurposeResponse = true;
 
             // Act
             JobPostingExtended actual 
@@ -129,7 +130,7 @@ namespace NW.WIDJobs.UnitTests
 
             // Assert
             Assert.IsTrue(
-                ObjectMother.AreEqual(expected, actual, compareLanguage)
+                ObjectMother.AreEqual(expected, actual, compareJobPostingLanguage, ignorePurposeResponse)
                 );
 
         }
@@ -161,5 +162,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 10.09.2021
+    Last Update: 15.09.2021
 */

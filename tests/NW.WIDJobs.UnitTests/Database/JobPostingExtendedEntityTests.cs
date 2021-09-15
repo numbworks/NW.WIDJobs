@@ -14,7 +14,8 @@ namespace NW.WIDJobs.UnitTests
         {
 
             new TestCaseData(
-                    ObjectMother.Shared_JobPage01_JobPostingExtended01
+                    ObjectMother.Shared_JobPage01_JobPostingExtended01,
+                    true
                 ).SetArgDisplayNames($"{nameof(jobPostingExtendedEntityTestCases)}_01")
 
         };
@@ -35,7 +36,7 @@ namespace NW.WIDJobs.UnitTests
         // Tests
         [TestCaseSource(nameof(jobPostingExtendedEntityTestCases))]
         public void JobPostingExtendedEntity_ShouldInstantiateANewObject_WhenProperArguments
-            (JobPostingExtended jobPostingExtended)
+            (JobPostingExtended jobPostingExtended, bool ignorePurposeResponse)
         {
 
             // Arrange
@@ -44,7 +45,7 @@ namespace NW.WIDJobs.UnitTests
 
             // Assert
             Assert.IsTrue(
-                ObjectMother.AreEqual(jobPostingExtended, actual)
+                ObjectMother.AreEqual(jobPostingExtended, actual, ignorePurposeResponse)
                 );
 
 
@@ -75,5 +76,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 08.08.2021
+    Last Update: 15.09.2021
 */

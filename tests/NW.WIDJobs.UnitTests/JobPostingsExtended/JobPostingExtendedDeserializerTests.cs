@@ -309,14 +309,15 @@ namespace NW.WIDJobs.UnitTests
         {
 
             // Arrange
-            bool compareLanguage = true;
+            bool compareJobPostingLanguage = true;
+            bool ignorePurposeResponse = true;
 
             // Act
             JobPostingExtended actual = new JobPostingExtendedDeserializer().Do(jobPosting, response);
 
             // Assert
             Assert.IsTrue(
-                    ObjectMother.AreEqual(expected, actual, compareLanguage)
+                    ObjectMother.AreEqual(expected, actual, compareJobPostingLanguage, ignorePurposeResponse)
                 );
 
         }
@@ -348,6 +349,8 @@ namespace NW.WIDJobs.UnitTests
                             bulletPoints: null,
                             bulletPointScenario: null
                         );
+            bool compareJobPostingLanguage = false;
+            bool ignorePurposeResponse = true;
 
             // Act
             JobPostingExtended actual
@@ -356,7 +359,7 @@ namespace NW.WIDJobs.UnitTests
 
             // Assert
             Assert.IsTrue(
-                    ObjectMother.AreEqual(expected, actual, false)
+                    ObjectMother.AreEqual(expected, actual, compareJobPostingLanguage, ignorePurposeResponse)
                 );
 
         }
@@ -372,5 +375,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 07.08.2021
+    Last Update: 15.09.2021
 */

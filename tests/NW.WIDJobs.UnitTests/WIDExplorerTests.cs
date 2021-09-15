@@ -1204,6 +1204,9 @@ namespace NW.WIDJobs.UnitTests
             Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
             FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
             Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
+            bool compareJobPostingLanguage = true;
+            bool ignorePurposeResponse = true;
+
             WIDExplorerComponents components = new WIDExplorerComponents(
                     loggingAction: fakeLoggingAction,
                     loggingActionAsciiBanner: fakeLoggingActionAsciiBanner,
@@ -1226,14 +1229,14 @@ namespace NW.WIDJobs.UnitTests
                     formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
-            bool compareLanguage = true;
+
 
             // Act
             Exploration actual = widExplorer.LoadExplorationFromJsonFile(fakeFileInfoAdapter);
 
             // Assert
             Assert.IsTrue(
-                ObjectMother.AreEqual(expected, actual, compareLanguage)
+                ObjectMother.AreEqual(expected, actual, compareJobPostingLanguage, ignorePurposeResponse)
                 );
             Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
 
@@ -1258,6 +1261,9 @@ namespace NW.WIDJobs.UnitTests
             Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
             FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
             Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
+            bool compareJobPostingLanguage = true;
+            bool ignorePurposeResponse = true;
+
             WIDExplorerComponents components = new WIDExplorerComponents(
                     loggingAction: fakeLoggingAction,
                     loggingActionAsciiBanner: fakeLoggingActionAsciiBanner,
@@ -1280,14 +1286,13 @@ namespace NW.WIDJobs.UnitTests
                     formatter: new Formatter()
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
-            bool compareLanguage = true;
 
             // Act
             Exploration actual = widExplorer.LoadExplorationFromJsonFile(ObjectMother.WIDExplorer_FakeJsonFilePath);
 
             // Assert
             Assert.IsTrue(
-                ObjectMother.AreEqual(expected, actual, compareLanguage)
+                ObjectMother.AreEqual(expected, actual, compareJobPostingLanguage, ignorePurposeResponse)
                 );
             Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
 
@@ -1817,6 +1822,7 @@ namespace NW.WIDJobs.UnitTests
             Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
             bool predictJobPostingLanguage = false; // To sensibly speed up the unit test
             bool compareJobPostingLanguage = predictJobPostingLanguage;
+            bool ignorePurposeResponse = true;
 
             WIDExplorerSettings fakeExplorerSettings = new WIDExplorerSettings(
                     parallelRequests: parallelRequests,
@@ -1860,7 +1866,7 @@ namespace NW.WIDJobs.UnitTests
 
             // Assert
             Assert.IsTrue(
-                ObjectMother.AreEqual(expected, actual, compareJobPostingLanguage)
+                ObjectMother.AreEqual(expected, actual, compareJobPostingLanguage, ignorePurposeResponse)
                 );
             Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
 
@@ -1959,6 +1965,7 @@ namespace NW.WIDJobs.UnitTests
             Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
             bool predictJobPostingLanguage = false; // To sensibly speed up the unit test
             bool compareJobPostingLanguage = predictJobPostingLanguage;
+            bool ignorePurposeResponse = true;
 
             WIDExplorerSettings fakeExplorerSettings = new WIDExplorerSettings(
                     parallelRequests: parallelRequests,
@@ -2002,7 +2009,7 @@ namespace NW.WIDJobs.UnitTests
 
             // Assert
             Assert.IsTrue(
-                ObjectMother.AreEqual(expected, actual, compareJobPostingLanguage)
+                ObjectMother.AreEqual(expected, actual, compareJobPostingLanguage, ignorePurposeResponse)
                 );
             Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
 
@@ -2185,6 +2192,7 @@ namespace NW.WIDJobs.UnitTests
             Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
             bool predictJobPostingLanguage = false; // To sensibly speed up the unit test
             bool compareJobPostingLanguage = predictJobPostingLanguage;
+            bool ignorePurposeResponse = true;
 
             WIDExplorerSettings fakeExplorerSettings = new WIDExplorerSettings(
                     parallelRequests: parallelRequests,
@@ -2228,7 +2236,7 @@ namespace NW.WIDJobs.UnitTests
 
             // Assert
             Assert.IsTrue(
-                ObjectMother.AreEqual(expected, actual, compareJobPostingLanguage)
+                ObjectMother.AreEqual(expected, actual, compareJobPostingLanguage, ignorePurposeResponse)
                 );
             Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
 
@@ -2331,6 +2339,7 @@ namespace NW.WIDJobs.UnitTests
             Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
             bool predictJobPostingLanguage = false; // To sensibly speed up the unit test
             bool compareJobPostingLanguage = predictJobPostingLanguage;
+            bool ignorePurposeResponse = true;
 
             WIDExplorerSettings fakeExplorerSettings = new WIDExplorerSettings(
                     parallelRequests: parallelRequests,
@@ -2374,7 +2383,7 @@ namespace NW.WIDJobs.UnitTests
 
             // Assert
             Assert.IsTrue(
-                ObjectMother.AreEqual(expected, actual, compareJobPostingLanguage)
+                ObjectMother.AreEqual(expected, actual, compareJobPostingLanguage, ignorePurposeResponse)
                 );
             Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
 
@@ -2475,6 +2484,7 @@ namespace NW.WIDJobs.UnitTests
             Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
             bool predictJobPostingLanguage = false; // To sensibly speed up the unit test
             bool compareJobPostingLanguage = predictJobPostingLanguage;
+            bool ignorePurposeResponse = true;
 
             WIDExplorerSettings fakeExplorerSettings = new WIDExplorerSettings(
                     parallelRequests: parallelRequests,
@@ -2518,7 +2528,7 @@ namespace NW.WIDJobs.UnitTests
 
             // Assert
             Assert.IsTrue(
-                ObjectMother.AreEqual(expected, actual, compareJobPostingLanguage)
+                ObjectMother.AreEqual(expected, actual, compareJobPostingLanguage, ignorePurposeResponse)
                 );
             Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
 
