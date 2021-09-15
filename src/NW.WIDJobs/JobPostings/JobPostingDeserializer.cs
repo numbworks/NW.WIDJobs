@@ -8,7 +8,6 @@ using NW.WIDJobs.JobPages;
 using NW.WIDJobs.Validation;
 using NW.WIDJobs.Classification;
 using HtmlAgilityPack;
-using System.Web;
 
 namespace NW.WIDJobs.JobPostings
 {
@@ -20,16 +19,26 @@ namespace NW.WIDJobs.JobPostings
 
         private IOccupationTranslator _occupationTranslator;
         private IClassificationManager _classificationManager;
+        private bool _translateJobPostingOccupation;
+        private bool _predictJobPostingLanguage;
 
         #endregion
 
         #region Properties
+
+        public static bool DefaultTranslateJobPostingOccupation { get; } = WIDExplorerSettings.DefaultTranslateJobPostingOccupation;
+        public static bool DefaultPredictJobPostingLanguage { get; } = WIDExplorerSettings.DefaultPredictJobPostingLanguage;
+
         #endregion
 
         #region Constructors
 
         /// <summary>Initializes a <see cref="JobPostingDeserializer"/> instance.</summary>
-        public JobPostingDeserializer(IOccupationTranslator occupationTranslator, IClassificationManager classificationManager) 
+        public JobPostingDeserializer(
+                    IOccupationTranslator occupationTranslator, 
+                    IClassificationManager classificationManager,
+                    bool translateJobPostingOccupation, 
+                    bool predictJobPostingLanguage) 
         {
 
             Validator.ValidateObject(occupationTranslator, nameof(occupationTranslator));
@@ -37,23 +46,29 @@ namespace NW.WIDJobs.JobPostings
 
             _occupationTranslator = occupationTranslator;
             _classificationManager = classificationManager;
+            _translateJobPostingOccupation = translateJobPostingOccupation;
+            _predictJobPostingLanguage = predictJobPostingLanguage;
 
         }
 
         /// <summary>Initializes a <see cref="JobPostingDeserializer"/> instance using default parameters.</summary>
         public JobPostingDeserializer()
-            : this(new OccupationTranslator(), new ClassificationManager()) { }
+            : this(
+                  new OccupationTranslator(), 
+                  new ClassificationManager(), 
+                  DefaultTranslateJobPostingOccupation, 
+                  DefaultPredictJobPostingLanguage) { }
 
         #endregion
 
         #region Methods_public
 
-        public List<JobPosting> Do(JobPage jobPage, bool translateOccupation = true, bool predictLanguage = true)
+        public List<JobPosting> Do(JobPage jobPage)
         {
 
             Validator.ValidateObject(jobPage, nameof(jobPage));
 
-            List<JobPosting> jobPostings = Extract(jobPage, translateOccupation, predictLanguage);
+            List<JobPosting> jobPostings = Extract(jobPage, _translateJobPostingOccupation, _predictJobPostingLanguage);
 
             return jobPostings;
 
@@ -63,7 +78,7 @@ namespace NW.WIDJobs.JobPostings
 
         #region Methods_private
 
-        private List<JobPosting> Extract(JobPage jobPage, bool translateOccupation, bool predictLanguage)
+        private List<JobPosting> Extract(JobPage jobPage, bool translateJobPostingOccupation, bool predictJobPostingLanguage)
         {
 
             using JsonDocument jsonRoot = JsonDocument.Parse(jobPage.Response);
@@ -77,7 +92,7 @@ namespace NW.WIDJobs.JobPostings
                 ushort jobPostingNumber = (ushort)(i + 1);
 
                 JobPosting jobPosting
-                    = ExtractJobPosting(jobPage.RunId, jobPage.PageNumber, jsonElement, jobPostingNumber, translateOccupation, predictLanguage);
+                    = ExtractJobPosting(jobPage.RunId, jobPage.PageNumber, jsonElement, jobPostingNumber, translateJobPostingOccupation, predictJobPostingLanguage);
 
                 jobPostings.Add(jobPosting);
 
@@ -86,9 +101,13 @@ namespace NW.WIDJobs.JobPostings
             return jobPostings;
 
         }
-
-        private JobPosting ExtractJobPosting
-            (string runId, ushort pageNumber, JsonElement jsonElement, ushort jobPostingNumber, bool translateOccupation, bool predictLanguage)
+        private JobPosting ExtractJobPosting(
+            string runId, 
+            ushort pageNumber, 
+            JsonElement jsonElement, 
+            ushort jobPostingNumber, 
+            bool translateJobPostingOccupation, 
+            bool predictJobPostingLanguage)
         {
 
             string title = ExtractTitle(jsonElement);
@@ -107,7 +126,7 @@ namespace NW.WIDJobs.JobPostings
             string workHours = ExtractWorkHours(jsonElement);
 
             string occupation = ExtractOccupation(jsonElement);
-            if (translateOccupation)
+            if (translateJobPostingOccupation)
                 occupation = _occupationTranslator.Translate(occupation);
             
             ulong workplaceId = ExtractWorkplaceID(jsonElement);
@@ -119,7 +138,7 @@ namespace NW.WIDJobs.JobPostings
             string jobPostingId = CreateJobPostingId(id, title);
 
             string language = null;
-            if (predictLanguage) 
+            if (predictJobPostingLanguage) 
                 language = TryPredictLanguage(title, presentation);
 
             JobPosting jobPosting
@@ -155,6 +174,7 @@ namespace NW.WIDJobs.JobPostings
             return jobPosting;
 
         }
+
         private string ExtractTitle(JsonElement jsonElement)
         {
 
@@ -416,5 +436,5 @@ namespace NW.WIDJobs.JobPostings
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 14.09.2021
+    Last Update: 15.09.2021
 */

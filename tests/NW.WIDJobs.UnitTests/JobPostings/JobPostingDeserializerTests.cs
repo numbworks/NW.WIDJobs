@@ -65,7 +65,12 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new JobPostingDeserializer(null, new ClassificationManager())
+                    () => new JobPostingDeserializer(
+                                    null, 
+                                    new ClassificationManager(),
+                                    JobPostingDeserializer.DefaultTranslateJobPostingOccupation,
+                                    JobPostingDeserializer.DefaultPredictJobPostingLanguage
+                                )
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("occupationTranslator").Message
@@ -73,7 +78,12 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new JobPostingDeserializer(new OccupationTranslator(), null)
+                    () => new JobPostingDeserializer(
+                                    new OccupationTranslator(), 
+                                    null,
+                                    JobPostingDeserializer.DefaultTranslateJobPostingOccupation,
+                                    JobPostingDeserializer.DefaultPredictJobPostingLanguage
+                                )
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("classificationManager").Message
@@ -96,18 +106,25 @@ namespace NW.WIDJobs.UnitTests
 
         [TestCaseSource(nameof(doTestCases))]
         public void Do_ShouldReturnAListofJobPostingObjects_WhenProperArguments
-            (JobPage jobPage, bool translateOccupation, bool predictLanguage, List <JobPosting> expected)
+            (JobPage jobPage, bool translateJobPostingOccupation, bool predictJobPostingLanguage, List <JobPosting> expected)
         {
 
             // Arrange
-            bool compareLanguage = predictLanguage; // If we predict it, we compare it.
+            bool compareJobPostingLanguage = predictJobPostingLanguage; // If we predict it, we compare it.
+            JobPostingDeserializer jobPostingDeserializer 
+                = new JobPostingDeserializer(
+                        occupationTranslator: new OccupationTranslator(),
+                        classificationManager: new ClassificationManager(),
+                        translateJobPostingOccupation: translateJobPostingOccupation,
+                        predictJobPostingLanguage: predictJobPostingLanguage
+                    );
 
             // Act
-            List<JobPosting> actual = new JobPostingDeserializer().Do(jobPage, translateOccupation, predictLanguage);
+            List<JobPosting> actual = jobPostingDeserializer.Do(jobPage);
 
             // Assert
             Assert.IsTrue(
-                    ObjectMother.AreEqual(expected, actual, compareLanguage)
+                    ObjectMother.AreEqual(expected, actual, compareJobPostingLanguage)
                 );
 
         }
@@ -128,5 +145,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 14.09.2021
+    Last Update: 15.09.2021
 */

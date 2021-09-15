@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using NW.WIDJobs.Validation;
+using NW.WIDJobs.JobPostings;
 
 namespace NW.WIDJobs
 {
@@ -31,7 +32,11 @@ namespace NW.WIDJobs
 
         #region Constructors
 
-        /// <summary>Initializes a <see cref="WIDExplorerSettings"/> instance.</summary>
+        /// <summary>
+        /// Initializes a <see cref="WIDExplorerSettings"/> instance.
+        /// <para>If <paramref name="translateJobPostingOccupation"/> is true, <see cref="JobPosting.Occupation"/> is translated from Danish to English.</para>
+        /// <para>If <paramref name="predictJobPostingLanguage"/> is true, a language prediction is attempted out of <see cref="JobPosting.Title"/> and <see cref="JobPosting.Presentation"/>. It may be moderately expensive on the CPU.</para>  
+        /// </summary>
         /// <exception cref="ArgumentException"/>
         public WIDExplorerSettings(
             ushort parallelRequests,

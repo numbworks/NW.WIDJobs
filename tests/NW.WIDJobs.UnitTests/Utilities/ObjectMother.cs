@@ -4309,10 +4309,10 @@ namespace NW.WIDJobs.UnitTests
             return true;
 
         }
-        public static bool AreEqual(JobPosting jobPosting1, JobPosting jobPosting2, bool compareLanguage)
+        public static bool AreEqual(JobPosting jobPosting1, JobPosting jobPosting2, bool compareJobPostingLanguage)
         {
 
-            if (compareLanguage)
+            if (compareJobPostingLanguage)
                 return string.Equals(jobPosting1.Country, jobPosting2.Country, StringComparison.InvariantCulture)
                             && string.Equals(jobPosting1.EmploymentType, jobPosting2.EmploymentType, StringComparison.InvariantCulture)
                             && (jobPosting1.HiringOrgCVR == jobPosting2.HiringOrgCVR)
@@ -4367,7 +4367,7 @@ namespace NW.WIDJobs.UnitTests
                         && (jobPosting1.WorkPlacePostalCode == jobPosting2.WorkPlacePostalCode);
 
         }
-        public static bool AreEqual(List<JobPosting> list1, List<JobPosting> list2, bool compareLanguage)
+        public static bool AreEqual(List<JobPosting> list1, List<JobPosting> list2, bool compareJobPostingLanguage)
         {
 
             if (list1 == null && list2 == null)
@@ -4380,13 +4380,13 @@ namespace NW.WIDJobs.UnitTests
                 return false;
 
             for (int i = 0; i < list1.Count; i++)
-                if (AreEqual(list1[i], list2[i], compareLanguage) == false)
+                if (AreEqual(list1[i], list2[i], compareJobPostingLanguage) == false)
                     return false;
 
             return true;
 
         }
-        public static bool AreEqual(JobPostingExtended jobPostingExtended1, JobPostingExtended jobPostingExtended2, bool compareLanguage, bool ignorePurposeResponse = true)
+        public static bool AreEqual(JobPostingExtended jobPostingExtended1, JobPostingExtended jobPostingExtended2, bool compareJobPostingLanguage, bool ignorePurposeResponse = true)
         {
 
             if (ignorePurposeResponse)
@@ -4397,7 +4397,7 @@ namespace NW.WIDJobs.UnitTests
                             && string.Equals(jobPostingExtended1.ContactPersonName, jobPostingExtended2.ContactPersonName, StringComparison.InvariantCulture)
                             && (jobPostingExtended1.EmploymentDate == jobPostingExtended2.EmploymentDate)
                             && string.Equals(jobPostingExtended1.HiringOrgDescription, jobPostingExtended2.HiringOrgDescription, StringComparison.InvariantCulture)
-                            && AreEqual(jobPostingExtended1.JobPosting, jobPostingExtended2.JobPosting, compareLanguage)
+                            && AreEqual(jobPostingExtended1.JobPosting, jobPostingExtended2.JobPosting, compareJobPostingLanguage)
                             && (jobPostingExtended1.NumberToFill == jobPostingExtended2.NumberToFill)
                             && (jobPostingExtended1.PublicationStartDate == jobPostingExtended2.PublicationStartDate)
                             && (jobPostingExtended1.PublicationEndDate == jobPostingExtended2.PublicationEndDate);
@@ -4409,7 +4409,7 @@ namespace NW.WIDJobs.UnitTests
                         && string.Equals(jobPostingExtended1.ContactPersonName, jobPostingExtended2.ContactPersonName, StringComparison.InvariantCulture)
                         && (jobPostingExtended1.EmploymentDate == jobPostingExtended2.EmploymentDate)
                         && string.Equals(jobPostingExtended1.HiringOrgDescription, jobPostingExtended2.HiringOrgDescription, StringComparison.InvariantCulture)
-                        && AreEqual(jobPostingExtended1.JobPosting, jobPostingExtended2.JobPosting, compareLanguage)
+                        && AreEqual(jobPostingExtended1.JobPosting, jobPostingExtended2.JobPosting, compareJobPostingLanguage)
                         && (jobPostingExtended1.NumberToFill == jobPostingExtended2.NumberToFill)
                         && (jobPostingExtended1.PublicationStartDate == jobPostingExtended2.PublicationStartDate)
                         && (jobPostingExtended1.PublicationEndDate == jobPostingExtended2.PublicationEndDate)
