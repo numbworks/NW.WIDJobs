@@ -1,5 +1,4 @@
-﻿using System;
-using NW.WIDJobs;
+﻿using NW.WIDJobs;
 
 namespace NW.WIDJobsClient.CommandLine
 {
@@ -29,7 +28,8 @@ namespace NW.WIDJobsClient.CommandLine
             string pauseBetweenRequestsMs = null, 
             string folderPath = null, 
             bool? deleteAndRecreateDatabase = null,
-            bool? translateOccupation = null
+            bool? translateJobPostingOccupation = null,
+            bool? predictJobPostingLanguage = null
             )
         {
 
@@ -38,7 +38,8 @@ namespace NW.WIDJobsClient.CommandLine
                             pauseBetweenRequestsMs: TryParsePauseBetweenRequestsMs(pauseBetweenRequestsMs) ?? WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
                             folderPath: folderPath ?? WIDExplorerSettings.DefaultFolderPath,
                             deleteAndRecreateDatabase: deleteAndRecreateDatabase ?? WIDExplorerSettings.DefaultDeleteAndRecreateDatabase,
-                            translateOccupation: translateOccupation ?? WIDExplorerSettings.DefaultTranslateOccupation
+                            translateJobPostingOccupation: translateJobPostingOccupation ?? WIDExplorerSettings.DefaultTranslateJobPostingOccupation,
+                            predictJobPostingLanguage: predictJobPostingLanguage ?? WIDExplorerSettings.DefaultPredictJobPostingLanguage
                         );
 
         }
@@ -73,5 +74,5 @@ namespace NW.WIDJobsClient.CommandLine
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 10.09.2021
+    Last Update: 15.09.2021
 */

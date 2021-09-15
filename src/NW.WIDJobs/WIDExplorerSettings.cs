@@ -17,13 +17,15 @@ namespace NW.WIDJobs
         public static uint DefaultPauseBetweenRequestsMs { get; } = 25000; // 25 seconds
         public static string DefaultFolderPath { get; } = Directory.GetCurrentDirectory();
         public static bool DefaultDeleteAndRecreateDatabase { get; } = true;
-        public static bool DefaultTranslateOccupation { get; } = true;
+        public static bool DefaultTranslateJobPostingOccupation { get; } = true;
+        public static bool DefaultPredictJobPostingLanguage { get; } = true;
 
         public ushort ParallelRequests { get; }
         public uint PauseBetweenRequestsMs { get; }
         public string FolderPath { get; }
         public bool DeleteAndRecreateDatabase { get; }
-        public bool TranslateOccupation { get; }
+        public bool TranslateJobPostingOccupation { get; }
+        public bool PredictJobPostingLanguage { get; }
 
         #endregion
 
@@ -36,7 +38,8 @@ namespace NW.WIDJobs
             uint pauseBetweenRequestsMs,
             string folderPath,
             bool deleteAndRecreateDatabase,
-            bool translateOccupation
+            bool translateJobPostingOccupation,
+            bool predictJobPostingLanguage
             )
         {
 
@@ -47,7 +50,8 @@ namespace NW.WIDJobs
             PauseBetweenRequestsMs = pauseBetweenRequestsMs;
             FolderPath = folderPath;
             DeleteAndRecreateDatabase = deleteAndRecreateDatabase;
-            TranslateOccupation = translateOccupation;
+            TranslateJobPostingOccupation = translateJobPostingOccupation;
+            PredictJobPostingLanguage = predictJobPostingLanguage;
 
         }
 
@@ -58,7 +62,8 @@ namespace NW.WIDJobs
                   DefaultPauseBetweenRequestsMs,
                   DefaultFolderPath,
                   DefaultDeleteAndRecreateDatabase,
-                  DefaultTranslateOccupation
+                  DefaultTranslateJobPostingOccupation,
+                  DefaultPredictJobPostingLanguage
                   ) { }
 
         #endregion
@@ -71,5 +76,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 10.09.2021
+    Last Update: 15.09.2021
 */

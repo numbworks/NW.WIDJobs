@@ -12,7 +12,8 @@ namespace NW.WIDJobsClient.CommandLine
             string pauseBetweenRequestsMs = null, 
             string folderPath = null, 
             bool? deleteAndRecreateDatabase = null,
-            bool? translateOccupation = null
+            bool? translateJobPostingOccupation = null,
+            bool? predictJobPostingLanguage = null
             );
     
     }
@@ -20,5 +21,5 @@ namespace NW.WIDJobsClient.CommandLine
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 10.09.2021
+    Last Update: 15.09.2021
 */

@@ -1401,7 +1401,8 @@ namespace NW.WIDJobs.UnitTests
                     pauseBetweenRequestsMs: WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
                     folderPath: ObjectMother.WIDExplorer_FakeFolderPath,
                     deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase,
-                    translateOccupation: WIDExplorerSettings.DefaultTranslateOccupation
+                    translateJobPostingOccupation: WIDExplorerSettings.DefaultTranslateJobPostingOccupation,
+                    predictJobPostingLanguage: WIDExplorerSettings.DefaultPredictJobPostingLanguage
                 );
             WIDExplorerComponents components = new WIDExplorerComponents(
                     loggingAction: fakeLoggingAction,
@@ -1538,7 +1539,8 @@ namespace NW.WIDJobs.UnitTests
                     pauseBetweenRequestsMs: WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
                     folderPath: ObjectMother.WIDExplorer_FakeFolderPath,
                     deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase,
-                    translateOccupation: WIDExplorerSettings.DefaultTranslateOccupation
+                    translateJobPostingOccupation: WIDExplorerSettings.DefaultTranslateJobPostingOccupation,
+                    predictJobPostingLanguage: WIDExplorerSettings.DefaultPredictJobPostingLanguage
                 );
             WIDExplorerComponents components = new WIDExplorerComponents(
                     loggingAction: fakeLoggingAction,
@@ -1612,7 +1614,8 @@ namespace NW.WIDJobs.UnitTests
                     pauseBetweenRequestsMs: WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
                     folderPath: ObjectMother.WIDExplorer_FakeFolderPath,
                     deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase,
-                    translateOccupation: WIDExplorerSettings.DefaultTranslateOccupation
+                    translateJobPostingOccupation: WIDExplorerSettings.DefaultTranslateJobPostingOccupation,
+                    predictJobPostingLanguage: WIDExplorerSettings.DefaultPredictJobPostingLanguage
                 );
             WIDExplorerComponents components = new WIDExplorerComponents(
                     loggingAction: fakeLoggingAction,
@@ -1741,7 +1744,8 @@ namespace NW.WIDJobs.UnitTests
                     pauseBetweenRequestsMs: WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
                     folderPath: ObjectMother.WIDExplorer_FakeFolderPath,
                     deleteAndRecreateDatabase: deleteAndRecreateDatabase,
-                    translateOccupation: WIDExplorerSettings.DefaultTranslateOccupation
+                    translateJobPostingOccupation: WIDExplorerSettings.DefaultTranslateJobPostingOccupation,
+                    predictJobPostingLanguage: WIDExplorerSettings.DefaultPredictJobPostingLanguage
                 );
             WIDExplorerComponents components = new WIDExplorerComponents(
                     loggingAction: fakeLoggingAction,
@@ -1816,7 +1820,8 @@ namespace NW.WIDJobs.UnitTests
                     pauseBetweenRequestsMs: pauseBetweenRequestsMs,
                     folderPath: WIDExplorerSettings.DefaultFolderPath,
                     deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase,
-                    translateOccupation: WIDExplorerSettings.DefaultTranslateOccupation
+                    translateJobPostingOccupation: WIDExplorerSettings.DefaultTranslateJobPostingOccupation,
+                    predictJobPostingLanguage: WIDExplorerSettings.DefaultPredictJobPostingLanguage
                 );
             WIDExplorerComponents components = new WIDExplorerComponents(
                     loggingAction: fakeLoggingAction,
@@ -1949,7 +1954,8 @@ namespace NW.WIDJobs.UnitTests
                     pauseBetweenRequestsMs: pauseBetweenRequestsMs,
                     folderPath: WIDExplorerSettings.DefaultFolderPath,
                     deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase,
-                    translateOccupation: WIDExplorerSettings.DefaultTranslateOccupation
+                    translateJobPostingOccupation: WIDExplorerSettings.DefaultTranslateJobPostingOccupation,
+                    predictJobPostingLanguage: WIDExplorerSettings.DefaultPredictJobPostingLanguage
                 );
             WIDExplorerComponents components = new WIDExplorerComponents(
                     loggingAction: fakeLoggingAction,
@@ -2166,7 +2172,8 @@ namespace NW.WIDJobs.UnitTests
                     pauseBetweenRequestsMs: pauseBetweenRequestsMs,
                     folderPath: WIDExplorerSettings.DefaultFolderPath,
                     deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase,
-                    translateOccupation: WIDExplorerSettings.DefaultTranslateOccupation
+                    translateJobPostingOccupation: WIDExplorerSettings.DefaultTranslateJobPostingOccupation,
+                    predictJobPostingLanguage: WIDExplorerSettings.DefaultPredictJobPostingLanguage
                 );
             WIDExplorerComponents components = new WIDExplorerComponents(
                     loggingAction: fakeLoggingAction,
@@ -2303,7 +2310,8 @@ namespace NW.WIDJobs.UnitTests
                     pauseBetweenRequestsMs: pauseBetweenRequestsMs,
                     folderPath: WIDExplorerSettings.DefaultFolderPath,
                     deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase,
-                    translateOccupation: WIDExplorerSettings.DefaultTranslateOccupation
+                    translateJobPostingOccupation: WIDExplorerSettings.DefaultTranslateJobPostingOccupation,
+                    predictJobPostingLanguage: WIDExplorerSettings.DefaultPredictJobPostingLanguage
                 );
             WIDExplorerComponents components = new WIDExplorerComponents(
                     loggingAction: fakeLoggingAction,
@@ -2438,7 +2446,8 @@ namespace NW.WIDJobs.UnitTests
                     pauseBetweenRequestsMs: pauseBetweenRequestsMs,
                     folderPath: WIDExplorerSettings.DefaultFolderPath,
                     deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase,
-                    translateOccupation: WIDExplorerSettings.DefaultTranslateOccupation
+                    translateJobPostingOccupation: WIDExplorerSettings.DefaultTranslateJobPostingOccupation,
+                    predictJobPostingLanguage: WIDExplorerSettings.DefaultPredictJobPostingLanguage
                 );
             WIDExplorerComponents components = new WIDExplorerComponents(
                     loggingAction: fakeLoggingAction,

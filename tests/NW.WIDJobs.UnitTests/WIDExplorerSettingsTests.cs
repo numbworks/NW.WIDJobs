@@ -19,7 +19,8 @@ namespace NW.WIDJobs.UnitTests
                                         pauseBetweenRequestsMs: WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
                                         folderPath: WIDExplorerSettings.DefaultFolderPath,
                                         deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase,
-                                        translateOccupation: WIDExplorerSettings.DefaultTranslateOccupation
+                                        translateJobPostingOccupation: WIDExplorerSettings.DefaultTranslateJobPostingOccupation,
+                                        predictJobPostingLanguage: WIDExplorerSettings.DefaultPredictJobPostingLanguage
                                         )
                 ),
                 typeof(ArgumentException),
@@ -33,7 +34,8 @@ namespace NW.WIDJobs.UnitTests
                                         pauseBetweenRequestsMs: WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
                                         folderPath: null,
                                         deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase,
-                                        translateOccupation: WIDExplorerSettings.DefaultTranslateOccupation
+                                        translateJobPostingOccupation: WIDExplorerSettings.DefaultTranslateJobPostingOccupation,
+                                        predictJobPostingLanguage: WIDExplorerSettings.DefaultPredictJobPostingLanguage
                                         )
                 ),
                 typeof(ArgumentNullException),
@@ -59,7 +61,8 @@ namespace NW.WIDJobs.UnitTests
                             pauseBetweenRequestsMs: pauseBetweenRequestsMs,
                             folderPath: WIDExplorerSettings.DefaultFolderPath,
                             deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase,
-                            translateOccupation: WIDExplorerSettings.DefaultTranslateOccupation
+                            translateJobPostingOccupation: WIDExplorerSettings.DefaultTranslateJobPostingOccupation,
+                            predictJobPostingLanguage: WIDExplorerSettings.DefaultPredictJobPostingLanguage
                         );
 
             // Assert
@@ -67,6 +70,8 @@ namespace NW.WIDJobs.UnitTests
             Assert.AreEqual(pauseBetweenRequestsMs, actual.PauseBetweenRequestsMs);
             Assert.AreEqual(WIDExplorerSettings.DefaultFolderPath, actual.FolderPath);
             Assert.AreEqual(WIDExplorerSettings.DefaultDeleteAndRecreateDatabase, actual.DeleteAndRecreateDatabase);
+            Assert.AreEqual(WIDExplorerSettings.DefaultTranslateJobPostingOccupation, actual.TranslateJobPostingOccupation);
+            Assert.AreEqual(WIDExplorerSettings.DefaultPredictJobPostingLanguage, actual.PredictJobPostingLanguage);
 
         }
 
@@ -83,6 +88,8 @@ namespace NW.WIDJobs.UnitTests
             Assert.AreEqual(WIDExplorerSettings.DefaultPauseBetweenRequestsMs, actual.PauseBetweenRequestsMs);
             Assert.AreEqual(WIDExplorerSettings.DefaultFolderPath, actual.FolderPath);
             Assert.AreEqual(WIDExplorerSettings.DefaultDeleteAndRecreateDatabase, actual.DeleteAndRecreateDatabase);
+            Assert.AreEqual(WIDExplorerSettings.DefaultTranslateJobPostingOccupation, actual.TranslateJobPostingOccupation);
+            Assert.AreEqual(WIDExplorerSettings.DefaultPredictJobPostingLanguage, actual.PredictJobPostingLanguage);
 
         }
 
