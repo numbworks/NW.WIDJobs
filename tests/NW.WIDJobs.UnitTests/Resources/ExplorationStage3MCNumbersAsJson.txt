@@ -530,7 +530,7 @@
   "BulletPointsByJobPostingId": {
     "5359775wearelookingforforklift": 37,
     "5382440assistantorassociateprofessorshipin": 35,
-    "8251036phd": 35,
+    "8251036phd": 34,
     "5382358projectofficerimpactassessmentand": 22,
     "5331002friskeogoplagtemedarbejderetil": 20,
     "5376709medarbejderetilsommervikariaterp": 20,
@@ -547,20 +547,20 @@
     "8251042phd": 11,
     "5379659erfarenogselvstndigtruckf": 10,
     "5290988motivatedemployeesforwarehousework": 10,
-    "8251051securityofficer": 10,
     "5365786motivatedforkliftdriversfortemporary": 9,
     "5303321motivatedemployeesforwarehousework": 9,
     "5383229vicepresidentofproductmarketing": 9,
     "5361275committedemployeesforassemblingdisplays": 9,
     "5346333motivatedemployeeforemptyingcontainers": 9,
+    "8251051securityofficer": 9,
     "8251030seniormanager": 9,
     "5383201laboratorytechnicianforplantanalysis": 7,
     "5383195laboratorytechnicianforfoodprocessing": 7,
     "8251041specialist": 7,
-    "8251038softwaredeveloper": 7,
-    "8251035leader": 7,
-    "8251034productowner": 7,
     "8251052receptionist": 6,
+    "8251038softwaredeveloper": 6,
+    "8251035leader": 6,
+    "8251034productowner": 6,
     "5332213linuxspecialist": 3,
     "5382226warehouseworkers": 3,
     "5383165lagermedarbejderetilpakkeopgaverpdaghold": 0,
@@ -569,5 +569,5 @@
     "8251039supportengineer": 0,
     "8251029businessintelligenceanalyst": 0
   },
-  "TotalBulletPoints": 469
+  "TotalBulletPoints": 464
 }

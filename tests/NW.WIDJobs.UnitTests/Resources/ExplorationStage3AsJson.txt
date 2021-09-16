@@ -1179,9 +1179,18 @@
       "EmploymentDate": null,
       "ApplicationDeadlineDate": "2021-08-27",
       "BulletPoints": [
-        "Performance troubleshooting - if a service is not performing as expected, troubleshooting the process interactions on a live server in order to identify the root cause and propose a remedy, possibly in collaboration with the development team.",
-        "Planning, testing, and executing Postgres database cluster migration from an older version to a newer version with little or no user-visible interruptions.",
-        "Designing the next iteration of our network infrastructure for high-performance multi-site communication, and planning and executing the transition from the previous iteration with no customer visible downtime."
+        {
+          "Text": "Performance troubleshooting - if a service is not performing as expected, troubleshooting the process interactions on a live server in order to identify the root cause and propose a remedy, possibly in collaboration with the development team.",
+          "Type": null
+        },
+        {
+          "Text": "Planning, testing, and executing Postgres database cluster migration from an older version to a newer version with little or no user-visible interruptions.",
+          "Type": null
+        },
+        {
+          "Text": "Designing the next iteration of our network infrastructure for high-performance multi-site communication, and planning and executing the transition from the previous iteration with no customer visible downtime.",
+          "Type": null
+        }
       ],
       "BulletPointScenario": "keepit"
     },
@@ -1225,15 +1234,42 @@
       "EmploymentDate": null,
       "ApplicationDeadlineDate": "2021-08-04",
       "BulletPoints": [
-        "Good work conditions",
-        "A social workplace with good colleagues",
-        "Flexibility regarding shifts",
-        "Possibility for day and evening shifts",
-        "You want to work in warehousing and logistics",
-        "You can work a minimum of 3 weeks in the period week 27 - 36",
-        "You can work either day or evening",
-        "You have experience with forklift driving",
-        "You like working in teams"
+        {
+          "Text": "Good work conditions",
+          "Type": null
+        },
+        {
+          "Text": "A social workplace with good colleagues",
+          "Type": null
+        },
+        {
+          "Text": "Flexibility regarding shifts",
+          "Type": null
+        },
+        {
+          "Text": "Possibility for day and evening shifts",
+          "Type": null
+        },
+        {
+          "Text": "You want to work in warehousing and logistics",
+          "Type": null
+        },
+        {
+          "Text": "You can work a minimum of 3 weeks in the period week 27 - 36",
+          "Type": null
+        },
+        {
+          "Text": "You can work either day or evening",
+          "Type": null
+        },
+        {
+          "Text": "You have experience with forklift driving",
+          "Type": null
+        },
+        {
+          "Text": "You like working in teams",
+          "Type": null
+        }
       ],
       "BulletPointScenario": "generic"
     },
@@ -1277,25 +1313,82 @@
       "EmploymentDate": null,
       "ApplicationDeadlineDate": "2021-08-13",
       "BulletPoints": [
-        "Ordnede forhold",
-        "Attraktiv løn",
-        "En social arbejdsplads med gode kollegaer",
-        "Mulighed for vagter på daghold",
-        "Du har lyst til at arbejde inden for lager og logistik",
-        "Du kan arbejde om dagen",
-        "Du har gerne erfaring med truckkørsel – dog ikke et krav",
-        "Du kan lide at arbejde i teams",
-        "Du må ikke være talblind",
-        "Du kan arbejde i ugerne 29 og 30, eller en af ugerne",
-        "Orderly conditions",
-        "Attractive salary",
-        "A social workplace with good colleagues",
-        "Day shifts",
-        "You want to work in warehousing and logistics",
-        "You can work during the day",
-        "You would like to have experience with truck driving - but not a requirement",
-        "You must be able to count",
-        "You can work in weeks 29 and 30, or one of the weeks"
+        {
+          "Text": "Ordnede forhold",
+          "Type": null
+        },
+        {
+          "Text": "Attraktiv løn",
+          "Type": null
+        },
+        {
+          "Text": "En social arbejdsplads med gode kollegaer",
+          "Type": null
+        },
+        {
+          "Text": "Mulighed for vagter på daghold",
+          "Type": null
+        },
+        {
+          "Text": "Du har lyst til at arbejde inden for lager og logistik",
+          "Type": null
+        },
+        {
+          "Text": "Du kan arbejde om dagen",
+          "Type": null
+        },
+        {
+          "Text": "Du har gerne erfaring med truckkørsel – dog ikke et krav",
+          "Type": null
+        },
+        {
+          "Text": "Du kan lide at arbejde i teams",
+          "Type": null
+        },
+        {
+          "Text": "Du må ikke være talblind",
+          "Type": null
+        },
+        {
+          "Text": "Du kan arbejde i ugerne 29 og 30, eller en af ugerne",
+          "Type": null
+        },
+        {
+          "Text": "Orderly conditions",
+          "Type": null
+        },
+        {
+          "Text": "Attractive salary",
+          "Type": null
+        },
+        {
+          "Text": "A social workplace with good colleagues",
+          "Type": null
+        },
+        {
+          "Text": "Day shifts",
+          "Type": null
+        },
+        {
+          "Text": "You want to work in warehousing and logistics",
+          "Type": null
+        },
+        {
+          "Text": "You can work during the day",
+          "Type": null
+        },
+        {
+          "Text": "You would like to have experience with truck driving - but not a requirement",
+          "Type": null
+        },
+        {
+          "Text": "You must be able to count",
+          "Type": null
+        },
+        {
+          "Text": "You can work in weeks 29 and 30, or one of the weeks",
+          "Type": null
+        }
       ],
       "BulletPointScenario": "generic"
     },
@@ -1339,16 +1432,46 @@
       "EmploymentDate": null,
       "ApplicationDeadlineDate": "2021-08-24",
       "BulletPoints": [
-        "Du har truckkort",
-        "Du kan lide at arbejde om aftenen",
-        "Du kan tale, skrive og læse dansk eller engelsk",
-        "Du kan arbejde selvstændigt",
-        "Du er grundig i dit arbejde",
-        "You have a forklift licence",
-        "You like working in the evenings",
-        "You can speak, write and read Danish or English",
-        "You can work independently",
-        "You are thorough in your work"
+        {
+          "Text": "Du har truckkort",
+          "Type": null
+        },
+        {
+          "Text": "Du kan lide at arbejde om aftenen",
+          "Type": null
+        },
+        {
+          "Text": "Du kan tale, skrive og læse dansk eller engelsk",
+          "Type": null
+        },
+        {
+          "Text": "Du kan arbejde selvstændigt",
+          "Type": null
+        },
+        {
+          "Text": "Du er grundig i dit arbejde",
+          "Type": null
+        },
+        {
+          "Text": "You have a forklift licence",
+          "Type": null
+        },
+        {
+          "Text": "You like working in the evenings",
+          "Type": null
+        },
+        {
+          "Text": "You can speak, write and read Danish or English",
+          "Type": null
+        },
+        {
+          "Text": "You can work independently",
+          "Type": null
+        },
+        {
+          "Text": "You are thorough in your work",
+          "Type": null
+        }
       ],
       "BulletPointScenario": "generic"
     },
@@ -1392,24 +1515,78 @@
       "EmploymentDate": null,
       "ApplicationDeadlineDate": "2021-08-19",
       "BulletPoints": [
-        "Fleksible arbejdstider",
-        "Attraktiv løn (DKK 180,- per time)",
-        "Kørselsgodtgørelse (statens takst)",
-        "Aktivt og alsidigt arbejde",
-        "Du kan arbejde i weekender",
-        "Du har egen bil til rådighed",
-        "Du kan lide aktivt arbejde",
-        "Du har erfaring fra tidligere arbejde – dog ikke et krav",
-        "Du taler, læser og skriver dansk, engelsk eller tysk",
-        "Flexible hours",
-        "Attractive salary (DKK 180 per hour)",
-        "Travel allowance (state tariff)",
-        "Active and versatile work",
-        "You can work on weekends",
-        "You have your own car available",
-        "You like active work",
-        "You have experience from previous work - not a requirement",
-        "You speak, read and write Danish, English or German"
+        {
+          "Text": "Fleksible arbejdstider",
+          "Type": null
+        },
+        {
+          "Text": "Attraktiv løn (DKK 180,- per time)",
+          "Type": null
+        },
+        {
+          "Text": "Kørselsgodtgørelse (statens takst)",
+          "Type": null
+        },
+        {
+          "Text": "Aktivt og alsidigt arbejde",
+          "Type": null
+        },
+        {
+          "Text": "Du kan arbejde i weekender",
+          "Type": null
+        },
+        {
+          "Text": "Du har egen bil til rådighed",
+          "Type": null
+        },
+        {
+          "Text": "Du kan lide aktivt arbejde",
+          "Type": null
+        },
+        {
+          "Text": "Du har erfaring fra tidligere arbejde – dog ikke et krav",
+          "Type": null
+        },
+        {
+          "Text": "Du taler, læser og skriver dansk, engelsk eller tysk",
+          "Type": null
+        },
+        {
+          "Text": "Flexible hours",
+          "Type": null
+        },
+        {
+          "Text": "Attractive salary (DKK 180 per hour)",
+          "Type": null
+        },
+        {
+          "Text": "Travel allowance (state tariff)",
+          "Type": null
+        },
+        {
+          "Text": "Active and versatile work",
+          "Type": null
+        },
+        {
+          "Text": "You can work on weekends",
+          "Type": null
+        },
+        {
+          "Text": "You have your own car available",
+          "Type": null
+        },
+        {
+          "Text": "You like active work",
+          "Type": null
+        },
+        {
+          "Text": "You have experience from previous work - not a requirement",
+          "Type": null
+        },
+        {
+          "Text": "You speak, read and write Danish, English or German",
+          "Type": null
+        }
       ],
       "BulletPointScenario": "generic"
     },
@@ -1453,15 +1630,42 @@
       "EmploymentDate": null,
       "ApplicationDeadlineDate": "2021-08-27",
       "BulletPoints": [
-        "A social workplace",
-        "Day shifts",
-        "A healthy working environment",
-        "Good colleagues",
-        "Training in warehouse work such as picking, packing, sorting and much more",
-        "You would like to work in a warehouse",
-        "You like active work",
-        "You can work full time – part time work can also be arranged",
-        "You can work independently"
+        {
+          "Text": "A social workplace",
+          "Type": null
+        },
+        {
+          "Text": "Day shifts",
+          "Type": null
+        },
+        {
+          "Text": "A healthy working environment",
+          "Type": null
+        },
+        {
+          "Text": "Good colleagues",
+          "Type": null
+        },
+        {
+          "Text": "Training in warehouse work such as picking, packing, sorting and much more",
+          "Type": null
+        },
+        {
+          "Text": "You would like to work in a warehouse",
+          "Type": null
+        },
+        {
+          "Text": "You like active work",
+          "Type": null
+        },
+        {
+          "Text": "You can work full time – part time work can also be arranged",
+          "Type": null
+        },
+        {
+          "Text": "You can work independently",
+          "Type": null
+        }
       ],
       "BulletPointScenario": "generic"
     },
@@ -1505,16 +1709,46 @@
       "EmploymentDate": null,
       "ApplicationDeadlineDate": "2021-08-27",
       "BulletPoints": [
-        "A social workplace",
-        "Day and evening shifts",
-        "Full time work and part time work",
-        "A healthy working environment",
-        "Good colleagues",
-        "Training in warehouse work such as picking, packing, sorting and much more",
-        "You would like to work in a warehouse",
-        "You like active work",
-        "You can work full time or part time",
-        "You can work independently"
+        {
+          "Text": "A social workplace",
+          "Type": null
+        },
+        {
+          "Text": "Day and evening shifts",
+          "Type": null
+        },
+        {
+          "Text": "Full time work and part time work",
+          "Type": null
+        },
+        {
+          "Text": "A healthy working environment",
+          "Type": null
+        },
+        {
+          "Text": "Good colleagues",
+          "Type": null
+        },
+        {
+          "Text": "Training in warehouse work such as picking, packing, sorting and much more",
+          "Type": null
+        },
+        {
+          "Text": "You would like to work in a warehouse",
+          "Type": null
+        },
+        {
+          "Text": "You like active work",
+          "Type": null
+        },
+        {
+          "Text": "You can work full time or part time",
+          "Type": null
+        },
+        {
+          "Text": "You can work independently",
+          "Type": null
+        }
       ],
       "BulletPointScenario": "generic"
     },
@@ -1558,15 +1792,42 @@
       "EmploymentDate": null,
       "ApplicationDeadlineDate": "2021-08-27",
       "BulletPoints": [
-        "As a Vice President, we expect a truly transparent and inclusive leadership style, empowering your team to perform at their maximum abilities.",
-        "Facilitate outstanding collaborations between the product marketing team and the full brand & marketing team as well as internal core stakeholders such as product management and sales",
-        "Help us articulate and implement a global product marketing strategy ·Serve as an evangelist for our products through thought leadership",
-        "Keep the company up-to-date with market trends and competition",
-        "Product Marketing Strategy: We are looking for a profile that can help us define the right strategies that will fuel our continued growth. Having experience with making product marketing strategies for SaaS products is a requirement.",
-        "Product Marketing: The right candidate has a solid product marketing skill-set with an entrepreneurial spirit. You know how to deliver sales enablement content and can execute marketing initiatives, including aligning and getting buy-in from stakeholders across the organization (including marketing, product, and sales).",
-        "Leadership Style: We believe that the right candidate has the ability to inspire the team with an including and transparent leadership style.",
-        "Language: We use English as our preferred language, and being fluent in English, both written and spoken, is essential for this role.",
-        "Entrepreneurial spirit: We are passionate about winning in the market. However, we are also passionate about our workplace, and we know that a good work environment and great collaboration across our organization are crucial to achieving our ambitious goals. Therefore, we are searching for team leaders who, like us, are being motivated by building a fair and fun work environment at Keepit."
+        {
+          "Text": "As a Vice President, we expect a truly transparent and inclusive leadership style, empowering your team to perform at their maximum abilities.",
+          "Type": null
+        },
+        {
+          "Text": "Facilitate outstanding collaborations between the product marketing team and the full brand & marketing team as well as internal core stakeholders such as product management and sales",
+          "Type": null
+        },
+        {
+          "Text": "Help us articulate and implement a global product marketing strategy ·Serve as an evangelist for our products through thought leadership",
+          "Type": null
+        },
+        {
+          "Text": "Keep the company up-to-date with market trends and competition",
+          "Type": null
+        },
+        {
+          "Text": "Product Marketing Strategy: We are looking for a profile that can help us define the right strategies that will fuel our continued growth. Having experience with making product marketing strategies for SaaS products is a requirement.",
+          "Type": null
+        },
+        {
+          "Text": "Product Marketing: The right candidate has a solid product marketing skill-set with an entrepreneurial spirit. You know how to deliver sales enablement content and can execute marketing initiatives, including aligning and getting buy-in from stakeholders across the organization (including marketing, product, and sales).",
+          "Type": null
+        },
+        {
+          "Text": "Leadership Style: We believe that the right candidate has the ability to inspire the team with an including and transparent leadership style.",
+          "Type": null
+        },
+        {
+          "Text": "Language: We use English as our preferred language, and being fluent in English, both written and spoken, is essential for this role.",
+          "Type": null
+        },
+        {
+          "Text": "Entrepreneurial spirit: We are passionate about winning in the market. However, we are also passionate about our workplace, and we know that a good work environment and great collaboration across our organization are crucial to achieving our ambitious goals. Therefore, we are searching for team leaders who, like us, are being motivated by building a fair and fun work environment at Keepit.",
+          "Type": null
+        }
       ],
       "BulletPointScenario": "generic"
     },
@@ -1610,26 +1871,86 @@
       "EmploymentDate": null,
       "ApplicationDeadlineDate": "2021-07-15",
       "BulletPoints": [
-        "Ordnede forhold",
-        "En social arbejdsplads med gode kollegaer",
-        "Fleksibilitet vedr. vagter",
-        "Mulighed for vagter både på hverdage og i weekender",
-        "Du har lyst til at arbejde inden for lager og logistik",
-        "Du er fleksibel",
-        "Du kan arbejde minimum 2 dage om ugen",
-        "Du kan arbejde om eftermiddagen og aftenen",
-        "Du har en god fysik",
-        "Du kan lide at arbejde i teams",
-        "Orderly conditions",
-        "A social workplace with good colleagues",
-        "Flexibility regarding shifts",
-        "Possibility of shifts both on weekdays and on weekends",
-        "You want to work in warehousing and logistics",
-        "You are flexible",
-        "You can work a minimum of 2 days a week",
-        "You can work in the afternoon and evening time",
-        "You have a good physique",
-        "You like working in teams"
+        {
+          "Text": "Ordnede forhold",
+          "Type": null
+        },
+        {
+          "Text": "En social arbejdsplads med gode kollegaer",
+          "Type": null
+        },
+        {
+          "Text": "Fleksibilitet vedr. vagter",
+          "Type": null
+        },
+        {
+          "Text": "Mulighed for vagter både på hverdage og i weekender",
+          "Type": null
+        },
+        {
+          "Text": "Du har lyst til at arbejde inden for lager og logistik",
+          "Type": null
+        },
+        {
+          "Text": "Du er fleksibel",
+          "Type": null
+        },
+        {
+          "Text": "Du kan arbejde minimum 2 dage om ugen",
+          "Type": null
+        },
+        {
+          "Text": "Du kan arbejde om eftermiddagen og aftenen",
+          "Type": null
+        },
+        {
+          "Text": "Du har en god fysik",
+          "Type": null
+        },
+        {
+          "Text": "Du kan lide at arbejde i teams",
+          "Type": null
+        },
+        {
+          "Text": "Orderly conditions",
+          "Type": null
+        },
+        {
+          "Text": "A social workplace with good colleagues",
+          "Type": null
+        },
+        {
+          "Text": "Flexibility regarding shifts",
+          "Type": null
+        },
+        {
+          "Text": "Possibility of shifts both on weekdays and on weekends",
+          "Type": null
+        },
+        {
+          "Text": "You want to work in warehousing and logistics",
+          "Type": null
+        },
+        {
+          "Text": "You are flexible",
+          "Type": null
+        },
+        {
+          "Text": "You can work a minimum of 2 days a week",
+          "Type": null
+        },
+        {
+          "Text": "You can work in the afternoon and evening time",
+          "Type": null
+        },
+        {
+          "Text": "You have a good physique",
+          "Type": null
+        },
+        {
+          "Text": "You like working in teams",
+          "Type": null
+        }
       ],
       "BulletPointScenario": "generic"
     },
@@ -1673,18 +1994,54 @@
       "EmploymentDate": null,
       "ApplicationDeadlineDate": null,
       "BulletPoints": [
-        "PhD degree and post doc research experience within applied statistics or similar aspects",
-        "Proven publication record in international peer-reviewed ISI journals",
-        "Strong expertise in classical statistical methods (analysis of variance, regression analysis, mixed model analysis, generalized linear models, categorical data analysis, non-parametric analysis, multivariate data analysis) and in areas such as spatial statistics, image analysis, time series analysis and machine learning. We are aware that candidates may not have strong expertise in all areas, but we expect the applicant to have at least some knowledge in the areas mentioned.",
-        "The ability to manage, participate, collaborate and communicate in interdisciplinary research, and to participate in joint projects with other scientists.",
-        "Skills in clearly communicating statistical methods and results to persons with non-statistical background.",
-        "attract outstanding talented individuals that are competitive at an international level",
-        "to promote the early development of independent research success early in the career of scientists",
-        "to create transparency in the academic career path",
-        "access to research infrastructure",
-        "capability development, including postgraduate teacher training",
-        "a mentoring programme",
-        "support to develop scientific networks and to secure interdisciplinary research at the highest level"
+        {
+          "Text": "PhD degree and post doc research experience within applied statistics or similar aspects",
+          "Type": null
+        },
+        {
+          "Text": "Proven publication record in international peer-reviewed ISI journals",
+          "Type": null
+        },
+        {
+          "Text": "Strong expertise in classical statistical methods (analysis of variance, regression analysis, mixed model analysis, generalized linear models, categorical data analysis, non-parametric analysis, multivariate data analysis) and in areas such as spatial statistics, image analysis, time series analysis and machine learning. We are aware that candidates may not have strong expertise in all areas, but we expect the applicant to have at least some knowledge in the areas mentioned.",
+          "Type": null
+        },
+        {
+          "Text": "The ability to manage, participate, collaborate and communicate in interdisciplinary research, and to participate in joint projects with other scientists.",
+          "Type": null
+        },
+        {
+          "Text": "Skills in clearly communicating statistical methods and results to persons with non-statistical background.",
+          "Type": null
+        },
+        {
+          "Text": "attract outstanding talented individuals that are competitive at an international level",
+          "Type": null
+        },
+        {
+          "Text": "to promote the early development of independent research success early in the career of scientists",
+          "Type": null
+        },
+        {
+          "Text": "to create transparency in the academic career path",
+          "Type": null
+        },
+        {
+          "Text": "access to research infrastructure",
+          "Type": null
+        },
+        {
+          "Text": "capability development, including postgraduate teacher training",
+          "Type": null
+        },
+        {
+          "Text": "a mentoring programme",
+          "Type": null
+        },
+        {
+          "Text": "support to develop scientific networks and to secure interdisciplinary research at the highest level",
+          "Type": null
+        }
       ],
       "BulletPointScenario": "generic"
     },
@@ -1728,15 +2085,42 @@
       "EmploymentDate": null,
       "ApplicationDeadlineDate": "2021-07-29",
       "BulletPoints": [
-        "Work in a large international company",
-        "Possibility of day shifts",
-        "A social workplace with good colleagues",
-        "Thorough training",
-        "You are flexible during busy periods",
-        "You have an eye for detail",
-        "You can work full time",
-        "You can work independently",
-        "You are thorough and take pride in your work"
+        {
+          "Text": "Work in a large international company",
+          "Type": null
+        },
+        {
+          "Text": "Possibility of day shifts",
+          "Type": null
+        },
+        {
+          "Text": "A social workplace with good colleagues",
+          "Type": null
+        },
+        {
+          "Text": "Thorough training",
+          "Type": null
+        },
+        {
+          "Text": "You are flexible during busy periods",
+          "Type": null
+        },
+        {
+          "Text": "You have an eye for detail",
+          "Type": null
+        },
+        {
+          "Text": "You can work full time",
+          "Type": null
+        },
+        {
+          "Text": "You can work independently",
+          "Type": null
+        },
+        {
+          "Text": "You are thorough and take pride in your work",
+          "Type": null
+        }
       ],
       "BulletPointScenario": "generic"
     },
@@ -1780,43 +2164,154 @@
       "EmploymentDate": null,
       "ApplicationDeadlineDate": "2021-07-28",
       "BulletPoints": [
-        "Good work conditions",
-        "A social workplace with good colleagues",
-        "Flexibility regarding shifts",
-        "Possibility for day shifts, evening shifts and night shifts.",
-        "You want to work in warehousing and logistics",
-        "You are flexible",
-        "You can work a minimum of 3 weeks in the period week 24 - 34",
-        "You can work either day, evening or night shift",
-        "You have experience with forklift driving",
-        "You like working in teams",
-        "in Horsens from 06.00–14.00 or 07.00-15.00",
-        "in Skanderborg from 08.00-16.00",
-        "in Fredericia from 06.00-14.00",
-        "in Horsens from00-22.00 / 15.00-23.00",
-        "in Skanderborg from 15.00-23.00",
-        "in Horsens from 22.00-06.00",
-        "in Skanderborg from 22.00-06.00",
-        "in Fredericia from 23.00-06.30",
-        "Uporządkowane warunki",
-        "Socjalne miejsce pracy z dobrymi kolegami",
-        "Elastyczność w zakresie zmian pracy",
-        "Możliwość pracy na zmianach dziennych, wieczornych i nocnych.",
-        "Masz ochotę pracować w magazynach i logistyce",
-        "Jesteś elastyczny",
-        "Możesz pracować minimum 3 tygodnie w okresie od 24 do 34 tygodnia",
-        "Możesz pracować na dziennej, wieczornej lub nocnej zmianie",
-        "Masz doświadczenie w prowadzeniu wózka widłowego",
-        "Lubisz prace w grupach",
-        "Potrafisz mówić ,czytać i rozumieć duński lub angielski",
-        "w Horsens w 06.00-14.00 / 07.00-15.00",
-        "w Skanderborgu w 08.00-16.00",
-        "w Fredericii w 06.00-14.00",
-        "w Horsens w 14.00-22.00 / 15.00-23.00",
-        "w Skanderborgu w 15.00-23.00",
-        "w Horsens w 22.00-06.00",
-        "w Skanderborgu w 22.00-06.00",
-        "w Fredericii w 23.00-06.30"
+        {
+          "Text": "Good work conditions",
+          "Type": null
+        },
+        {
+          "Text": "A social workplace with good colleagues",
+          "Type": null
+        },
+        {
+          "Text": "Flexibility regarding shifts",
+          "Type": null
+        },
+        {
+          "Text": "Possibility for day shifts, evening shifts and night shifts.",
+          "Type": null
+        },
+        {
+          "Text": "You want to work in warehousing and logistics",
+          "Type": null
+        },
+        {
+          "Text": "You are flexible",
+          "Type": null
+        },
+        {
+          "Text": "You can work a minimum of 3 weeks in the period week 24 - 34",
+          "Type": null
+        },
+        {
+          "Text": "You can work either day, evening or night shift",
+          "Type": null
+        },
+        {
+          "Text": "You have experience with forklift driving",
+          "Type": null
+        },
+        {
+          "Text": "You like working in teams",
+          "Type": null
+        },
+        {
+          "Text": "in Horsens from 06.00–14.00 or 07.00-15.00",
+          "Type": null
+        },
+        {
+          "Text": "in Skanderborg from 08.00-16.00",
+          "Type": null
+        },
+        {
+          "Text": "in Fredericia from 06.00-14.00",
+          "Type": null
+        },
+        {
+          "Text": "in Horsens from00-22.00 / 15.00-23.00",
+          "Type": null
+        },
+        {
+          "Text": "in Skanderborg from 15.00-23.00",
+          "Type": null
+        },
+        {
+          "Text": "in Horsens from 22.00-06.00",
+          "Type": null
+        },
+        {
+          "Text": "in Skanderborg from 22.00-06.00",
+          "Type": null
+        },
+        {
+          "Text": "in Fredericia from 23.00-06.30",
+          "Type": null
+        },
+        {
+          "Text": "Uporządkowane warunki",
+          "Type": null
+        },
+        {
+          "Text": "Socjalne miejsce pracy z dobrymi kolegami",
+          "Type": null
+        },
+        {
+          "Text": "Elastyczność w zakresie zmian pracy",
+          "Type": null
+        },
+        {
+          "Text": "Możliwość pracy na zmianach dziennych, wieczornych i nocnych.",
+          "Type": null
+        },
+        {
+          "Text": "Masz ochotę pracować w magazynach i logistyce",
+          "Type": null
+        },
+        {
+          "Text": "Jesteś elastyczny",
+          "Type": null
+        },
+        {
+          "Text": "Możesz pracować minimum 3 tygodnie w okresie od 24 do 34 tygodnia",
+          "Type": null
+        },
+        {
+          "Text": "Możesz pracować na dziennej, wieczornej lub nocnej zmianie",
+          "Type": null
+        },
+        {
+          "Text": "Masz doświadczenie w prowadzeniu wózka widłowego",
+          "Type": null
+        },
+        {
+          "Text": "Lubisz prace w grupach",
+          "Type": null
+        },
+        {
+          "Text": "Potrafisz mówić ,czytać i rozumieć duński lub angielski",
+          "Type": null
+        },
+        {
+          "Text": "w Horsens w 06.00-14.00 / 07.00-15.00",
+          "Type": null
+        },
+        {
+          "Text": "w Skanderborgu w 08.00-16.00",
+          "Type": null
+        },
+        {
+          "Text": "w Fredericii w 06.00-14.00",
+          "Type": null
+        },
+        {
+          "Text": "w Horsens w 14.00-22.00 / 15.00-23.00",
+          "Type": null
+        },
+        {
+          "Text": "w Skanderborgu w 15.00-23.00",
+          "Type": null
+        },
+        {
+          "Text": "w Horsens w 22.00-06.00",
+          "Type": null
+        },
+        {
+          "Text": "w Skanderborgu w 22.00-06.00",
+          "Type": null
+        },
+        {
+          "Text": "w Fredericii w 23.00-06.30",
+          "Type": null
+        }
       ],
       "BulletPointScenario": "generic"
     },
@@ -1860,13 +2355,34 @@
       "EmploymentDate": null,
       "ApplicationDeadlineDate": null,
       "BulletPoints": [
-        "Analysis of plant ingredients e.g. phenols, carbohydrates, polyacetylenes, glucosinolates, etc. using HPLC, GC-MS, and IC",
-        "Microbiology",
-        "Laboratory guidance of students and researchers",
-        "Method development",
-        "Sample collection, sample preparation and data processing",
-        "Maintenance of various analysis equipment and laboratory management",
-        "Photography in studios and ‘on the spot’ plants, plant products and experimental setup as documentation of the experimental work."
+        {
+          "Text": "Analysis of plant ingredients e.g. phenols, carbohydrates, polyacetylenes, glucosinolates, etc. using HPLC, GC-MS, and IC",
+          "Type": null
+        },
+        {
+          "Text": "Microbiology",
+          "Type": null
+        },
+        {
+          "Text": "Laboratory guidance of students and researchers",
+          "Type": null
+        },
+        {
+          "Text": "Method development",
+          "Type": null
+        },
+        {
+          "Text": "Sample collection, sample preparation and data processing",
+          "Type": null
+        },
+        {
+          "Text": "Maintenance of various analysis equipment and laboratory management",
+          "Type": null
+        },
+        {
+          "Text": "Photography in studios and ‘on the spot’ plants, plant products and experimental setup as documentation of the experimental work.",
+          "Type": null
+        }
       ],
       "BulletPointScenario": "generic"
     },
@@ -1910,13 +2426,34 @@
       "EmploymentDate": null,
       "ApplicationDeadlineDate": null,
       "BulletPoints": [
-        "Analysis with ICP-MS and HPLC",
-        "Working with food processing in laboratory / pilot scale",
-        "Laboratory guidance of students and researchers",
-        "Method development",
-        "Sample collection, sample preparation and data processing",
-        "Maintenance of various analysis equipment and laboratory management",
-        "Purchase of consumables and minor equipment for the laboratory."
+        {
+          "Text": "Analysis with ICP-MS and HPLC",
+          "Type": null
+        },
+        {
+          "Text": "Working with food processing in laboratory / pilot scale",
+          "Type": null
+        },
+        {
+          "Text": "Laboratory guidance of students and researchers",
+          "Type": null
+        },
+        {
+          "Text": "Method development",
+          "Type": null
+        },
+        {
+          "Text": "Sample collection, sample preparation and data processing",
+          "Type": null
+        },
+        {
+          "Text": "Maintenance of various analysis equipment and laboratory management",
+          "Type": null
+        },
+        {
+          "Text": "Purchase of consumables and minor equipment for the laboratory.",
+          "Type": null
+        }
       ],
       "BulletPointScenario": "generic"
     },
@@ -2002,15 +2539,42 @@
       "EmploymentDate": null,
       "ApplicationDeadlineDate": "2021-07-12",
       "BulletPoints": [
-        "A social workplace",
-        "Active work",
-        "Day and evening shifts",
-        "A healthy working environment",
-        "Good colleagues",
-        "You would like to work in a warehouse",
-        "You like active and physical work",
-        "You can work full time or part time",
-        "You can work independently"
+        {
+          "Text": "A social workplace",
+          "Type": null
+        },
+        {
+          "Text": "Active work",
+          "Type": null
+        },
+        {
+          "Text": "Day and evening shifts",
+          "Type": null
+        },
+        {
+          "Text": "A healthy working environment",
+          "Type": null
+        },
+        {
+          "Text": "Good colleagues",
+          "Type": null
+        },
+        {
+          "Text": "You would like to work in a warehouse",
+          "Type": null
+        },
+        {
+          "Text": "You like active and physical work",
+          "Type": null
+        },
+        {
+          "Text": "You can work full time or part time",
+          "Type": null
+        },
+        {
+          "Text": "You can work independently",
+          "Type": null
+        }
       ],
       "BulletPointScenario": "generic"
     },
@@ -2054,26 +2618,86 @@
       "EmploymentDate": null,
       "ApplicationDeadlineDate": "2021-08-19",
       "BulletPoints": [
-        "Arbejde på daghold",
-        "Gode kollegaer",
-        "Grundig oplæring",
-        "Mulighed for aktivt arbejde",
-        "Du kan lide aktivt arbejde",
-        "Du kan lide at veksle mellem forskellige arbejdsopgaver",
-        "Du har en god fysik",
-        "Du kan arbejde daghold på fuldtid – deltid kan også arrangeres",
-        "Du er grundig i dit arbejde og har en positiv tilgang til dine arbejdsopgaver",
-        "Du er fleksibel i travle perioder",
-        "Work on day shifts",
-        "Good colleagues",
-        "Thorough training",
-        "Opportunity for active work",
-        "You like active work",
-        "You like to have different work tasks",
-        "You have a good physique",
-        "You can work day shifts full time - part time can also be arranged",
-        "You are thorough in your work and have a positive approach to your work tasks",
-        "You are flexible during busy periods"
+        {
+          "Text": "Arbejde på daghold",
+          "Type": null
+        },
+        {
+          "Text": "Gode kollegaer",
+          "Type": null
+        },
+        {
+          "Text": "Grundig oplæring",
+          "Type": null
+        },
+        {
+          "Text": "Mulighed for aktivt arbejde",
+          "Type": null
+        },
+        {
+          "Text": "Du kan lide aktivt arbejde",
+          "Type": null
+        },
+        {
+          "Text": "Du kan lide at veksle mellem forskellige arbejdsopgaver",
+          "Type": null
+        },
+        {
+          "Text": "Du har en god fysik",
+          "Type": null
+        },
+        {
+          "Text": "Du kan arbejde daghold på fuldtid – deltid kan også arrangeres",
+          "Type": null
+        },
+        {
+          "Text": "Du er grundig i dit arbejde og har en positiv tilgang til dine arbejdsopgaver",
+          "Type": null
+        },
+        {
+          "Text": "Du er fleksibel i travle perioder",
+          "Type": null
+        },
+        {
+          "Text": "Work on day shifts",
+          "Type": null
+        },
+        {
+          "Text": "Good colleagues",
+          "Type": null
+        },
+        {
+          "Text": "Thorough training",
+          "Type": null
+        },
+        {
+          "Text": "Opportunity for active work",
+          "Type": null
+        },
+        {
+          "Text": "You like active work",
+          "Type": null
+        },
+        {
+          "Text": "You like to have different work tasks",
+          "Type": null
+        },
+        {
+          "Text": "You have a good physique",
+          "Type": null
+        },
+        {
+          "Text": "You can work day shifts full time - part time can also be arranged",
+          "Type": null
+        },
+        {
+          "Text": "You are thorough in your work and have a positive approach to your work tasks",
+          "Type": null
+        },
+        {
+          "Text": "You are flexible during busy periods",
+          "Type": null
+        }
       ],
       "BulletPointScenario": "generic"
     },
@@ -2117,19 +2741,58 @@
       "EmploymentDate": null,
       "ApplicationDeadlineDate": null,
       "BulletPoints": [
-        "Teaching and examination in various study programs",
-        "Development of existing and or new study programs",
-        "Individual and group based research activities of high international standard",
-        "Promotion of CBS’s academic reputation",
-        "Communicating findings to the public in general and to CBS’s stakeholders in particular",
-        "Responsibility for publishing, scientific communication and research-based teaching",
-        "Attracting external funding opportunities",
-        "A cover letter",
-        "Proof of qualifications and a full CV",
-        "Documentation of relevant, significant, original research at an international level, including publications in the field’s internationally recognized journals and citations in the Social Science Citation Index and/or Google Scholar",
-        "Documentation of pedagogical qualifications or other material for the evaluation of his/her pedagogical level * Information indicating experience in research management, industry co-operation and international co-operation",
-        "A complete, numbered list of publications (indicating titles, co-authors, page numbers and year) with an * marking of the academic productions to be considered during the review. A maximum of 10 publications for review are allowed. Applicants are requested to prioritize their publications in relation to the field of this job advertisement.",
-        "Copies of the publications marked with an *."
+        {
+          "Text": "Teaching and examination in various study programs",
+          "Type": null
+        },
+        {
+          "Text": "Development of existing and or new study programs",
+          "Type": null
+        },
+        {
+          "Text": "Individual and group based research activities of high international standard",
+          "Type": null
+        },
+        {
+          "Text": "Promotion of CBS’s academic reputation",
+          "Type": null
+        },
+        {
+          "Text": "Communicating findings to the public in general and to CBS’s stakeholders in particular",
+          "Type": null
+        },
+        {
+          "Text": "Responsibility for publishing, scientific communication and research-based teaching",
+          "Type": null
+        },
+        {
+          "Text": "Attracting external funding opportunities",
+          "Type": null
+        },
+        {
+          "Text": "A cover letter",
+          "Type": null
+        },
+        {
+          "Text": "Proof of qualifications and a full CV",
+          "Type": null
+        },
+        {
+          "Text": "Documentation of relevant, significant, original research at an international level, including publications in the field’s internationally recognized journals and citations in the Social Science Citation Index and/or Google Scholar",
+          "Type": null
+        },
+        {
+          "Text": "Documentation of pedagogical qualifications or other material for the evaluation of his/her pedagogical level * Information indicating experience in research management, industry co-operation and international co-operation",
+          "Type": null
+        },
+        {
+          "Text": "A complete, numbered list of publications (indicating titles, co-authors, page numbers and year) with an * marking of the academic productions to be considered during the review. A maximum of 10 publications for review are allowed. Applicants are requested to prioritize their publications in relation to the field of this job advertisement.",
+          "Type": null
+        },
+        {
+          "Text": "Copies of the publications marked with an *.",
+          "Type": null
+        }
       ],
       "BulletPointScenario": "generic"
     },
@@ -2173,25 +2836,82 @@
       "EmploymentDate": null,
       "ApplicationDeadlineDate": "2021-08-27",
       "BulletPoints": [
-        "Picking/packing tasks",
-        "Loading/unloading tasks",
-        "Receipt of goods",
-        "Truck driving, most often reach truck",
-        "Scanner operation",
-        "Various warehouse tasks",
-        "You will of course receive a thorough training in the work tasks, so you will have the best conditions for success.",
-        "The company generally has an informal work environment with the opportunity to take responsibility for work tasks and planning.",
-        "Are ready to take on evening work",
-        "Have experience from working at a warehouse",
-        "Have a truck certificate",
-        "Are ready to taking up the challenge when it comes to new tasks and flexible working days",
-        "Are able to perform a good job",
-        "Can represent Randstad as an external employee in a positive way at the customer’s premises",
-        "Danish- and English-speaking at a reasonable level",
-        "Basic salary according to qualifications and in addition to this, cf. collective agreement, pension scheme and holiday",
-        "A generally informal work environment with the opportunity to take responsibility for work tasks and planning",
-        "Start-up: As soon as possible, please send your CV",
-        "All inquiries are treated confidentially. Interviews will take place on an ongoing basis."
+        {
+          "Text": "Picking/packing tasks",
+          "Type": null
+        },
+        {
+          "Text": "Loading/unloading tasks",
+          "Type": null
+        },
+        {
+          "Text": "Receipt of goods",
+          "Type": null
+        },
+        {
+          "Text": "Truck driving, most often reach truck",
+          "Type": null
+        },
+        {
+          "Text": "Scanner operation",
+          "Type": null
+        },
+        {
+          "Text": "Various warehouse tasks",
+          "Type": null
+        },
+        {
+          "Text": "You will of course receive a thorough training in the work tasks, so you will have the best conditions for success.",
+          "Type": null
+        },
+        {
+          "Text": "The company generally has an informal work environment with the opportunity to take responsibility for work tasks and planning.",
+          "Type": null
+        },
+        {
+          "Text": "Are ready to take on evening work",
+          "Type": null
+        },
+        {
+          "Text": "Have experience from working at a warehouse",
+          "Type": null
+        },
+        {
+          "Text": "Have a truck certificate",
+          "Type": null
+        },
+        {
+          "Text": "Are ready to taking up the challenge when it comes to new tasks and flexible working days",
+          "Type": null
+        },
+        {
+          "Text": "Are able to perform a good job",
+          "Type": null
+        },
+        {
+          "Text": "Can represent Randstad as an external employee in a positive way at the customer’s premises",
+          "Type": null
+        },
+        {
+          "Text": "Danish- and English-speaking at a reasonable level",
+          "Type": null
+        },
+        {
+          "Text": "Basic salary according to qualifications and in addition to this, cf. collective agreement, pension scheme and holiday",
+          "Type": null
+        },
+        {
+          "Text": "A generally informal work environment with the opportunity to take responsibility for work tasks and planning",
+          "Type": null
+        },
+        {
+          "Text": "Start-up: As soon as possible, please send your CV",
+          "Type": null
+        },
+        {
+          "Text": "All inquiries are treated confidentially. Interviews will take place on an ongoing basis.",
+          "Type": null
+        }
       ],
       "BulletPointScenario": "randstad"
     },
@@ -2235,23 +2955,74 @@
       "EmploymentDate": null,
       "ApplicationDeadlineDate": null,
       "BulletPoints": [
-        "How does digital platform design affect user behaviors and outcomes?",
-        "How do complementors compete within and across digital ecosystems?",
-        "How do ecosystems compete?",
-        "What is the role of data and algorithms in steering interactions and value in platform markets and ecosystems (exploiting or correcting consumer behavioral biases)?",
-        "Are data exclusionary or non-rivalry? How do they affect a firm’s competitive advantage in (platform) digital markets?",
-        "How does data enable value creation (for organizations and their stakeholder)?",
-        "How to organize the effective and efficient creation, sharing and usage of data in digital ecosystems?",
-        "Applicants must have completed a PhD in Management, Economics, or other related social science discipline before the beginning the fellowship. Prior work (including but not limited to dissertation) should involve working with large datasets.",
-        "Excellent academic record and work ethic required.",
-        "Excellent organizational and oral/written communication skills required.",
-        "Enthusiasm for research required. The ideal candidate will be thinking of this position as a platform to build skills towards taking on a research professorship in the future.",
-        "Willingness to move to and live in Denmark.",
-        "Cover letter.",
-        "Proof of qualifications and a full CV.",
-        "Any relevant information indicating experience in research management, industry co-operation and international cooperation.",
-        "A complete, numbered list of publications (indicating titles, co-authors, page numbers and year) with an * marking of the academic productions to be considered during the review. A maximum of 10 publications for review are allowed. Applicants are requested to prioritize their publications in relation to the field of this job advertisement.",
-        "Copies of the publications marked with an *. Only publications written in English (or another specified principal language, according to research tradition) or one of the Scandinavian languages will be taken into consideration."
+        {
+          "Text": "How does digital platform design affect user behaviors and outcomes?",
+          "Type": null
+        },
+        {
+          "Text": "How do complementors compete within and across digital ecosystems?",
+          "Type": null
+        },
+        {
+          "Text": "How do ecosystems compete?",
+          "Type": null
+        },
+        {
+          "Text": "What is the role of data and algorithms in steering interactions and value in platform markets and ecosystems (exploiting or correcting consumer behavioral biases)?",
+          "Type": null
+        },
+        {
+          "Text": "Are data exclusionary or non-rivalry? How do they affect a firm’s competitive advantage in (platform) digital markets?",
+          "Type": null
+        },
+        {
+          "Text": "How does data enable value creation (for organizations and their stakeholder)?",
+          "Type": null
+        },
+        {
+          "Text": "How to organize the effective and efficient creation, sharing and usage of data in digital ecosystems?",
+          "Type": null
+        },
+        {
+          "Text": "Applicants must have completed a PhD in Management, Economics, or other related social science discipline before the beginning the fellowship. Prior work (including but not limited to dissertation) should involve working with large datasets.",
+          "Type": null
+        },
+        {
+          "Text": "Excellent academic record and work ethic required.",
+          "Type": null
+        },
+        {
+          "Text": "Excellent organizational and oral/written communication skills required.",
+          "Type": null
+        },
+        {
+          "Text": "Enthusiasm for research required. The ideal candidate will be thinking of this position as a platform to build skills towards taking on a research professorship in the future.",
+          "Type": null
+        },
+        {
+          "Text": "Willingness to move to and live in Denmark.",
+          "Type": null
+        },
+        {
+          "Text": "Cover letter.",
+          "Type": null
+        },
+        {
+          "Text": "Proof of qualifications and a full CV.",
+          "Type": null
+        },
+        {
+          "Text": "Any relevant information indicating experience in research management, industry co-operation and international cooperation.",
+          "Type": null
+        },
+        {
+          "Text": "A complete, numbered list of publications (indicating titles, co-authors, page numbers and year) with an * marking of the academic productions to be considered during the review. A maximum of 10 publications for review are allowed. Applicants are requested to prioritize their publications in relation to the field of this job advertisement.",
+          "Type": null
+        },
+        {
+          "Text": "Copies of the publications marked with an *. Only publications written in English (or another specified principal language, according to research tradition) or one of the Scandinavian languages will be taken into consideration.",
+          "Type": null
+        }
       ],
       "BulletPointScenario": "generic"
     },
@@ -2295,41 +3066,146 @@
       "EmploymentDate": null,
       "ApplicationDeadlineDate": null,
       "BulletPoints": [
-        "Has specific research experience in the field of empirically informed teaching, learning outcome and/or student motivation",
-        "Has specific research experience connected to the role of digital technologies in shaping teaching and subject areas",
-        "Can demonstrate skills in collaborative and cross-disciplinary research",
-        "Can demonstrate skills in handling various qualitative and quantitative scientific methods.",
-        "Substantial research experience in general didactics in relation to empirical school research",
-        "An internationally oriented research profile",
-        "A relevant and internationally oriented publication profile",
-        "Experience of or interest in participation in national and international research networks",
-        "Experience of or interest in communication and knowledge exchange",
-        "Experience of or interest in interdisciplinary collaboration as well as interdisciplinary research",
-        "Experience of or the potential for obtaining external research funding",
-        "Teaching experience at university level within the field of general didactics and educational research methods",
-        "Experience of or interest in interdisciplinary teaching including innovative teaching methods",
-        "Experience of or interest in supervising student projects, and interest in researcher talent development.",
-        "Substantial research experience in the field of general didactics and empirical school research",
-        "Substantial experience of empirical research related to didactics, learning outcomes and student motivation",
-        "Skills in collaborative and cross-disciplinary school research",
-        "Skills in empirical school research and empirically informed teaching, including mixed methods",
-        "A strong, relevant international publication profile",
-        "Participation in national and international research networks",
-        "Experience of participation in collective research projects",
-        "Teaching experience at university level within the field general didactics and educational research methods, including innovative teaching methods, and mastery of academic English in the classroom",
-        "Proficiency in languages relevant to the area of research",
-        "Experience of interdisciplinary cooperation outreach activities",
-        "Experience of attracting external research funding",
-        "Experience of supervising student projects and an interest in researcher talent development.",
-        "Faculty of Arts refers to the Ministerial Order on the Appointment of Academic Staff at Danish Universities (the Appointment Order).",
-        "Appointment shall be in accordance with the collective labour agreement between the Danish Ministry of Finance and the Danish Confederation of Professional Associations.",
-        "Further information on qualification requirements and job content may be found in the Memorandum on Job Structure for Academic Staff at Danish Universities .",
-        "Further information on the application and supplementary materials may be found in Application Guidelines.",
-        "The application must outline the your motivation for applying for the position, attaching a curriculum vitae, copies of relevant degree certificates, and (if relevant for the position) a teaching portfolio. Please upload this material electronically along with your application.",
-        "If you submit your application for the assistant professorship, please upload a maximum of five samples of your scholarly output (mandatory).",
-        "If you submit your application for the associate professorship, please upload a maximum of eight samples of your scholarly output (mandatory).",
-        "Faculty of Arts refers to the Ministerial Order on the Appointment of Academic Staff at Danish Universities(the Appointment Order).",
-        "Further information on qualification requirements and job content may be found in theMemorandum on Job Structure for Academic Staff at Danish Universities."
+        {
+          "Text": "Has specific research experience in the field of empirically informed teaching, learning outcome and/or student motivation",
+          "Type": null
+        },
+        {
+          "Text": "Has specific research experience connected to the role of digital technologies in shaping teaching and subject areas",
+          "Type": null
+        },
+        {
+          "Text": "Can demonstrate skills in collaborative and cross-disciplinary research",
+          "Type": null
+        },
+        {
+          "Text": "Can demonstrate skills in handling various qualitative and quantitative scientific methods.",
+          "Type": null
+        },
+        {
+          "Text": "Substantial research experience in general didactics in relation to empirical school research",
+          "Type": null
+        },
+        {
+          "Text": "An internationally oriented research profile",
+          "Type": null
+        },
+        {
+          "Text": "A relevant and internationally oriented publication profile",
+          "Type": null
+        },
+        {
+          "Text": "Experience of or interest in participation in national and international research networks",
+          "Type": null
+        },
+        {
+          "Text": "Experience of or interest in communication and knowledge exchange",
+          "Type": null
+        },
+        {
+          "Text": "Experience of or interest in interdisciplinary collaboration as well as interdisciplinary research",
+          "Type": null
+        },
+        {
+          "Text": "Experience of or the potential for obtaining external research funding",
+          "Type": null
+        },
+        {
+          "Text": "Teaching experience at university level within the field of general didactics and educational research methods",
+          "Type": null
+        },
+        {
+          "Text": "Experience of or interest in interdisciplinary teaching including innovative teaching methods",
+          "Type": null
+        },
+        {
+          "Text": "Experience of or interest in supervising student projects, and interest in researcher talent development.",
+          "Type": null
+        },
+        {
+          "Text": "Substantial research experience in the field of general didactics and empirical school research",
+          "Type": null
+        },
+        {
+          "Text": "Substantial experience of empirical research related to didactics, learning outcomes and student motivation",
+          "Type": null
+        },
+        {
+          "Text": "Skills in collaborative and cross-disciplinary school research",
+          "Type": null
+        },
+        {
+          "Text": "Skills in empirical school research and empirically informed teaching, including mixed methods",
+          "Type": null
+        },
+        {
+          "Text": "A strong, relevant international publication profile",
+          "Type": null
+        },
+        {
+          "Text": "Participation in national and international research networks",
+          "Type": null
+        },
+        {
+          "Text": "Experience of participation in collective research projects",
+          "Type": null
+        },
+        {
+          "Text": "Teaching experience at university level within the field general didactics and educational research methods, including innovative teaching methods, and mastery of academic English in the classroom",
+          "Type": null
+        },
+        {
+          "Text": "Proficiency in languages relevant to the area of research",
+          "Type": null
+        },
+        {
+          "Text": "Experience of interdisciplinary cooperation outreach activities",
+          "Type": null
+        },
+        {
+          "Text": "Experience of attracting external research funding",
+          "Type": null
+        },
+        {
+          "Text": "Experience of supervising student projects and an interest in researcher talent development.",
+          "Type": null
+        },
+        {
+          "Text": "Faculty of Arts refers to the Ministerial Order on the Appointment of Academic Staff at Danish Universities (the Appointment Order).",
+          "Type": null
+        },
+        {
+          "Text": "Appointment shall be in accordance with the collective labour agreement between the Danish Ministry of Finance and the Danish Confederation of Professional Associations.",
+          "Type": null
+        },
+        {
+          "Text": "Further information on qualification requirements and job content may be found in the Memorandum on Job Structure for Academic Staff at Danish Universities .",
+          "Type": null
+        },
+        {
+          "Text": "Further information on the application and supplementary materials may be found in Application Guidelines.",
+          "Type": null
+        },
+        {
+          "Text": "The application must outline the your motivation for applying for the position, attaching a curriculum vitae, copies of relevant degree certificates, and (if relevant for the position) a teaching portfolio. Please upload this material electronically along with your application.",
+          "Type": null
+        },
+        {
+          "Text": "If you submit your application for the assistant professorship, please upload a maximum of five samples of your scholarly output (mandatory).",
+          "Type": null
+        },
+        {
+          "Text": "If you submit your application for the associate professorship, please upload a maximum of eight samples of your scholarly output (mandatory).",
+          "Type": null
+        },
+        {
+          "Text": "Faculty of Arts refers to the Ministerial Order on the Appointment of Academic Staff at Danish Universities(the Appointment Order).",
+          "Type": null
+        },
+        {
+          "Text": "Further information on qualification requirements and job content may be found in theMemorandum on Job Structure for Academic Staff at Danish Universities.",
+          "Type": null
+        }
       ],
       "BulletPointScenario": "generic"
     },
@@ -2415,23 +3291,74 @@
       "EmploymentDate": null,
       "ApplicationDeadlineDate": "2021-08-27",
       "BulletPoints": [
-        "Join and hold meetings with prospects and customers to assist with any questions related to SQL, API or Plecto in general",
-        "Handle complex support cases and customer queries  in a timely and efficient manner",
-        "Guide customers and prospects on best practices in using Plecto",
-        "Assist customers in setting up their Plecto account",
-        "Assist in initial integration research",
-        "Reading technical API documentation - JSON, REST and OAuth",
-        "Solve customer problems under complex constraints and come up with solutions without any additional development of Plecto",
-        "Maintaining and creating internal knowledge base articles",
-        "Experience in delivering outstanding technical support",
-        "Experience in database operations including reading and writing basic to intermediate database SQL queries and troubleshooting connection issues",
-        "Experience and knowledge in API and SQL Server Databases",
-        "Interest and knowledge in other programming languages is a plus, but not a requirement",
-        "Ability to effectively communicate technical concepts to a variety of audiences with different levels of technical expertise",
-        "Multi-tasking and time-management to prioritize and switch between varied tasks",
-        "Technical writing skills to create and maintain Knowledge Base articles",
-        "Technical skills and an eye for detail used in troubleshooting and implementing fixes",
-        "You are fluent in English, both spoken and written + another additional language. Danish is a plus, but not a requirement"
+        {
+          "Text": "Join and hold meetings with prospects and customers to assist with any questions related to SQL, API or Plecto in general",
+          "Type": null
+        },
+        {
+          "Text": "Handle complex support cases and customer queries  in a timely and efficient manner",
+          "Type": null
+        },
+        {
+          "Text": "Guide customers and prospects on best practices in using Plecto",
+          "Type": null
+        },
+        {
+          "Text": "Assist customers in setting up their Plecto account",
+          "Type": null
+        },
+        {
+          "Text": "Assist in initial integration research",
+          "Type": null
+        },
+        {
+          "Text": "Reading technical API documentation - JSON, REST and OAuth",
+          "Type": null
+        },
+        {
+          "Text": "Solve customer problems under complex constraints and come up with solutions without any additional development of Plecto",
+          "Type": null
+        },
+        {
+          "Text": "Maintaining and creating internal knowledge base articles",
+          "Type": null
+        },
+        {
+          "Text": "Experience in delivering outstanding technical support",
+          "Type": null
+        },
+        {
+          "Text": "Experience in database operations including reading and writing basic to intermediate database SQL queries and troubleshooting connection issues",
+          "Type": null
+        },
+        {
+          "Text": "Experience and knowledge in API and SQL Server Databases",
+          "Type": null
+        },
+        {
+          "Text": "Interest and knowledge in other programming languages is a plus, but not a requirement",
+          "Type": null
+        },
+        {
+          "Text": "Ability to effectively communicate technical concepts to a variety of audiences with different levels of technical expertise",
+          "Type": null
+        },
+        {
+          "Text": "Multi-tasking and time-management to prioritize and switch between varied tasks",
+          "Type": null
+        },
+        {
+          "Text": "Technical writing skills to create and maintain Knowledge Base articles",
+          "Type": null
+        },
+        {
+          "Text": "Technical skills and an eye for detail used in troubleshooting and implementing fixes",
+          "Type": null
+        },
+        {
+          "Text": "You are fluent in English, both spoken and written + another additional language. Danish is a plus, but not a requirement",
+          "Type": null
+        }
       ],
       "BulletPointScenario": "generic"
     },
@@ -2475,28 +3402,94 @@
       "EmploymentDate": null,
       "ApplicationDeadlineDate": "2021-07-16",
       "BulletPoints": [
-        "Lead the development of tools and guidance materials within adaptation assessment, tracking and transparency.",
-        "Support the production of UNEP's Adaptation Gap Report;",
-        "Contribute to the section's work on private sector adaptation, and adaptation business models.",
-        "Contribute to the section's work on impact assessments of mitigation and adaptation actions and their contribution to sustainable development;",
-        "Contribute to the section's work on adaptation finance tracking;",
-        "Contribute to the development of scientific papers, briefs, and reports;",
-        "Other tasks as assigned by the head of section.",
-        "M.Sc. degree in environmental science, environmental engineering, sustainability studies, environmental economics, or other relevant field;",
-        "Understanding of the Paris Agreement, in particular of the Enhanced Transparency Framework;",
-        "Good knowledge of methods and approaches for adaptation assessment and tracking at aggregated levels (i.e. national and global-levels)",
-        "Good knowledge of the adaptation finance landscape, and methods and approaches for tracking adaptation finance",
-        "Good knowledge of the Sustainable Development Goal framework, including of the SDG targets and indicators, particularly in the context of impact assessment;",
-        "Good knowledge of private sector adaptation is an asset;",
-        "Strong analytical skills, an innovative mindset, and the ability to adapt to different tasks and workloads quickly and effectively;",
-        "Demonstrated excellent writing, communication, and presentation skills in English; proficiency in other languages, in particular Spanish and/or French is an asset",
-        "Ability to work effectively both individually as well as in teams, with people from different academic and cultural backgrounds;",
-        "Experience in preparing technical and/or policy-relevant reports and papers is considered a strong asset;",
-        "Experience in working with developing countries is an asset;",
-        "Application letter;",
-        "CV with full personal data and contact details;",
-        "Indication of three references; and,",
-        "A copy of your diploma(s)"
+        {
+          "Text": "Lead the development of tools and guidance materials within adaptation assessment, tracking and transparency.",
+          "Type": null
+        },
+        {
+          "Text": "Support the production of UNEP's Adaptation Gap Report;",
+          "Type": null
+        },
+        {
+          "Text": "Contribute to the section's work on private sector adaptation, and adaptation business models.",
+          "Type": null
+        },
+        {
+          "Text": "Contribute to the section's work on impact assessments of mitigation and adaptation actions and their contribution to sustainable development;",
+          "Type": null
+        },
+        {
+          "Text": "Contribute to the section's work on adaptation finance tracking;",
+          "Type": null
+        },
+        {
+          "Text": "Contribute to the development of scientific papers, briefs, and reports;",
+          "Type": null
+        },
+        {
+          "Text": "Other tasks as assigned by the head of section.",
+          "Type": null
+        },
+        {
+          "Text": "M.Sc. degree in environmental science, environmental engineering, sustainability studies, environmental economics, or other relevant field;",
+          "Type": null
+        },
+        {
+          "Text": "Understanding of the Paris Agreement, in particular of the Enhanced Transparency Framework;",
+          "Type": null
+        },
+        {
+          "Text": "Good knowledge of methods and approaches for adaptation assessment and tracking at aggregated levels (i.e. national and global-levels)",
+          "Type": null
+        },
+        {
+          "Text": "Good knowledge of the adaptation finance landscape, and methods and approaches for tracking adaptation finance",
+          "Type": null
+        },
+        {
+          "Text": "Good knowledge of the Sustainable Development Goal framework, including of the SDG targets and indicators, particularly in the context of impact assessment;",
+          "Type": null
+        },
+        {
+          "Text": "Good knowledge of private sector adaptation is an asset;",
+          "Type": null
+        },
+        {
+          "Text": "Strong analytical skills, an innovative mindset, and the ability to adapt to different tasks and workloads quickly and effectively;",
+          "Type": null
+        },
+        {
+          "Text": "Demonstrated excellent writing, communication, and presentation skills in English; proficiency in other languages, in particular Spanish and/or French is an asset",
+          "Type": null
+        },
+        {
+          "Text": "Ability to work effectively both individually as well as in teams, with people from different academic and cultural backgrounds;",
+          "Type": null
+        },
+        {
+          "Text": "Experience in preparing technical and/or policy-relevant reports and papers is considered a strong asset;",
+          "Type": null
+        },
+        {
+          "Text": "Experience in working with developing countries is an asset;",
+          "Type": null
+        },
+        {
+          "Text": "Application letter;",
+          "Type": null
+        },
+        {
+          "Text": "CV with full personal data and contact details;",
+          "Type": null
+        },
+        {
+          "Text": "Indication of three references; and,",
+          "Type": null
+        },
+        {
+          "Text": "A copy of your diploma(s)",
+          "Type": null
+        }
       ],
       "BulletPointScenario": "generic"
     },
@@ -2540,9 +3533,18 @@
       "EmploymentDate": null,
       "ApplicationDeadlineDate": "2021-08-27",
       "BulletPoints": [
-        "You speak English or Danish",
-        "You are interested in working in a warehouse",
-        "You have a pair of safety shoes"
+        {
+          "Text": "You speak English or Danish",
+          "Type": null
+        },
+        {
+          "Text": "You are interested in working in a warehouse",
+          "Type": null
+        },
+        {
+          "Text": "You have a pair of safety shoes",
+          "Type": null
+        }
       ],
       "BulletPointScenario": "generic"
     },
@@ -2586,17 +3588,50 @@
       "EmploymentDate": null,
       "ApplicationDeadlineDate": "2021-07-30",
       "BulletPoints": [
-        "you get to clean the finest hotel rooms in Copenhagen",
-        "you are guaranteed a minimum of 80-130 hours per month with the possibility to work more (depending on your situation)",
-        "we offer career opportunities through promotions and/or management classes",
-        "we offer health insurance after 6 months of employment",
-        "Salary according to the collective bargaining agreement",
-        "Speaking English",
-        "Service minded",
-        "Ready to work primarily in the daytime on weekdays and/or weekends",
-        "Able to work in weekends as well",
-        "Ready to work in a fast and exiting environment",
-        "Definitely the one we are looking for!"
+        {
+          "Text": "you get to clean the finest hotel rooms in Copenhagen",
+          "Type": null
+        },
+        {
+          "Text": "you are guaranteed a minimum of 80-130 hours per month with the possibility to work more (depending on your situation)",
+          "Type": null
+        },
+        {
+          "Text": "we offer career opportunities through promotions and/or management classes",
+          "Type": null
+        },
+        {
+          "Text": "we offer health insurance after 6 months of employment",
+          "Type": null
+        },
+        {
+          "Text": "Salary according to the collective bargaining agreement",
+          "Type": null
+        },
+        {
+          "Text": "Speaking English",
+          "Type": null
+        },
+        {
+          "Text": "Service minded",
+          "Type": null
+        },
+        {
+          "Text": "Ready to work primarily in the daytime on weekdays and/or weekends",
+          "Type": null
+        },
+        {
+          "Text": "Able to work in weekends as well",
+          "Type": null
+        },
+        {
+          "Text": "Ready to work in a fast and exiting environment",
+          "Type": null
+        },
+        {
+          "Text": "Definitely the one we are looking for!",
+          "Type": null
+        }
       ],
       "BulletPointScenario": "generic"
     },
@@ -2640,17 +3675,50 @@
       "EmploymentDate": null,
       "ApplicationDeadlineDate": "2021-07-30",
       "BulletPoints": [
-        "Develop a strong base of customers",
-        "Find leads and potential customers through for example networks and social platforms",
-        "Identify areas where you can expand business with your existing customers",
-        "Negotiate contracts and close deals while clearly predicting your pipeline",
-        "You have excellent skills in both written and oral English",
-        "You have a good business understanding and a structured work approach",
-        "You are a team player with the ability to collaborate across teams",
-        "You are able to identify needs and identify where Plecto can create value for potential customers",
-        "It is an advantage if you have previous experience in the insurance-, telecommunications-, energy- or media industry",
-        "It is an advantage if you have previous experience from B2B and/or sales",
-        "You have a bubbly positive personality that we will love to get to know and work with"
+        {
+          "Text": "Develop a strong base of customers",
+          "Type": null
+        },
+        {
+          "Text": "Find leads and potential customers through for example networks and social platforms",
+          "Type": null
+        },
+        {
+          "Text": "Identify areas where you can expand business with your existing customers",
+          "Type": null
+        },
+        {
+          "Text": "Negotiate contracts and close deals while clearly predicting your pipeline",
+          "Type": null
+        },
+        {
+          "Text": "You have excellent skills in both written and oral English",
+          "Type": null
+        },
+        {
+          "Text": "You have a good business understanding and a structured work approach",
+          "Type": null
+        },
+        {
+          "Text": "You are a team player with the ability to collaborate across teams",
+          "Type": null
+        },
+        {
+          "Text": "You are able to identify needs and identify where Plecto can create value for potential customers",
+          "Type": null
+        },
+        {
+          "Text": "It is an advantage if you have previous experience in the insurance-, telecommunications-, energy- or media industry",
+          "Type": null
+        },
+        {
+          "Text": "It is an advantage if you have previous experience from B2B and/or sales",
+          "Type": null
+        },
+        {
+          "Text": "You have a bubbly positive personality that we will love to get to know and work with",
+          "Type": null
+        }
       ],
       "BulletPointScenario": "generic"
     },
@@ -2736,20 +3804,62 @@
       "EmploymentDate": null,
       "ApplicationDeadlineDate": null,
       "BulletPoints": [
-        "research, including publication/academic dissemination",
-        "research-based teaching",
-        "sharing knowledge with society",
-        "participation in formal pedagogical training programme for assistant professors",
-        "a PhD degree or similar qualifications within the subject area",
-        "research experience within the field of the position",
-        "Application, including motivation for applying for this position (Maximum 2 pages)",
-        "Curriculum vitae, including information about funding",
-        "Diplomas (Master’s, PhD and other relevant diplomas)",
-        "A complete list of publications",
-        "Research plan (2-4 pages)",
-        "Teaching plan",
-        "Uploads of maximum 5 publications to be considered in the assessment",
-        "Teaching portfolio, if applicable (Guidelines: https://employment.ku.dk/faculty/recruitment-process/job-application-portfolio)"
+        {
+          "Text": "research, including publication/academic dissemination",
+          "Type": null
+        },
+        {
+          "Text": "research-based teaching",
+          "Type": null
+        },
+        {
+          "Text": "sharing knowledge with society",
+          "Type": null
+        },
+        {
+          "Text": "participation in formal pedagogical training programme for assistant professors",
+          "Type": null
+        },
+        {
+          "Text": "a PhD degree or similar qualifications within the subject area",
+          "Type": null
+        },
+        {
+          "Text": "research experience within the field of the position",
+          "Type": null
+        },
+        {
+          "Text": "Application, including motivation for applying for this position (Maximum 2 pages)",
+          "Type": null
+        },
+        {
+          "Text": "Curriculum vitae, including information about funding",
+          "Type": null
+        },
+        {
+          "Text": "Diplomas (Master’s, PhD and other relevant diplomas)",
+          "Type": null
+        },
+        {
+          "Text": "A complete list of publications",
+          "Type": null
+        },
+        {
+          "Text": "Research plan (2-4 pages)",
+          "Type": null
+        },
+        {
+          "Text": "Teaching plan",
+          "Type": null
+        },
+        {
+          "Text": "Uploads of maximum 5 publications to be considered in the assessment",
+          "Type": null
+        },
+        {
+          "Text": "Teaching portfolio, if applicable (Guidelines: https://employment.ku.dk/faculty/recruitment-process/job-application-portfolio)",
+          "Type": null
+        }
       ],
       "BulletPointScenario": "generic"
     },
@@ -2793,12 +3903,30 @@
       "EmploymentDate": null,
       "ApplicationDeadlineDate": null,
       "BulletPoints": [
-        "The most important in this job is your personality. We weigh discretion highly and the importance of our customers getting a professional service when they are welcomed by you at our receptions.",
-        "We are an active part of the security setup and it will be an advantage if you have worked as an Security Receptionist before.",
-        "As you will have colleagues from very different backgrounds, it will require tolerance and understanding to positively gain from the differences.",
-        "You will need a good deal of curiosity and have the ability to work very thorough with your tasks.",
-        "You have a solid language background, speak and write Danish and English at a high level. It will be an advantage if you master another foreign language. You have the ability to absorb and handle large amounts of information and in depth organisational knowledge.",
-        "You are used to working in a large company and handling many different stakeholders. You are a super user in regards to the Office-package, are used to working with data and Key Performance Indicators (KPIs) and you have technical insight into SAP and IT systems including maintenance hereof."
+        {
+          "Text": "The most important in this job is your personality. We weigh discretion highly and the importance of our customers getting a professional service when they are welcomed by you at our receptions.",
+          "Type": null
+        },
+        {
+          "Text": "We are an active part of the security setup and it will be an advantage if you have worked as an Security Receptionist before.",
+          "Type": null
+        },
+        {
+          "Text": "As you will have colleagues from very different backgrounds, it will require tolerance and understanding to positively gain from the differences.",
+          "Type": null
+        },
+        {
+          "Text": "You will need a good deal of curiosity and have the ability to work very thorough with your tasks.",
+          "Type": null
+        },
+        {
+          "Text": "You have a solid language background, speak and write Danish and English at a high level. It will be an advantage if you master another foreign language. You have the ability to absorb and handle large amounts of information and in depth organisational knowledge.",
+          "Type": null
+        },
+        {
+          "Text": "You are used to working in a large company and handling many different stakeholders. You are a super user in regards to the Office-package, are used to working with data and Key Performance Indicators (KPIs) and you have technical insight into SAP and IT systems including maintenance hereof.",
+          "Type": null
+        }
       ],
       "BulletPointScenario": "novonordisk"
     },
@@ -2842,16 +3970,42 @@
       "EmploymentDate": null,
       "ApplicationDeadlineDate": null,
       "BulletPoints": [
-        "Behandlings-områder",
-        "Sundheds-personale",
-        "Videnskab &amp; teknologi",
-        "Bæredygtig forretning",
-        "Karriere",
-        "Om Novo Nordisk",
-        "",
-        "Få mere viden",
-        "Nyheder og presse",
-        "Kontakt os"
+        {
+          "Text": "Behandlings-områder",
+          "Type": null
+        },
+        {
+          "Text": "Sundheds-personale",
+          "Type": null
+        },
+        {
+          "Text": "Videnskab &amp; teknologi",
+          "Type": null
+        },
+        {
+          "Text": "Bæredygtig forretning",
+          "Type": null
+        },
+        {
+          "Text": "Karriere",
+          "Type": null
+        },
+        {
+          "Text": "Om Novo Nordisk",
+          "Type": null
+        },
+        {
+          "Text": "Få mere viden",
+          "Type": null
+        },
+        {
+          "Text": "Nyheder og presse",
+          "Type": null
+        },
+        {
+          "Text": "Kontakt os",
+          "Type": null
+        }
       ],
       "BulletPointScenario": "generic"
     },
@@ -2895,17 +4049,50 @@
       "EmploymentDate": null,
       "ApplicationDeadlineDate": null,
       "BulletPoints": [
-        "Field-based ecosystem manipulations experiments and monitoring of greenhouse gas production",
-        "Measurements of subsurface and snow gas concentrations, diffusion and greenhouse gas fluxes",
-        "Process-based models to simulate changes in climate-soil-plant-microbial characteristics",
-        "Structural equation modelling",
-        "Letter of application",
-        "Curriculum vita, incl. education, experience, previous employments, language skills and other relevant skills (max 5 pages).",
-        "Detailed outline of proposed research, including research questions and methods (max 5 pages)",
-        "Diplomas (Master and PhD degree or equivalent)",
-        "Complete publication list, highlighting the 3 most important ones",
-        "Separate reprints of 3 particularly relevant papers",
-        "Two letters of recommendation."
+        {
+          "Text": "Field-based ecosystem manipulations experiments and monitoring of greenhouse gas production",
+          "Type": null
+        },
+        {
+          "Text": "Measurements of subsurface and snow gas concentrations, diffusion and greenhouse gas fluxes",
+          "Type": null
+        },
+        {
+          "Text": "Process-based models to simulate changes in climate-soil-plant-microbial characteristics",
+          "Type": null
+        },
+        {
+          "Text": "Structural equation modelling",
+          "Type": null
+        },
+        {
+          "Text": "Letter of application",
+          "Type": null
+        },
+        {
+          "Text": "Curriculum vita, incl. education, experience, previous employments, language skills and other relevant skills (max 5 pages).",
+          "Type": null
+        },
+        {
+          "Text": "Detailed outline of proposed research, including research questions and methods (max 5 pages)",
+          "Type": null
+        },
+        {
+          "Text": "Diplomas (Master and PhD degree or equivalent)",
+          "Type": null
+        },
+        {
+          "Text": "Complete publication list, highlighting the 3 most important ones",
+          "Type": null
+        },
+        {
+          "Text": "Separate reprints of 3 particularly relevant papers",
+          "Type": null
+        },
+        {
+          "Text": "Two letters of recommendation.",
+          "Type": null
+        }
       ],
       "BulletPointScenario": "jobportal"
     },
@@ -2949,13 +4136,34 @@
       "EmploymentDate": null,
       "ApplicationDeadlineDate": null,
       "BulletPoints": [
-        "Subject matter expert with responsibility for planning, advising on, coordinating, and handling public disclosure of clinical trial information.",
-        "Monitor and evaluate the clinical trial disclosure landscape, including regulatory requirements and industry trends.",
-        "Develop, pilot, implement, update, and maintain procedures to ensure compliance with regulations and other commitments for clinical data transparency.",
-        "University degree in health or biological science (MD, MSc, MSc Pharm or equivalent).",
-        "Thorough knowledge of clinical development, GCP, scientific research methods, and applicable regulatory guidelines. Understanding of clinical statistics.",
-        "Strong IT flair – documented through previous experience, either professional or private.",
-        "Prior experience with clinical disclosure will be an advantage."
+        {
+          "Text": "Subject matter expert with responsibility for planning, advising on, coordinating, and handling public disclosure of clinical trial information.",
+          "Type": null
+        },
+        {
+          "Text": "Monitor and evaluate the clinical trial disclosure landscape, including regulatory requirements and industry trends.",
+          "Type": null
+        },
+        {
+          "Text": "Develop, pilot, implement, update, and maintain procedures to ensure compliance with regulations and other commitments for clinical data transparency.",
+          "Type": null
+        },
+        {
+          "Text": "University degree in health or biological science (MD, MSc, MSc Pharm or equivalent).",
+          "Type": null
+        },
+        {
+          "Text": "Thorough knowledge of clinical development, GCP, scientific research methods, and applicable regulatory guidelines. Understanding of clinical statistics.",
+          "Type": null
+        },
+        {
+          "Text": "Strong IT flair – documented through previous experience, either professional or private.",
+          "Type": null
+        },
+        {
+          "Text": "Prior experience with clinical disclosure will be an advantage.",
+          "Type": null
+        }
       ],
       "BulletPointScenario": "easycruit"
     },
@@ -3041,13 +4249,30 @@
       "EmploymentDate": null,
       "ApplicationDeadlineDate": null,
       "BulletPoints": [
-        "",
-        "Facebook",
-        "Linkedin",
-        "Google+",
-        "Twitter",
-        "Email",
-        "Print"
+        {
+          "Text": "Facebook",
+          "Type": null
+        },
+        {
+          "Text": "Linkedin",
+          "Type": null
+        },
+        {
+          "Text": "Google+",
+          "Type": null
+        },
+        {
+          "Text": "Twitter",
+          "Type": null
+        },
+        {
+          "Text": "Email",
+          "Type": null
+        },
+        {
+          "Text": "Print",
+          "Type": null
+        }
       ],
       "BulletPointScenario": "generic"
     },
@@ -3091,41 +4316,142 @@
       "EmploymentDate": null,
       "ApplicationDeadlineDate": null,
       "BulletPoints": [
-        "Nyheder",
-        "Arrangementer",
-        "Kontakt og find rundt",
-        "Campusområder",
-        "For Pressen",
-        "For alumni",
-        "Genveje Nyheder Arrangementer Kontakt og find rundt Campusområder For Pressen For alumni",
-        "aau uddannelse",
-        "aau forskning",
-        "aau samarbejde",
-        "Om AAU",
-        "Ledige stillinger",
-        "Ansatte og studerende",
-        "",
-        "Ledige stillinger på AAU",
-        "/",
-        "Vis stilling",
-        "Alle videnskabelige stillinger",
-        "Alle teknisk-administrative stillinger",
-        "Alle Phd stillinger",
-        "Alle ledige stillinger",
-        "AAU som arbejdsplads",
-        "AAU&#039;s personalepolitik",
-        "Organisation",
-        "Problembaseret læring",
-        "Strategi og udvikling",
-        "Internationalt samarbejde",
-        "Historie, priser og hæder",
-        "Uddannelseskvalitet",
-        "AAU i tal",
-        "Facebook",
-        "LinkedIn",
-        "Instagram",
-        "Snapchat",
-        "YouTube"
+        {
+          "Text": "Nyheder",
+          "Type": null
+        },
+        {
+          "Text": "Arrangementer",
+          "Type": null
+        },
+        {
+          "Text": "Kontakt og find rundt",
+          "Type": null
+        },
+        {
+          "Text": "Campusområder",
+          "Type": null
+        },
+        {
+          "Text": "For Pressen",
+          "Type": null
+        },
+        {
+          "Text": "For alumni",
+          "Type": null
+        },
+        {
+          "Text": "Genveje Nyheder Arrangementer Kontakt og find rundt Campusområder For Pressen For alumni",
+          "Type": null
+        },
+        {
+          "Text": "aau uddannelse",
+          "Type": null
+        },
+        {
+          "Text": "aau forskning",
+          "Type": null
+        },
+        {
+          "Text": "aau samarbejde",
+          "Type": null
+        },
+        {
+          "Text": "Om AAU",
+          "Type": null
+        },
+        {
+          "Text": "Ledige stillinger",
+          "Type": null
+        },
+        {
+          "Text": "Ansatte og studerende",
+          "Type": null
+        },
+        {
+          "Text": "Ledige stillinger på AAU",
+          "Type": null
+        },
+        {
+          "Text": "/",
+          "Type": null
+        },
+        {
+          "Text": "Vis stilling",
+          "Type": null
+        },
+        {
+          "Text": "Alle videnskabelige stillinger",
+          "Type": null
+        },
+        {
+          "Text": "Alle teknisk-administrative stillinger",
+          "Type": null
+        },
+        {
+          "Text": "Alle Phd stillinger",
+          "Type": null
+        },
+        {
+          "Text": "Alle ledige stillinger",
+          "Type": null
+        },
+        {
+          "Text": "AAU som arbejdsplads",
+          "Type": null
+        },
+        {
+          "Text": "AAU&#039;s personalepolitik",
+          "Type": null
+        },
+        {
+          "Text": "Organisation",
+          "Type": null
+        },
+        {
+          "Text": "Problembaseret læring",
+          "Type": null
+        },
+        {
+          "Text": "Strategi og udvikling",
+          "Type": null
+        },
+        {
+          "Text": "Internationalt samarbejde",
+          "Type": null
+        },
+        {
+          "Text": "Historie, priser og hæder",
+          "Type": null
+        },
+        {
+          "Text": "Uddannelseskvalitet",
+          "Type": null
+        },
+        {
+          "Text": "AAU i tal",
+          "Type": null
+        },
+        {
+          "Text": "Facebook",
+          "Type": null
+        },
+        {
+          "Text": "LinkedIn",
+          "Type": null
+        },
+        {
+          "Text": "Instagram",
+          "Type": null
+        },
+        {
+          "Text": "Snapchat",
+          "Type": null
+        },
+        {
+          "Text": "YouTube",
+          "Type": null
+        }
       ],
       "BulletPointScenario": "generic"
     },
@@ -3169,13 +4495,30 @@
       "EmploymentDate": null,
       "ApplicationDeadlineDate": null,
       "BulletPoints": [
-        "",
-        "Facebook",
-        "Linkedin",
-        "Google+",
-        "Twitter",
-        "Email",
-        "Print"
+        {
+          "Text": "Facebook",
+          "Type": null
+        },
+        {
+          "Text": "Linkedin",
+          "Type": null
+        },
+        {
+          "Text": "Google+",
+          "Type": null
+        },
+        {
+          "Text": "Twitter",
+          "Type": null
+        },
+        {
+          "Text": "Email",
+          "Type": null
+        },
+        {
+          "Text": "Print",
+          "Type": null
+        }
       ],
       "BulletPointScenario": "generic"
     },
@@ -3219,13 +4562,30 @@
       "EmploymentDate": null,
       "ApplicationDeadlineDate": null,
       "BulletPoints": [
-        "",
-        "Facebook",
-        "Linkedin",
-        "Google+",
-        "Twitter",
-        "Email",
-        "Print"
+        {
+          "Text": "Facebook",
+          "Type": null
+        },
+        {
+          "Text": "Linkedin",
+          "Type": null
+        },
+        {
+          "Text": "Google+",
+          "Type": null
+        },
+        {
+          "Text": "Twitter",
+          "Type": null
+        },
+        {
+          "Text": "Email",
+          "Type": null
+        },
+        {
+          "Text": "Print",
+          "Type": null
+        }
       ],
       "BulletPointScenario": "generic"
     },
@@ -3269,15 +4629,42 @@
       "EmploymentDate": null,
       "ApplicationDeadlineDate": null,
       "BulletPoints": [
-        "Set a clear direction for sales capabilities within the Consumer channel, ensure that we have the right toolbox in place for in- and outbound calls and that these align with HQ requirements",
-        "Ensure that we locally have the tools necessary to give our customers get the highest level of quality in terms of service and sales",
-        "Work with stakeholders to identify training needs and opportunities and determine what areas should be included in training modules",
-        "Motivate and develop consumer care managers",
-        "Have a couple of years of experience in a commercial role",
-        "Know your way around change management",
-        "Probably have training experience preferably from a sales or service organisation",
-        "Have impactful PowerPoint presentation skills and the ability to conduct meetings and workshops",
-        "Are fluent in English – any other languages are a plus"
+        {
+          "Text": "Set a clear direction for sales capabilities within the Consumer channel, ensure that we have the right toolbox in place for in- and outbound calls and that these align with HQ requirements",
+          "Type": null
+        },
+        {
+          "Text": "Ensure that we locally have the tools necessary to give our customers get the highest level of quality in terms of service and sales",
+          "Type": null
+        },
+        {
+          "Text": "Work with stakeholders to identify training needs and opportunities and determine what areas should be included in training modules",
+          "Type": null
+        },
+        {
+          "Text": "Motivate and develop consumer care managers",
+          "Type": null
+        },
+        {
+          "Text": "Have a couple of years of experience in a commercial role",
+          "Type": null
+        },
+        {
+          "Text": "Know your way around change management",
+          "Type": null
+        },
+        {
+          "Text": "Probably have training experience preferably from a sales or service organisation",
+          "Type": null
+        },
+        {
+          "Text": "Have impactful PowerPoint presentation skills and the ability to conduct meetings and workshops",
+          "Type": null
+        },
+        {
+          "Text": "Are fluent in English – any other languages are a plus",
+          "Type": null
+        }
       ],
       "BulletPointScenario": "coloplast"
     },
