@@ -20,7 +20,8 @@ namespace NW.WIDJobs.UnitTests
                                         folderPath: WIDExplorerSettings.DefaultFolderPath,
                                         deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase,
                                         translateJobPostingOccupation: WIDExplorerSettings.DefaultTranslateJobPostingOccupation,
-                                        predictJobPostingLanguage: WIDExplorerSettings.DefaultPredictJobPostingLanguage
+                                        predictJobPostingLanguage: WIDExplorerSettings.DefaultPredictJobPostingLanguage,
+                                        predictBulletPointType: WIDExplorerSettings.DefaultPredictBulletPointType
                                         )
                 ),
                 typeof(ArgumentException),
@@ -35,7 +36,8 @@ namespace NW.WIDJobs.UnitTests
                                         folderPath: null,
                                         deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase,
                                         translateJobPostingOccupation: WIDExplorerSettings.DefaultTranslateJobPostingOccupation,
-                                        predictJobPostingLanguage: WIDExplorerSettings.DefaultPredictJobPostingLanguage
+                                        predictJobPostingLanguage: WIDExplorerSettings.DefaultPredictJobPostingLanguage,
+                                        predictBulletPointType: WIDExplorerSettings.DefaultPredictBulletPointType
                                         )
                 ),
                 typeof(ArgumentNullException),
@@ -62,7 +64,8 @@ namespace NW.WIDJobs.UnitTests
                             folderPath: WIDExplorerSettings.DefaultFolderPath,
                             deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase,
                             translateJobPostingOccupation: WIDExplorerSettings.DefaultTranslateJobPostingOccupation,
-                            predictJobPostingLanguage: WIDExplorerSettings.DefaultPredictJobPostingLanguage
+                            predictJobPostingLanguage: WIDExplorerSettings.DefaultPredictJobPostingLanguage,
+                            predictBulletPointType: WIDExplorerSettings.DefaultPredictBulletPointType
                         );
 
             // Assert
@@ -72,6 +75,7 @@ namespace NW.WIDJobs.UnitTests
             Assert.AreEqual(WIDExplorerSettings.DefaultDeleteAndRecreateDatabase, actual.DeleteAndRecreateDatabase);
             Assert.AreEqual(WIDExplorerSettings.DefaultTranslateJobPostingOccupation, actual.TranslateJobPostingOccupation);
             Assert.AreEqual(WIDExplorerSettings.DefaultPredictJobPostingLanguage, actual.PredictJobPostingLanguage);
+            Assert.AreEqual(WIDExplorerSettings.DefaultPredictBulletPointType, actual.PredictBulletPointType);
 
         }
 
@@ -90,6 +94,7 @@ namespace NW.WIDJobs.UnitTests
             Assert.AreEqual(WIDExplorerSettings.DefaultDeleteAndRecreateDatabase, actual.DeleteAndRecreateDatabase);
             Assert.AreEqual(WIDExplorerSettings.DefaultTranslateJobPostingOccupation, actual.TranslateJobPostingOccupation);
             Assert.AreEqual(WIDExplorerSettings.DefaultPredictJobPostingLanguage, actual.PredictJobPostingLanguage);
+            Assert.AreEqual(WIDExplorerSettings.DefaultPredictBulletPointType, actual.PredictBulletPointType);
 
         }
 

@@ -2,6 +2,7 @@
 using System.IO;
 using NW.WIDJobs.Validation;
 using NW.WIDJobs.JobPostings;
+using NW.WIDJobs.JobPostingsExtended;
 
 namespace NW.WIDJobs
 {
@@ -20,6 +21,7 @@ namespace NW.WIDJobs
         public static bool DefaultDeleteAndRecreateDatabase { get; } = true;
         public static bool DefaultTranslateJobPostingOccupation { get; } = true;
         public static bool DefaultPredictJobPostingLanguage { get; } = true;
+        public static bool DefaultPredictBulletPointType { get; } = false;
 
         public ushort ParallelRequests { get; }
         public uint PauseBetweenRequestsMs { get; }
@@ -27,6 +29,7 @@ namespace NW.WIDJobs
         public bool DeleteAndRecreateDatabase { get; }
         public bool TranslateJobPostingOccupation { get; }
         public bool PredictJobPostingLanguage { get; }
+        public bool PredictBulletPointType { get; }
 
         #endregion
 
@@ -36,6 +39,7 @@ namespace NW.WIDJobs
         /// Initializes a <see cref="WIDExplorerSettings"/> instance.
         /// <para>If <paramref name="translateJobPostingOccupation"/> is true, <see cref="JobPosting.Occupation"/> is translated from Danish to English.</para>
         /// <para>If <paramref name="predictJobPostingLanguage"/> is true, a language prediction is attempted out of <see cref="JobPosting.Title"/> and <see cref="JobPosting.Presentation"/>. It may be moderately expensive on the CPU.</para>  
+        /// <para>If <paramref name="predictBulletPointType"/> is true, a type prediction is attempted out of <see cref="BulletPoint.Text"/>. It may be moderately expensive on the CPU.</para>         
         /// </summary>
         /// <exception cref="ArgumentException"/>
         public WIDExplorerSettings(
@@ -44,7 +48,8 @@ namespace NW.WIDJobs
             string folderPath,
             bool deleteAndRecreateDatabase,
             bool translateJobPostingOccupation,
-            bool predictJobPostingLanguage
+            bool predictJobPostingLanguage,
+            bool predictBulletPointType
             )
         {
 
@@ -57,6 +62,7 @@ namespace NW.WIDJobs
             DeleteAndRecreateDatabase = deleteAndRecreateDatabase;
             TranslateJobPostingOccupation = translateJobPostingOccupation;
             PredictJobPostingLanguage = predictJobPostingLanguage;
+            PredictBulletPointType = predictBulletPointType;
 
         }
 
@@ -68,7 +74,8 @@ namespace NW.WIDJobs
                   DefaultFolderPath,
                   DefaultDeleteAndRecreateDatabase,
                   DefaultTranslateJobPostingOccupation,
-                  DefaultPredictJobPostingLanguage
+                  DefaultPredictJobPostingLanguage,
+                  DefaultPredictBulletPointType
                   ) { }
 
         #endregion
@@ -81,5 +88,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 15.09.2021
+    Last Update: 16.09.2021
 */

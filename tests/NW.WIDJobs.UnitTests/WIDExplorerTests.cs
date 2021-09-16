@@ -1401,13 +1401,16 @@ namespace NW.WIDJobs.UnitTests
             Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
             FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
             Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
+            bool predictBulletPointType = false;
+
             WIDExplorerSettings fakeExplorerSettings = new WIDExplorerSettings(
                     parallelRequests: WIDExplorerSettings.DefaultParallelRequests,
                     pauseBetweenRequestsMs: WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
                     folderPath: ObjectMother.WIDExplorer_FakeFolderPath,
                     deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase,
                     translateJobPostingOccupation: WIDExplorerSettings.DefaultTranslateJobPostingOccupation,
-                    predictJobPostingLanguage: WIDExplorerSettings.DefaultPredictJobPostingLanguage
+                    predictJobPostingLanguage: WIDExplorerSettings.DefaultPredictJobPostingLanguage,
+                    predictBulletPointType: predictBulletPointType
                 );
             WIDExplorerComponents components = new WIDExplorerComponents(
                     loggingAction: fakeLoggingAction,
@@ -1539,13 +1542,16 @@ namespace NW.WIDJobs.UnitTests
             Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
             FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
             Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
+            bool predictBulletPointType = false;
+
             WIDExplorerSettings fakeExplorerSettings = new WIDExplorerSettings(
                     parallelRequests: WIDExplorerSettings.DefaultParallelRequests,
                     pauseBetweenRequestsMs: WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
                     folderPath: ObjectMother.WIDExplorer_FakeFolderPath,
                     deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase,
                     translateJobPostingOccupation: WIDExplorerSettings.DefaultTranslateJobPostingOccupation,
-                    predictJobPostingLanguage: WIDExplorerSettings.DefaultPredictJobPostingLanguage
+                    predictJobPostingLanguage: WIDExplorerSettings.DefaultPredictJobPostingLanguage,
+                    predictBulletPointType: predictBulletPointType
                 );
             WIDExplorerComponents components = new WIDExplorerComponents(
                     loggingAction: fakeLoggingAction,
@@ -1614,13 +1620,16 @@ namespace NW.WIDJobs.UnitTests
             Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
             FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
             Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
+            bool predictBulletPointType = false;
+
             WIDExplorerSettings fakeExplorerSettings = new WIDExplorerSettings(
                     parallelRequests: WIDExplorerSettings.DefaultParallelRequests,
                     pauseBetweenRequestsMs: WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
                     folderPath: ObjectMother.WIDExplorer_FakeFolderPath,
                     deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase,
                     translateJobPostingOccupation: WIDExplorerSettings.DefaultTranslateJobPostingOccupation,
-                    predictJobPostingLanguage: WIDExplorerSettings.DefaultPredictJobPostingLanguage
+                    predictJobPostingLanguage: WIDExplorerSettings.DefaultPredictJobPostingLanguage,
+                    predictBulletPointType: predictBulletPointType
                 );
             WIDExplorerComponents components = new WIDExplorerComponents(
                     loggingAction: fakeLoggingAction,
@@ -1744,13 +1753,16 @@ namespace NW.WIDJobs.UnitTests
             Action<string> fakeLoggingAction = (message) => fakeLogger.Log(message);
             FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
             Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
+            bool predictBulletPointType = false;
+
             WIDExplorerSettings fakeExplorerSettings = new WIDExplorerSettings(
                     parallelRequests: WIDExplorerSettings.DefaultParallelRequests,
                     pauseBetweenRequestsMs: WIDExplorerSettings.DefaultPauseBetweenRequestsMs,
                     folderPath: ObjectMother.WIDExplorer_FakeFolderPath,
                     deleteAndRecreateDatabase: deleteAndRecreateDatabase,
                     translateJobPostingOccupation: WIDExplorerSettings.DefaultTranslateJobPostingOccupation,
-                    predictJobPostingLanguage: WIDExplorerSettings.DefaultPredictJobPostingLanguage
+                    predictJobPostingLanguage: WIDExplorerSettings.DefaultPredictJobPostingLanguage,
+                    predictBulletPointType: predictBulletPointType
                 );
             WIDExplorerComponents components = new WIDExplorerComponents(
                     loggingAction: fakeLoggingAction,
@@ -1823,6 +1835,7 @@ namespace NW.WIDJobs.UnitTests
             bool predictJobPostingLanguage = false; // To sensibly speed up the unit test
             bool compareJobPostingLanguage = predictJobPostingLanguage;
             bool ignorePurposeResponse = true;
+            bool predictBulletPointType = false;
 
             WIDExplorerSettings fakeExplorerSettings = new WIDExplorerSettings(
                     parallelRequests: parallelRequests,
@@ -1830,7 +1843,8 @@ namespace NW.WIDJobs.UnitTests
                     folderPath: WIDExplorerSettings.DefaultFolderPath,
                     deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase,
                     translateJobPostingOccupation: WIDExplorerSettings.DefaultTranslateJobPostingOccupation,
-                    predictJobPostingLanguage: predictJobPostingLanguage
+                    predictJobPostingLanguage: predictJobPostingLanguage,
+                    predictBulletPointType: predictBulletPointType
                 );
             WIDExplorerComponents components = new WIDExplorerComponents(
                     loggingAction: fakeLoggingAction,
@@ -1966,6 +1980,7 @@ namespace NW.WIDJobs.UnitTests
             bool predictJobPostingLanguage = false; // To sensibly speed up the unit test
             bool compareJobPostingLanguage = predictJobPostingLanguage;
             bool ignorePurposeResponse = true;
+            bool predictBulletPointType = false;
 
             WIDExplorerSettings fakeExplorerSettings = new WIDExplorerSettings(
                     parallelRequests: parallelRequests,
@@ -1973,7 +1988,8 @@ namespace NW.WIDJobs.UnitTests
                     folderPath: WIDExplorerSettings.DefaultFolderPath,
                     deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase,
                     translateJobPostingOccupation: WIDExplorerSettings.DefaultTranslateJobPostingOccupation,
-                    predictJobPostingLanguage: predictJobPostingLanguage
+                    predictJobPostingLanguage: predictJobPostingLanguage,
+                    predictBulletPointType: predictBulletPointType
                 );
             WIDExplorerComponents components = new WIDExplorerComponents(
                     loggingAction: fakeLoggingAction,
@@ -2193,6 +2209,7 @@ namespace NW.WIDJobs.UnitTests
             bool predictJobPostingLanguage = false; // To sensibly speed up the unit test
             bool compareJobPostingLanguage = predictJobPostingLanguage;
             bool ignorePurposeResponse = true;
+            bool predictBulletPointType = false;
 
             WIDExplorerSettings fakeExplorerSettings = new WIDExplorerSettings(
                     parallelRequests: parallelRequests,
@@ -2200,7 +2217,8 @@ namespace NW.WIDJobs.UnitTests
                     folderPath: WIDExplorerSettings.DefaultFolderPath,
                     deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase,
                     translateJobPostingOccupation: WIDExplorerSettings.DefaultTranslateJobPostingOccupation,
-                    predictJobPostingLanguage: predictJobPostingLanguage
+                    predictJobPostingLanguage: predictJobPostingLanguage,
+                    predictBulletPointType: predictBulletPointType
                 );
             WIDExplorerComponents components = new WIDExplorerComponents(
                     loggingAction: fakeLoggingAction,
@@ -2340,6 +2358,7 @@ namespace NW.WIDJobs.UnitTests
             bool predictJobPostingLanguage = false; // To sensibly speed up the unit test
             bool compareJobPostingLanguage = predictJobPostingLanguage;
             bool ignorePurposeResponse = true;
+            bool predictBulletPointType = false;
 
             WIDExplorerSettings fakeExplorerSettings = new WIDExplorerSettings(
                     parallelRequests: parallelRequests,
@@ -2347,7 +2366,8 @@ namespace NW.WIDJobs.UnitTests
                     folderPath: WIDExplorerSettings.DefaultFolderPath,
                     deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase,
                     translateJobPostingOccupation: WIDExplorerSettings.DefaultTranslateJobPostingOccupation,
-                    predictJobPostingLanguage: predictJobPostingLanguage
+                    predictJobPostingLanguage: predictJobPostingLanguage,
+                    predictBulletPointType: predictBulletPointType
                 );
             WIDExplorerComponents components = new WIDExplorerComponents(
                     loggingAction: fakeLoggingAction,
@@ -2485,6 +2505,7 @@ namespace NW.WIDJobs.UnitTests
             bool predictJobPostingLanguage = false; // To sensibly speed up the unit test
             bool compareJobPostingLanguage = predictJobPostingLanguage;
             bool ignorePurposeResponse = true;
+            bool predictBulletPointType = false;
 
             WIDExplorerSettings fakeExplorerSettings = new WIDExplorerSettings(
                     parallelRequests: parallelRequests,
@@ -2492,7 +2513,8 @@ namespace NW.WIDJobs.UnitTests
                     folderPath: WIDExplorerSettings.DefaultFolderPath,
                     deleteAndRecreateDatabase: WIDExplorerSettings.DefaultDeleteAndRecreateDatabase,
                     translateJobPostingOccupation: WIDExplorerSettings.DefaultTranslateJobPostingOccupation,
-                    predictJobPostingLanguage: predictJobPostingLanguage
+                    predictJobPostingLanguage: predictJobPostingLanguage,
+                    predictBulletPointType: predictBulletPointType
                 );
             WIDExplorerComponents components = new WIDExplorerComponents(
                     loggingAction: fakeLoggingAction,
@@ -2539,5 +2561,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 15.09.2021
+    Last Update: 16.09.2021
 */

@@ -13,7 +13,8 @@ namespace NW.WIDJobsClient.CommandLine
             string folderPath = null, 
             bool? deleteAndRecreateDatabase = null,
             bool? translateJobPostingOccupation = null,
-            bool? predictJobPostingLanguage = null
+            bool? predictJobPostingLanguage = null,
+            bool? predictBulletPointType = null
             );
     
     }
@@ -21,5 +22,5 @@ namespace NW.WIDJobsClient.CommandLine
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 15.09.2021
+    Last Update: 16.09.2021
 */
