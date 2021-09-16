@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using System;
 using NW.WIDJobs.Database;
+using NW.WIDJobs.JobPostingsExtended;
 
 namespace NW.WIDJobs.UnitTests
 {
@@ -17,7 +18,7 @@ namespace NW.WIDJobs.UnitTests
                     "Some bullet point",
                     new BulletPointEntity(
                             ObjectMother.Shared_FakeRunId,
-                            "Some bullet point"
+                            new BulletPoint("Some bullet point", null)
                         )
                 ).SetArgDisplayNames($"{nameof(bulletPointEntityTestCases)}_01")
 
@@ -27,7 +28,7 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new BulletPointEntity(null, "Some bullet point")
+                    () => new BulletPointEntity(null, new BulletPoint("Some bullet point", null))
 				),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("jobPostingId").Message
@@ -52,7 +53,7 @@ namespace NW.WIDJobs.UnitTests
 
             // Arrange
             // Act
-            BulletPointEntity actual = new BulletPointEntity(jobPostingId, bulletPoint);
+            BulletPointEntity actual = new BulletPointEntity(jobPostingId, new BulletPoint("Some bullet point", null));
 
             // Assert
             Assert.IsTrue(
@@ -86,5 +87,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 08.08.2021
+    Last Update: 16.09.2021
 */

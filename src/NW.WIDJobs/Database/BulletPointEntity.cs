@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using NW.WIDJobs.Validation;
+using NW.WIDJobs.JobPostingsExtended;
 
 namespace NW.WIDJobs.Database
 {
@@ -53,14 +53,15 @@ namespace NW.WIDJobs.Database
 
         ///<summary>Initializes a <see cref="BulletPointEntity"/> instance.</summary>
         /// <exception cref="ArgumentNullException"/>
-        public BulletPointEntity(string jobPostingId, string bulletPoint)
+        public BulletPointEntity(string jobPostingId, BulletPoint bulletPoint)
         {
 
             Validation.Validator.ValidateObject(jobPostingId, nameof(jobPostingId));
             Validation.Validator.ValidateObject(bulletPoint, nameof(bulletPoint));
 
             JobPostingId = jobPostingId;
-            Text = bulletPoint;
+            Text = bulletPoint.Text;
+            Type = bulletPoint.Type;
 
         }
 
@@ -74,5 +75,5 @@ namespace NW.WIDJobs.Database
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 15.09.2021
+    Last Update: 16.09.2021
 */

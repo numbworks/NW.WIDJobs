@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Web;
+using NW.WIDJobs.Classification;
 using NW.WIDJobs.JobPostings;
 using NW.WIDJobs.Validation;
 using NW.WIDJobs.XPath;
@@ -17,6 +18,8 @@ namespace NW.WIDJobs.JobPostingsExtended
         #region Fields
 
         private IXPathManager _xpathManager;
+        private IClassificationManager _classificationManager;
+        private bool _predictBulletPointType;
 
         #endregion
 
@@ -33,6 +36,7 @@ namespace NW.WIDJobs.JobPostingsExtended
                 ("keepit", "//p[starts-with(., '-')]"),
                 ("generic", "//ul/li|//ol/li")
             };
+        public static bool DefaultPredictBulletPointType { get; } = WIDExplorerSettings.DefaultPredictBulletPointType;
 
         #endregion
 
@@ -40,18 +44,21 @@ namespace NW.WIDJobs.JobPostingsExtended
 
         /// <summary>Initializes a <see cref="JobPostingExtendedDeserializer"/> instance.</summary>
         /// <exception cref="ArgumentNullException"></exception>
-        public JobPostingExtendedDeserializer(IXPathManager xpathManager)
+        public JobPostingExtendedDeserializer(IXPathManager xpathManager, IClassificationManager classificationManager, bool predictBulletPointType)
         {
 
             Validator.ValidateObject(xpathManager, nameof(xpathManager));
+            Validator.ValidateObject(classificationManager, nameof(classificationManager));
 
             _xpathManager = xpathManager;
+            _classificationManager = classificationManager;
+            _predictBulletPointType = predictBulletPointType;
 
         }
 
         /// <summary>Initializes a <see cref="JobPostingExtendedDeserializer"/> instance using default parameters.</summary>
         public JobPostingExtendedDeserializer()
-            : this(new XPathManager()) { }
+            : this(new XPathManager(), new ClassificationManager(), DefaultPredictBulletPointType) { }
 
         #endregion
 
@@ -97,6 +104,7 @@ namespace NW.WIDJobs.JobPostingsExtended
 
                 string bulletPointScenario = null;
                 HashSet<string> bulletPointTexts = TryExtractBulletPointTexts(purpose, out bulletPointScenario);
+                List<BulletPoint> bulletPoints = CreateBulletPoints(bulletPointTexts, _predictBulletPointType);
 
                 jobPostingExtended
                     = new JobPostingExtended(
@@ -111,7 +119,7 @@ namespace NW.WIDJobs.JobPostingsExtended
                             contactPersonName: contactPersonName,
                             employmentDate: employmentDate,
                             applicationDeadlineDate: applicationDeadlineDate,
-                            bulletPoints: bulletPointTexts,
+                            bulletPoints: bulletPoints,
                             bulletPointScenario: bulletPointScenario
                         );
 
@@ -132,6 +140,7 @@ namespace NW.WIDJobs.JobPostingsExtended
 
             string bulletPointScenario = null;
             HashSet<string> bulletPointTexts = TryExtractBulletPointTexts(response, out bulletPointScenario);
+            List<BulletPoint> bulletPoints = CreateBulletPoints(bulletPointTexts, _predictBulletPointType);
 
             JobPostingExtended jobPostingExtended
                     = new JobPostingExtended(
@@ -146,7 +155,7 @@ namespace NW.WIDJobs.JobPostingsExtended
                             contactPersonName: null,
                             employmentDate: null,
                             applicationDeadlineDate: null,
-                            bulletPoints: bulletPointTexts,
+                            bulletPoints: bulletPoints,
                             bulletPointScenario: bulletPointScenario
                         );
 
@@ -426,6 +435,38 @@ namespace NW.WIDJobs.JobPostingsExtended
             return (bulletPointTexts, bulletPointScenario);
 
         }
+        private List<BulletPoint> CreateBulletPoints(HashSet<string> bulletPointTexts, bool predictBulletPointType)
+        {
+
+            if (bulletPointTexts == null)
+                return null;
+
+            List<BulletPoint> bulletPoints = new List<BulletPoint>();
+            foreach (string bulletPointText in bulletPointTexts)
+                if (IsSuitable(bulletPointText))
+                {
+
+                    string type = null;
+                    if (predictBulletPointType)
+                        type = _classificationManager.PredictBulletPointType(bulletPointText);
+
+                    BulletPoint bulletPoint = new BulletPoint(bulletPointText, type);
+                    bulletPoints.Add(bulletPoint);
+                }
+
+            return bulletPoints;
+
+        }
+        private bool IsSuitable(string bulletPointText)
+        {
+
+            if (string.IsNullOrWhiteSpace(bulletPointText))
+                return false; // An empty text would make new BulletPoint() to throw an exception
+
+            return true;
+
+        }
+
 
         #endregion
 

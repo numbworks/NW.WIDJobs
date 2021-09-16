@@ -2,6 +2,8 @@
 using System;
 using NW.WIDJobs.JobPostings;
 using NW.WIDJobs.JobPostingsExtended;
+using NW.WIDJobs.Classification;
+using NW.WIDJobs.XPath;
 
 namespace NW.WIDJobs.UnitTests
 {
@@ -16,11 +18,27 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new JobPostingExtendedDeserializer(null)
+                    () => new JobPostingExtendedDeserializer(
+                                null, 
+                                new ClassificationManager(),
+                                JobPostingExtendedDeserializer.DefaultPredictBulletPointType
+                            )
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("xpathManager").Message
-            ).SetArgDisplayNames($"{nameof(jobPostingExtendedDeserializerExceptionTestCases)}_01")
+            ).SetArgDisplayNames($"{nameof(jobPostingExtendedDeserializerExceptionTestCases)}_01"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new JobPostingExtendedDeserializer(
+                                new XPathManager(),
+                                null,
+                                JobPostingExtendedDeserializer.DefaultPredictBulletPointType
+                            )
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("classificationManager").Message
+            ).SetArgDisplayNames($"{nameof(jobPostingExtendedDeserializerExceptionTestCases)}_02")
 
         };
         private static TestCaseData[] jobPostingExtendedDeserializerTestCases =
@@ -375,5 +393,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 15.09.2021
+    Last Update: 16.09.2021
 */

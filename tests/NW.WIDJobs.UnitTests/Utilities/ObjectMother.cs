@@ -120,11 +120,20 @@ namespace NW.WIDJobs.UnitTests
                     contactPersonName: "Emil Daniel Christensen",
                     employmentDate: null,
                     applicationDeadlineDate: new DateTime(2021, 08, 27),
-                    bulletPoints: new HashSet<string>()
+                    bulletPoints: new List<BulletPoint>()
                     {
-                        "Performance troubleshooting - if a service is not performing as expected, troubleshooting the process interactions on a live server in order to identify the root cause and propose a remedy, possibly in collaboration with the development team.",
-                        "Planning, testing, and executing Postgres database cluster migration from an older version to a newer version with little or no user-visible interruptions.",
-                        "Designing the next iteration of our network infrastructure for high-performance multi-site communication, and planning and executing the transition from the previous iteration with no customer visible downtime."
+                        new BulletPoint(
+                            text: "Performance troubleshooting - if a service is not performing as expected, troubleshooting the process interactions on a live server in order to identify the root cause and propose a remedy, possibly in collaboration with the development team.",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Planning, testing, and executing Postgres database cluster migration from an older version to a newer version with little or no user-visible interruptions.",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Designing the next iteration of our network infrastructure for high-performance multi-site communication, and planning and executing the transition from the previous iteration with no customer visible downtime.",
+                            type: null
+                            )
                     },
                     bulletPointScenario: "keepit"
                 );
@@ -171,17 +180,44 @@ namespace NW.WIDJobs.UnitTests
                     contactPersonName: "Majken Lorentzen",
                     employmentDate: null,
                     applicationDeadlineDate: new DateTime(2021, 08, 04),
-                    bulletPoints: new HashSet<string>()
+                    bulletPoints: new List<BulletPoint>()
                     {
-                        "Good work conditions",
-                        "A social workplace with good colleagues",
-                        "Flexibility regarding shifts",
-                        "Possibility for day and evening shifts",
-                        "You want to work in warehousing and logistics",
-                        "You can work a minimum of 3 weeks in the period week 27 - 36",
-                        "You can work either day or evening",
-                        "You have experience with forklift driving",
-                        "You like working in teams"
+                        new BulletPoint(
+                            text: "Good work conditions",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "A social workplace with good colleagues",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Flexibility regarding shifts",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Possibility for day and evening shifts",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You want to work in warehousing and logistics",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You can work a minimum of 3 weeks in the period week 27 - 36",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You can work either day or evening",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You have experience with forklift driving",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You like working in teams",
+                            type: null
+                            )
                     },
                     bulletPointScenario: "generic"
                 );
@@ -228,27 +264,84 @@ namespace NW.WIDJobs.UnitTests
                     contactPersonName: "Majken Lorentzen",
                     employmentDate: null,
                     applicationDeadlineDate: new DateTime(2021, 08, 13),
-                    bulletPoints: new HashSet<string>()
+                    bulletPoints: new List<BulletPoint>()
                     {
-                        "Ordnede forhold",
-                        "Attraktiv løn",
-                        "En social arbejdsplads med gode kollegaer",
-                        "Mulighed for vagter på daghold",
-                        "Du har lyst til at arbejde inden for lager og logistik",
-                        "Du kan arbejde om dagen",
-                        "Du har gerne erfaring med truckkørsel – dog ikke et krav",
-                        "Du kan lide at arbejde i teams",
-                        "Du må ikke være talblind",
-                        "Du kan arbejde i ugerne 29 og 30, eller en af ugerne",
-                        "Orderly conditions",
-                        "Attractive salary",
-                        "A social workplace with good colleagues",
-                        "Day shifts",
-                        "You want to work in warehousing and logistics",
-                        "You can work during the day",
-                        "You would like to have experience with truck driving - but not a requirement",
-                        "You must be able to count",
-                        "You can work in weeks 29 and 30, or one of the weeks"
+                        new BulletPoint(
+                            text: "Ordnede forhold",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Attraktiv løn",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "En social arbejdsplads med gode kollegaer",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Mulighed for vagter på daghold",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Du har lyst til at arbejde inden for lager og logistik",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Du kan arbejde om dagen",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Du har gerne erfaring med truckkørsel – dog ikke et krav",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Du kan lide at arbejde i teams",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Du må ikke være talblind",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Du kan arbejde i ugerne 29 og 30, eller en af ugerne",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Orderly conditions",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Attractive salary",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "A social workplace with good colleagues",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Day shifts",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You want to work in warehousing and logistics",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You can work during the day",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You would like to have experience with truck driving - but not a requirement",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You must be able to count",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You can work in weeks 29 and 30, or one of the weeks",
+                            type: null
+                            )                        
                     },
                     bulletPointScenario: "generic"
                 );
@@ -295,18 +388,50 @@ namespace NW.WIDJobs.UnitTests
                     contactPersonName: "Majken Lorentzen",
                     employmentDate: null,
                     applicationDeadlineDate: new DateTime(2021, 08, 24),
-                    bulletPoints: new HashSet<string>()
+                    bulletPoints: new List<BulletPoint>()
                     {
-                        "Du har truckkort",
-                        "Du kan lide at arbejde om aftenen",
-                        "Du kan tale, skrive og læse dansk eller engelsk",
-                        "Du kan arbejde selvstændigt",
-                        "Du er grundig i dit arbejde",
-                        "You have a forklift licence",
-                        "You like working in the evenings",
-                        "You can speak, write and read Danish or English",
-                        "You can work independently",
-                        "You are thorough in your work"
+
+                        new BulletPoint(
+                            text: "Du har truckkort",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Du kan lide at arbejde om aftenen",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Du kan tale, skrive og læse dansk eller engelsk",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Du kan arbejde selvstændigt",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Du er grundig i dit arbejde",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You have a forklift licence",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You like working in the evenings",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You can speak, write and read Danish or English",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You can work independently",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You are thorough in your work",
+                            type: null
+                            )
+                        
                     },
                     bulletPointScenario: "generic"
                 );
@@ -353,26 +478,82 @@ namespace NW.WIDJobs.UnitTests
                     contactPersonName: "Majken Lorentzen",
                     employmentDate: null,
                     applicationDeadlineDate: new DateTime(2021, 08, 19),
-                    bulletPoints: new HashSet<string>()
+                    bulletPoints: new List<BulletPoint>()
                     {
-                        "Fleksible arbejdstider",
-                        "Attraktiv løn (DKK 180,- per time)",
-                        "Kørselsgodtgørelse (statens takst)",
-                        "Aktivt og alsidigt arbejde",
-                        "Du kan arbejde i weekender",
-                        "Du har egen bil til rådighed",
-                        "Du kan lide aktivt arbejde",
-                        "Du har erfaring fra tidligere arbejde – dog ikke et krav",
-                        "Du taler, læser og skriver dansk, engelsk eller tysk",
-                        "Flexible hours",
-                        "Attractive salary (DKK 180 per hour)",
-                        "Travel allowance (state tariff)",
-                        "Active and versatile work",
-                        "You can work on weekends",
-                        "You have your own car available",
-                        "You like active work",
-                        "You have experience from previous work - not a requirement",
-                        "You speak, read and write Danish, English or German"
+
+                        new BulletPoint(
+                            text: "Fleksible arbejdstider",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Attraktiv løn (DKK 180,- per time)",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Kørselsgodtgørelse (statens takst)",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Aktivt og alsidigt arbejde",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Du kan arbejde i weekender",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Du har egen bil til rådighed",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Du kan lide aktivt arbejde",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Du har erfaring fra tidligere arbejde – dog ikke et krav",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Du taler, læser og skriver dansk, engelsk eller tysk",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Flexible hours",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Attractive salary (DKK 180 per hour)",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Travel allowance (state tariff)",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Active and versatile work",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You can work on weekends",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You have your own car available",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You like active work",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You have experience from previous work - not a requirement",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You speak, read and write Danish, English or German",
+                            type: null
+                            )
+                        
                     },
                     bulletPointScenario: "generic"
                 );
@@ -419,17 +600,46 @@ namespace NW.WIDJobs.UnitTests
                     contactPersonName: "Majken Lorentzen",
                     employmentDate: null,
                     applicationDeadlineDate: new DateTime(2021, 08, 27),
-                    bulletPoints: new HashSet<string>()
+                    bulletPoints: new List<BulletPoint>()
                     {
-                        "A social workplace",
-                        "Day shifts",
-                        "A healthy working environment",
-                        "Good colleagues",
-                        "Training in warehouse work such as picking, packing, sorting and much more",
-                        "You would like to work in a warehouse",
-                        "You like active work",
-                        "You can work full time – part time work can also be arranged",
-                        "You can work independently"
+
+                        new BulletPoint(
+                            text: "A social workplace",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Day shifts",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "A healthy working environment",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Good colleagues",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Training in warehouse work such as picking, packing, sorting and much more",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You would like to work in a warehouse",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You like active work",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You can work full time – part time work can also be arranged",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You can work independently",
+                            type: null
+                            )
+                        
                     },
                     bulletPointScenario: "generic"
                 );
@@ -476,18 +686,50 @@ namespace NW.WIDJobs.UnitTests
                     contactPersonName: "Majken Lorentzen",
                     employmentDate: null,
                     applicationDeadlineDate: new DateTime(2021, 08, 27),
-                    bulletPoints: new HashSet<string>()
+                    bulletPoints: new List<BulletPoint>()
                     {
-                        "A social workplace",
-                        "Day and evening shifts",
-                        "Full time work and part time work",
-                        "A healthy working environment",
-                        "Good colleagues",
-                        "Training in warehouse work such as picking, packing, sorting and much more",
-                        "You would like to work in a warehouse",
-                        "You like active work",
-                        "You can work full time or part time",
-                        "You can work independently"
+
+                        new BulletPoint(
+                            text: "A social workplace",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Day and evening shifts",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Full time work and part time work",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "A healthy working environment",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Good colleagues",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Training in warehouse work such as picking, packing, sorting and much more",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You would like to work in a warehouse",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You like active work",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You can work full time or part time",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You can work independently",
+                            type: null
+                            )
+                        
                     },
                     bulletPointScenario: "generic"
                 );
@@ -534,17 +776,46 @@ namespace NW.WIDJobs.UnitTests
                         contactPersonName: "Emil Daniel Christensen",
                         employmentDate: null,
                         applicationDeadlineDate: new DateTime(2021, 08, 27),
-                        bulletPoints: new HashSet<string>()
+                        bulletPoints: new List<BulletPoint>()
                         {
-                            "As a Vice President, we expect a truly transparent and inclusive leadership style, empowering your team to perform at their maximum abilities.",
-                            "Facilitate outstanding collaborations between the product marketing team and the full brand & marketing team as well as internal core stakeholders such as product management and sales",
-                            "Help us articulate and implement a global product marketing strategy ·Serve as an evangelist for our products through thought leadership",
-                            "Keep the company up-to-date with market trends and competition",
-                            "Product Marketing Strategy: We are looking for a profile that can help us define the right strategies that will fuel our continued growth. Having experience with making product marketing strategies for SaaS products is a requirement.",
-                            "Product Marketing: The right candidate has a solid product marketing skill-set with an entrepreneurial spirit. You know how to deliver sales enablement content and can execute marketing initiatives, including aligning and getting buy-in from stakeholders across the organization (including marketing, product, and sales).",
-                            "Leadership Style: We believe that the right candidate has the ability to inspire the team with an including and transparent leadership style.",
-                            "Language: We use English as our preferred language, and being fluent in English, both written and spoken, is essential for this role.",
-                            "Entrepreneurial spirit: We are passionate about winning in the market. However, we are also passionate about our workplace, and we know that a good work environment and great collaboration across our organization are crucial to achieving our ambitious goals. Therefore, we are searching for team leaders who, like us, are being motivated by building a fair and fun work environment at Keepit."
+
+                              new BulletPoint(
+                                    text: "As a Vice President, we expect a truly transparent and inclusive leadership style, empowering your team to perform at their maximum abilities.",
+                                    type: null
+                                    ),
+                              new BulletPoint(
+                                    text: "Facilitate outstanding collaborations between the product marketing team and the full brand & marketing team as well as internal core stakeholders such as product management and sales",
+                                    type: null
+                                    ),
+                              new BulletPoint(
+                                    text: "Help us articulate and implement a global product marketing strategy ·Serve as an evangelist for our products through thought leadership",
+                                    type: null
+                                    ),
+                              new BulletPoint(
+                                    text: "Keep the company up-to-date with market trends and competition",
+                                    type: null
+                                    ),
+                              new BulletPoint(
+                                    text: "Product Marketing Strategy: We are looking for a profile that can help us define the right strategies that will fuel our continued growth. Having experience with making product marketing strategies for SaaS products is a requirement.",
+                                    type: null
+                                    ),
+                              new BulletPoint(
+                                    text: "Product Marketing: The right candidate has a solid product marketing skill-set with an entrepreneurial spirit. You know how to deliver sales enablement content and can execute marketing initiatives, including aligning and getting buy-in from stakeholders across the organization (including marketing, product, and sales).",
+                                    type: null
+                                    ),
+                              new BulletPoint(
+                                    text: "Leadership Style: We believe that the right candidate has the ability to inspire the team with an including and transparent leadership style.",
+                                    type: null
+                                    ),
+                              new BulletPoint(
+                                    text: "Language: We use English as our preferred language, and being fluent in English, both written and spoken, is essential for this role.",
+                                    type: null
+                                    ),
+                              new BulletPoint(
+                                    text: "Entrepreneurial spirit: We are passionate about winning in the market. However, we are also passionate about our workplace, and we know that a good work environment and great collaboration across our organization are crucial to achieving our ambitious goals. Therefore, we are searching for team leaders who, like us, are being motivated by building a fair and fun work environment at Keepit.",
+                                    type: null
+                                    )
+                            
                         },
                         bulletPointScenario: "generic"
                     );
@@ -591,28 +862,90 @@ namespace NW.WIDJobs.UnitTests
                     contactPersonName: "Majken Lorentzen",
                     employmentDate: null,
                     applicationDeadlineDate: new DateTime(2021, 07, 15),
-                    bulletPoints: new HashSet<string>()
+                    bulletPoints: new List<BulletPoint>()
                     {
-                        "Ordnede forhold",
-                        "En social arbejdsplads med gode kollegaer",
-                        "Fleksibilitet vedr. vagter",
-                        "Mulighed for vagter både på hverdage og i weekender",
-                        "Du har lyst til at arbejde inden for lager og logistik",
-                        "Du er fleksibel",
-                        "Du kan arbejde minimum 2 dage om ugen",
-                        "Du kan arbejde om eftermiddagen og aftenen",
-                        "Du har en god fysik",
-                        "Du kan lide at arbejde i teams",
-                        "Orderly conditions",
-                        "A social workplace with good colleagues",
-                        "Flexibility regarding shifts",
-                        "Possibility of shifts both on weekdays and on weekends",
-                        "You want to work in warehousing and logistics",
-                        "You are flexible",
-                        "You can work a minimum of 2 days a week",
-                        "You can work in the afternoon and evening time",
-                        "You have a good physique",
-                        "You like working in teams"
+
+                        new BulletPoint(
+                            text: "Ordnede forhold",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "En social arbejdsplads med gode kollegaer",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Fleksibilitet vedr. vagter",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Mulighed for vagter både på hverdage og i weekender",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Du har lyst til at arbejde inden for lager og logistik",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Du er fleksibel",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Du kan arbejde minimum 2 dage om ugen",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Du kan arbejde om eftermiddagen og aftenen",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Du har en god fysik",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Du kan lide at arbejde i teams",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Orderly conditions",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "A social workplace with good colleagues",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Flexibility regarding shifts",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Possibility of shifts both on weekdays and on weekends",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You want to work in warehousing and logistics",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You are flexible",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You can work a minimum of 2 days a week",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You can work in the afternoon and evening time",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You have a good physique",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You like working in teams",
+                            type: null
+                            )
+                        
                     },
                     bulletPointScenario: "generic"
                 );
@@ -659,20 +992,58 @@ namespace NW.WIDJobs.UnitTests
                     contactPersonName: null,
                     employmentDate: null,
                     applicationDeadlineDate: null,
-                    bulletPoints: new HashSet<string>()
+                    bulletPoints: new List<BulletPoint>()
                     {
-                        "PhD degree and post doc research experience within applied statistics or similar aspects",
-                        "Proven publication record in international peer-reviewed ISI journals",
-                        "Strong expertise in classical statistical methods (analysis of variance, regression analysis, mixed model analysis, generalized linear models, categorical data analysis, non-parametric analysis, multivariate data analysis) and in areas such as spatial statistics, image analysis, time series analysis and machine learning. We are aware that candidates may not have strong expertise in all areas, but we expect the applicant to have at least some knowledge in the areas mentioned.",
-                        "The ability to manage, participate, collaborate and communicate in interdisciplinary research, and to participate in joint projects with other scientists.",
-                        "Skills in clearly communicating statistical methods and results to persons with non-statistical background.",
-                        "attract outstanding talented individuals that are competitive at an international level",
-                        "to promote the early development of independent research success early in the career of scientists",
-                        "to create transparency in the academic career path",
-                        "access to research infrastructure",
-                        "capability development, including postgraduate teacher training",
-                        "a mentoring programme",
-                        "support to develop scientific networks and to secure interdisciplinary research at the highest level"
+
+                          new BulletPoint(
+                                text: "PhD degree and post doc research experience within applied statistics or similar aspects",
+                                type: null
+                                ),
+                          new BulletPoint(
+                                text: "Proven publication record in international peer-reviewed ISI journals",
+                                type: null
+                                ),
+                          new BulletPoint(
+                                text: "Strong expertise in classical statistical methods (analysis of variance, regression analysis, mixed model analysis, generalized linear models, categorical data analysis, non-parametric analysis, multivariate data analysis) and in areas such as spatial statistics, image analysis, time series analysis and machine learning. We are aware that candidates may not have strong expertise in all areas, but we expect the applicant to have at least some knowledge in the areas mentioned.",
+                                type: null
+                                ),
+                          new BulletPoint(
+                                text: "The ability to manage, participate, collaborate and communicate in interdisciplinary research, and to participate in joint projects with other scientists.",
+                                type: null
+                                ),
+                          new BulletPoint(
+                                text: "Skills in clearly communicating statistical methods and results to persons with non-statistical background.",
+                                type: null
+                                ),
+                          new BulletPoint(
+                                text: "attract outstanding talented individuals that are competitive at an international level",
+                                type: null
+                                ),
+                          new BulletPoint(
+                                text: "to promote the early development of independent research success early in the career of scientists",
+                                type: null
+                                ),
+                          new BulletPoint(
+                                text: "to create transparency in the academic career path",
+                                type: null
+                                ),
+                          new BulletPoint(
+                                text: "access to research infrastructure",
+                                type: null
+                                ),
+                          new BulletPoint(
+                                text: "capability development, including postgraduate teacher training",
+                                type: null
+                                ),
+                          new BulletPoint(
+                                text: "a mentoring programme",
+                                type: null
+                                ),
+                          new BulletPoint(
+                                text: "support to develop scientific networks and to secure interdisciplinary research at the highest level",
+                                type: null
+                                )
+                        
                     },
                     bulletPointScenario: "generic"
                 );
@@ -719,17 +1090,46 @@ namespace NW.WIDJobs.UnitTests
                     contactPersonName: "Majken Lorentzen",
                     employmentDate: null,
                     applicationDeadlineDate: new DateTime(2021, 07, 29),
-                    bulletPoints: new HashSet<string>()
+                    bulletPoints: new List<BulletPoint>()
                     {
-                        "Work in a large international company",
-                        "Possibility of day shifts",
-                        "A social workplace with good colleagues",
-                        "Thorough training",
-                        "You are flexible during busy periods",
-                        "You have an eye for detail",
-                        "You can work full time",
-                        "You can work independently",
-                        "You are thorough and take pride in your work"
+
+                        new BulletPoint(
+                            text: "Work in a large international company",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Possibility of day shifts",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "A social workplace with good colleagues",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Thorough training",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You are flexible during busy periods",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You have an eye for detail",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You can work full time",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You can work independently",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You are thorough and take pride in your work",
+                            type: null
+                            )
+                        
                     },
                     bulletPointScenario: "generic"
                 );
@@ -776,45 +1176,158 @@ namespace NW.WIDJobs.UnitTests
                     contactPersonName: "Majken Lorentzen",
                     employmentDate: null,
                     applicationDeadlineDate: new DateTime(2021, 07, 28),
-                    bulletPoints: new HashSet<string>()
+                    bulletPoints: new List<BulletPoint>()
                     {
-                        "Good work conditions",
-                        "A social workplace with good colleagues",
-                        "Flexibility regarding shifts",
-                        "Possibility for day shifts, evening shifts and night shifts.",
-                        "You want to work in warehousing and logistics",
-                        "You are flexible",
-                        "You can work a minimum of 3 weeks in the period week 24 - 34",
-                        "You can work either day, evening or night shift",
-                        "You have experience with forklift driving",
-                        "You like working in teams",
-                        "in Horsens from 06.00–14.00 or 07.00-15.00",
-                        "in Skanderborg from 08.00-16.00",
-                        "in Fredericia from 06.00-14.00",
-                        "in Horsens from00-22.00 / 15.00-23.00",
-                        "in Skanderborg from 15.00-23.00",
-                        "in Horsens from 22.00-06.00",
-                        "in Skanderborg from 22.00-06.00",
-                        "in Fredericia from 23.00-06.30",
-                        "Uporządkowane warunki",
-                        "Socjalne miejsce pracy z dobrymi kolegami",
-                        "Elastyczność w zakresie zmian pracy",
-                        "Możliwość pracy na zmianach dziennych, wieczornych i nocnych.",
-                        "Masz ochotę pracować w magazynach i logistyce",
-                        "Jesteś elastyczny",
-                        "Możesz pracować minimum 3 tygodnie w okresie od 24 do 34 tygodnia",
-                        "Możesz pracować na dziennej, wieczornej lub nocnej zmianie",
-                        "Masz doświadczenie w prowadzeniu wózka widłowego",
-                        "Lubisz prace w grupach",
-                        "Potrafisz mówić ,czytać i rozumieć duński lub angielski",
-                        "w Horsens w 06.00-14.00 / 07.00-15.00",
-                        "w Skanderborgu w 08.00-16.00",
-                        "w Fredericii w 06.00-14.00",
-                        "w Horsens w 14.00-22.00 / 15.00-23.00",
-                        "w Skanderborgu w 15.00-23.00",
-                        "w Horsens w 22.00-06.00",
-                        "w Skanderborgu w 22.00-06.00",
-                        "w Fredericii w 23.00-06.30"
+
+                        new BulletPoint(
+                            text: "Good work conditions",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "A social workplace with good colleagues",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Flexibility regarding shifts",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Possibility for day shifts, evening shifts and night shifts.",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You want to work in warehousing and logistics",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You are flexible",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You can work a minimum of 3 weeks in the period week 24 - 34",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You can work either day, evening or night shift",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You have experience with forklift driving",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You like working in teams",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "in Horsens from 06.00–14.00 or 07.00-15.00",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "in Skanderborg from 08.00-16.00",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "in Fredericia from 06.00-14.00",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "in Horsens from00-22.00 / 15.00-23.00",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "in Skanderborg from 15.00-23.00",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "in Horsens from 22.00-06.00",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "in Skanderborg from 22.00-06.00",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "in Fredericia from 23.00-06.30",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Uporządkowane warunki",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Socjalne miejsce pracy z dobrymi kolegami",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Elastyczność w zakresie zmian pracy",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Możliwość pracy na zmianach dziennych, wieczornych i nocnych.",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Masz ochotę pracować w magazynach i logistyce",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Jesteś elastyczny",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Możesz pracować minimum 3 tygodnie w okresie od 24 do 34 tygodnia",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Możesz pracować na dziennej, wieczornej lub nocnej zmianie",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Masz doświadczenie w prowadzeniu wózka widłowego",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Lubisz prace w grupach",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Potrafisz mówić ,czytać i rozumieć duński lub angielski",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "w Horsens w 06.00-14.00 / 07.00-15.00",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "w Skanderborgu w 08.00-16.00",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "w Fredericii w 06.00-14.00",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "w Horsens w 14.00-22.00 / 15.00-23.00",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "w Skanderborgu w 15.00-23.00",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "w Horsens w 22.00-06.00",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "w Skanderborgu w 22.00-06.00",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "w Fredericii w 23.00-06.30",
+                            type: null
+                            )
+
                     },
                     bulletPointScenario: "generic"
                 );
@@ -861,15 +1374,38 @@ namespace NW.WIDJobs.UnitTests
                     contactPersonName: null,
                     employmentDate: null,
                     applicationDeadlineDate: null,
-                    bulletPoints: new HashSet<string>()
+                    bulletPoints: new List<BulletPoint>()
                     {
-                        "Analysis of plant ingredients e.g. phenols, carbohydrates, polyacetylenes, glucosinolates, etc. using HPLC, GC-MS, and IC",
-                        "Microbiology",
-                        "Laboratory guidance of students and researchers",
-                        "Method development",
-                        "Sample collection, sample preparation and data processing",
-                        "Maintenance of various analysis equipment and laboratory management",
-                        "Photography in studios and ‘on the spot’ plants, plant products and experimental setup as documentation of the experimental work."
+
+                        new BulletPoint(
+                            text: "Analysis of plant ingredients e.g. phenols, carbohydrates, polyacetylenes, glucosinolates, etc. using HPLC, GC-MS, and IC",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Microbiology",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Laboratory guidance of students and researchers",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Method development",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Sample collection, sample preparation and data processing",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Maintenance of various analysis equipment and laboratory management",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Photography in studios and ‘on the spot’ plants, plant products and experimental setup as documentation of the experimental work.",
+                            type: null
+                            )
+                        
                     },
                     bulletPointScenario: "generic"
                 );
@@ -916,15 +1452,38 @@ namespace NW.WIDJobs.UnitTests
                     contactPersonName: null,
                     employmentDate: null,
                     applicationDeadlineDate: null,
-                    bulletPoints: new HashSet<string>()
+                    bulletPoints: new List<BulletPoint>()
                     {
-                        "Analysis with ICP-MS and HPLC",
-                        "Working with food processing in laboratory / pilot scale",
-                        "Laboratory guidance of students and researchers",
-                        "Method development",
-                        "Sample collection, sample preparation and data processing",
-                        "Maintenance of various analysis equipment and laboratory management",
-                        "Purchase of consumables and minor equipment for the laboratory."
+
+                        new BulletPoint(
+                            text: "Analysis with ICP-MS and HPLC",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Working with food processing in laboratory / pilot scale",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Laboratory guidance of students and researchers",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Method development",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Sample collection, sample preparation and data processing",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Maintenance of various analysis equipment and laboratory management",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Purchase of consumables and minor equipment for the laboratory.",
+                            type: null
+                            )
+
                     },
                     bulletPointScenario: "generic"
                 );
@@ -1017,17 +1576,46 @@ namespace NW.WIDJobs.UnitTests
                     contactPersonName: "Majken Lorentzen",
                     employmentDate: null,
                     applicationDeadlineDate: new DateTime(2021, 07, 12),
-                    bulletPoints: new HashSet<string>()
+                    bulletPoints: new List<BulletPoint>()
                     {
-                        "A social workplace",
-                        "Active work",
-                        "Day and evening shifts",
-                        "A healthy working environment",
-                        "Good colleagues",
-                        "You would like to work in a warehouse",
-                        "You like active and physical work",
-                        "You can work full time or part time",
-                        "You can work independently"
+
+                        new BulletPoint(
+                            text: "A social workplace",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Active work",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Day and evening shifts",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "A healthy working environment",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Good colleagues",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You would like to work in a warehouse",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You like active and physical work",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You can work full time or part time",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You can work independently",
+                            type: null
+                            )
+                        
                     },
                     bulletPointScenario: "generic"
                 );
@@ -1074,28 +1662,90 @@ namespace NW.WIDJobs.UnitTests
                     contactPersonName: "Majken Lorentzen",
                     employmentDate: null,
                     applicationDeadlineDate: new DateTime(2021, 08, 19),
-                    bulletPoints: new HashSet<string>()
+                    bulletPoints: new List<BulletPoint>()
                     {
-                        "Arbejde på daghold",
-                        "Gode kollegaer",
-                        "Grundig oplæring",
-                        "Mulighed for aktivt arbejde",
-                        "Du kan lide aktivt arbejde",
-                        "Du kan lide at veksle mellem forskellige arbejdsopgaver",
-                        "Du har en god fysik",
-                        "Du kan arbejde daghold på fuldtid – deltid kan også arrangeres",
-                        "Du er grundig i dit arbejde og har en positiv tilgang til dine arbejdsopgaver",
-                        "Du er fleksibel i travle perioder",
-                        "Work on day shifts",
-                        "Good colleagues",
-                        "Thorough training",
-                        "Opportunity for active work",
-                        "You like active work",
-                        "You like to have different work tasks",
-                        "You have a good physique",
-                        "You can work day shifts full time - part time can also be arranged",
-                        "You are thorough in your work and have a positive approach to your work tasks",
-                        "You are flexible during busy periods"
+
+                        new BulletPoint(
+                            text: "Arbejde på daghold",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Gode kollegaer",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Grundig oplæring",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Mulighed for aktivt arbejde",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Du kan lide aktivt arbejde",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Du kan lide at veksle mellem forskellige arbejdsopgaver",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Du har en god fysik",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Du kan arbejde daghold på fuldtid – deltid kan også arrangeres",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Du er grundig i dit arbejde og har en positiv tilgang til dine arbejdsopgaver",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Du er fleksibel i travle perioder",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Work on day shifts",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Good colleagues",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Thorough training",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Opportunity for active work",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You like active work",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You like to have different work tasks",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You have a good physique",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You can work day shifts full time - part time can also be arranged",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You are thorough in your work and have a positive approach to your work tasks",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You are flexible during busy periods",
+                            type: null
+                            )
+                        
                     },
                     bulletPointScenario: "generic"
                 );
@@ -1142,21 +1792,62 @@ namespace NW.WIDJobs.UnitTests
                     contactPersonName: null,
                     employmentDate: null,
                     applicationDeadlineDate: null,
-                    bulletPoints: new HashSet<string>()
+                    bulletPoints: new List<BulletPoint>()
                     {
-                        "Teaching and examination in various study programs",
-                        "Development of existing and or new study programs",
-                        "Individual and group based research activities of high international standard",
-                        "Promotion of CBS’s academic reputation",
-                        "Communicating findings to the public in general and to CBS’s stakeholders in particular",
-                        "Responsibility for publishing, scientific communication and research-based teaching",
-                        "Attracting external funding opportunities",
-                        "A cover letter",
-                        "Proof of qualifications and a full CV",
-                        "Documentation of relevant, significant, original research at an international level, including publications in the field’s internationally recognized journals and citations in the Social Science Citation Index and/or Google Scholar",
-                        "Documentation of pedagogical qualifications or other material for the evaluation of his/her pedagogical level * Information indicating experience in research management, industry co-operation and international co-operation",
-                        "A complete, numbered list of publications (indicating titles, co-authors, page numbers and year) with an * marking of the academic productions to be considered during the review. A maximum of 10 publications for review are allowed. Applicants are requested to prioritize their publications in relation to the field of this job advertisement.",
-                        "Copies of the publications marked with an *."
+
+                        new BulletPoint(
+                            text: "Teaching and examination in various study programs",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Development of existing and or new study programs",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Individual and group based research activities of high international standard",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Promotion of CBS’s academic reputation",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Communicating findings to the public in general and to CBS’s stakeholders in particular",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Responsibility for publishing, scientific communication and research-based teaching",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Attracting external funding opportunities",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "A cover letter",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Proof of qualifications and a full CV",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Documentation of relevant, significant, original research at an international level, including publications in the field’s internationally recognized journals and citations in the Social Science Citation Index and/or Google Scholar",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Documentation of pedagogical qualifications or other material for the evaluation of his/her pedagogical level * Information indicating experience in research management, industry co-operation and international co-operation",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "A complete, numbered list of publications (indicating titles, co-authors, page numbers and year) with an * marking of the academic productions to be considered during the review. A maximum of 10 publications for review are allowed. Applicants are requested to prioritize their publications in relation to the field of this job advertisement.",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Copies of the publications marked with an *.",
+                            type: null
+                            )
+                        
                     },
                     bulletPointScenario: "generic"
                 );
@@ -1203,27 +1894,86 @@ namespace NW.WIDJobs.UnitTests
                     contactPersonName: "Charlotte Meck",
                     employmentDate: null,
                     applicationDeadlineDate: new DateTime(2021, 08, 27),
-                    bulletPoints: new HashSet<string>()
+                    bulletPoints: new List<BulletPoint>()
                     {
-                        "Picking/packing tasks",
-                        "Loading/unloading tasks",
-                        "Receipt of goods",
-                        "Truck driving, most often reach truck",
-                        "Scanner operation",
-                        "Various warehouse tasks",
-                        "You will of course receive a thorough training in the work tasks, so you will have the best conditions for success.",
-                        "The company generally has an informal work environment with the opportunity to take responsibility for work tasks and planning.",
-                        "Are ready to take on evening work",
-                        "Have experience from working at a warehouse",
-                        "Have a truck certificate",
-                        "Are ready to taking up the challenge when it comes to new tasks and flexible working days",
-                        "Are able to perform a good job",
-                        "Can represent Randstad as an external employee in a positive way at the customer’s premises",
-                        "Danish- and English-speaking at a reasonable level",
-                        "Basic salary according to qualifications and in addition to this, cf. collective agreement, pension scheme and holiday",
-                        "A generally informal work environment with the opportunity to take responsibility for work tasks and planning",
-                        "Start-up: As soon as possible, please send your CV",
-                        "All inquiries are treated confidentially. Interviews will take place on an ongoing basis."
+
+                        new BulletPoint(
+                            text: "Picking/packing tasks",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Loading/unloading tasks",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Receipt of goods",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Truck driving, most often reach truck",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Scanner operation",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Various warehouse tasks",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You will of course receive a thorough training in the work tasks, so you will have the best conditions for success.",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "The company generally has an informal work environment with the opportunity to take responsibility for work tasks and planning.",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Are ready to take on evening work",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Have experience from working at a warehouse",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Have a truck certificate",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Are ready to taking up the challenge when it comes to new tasks and flexible working days",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Are able to perform a good job",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Can represent Randstad as an external employee in a positive way at the customer’s premises",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Danish- and English-speaking at a reasonable level",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Basic salary according to qualifications and in addition to this, cf. collective agreement, pension scheme and holiday",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "A generally informal work environment with the opportunity to take responsibility for work tasks and planning",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Start-up: As soon as possible, please send your CV",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "All inquiries are treated confidentially. Interviews will take place on an ongoing basis.",
+                            type: null
+                            )
+
                     },
                     bulletPointScenario: "randstad"
                 );
@@ -1270,25 +2020,78 @@ namespace NW.WIDJobs.UnitTests
                     contactPersonName: null,
                     employmentDate: null,
                     applicationDeadlineDate: null,
-                    bulletPoints: new HashSet<string>()
+                    bulletPoints: new List<BulletPoint>()
                     {
-                        "How does digital platform design affect user behaviors and outcomes?",
-                        "How do complementors compete within and across digital ecosystems?",
-                        "How do ecosystems compete?",
-                        "What is the role of data and algorithms in steering interactions and value in platform markets and ecosystems (exploiting or correcting consumer behavioral biases)?",
-                        "Are data exclusionary or non-rivalry? How do they affect a firm’s competitive advantage in (platform) digital markets?",
-                        "How does data enable value creation (for organizations and their stakeholder)?",
-                        "How to organize the effective and efficient creation, sharing and usage of data in digital ecosystems?",
-                        "Applicants must have completed a PhD in Management, Economics, or other related social science discipline before the beginning the fellowship. Prior work (including but not limited to dissertation) should involve working with large datasets.",
-                        "Excellent academic record and work ethic required.",
-                        "Excellent organizational and oral/written communication skills required.",
-                        "Enthusiasm for research required. The ideal candidate will be thinking of this position as a platform to build skills towards taking on a research professorship in the future.",
-                        "Willingness to move to and live in Denmark.",
-                        "Cover letter.",
-                        "Proof of qualifications and a full CV.",
-                        "Any relevant information indicating experience in research management, industry co-operation and international cooperation.",
-                        "A complete, numbered list of publications (indicating titles, co-authors, page numbers and year) with an * marking of the academic productions to be considered during the review. A maximum of 10 publications for review are allowed. Applicants are requested to prioritize their publications in relation to the field of this job advertisement.",
-                        "Copies of the publications marked with an *. Only publications written in English (or another specified principal language, according to research tradition) or one of the Scandinavian languages will be taken into consideration."
+
+                        new BulletPoint(
+                            text: "How does digital platform design affect user behaviors and outcomes?",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "How do complementors compete within and across digital ecosystems?",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "How do ecosystems compete?",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "What is the role of data and algorithms in steering interactions and value in platform markets and ecosystems (exploiting or correcting consumer behavioral biases)?",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Are data exclusionary or non-rivalry? How do they affect a firm’s competitive advantage in (platform) digital markets?",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "How does data enable value creation (for organizations and their stakeholder)?",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "How to organize the effective and efficient creation, sharing and usage of data in digital ecosystems?",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Applicants must have completed a PhD in Management, Economics, or other related social science discipline before the beginning the fellowship. Prior work (including but not limited to dissertation) should involve working with large datasets.",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Excellent academic record and work ethic required.",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Excellent organizational and oral/written communication skills required.",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Enthusiasm for research required. The ideal candidate will be thinking of this position as a platform to build skills towards taking on a research professorship in the future.",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Willingness to move to and live in Denmark.",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Cover letter.",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Proof of qualifications and a full CV.",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Any relevant information indicating experience in research management, industry co-operation and international cooperation.",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "A complete, numbered list of publications (indicating titles, co-authors, page numbers and year) with an * marking of the academic productions to be considered during the review. A maximum of 10 publications for review are allowed. Applicants are requested to prioritize their publications in relation to the field of this job advertisement.",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Copies of the publications marked with an *. Only publications written in English (or another specified principal language, according to research tradition) or one of the Scandinavian languages will be taken into consideration.",
+                            type: null
+                            )
+                        
                     },
                     bulletPointScenario: "generic"
                 );
@@ -1446,43 +2249,150 @@ namespace NW.WIDJobs.UnitTests
                     contactPersonName: null,
                     employmentDate: null,
                     applicationDeadlineDate: null,
-                    bulletPoints: new HashSet<string>()
+                    bulletPoints: new List<BulletPoint>()
                     {
-                        "Has specific research experience in the field of empirically informed teaching, learning outcome and/or student motivation",
-                        "Has specific research experience connected to the role of digital technologies in shaping teaching and subject areas",
-                        "Can demonstrate skills in collaborative and cross-disciplinary research",
-                        "Can demonstrate skills in handling various qualitative and quantitative scientific methods.",
-                        "Substantial research experience in general didactics in relation to empirical school research",
-                        "An internationally oriented research profile",
-                        "A relevant and internationally oriented publication profile",
-                        "Experience of or interest in participation in national and international research networks",
-                        "Experience of or interest in communication and knowledge exchange",
-                        "Experience of or interest in interdisciplinary collaboration as well as interdisciplinary research",
-                        "Experience of or the potential for obtaining external research funding",
-                        "Teaching experience at university level within the field of general didactics and educational research methods",
-                        "Experience of or interest in interdisciplinary teaching including innovative teaching methods",
-                        "Experience of or interest in supervising student projects, and interest in researcher talent development.",
-                        "Substantial research experience in the field of general didactics and empirical school research",
-                        "Substantial experience of empirical research related to didactics, learning outcomes and student motivation",
-                        "Skills in collaborative and cross-disciplinary school research",
-                        "Skills in empirical school research and empirically informed teaching, including mixed methods",
-                        "A strong, relevant international publication profile",
-                        "Participation in national and international research networks",
-                        "Experience of participation in collective research projects",
-                        "Teaching experience at university level within the field general didactics and educational research methods, including innovative teaching methods, and mastery of academic English in the classroom",
-                        "Proficiency in languages relevant to the area of research",
-                        "Experience of interdisciplinary cooperation outreach activities",
-                        "Experience of attracting external research funding",
-                        "Experience of supervising student projects and an interest in researcher talent development.",
-                        "Faculty of Arts refers to the Ministerial Order on the Appointment of Academic Staff at Danish Universities (the Appointment Order).",
-                        "Appointment shall be in accordance with the collective labour agreement between the Danish Ministry of Finance and the Danish Confederation of Professional Associations.",
-                        "Further information on qualification requirements and job content may be found in the Memorandum on Job Structure for Academic Staff at Danish Universities .",
-                        "Further information on the application and supplementary materials may be found in Application Guidelines.",
-                        "The application must outline the your motivation for applying for the position, attaching a curriculum vitae, copies of relevant degree certificates, and (if relevant for the position) a teaching portfolio. Please upload this material electronically along with your application.",
-                        "If you submit your application for the assistant professorship, please upload a maximum of five samples of your scholarly output (mandatory).",
-                        "If you submit your application for the associate professorship, please upload a maximum of eight samples of your scholarly output (mandatory).",
-                        "Faculty of Arts refers to the Ministerial Order on the Appointment of Academic Staff at Danish Universities(the Appointment Order).",
-                        "Further information on qualification requirements and job content may be found in theMemorandum on Job Structure for Academic Staff at Danish Universities."
+
+                        new BulletPoint(
+                            text: "Has specific research experience in the field of empirically informed teaching, learning outcome and/or student motivation",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Has specific research experience connected to the role of digital technologies in shaping teaching and subject areas",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Can demonstrate skills in collaborative and cross-disciplinary research",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Can demonstrate skills in handling various qualitative and quantitative scientific methods.",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Substantial research experience in general didactics in relation to empirical school research",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "An internationally oriented research profile",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "A relevant and internationally oriented publication profile",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Experience of or interest in participation in national and international research networks",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Experience of or interest in communication and knowledge exchange",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Experience of or interest in interdisciplinary collaboration as well as interdisciplinary research",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Experience of or the potential for obtaining external research funding",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Teaching experience at university level within the field of general didactics and educational research methods",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Experience of or interest in interdisciplinary teaching including innovative teaching methods",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Experience of or interest in supervising student projects, and interest in researcher talent development.",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Substantial research experience in the field of general didactics and empirical school research",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Substantial experience of empirical research related to didactics, learning outcomes and student motivation",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Skills in collaborative and cross-disciplinary school research",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Skills in empirical school research and empirically informed teaching, including mixed methods",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "A strong, relevant international publication profile",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Participation in national and international research networks",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Experience of participation in collective research projects",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Teaching experience at university level within the field general didactics and educational research methods, including innovative teaching methods, and mastery of academic English in the classroom",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Proficiency in languages relevant to the area of research",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Experience of interdisciplinary cooperation outreach activities",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Experience of attracting external research funding",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Experience of supervising student projects and an interest in researcher talent development.",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Faculty of Arts refers to the Ministerial Order on the Appointment of Academic Staff at Danish Universities (the Appointment Order).",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Appointment shall be in accordance with the collective labour agreement between the Danish Ministry of Finance and the Danish Confederation of Professional Associations.",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Further information on qualification requirements and job content may be found in the Memorandum on Job Structure for Academic Staff at Danish Universities .",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Further information on the application and supplementary materials may be found in Application Guidelines.",    
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "The application must outline the your motivation for applying for the position, attaching a curriculum vitae, copies of relevant degree certificates, and (if relevant for the position) a teaching portfolio. Please upload this material electronically along with your application.",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "If you submit your application for the assistant professorship, please upload a maximum of five samples of your scholarly output (mandatory).",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "If you submit your application for the associate professorship, please upload a maximum of eight samples of your scholarly output (mandatory).",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Faculty of Arts refers to the Ministerial Order on the Appointment of Academic Staff at Danish Universities(the Appointment Order).",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Further information on qualification requirements and job content may be found in theMemorandum on Job Structure for Academic Staff at Danish Universities.",
+                            type: null
+                            )
+
                     },
                     bulletPointScenario: "generic"
                 );
@@ -1575,25 +2485,78 @@ namespace NW.WIDJobs.UnitTests
                     contactPersonName: "Justyna Płaczkiewicz",
                     employmentDate: null,
                     applicationDeadlineDate: new DateTime(2021, 08, 27),
-                    bulletPoints: new HashSet<string>()
+                    bulletPoints: new List<BulletPoint>()
                     {
-                        "Join and hold meetings with prospects and customers to assist with any questions related to SQL, API or Plecto in general",
-                        "Handle complex support cases and customer queries  in a timely and efficient manner",
-                        "Guide customers and prospects on best practices in using Plecto",
-                        "Assist customers in setting up their Plecto account",
-                        "Assist in initial integration research",
-                        "Reading technical API documentation - JSON, REST and OAuth",
-                        "Solve customer problems under complex constraints and come up with solutions without any additional development of Plecto",
-                        "Maintaining and creating internal knowledge base articles",
-                        "Experience in delivering outstanding technical support",
-                        "Experience in database operations including reading and writing basic to intermediate database SQL queries and troubleshooting connection issues",
-                        "Experience and knowledge in API and SQL Server Databases",
-                        "Interest and knowledge in other programming languages is a plus, but not a requirement",
-                        "Ability to effectively communicate technical concepts to a variety of audiences with different levels of technical expertise",
-                        "Multi-tasking and time-management to prioritize and switch between varied tasks",
-                        "Technical writing skills to create and maintain Knowledge Base articles",
-                        "Technical skills and an eye for detail used in troubleshooting and implementing fixes",
-                        "You are fluent in English, both spoken and written + another additional language. Danish is a plus, but not a requirement"
+
+                        new BulletPoint(
+                            text: "Join and hold meetings with prospects and customers to assist with any questions related to SQL, API or Plecto in general",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Handle complex support cases and customer queries  in a timely and efficient manner",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Guide customers and prospects on best practices in using Plecto",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Assist customers in setting up their Plecto account",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Assist in initial integration research",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Reading technical API documentation - JSON, REST and OAuth",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Solve customer problems under complex constraints and come up with solutions without any additional development of Plecto",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Maintaining and creating internal knowledge base articles",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Experience in delivering outstanding technical support",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Experience in database operations including reading and writing basic to intermediate database SQL queries and troubleshooting connection issues",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Experience and knowledge in API and SQL Server Databases",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Interest and knowledge in other programming languages is a plus, but not a requirement",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Ability to effectively communicate technical concepts to a variety of audiences with different levels of technical expertise",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Multi-tasking and time-management to prioritize and switch between varied tasks",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Technical writing skills to create and maintain Knowledge Base articles",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Technical skills and an eye for detail used in troubleshooting and implementing fixes",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You are fluent in English, both spoken and written + another additional language. Danish is a plus, but not a requirement",
+                            type: null
+                            )
+
                     },
                     bulletPointScenario: "generic"
                 );
@@ -1640,30 +2603,98 @@ namespace NW.WIDJobs.UnitTests
                     contactPersonName: "Henry Neufeldt",
                     employmentDate: null,
                     applicationDeadlineDate: new DateTime(2021, 07, 16),
-                    bulletPoints: new HashSet<string>()
+                    bulletPoints: new List<BulletPoint>()
                     {
-                        "Lead the development of tools and guidance materials within adaptation assessment, tracking and transparency.",
-                        "Support the production of UNEP's Adaptation Gap Report;",
-                        "Contribute to the section's work on private sector adaptation, and adaptation business models.",
-                        "Contribute to the section's work on impact assessments of mitigation and adaptation actions and their contribution to sustainable development;",
-                        "Contribute to the section's work on adaptation finance tracking;",
-                        "Contribute to the development of scientific papers, briefs, and reports;",
-                        "Other tasks as assigned by the head of section.",
-                        "M.Sc. degree in environmental science, environmental engineering, sustainability studies, environmental economics, or other relevant field;",
-                        "Understanding of the Paris Agreement, in particular of the Enhanced Transparency Framework;",
-                        "Good knowledge of methods and approaches for adaptation assessment and tracking at aggregated levels (i.e. national and global-levels)",
-                        "Good knowledge of the adaptation finance landscape, and methods and approaches for tracking adaptation finance",
-                        "Good knowledge of the Sustainable Development Goal framework, including of the SDG targets and indicators, particularly in the context of impact assessment;",
-                        "Good knowledge of private sector adaptation is an asset;",
-                        "Strong analytical skills, an innovative mindset, and the ability to adapt to different tasks and workloads quickly and effectively;",
-                        "Demonstrated excellent writing, communication, and presentation skills in English; proficiency in other languages, in particular Spanish and/or French is an asset",
-                        "Ability to work effectively both individually as well as in teams, with people from different academic and cultural backgrounds;",
-                        "Experience in preparing technical and/or policy-relevant reports and papers is considered a strong asset;",
-                        "Experience in working with developing countries is an asset;",
-                        "Application letter;",
-                        "CV with full personal data and contact details;",
-                        "Indication of three references; and,",
-                        "A copy of your diploma(s)"
+
+                        new BulletPoint(
+                            text: "Lead the development of tools and guidance materials within adaptation assessment, tracking and transparency.",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Support the production of UNEP's Adaptation Gap Report;",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Contribute to the section's work on private sector adaptation, and adaptation business models.",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Contribute to the section's work on impact assessments of mitigation and adaptation actions and their contribution to sustainable development;",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Contribute to the section's work on adaptation finance tracking;",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Contribute to the development of scientific papers, briefs, and reports;",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Other tasks as assigned by the head of section.",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "M.Sc. degree in environmental science, environmental engineering, sustainability studies, environmental economics, or other relevant field;",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Understanding of the Paris Agreement, in particular of the Enhanced Transparency Framework;",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Good knowledge of methods and approaches for adaptation assessment and tracking at aggregated levels (i.e. national and global-levels)",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Good knowledge of the adaptation finance landscape, and methods and approaches for tracking adaptation finance",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Good knowledge of the Sustainable Development Goal framework, including of the SDG targets and indicators, particularly in the context of impact assessment;",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Good knowledge of private sector adaptation is an asset;",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Strong analytical skills, an innovative mindset, and the ability to adapt to different tasks and workloads quickly and effectively;",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Demonstrated excellent writing, communication, and presentation skills in English; proficiency in other languages, in particular Spanish and/or French is an asset",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Ability to work effectively both individually as well as in teams, with people from different academic and cultural backgrounds;",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Experience in preparing technical and/or policy-relevant reports and papers is considered a strong asset;",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Experience in working with developing countries is an asset;",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Application letter;",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "CV with full personal data and contact details;",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Indication of three references; and,",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "A copy of your diploma(s)",
+                            type: null
+                            )
+
                     },
                     bulletPointScenario: "generic"
                 );
@@ -1710,11 +2741,22 @@ namespace NW.WIDJobs.UnitTests
                     contactPersonName: "Claus Kjærbo",
                     employmentDate: null,
                     applicationDeadlineDate: new DateTime(2021, 08, 27),
-                    bulletPoints: new HashSet<string>()
+                    bulletPoints: new List<BulletPoint>()
                     {
-                        "You speak English or Danish",
-                        "You are interested in working in a warehouse",
-                        "You have a pair of safety shoes"
+
+                        new BulletPoint(
+                            text: "You speak English or Danish",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You are interested in working in a warehouse",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You have a pair of safety shoes",
+                            type: null
+                            )
+
                     },
                     bulletPointScenario: "generic"
                 );
@@ -1761,19 +2803,54 @@ namespace NW.WIDJobs.UnitTests
                     contactPersonName: "Anja Løvhøj",
                     employmentDate: null,
                     applicationDeadlineDate: new DateTime(2021, 07, 30),
-                    bulletPoints: new HashSet<string>()
+                    bulletPoints: new List<BulletPoint>()
                     {
-                        "you get to clean the finest hotel rooms in Copenhagen",
-                        "you are guaranteed a minimum of 80-130 hours per month with the possibility to work more (depending on your situation)",
-                        "we offer career opportunities through promotions and/or management classes",
-                        "we offer health insurance after 6 months of employment",
-                        "Salary according to the collective bargaining agreement",
-                        "Speaking English",
-                        "Service minded",
-                        "Ready to work primarily in the daytime on weekdays and/or weekends",
-                        "Able to work in weekends as well",
-                        "Ready to work in a fast and exiting environment",
-                        "Definitely the one we are looking for!"
+
+                        new BulletPoint(
+                            text: "you get to clean the finest hotel rooms in Copenhagen",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "you are guaranteed a minimum of 80-130 hours per month with the possibility to work more (depending on your situation)",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "we offer career opportunities through promotions and/or management classes",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "we offer health insurance after 6 months of employment",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Salary according to the collective bargaining agreement",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Speaking English",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Service minded",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Ready to work primarily in the daytime on weekdays and/or weekends",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Able to work in weekends as well",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Ready to work in a fast and exiting environment",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Definitely the one we are looking for!",
+                            type: null
+                            )
+
                     },
                     bulletPointScenario: "generic"
                 );
@@ -1820,19 +2897,54 @@ namespace NW.WIDJobs.UnitTests
                     contactPersonName: "Justyna Płaczkiewicz",
                     employmentDate: null,
                     applicationDeadlineDate: new DateTime(2021, 07, 30),
-                    bulletPoints: new HashSet<string>()
+                    bulletPoints: new List<BulletPoint>()
                     {
-                        "Develop a strong base of customers",
-                        "Find leads and potential customers through for example networks and social platforms",
-                        "Identify areas where you can expand business with your existing customers",
-                        "Negotiate contracts and close deals while clearly predicting your pipeline",
-                        "You have excellent skills in both written and oral English",
-                        "You have a good business understanding and a structured work approach",
-                        "You are a team player with the ability to collaborate across teams",
-                        "You are able to identify needs and identify where Plecto can create value for potential customers",
-                        "It is an advantage if you have previous experience in the insurance-, telecommunications-, energy- or media industry",
-                        "It is an advantage if you have previous experience from B2B and/or sales",
-                        "You have a bubbly positive personality that we will love to get to know and work with"
+
+                        new BulletPoint(
+                            text: "Develop a strong base of customers",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Find leads and potential customers through for example networks and social platforms",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Identify areas where you can expand business with your existing customers",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Negotiate contracts and close deals while clearly predicting your pipeline",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You have excellent skills in both written and oral English",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You have a good business understanding and a structured work approach",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You are a team player with the ability to collaborate across teams",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You are able to identify needs and identify where Plecto can create value for potential customers",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "It is an advantage if you have previous experience in the insurance-, telecommunications-, energy- or media industry",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "It is an advantage if you have previous experience from B2B and/or sales",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You have a bubbly positive personality that we will love to get to know and work with",
+                            type: null
+                            )
+
                     },
                     bulletPointScenario: "generic"
                 );
@@ -1925,22 +3037,66 @@ namespace NW.WIDJobs.UnitTests
                     contactPersonName: null,
                     employmentDate: null,
                     applicationDeadlineDate: null,
-                    bulletPoints: new HashSet<string>()
+                    bulletPoints: new List<BulletPoint>()
                     {
-                        "research, including publication/academic dissemination",
-                        "research-based teaching",
-                        "sharing knowledge with society",
-                        "participation in formal pedagogical training programme for assistant professors",
-                        "a PhD degree or similar qualifications within the subject area",
-                        "research experience within the field of the position",
-                        "Application, including motivation for applying for this position (Maximum 2 pages)",
-                        "Curriculum vitae, including information about funding",
-                        "Diplomas (Master’s, PhD and other relevant diplomas)",
-                        "A complete list of publications",
-                        "Research plan (2-4 pages)",
-                        "Teaching plan",
-                        "Uploads of maximum 5 publications to be considered in the assessment",
-                        "Teaching portfolio, if applicable (Guidelines: https://employment.ku.dk/faculty/recruitment-process/job-application-portfolio)"
+
+                        new BulletPoint(
+                            text: "research, including publication/academic dissemination",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "research-based teaching",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "sharing knowledge with society",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "participation in formal pedagogical training programme for assistant professors",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "a PhD degree or similar qualifications within the subject area",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "research experience within the field of the position",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Application, including motivation for applying for this position (Maximum 2 pages)",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Curriculum vitae, including information about funding",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Diplomas (Master’s, PhD and other relevant diplomas)",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "A complete list of publications",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Research plan (2-4 pages)",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Teaching plan",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Uploads of maximum 5 publications to be considered in the assessment",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Teaching portfolio, if applicable (Guidelines: https://employment.ku.dk/faculty/recruitment-process/job-application-portfolio)",
+                            type: null
+                            )
+
                     },
                     bulletPointScenario: "generic"
                 );
@@ -1987,14 +3143,34 @@ namespace NW.WIDJobs.UnitTests
                     contactPersonName: null,
                     employmentDate: null,
                     applicationDeadlineDate: null,
-                    bulletPoints: new HashSet<string>()
+                    bulletPoints: new List<BulletPoint>()
                     {
-                        "The most important in this job is your personality. We weigh discretion highly and the importance of our customers getting a professional service when they are welcomed by you at our receptions.",
-                        "We are an active part of the security setup and it will be an advantage if you have worked as an Security Receptionist before.",
-                        "As you will have colleagues from very different backgrounds, it will require tolerance and understanding to positively gain from the differences.",
-                        "You will need a good deal of curiosity and have the ability to work very thorough with your tasks.",
-                        "You have a solid language background, speak and write Danish and English at a high level. It will be an advantage if you master another foreign language. You have the ability to absorb and handle large amounts of information and in depth organisational knowledge.",
-                        "You are used to working in a large company and handling many different stakeholders. You are a super user in regards to the Office-package, are used to working with data and Key Performance Indicators (KPIs) and you have technical insight into SAP and IT systems including maintenance hereof."
+
+                        new BulletPoint(
+                            text: "The most important in this job is your personality. We weigh discretion highly and the importance of our customers getting a professional service when they are welcomed by you at our receptions.",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "We are an active part of the security setup and it will be an advantage if you have worked as an Security Receptionist before.",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "As you will have colleagues from very different backgrounds, it will require tolerance and understanding to positively gain from the differences.",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You will need a good deal of curiosity and have the ability to work very thorough with your tasks.",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You have a solid language background, speak and write Danish and English at a high level. It will be an advantage if you master another foreign language. You have the ability to absorb and handle large amounts of information and in depth organisational knowledge.",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "You are used to working in a large company and handling many different stakeholders. You are a super user in regards to the Office-package, are used to working with data and Key Performance Indicators (KPIs) and you have technical insight into SAP and IT systems including maintenance hereof.",
+                            type: null
+                            )
+
                     },
                     bulletPointScenario: "novonordisk"
                 );
@@ -2041,18 +3217,46 @@ namespace NW.WIDJobs.UnitTests
                     contactPersonName: null,
                     employmentDate: null,
                     applicationDeadlineDate: null,
-                    bulletPoints: new HashSet<string>()
+                    bulletPoints: new List<BulletPoint>()
                     {
-                        "Behandlings-områder",
-                        "Sundheds-personale",
-                        "Videnskab &amp; teknologi",
-                        "Bæredygtig forretning",
-                        "Karriere",
-                        "Om Novo Nordisk",
-                        "",
-                        "Få mere viden",
-                        "Nyheder og presse",
-                        "Kontakt os"
+
+                        new BulletPoint(
+                            text: "Behandlings-områder",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Sundheds-personale",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Videnskab &amp; teknologi",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Bæredygtig forretning",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Karriere",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Om Novo Nordisk",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Få mere viden",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Nyheder og presse",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Kontakt os",
+                            type: null
+                            )
+
                     },
                     bulletPointScenario: "generic"
                 );
@@ -2099,19 +3303,54 @@ namespace NW.WIDJobs.UnitTests
                     contactPersonName: null,
                     employmentDate: null,
                     applicationDeadlineDate: null,
-                    bulletPoints: new HashSet<string>()
+                    bulletPoints: new List<BulletPoint>()
                     {
-                        "Field-based ecosystem manipulations experiments and monitoring of greenhouse gas production",
-                        "Measurements of subsurface and snow gas concentrations, diffusion and greenhouse gas fluxes",
-                        "Process-based models to simulate changes in climate-soil-plant-microbial characteristics",
-                        "Structural equation modelling",
-                        "Letter of application",
-                        "Curriculum vita, incl. education, experience, previous employments, language skills and other relevant skills (max 5 pages).",
-                        "Detailed outline of proposed research, including research questions and methods (max 5 pages)",
-                        "Diplomas (Master and PhD degree or equivalent)",
-                        "Complete publication list, highlighting the 3 most important ones",
-                        "Separate reprints of 3 particularly relevant papers",
-                        "Two letters of recommendation."
+
+                        new BulletPoint(
+                            text: "Field-based ecosystem manipulations experiments and monitoring of greenhouse gas production",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Measurements of subsurface and snow gas concentrations, diffusion and greenhouse gas fluxes",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Process-based models to simulate changes in climate-soil-plant-microbial characteristics",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Structural equation modelling",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Letter of application",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Curriculum vita, incl. education, experience, previous employments, language skills and other relevant skills (max 5 pages).",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Detailed outline of proposed research, including research questions and methods (max 5 pages)",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Diplomas (Master and PhD degree or equivalent)",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Complete publication list, highlighting the 3 most important ones",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Separate reprints of 3 particularly relevant papers",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Two letters of recommendation.",
+                            type: null
+                            )
+
                     },
                     bulletPointScenario: "jobportal"
                 );
@@ -2158,15 +3397,38 @@ namespace NW.WIDJobs.UnitTests
                     contactPersonName: null,
                     employmentDate: null,
                     applicationDeadlineDate: null,
-                    bulletPoints: new HashSet<string>()
+                    bulletPoints: new List<BulletPoint>()
                     {
-                        "Subject matter expert with responsibility for planning, advising on, coordinating, and handling public disclosure of clinical trial information.",
-                        "Monitor and evaluate the clinical trial disclosure landscape, including regulatory requirements and industry trends.",
-                        "Develop, pilot, implement, update, and maintain procedures to ensure compliance with regulations and other commitments for clinical data transparency.",
-                        "University degree in health or biological science (MD, MSc, MSc Pharm or equivalent).",
-                        "Thorough knowledge of clinical development, GCP, scientific research methods, and applicable regulatory guidelines. Understanding of clinical statistics.",
-                        "Strong IT flair – documented through previous experience, either professional or private.",
-                        "Prior experience with clinical disclosure will be an advantage."
+
+                        new BulletPoint(
+                            text: "Subject matter expert with responsibility for planning, advising on, coordinating, and handling public disclosure of clinical trial information.",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Monitor and evaluate the clinical trial disclosure landscape, including regulatory requirements and industry trends.",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Develop, pilot, implement, update, and maintain procedures to ensure compliance with regulations and other commitments for clinical data transparency.",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "University degree in health or biological science (MD, MSc, MSc Pharm or equivalent).",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Thorough knowledge of clinical development, GCP, scientific research methods, and applicable regulatory guidelines. Understanding of clinical statistics.",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Strong IT flair – documented through previous experience, either professional or private.",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Prior experience with clinical disclosure will be an advantage.",
+                            type: null
+                            )
+
                     },
                     bulletPointScenario: "easycruit"
                 );
@@ -2259,15 +3521,34 @@ namespace NW.WIDJobs.UnitTests
                     contactPersonName: null,
                     employmentDate: null,
                     applicationDeadlineDate: null,
-                    bulletPoints: new HashSet<string>()
+                    bulletPoints: new List<BulletPoint>()
                     {
-                        "",
-                        "Facebook",
-                        "Linkedin",
-                        "Google+",
-                        "Twitter",
-                        "Email",
-                        "Print"
+
+                        new BulletPoint(
+                            text: "Facebook",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Linkedin",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Google+",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Twitter",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Email",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Print",
+                            type: null
+                            )
+
                     },
                     bulletPointScenario: "generic"
                 );
@@ -2314,43 +3595,146 @@ namespace NW.WIDJobs.UnitTests
                     contactPersonName: null,
                     employmentDate: null,
                     applicationDeadlineDate: null,
-                    bulletPoints: new HashSet<string>()
+                    bulletPoints: new List<BulletPoint>()
                     {
-                        "Nyheder",
-                        "Arrangementer",
-                        "Kontakt og find rundt",
-                        "Campusområder",
-                        "For Pressen",
-                        "For alumni",
-                        "Genveje Nyheder Arrangementer Kontakt og find rundt Campusområder For Pressen For alumni",
-                        "aau uddannelse",
-                        "aau forskning",
-                        "aau samarbejde",
-                        "Om AAU",
-                        "Ledige stillinger",
-                        "Ansatte og studerende",
-                        "",
-                        "Ledige stillinger på AAU",
-                        "/",
-                        "Vis stilling",
-                        "Alle videnskabelige stillinger",
-                        "Alle teknisk-administrative stillinger",
-                        "Alle Phd stillinger",
-                        "Alle ledige stillinger",
-                        "AAU som arbejdsplads",
-                        "AAU&#039;s personalepolitik",
-                        "Organisation",
-                        "Problembaseret læring",
-                        "Strategi og udvikling",
-                        "Internationalt samarbejde",
-                        "Historie, priser og hæder",
-                        "Uddannelseskvalitet",
-                        "AAU i tal",
-                        "Facebook",
-                        "LinkedIn",
-                        "Instagram",
-                        "Snapchat",
-                        "YouTube"
+
+                        new BulletPoint(
+                            text: "Nyheder",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Arrangementer",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Kontakt og find rundt",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Campusområder",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "For Pressen",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "For alumni",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Genveje Nyheder Arrangementer Kontakt og find rundt Campusområder For Pressen For alumni",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "aau uddannelse",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "aau forskning",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "aau samarbejde",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Om AAU",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Ledige stillinger",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Ansatte og studerende",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Ledige stillinger på AAU",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "/",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Vis stilling",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Alle videnskabelige stillinger",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Alle teknisk-administrative stillinger",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Alle Phd stillinger",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Alle ledige stillinger",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "AAU som arbejdsplads",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "AAU&#039;s personalepolitik",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Organisation",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Problembaseret læring",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Strategi og udvikling",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Internationalt samarbejde",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Historie, priser og hæder",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Uddannelseskvalitet",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "AAU i tal",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Facebook",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "LinkedIn",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Instagram",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Snapchat",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "YouTube",
+                            type: null
+                            )
+
                     },
                     bulletPointScenario: "generic"
                 );
@@ -2397,15 +3781,34 @@ namespace NW.WIDJobs.UnitTests
                     contactPersonName: null,
                     employmentDate: null,
                     applicationDeadlineDate: null,
-                    bulletPoints: new HashSet<string>()
+                    bulletPoints: new List<BulletPoint>()
                     {
-                        "",
-                        "Facebook",
-                        "Linkedin",
-                        "Google+",
-                        "Twitter",
-                        "Email",
-                        "Print"
+
+                        new BulletPoint(
+                            text: "Facebook",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Linkedin",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Google+",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Twitter",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Email",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Print",
+                            type: null
+                            )
+
                     },
                     bulletPointScenario: "generic"
                 );
@@ -2452,15 +3855,34 @@ namespace NW.WIDJobs.UnitTests
                     contactPersonName: null,
                     employmentDate: null,
                     applicationDeadlineDate: null,
-                    bulletPoints: new HashSet<string>()
+                    bulletPoints: new List<BulletPoint>()
                     {
-                        "",
-                        "Facebook",
-                        "Linkedin",
-                        "Google+",
-                        "Twitter",
-                        "Email",
-                        "Print"
+
+                        new BulletPoint(
+                            text: "Facebook",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Linkedin",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Google+",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Twitter",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Email",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Print",
+                            type: null
+                            )
+
                     },
                     bulletPointScenario: "generic"
                 );
@@ -2507,17 +3929,46 @@ namespace NW.WIDJobs.UnitTests
                     contactPersonName: null,
                     employmentDate: null,
                     applicationDeadlineDate: null,
-                    bulletPoints: new HashSet<string>()
+                    bulletPoints: new List<BulletPoint>()
                     {
-                        "Set a clear direction for sales capabilities within the Consumer channel, ensure that we have the right toolbox in place for in- and outbound calls and that these align with HQ requirements",
-                        "Ensure that we locally have the tools necessary to give our customers get the highest level of quality in terms of service and sales",
-                        "Work with stakeholders to identify training needs and opportunities and determine what areas should be included in training modules",
-                        "Motivate and develop consumer care managers",
-                        "Have a couple of years of experience in a commercial role",
-                        "Know your way around change management",
-                        "Probably have training experience preferably from a sales or service organisation",
-                        "Have impactful PowerPoint presentation skills and the ability to conduct meetings and workshops",
-                        "Are fluent in English – any other languages are a plus"
+
+                        new BulletPoint(
+                            text: "Set a clear direction for sales capabilities within the Consumer channel, ensure that we have the right toolbox in place for in- and outbound calls and that these align with HQ requirements",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Ensure that we locally have the tools necessary to give our customers get the highest level of quality in terms of service and sales",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Work with stakeholders to identify training needs and opportunities and determine what areas should be included in training modules",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Motivate and develop consumer care managers",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Have a couple of years of experience in a commercial role",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Know your way around change management",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Probably have training experience preferably from a sales or service organisation",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Have impactful PowerPoint presentation skills and the ability to conduct meetings and workshops",
+                            type: null
+                            ),
+                        new BulletPoint(
+                            text: "Are fluent in English – any other languages are a plus",
+                            type: null
+                            )
+
                     },
                     bulletPointScenario: "coloplast"
                 );
@@ -3030,7 +4481,8 @@ namespace NW.WIDJobs.UnitTests
                 $"'{nameof(Exploration.JobPostingsExtended)}':'{Shared_ExplorationStage3_JobPostingsExtended.Count}'",
                 " }"
                 );
-        public static uint Shared_ExplorationStage3_TotalBulletPoints = 469;
+        public static uint Shared_ExplorationStage3_TotalBulletPoints
+            = (uint)Shared_ExplorationStage3_JobPostingsExtended.Select( jobPostingExtended => jobPostingExtended.BulletPoints?.Count ?? 0).Sum();
 
         #endregion
 
@@ -3784,7 +5236,7 @@ namespace NW.WIDJobs.UnitTests
             {
                 { "5359775wearelookingforforklift", 37 },
                 { "5382440assistantorassociateprofessorshipin", 35 },
-                { "8251036phd", 35 },
+                { "8251036phd", 34 },
                 { "5382358projectofficerimpactassessmentand", 22 },
                 { "5331002friskeogoplagtemedarbejderetil", 20 },
                 { "5376709medarbejderetilsommervikariaterp", 20 },
@@ -3801,20 +5253,20 @@ namespace NW.WIDJobs.UnitTests
                 { "8251042phd", 11 },
                 { "5379659erfarenogselvstndigtruckf", 10 },
                 { "5290988motivatedemployeesforwarehousework", 10 },
-                { "8251051securityofficer", 10 },
                 { "5365786motivatedforkliftdriversfortemporary", 9 },
                 { "5303321motivatedemployeesforwarehousework", 9 },
                 { "5383229vicepresidentofproductmarketing", 9 },
                 { "5361275committedemployeesforassemblingdisplays", 9 },
                 { "5346333motivatedemployeeforemptyingcontainers", 9 },
+                { "8251051securityofficer", 9 },
                 { "8251030seniormanager", 9 },
                 { "5383201laboratorytechnicianforplantanalysis", 7 },
                 { "5383195laboratorytechnicianforfoodprocessing", 7 },
                 { "8251041specialist", 7 },
-                { "8251038softwaredeveloper", 7 },
-                { "8251035leader", 7 },
-                { "8251034productowner", 7 },
                 { "8251052receptionist", 6 },
+                { "8251038softwaredeveloper", 6 },
+                { "8251035leader", 6 },
+                { "8251034productowner", 6 },
                 { "5332213linuxspecialist", 3 },
                 { "5382226warehouseworkers", 3 },
                 { "5383165lagermedarbejderetilpakkeopgaverpdaghold", 0 },
@@ -4282,6 +5734,32 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
+        public static bool AreEqual(BulletPoint bulletPoint1, BulletPoint bulletPoint2)
+        {
+
+            return string.Equals(bulletPoint1.Text, bulletPoint2.Text, StringComparison.InvariantCulture)
+                    && string.Equals(bulletPoint1.Type, bulletPoint2.Type, StringComparison.InvariantCulture);
+
+        }
+        public static bool AreEqual(List<BulletPoint> list1, List<BulletPoint> list2)
+        {
+
+            if (list1 == null && list2 == null)
+                return true;
+
+            if (list1 == null || list2 == null)
+                return false;
+
+            if (list1.Count != list2.Count)
+                return false;
+
+            for (int i = 0; i < list1.Count; i++)
+                if (AreEqual(list1[i], list2[i]) == false)
+                    return false;
+
+            return true;
+
+        }
         public static bool AreEqual(JobPage jobPage1, JobPage jobPage2)
         {
 
@@ -4512,6 +5990,7 @@ namespace NW.WIDJobs.UnitTests
             return (bulletPointEntity1.RowId == bulletPointEntity2.RowId)
                     && string.Equals(bulletPointEntity1.JobPostingId, bulletPointEntity2.JobPostingId, StringComparison.InvariantCulture)
                     && string.Equals(bulletPointEntity1.Text, bulletPointEntity2.Text, StringComparison.InvariantCulture)
+                    && string.Equals(bulletPointEntity1.Type, bulletPointEntity2.Type, StringComparison.InvariantCulture)
                     && (bulletPointEntity1.RowCreatedOn == bulletPointEntity2.RowCreatedOn)
                     && (bulletPointEntity1.RowModifiedOn == bulletPointEntity2.RowModifiedOn);
 
@@ -4565,7 +6044,6 @@ namespace NW.WIDJobs.UnitTests
                         && AreEqual(metricCollection1.ExtendedResponseLengthByJobPostingId, metricCollection2.ExtendedResponseLengthByJobPostingId)
                         && AreEqual(metricCollection1.HiringOrgDescriptionLengthByJobPostingId, metricCollection2.HiringOrgDescriptionLengthByJobPostingId)
                         && AreEqual(metricCollection1.PurposeLengthByJobPostingId, metricCollection2.PurposeLengthByJobPostingId)
-                        && AreEqual(metricCollection1.BulletPointsByJobPostingId, metricCollection2.BulletPointsByJobPostingId)
                         && AreEqual(metricCollection1.BulletPointsByJobPostingId, metricCollection2.BulletPointsByJobPostingId)
                         && (metricCollection1.TotalBulletPoints == metricCollection2.TotalBulletPoints);
 
@@ -4958,5 +6436,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 14.09.2021
+    Last Update: 16.09.2021
 */

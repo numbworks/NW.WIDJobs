@@ -26,7 +26,7 @@ namespace NW.WIDJobs.JobPostingsExtended
         public string ContactPersonName { get; }
         public DateTime? EmploymentDate { get; }
         public DateTime? ApplicationDeadlineDate { get; }
-        public HashSet<string> BulletPoints { get; }
+        public List<BulletPoint> BulletPoints { get; }
         public string BulletPointScenario { get; }
 
         #endregion
@@ -47,7 +47,7 @@ namespace NW.WIDJobs.JobPostingsExtended
             string contactPersonName,
             DateTime? employmentDate,
             DateTime? applicationDeadlineDate,
-            HashSet<string> bulletPoints,
+            List<BulletPoint> bulletPoints,
             string bulletPointScenario
             ) 
         {
@@ -81,5 +81,5 @@ namespace NW.WIDJobs.JobPostingsExtended
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 01.07.2021
+    Last Update: 16.09.2021
 */
