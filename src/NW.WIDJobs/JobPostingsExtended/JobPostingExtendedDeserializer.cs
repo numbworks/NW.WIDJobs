@@ -76,8 +76,7 @@ namespace NW.WIDJobs.JobPostingsExtended
 
         #region Methods_private
 
-        private bool TryExtractAsJson
-            (JobPosting jobPosting, string response, out JobPostingExtended jobPostingExtended)
+        private bool TryExtractAsJson(JobPosting jobPosting, string response, out JobPostingExtended jobPostingExtended)
         {
 
             try
@@ -97,7 +96,7 @@ namespace NW.WIDJobs.JobPostingsExtended
                 DateTime applicationDeadlineDate = ExtractApplicationDeadlineDate(jobPositionPosting);
 
                 string bulletPointScenario = null;
-                HashSet<string> bulletPoints = TryExtractBulletPoints(purpose, out bulletPointScenario);
+                HashSet<string> bulletPointTexts = TryExtractBulletPointTexts(purpose, out bulletPointScenario);
 
                 jobPostingExtended
                     = new JobPostingExtended(
@@ -112,7 +111,7 @@ namespace NW.WIDJobs.JobPostingsExtended
                             contactPersonName: contactPersonName,
                             employmentDate: employmentDate,
                             applicationDeadlineDate: applicationDeadlineDate,
-                            bulletPoints: bulletPoints,
+                            bulletPoints: bulletPointTexts,
                             bulletPointScenario: bulletPointScenario
                         );
 
@@ -128,12 +127,11 @@ namespace NW.WIDJobs.JobPostingsExtended
             };
 
         }
-        private JobPostingExtended ExtractAsHtml
-            (JobPosting jobPosting, string response)
+        private JobPostingExtended ExtractAsHtml(JobPosting jobPosting, string response)
         {
 
             string bulletPointScenario = null;
-            HashSet<string> bulletPoints = TryExtractBulletPoints(response, out bulletPointScenario);
+            HashSet<string> bulletPointTexts = TryExtractBulletPointTexts(response, out bulletPointScenario);
 
             JobPostingExtended jobPostingExtended
                     = new JobPostingExtended(
@@ -148,7 +146,7 @@ namespace NW.WIDJobs.JobPostingsExtended
                             contactPersonName: null,
                             employmentDate: null,
                             applicationDeadlineDate: null,
-                            bulletPoints: bulletPoints,
+                            bulletPoints: bulletPointTexts,
                             bulletPointScenario: bulletPointScenario
                         );
 
@@ -257,23 +255,23 @@ namespace NW.WIDJobs.JobPostingsExtended
 
         }
 
-        private HashSet<string> TryExtractBulletPoints(string content, out string bulletPointScenario)
+        private HashSet<string> TryExtractBulletPointTexts(string content, out string bulletPointScenario)
         {
 
-            HashSet<string> bulletPoints = TryExtractBulletPointsWithXPath(content, out bulletPointScenario);
-            if (bulletPoints.Count == 0)
-                bulletPoints = TryExtractBulletPointsWithRegex(content, out bulletPointScenario);
+            HashSet<string> bulletPointTexts = TryExtractBulletPointTextsWithXPath(content, out bulletPointScenario);
+            if (bulletPointTexts.Count == 0)
+                bulletPointTexts = TryExtractBulletPointTextsWithRegex(content, out bulletPointScenario);
 
-            bulletPoints = CleanBulletPoints(bulletPoints);
+            bulletPointTexts = CleanBulletPointTexts(bulletPointTexts);
 
-            (HashSet<string>, string) bulletPointValues = FinalizeBulletPointValues(bulletPoints, bulletPointScenario);
-            bulletPoints = bulletPointValues.Item1;
-            bulletPointScenario = bulletPointValues.Item2;
+            (HashSet<string>, string) bulletPointTuples = FinalizeBulletPointTuples(bulletPointTexts, bulletPointScenario);
+            bulletPointTexts = bulletPointTuples.Item1;
+            bulletPointScenario = bulletPointTuples.Item2;
 
-            return bulletPoints;
+            return bulletPointTexts;
 
         }
-        private HashSet<string> TryExtractBulletPointsWithXPath(string content, out string bulletPointScenario)
+        private HashSet<string> TryExtractBulletPointTextsWithXPath(string content, out string bulletPointScenario)
         {
 
             /*
@@ -302,36 +300,36 @@ namespace NW.WIDJobs.JobPostingsExtended
 
             }
 
-            HashSet<string> bulletPoints = new HashSet<string>(results);
+            HashSet<string> bulletPointTexts = new HashSet<string>(results);
             bulletPointScenario = scenario;
 
-            return bulletPoints;
+            return bulletPointTexts;
 
         }
-        private HashSet<string> TryExtractBulletPointsWithRegex(string content, out string bulletPointScenario)
+        private HashSet<string> TryExtractBulletPointTextsWithRegex(string content, out string bulletPointScenario)
         {
 
             string pattern = "(?<=-\\t)[\\w ]{1,}(?=-\\t)";
 
-            HashSet<string> bulletPoints = new HashSet<string>();
+            HashSet<string> bulletPointTexts = new HashSet<string>();
 
             MatchCollection matchCollection = Regex.Matches(content, pattern);
             if (matchCollection != null)
-                matchCollection.Cast<Match>().ToList().ForEach(match => bulletPoints.Add(match.ToString()));
+                matchCollection.Cast<Match>().ToList().ForEach(match => bulletPointTexts.Add(match.ToString()));
 
             bulletPointScenario = "regex";
-            return bulletPoints;
+            return bulletPointTexts;
 
         }
 
-        private HashSet<string> CleanBulletPoints(HashSet<string> bulletPoints)
+        private HashSet<string> CleanBulletPointTexts(HashSet<string> bulletPointTexts)
         {
 
-            if (bulletPoints.Count == 0)
-                return bulletPoints;
+            if (bulletPointTexts.Count == 0)
+                return bulletPointTexts;
 
             HashSet<string> results
-                = bulletPoints
+                = bulletPointTexts
                     .Select(bulletPoint => RemoveNewLines(bulletPoint))
                     .Select(bulletPoint => RemoveExtraWhiteSpaces(bulletPoint))
                     .Select(bulletPoint => RemoveInitialHyphen(bulletPoint))
@@ -402,7 +400,7 @@ namespace NW.WIDJobs.JobPostingsExtended
 
         }
 
-        private (HashSet<string>, string) FinalizeBulletPointValues(HashSet<string> bulletPoints, string bulletPointScenario)
+        private (HashSet<string>, string) FinalizeBulletPointTuples(HashSet<string> bulletPointTexts, string bulletPointScenario)
         {
 
             /*
@@ -422,10 +420,10 @@ namespace NW.WIDJobs.JobPostingsExtended
                     ...	
             */
 
-            if (bulletPoints.Count == 0)
+            if (bulletPointTexts.Count == 0)
                 return (null, null);
 
-            return (bulletPoints, bulletPointScenario);
+            return (bulletPointTexts, bulletPointScenario);
 
         }
 
@@ -436,5 +434,5 @@ namespace NW.WIDJobs.JobPostingsExtended
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 08.08.2021
+    Last Update: 16.09.2021
 */
