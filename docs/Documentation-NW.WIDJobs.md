@@ -482,6 +482,21 @@ The following fields require extra processing:
 |`EmploymentDate`|Parse it to `DateTime` or `null`.|
 |`ApplicationDeadlineDate`|Parse it to `DateTime` or `null`.|
 
+## GetJobPostingExtended - The BulletPoint object
+
+The following field will be tentatively extracted from the `Purpose` or `Response` fields.:
+
+|Type|Field|ExampleValue|
+|---|---|---|
+|`Optional`|`Text`|"You can work full time or part time"|
+
+The following field is derivative:
+
+|Field|Description|
+|---|---|
+|`Type`|Predicted by using a custom training set and the [NW.NGramTextClassification](https://github.com/numbworks/NW.NGramTextClassification) library. This is derived from a machine learning-powered feature, which may be moderately expensive on the CPU.|
+
+
 ## GetJobPostingExtended - Extracting Bullet Points via XPath
 
 This approach works on both `Purpose` (internal URLs) and `Response` (external URLs). 
