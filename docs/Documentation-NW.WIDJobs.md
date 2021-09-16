@@ -861,7 +861,7 @@ Please give a look to the "flow" below (only the difference with the standard sc
 
 ## The data model
 
-`WIDExplorer` allows to export data into a SQLite database thru the `ToSQLite()` method. 
+`WIDExplorer` allows to export data into a SQLite database. 
 
 The data model of this database is the following one:
 
