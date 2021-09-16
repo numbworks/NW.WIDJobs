@@ -23,11 +23,12 @@ On the perspective of this library, `WorkInDenmark.dk` is structured as in the f
 
 The red boxes highlight the pieces of information we are interested into.
 
-The three objects that have been identified from the diagram above are the following ones:
+The four objects that have been identified from the diagram above are the following ones:
 
 - `JobPage`
 - `JobPosting`
 - `JobPostingExtended`
+- `BulletPoint`
 
 The relationship between these objects is summarized by the object model below:
 
@@ -342,7 +343,7 @@ The following fields will be extracted from the response:
 |`Optional`|`Country`|"Danmark"|
 |`Optional`|`EmploymentType`|"Fastansættelse" or ""|
 |`Mandatory`|`WorkHours`|"Fuldtid" or "Deltid"|
-|`Optional`|`Occupation`|"Specialarbejder, byggeri"|
+|`Optional`|`Occupation`|"Specialist, construction"|
 |`Mandatory`|`WorkplaceID`|119356|
 |`Optional`|`OrganisationId`|"105966"|
 |`Mandatory`|`HiringOrgCVR`|37800902|
@@ -355,6 +356,7 @@ The following fields are derivative:
 |`WorkPlaceCityWithoutZone`|`WorkPlaceCity` without zone or `WorkPlaceCity`.|
 |`JobPostingNumber`|Equals to the item's position in the list starting from 1.|
 |`JobPostingId`|`ID` and `Title` combined. If `Title` is longer than five words, only the first five words are used.|
+|`Language`|Predicted by using a custom training set and the [NW.NGramTextClassification](https://github.com/numbworks/NW.NGramTextClassification) library. This is derived from a machine learning-powered feature, which may be moderately expensive on the CPU.|
 
 The following fields require extra processing:
 
@@ -363,6 +365,7 @@ The following fields require extra processing:
 |`WorkPlacePostalCode`|Parse it to `uint16` or `null`.|
 |`PostingCreated`|Parse it to `DateTime`.|
 |`LastDateApplication`|Parse it to `DateTime`.|
+|`Occupation`|This can be optionally translated from Danish to English via `OccupationTranslator`.|
 |`WorkplaceID`|Parse it to `uint64`.|
 |`OrganisationId`|Parse it to `uint64` or `null`.|
 |`HiringOrgCVR`|Parse it to `uint64`.|
