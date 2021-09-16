@@ -496,6 +496,28 @@ The following field is derivative:
 |---|---|
 |`Type`|Predicted by using a custom training set and the [NW.NGramTextClassification](https://github.com/numbworks/NW.NGramTextClassification) library. This is derived from a machine learning-powered feature, which may be moderately expensive on the CPU.|
 
+To better explain what's the scope of the `Type` field, given a training set containing examples for the following labels:
+
+|Label|
+|---|
+|JobDuty|
+|JobRequirement|
+|JobTechnology|
+|JobBenefit|
+
+the `BulletPoint` objects will look something like this:
+
+|Text|Type|
+|---|---|
+|Flexible working hours are occasionally required|JobDuty|
+|Create Interfaces to FPGA|JobDuty|
+|Engineering degree within acoustics & vibration|JobRequirement|
+|Mechatronic experience is an advantage|JobRequirement|
+|Good level with MS Office package|JobTechnology|
+|Have a min 8/10experience with Photoshop|JobTechnology|
+|Competitive salary, plus share/stock options.|JobBenefit|
+|Excellent growth opportunities.|JobBenefit|
+|...|...|
 
 ## GetJobPostingExtended - Extracting Bullet Points via XPath
 
@@ -836,34 +858,6 @@ Please give a look to the "flow" below (only the difference with the standard sc
 |Type|Field|Result|
 |---|---|---|
 |...|...|...|
-
-## WIDExplorer - Pre-Labeled Examples
-
-Given the the following `BulletPointLabels`:
-
-|BulletPointLabels|
-|---|
-|JobDuty|
-|JobRequirement|
-|JobTechnology|
-|JobBenefit|
-|...|
-
-the `WIDExplorer.GetPreLabeledExamples()` method will return a pre-defined list of already-labeled `BulletPoint` objects which looks like:
-
-|Label|Text|
-|---|---|
-|JobDuty|Flexible working hours are occasionally required|
-|JobDuty|Create Interfaces to FPGA|
-|JobRequirement|Engineering degree within acoustics & vibration|
-|JobRequirement|Mechatronic experience is an advantage|
-|JobTechnology|Good level with MS Office package|
-|JobTechnology|Have a min 8/10experience with Photoshop|
-|JobBenefit|Competitive salary, plus share/stock options.|
-|JobBenefit|Excellent growth opportunities.|
-|...|...|
-
-This list can be fed into a categorization library (such as [NW.NGramTextClassification](https://github.com/numbworks/NW.NGramTextClassification)) and train it to correctly label new bullet point texts automatically.
 
 ## The data model
 
