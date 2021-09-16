@@ -28,7 +28,7 @@ namespace NW.WIDJobs.Database
         [Required]
         [MaxLength(250)]
         [DataType("varchar(250)")]
-        public string BulletPoint { get; }
+        public string Text { get; }
 
         [MaxLength(50)]
         [DataType("varchar(50)")]
@@ -60,7 +60,7 @@ namespace NW.WIDJobs.Database
             Validation.Validator.ValidateObject(bulletPoint, nameof(bulletPoint));
 
             JobPostingId = jobPostingId;
-            BulletPoint = bulletPoint;
+            Text = bulletPoint;
 
         }
 

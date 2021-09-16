@@ -4511,7 +4511,7 @@ namespace NW.WIDJobs.UnitTests
 
             return (bulletPointEntity1.RowId == bulletPointEntity2.RowId)
                     && string.Equals(bulletPointEntity1.JobPostingId, bulletPointEntity2.JobPostingId, StringComparison.InvariantCulture)
-                    && string.Equals(bulletPointEntity1.BulletPoint, bulletPointEntity2.BulletPoint, StringComparison.InvariantCulture)
+                    && string.Equals(bulletPointEntity1.Text, bulletPointEntity2.Text, StringComparison.InvariantCulture)
                     && (bulletPointEntity1.RowCreatedOn == bulletPointEntity2.RowCreatedOn)
                     && (bulletPointEntity1.RowModifiedOn == bulletPointEntity2.RowModifiedOn);
 
