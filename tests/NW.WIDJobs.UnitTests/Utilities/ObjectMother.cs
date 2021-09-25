@@ -167,7 +167,7 @@ namespace NW.WIDJobs.UnitTests
                     workPlaceCityWithoutZone: "Skanderborg",
                     jobPostingNumber: 2,
                     jobPostingId: "5365786motivatedforkliftdriversfortemporary",
-                    language: "dk/en" // To-do: this prediction must be improved (ClassificationManager).
+                    language: "en"
                 );
         public static JobPostingExtended Shared_JobPage01_JobPostingExtended02
             = new JobPostingExtended(
