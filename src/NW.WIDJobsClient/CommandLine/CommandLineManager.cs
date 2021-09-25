@@ -8,6 +8,7 @@ using NW.WIDJobsClient.CommandLineValidators;
 using McMaster.Extensions.CommandLineUtils;
 using System.Collections.Generic;
 using NW.NGramTextClassification.LabeledExamples;
+using NW.WIDJobs.Validation;
 
 namespace NW.WIDJobsClient.CommandLine
 {
@@ -96,9 +97,9 @@ namespace NW.WIDJobsClient.CommandLine
             (IThresholdValueManager thresholdValueManager, IWIDExplorerComponentsFactory componentsFactory, IWIDExplorerSettingsFactory settingsFactory)
         {
 
-            WIDJobs.Validation.Validator.ValidateObject(thresholdValueManager, nameof(thresholdValueManager));
-            WIDJobs.Validation.Validator.ValidateObject(componentsFactory, nameof(componentsFactory));
-            WIDJobs.Validation.Validator.ValidateObject(settingsFactory, nameof(settingsFactory));
+            Validator.ValidateObject(thresholdValueManager, nameof(thresholdValueManager));
+            Validator.ValidateObject(componentsFactory, nameof(componentsFactory));
+            Validator.ValidateObject(settingsFactory, nameof(settingsFactory));
 
             _thresholdValueManager = thresholdValueManager;
             _componentsFactory = componentsFactory;
