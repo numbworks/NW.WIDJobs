@@ -19,7 +19,7 @@ using NW.WIDJobs.XPath;
 using NW.WIDJobs.Headers;
 using NW.WIDJobs.Formatting;
 using NW.WIDJobs.Classification;
-using NW.NGramTextClassification;
+using NW.NGramTextClassification.LabeledExamples;
 
 namespace NW.WIDJobs.UnitTests
 {

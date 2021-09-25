@@ -9,7 +9,7 @@ using NW.WIDJobs.JobPostings;
 using NW.WIDJobs.JobPostingsExtended;
 using NW.WIDJobs.Metrics;
 using NW.WIDJobs.Database;
-using NW.NGramTextClassification;
+using NW.NGramTextClassification.LabeledExamples;
 
 namespace NW.WIDJobs.Messages
 {

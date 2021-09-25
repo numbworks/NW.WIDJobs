@@ -15,7 +15,9 @@ using NW.WIDJobs.JobPostings;
 using NW.WIDJobs.JobPostingsExtended;
 using NW.WIDJobs.Metrics;
 using NW.WIDJobs.Runs;
-using NW.NGramTextClassification;
+using NW.NGramTextClassification.LabeledExamples;
+using NW.NGramTextClassification.NGrams;
+using NW.NGramTextClassification.NGramTokenization;
 
 namespace NW.WIDJobs.UnitTests
 {

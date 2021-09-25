@@ -15,7 +15,7 @@ using NW.WIDJobs.JobPostings;
 using NW.WIDJobs.JobPostingsExtended;
 using NW.WIDJobs.Metrics;
 using NW.WIDJobs.JsonSerializerConverters;
-using NW.NGramTextClassification;
+using NW.NGramTextClassification.LabeledExamples;
 
 namespace NW.WIDJobs
 {

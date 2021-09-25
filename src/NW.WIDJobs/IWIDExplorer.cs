@@ -4,7 +4,7 @@ using NW.WIDJobs.Explorations;
 using NW.WIDJobs.Files;
 using NW.WIDJobs.JobPostings;
 using NW.WIDJobs.Metrics;
-using NW.NGramTextClassification;
+using NW.NGramTextClassification.LabeledExamples;
 
 namespace NW.WIDJobs
 {

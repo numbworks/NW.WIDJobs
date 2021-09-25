@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using NW.NGramTextClassification;
+using NW.NGramTextClassification.LabeledExamples;
+using NW.NGramTextClassification.NGrams;
+using NW.NGramTextClassification.NGramTokenization;
+using NW.NGramTextClassification.Similarity;
 
 namespace NW.WIDJobs.Classification
 {
@@ -780,7 +784,7 @@ namespace NW.WIDJobs.Classification
 		{
 
 			ulong id = (ulong)(i) + 1;
-			List<INGram> nGrams = tokenizer.Do(tuple.text, new TokenizationStrategy(), ruleSet);
+			List<INGram> nGrams = tokenizer.TryDoForRuleSet(tuple.text, ruleSet);
 
 			return new LabeledExample(
 						id: id,

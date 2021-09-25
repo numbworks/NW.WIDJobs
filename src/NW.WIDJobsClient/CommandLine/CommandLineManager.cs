@@ -7,7 +7,7 @@ using NW.WIDJobsClient.CommandLineAccepts;
 using NW.WIDJobsClient.CommandLineValidators;
 using McMaster.Extensions.CommandLineUtils;
 using System.Collections.Generic;
-using NW.NGramTextClassification;
+using NW.NGramTextClassification.LabeledExamples;
 
 namespace NW.WIDJobsClient.CommandLine
 {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using NW.WIDJobs.Database;
-using NW.NGramTextClassification;
+using NW.NGramTextClassification.LabeledExamples;
 
 namespace NW.WIDJobs.Classification
 {

@@ -2,7 +2,7 @@
 using System;
 using NW.WIDJobs.Classification;
 using System.Collections.Generic;
-using NW.NGramTextClassification;
+using NW.NGramTextClassification.LabeledExamples;
 
 namespace NW.WIDJobs.UnitTests
 {
