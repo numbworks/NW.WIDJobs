@@ -1,6 +1,9 @@
 # NW.WIDJobs
 
-![codecoverage.svg](codecoverage.svg)<br>
+| <sub>Library</sub> | <sub>Client</sub> |
+|---|---|
+|![codecoverage_library.svg](codecoverage_library.svg)|![codecoverage_client.svg](codecoverage_client.svg)|
+
 Contact: numbworks@gmail.com
 
 ## Revision History
