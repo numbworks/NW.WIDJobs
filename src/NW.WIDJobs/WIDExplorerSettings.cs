@@ -21,7 +21,7 @@ namespace NW.WIDJobs
         public static bool DefaultDeleteAndRecreateDatabase { get; } = true;
         public static bool DefaultTranslateJobPostingOccupation { get; } = true;
         public static bool DefaultPredictJobPostingLanguage { get; } = true;
-        public static bool DefaultPredictBulletPointType { get; } = false;
+        public static bool DefaultPredictBulletPointType { get; } = true;
 
         public ushort ParallelRequests { get; }
         public uint PauseBetweenRequestsMs { get; }
@@ -88,5 +88,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 16.09.2021
+    Last Update: 26.09.2021
 */
