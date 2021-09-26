@@ -71,7 +71,7 @@
       "WorkPlaceCityWithoutZone": "Skanderborg",
       "JobPostingNumber": 2,
       "JobPostingId": "5365786motivatedforkliftdriversfortemporary",
-      "Language": "dk/en"
+      "Language": "en"
     },
     {
       "RunId": "FakeRunId",
@@ -1221,7 +1221,7 @@
         "WorkPlaceCityWithoutZone": "Skanderborg",
         "JobPostingNumber": 2,
         "JobPostingId": "5365786motivatedforkliftdriversfortemporary",
-        "Language": "dk/en"
+        "Language": "en"
       },
       "Response": "This item has been exluded from the serialization.",
       "HiringOrgDescription": null,

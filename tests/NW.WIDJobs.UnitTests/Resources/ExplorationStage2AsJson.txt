@@ -71,7 +71,7 @@
       "WorkPlaceCityWithoutZone": "Skanderborg",
       "JobPostingNumber": 2,
       "JobPostingId": "5365786motivatedforkliftdriversfortemporary",
-      "Language": "dk/en"
+      "Language": "en"
     },
     {
       "RunId": "FakeRunId",
