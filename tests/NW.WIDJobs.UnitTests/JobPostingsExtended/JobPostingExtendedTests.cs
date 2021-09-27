@@ -79,6 +79,7 @@ namespace NW.WIDJobs.UnitTests
             // Arrange
             bool compareJobPostingLanguage = true;
             bool ignorePurposeResponse = true;
+            bool compareBulletPointType = false;
 
             // Act
             JobPostingExtended actual 
@@ -100,7 +101,7 @@ namespace NW.WIDJobs.UnitTests
 
             // Assert
             Assert.IsTrue(
-                    ObjectMother.AreEqual(ObjectMother.Shared_JobPage01_JobPostingExtended01, actual, compareJobPostingLanguage, ignorePurposeResponse)
+                    ObjectMother.AreEqual(ObjectMother.Shared_JobPage01_JobPostingExtended01, actual, compareJobPostingLanguage, ignorePurposeResponse, compareBulletPointType)
                 );
 
         }
@@ -116,5 +117,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 07.08.2021
+    Last Update: 27.09.2021
 */
