@@ -9,10 +9,10 @@ namespace NW.WIDJobs.Classification
     {
 
         /// <summary>Attempts to predict the language of <paramref name="text"/> by learning from the examples provided by <see cref="GetPreLabeledExamplesForLanguage"/>.</summary>
-        string PredictLanguage(string text);
+        string TryPredictLanguage(string text);
 
         /// <summary>Attempts to predict the type of <paramref name="bulletPoint"/> by learning from the examples provided by <see cref="GetPreLabeledExamplesForBulletPointType"/>.</summary>
-        string PredictBulletPointType(string bulletPoint);
+        string TryPredictBulletPointType(string bulletPoint);
 
         /// <summary>Returns a collection of pre-labeled examples for language prediction.</summary>
         List<LabeledExample> GetPreLabeledExamplesForLanguage();

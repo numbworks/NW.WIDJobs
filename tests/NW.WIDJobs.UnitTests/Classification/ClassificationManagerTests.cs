@@ -78,7 +78,7 @@ namespace NW.WIDJobs.UnitTests
         }
 
         [Test]
-        public void PredictLanguage_ShouldReturnExpectedString_WhenInvoked()
+        public void TryPredictLanguage_ShouldReturnExpectedString_WhenInvoked()
         {
 
             // Arrange
@@ -88,7 +88,7 @@ namespace NW.WIDJobs.UnitTests
             string expected = labeledExample.Label;
 
             // Act
-            string actual = classificationManager.PredictLanguage(text);
+            string actual = classificationManager.TryPredictLanguage(text);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -96,18 +96,17 @@ namespace NW.WIDJobs.UnitTests
         }
 
         [Test]
-        [Ignore("Fails due of a bug in _textClassifier.PredictLabel()")]
-        public void PredictBulletPointType_ShouldReturnExpectedString_WhenInvoked()
+        public void TryPredictBulletPointType_ShouldReturnExpectedString_WhenInvoked()
         {
 
             // Arrange
             ClassificationManager classificationManager = new ClassificationManager();
-            LabeledExample labeledExample = classificationManager.GetPreLabeledExamplesForBulletPointType()[0];
+            LabeledExample labeledExample = classificationManager.GetPreLabeledExamplesForBulletPointType()[1];
             string text = labeledExample.Text;
             string expected = labeledExample.Label;
 
             // Act
-            string actual = classificationManager.PredictBulletPointType(text);
+            string actual = classificationManager.TryPredictBulletPointType(text);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -125,5 +124,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 15.09.2021
+    Last Update: 27.09.2021
 */

@@ -448,7 +448,7 @@ namespace NW.WIDJobs.JobPostingsExtended
 
                     string type = null;
                     if (predictBulletPointType)
-                        type = _classificationManager.PredictBulletPointType(bulletPointText);
+                        type = _classificationManager.TryPredictBulletPointType(bulletPointText);
 
                     BulletPoint bulletPoint = new BulletPoint(bulletPointText, type);
                     bulletPoints.Add(bulletPoint);

@@ -387,7 +387,7 @@ namespace NW.WIDJobs.JobPostings
             {
 
                 string text = CreateJobPostingText(title, presentation);
-                string language = _classificationManager.PredictLanguage(text);
+                string language = _classificationManager.TryPredictLanguage(text);
 
                 return language;
 

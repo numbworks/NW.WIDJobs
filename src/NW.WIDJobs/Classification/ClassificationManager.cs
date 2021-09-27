@@ -47,10 +47,10 @@ namespace NW.WIDJobs.Classification
 
 		#region Methods_public
 
-		public string PredictLanguage(string text)
-			=> Predict(text, GetPreLabeledExamplesForLanguage());
-        public string PredictBulletPointType(string bulletPoint)
-			=> Predict(bulletPoint, GetPreLabeledExamplesForBulletPointType());
+		public string TryPredictLanguage(string text)
+			=> TryPredictLabel(text, GetPreLabeledExamplesForLanguage());
+        public string TryPredictBulletPointType(string bulletPoint)
+			=> TryPredictLabel(bulletPoint, GetPreLabeledExamplesForBulletPointType());
 
 		public List<LabeledExample> GetPreLabeledExamplesForLanguage()
         {
@@ -763,10 +763,10 @@ namespace NW.WIDJobs.Classification
 							);
 
         }
-		private string Predict(string text, List<LabeledExample> labeledExamples)
+		private string TryPredictLabel(string text, List<LabeledExample> labeledExamples)
 		{
 
-			TextClassifierResult textClassifierResult = _textClassifier.PredictLabel(text, labeledExamples);
+			TextClassifierResult textClassifierResult = _textClassifier.TryPredictLabel(text, labeledExamples);
 
 			return textClassifierResult.Label;
 
@@ -872,5 +872,5 @@ namespace NW.WIDJobs.Classification
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 15.09.2021
+    Last Update: 27.09.2021
 */
