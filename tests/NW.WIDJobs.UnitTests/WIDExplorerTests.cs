@@ -1206,6 +1206,7 @@ namespace NW.WIDJobs.UnitTests
             Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
             bool compareJobPostingLanguage = true;
             bool ignorePurposeResponse = true;
+            bool compareBulletPointType = false;
 
             WIDExplorerComponents components = new WIDExplorerComponents(
                     loggingAction: fakeLoggingAction,
@@ -1236,7 +1237,7 @@ namespace NW.WIDJobs.UnitTests
 
             // Assert
             Assert.IsTrue(
-                ObjectMother.AreEqual(expected, actual, compareJobPostingLanguage, ignorePurposeResponse)
+                ObjectMother.AreEqual(expected, actual, compareJobPostingLanguage, ignorePurposeResponse, compareBulletPointType)
                 );
             Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
 
@@ -1263,6 +1264,7 @@ namespace NW.WIDJobs.UnitTests
             Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
             bool compareJobPostingLanguage = true;
             bool ignorePurposeResponse = true;
+            bool compareBulletPointType = false;
 
             WIDExplorerComponents components = new WIDExplorerComponents(
                     loggingAction: fakeLoggingAction,
@@ -1292,7 +1294,7 @@ namespace NW.WIDJobs.UnitTests
 
             // Assert
             Assert.IsTrue(
-                ObjectMother.AreEqual(expected, actual, compareJobPostingLanguage, ignorePurposeResponse)
+                ObjectMother.AreEqual(expected, actual, compareJobPostingLanguage, ignorePurposeResponse, compareBulletPointType)
                 );
             Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
 
@@ -1833,9 +1835,8 @@ namespace NW.WIDJobs.UnitTests
             FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
             Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
             bool predictJobPostingLanguage = false; // To sensibly speed up the unit test
-            bool compareJobPostingLanguage = predictJobPostingLanguage;
             bool ignorePurposeResponse = true;
-            bool predictBulletPointType = false;
+            bool predictBulletPointType = false;    // To sensibly speed up the unit test
 
             WIDExplorerSettings fakeExplorerSettings = new WIDExplorerSettings(
                     parallelRequests: parallelRequests,
@@ -1859,9 +1860,14 @@ namespace NW.WIDJobs.UnitTests
                             classificationManager: new ClassificationManager(),
                             translateJobPostingOccupation: fakeExplorerSettings.TranslateJobPostingOccupation,
                             predictJobPostingLanguage: fakeExplorerSettings.PredictJobPostingLanguage
-                    ),
+                        ),
                     jobPostingManager: new JobPostingManager(),
-                    jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
+                    jobPostingExtendedDeserializer: 
+                        new JobPostingExtendedDeserializer(
+                                xpathManager: JobPostingExtendedDeserializer.DefaultXPathManager,
+                                classificationManager: JobPostingExtendedDeserializer.DefaultClassificationManager,
+                                predictBulletPointType: predictBulletPointType
+                        ),
                     jobPostingExtendedManager: new JobPostingExtendedManager(),
                     runIdManager: new RunIdManager(),
                     metricCollectionManager: new MetricCollectionManager(),
@@ -1880,7 +1886,7 @@ namespace NW.WIDJobs.UnitTests
 
             // Assert
             Assert.IsTrue(
-                ObjectMother.AreEqual(expected, actual, compareJobPostingLanguage, ignorePurposeResponse)
+                ObjectMother.AreEqual(expected, actual, predictJobPostingLanguage, ignorePurposeResponse, predictBulletPointType)
                 );
             Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
 
@@ -1978,9 +1984,8 @@ namespace NW.WIDJobs.UnitTests
             FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
             Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
             bool predictJobPostingLanguage = false; // To sensibly speed up the unit test
-            bool compareJobPostingLanguage = predictJobPostingLanguage;
             bool ignorePurposeResponse = true;
-            bool predictBulletPointType = false;
+            bool predictBulletPointType = false;    // To sensibly speed up the unit test
 
             WIDExplorerSettings fakeExplorerSettings = new WIDExplorerSettings(
                     parallelRequests: parallelRequests,
@@ -2006,7 +2011,12 @@ namespace NW.WIDJobs.UnitTests
                             predictJobPostingLanguage: fakeExplorerSettings.PredictJobPostingLanguage
                     ),
                     jobPostingManager: new JobPostingManager(),
-                    jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
+                    jobPostingExtendedDeserializer:
+                        new JobPostingExtendedDeserializer(
+                                xpathManager: JobPostingExtendedDeserializer.DefaultXPathManager,
+                                classificationManager: JobPostingExtendedDeserializer.DefaultClassificationManager,
+                                predictBulletPointType: predictBulletPointType
+                        ),
                     jobPostingExtendedManager: new JobPostingExtendedManager(),
                     runIdManager: new RunIdManager(),
                     metricCollectionManager: new MetricCollectionManager(),
@@ -2025,7 +2035,7 @@ namespace NW.WIDJobs.UnitTests
 
             // Assert
             Assert.IsTrue(
-                ObjectMother.AreEqual(expected, actual, compareJobPostingLanguage, ignorePurposeResponse)
+                ObjectMother.AreEqual(expected, actual, predictJobPostingLanguage, ignorePurposeResponse, predictBulletPointType)
                 );
             Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
 
@@ -2207,9 +2217,8 @@ namespace NW.WIDJobs.UnitTests
             FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
             Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
             bool predictJobPostingLanguage = false; // To sensibly speed up the unit test
-            bool compareJobPostingLanguage = predictJobPostingLanguage;
             bool ignorePurposeResponse = true;
-            bool predictBulletPointType = false;
+            bool predictBulletPointType = false;    // To sensibly speed up the unit test
 
             WIDExplorerSettings fakeExplorerSettings = new WIDExplorerSettings(
                     parallelRequests: parallelRequests,
@@ -2235,7 +2244,12 @@ namespace NW.WIDJobs.UnitTests
                             predictJobPostingLanguage: fakeExplorerSettings.PredictJobPostingLanguage
                     ),
                     jobPostingManager: new JobPostingManager(),
-                    jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
+                    jobPostingExtendedDeserializer:
+                        new JobPostingExtendedDeserializer(
+                                xpathManager: JobPostingExtendedDeserializer.DefaultXPathManager,
+                                classificationManager: JobPostingExtendedDeserializer.DefaultClassificationManager,
+                                predictBulletPointType: predictBulletPointType
+                        ),
                     jobPostingExtendedManager: new JobPostingExtendedManager(ObjectMother.WIDExplorer_JobPage0102_FakeGetRequestManagerFactory, new JobPostingExtendedDeserializer(), new HeaderFactory()),
                     runIdManager: new RunIdManager(),
                     metricCollectionManager: new MetricCollectionManager(),
@@ -2254,7 +2268,7 @@ namespace NW.WIDJobs.UnitTests
 
             // Assert
             Assert.IsTrue(
-                ObjectMother.AreEqual(expected, actual, compareJobPostingLanguage, ignorePurposeResponse)
+                ObjectMother.AreEqual(expected, actual, predictJobPostingLanguage, ignorePurposeResponse, predictBulletPointType)
                 );
             Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
 
@@ -2356,9 +2370,8 @@ namespace NW.WIDJobs.UnitTests
             FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
             Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
             bool predictJobPostingLanguage = false; // To sensibly speed up the unit test
-            bool compareJobPostingLanguage = predictJobPostingLanguage;
             bool ignorePurposeResponse = true;
-            bool predictBulletPointType = false;
+            bool predictBulletPointType = false;    // To sensibly speed up the unit test
 
             WIDExplorerSettings fakeExplorerSettings = new WIDExplorerSettings(
                     parallelRequests: parallelRequests,
@@ -2384,7 +2397,12 @@ namespace NW.WIDJobs.UnitTests
                             predictJobPostingLanguage: fakeExplorerSettings.PredictJobPostingLanguage
                     ),
                     jobPostingManager: new JobPostingManager(),
-                    jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
+                    jobPostingExtendedDeserializer:
+                        new JobPostingExtendedDeserializer(
+                                xpathManager: JobPostingExtendedDeserializer.DefaultXPathManager,
+                                classificationManager: JobPostingExtendedDeserializer.DefaultClassificationManager,
+                                predictBulletPointType: predictBulletPointType
+                        ),
                     jobPostingExtendedManager: new JobPostingExtendedManager(),
                     runIdManager: new RunIdManager(),
                     metricCollectionManager: new MetricCollectionManager(),
@@ -2403,7 +2421,7 @@ namespace NW.WIDJobs.UnitTests
 
             // Assert
             Assert.IsTrue(
-                ObjectMother.AreEqual(expected, actual, compareJobPostingLanguage, ignorePurposeResponse)
+                ObjectMother.AreEqual(expected, actual, predictJobPostingLanguage, ignorePurposeResponse, predictBulletPointType)
                 );
             Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
 
@@ -2503,9 +2521,8 @@ namespace NW.WIDJobs.UnitTests
             FakeLogger fakeLoggerAsciiBanner = new FakeLogger();
             Action<string> fakeLoggingActionAsciiBanner = (message) => fakeLoggerAsciiBanner.Log(message);
             bool predictJobPostingLanguage = false; // To sensibly speed up the unit test
-            bool compareJobPostingLanguage = predictJobPostingLanguage;
             bool ignorePurposeResponse = true;
-            bool predictBulletPointType = false;
+            bool predictBulletPointType = false;    // To sensibly speed up the unit test
 
             WIDExplorerSettings fakeExplorerSettings = new WIDExplorerSettings(
                     parallelRequests: parallelRequests,
@@ -2531,7 +2548,12 @@ namespace NW.WIDJobs.UnitTests
                             predictJobPostingLanguage: fakeExplorerSettings.PredictJobPostingLanguage
                     ),
                     jobPostingManager: new JobPostingManager(),
-                    jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
+                    jobPostingExtendedDeserializer:
+                        new JobPostingExtendedDeserializer(
+                                xpathManager: JobPostingExtendedDeserializer.DefaultXPathManager,
+                                classificationManager: JobPostingExtendedDeserializer.DefaultClassificationManager,
+                                predictBulletPointType: predictBulletPointType
+                        ),
                     jobPostingExtendedManager: new JobPostingExtendedManager(),
                     runIdManager: new RunIdManager(),
                     metricCollectionManager: new MetricCollectionManager(),
@@ -2550,7 +2572,7 @@ namespace NW.WIDJobs.UnitTests
 
             // Assert
             Assert.IsTrue(
-                ObjectMother.AreEqual(expected, actual, compareJobPostingLanguage, ignorePurposeResponse)
+                ObjectMother.AreEqual(expected, actual, predictJobPostingLanguage, ignorePurposeResponse, predictBulletPointType)
                 );
             Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
 
@@ -2561,5 +2583,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 16.09.2021
+    Last Update: 27.09.2021
 */
