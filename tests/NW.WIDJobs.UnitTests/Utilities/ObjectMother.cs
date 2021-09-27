@@ -5736,14 +5736,17 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
-        public static bool AreEqual(BulletPoint bulletPoint1, BulletPoint bulletPoint2)
+        public static bool AreEqual(BulletPoint bulletPoint1, BulletPoint bulletPoint2, bool compareBulletPointType)
         {
 
-            return string.Equals(bulletPoint1.Text, bulletPoint2.Text, StringComparison.InvariantCulture)
-                    && string.Equals(bulletPoint1.Type, bulletPoint2.Type, StringComparison.InvariantCulture);
+            if (compareBulletPointType)
+                return string.Equals(bulletPoint1.Text, bulletPoint2.Text, StringComparison.InvariantCulture)
+                        && string.Equals(bulletPoint1.Type, bulletPoint2.Type, StringComparison.InvariantCulture);
+
+            return string.Equals(bulletPoint1.Text, bulletPoint2.Text, StringComparison.InvariantCulture);
 
         }
-        public static bool AreEqual(List<BulletPoint> list1, List<BulletPoint> list2)
+        public static bool AreEqual(List<BulletPoint> list1, List<BulletPoint> list2, bool compareBulletPointType)
         {
 
             if (list1 == null && list2 == null)
@@ -5756,7 +5759,7 @@ namespace NW.WIDJobs.UnitTests
                 return false;
 
             for (int i = 0; i < list1.Count; i++)
-                if (AreEqual(list1[i], list2[i]) == false)
+                if (AreEqual(list1[i], list2[i], compareBulletPointType) == false)
                     return false;
 
             return true;
@@ -5866,12 +5869,12 @@ namespace NW.WIDJobs.UnitTests
             return true;
 
         }
-        public static bool AreEqual(JobPostingExtended jobPostingExtended1, JobPostingExtended jobPostingExtended2, bool compareJobPostingLanguage, bool ignorePurposeResponse)
+        public static bool AreEqual(JobPostingExtended jobPostingExtended1, JobPostingExtended jobPostingExtended2, bool compareJobPostingLanguage, bool ignorePurposeResponse, bool compareBulletPointType)
         {
 
             if (ignorePurposeResponse)
                 return (jobPostingExtended1.ApplicationDeadlineDate == jobPostingExtended2.ApplicationDeadlineDate)
-                            && AreEqual(jobPostingExtended1.BulletPoints, jobPostingExtended2.BulletPoints)
+                            && AreEqual(jobPostingExtended1.BulletPoints, jobPostingExtended2.BulletPoints, compareBulletPointType)
                             && string.Equals(jobPostingExtended1.BulletPointScenario, jobPostingExtended2.BulletPointScenario, StringComparison.InvariantCulture)
                             && string.Equals(jobPostingExtended1.ContactEmail, jobPostingExtended2.ContactEmail, StringComparison.InvariantCulture)
                             && string.Equals(jobPostingExtended1.ContactPersonName, jobPostingExtended2.ContactPersonName, StringComparison.InvariantCulture)
@@ -5883,7 +5886,7 @@ namespace NW.WIDJobs.UnitTests
                             && (jobPostingExtended1.PublicationEndDate == jobPostingExtended2.PublicationEndDate);
 
             return (jobPostingExtended1.ApplicationDeadlineDate == jobPostingExtended2.ApplicationDeadlineDate)
-                        && AreEqual(jobPostingExtended1.BulletPoints, jobPostingExtended2.BulletPoints)
+                        && AreEqual(jobPostingExtended1.BulletPoints, jobPostingExtended2.BulletPoints, compareBulletPointType)
                         && string.Equals(jobPostingExtended1.BulletPointScenario, jobPostingExtended2.BulletPointScenario, StringComparison.InvariantCulture)
                         && string.Equals(jobPostingExtended1.ContactEmail, jobPostingExtended2.ContactEmail, StringComparison.InvariantCulture)
                         && string.Equals(jobPostingExtended1.ContactPersonName, jobPostingExtended2.ContactPersonName, StringComparison.InvariantCulture)
@@ -5897,7 +5900,7 @@ namespace NW.WIDJobs.UnitTests
                         && string.Equals(jobPostingExtended1.Response, jobPostingExtended2.Response, StringComparison.InvariantCulture);
 
         }
-        public static bool AreEqual(List<JobPostingExtended> list1, List<JobPostingExtended> list2, bool compareJobPostingLanguage, bool ignorePurposeResponse)
+        public static bool AreEqual(List<JobPostingExtended> list1, List<JobPostingExtended> list2, bool compareJobPostingLanguage, bool ignorePurposeResponse, bool compareBulletPointType)
         {
 
             if (list1 == null && list2 == null)
@@ -5910,7 +5913,7 @@ namespace NW.WIDJobs.UnitTests
                 return false;
 
             for (int i = 0; i < list1.Count; i++)
-                if (AreEqual(list1[i], list2[i], compareJobPostingLanguage, ignorePurposeResponse) == false)
+                if (AreEqual(list1[i], list2[i], compareJobPostingLanguage, ignorePurposeResponse, compareBulletPointType) == false)
                     return false;
 
             return true;
@@ -5998,7 +6001,7 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
-        public static bool AreEqual(Exploration exploration1, Exploration exploration2, bool compareJobPostingLanguage, bool ignorePurposeResponse)
+        public static bool AreEqual(Exploration exploration1, Exploration exploration2, bool compareJobPostingLanguage, bool ignorePurposeResponse, bool compareBulletPointType)
         {
 
             return string.Equals(exploration1.RunId, exploration2.RunId, StringComparison.InvariantCulture)
@@ -6008,7 +6011,7 @@ namespace NW.WIDJobs.UnitTests
                         && (exploration1.IsCompleted == exploration2.IsCompleted)
                         && AreEqual(exploration1.JobPages, exploration2.JobPages)
                         && AreEqual(exploration1.JobPostings, exploration2.JobPostings, compareJobPostingLanguage)
-                        && AreEqual(exploration1.JobPostingsExtended, exploration2.JobPostingsExtended, compareJobPostingLanguage, ignorePurposeResponse);
+                        && AreEqual(exploration1.JobPostingsExtended, exploration2.JobPostingsExtended, compareJobPostingLanguage, ignorePurposeResponse, compareBulletPointType);
 
         }
         public static bool AreEqual(MetricCollection metricCollection1, MetricCollection metricCollection2)
@@ -6438,5 +6441,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 16.09.2021
+    Last Update: 27.09.2021
 */
