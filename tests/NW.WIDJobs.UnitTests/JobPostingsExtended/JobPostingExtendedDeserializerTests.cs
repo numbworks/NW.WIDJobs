@@ -327,15 +327,22 @@ namespace NW.WIDJobs.UnitTests
         {
 
             // Arrange
+            bool predictBulletPointType = false;
+            JobPostingExtendedDeserializer jobPostingExtendedDeserializer 
+                = new JobPostingExtendedDeserializer(
+                        xpathManager: JobPostingExtendedDeserializer.DefaultXPathManager, 
+                        classificationManager: JobPostingExtendedDeserializer.DefaultClassificationManager,
+                        predictBulletPointType: predictBulletPointType);
+
             bool compareJobPostingLanguage = true;
             bool ignorePurposeResponse = true;
 
             // Act
-            JobPostingExtended actual = new JobPostingExtendedDeserializer().Do(jobPosting, response);
+            JobPostingExtended actual = jobPostingExtendedDeserializer.Do(jobPosting, response);
 
             // Assert
             Assert.IsTrue(
-                    ObjectMother.AreEqual(expected, actual, compareJobPostingLanguage, ignorePurposeResponse)
+                    ObjectMother.AreEqual(expected, actual, compareJobPostingLanguage, ignorePurposeResponse, predictBulletPointType)
                 );
 
         }
@@ -367,17 +374,24 @@ namespace NW.WIDJobs.UnitTests
                             bulletPoints: null,
                             bulletPointScenario: null
                         );
-            bool compareJobPostingLanguage = false;
+
+            bool predictBulletPointType = false;
+            JobPostingExtendedDeserializer jobPostingExtendedDeserializer
+                = new JobPostingExtendedDeserializer(
+                        xpathManager: JobPostingExtendedDeserializer.DefaultXPathManager,
+                        classificationManager: JobPostingExtendedDeserializer.DefaultClassificationManager,
+                        predictBulletPointType: predictBulletPointType);
+
+            bool compareJobPostingLanguage = true;
             bool ignorePurposeResponse = true;
 
             // Act
             JobPostingExtended actual
-                    = new JobPostingExtendedDeserializer()
-                            .Do(ObjectMother.Shared_JobPage01_JobPosting01, unproperResponse);
+                    = jobPostingExtendedDeserializer.Do(ObjectMother.Shared_JobPage01_JobPosting01, unproperResponse);
 
             // Assert
             Assert.IsTrue(
-                    ObjectMother.AreEqual(expected, actual, compareJobPostingLanguage, ignorePurposeResponse)
+                    ObjectMother.AreEqual(expected, actual, compareJobPostingLanguage, ignorePurposeResponse, predictBulletPointType)
                 );
 
         }
@@ -393,5 +407,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 16.09.2021
+    Last Update: 27.09.2021
 */
