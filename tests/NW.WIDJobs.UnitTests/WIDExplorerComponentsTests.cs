@@ -45,7 +45,8 @@ namespace NW.WIDJobs.UnitTests
                                 new FilenameFactory(),
                                 new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
-                                new Formatter()
+                                new Formatter(),
+                                WIDExplorerComponents.DefaultTextClassifierLoggingAction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -73,7 +74,8 @@ namespace NW.WIDJobs.UnitTests
                                 new FilenameFactory(),
                                 new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
-                                new Formatter()
+                                new Formatter(),
+                                WIDExplorerComponents.DefaultTextClassifierLoggingAction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -101,7 +103,8 @@ namespace NW.WIDJobs.UnitTests
                                 new FilenameFactory(),
                                 new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
-                                new Formatter()
+                                new Formatter(),
+                                WIDExplorerComponents.DefaultTextClassifierLoggingAction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -129,7 +132,8 @@ namespace NW.WIDJobs.UnitTests
                                 new FilenameFactory(),
                                 new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
-                                new Formatter()
+                                new Formatter(),
+                                WIDExplorerComponents.DefaultTextClassifierLoggingAction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -157,7 +161,8 @@ namespace NW.WIDJobs.UnitTests
                                 new FilenameFactory(),
                                 new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
-                                new Formatter()
+                                new Formatter(),
+                                WIDExplorerComponents.DefaultTextClassifierLoggingAction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -187,7 +192,8 @@ namespace NW.WIDJobs.UnitTests
                                 new FilenameFactory(),
                                 new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
-                                new Formatter()
+                                new Formatter(),
+                                WIDExplorerComponents.DefaultTextClassifierLoggingAction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -215,7 +221,8 @@ namespace NW.WIDJobs.UnitTests
                                 new FilenameFactory(),
                                 new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
-                                new Formatter()
+                                new Formatter(),
+                                WIDExplorerComponents.DefaultTextClassifierLoggingAction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -243,7 +250,8 @@ namespace NW.WIDJobs.UnitTests
                                 new FilenameFactory(),
                                 new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
-                                new Formatter()
+                                new Formatter(),
+                                WIDExplorerComponents.DefaultTextClassifierLoggingAction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -271,7 +279,8 @@ namespace NW.WIDJobs.UnitTests
                                 new FilenameFactory(),
                                 new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
-                                new Formatter()
+                                new Formatter(),
+                                WIDExplorerComponents.DefaultTextClassifierLoggingAction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -299,7 +308,8 @@ namespace NW.WIDJobs.UnitTests
                                 new FilenameFactory(),
                                 new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
-                                new Formatter()
+                                new Formatter(),
+                                WIDExplorerComponents.DefaultTextClassifierLoggingAction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -327,7 +337,8 @@ namespace NW.WIDJobs.UnitTests
                                 new FilenameFactory(),
                                 new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
-                                new Formatter()
+                                new Formatter(),
+                                WIDExplorerComponents.DefaultTextClassifierLoggingAction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -355,7 +366,8 @@ namespace NW.WIDJobs.UnitTests
                                 new FilenameFactory(),
                                 new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
-                                new Formatter()
+                                new Formatter(),
+                                WIDExplorerComponents.DefaultTextClassifierLoggingAction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -383,7 +395,8 @@ namespace NW.WIDJobs.UnitTests
                                 new FilenameFactory(),
                                 new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
-                                new Formatter()
+                                new Formatter(),
+                                WIDExplorerComponents.DefaultTextClassifierLoggingAction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -411,7 +424,8 @@ namespace NW.WIDJobs.UnitTests
                                 new FilenameFactory(),
                                 new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
-                                new Formatter()
+                                new Formatter(),
+                                WIDExplorerComponents.DefaultTextClassifierLoggingAction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -439,7 +453,8 @@ namespace NW.WIDJobs.UnitTests
                                 new FilenameFactory(),
                                 new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
-                                new Formatter()
+                                new Formatter(),
+                                WIDExplorerComponents.DefaultTextClassifierLoggingAction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -467,7 +482,8 @@ namespace NW.WIDJobs.UnitTests
                                 null,
                                 new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
-                                new Formatter()
+                                new Formatter(),
+                                WIDExplorerComponents.DefaultTextClassifierLoggingAction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -495,7 +511,8 @@ namespace NW.WIDJobs.UnitTests
                                 new FilenameFactory(),
                                 null,
                                 WIDExplorerComponents.DefaultNowFunction,
-                                new Formatter()
+                                new Formatter(),
+                                WIDExplorerComponents.DefaultTextClassifierLoggingAction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -523,7 +540,8 @@ namespace NW.WIDJobs.UnitTests
                                 new FilenameFactory(),
                                 new ClassificationManager(),
                                 null,
-                                new Formatter()
+                                new Formatter(),
+                                WIDExplorerComponents.DefaultTextClassifierLoggingAction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -551,19 +569,49 @@ namespace NW.WIDJobs.UnitTests
                                 new FilenameFactory(),
                                 new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
-                                null
+                                null,
+                                WIDExplorerComponents.DefaultTextClassifierLoggingAction
                         )
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("formatter").Message
             ).SetArgDisplayNames($"{nameof(widExplorerComponentsExceptionTestCases)}_19"),
 
+            new TestCaseData(
+                new TestDelegate(
+                    () => new WIDExplorerComponents(
+                                WIDExplorerComponents.DefaultLoggingAction,
+                                WIDExplorerComponents.DefaultLoggingActionAsciiBanner,
+                                new XPathManager(),
+                                new GetRequestManager(),
+                                new JobPageDeserializer(),
+                                new JobPageManager(),
+                                new JobPostingDeserializer(),
+                                new JobPostingManager(),
+                                new JobPostingExtendedDeserializer(),
+                                new JobPostingExtendedManager(),
+                                new RunIdManager(),
+                                new MetricCollectionManager(),
+                                new FileManager(),
+                                new RepositoryFactory(),
+                                new AsciiBannerManager(),
+                                new FilenameFactory(),
+                                new ClassificationManager(),
+                                WIDExplorerComponents.DefaultNowFunction,
+                                new Formatter(),
+                                null
+                        )
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("textClassifierLoggingAction").Message
+            ).SetArgDisplayNames($"{nameof(widExplorerComponentsExceptionTestCases)}_20")
+
         };
 
         // SetUp
         // Tests
         [Test]
-        public void WIDExplorerComponents_ShouldInitializeANewWIDExplorerComponentsObject_WhenProperArguments()
+        public void WIDExplorerComponents_ShouldInitializeANewWIDExplorerComponentsObject_WhenAllArguments()
         {
 
             // Arrange
@@ -588,7 +636,8 @@ namespace NW.WIDJobs.UnitTests
                             new FilenameFactory(),
                             new ClassificationManager(),
                             WIDExplorerComponents.DefaultNowFunction,
-                            new Formatter()
+                            new Formatter(),
+                            WIDExplorerComponents.DefaultTextClassifierLoggingAction
                         );
 
             // Assert
@@ -611,6 +660,7 @@ namespace NW.WIDJobs.UnitTests
             Assert.IsInstanceOf<FilenameFactory>(actual.FilenameFactory);
             Assert.IsInstanceOf<ClassificationManager>(actual.ClassificationManager);
             Assert.IsInstanceOf<Formatter>(actual.Formatter);
+            Assert.IsInstanceOf<Action<string>>(actual.TextClassifierLoggingAction);
 
         }
 
@@ -642,6 +692,7 @@ namespace NW.WIDJobs.UnitTests
             Assert.IsInstanceOf<FilenameFactory>(actual.FilenameFactory);
             Assert.IsInstanceOf<ClassificationManager>(actual.ClassificationManager);
             Assert.IsInstanceOf<Formatter>(actual.Formatter);
+            Assert.IsInstanceOf<Action<string>>(actual.TextClassifierLoggingAction);
 
         }
 
@@ -657,5 +708,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 14.09.2021
+    Last Update: 08.10.2021
 */
