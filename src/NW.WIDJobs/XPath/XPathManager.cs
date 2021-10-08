@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using HtmlAgilityPack;
 using NW.WIDJobs.Validation;
 
@@ -20,6 +21,7 @@ namespace NW.WIDJobs.XPath
         #region Constructors
 
         /// <summary>Initializes a <see cref="XPathManager"/> instance.</summary>
+        /// <exception cref="ArgumentNullException"/>
         public XPathManager(IHtmlDocumentAdapter htmlDocumentAdapter)
         {
 
@@ -104,5 +106,5 @@ namespace NW.WIDJobs.XPath
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 13.05.2021
+    Last Update: 08.10.2021
 */
