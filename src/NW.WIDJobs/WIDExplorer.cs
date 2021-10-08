@@ -44,7 +44,8 @@ namespace NW.WIDJobs
 
         #region Constructors
 
-        /// <summary>Initializes a <see cref="WIDExplorer"/> instance.</summary>	
+        /// <summary>Initializes a <see cref="WIDExplorer"/> instance.</summary>
+        /// <exception cref="ArgumentNullException"/>
         public WIDExplorer
             (WIDExplorerComponents components, WIDExplorerSettings settings)
         {
