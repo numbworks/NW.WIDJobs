@@ -8,15 +8,16 @@ namespace NW.WIDJobs.UnitTests
     public class FilenameFactoryTests
     {
 
-        // Fields
+        #region Fields
+
         private static TestCaseData[] createForDatabaseTestCases =
         {
 
             new TestCaseData(
-                    new Func<string>( 
+                    new Func<string>(
                             () => new FilenameFactory()
                                         .CreateForDatabase(
-                                            ObjectMother.FileNameFactory_FakeFilePath) 
+                                            ObjectMother.FileNameFactory_FakeFilePath)
                         ),
                     ObjectMother.FileNameFactory_DatabaseNameIfFilePath
                 ).SetArgDisplayNames($"{nameof(createForDatabaseTestCases)}_01"),
@@ -60,7 +61,7 @@ namespace NW.WIDJobs.UnitTests
                 new TestDelegate(
                     () => new FilenameFactory()
                                 .CreateForDatabase(null)
-				),
+                ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("filePath").Message
             ).SetArgDisplayNames($"{nameof(createForDatabaseExceptionTestCases)}_01"),
@@ -192,8 +193,13 @@ namespace NW.WIDJobs.UnitTests
 
         };
 
-        // SetUp
-        // Tests
+        #endregion
+
+        #region SetUp
+        #endregion
+
+        #region Tests
+
         [TestCaseSource(nameof(createForDatabaseTestCases))]
         public void CreateForDatabase_ShouldReturnExpectedString_WhenInvoked
             (Func<string> func, string expected)
@@ -266,12 +272,15 @@ namespace NW.WIDJobs.UnitTests
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
-        // TearDown		
+        #endregion
+
+        #region TearDown
+        #endregion
 
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 30.08.2021
+    Last Update: 08.10.2021
 */
