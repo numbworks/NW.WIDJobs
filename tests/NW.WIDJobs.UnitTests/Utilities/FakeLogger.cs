@@ -5,11 +5,17 @@ namespace NW.WIDJobs.UnitTests
     public class FakeLogger
     {
 
-        // Fields
-        // Properties
+        #region Fields
+        #endregion
+
+        #region Properties
+
         public List<string> Messages { get; }
 
-        // Constructors
+        #endregion
+
+        #region Constructors
+
         public FakeLogger()
         {
 
@@ -17,16 +23,19 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
-        // Methods (public)
+        #endregion
+
+        #region Methods_public
+
         public void Log(string message)
             => Messages.Add(message);
 
-        // Methods (private)
+        #endregion
 
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 17.09.2020
+    Last Update: 08.10.2021
 */
