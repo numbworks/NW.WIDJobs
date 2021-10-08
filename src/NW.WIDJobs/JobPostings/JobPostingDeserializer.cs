@@ -34,6 +34,7 @@ namespace NW.WIDJobs.JobPostings
         #region Constructors
 
         /// <summary>Initializes a <see cref="JobPostingDeserializer"/> instance.</summary>
+        /// <exception cref="ArgumentNullException"/>
         public JobPostingDeserializer(
                     IOccupationTranslator occupationTranslator, 
                     IClassificationManager classificationManager,
