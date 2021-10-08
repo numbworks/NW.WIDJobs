@@ -10,7 +10,8 @@ namespace NW.WIDJobs.UnitTests
     public class DbSetExtensionMethodsTests
     {
 
-        // Fields
+        #region Fields
+
         private static TestCaseData[] addOrUpdateExceptionTestCases =
         {
 
@@ -42,7 +43,7 @@ namespace NW.WIDJobs.UnitTests
                             .DbSetExtensionMethods_InMemoryDatabaseContext
                                 .JobPostings
                                     .AddOrUpdate(
-                                        (IEnumerable<JobPostingEntity>)null, 
+                                        (IEnumerable<JobPostingEntity>)null,
                                         ref ObjectMother.DbSetExtensionMethods_NotExistingPageItemEntities)
                 ),
                 typeof(ArgumentNullException),
@@ -64,8 +65,13 @@ namespace NW.WIDJobs.UnitTests
 
         };
 
-        // SetUp
-        // Tests
+        #endregion
+
+        #region SetUp
+        #endregion
+
+        #region Tests
+
         [TestCaseSource(nameof(addOrUpdateExceptionTestCases))]
         public void AddOrUpdate_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
@@ -216,12 +222,15 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
-        // TearDown		
+        #endregion
+
+        #region TearDown
+        #endregion
 
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 13.08.2021
+    Last Update: 08.10.2021
 */
