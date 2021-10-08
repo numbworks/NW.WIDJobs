@@ -1,4 +1,5 @@
-﻿using NW.WIDJobs.Validation;
+﻿using System;
+using NW.WIDJobs.Validation;
 
 namespace NW.WIDJobs.JobPostingsExtended
 {
@@ -19,7 +20,8 @@ namespace NW.WIDJobs.JobPostingsExtended
 
         #region Constructors
 
-        /// <summary>Initializes a <see cref="BulletPoint"/> instance.</summary>	
+        /// <summary>Initializes a <see cref="BulletPoint"/> instance.</summary>
+        /// <exception cref="ArgumentNullException"/>
         public BulletPoint(string text, string type) 
         {
 
@@ -45,5 +47,5 @@ namespace NW.WIDJobs.JobPostingsExtended
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 15.09.2021
+    Last Update: 08.10.2021
 */
