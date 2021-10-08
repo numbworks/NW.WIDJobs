@@ -12,7 +12,8 @@ namespace NW.WIDJobs.UnitTests
     public class FileManagerTests
     {
 
-        // Fields
+        #region Fields
+
         private static TestCaseData[] fileManagerExceptionTestCases =
         {
 
@@ -156,8 +157,13 @@ namespace NW.WIDJobs.UnitTests
 
         };
 
-        // SetUp
-        // Tests
+        #endregion
+
+        #region SetUp
+        #endregion
+
+        #region Tests
+
         [TestCaseSource(nameof(fileManagerExceptionTestCases))]
         public void FileManager_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
@@ -274,13 +280,15 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
-        // TearDown
-        // Support methods
+        #endregion
+
+        #region TearDown
+        #endregion
 
     }
 
 }
 /*
     Author: numbworks@gmail.com
-    Last Update: 20.06.2021
+    Last Update: 08.10.2021
 */
