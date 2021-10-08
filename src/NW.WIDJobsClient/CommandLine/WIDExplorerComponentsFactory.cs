@@ -38,7 +38,10 @@ namespace NW.WIDJobsClient.CommandLine
 
         #region Methods_public
 
-        public WIDExplorerComponents CreateDefault() => new WIDExplorerComponents();
+        public WIDExplorerComponents Create(WIDExplorerSettings settings) 
+            => new WIDExplorerComponents(settings);
+        public WIDExplorerComponents CreateDefault() 
+            => new WIDExplorerComponents();
         public WIDExplorerComponents CreateForDemoData()
         {
 

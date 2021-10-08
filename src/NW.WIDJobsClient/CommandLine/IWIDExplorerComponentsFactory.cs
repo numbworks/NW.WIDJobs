@@ -6,6 +6,9 @@ namespace NW.WIDJobsClient.CommandLine
     public interface IWIDExplorerComponentsFactory
     {
 
+        /// <summary>Creates a <see cref="WIDExplorerComponents"/> instance.</summary>
+        WIDExplorerComponents Create(WIDExplorerSettings settings);
+
         /// <summary>Creates a <see cref="WIDExplorerComponents"/> instance with default parameters.</summary>
         WIDExplorerComponents CreateDefault();
 
@@ -17,5 +20,5 @@ namespace NW.WIDJobsClient.CommandLine
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 28.08.2021
+    Last Update: 08.10.2021
 */

@@ -50,6 +50,7 @@ namespace NW.WIDJobsClient.UnitTests
 
         #region Methods_public
 
+        public WIDExplorerComponents Create(WIDExplorerSettings settings) => _fakeComponents;
         public WIDExplorerComponents CreateDefault() => _fakeComponents;
         public WIDExplorerComponents CreateForDemoData() => _fakeComponents;
 
