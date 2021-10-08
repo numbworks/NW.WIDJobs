@@ -91,6 +91,7 @@ namespace NW.WIDJobs.Files
         #region Constructors
 
         /// <summary>Initializes a <see cref="FileInfoAdapter"/> instance.</summary>
+        /// <exception cref="ArgumentNullException"/>
         public FileInfoAdapter(FileInfo fileInfo)
         {
 
@@ -100,7 +101,12 @@ namespace NW.WIDJobs.Files
 
         }
 
-        /// <summary>Initializes a <see cref="FileInfoAdapter"/> instance.</summary>        
+        /// <summary>Initializes a <see cref="FileInfoAdapter"/> instance.</summary>
+        /// <exception cref="ArgumentNullException"/>
+        /// <exception cref="ArgumentException"/>
+        /// <exception cref="UnauthorizedAccessException"/>
+        /// <exception cref="PathTooLongException"/>
+        /// <exception cref="NotSupportedException"/>
         public FileInfoAdapter(string fileName)
         {
 
@@ -160,5 +166,5 @@ namespace NW.WIDJobs.Files
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 30.05.2021
+    Last Update: 08.10.2021
 */
