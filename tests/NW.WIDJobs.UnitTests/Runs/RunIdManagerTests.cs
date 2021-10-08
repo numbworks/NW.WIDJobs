@@ -8,7 +8,8 @@ namespace NW.WIDJobs.UnitTests
     public class RunIdManagerTests
     {
 
-        // Fields
+        #region Fields
+
         private static TestCaseData[] createTestCases =
         {
 
@@ -53,11 +54,15 @@ namespace NW.WIDJobs.UnitTests
 
         };
 
-        // SetUp
-        // Tests
+        #endregion
+
+        #region SetUp
+        #endregion
+
+        #region Tests
+
         [TestCaseSource(nameof(createTestCases))]
-        public void Create_ShouldReturnExpectedRunId_WhenInvoked
-            (Func<string> func, string expected)
+        public void Create_ShouldReturnExpectedRunId_WhenInvoked(Func<string> func, string expected)
         {
 
             // Arrange
@@ -69,12 +74,15 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
-        // TearDown		
+        #endregion
+
+        #region TearDown
+        #endregion
 
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 15.05.2021
+    Last Update: 08.10.2021
 */
