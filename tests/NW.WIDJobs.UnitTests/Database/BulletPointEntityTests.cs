@@ -9,7 +9,8 @@ namespace NW.WIDJobs.UnitTests
     public class BulletPointEntityTests
     {
 
-        // Fields
+        #region Fields
+
         private static TestCaseData[] bulletPointEntityTestCases =
         {
 
@@ -29,7 +30,7 @@ namespace NW.WIDJobs.UnitTests
             new TestCaseData(
                 new TestDelegate(
                     () => new BulletPointEntity(null, new BulletPoint("Some bullet point", null))
-				),
+                ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("jobPostingId").Message
             ).SetArgDisplayNames($"{nameof(bulletPointEntityExceptionTestCases)}_01"),
@@ -44,8 +45,13 @@ namespace NW.WIDJobs.UnitTests
 
         };
 
-        // SetUp
-        // Tests
+        #endregion
+
+        #region SetUp
+        #endregion
+
+        #region Tests
+
         [TestCaseSource(nameof(bulletPointEntityTestCases))]
         public void BulletPointEntity_ShouldInstantiateObject_WhenPropertArguments
             (string jobPostingId, string bulletPoint, BulletPointEntity expected)
@@ -61,7 +67,7 @@ namespace NW.WIDJobs.UnitTests
                 );
 
         }
-        
+
         [TestCaseSource(nameof(bulletPointEntityExceptionTestCases))]
         public void BulletPointEntity_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
@@ -80,12 +86,15 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
-        // TearDown		
+        #endregion
+
+        #region TearDown
+        #endregion
 
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 16.09.2021
+    Last Update: 08.10.2021
 */
