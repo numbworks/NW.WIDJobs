@@ -8,7 +8,8 @@ namespace NW.WIDJobs.UnitTests
     public class DatabaseContextTests
     {
 
-        // Fields
+        #region Fields
+
         private static TestCaseData[] databaseContextTestCases =
         {
 
@@ -31,10 +32,10 @@ namespace NW.WIDJobs.UnitTests
             new TestCaseData(
                 new TestDelegate(
                     () => new DatabaseContext(
-                                (string)null, 
+                                (string)null,
                                 ObjectMother.DatabaseContext_DatabaseName01
                             )
-				),
+                ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("databasePath").Message
             ).SetArgDisplayNames($"{nameof(databaseContextExceptionTestCases)}_01"),
@@ -42,7 +43,7 @@ namespace NW.WIDJobs.UnitTests
             new TestCaseData(
                 new TestDelegate(
                     () => new DatabaseContext(
-                                ObjectMother.DatabaseContext_DatabasePath, 
+                                ObjectMother.DatabaseContext_DatabasePath,
                                 null
                             )
                 ),
@@ -52,8 +53,13 @@ namespace NW.WIDJobs.UnitTests
 
         };
 
-        // SetUp
-        // Tests
+        #endregion
+
+        #region SetUp
+        #endregion
+
+        #region Tests
+
         [TestCaseSource(nameof(databaseContextTestCases))]
         public void DatabaseContext_ShouldInstantiateObject_WhenProperArguments
             (string databasePath, string databaseName, string expectedConnectionString)
@@ -67,18 +73,21 @@ namespace NW.WIDJobs.UnitTests
             Assert.AreEqual(expectedConnectionString, actual);
 
         }
-        
+
         [TestCaseSource(nameof(databaseContextExceptionTestCases))]
         public void DatabaseContext_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
-        // TearDown		
+        #endregion
+
+        #region TearDown
+        #endregion
 
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 09.06.2021
+    Last Update: 08.10.2021
 */
