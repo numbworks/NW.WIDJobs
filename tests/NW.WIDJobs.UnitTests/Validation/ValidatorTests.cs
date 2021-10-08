@@ -10,7 +10,8 @@ namespace NW.WIDJobs.UnitTests
     public class ValidatorTests
     {
 
-        // Fields
+        #region Fields
+
         private static TestCaseData[] validateLengthExceptionTestCases =
         {
 
@@ -352,8 +353,13 @@ namespace NW.WIDJobs.UnitTests
 
         };
 
-        // SetUp
-        // Tests
+        #endregion
+
+        #region SetUp
+        #endregion
+
+        #region Tests
+
         [TestCaseSource(nameof(validateLengthExceptionTestCases))]
         public void ValidateLength_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
@@ -510,8 +516,13 @@ namespace NW.WIDJobs.UnitTests
                             )
                     });
 
-        // TearDown
-        // Support methods
+        #endregion
+
+        #region TearDown
+        #endregion
+
+        #region Support_methods
+        
         public void Method_ShouldDoNothing_WhenProperArgument(Action[] actions)
         {
 
@@ -534,10 +545,12 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
+        #endregion
+
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 22.05.2021
+    Last Update: 08.10.2021
 */
