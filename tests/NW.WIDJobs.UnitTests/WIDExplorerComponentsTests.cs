@@ -20,7 +20,8 @@ namespace NW.WIDJobs.UnitTests
     public class WIDExplorerComponentsTests
     {
 
-        // Fields
+        #region Fields
+        
         private static TestCaseData[] widExplorerComponentsExceptionTestCases =
         {
 
@@ -616,8 +617,13 @@ namespace NW.WIDJobs.UnitTests
 
         };
 
-        // SetUp
-        // Tests
+        #endregion
+
+        #region SetUp
+        #endregion
+
+        #region Tests
+
         [Test]
         public void WIDExplorerComponents_ShouldInitializeANewWIDExplorerComponentsObject_WhenAllArguments()
         {
@@ -726,7 +732,10 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
-        // TearDown
+        #endregion
+
+        #region TearDown
+        #endregion
 
     }
 }
