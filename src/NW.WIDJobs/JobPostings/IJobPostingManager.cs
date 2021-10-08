@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using NW.WIDJobs.JobPages;
 
 namespace NW.WIDJobs.JobPostings
 {
@@ -44,5 +45,5 @@ namespace NW.WIDJobs.JobPostings
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 11.08.2021
+    Last Update: 08.10.2021
 */

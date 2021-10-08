@@ -105,7 +105,8 @@ namespace NW.WIDJobsClient.UnitTests
                     filenameFactory: new FilenameFactory(),
                     classificationManager: new ClassificationManager(),
                     nowFunction: nowFunction,
-                    formatter: new Formatter()
+                    formatter: new Formatter(),
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
                   );
 
         }
@@ -117,5 +118,5 @@ namespace NW.WIDJobsClient.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 15.09.2021
+    Last Update: 08.10.2021
 */

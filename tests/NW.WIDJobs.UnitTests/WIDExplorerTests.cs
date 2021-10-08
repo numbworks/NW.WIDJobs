@@ -405,7 +405,8 @@ namespace NW.WIDJobs.UnitTests
                     filenameFactory: new FilenameFactory(),
                     classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
-                    formatter: new Formatter()
+                    formatter: new Formatter(),
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -461,7 +462,8 @@ namespace NW.WIDJobs.UnitTests
                     filenameFactory: new FilenameFactory(),
                     classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
-                    formatter: new Formatter()
+                    formatter: new Formatter(),
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -514,7 +516,8 @@ namespace NW.WIDJobs.UnitTests
                     filenameFactory: new FilenameFactory(),
                     classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
-                    formatter: new Formatter()
+                    formatter: new Formatter(),
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -567,7 +570,8 @@ namespace NW.WIDJobs.UnitTests
                     filenameFactory: new FilenameFactory(),
                     classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
-                    formatter: new Formatter()
+                    formatter: new Formatter(),
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
             
@@ -622,7 +626,8 @@ namespace NW.WIDJobs.UnitTests
                     filenameFactory: new FilenameFactory(),
                     classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
-                    formatter: new Formatter()
+                    formatter: new Formatter(),
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -675,7 +680,8 @@ namespace NW.WIDJobs.UnitTests
                     filenameFactory: new FilenameFactory(),
                     classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
-                    formatter: new Formatter()
+                    formatter: new Formatter(),
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -728,7 +734,8 @@ namespace NW.WIDJobs.UnitTests
                     filenameFactory: new FilenameFactory(),
                     classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
-                    formatter: new Formatter()
+                    formatter: new Formatter(),
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -782,7 +789,8 @@ namespace NW.WIDJobs.UnitTests
                     filenameFactory: new FilenameFactory(),
                     classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
-                    formatter: new Formatter()
+                    formatter: new Formatter(),
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -836,7 +844,8 @@ namespace NW.WIDJobs.UnitTests
                     filenameFactory: new FilenameFactory(),
                     classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
-                    formatter: new Formatter()
+                    formatter: new Formatter(),
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -890,7 +899,8 @@ namespace NW.WIDJobs.UnitTests
                     filenameFactory: new FilenameFactory(),
                     classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
-                    formatter: new Formatter()
+                    formatter: new Formatter(),
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -944,7 +954,8 @@ namespace NW.WIDJobs.UnitTests
                     filenameFactory: new FilenameFactory(),
                     classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
-                    formatter: new Formatter()
+                    formatter: new Formatter(),
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -999,7 +1010,8 @@ namespace NW.WIDJobs.UnitTests
                     filenameFactory: new FilenameFactory(),
                     classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
-                    formatter: new Formatter()
+                    formatter: new Formatter(),
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -1083,7 +1095,8 @@ namespace NW.WIDJobs.UnitTests
                     filenameFactory: new FilenameFactory(),
                     classificationManager: new ClassificationManager(),
                     nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
-                    formatter: new Formatter()
+                    formatter: new Formatter(),
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
             bool compareLanguage = true;
@@ -1169,7 +1182,8 @@ namespace NW.WIDJobs.UnitTests
                     filenameFactory: new FilenameFactory(),
                     classificationManager: new ClassificationManager(),
                     nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
-                    formatter: new Formatter()
+                    formatter: new Formatter(),
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
             bool compareLanguage = true;
@@ -1227,7 +1241,8 @@ namespace NW.WIDJobs.UnitTests
                     filenameFactory: new FilenameFactory(),
                     classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
-                    formatter: new Formatter()
+                    formatter: new Formatter(),
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -1285,7 +1300,8 @@ namespace NW.WIDJobs.UnitTests
                     filenameFactory: new FilenameFactory(),
                     classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
-                    formatter: new Formatter()
+                    formatter: new Formatter(),
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -1350,7 +1366,8 @@ namespace NW.WIDJobs.UnitTests
                     filenameFactory: new FilenameFactory(),
                     classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
-                    formatter: new Formatter()
+                    formatter: new Formatter(),
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -1433,7 +1450,8 @@ namespace NW.WIDJobs.UnitTests
                     filenameFactory: new FilenameFactory(),
                     classificationManager: new ClassificationManager(),
                     nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
-                    formatter: new Formatter()
+                    formatter: new Formatter(),
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
 
@@ -1494,7 +1512,8 @@ namespace NW.WIDJobs.UnitTests
                     filenameFactory: new FilenameFactory(),
                     classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
-                    formatter: new Formatter()
+                    formatter: new Formatter(),
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -1562,7 +1581,11 @@ namespace NW.WIDJobs.UnitTests
                     getRequestManager: new GetRequestManager(),
                     jobPageDeserializer: new JobPageDeserializer(),
                     jobPageManager: new JobPageManager(),
-                    jobPostingDeserializer: new JobPostingDeserializer(),
+                    jobPostingDeserializer: 
+                        new JobPostingDeserializer(
+                                translateJobPostingOccupation: WIDExplorerSettings.DefaultTranslateJobPostingOccupation,
+                                predictJobPostingLanguage: WIDExplorerSettings.DefaultPredictJobPostingLanguage
+                        ),
                     jobPostingManager: new JobPostingManager(),
                     jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
                     jobPostingExtendedManager: new JobPostingExtendedManager(),
@@ -1574,7 +1597,8 @@ namespace NW.WIDJobs.UnitTests
                     filenameFactory: new FilenameFactory(),
                     classificationManager: new ClassificationManager(),
                     nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
-                    formatter: new Formatter()
+                    formatter: new Formatter(),
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
 
@@ -1640,7 +1664,11 @@ namespace NW.WIDJobs.UnitTests
                     getRequestManager: new GetRequestManager(),
                     jobPageDeserializer: new JobPageDeserializer(),
                     jobPageManager: new JobPageManager(),
-                    jobPostingDeserializer: new JobPostingDeserializer(),
+                    jobPostingDeserializer:
+                        new JobPostingDeserializer(
+                                translateJobPostingOccupation: WIDExplorerSettings.DefaultTranslateJobPostingOccupation,
+                                predictJobPostingLanguage: WIDExplorerSettings.DefaultPredictJobPostingLanguage
+                        ),
                     jobPostingManager: new JobPostingManager(),
                     jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
                     jobPostingExtendedManager: new JobPostingExtendedManager(),
@@ -1652,7 +1680,8 @@ namespace NW.WIDJobs.UnitTests
                     filenameFactory: new FilenameFactory(),
                     classificationManager: new ClassificationManager(),
                     nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
-                    formatter: new Formatter()
+                    formatter: new Formatter(),
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
 
@@ -1709,7 +1738,8 @@ namespace NW.WIDJobs.UnitTests
                     filenameFactory: new FilenameFactory(),
                     classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
-                    formatter: new Formatter()
+                    formatter: new Formatter(),
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -1773,7 +1803,11 @@ namespace NW.WIDJobs.UnitTests
                     getRequestManager: new GetRequestManager(),
                     jobPageDeserializer: new JobPageDeserializer(),
                     jobPageManager: new JobPageManager(),
-                    jobPostingDeserializer: new JobPostingDeserializer(),
+                    jobPostingDeserializer:
+                        new JobPostingDeserializer(
+                                translateJobPostingOccupation: WIDExplorerSettings.DefaultTranslateJobPostingOccupation,
+                                predictJobPostingLanguage: WIDExplorerSettings.DefaultPredictJobPostingLanguage
+                        ),
                     jobPostingManager: new JobPostingManager(),
                     jobPostingExtendedDeserializer: new JobPostingExtendedDeserializer(),
                     jobPostingExtendedManager: new JobPostingExtendedManager(),
@@ -1785,7 +1819,8 @@ namespace NW.WIDJobs.UnitTests
                     filenameFactory: new FilenameFactory(),
                     classificationManager: new ClassificationManager(),
                     nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
-                    formatter: new Formatter()
+                    formatter: new Formatter(),
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
 
@@ -1856,8 +1891,6 @@ namespace NW.WIDJobs.UnitTests
                     jobPageManager: new JobPageManager(postRequestManagerFactory: ObjectMother.WIDExplorer_JobPage0102_FakePostRequestManagerFactory, headerFactory: new HeaderFactory()),
                     jobPostingDeserializer: 
                         new JobPostingDeserializer(
-                            occupationTranslator: new OccupationTranslator(),
-                            classificationManager: new ClassificationManager(),
                             translateJobPostingOccupation: fakeExplorerSettings.TranslateJobPostingOccupation,
                             predictJobPostingLanguage: fakeExplorerSettings.PredictJobPostingLanguage
                         ),
@@ -1877,7 +1910,8 @@ namespace NW.WIDJobs.UnitTests
                     filenameFactory: new FilenameFactory(),
                     classificationManager: new ClassificationManager(),
                     nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
-                    formatter: new Formatter()
+                    formatter: new Formatter(),
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
 
@@ -2005,8 +2039,6 @@ namespace NW.WIDJobs.UnitTests
                     jobPageManager: new JobPageManager(postRequestManagerFactory: ObjectMother.WIDExplorer_JobPage0102_FakePostRequestManagerFactory, headerFactory: new HeaderFactory()),
                     jobPostingDeserializer:
                         new JobPostingDeserializer(
-                            occupationTranslator: new OccupationTranslator(),
-                            classificationManager: new ClassificationManager(),
                             translateJobPostingOccupation: fakeExplorerSettings.TranslateJobPostingOccupation,
                             predictJobPostingLanguage: fakeExplorerSettings.PredictJobPostingLanguage
                     ),
@@ -2026,7 +2058,8 @@ namespace NW.WIDJobs.UnitTests
                     filenameFactory: new FilenameFactory(),
                     classificationManager: new ClassificationManager(),
                     nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
-                    formatter: new Formatter()
+                    formatter: new Formatter(),
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
 
@@ -2238,8 +2271,6 @@ namespace NW.WIDJobs.UnitTests
                     jobPageManager: new JobPageManager(postRequestManagerFactory: ObjectMother.WIDExplorer_JobPage0102_FakePostRequestManagerFactory, headerFactory: new HeaderFactory()),
                     jobPostingDeserializer:
                         new JobPostingDeserializer(
-                            occupationTranslator: new OccupationTranslator(),
-                            classificationManager: new ClassificationManager(),
                             translateJobPostingOccupation: fakeExplorerSettings.TranslateJobPostingOccupation,
                             predictJobPostingLanguage: fakeExplorerSettings.PredictJobPostingLanguage
                     ),
@@ -2259,7 +2290,8 @@ namespace NW.WIDJobs.UnitTests
                     filenameFactory: new FilenameFactory(),
                     classificationManager: new ClassificationManager(),
                     nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
-                    formatter: new Formatter()
+                    formatter: new Formatter(),
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
 
@@ -2391,8 +2423,6 @@ namespace NW.WIDJobs.UnitTests
                     jobPageManager: new JobPageManager(postRequestManagerFactory: ObjectMother.WIDExplorer_JobPage01Alt_FakePostRequestManagerFactory, headerFactory: new HeaderFactory()),
                     jobPostingDeserializer:
                         new JobPostingDeserializer(
-                            occupationTranslator: new OccupationTranslator(),
-                            classificationManager: new ClassificationManager(),
                             translateJobPostingOccupation: fakeExplorerSettings.TranslateJobPostingOccupation,
                             predictJobPostingLanguage: fakeExplorerSettings.PredictJobPostingLanguage
                     ),
@@ -2412,7 +2442,8 @@ namespace NW.WIDJobs.UnitTests
                     filenameFactory: new FilenameFactory(),
                     classificationManager: new ClassificationManager(),
                     nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
-                    formatter: new Formatter()
+                    formatter: new Formatter(),
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
 
@@ -2542,8 +2573,6 @@ namespace NW.WIDJobs.UnitTests
                     jobPageManager: new JobPageManager(postRequestManagerFactory: ObjectMother.WIDExplorer_JobPage0102_FakePostRequestManagerFactory, headerFactory: new HeaderFactory()),
                     jobPostingDeserializer:
                         new JobPostingDeserializer(
-                            occupationTranslator: new OccupationTranslator(),
-                            classificationManager: new ClassificationManager(),
                             translateJobPostingOccupation: fakeExplorerSettings.TranslateJobPostingOccupation,
                             predictJobPostingLanguage: fakeExplorerSettings.PredictJobPostingLanguage
                     ),
@@ -2563,7 +2592,8 @@ namespace NW.WIDJobs.UnitTests
                     filenameFactory: new FilenameFactory(),
                     classificationManager: new ClassificationManager(),
                     nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
-                    formatter: new Formatter()
+                    formatter: new Formatter(),
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
 
@@ -2583,5 +2613,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 27.09.2021
+    Last Update: 08.10.2021
 */

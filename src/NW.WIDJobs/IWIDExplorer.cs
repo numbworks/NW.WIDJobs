@@ -75,25 +75,25 @@ namespace NW.WIDJobs
         /// <summary>Save the provided <see cref="Exploration"/> objects to a SQLite database.</summary>
         IFileInfoAdapter SaveToSQLiteDatabase(Exploration exploration, IFileInfoAdapter databaseFile, bool deleteAndRecreateDatabase);
 
-        /// <summary>Explores <see href="WorkInDenmark.dk"/> until <paramref name="finalPageNumber"/> using an automatically generated <paramref name="runId"/>.</summary>
+        /// <summary>Explores <see href="WorkInDenmark.dk"/> until <paramref name="finalPageNumber"/> using an automatically generated runId.</summary>
         Exploration Explore(ushort finalPageNumber, Stages stage);
 
         /// <summary>Explores <see href="WorkInDenmark.dk"/> until <paramref name="finalPageNumber"/>.</summary>
         Exploration Explore(string runId, ushort finalPageNumber, Stages stage);
 
-        /// <summary>Explores <see href="WorkInDenmark.dk"/> until <paramref name="thresholdDate"/> is found and using an automatically generated <paramref name="runId"/>.</summary>
+        /// <summary>Explores <see href="WorkInDenmark.dk"/> until <paramref name="thresholdDate"/> is found and using an automatically generated runId.</summary>
         Exploration Explore(DateTime thresholdDate, Stages stage);
 
         /// <summary>Explores <see href="WorkInDenmark.dk"/> until <paramref name="thresholdDate"/> is found.</summary>
         Exploration Explore(string runId, DateTime thresholdDate, Stages stage);
 
-        /// <summary>Explores <see href="WorkInDenmark.dk"/> until <paramref name="jobPostingId"/> is found and using an automatically generated <paramref name="runId"/>.</summary>
+        /// <summary>Explores <see href="WorkInDenmark.dk"/> until <paramref name="jobPostingId"/> is found and using an automatically generated runId.</summary>
         Exploration Explore(string jobPostingId, Stages stage);
 
         /// <summary>Explores <see href="WorkInDenmark.dk"/> until <paramref name="jobPostingId"/> is found.</summary>
         Exploration Explore(string runId, string jobPostingId, Stages stage);
 
-        /// <summary>Explores <see href="WorkInDenmark.dk"/> using an automatically generated <paramref name="runId"/>.</summary>
+        /// <summary>Explores <see href="WorkInDenmark.dk"/> using an automatically generated runId.</summary>
         Exploration ExploreAll(Stages stage);
 
         /// <summary>Explores <see href="WorkInDenmark.dk"/>.</summary>
@@ -104,5 +104,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 14.09.2021
+    Last Update: 08.10.2021
 */

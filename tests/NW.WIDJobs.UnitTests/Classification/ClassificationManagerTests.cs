@@ -3,6 +3,7 @@ using System;
 using NW.WIDJobs.Classification;
 using System.Collections.Generic;
 using NW.NGramTextClassification.LabeledExamples;
+using NW.NGramTextClassification;
 
 namespace NW.WIDJobs.UnitTests
 {
@@ -17,11 +18,19 @@ namespace NW.WIDJobs.UnitTests
 
             new TestCaseData(
                 new TestDelegate(
-                    () => new ClassificationManager(null)
+                    () => new ClassificationManager((ITextClassifier)null)
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("textClassifier").Message
-            ).SetArgDisplayNames($"{nameof(classificationManagerExceptionTestCases)}_01")
+            ).SetArgDisplayNames($"{nameof(classificationManagerExceptionTestCases)}_01"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new ClassificationManager((Action<string>)null)
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("textClassifierLoggingAction").Message
+            ).SetArgDisplayNames($"{nameof(classificationManagerExceptionTestCases)}_02")
 
         };
 
@@ -124,5 +133,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 27.09.2021
+    Last Update: 08.10.2021
 */

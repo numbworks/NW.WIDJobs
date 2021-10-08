@@ -61,7 +61,8 @@ namespace NW.WIDJobsClient.CommandLine
                     filenameFactory: new FilenameFactory(),
                     classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
-                    formatter: new Formatter()
+                    formatter: new Formatter(),
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
                   );
 
         }
@@ -77,5 +78,5 @@ namespace NW.WIDJobsClient.CommandLine
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 05.09.2021
+    Last Update: 08.10.2021
 */
