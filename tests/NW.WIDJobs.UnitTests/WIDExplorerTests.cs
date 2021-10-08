@@ -27,7 +27,8 @@ namespace NW.WIDJobs.UnitTests
     public class WIDExplorerTests
     {
 
-        // Fields
+        #region Fields
+
         private static TestCaseData[] widExplorerExceptionTestCases =
         {
 
@@ -330,8 +331,13 @@ namespace NW.WIDJobs.UnitTests
 
         };
 
-        // SetUp
-        // Tests
+        #endregion
+
+        #region SetUp
+        #endregion
+
+        #region Tests
+
         [TestCaseSource(nameof(widExplorerExceptionTestCases))]
         public void WIDExplorer_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
@@ -2607,6 +2613,11 @@ namespace NW.WIDJobs.UnitTests
             Assert.AreEqual(expectedLogMessages, fakeLogger.Messages);
 
         }
+
+        #endregion
+
+        #region TearDown
+        #endregion
 
     }
 }
