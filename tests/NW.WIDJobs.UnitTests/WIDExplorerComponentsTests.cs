@@ -604,7 +604,15 @@ namespace NW.WIDJobs.UnitTests
                 ),
                 typeof(ArgumentNullException),
                 new ArgumentNullException("textClassifierLoggingAction").Message
-            ).SetArgDisplayNames($"{nameof(widExplorerComponentsExceptionTestCases)}_20")
+            ).SetArgDisplayNames($"{nameof(widExplorerComponentsExceptionTestCases)}_20"),
+
+            new TestCaseData(
+                new TestDelegate(
+                    () => new WIDExplorerComponents(null)
+                ),
+                typeof(ArgumentNullException),
+                new ArgumentNullException("settings").Message
+            ).SetArgDisplayNames($"{nameof(widExplorerComponentsExceptionTestCases)}_21")
 
         };
 

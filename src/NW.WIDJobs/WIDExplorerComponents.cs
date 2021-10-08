@@ -136,29 +136,32 @@ namespace NW.WIDJobs
 
         /// <summary>Initializes a <see cref="WIDExplorerComponents"/> instance using <paramref name="settings"/> and default parameters.</summary>
         public WIDExplorerComponents(WIDExplorerSettings settings)
-            : this(
-                  DefaultLoggingAction,
-                  DefaultLoggingActionAsciiBanner,
-                  new XPathManager(),
-                  new GetRequestManager(),
-                  new JobPageDeserializer(),
-                  new JobPageManager(),
-                  new JobPostingDeserializer(settings.TranslateJobPostingOccupation, settings.PredictJobPostingLanguage),
-                  new JobPostingManager(),
-                  new JobPostingExtendedDeserializer(settings.PredictBulletPointType),
-                  new JobPostingExtendedManager(),
-                  new RunIdManager(),
-                  new MetricCollectionManager(),
-                  new FileManager(),
-                  new RepositoryFactory(),
-                  new AsciiBannerManager(),
-                  new FilenameFactory(),
-                  new ClassificationManager(DefaultTextClassifierLoggingAction),
-                  DefaultNowFunction,
-                  new Formatter(),
-                  DefaultTextClassifierLoggingAction
-                  )
-        { }
+        {
+
+            Validator.ValidateObject(settings, nameof(settings));
+
+            LoggingAction = DefaultLoggingAction;
+            LoggingActionAsciiBanner = DefaultLoggingActionAsciiBanner;
+            XPathManager = new XPathManager();
+            GetRequestManager = new GetRequestManager();
+            JobPageDeserializer = new JobPageDeserializer();
+            JobPageManager = new JobPageManager();
+            JobPostingDeserializer = new JobPostingDeserializer(settings.TranslateJobPostingOccupation, settings.PredictJobPostingLanguage);
+            JobPostingManager = new JobPostingManager();
+            JobPostingExtendedDeserializer = new JobPostingExtendedDeserializer(settings.PredictBulletPointType);
+            JobPostingExtendedManager = new JobPostingExtendedManager();
+            RunIdManager = new RunIdManager();
+            MetricCollectionManager = new MetricCollectionManager();
+            FileManager = new FileManager();
+            RepositoryFactory = new RepositoryFactory();
+            AsciiBannerManager = new AsciiBannerManager();
+            FilenameFactory = new FilenameFactory();
+            ClassificationManager = new ClassificationManager(DefaultTextClassifierLoggingAction);
+            NowFunction = DefaultNowFunction;
+            Formatter = new Formatter();
+            TextClassifierLoggingAction = DefaultTextClassifierLoggingAction;
+
+        }
 
         /// <summary>Initializes a <see cref="WIDExplorerComponents"/> instance using a default <see cref="WIDExplorerSettings"/> and default parameters.</summary>
         public WIDExplorerComponents()
