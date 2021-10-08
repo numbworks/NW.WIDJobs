@@ -8,7 +8,8 @@ namespace NW.WIDJobs.UnitTests
     public class WIDExplorerSettingsTests
     {
 
-        // Fields
+        #region Fields
+
         private static TestCaseData[] widExplorerSettingsExceptionTestCases =
         {
 
@@ -46,8 +47,13 @@ namespace NW.WIDJobs.UnitTests
 
         };
 
-        // SetUp
-        // Tests
+        #endregion
+
+        #region SetUp
+        #endregion
+
+        #region Tests
+
         [Test]
         public void WIDExplorerSettings_ShouldInitializeANewWIDExplorerSettingsObject_WhenProperArguments()
         {
@@ -103,10 +109,15 @@ namespace NW.WIDJobs.UnitTests
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
+        #endregion
+
+        #region TearDown
+        #endregion
+
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 10.09.2021
+    Last Update: 08.10.2021
 */
