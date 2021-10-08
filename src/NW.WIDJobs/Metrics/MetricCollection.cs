@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using NW.WIDJobs.Explorations;
 using NW.WIDJobs.Validation;
 
 namespace NW.WIDJobs.Metrics
@@ -54,7 +56,8 @@ namespace NW.WIDJobs.Metrics
 
         #region Constructors
 
-        ///<summary>Initializes a <see cref="MetricCollection"/> instance.</summary>
+        /// <summary>Initializes a <see cref="MetricCollection"/> instance.</summary>
+        /// <exception cref="ArgumentNullException"/>
         public MetricCollection(
             string runId,
             uint totalJobPages,
@@ -165,5 +168,5 @@ namespace NW.WIDJobs.Metrics
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 04.09.2021
+    Last Update: 08.10.2021
 */
