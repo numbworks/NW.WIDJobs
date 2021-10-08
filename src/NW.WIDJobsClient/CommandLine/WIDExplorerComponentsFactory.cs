@@ -65,7 +65,7 @@ namespace NW.WIDJobsClient.CommandLine
                     classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
                     formatter: new Formatter(),
-                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultDoesNothingLoggingAction
                   );
 
         }

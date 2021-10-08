@@ -46,7 +46,7 @@ namespace NW.WIDJobs.UnitTests
                                 new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
                                 new Formatter(),
-                                WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                                WIDExplorerComponents.DefaultDoesNothingLoggingAction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -75,7 +75,7 @@ namespace NW.WIDJobs.UnitTests
                                 new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
                                 new Formatter(),
-                                WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                                WIDExplorerComponents.DefaultDoesNothingLoggingAction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -104,7 +104,7 @@ namespace NW.WIDJobs.UnitTests
                                 new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
                                 new Formatter(),
-                                WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                                WIDExplorerComponents.DefaultDoesNothingLoggingAction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -133,7 +133,7 @@ namespace NW.WIDJobs.UnitTests
                                 new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
                                 new Formatter(),
-                                WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                                WIDExplorerComponents.DefaultDoesNothingLoggingAction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -162,7 +162,7 @@ namespace NW.WIDJobs.UnitTests
                                 new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
                                 new Formatter(),
-                                WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                                WIDExplorerComponents.DefaultDoesNothingLoggingAction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -193,7 +193,7 @@ namespace NW.WIDJobs.UnitTests
                                 new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
                                 new Formatter(),
-                                WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                                WIDExplorerComponents.DefaultDoesNothingLoggingAction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -222,7 +222,7 @@ namespace NW.WIDJobs.UnitTests
                                 new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
                                 new Formatter(),
-                                WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                                WIDExplorerComponents.DefaultDoesNothingLoggingAction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -251,7 +251,7 @@ namespace NW.WIDJobs.UnitTests
                                 new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
                                 new Formatter(),
-                                WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                                WIDExplorerComponents.DefaultDoesNothingLoggingAction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -280,7 +280,7 @@ namespace NW.WIDJobs.UnitTests
                                 new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
                                 new Formatter(),
-                                WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                                WIDExplorerComponents.DefaultDoesNothingLoggingAction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -309,7 +309,7 @@ namespace NW.WIDJobs.UnitTests
                                 new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
                                 new Formatter(),
-                                WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                                WIDExplorerComponents.DefaultDoesNothingLoggingAction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -338,7 +338,7 @@ namespace NW.WIDJobs.UnitTests
                                 new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
                                 new Formatter(),
-                                WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                                WIDExplorerComponents.DefaultDoesNothingLoggingAction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -367,7 +367,7 @@ namespace NW.WIDJobs.UnitTests
                                 new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
                                 new Formatter(),
-                                WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                                WIDExplorerComponents.DefaultDoesNothingLoggingAction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -396,7 +396,7 @@ namespace NW.WIDJobs.UnitTests
                                 new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
                                 new Formatter(),
-                                WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                                WIDExplorerComponents.DefaultDoesNothingLoggingAction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -425,7 +425,7 @@ namespace NW.WIDJobs.UnitTests
                                 new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
                                 new Formatter(),
-                                WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                                WIDExplorerComponents.DefaultDoesNothingLoggingAction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -454,7 +454,7 @@ namespace NW.WIDJobs.UnitTests
                                 new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
                                 new Formatter(),
-                                WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                                WIDExplorerComponents.DefaultDoesNothingLoggingAction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -483,7 +483,7 @@ namespace NW.WIDJobs.UnitTests
                                 new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
                                 new Formatter(),
-                                WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                                WIDExplorerComponents.DefaultDoesNothingLoggingAction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -512,7 +512,7 @@ namespace NW.WIDJobs.UnitTests
                                 null,
                                 WIDExplorerComponents.DefaultNowFunction,
                                 new Formatter(),
-                                WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                                WIDExplorerComponents.DefaultDoesNothingLoggingAction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -541,7 +541,7 @@ namespace NW.WIDJobs.UnitTests
                                 new ClassificationManager(),
                                 null,
                                 new Formatter(),
-                                WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                                WIDExplorerComponents.DefaultDoesNothingLoggingAction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -570,7 +570,7 @@ namespace NW.WIDJobs.UnitTests
                                 new ClassificationManager(),
                                 WIDExplorerComponents.DefaultNowFunction,
                                 null,
-                                WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                                WIDExplorerComponents.DefaultDoesNothingLoggingAction
                         )
                 ),
                 typeof(ArgumentNullException),
@@ -645,7 +645,7 @@ namespace NW.WIDJobs.UnitTests
                             new ClassificationManager(),
                             WIDExplorerComponents.DefaultNowFunction,
                             new Formatter(),
-                            WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                            WIDExplorerComponents.DefaultDoesNothingLoggingAction
                         );
 
             // Assert
@@ -720,7 +720,7 @@ namespace NW.WIDJobs.UnitTests
             Assert.IsInstanceOf<Action<string>>(WIDExplorerComponents.DefaultLoggingAction);
             Assert.IsInstanceOf<Action<string>>(WIDExplorerComponents.DefaultLoggingActionAsciiBanner);
             Assert.IsInstanceOf<Func<DateTime>>(WIDExplorerComponents.DefaultNowFunction);
-            Assert.IsInstanceOf<Action<string>>(WIDExplorerComponents.DefaultTextClassifierLoggingAction);
+            Assert.IsInstanceOf<Action<string>>(WIDExplorerComponents.DefaultDoesNothingLoggingAction);
             Assert.IsInstanceOf<bool>(WIDExplorerComponents.DefaultPredictJobPostingLanguage);
             Assert.IsInstanceOf<bool>(WIDExplorerComponents.DefaultPredictBulletPointType);
 

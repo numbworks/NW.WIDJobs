@@ -32,10 +32,11 @@ namespace NW.WIDJobs
         public static Action<string> DefaultLoggingActionAsciiBanner { get; }
             = (message) => Console.WriteLine($"{message}");
         public static Func<DateTime> DefaultNowFunction { get; } = () => DateTime.Now;
-        public static Action<string> DefaultTextClassifierLoggingAction { get; } 
-            = (message) => { };
+        public static Action<string> DefaultTextClassifierLoggingAction { get; } = DefaultLoggingAction;
         public static bool DefaultPredictJobPostingLanguage { get; } = WIDExplorerSettings.DefaultPredictJobPostingLanguage;
         public static bool DefaultPredictBulletPointType { get; } = WIDExplorerSettings.DefaultPredictBulletPointType;
+        public static Action<string> DefaultDoesNothingLoggingAction { get; }
+            = (message) => { };
 
         public Action<string> LoggingAction { get; }
         public Action<string> LoggingActionAsciiBanner { get; }
@@ -64,7 +65,7 @@ namespace NW.WIDJobs
 
         /// <summary>
         /// Initializes a <see cref="WIDExplorerComponents"/> instance.
-        /// <para>If we are interested into the <see cref="ITextClassifier"/> log, we define <paramref name="textClassifierLoggingAction"/> equal to <paramref name="loggingAction"/>, otherwise we can use <see cref="DefaultTextClassifierLoggingAction"/> that does nothing.</para>
+        /// <para>If we are not interested into the <see cref="ITextClassifier"/> log, we can use <see cref="DefaultDoesNothingLoggingAction"/>.</para>
         /// </summary>
         /// <exception cref="ArgumentNullException"/>
         public WIDExplorerComponents(
@@ -160,7 +161,7 @@ namespace NW.WIDJobs
             ClassificationManager = new ClassificationManager(DefaultTextClassifierLoggingAction);
             NowFunction = DefaultNowFunction;
             Formatter = new Formatter();
-            TextClassifierLoggingAction = DefaultTextClassifierLoggingAction;
+            TextClassifierLoggingAction = DefaultDoesNothingLoggingAction;
 
         }
 

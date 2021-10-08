@@ -21,7 +21,7 @@ namespace NW.WIDJobs.Classification
 
         #region Properties
 
-        public static Action<string> DefaultTextClassifierLoggingAction { get; } = WIDExplorerComponents.DefaultTextClassifierLoggingAction;
+        public static Action<string> DefaultTextClassifierLoggingAction { get; } = WIDExplorerComponents.DefaultDoesNothingLoggingAction;
 
 		#endregion
 

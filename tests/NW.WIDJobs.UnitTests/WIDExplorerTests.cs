@@ -406,7 +406,7 @@ namespace NW.WIDJobs.UnitTests
                     classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
                     formatter: new Formatter(),
-                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultDoesNothingLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -463,7 +463,7 @@ namespace NW.WIDJobs.UnitTests
                     classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
                     formatter: new Formatter(),
-                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultDoesNothingLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -517,7 +517,7 @@ namespace NW.WIDJobs.UnitTests
                     classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
                     formatter: new Formatter(),
-                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultDoesNothingLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -571,7 +571,7 @@ namespace NW.WIDJobs.UnitTests
                     classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
                     formatter: new Formatter(),
-                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultDoesNothingLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
             
@@ -627,7 +627,7 @@ namespace NW.WIDJobs.UnitTests
                     classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
                     formatter: new Formatter(),
-                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultDoesNothingLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -681,7 +681,7 @@ namespace NW.WIDJobs.UnitTests
                     classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
                     formatter: new Formatter(),
-                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultDoesNothingLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -735,7 +735,7 @@ namespace NW.WIDJobs.UnitTests
                     classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
                     formatter: new Formatter(),
-                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultDoesNothingLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -790,7 +790,7 @@ namespace NW.WIDJobs.UnitTests
                     classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
                     formatter: new Formatter(),
-                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultDoesNothingLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -845,7 +845,7 @@ namespace NW.WIDJobs.UnitTests
                     classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
                     formatter: new Formatter(),
-                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultDoesNothingLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -900,7 +900,7 @@ namespace NW.WIDJobs.UnitTests
                     classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
                     formatter: new Formatter(),
-                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultDoesNothingLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -955,7 +955,7 @@ namespace NW.WIDJobs.UnitTests
                     classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
                     formatter: new Formatter(),
-                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultDoesNothingLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -1011,7 +1011,7 @@ namespace NW.WIDJobs.UnitTests
                     classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
                     formatter: new Formatter(),
-                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultDoesNothingLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -1096,7 +1096,7 @@ namespace NW.WIDJobs.UnitTests
                     classificationManager: new ClassificationManager(),
                     nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
                     formatter: new Formatter(),
-                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultDoesNothingLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
             bool compareLanguage = true;
@@ -1183,7 +1183,7 @@ namespace NW.WIDJobs.UnitTests
                     classificationManager: new ClassificationManager(),
                     nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
                     formatter: new Formatter(),
-                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultDoesNothingLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
             bool compareLanguage = true;
@@ -1242,7 +1242,7 @@ namespace NW.WIDJobs.UnitTests
                     classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
                     formatter: new Formatter(),
-                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultDoesNothingLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -1301,7 +1301,7 @@ namespace NW.WIDJobs.UnitTests
                     classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
                     formatter: new Formatter(),
-                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultDoesNothingLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -1367,7 +1367,7 @@ namespace NW.WIDJobs.UnitTests
                     classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
                     formatter: new Formatter(),
-                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultDoesNothingLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -1451,7 +1451,7 @@ namespace NW.WIDJobs.UnitTests
                     classificationManager: new ClassificationManager(),
                     nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
                     formatter: new Formatter(),
-                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultDoesNothingLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
 
@@ -1513,7 +1513,7 @@ namespace NW.WIDJobs.UnitTests
                     classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
                     formatter: new Formatter(),
-                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultDoesNothingLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -1598,7 +1598,7 @@ namespace NW.WIDJobs.UnitTests
                     classificationManager: new ClassificationManager(),
                     nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
                     formatter: new Formatter(),
-                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultDoesNothingLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
 
@@ -1681,7 +1681,7 @@ namespace NW.WIDJobs.UnitTests
                     classificationManager: new ClassificationManager(),
                     nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
                     formatter: new Formatter(),
-                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultDoesNothingLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
 
@@ -1739,7 +1739,7 @@ namespace NW.WIDJobs.UnitTests
                     classificationManager: new ClassificationManager(),
                     nowFunction: WIDExplorerComponents.DefaultNowFunction,
                     formatter: new Formatter(),
-                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultDoesNothingLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, new WIDExplorerSettings());
 
@@ -1820,7 +1820,7 @@ namespace NW.WIDJobs.UnitTests
                     classificationManager: new ClassificationManager(),
                     nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
                     formatter: new Formatter(),
-                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultDoesNothingLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
 
@@ -1911,7 +1911,7 @@ namespace NW.WIDJobs.UnitTests
                     classificationManager: new ClassificationManager(),
                     nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
                     formatter: new Formatter(),
-                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultDoesNothingLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
 
@@ -2059,7 +2059,7 @@ namespace NW.WIDJobs.UnitTests
                     classificationManager: new ClassificationManager(),
                     nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
                     formatter: new Formatter(),
-                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultDoesNothingLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
 
@@ -2291,7 +2291,7 @@ namespace NW.WIDJobs.UnitTests
                     classificationManager: new ClassificationManager(),
                     nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
                     formatter: new Formatter(),
-                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultDoesNothingLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
 
@@ -2443,7 +2443,7 @@ namespace NW.WIDJobs.UnitTests
                     classificationManager: new ClassificationManager(),
                     nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
                     formatter: new Formatter(),
-                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultDoesNothingLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
 
@@ -2593,7 +2593,7 @@ namespace NW.WIDJobs.UnitTests
                     classificationManager: new ClassificationManager(),
                     nowFunction: ObjectMother.WIDExplorer_FakeNowFunction,
                     formatter: new Formatter(),
-                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultDoesNothingLoggingAction
                   );
             WIDExplorer widExplorer = new WIDExplorer(components, fakeExplorerSettings);
 

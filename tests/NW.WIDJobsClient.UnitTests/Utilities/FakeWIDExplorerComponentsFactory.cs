@@ -107,7 +107,7 @@ namespace NW.WIDJobsClient.UnitTests
                     classificationManager: new ClassificationManager(),
                     nowFunction: nowFunction,
                     formatter: new Formatter(),
-                    textClassifierLoggingAction: WIDExplorerComponents.DefaultTextClassifierLoggingAction
+                    textClassifierLoggingAction: WIDExplorerComponents.DefaultDoesNothingLoggingAction
                   );
 
         }
