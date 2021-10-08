@@ -709,7 +709,24 @@ namespace NW.WIDJobs.UnitTests
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
-        // TearDown		
+        [Test]
+        public void WIDExplorerComponents_ShouldInitializeStaticPropertiesAsExpected_WhenInvoked()
+        {
+
+            // Arrange
+            // Act
+            // Assert
+            Assert.IsInstanceOf<string>(WIDExplorerComponents.DefaultLoggingActionDateFormat);
+            Assert.IsInstanceOf<Action<string>>(WIDExplorerComponents.DefaultLoggingAction);
+            Assert.IsInstanceOf<Action<string>>(WIDExplorerComponents.DefaultLoggingActionAsciiBanner);
+            Assert.IsInstanceOf<Func<DateTime>>(WIDExplorerComponents.DefaultNowFunction);
+            Assert.IsInstanceOf<Action<string>>(WIDExplorerComponents.DefaultTextClassifierLoggingAction);
+            Assert.IsInstanceOf<bool>(WIDExplorerComponents.DefaultPredictJobPostingLanguage);
+            Assert.IsInstanceOf<bool>(WIDExplorerComponents.DefaultPredictBulletPointType);
+
+        }
+
+        // TearDown
 
     }
 }
