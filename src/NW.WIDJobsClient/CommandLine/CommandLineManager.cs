@@ -105,7 +105,7 @@ namespace NW.WIDJobsClient.CommandLine
             _componentsFactory = componentsFactory;
             _settingsFactory = settingsFactory;
 
-            _defaultComponents = _componentsFactory.CreateDefault();
+            _defaultComponents = _componentsFactory.Create(settingsFactory.Create());
             _demodataComponents = _componentsFactory.CreateForDemoData();
 
         }
@@ -1203,5 +1203,5 @@ namespace NW.WIDJobsClient.CommandLine
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 15.09.2021
+    Last Update: 08.10.2021
 */
