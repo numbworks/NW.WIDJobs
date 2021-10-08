@@ -9,7 +9,8 @@ namespace NW.WIDJobs.UnitTests
     public class GetRequestManagerTests
     {
 
-        // Fields
+        #region Fields
+
         private static TestCaseData[] getRequestManagerExceptionTestCases =
         {
 
@@ -35,8 +36,13 @@ namespace NW.WIDJobs.UnitTests
 
         };
 
-        // SetUp
-        // Tests
+        #endregion
+
+        #region SetUp
+        #endregion
+
+        #region Tests
+
         [TestCaseSource(nameof(getRequestManagerExceptionTestCases))]
         public void GetRequestManager_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
@@ -69,12 +75,15 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
-        // TearDown		
+        #endregion
+
+        #region TearDown
+        #endregion
 
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 02.09.2021
+    Last Update: 08.10.2021
 */
