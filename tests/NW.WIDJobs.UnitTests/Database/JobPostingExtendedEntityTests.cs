@@ -9,7 +9,8 @@ namespace NW.WIDJobs.UnitTests
     public class JobPostingExtededEntityTests
     {
 
-        // Fields
+        #region Fields
+
         private static TestCaseData[] jobPostingExtendedEntityTestCases =
         {
 
@@ -32,8 +33,13 @@ namespace NW.WIDJobs.UnitTests
 
         };
 
-        // SetUp
-        // Tests
+        #endregion
+
+        #region SetUp
+        #endregion
+
+        #region Tests
+
         [TestCaseSource(nameof(jobPostingExtendedEntityTestCases))]
         public void JobPostingExtendedEntity_ShouldInstantiateANewObject_WhenProperArguments
             (JobPostingExtended jobPostingExtended, bool ignorePurposeResponse)
@@ -69,12 +75,15 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
-        // TearDown		
+        #endregion
+
+        #region TearDown
+        #endregion
 
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 15.09.2021
+    Last Update: 08.10.2021
 */
