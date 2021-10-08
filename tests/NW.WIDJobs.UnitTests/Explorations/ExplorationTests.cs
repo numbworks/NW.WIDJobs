@@ -8,7 +8,8 @@ namespace NW.WIDJobs.UnitTests
     public class ExplorationTests
     {
 
-        // Fields
+        #region Fields
+
         private static TestCaseData[] explorationExceptionTestCases =
         {
 
@@ -45,8 +46,13 @@ namespace NW.WIDJobs.UnitTests
 
         };
 
-        // SetUp
-        // Tests
+        #endregion
+
+        #region SetUp
+        #endregion
+
+        #region Tests
+
         [TestCaseSource(nameof(explorationExceptionTestCases))]
         public void Exploration_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
@@ -89,12 +95,15 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
-        // TearDown		
+        #endregion
+
+        #region TearDown
+        #endregion
 
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 08.08.2021
+    Last Update: 08.10.2021
 */
