@@ -7,9 +7,14 @@ namespace NW.WIDJobs.UnitTests
     public class RepositoryFactoryTests
     {
 
-        // Fields
-        // SetUp
-        // Tests
+        #region Fields
+        #endregion
+
+        #region SetUp
+        #endregion
+
+        #region Tests
+
         [Test]
         public void RepositoryFactory_ShouldCreateAnObjectOfTypeRepositoryFactory_WhenInvoked()
         {
@@ -29,7 +34,7 @@ namespace NW.WIDJobs.UnitTests
 
             // Arrange
             // Act
-            IRepository actual 
+            IRepository actual
                 = new RepositoryFactory()
                     .Create(
                         ObjectMother.DatabaseContext_DatabasePath,
@@ -41,12 +46,15 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
-        // TearDown		
+        #endregion
+
+        #region TearDown
+        #endregion
 
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 09.06.2021
+    Last Update: 08.10.2021
 */
