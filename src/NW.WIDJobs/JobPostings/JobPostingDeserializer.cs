@@ -51,6 +51,14 @@ namespace NW.WIDJobs.JobPostings
 
         }
 
+        /// <summary>Initializes a <see cref="JobPostingDeserializer"/> instance.</summary>
+        public JobPostingDeserializer(bool translateJobPostingOccupation, bool predictJobPostingLanguage)
+            : this(
+                  new OccupationTranslator(),
+                  new ClassificationManager(),
+                  translateJobPostingOccupation,
+                  predictJobPostingLanguage) { }
+
         /// <summary>Initializes a <see cref="JobPostingDeserializer"/> instance using default parameters.</summary>
         public JobPostingDeserializer()
             : this(
@@ -436,5 +444,5 @@ namespace NW.WIDJobs.JobPostings
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 15.09.2021
+    Last Update: 08.10.2021
 */

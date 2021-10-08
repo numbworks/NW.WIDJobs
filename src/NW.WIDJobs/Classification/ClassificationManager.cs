@@ -17,13 +17,11 @@ namespace NW.WIDJobs.Classification
 
 		private ITextClassifier _textClassifier;
 
-		#endregion
+        #endregion
 
-		#region Properties
+        #region Properties
 
-		/// <summary>Does nothing. By default we aren't interested into the <see cref="ITextClassifier"/> log.</summary>
-		public static Action<string> DefaultTextClassifierLoggingAction { get; } 
-			= (message) => { }; // 
+        public static Action<string> DefaultTextClassifierLoggingAction { get; } = WIDExplorerComponents.DefaultTextClassifierLoggingAction;
 
 		#endregion
 
@@ -39,8 +37,18 @@ namespace NW.WIDJobs.Classification
 
 		}
 
-		/// <summary>Initializes a <see cref="ClassificationManager"/> instance using default parameters.</summary>	
-		public ClassificationManager()
+        /// <summary>Initializes a <see cref="ClassificationManager"/> instance.</summary>	
+        public ClassificationManager(Action<string> textClassifierLoggingAction)
+        {
+
+            Validation.Validator.ValidateObject(textClassifierLoggingAction, nameof(textClassifierLoggingAction));
+
+            _textClassifier = CreateTextClassifier(textClassifierLoggingAction);
+
+        }
+
+        /// <summary>Initializes a <see cref="ClassificationManager"/> instance using default parameters.</summary>	
+        public ClassificationManager()
 		 : this (CreateTextClassifier(DefaultTextClassifierLoggingAction)) { }
 
 		#endregion
@@ -872,5 +880,5 @@ namespace NW.WIDJobs.Classification
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 27.09.2021
+    Last Update: 08.10.2021
 */

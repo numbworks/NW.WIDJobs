@@ -13,6 +13,7 @@ using NW.WIDJobs.Runs;
 using NW.WIDJobs.Validation;
 using NW.WIDJobs.XPath;
 using NW.WIDJobs.Formatting;
+using NW.NGramTextClassification;
 
 namespace NW.WIDJobs
 {
@@ -30,6 +31,10 @@ namespace NW.WIDJobs
         public static Action<string> DefaultLoggingActionAsciiBanner { get; }
             = (message) => Console.WriteLine($"{message}");
         public static Func<DateTime> DefaultNowFunction { get; } = () => DateTime.Now;
+        public static Action<string> DefaultTextClassifierLoggingAction { get; } 
+            = (message) => { };
+        public static bool DefaultPredictJobPostingLanguage { get; } = WIDExplorerSettings.DefaultPredictJobPostingLanguage;
+        public static bool DefaultPredictBulletPointType { get; } = WIDExplorerSettings.DefaultPredictBulletPointType;
 
         public Action<string> LoggingAction { get; }
         public Action<string> LoggingActionAsciiBanner { get; }
@@ -50,12 +55,16 @@ namespace NW.WIDJobs
         public IClassificationManager ClassificationManager { get; }
         public Func<DateTime> NowFunction { get; }
         public IFormatter Formatter { get; }
+        public Action<string> TextClassifierLoggingAction { get; }
 
         #endregion
 
         #region Constructors
 
-        /// <summary>Initializes a <see cref="WIDExplorerComponents"/> instance.</summary>
+        /// <summary>
+        /// Initializes a <see cref="WIDExplorerComponents"/> instance.
+        /// <para>If we are interested into the <see cref="ITextClassifier"/> log, we define <paramref name="textClassifierLoggingAction"/> equal to <paramref name="loggingAction"/>, otherwise we can use <see cref="DefaultTextClassifierLoggingAction"/> that does nothing.</para>
+        /// </summary>
         /// <exception cref="ArgumentNullException"/>
         public WIDExplorerComponents(
             Action<string> loggingAction,
@@ -76,7 +85,8 @@ namespace NW.WIDJobs
             IFilenameFactory filenameFactory,
             IClassificationManager classificationManager,
             Func<DateTime> nowFunction,
-            IFormatter formatter
+            IFormatter formatter,
+            Action<string> textClassifierLoggingAction
             )
         {
 
@@ -99,6 +109,7 @@ namespace NW.WIDJobs
             Validator.ValidateObject(classificationManager, nameof(classificationManager));
             Validator.ValidateObject(nowFunction, nameof(nowFunction));
             Validator.ValidateObject(formatter, nameof(formatter));
+            Validator.ValidateObject(textClassifierLoggingAction, nameof(textClassifierLoggingAction));
 
             LoggingAction = loggingAction;
             LoggingActionAsciiBanner = loggingActionAsciiBanner;
@@ -119,11 +130,12 @@ namespace NW.WIDJobs
             ClassificationManager = classificationManager;
             NowFunction = nowFunction;
             Formatter = formatter;
+            TextClassifierLoggingAction = textClassifierLoggingAction;
 
         }
 
-        /// <summary>Initializes a <see cref="WIDExplorerComponents"/> instance using default parameters.</summary>
-        public WIDExplorerComponents()
+        /// <summary>Initializes a <see cref="WIDExplorerComponents"/> instance using <paramref name="settings"/> and default parameters.</summary>
+        public WIDExplorerComponents(WIDExplorerSettings settings)
             : this(
                   DefaultLoggingAction,
                   DefaultLoggingActionAsciiBanner,
@@ -131,7 +143,7 @@ namespace NW.WIDJobs
                   new GetRequestManager(),
                   new JobPageDeserializer(),
                   new JobPageManager(),
-                  new JobPostingDeserializer(),
+                  new JobPostingDeserializer(settings.PredictJobPostingLanguage, settings.PredictBulletPointType),
                   new JobPostingManager(),
                   new JobPostingExtendedDeserializer(),
                   new JobPostingExtendedManager(),
@@ -141,11 +153,16 @@ namespace NW.WIDJobs
                   new RepositoryFactory(),
                   new AsciiBannerManager(),
                   new FilenameFactory(),
-                  new ClassificationManager(),
+                  new ClassificationManager(DefaultTextClassifierLoggingAction),
                   DefaultNowFunction,
-                  new Formatter()
+                  new Formatter(),
+                  DefaultTextClassifierLoggingAction
                   )
         { }
+
+        /// <summary>Initializes a <see cref="WIDExplorerComponents"/> instance using a default <see cref="WIDExplorerSettings"/> and default parameters.</summary>
+        public WIDExplorerComponents()
+            : this(new WIDExplorerSettings()) { }
 
         #endregion
 
@@ -157,5 +174,5 @@ namespace NW.WIDJobs
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 11.08.2021
+    Last Update: 08.10.2021
 */
