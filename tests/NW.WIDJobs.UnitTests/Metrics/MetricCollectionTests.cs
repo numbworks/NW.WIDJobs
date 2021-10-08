@@ -9,7 +9,8 @@ namespace NW.WIDJobs.UnitTests
     public class MetricCollectionTests
     {
 
-        // Fields
+        #region Fields
+
         private static TestCaseData[] metricCollectionExceptionTestCases =
         {
 
@@ -918,8 +919,13 @@ namespace NW.WIDJobs.UnitTests
 
         };
 
-        // SetUp
-        // Tests
+        #endregion
+
+        #region SetUp
+        #endregion
+
+        #region Tests
+
         [TestCaseSource(nameof(metricCollectionExceptionTestCases))]
         public void MetricCollection_ShouldThrowACertainException_WhenUnproperArguments
             (TestDelegate del, Type expectedType, string expectedMessage)
@@ -1010,10 +1016,15 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
+        #endregion
+
+        #region TearDown
+        #endregion
+
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 04.09.2021
+    Last Update: 08.10.2021
 */
