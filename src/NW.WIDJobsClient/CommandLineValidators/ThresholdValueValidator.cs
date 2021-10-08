@@ -21,7 +21,8 @@ namespace NW.WIDJobsClient.CommandLineValidators
 
         #region Constructors
 
-        /// <summary>Initializes a <see cref="ThresholdValueValidator"/> instance.</summary>	
+        /// <summary>Initializes a <see cref="ThresholdValueValidator"/> instance.</summary>
+        /// <exception cref="ArgumentNullException"/>
         public ThresholdValueValidator(IThresholdValueManager thresholdValueManager) 
         {
 
@@ -60,5 +61,5 @@ namespace NW.WIDJobsClient.CommandLineValidators
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 27.08.2021
+    Last Update: 08.10.2021
 */
