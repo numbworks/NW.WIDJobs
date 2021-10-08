@@ -501,6 +501,7 @@ namespace NW.WIDJobs
             dyn.JobPostingsByOrganisationId = _components.MetricCollectionManager.TryConvertToPercentages(metricCollection.JobPostingsByOrganisationId);
             dyn.JobPostingsByHiringOrgCVR = _components.MetricCollectionManager.TryConvertToPercentages(metricCollection.JobPostingsByHiringOrgCVR);
             dyn.JobPostingsByWorkPlaceCityWithoutZone = _components.MetricCollectionManager.TryConvertToPercentages(metricCollection.JobPostingsByWorkPlaceCityWithoutZone);
+            dyn.JobPostingsByLanguage = _components.MetricCollectionManager.TryConvertToPercentages(metricCollection.JobPostingsByLanguage);
             dyn.ResponseLengthByJobPostingId = _components.MetricCollectionManager.TryConvertToPercentages(metricCollection.ResponseLengthByJobPostingId);
             dyn.PresentationLengthByJobPostingId = _components.MetricCollectionManager.TryConvertToPercentages(metricCollection.PresentationLengthByJobPostingId);
 

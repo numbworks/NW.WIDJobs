@@ -35,6 +35,7 @@ namespace NW.WIDJobs.Metrics
         public Dictionary<string, uint> JobPostingsByOrganisationId { get; }
         public Dictionary<string, uint> JobPostingsByHiringOrgCVR { get; }
         public Dictionary<string, uint> JobPostingsByWorkPlaceCityWithoutZone { get; }
+        public Dictionary<string, uint> JobPostingsByLanguage { get; }
         public Dictionary<string, uint> ResponseLengthByJobPostingId { get; }
         public Dictionary<string, uint> PresentationLengthByJobPostingId { get; }
 
@@ -78,6 +79,7 @@ namespace NW.WIDJobs.Metrics
             Dictionary<string, uint> jobPostingsByOrganisationId,
             Dictionary<string, uint> jobPostingsByHiringOrgCVR,
             Dictionary<string, uint> jobPostingsByWorkPlaceCityWithoutZone,
+            Dictionary<string, uint> jobPostingsByLanguage,
             Dictionary<string, uint> responseLengthByJobPostingId,
             Dictionary<string, uint> presentationLengthByJobPostingId,
             Dictionary<string, uint> jobPostingsByPublicationStartDate = null,
@@ -116,6 +118,7 @@ namespace NW.WIDJobs.Metrics
             Validator.ValidateList(jobPostingsByOrganisationId?.ToList(), nameof(jobPostingsByOrganisationId));
             Validator.ValidateList(jobPostingsByHiringOrgCVR?.ToList(), nameof(jobPostingsByHiringOrgCVR));
             Validator.ValidateList(jobPostingsByWorkPlaceCityWithoutZone?.ToList(), nameof(jobPostingsByWorkPlaceCityWithoutZone));
+            Validator.ValidateList(jobPostingsByLanguage?.ToList(), nameof(jobPostingsByLanguage));
             Validator.ValidateList(responseLengthByJobPostingId?.ToList(), nameof(responseLengthByJobPostingId));
             Validator.ValidateList(presentationLengthByJobPostingId?.ToList(), nameof(presentationLengthByJobPostingId));
 
@@ -139,6 +142,7 @@ namespace NW.WIDJobs.Metrics
             JobPostingsByOrganisationId = jobPostingsByOrganisationId;
             JobPostingsByHiringOrgCVR = jobPostingsByHiringOrgCVR;
             JobPostingsByWorkPlaceCityWithoutZone = jobPostingsByWorkPlaceCityWithoutZone;
+            JobPostingsByLanguage = jobPostingsByLanguage;
             ResponseLengthByJobPostingId = responseLengthByJobPostingId;
             PresentationLengthByJobPostingId = presentationLengthByJobPostingId;
 

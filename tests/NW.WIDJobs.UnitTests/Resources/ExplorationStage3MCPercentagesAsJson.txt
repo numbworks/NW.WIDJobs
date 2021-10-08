@@ -238,6 +238,9 @@
     "Middelfart": "2.5%",
     "Humlebæk": "2.5%"
   },
+  "JobPostingsByLanguage": {
+    "null": "100%"
+  },
   "ResponseLengthByJobPostingId": {
     "5379659erfarenogselvstndigtruckf": "2.66%",
     "5383165lagermedarbejderetilpakkeopgaverpdaghold": "2.66%",

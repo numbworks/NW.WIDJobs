@@ -238,6 +238,9 @@
     "Middelfart": 1,
     "Humlebæk": 1
   },
+  "JobPostingsByLanguage": {
+    "null": 40
+  },
   "ResponseLengthByJobPostingId": {
     "5379659erfarenogselvstndigtruckf": 2625,
     "5383165lagermedarbejderetilpakkeopgaverpdaghold": 2625,

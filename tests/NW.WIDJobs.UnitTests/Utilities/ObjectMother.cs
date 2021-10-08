@@ -4916,6 +4916,11 @@ namespace NW.WIDJobs.UnitTests
                 { "Middelfart", 1 },
                 { "Humlebæk", 1 }
             };
+        public static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByLanguage_NoPrediction
+            = new Dictionary<string, uint>()
+            {
+                { "null", 40 }
+            };
 
         public static Dictionary<string, uint> MetricCollection_ExplorationStage3_JobPostingsByPublicationStartDate
             = new Dictionary<string, uint>()
@@ -5299,6 +5304,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingsByOrganisationId: MetricCollection_ExplorationStage3_JobPostingsByOrganisationId,
                     jobPostingsByHiringOrgCVR: MetricCollection_ExplorationStage3_JobPostingsByHiringOrgCVR,
                     jobPostingsByWorkPlaceCityWithoutZone: MetricCollection_ExplorationStage3_JobPostingsByWorkPlaceCityWithoutZone,
+                    jobPostingsByLanguage: ObjectMother.MetricCollection_ExplorationStage3_JobPostingsByLanguage_NoPrediction,
                     responseLengthByJobPostingId: MetricCollection_ExplorationStage3_ResponseLengthByJobPostingId,
                     presentationLengthByJobPostingId: MetricCollection_ExplorationStage3_PresentationLengthByJobPostingId,
                     jobPostingsByPublicationStartDate: MetricCollection_ExplorationStage3_JobPostingsByPublicationStartDate,
@@ -5337,6 +5343,7 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingsByOrganisationId: MetricCollection_ExplorationStage3_JobPostingsByOrganisationId,
                     jobPostingsByHiringOrgCVR: MetricCollection_ExplorationStage3_JobPostingsByHiringOrgCVR,
                     jobPostingsByWorkPlaceCityWithoutZone: MetricCollection_ExplorationStage3_JobPostingsByWorkPlaceCityWithoutZone,
+                    jobPostingsByLanguage: ObjectMother.MetricCollection_ExplorationStage3_JobPostingsByLanguage_NoPrediction,
                     responseLengthByJobPostingId: MetricCollection_ExplorationStage3_ResponseLengthByJobPostingId,
                     presentationLengthByJobPostingId: MetricCollection_ExplorationStage3_PresentationLengthByJobPostingId
                 );
@@ -6441,5 +6448,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 27.09.2021
+    Last Update: 08.10.2021
 */

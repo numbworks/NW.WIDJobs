@@ -73,7 +73,8 @@ namespace NW.WIDJobs.Metrics
             Dictionary<string, uint> jobPostingsByWorkplaceId = GroupJobPostingsByWorkplaceId(exploration.JobPostings);
             Dictionary< string, uint> jobPostingsByOrganisationId = GroupJobPostingsByOrganisationId(exploration.JobPostings);
             Dictionary<string, uint> jobPostingsByHiringOrgCVR = GroupJobPostingsByHiringOrgCVR(exploration.JobPostings);
-            Dictionary< string, uint> jobPostingsByWorkPlaceCityWithoutZone = GroupJobPostingsByWorkPlaceCityWithoutZone(exploration.JobPostings);           
+            Dictionary< string, uint> jobPostingsByWorkPlaceCityWithoutZone = GroupJobPostingsByWorkPlaceCityWithoutZone(exploration.JobPostings);
+            Dictionary<string, uint> jobPostingsByLanguage = GroupJobPostingsByLanguage(exploration.JobPostings);
             Dictionary<string, uint> responseLengthByJobPostingId = SumResponseLengthByJobPostingId(exploration.JobPostings);
             Dictionary<string, uint> presentationLengthByJobPostingId = SumPresentationLengthByJobPostingId(exploration.JobPostings);
 
@@ -132,6 +133,7 @@ namespace NW.WIDJobs.Metrics
                 jobPostingsByOrganisationId: jobPostingsByOrganisationId,
                 jobPostingsByHiringOrgCVR: jobPostingsByHiringOrgCVR,
                 jobPostingsByWorkPlaceCityWithoutZone: jobPostingsByWorkPlaceCityWithoutZone,
+                jobPostingsByLanguage: jobPostingsByLanguage,
                 responseLengthByJobPostingId: responseLengthByJobPostingId,
                 presentationLengthByJobPostingId: presentationLengthByJobPostingId,
                 jobPostingsByPublicationStartDate: jobPostingsByPublicationStartDate,
@@ -650,6 +652,34 @@ namespace NW.WIDJobs.Metrics
             return grouped;
 
         }
+        private Dictionary<string, uint> GroupJobPostingsByLanguage(List<JobPosting> jobPostings)
+        {
+
+            /*
+                "en": 6,
+                "dk": 5,
+                ...
+            */
+
+            var results =
+                    from jobPosting in jobPostings
+                    group jobPosting by jobPosting.Language into groups
+                    select new
+                    {
+                        Language = groups.Key?.ToString() ?? FormatNull,
+                        JobPostings = groups.Count()
+                    };
+
+            results = results.OrderByDescending(result => result.JobPostings);
+
+            Dictionary<string, uint> grouped
+                = results.ToDictionary(
+                                result => result.Language,
+                                result => (uint)result.JobPostings);
+
+            return grouped;
+
+        }
         private Dictionary<string, uint> SumResponseLengthByJobPostingId(List<JobPosting> jobPostings)
         {
 
@@ -1060,5 +1090,5 @@ namespace NW.WIDJobs.Metrics
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 05.09.2021
+    Last Update: 08.10.2021
 */
