@@ -8,9 +8,14 @@ namespace NW.WIDJobs.UnitTests
     public class HttpWebRequestFactoryTests
     {
 
-        // Fields
-        // SetUp
-        // Tests
+        #region Fields
+        #endregion
+
+        #region SetUp
+        #endregion
+
+        #region Tests
+
         [Test]
         public void Create_ShouldCreateAnObjectOfTypeHttpWebRequest_WhenInvoked()
         {
@@ -24,12 +29,15 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
-        // TearDown		
+        #endregion
+
+        #region TearDown
+        #endregion
 
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 15.05.2021
+    Last Update: 08.10.2021
 */
