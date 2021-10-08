@@ -22,6 +22,7 @@ namespace NW.WIDJobs.Files
         #region Constructors
 
         /// <summary>Initializes a <see cref="FileManager"/> instance using <paramref name="fileAdapter"/></summary>
+        /// <exception cref="ArgumentNullException"/>
         public FileManager(IFileAdapter fileAdapter)
         {
 
@@ -145,5 +146,5 @@ namespace NW.WIDJobs.Files
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 19.06.2021
+    Last Update: 08.10.2021
 */
