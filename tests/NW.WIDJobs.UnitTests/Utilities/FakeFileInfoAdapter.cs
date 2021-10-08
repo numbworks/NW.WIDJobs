@@ -8,8 +8,11 @@ namespace NW.WIDJobs.UnitTests
     public class FakeFileInfoAdapter : IFileInfoAdapter
     {
 
-        // Fields
-        // Properties
+        #region Fields
+        #endregion
+
+        #region Properties
+
         public FileAttributes Attributes
         {
             get => throw new NotImplementedException();
@@ -64,7 +67,10 @@ namespace NW.WIDJobs.UnitTests
         public bool Exists { get; }
         public string FullName { get; }
 
-        // Constructors
+        #endregion
+
+        #region Constructors
+
         public FakeFileInfoAdapter(bool exists, string fullName)
         {
 
@@ -73,7 +79,10 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
-        // Methods (public)
+        #endregion
+
+        #region Methods_public
+
         public StreamWriter AppendText()
             => throw new NotImplementedException();
         public FileInfo CopyTo(string destFileName)
@@ -113,14 +122,12 @@ namespace NW.WIDJobs.UnitTests
         public FileInfo Replace(string destinationFileName, string destinationBackupFileName, bool ignoreMetadataErrors)
             => throw new NotImplementedException();
 
-        // Methods (private)
+        #endregion
 
     }
 }
 
 /*
-
     Author: numbworks@gmail.com
-    Last Update: 23.11.2020
-
+    Last Update: 08.10.2021
 */
