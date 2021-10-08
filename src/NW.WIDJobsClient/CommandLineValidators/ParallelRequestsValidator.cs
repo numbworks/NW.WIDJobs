@@ -21,7 +21,8 @@ namespace NW.WIDJobsClient.CommandLineValidators
 
         #region Constructors
 
-        /// <summary>Initializes a <see cref="ParallelRequestsValidator"/> instance.</summary>	
+        /// <summary>Initializes a <see cref="ParallelRequestsValidator"/> instance.</summary>
+        /// <exception cref="ArgumentNullException"/>
         public ParallelRequestsValidator(IParallelRequestsManager parallelRequestsManager)
         {
 
@@ -64,5 +65,5 @@ namespace NW.WIDJobsClient.CommandLineValidators
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 28.08.2021
+    Last Update: 08.10.2021
 */
