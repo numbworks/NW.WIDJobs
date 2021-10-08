@@ -10,7 +10,8 @@ namespace NW.WIDJobs.UnitTests
     public class MetricCollectionManagerTests
     {
 
-        // Fields
+        #region Fields
+
         private static TestCaseData[] calculateExceptionTestCases =
         {
 
@@ -60,8 +61,13 @@ namespace NW.WIDJobs.UnitTests
 
         };
 
-        // SetUp
-        // Tests
+        #endregion
+
+        #region SetUp
+        #endregion
+
+        #region Tests
+
         [Test]
         public void FormatPercentage_ShouldReturnExpectedString_WhenInvoked()
         {
@@ -186,10 +192,15 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
+        #endregion
+
+        #region TearDown
+        #endregion
+
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 16.09.2021
+    Last Update: 08.10.2021
 */
