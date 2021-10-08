@@ -8,14 +8,20 @@ namespace NW.WIDJobs.UnitTests
     public class FakeFileAdapter : IFileAdapter
     {
 
-        // Fields
+        #region Fields
+
         private Func<string[]> _fakeReadAllLines;
         private Func<string> _fakeReadAllText;
         private Action _fakeWriteAllLines;
         private Action _fakeWriteAllText;
 
-        // Properties
-        // Constructors
+        #endregion
+
+        #region Properties
+        #endregion
+
+        #region Constructors
+
         public FakeFileAdapter(
                 Func<string[]> fakeReadAllLines = null,
                 Func<string> fakeReadAllText = null,
@@ -31,7 +37,10 @@ namespace NW.WIDJobs.UnitTests
 
         }
 
-        // Methods (public)
+        #endregion
+
+        #region Methods_public
+
         public string[] ReadAllLines(string path)
         {
 
@@ -86,7 +95,7 @@ namespace NW.WIDJobs.UnitTests
         public void WriteAllText(string path, string contents, Encoding encoding)
             => throw new NotImplementedException();
 
-        // Methods (private)
+        #endregion
 
     }
 }
@@ -94,6 +103,6 @@ namespace NW.WIDJobs.UnitTests
 /*
 
     Author: numbworks@gmail.com
-    Last Update: 23.11.2020
+    Last Update: 08.10.2021
 
 */
