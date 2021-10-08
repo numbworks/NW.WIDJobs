@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using McMaster.Extensions.CommandLineUtils;
 using McMaster.Extensions.CommandLineUtils.Validation;
 using NW.WIDJobsClient.Messages;
@@ -21,7 +22,8 @@ namespace NW.WIDJobsClient.CommandLineValidators
 
         #region Constructors
 
-        /// <summary>Initializes a <see cref="PauseBetweenRequestsValidator"/> instance.</summary>	
+        /// <summary>Initializes a <see cref="PauseBetweenRequestsValidator"/> instance.</summary>
+        /// <exception cref="ArgumentNullException"/>
         public PauseBetweenRequestsValidator(IPauseBetweenRequestsManager pauseBetweenRequestsManager)
         {
 
@@ -64,5 +66,5 @@ namespace NW.WIDJobsClient.CommandLineValidators
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 28.08.2021
+    Last Update: 08.10.2021
 */
