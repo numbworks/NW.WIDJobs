@@ -23,12 +23,13 @@ namespace NW.WIDJobs.Classification
 
         public static Action<string> DefaultTextClassifierLoggingAction { get; } = WIDExplorerComponents.DefaultDoesNothingLoggingAction;
 
-		#endregion
+        #endregion
 
-		#region Constructors
+        #region Constructors
 
-		/// <summary>Initializes a <see cref="ClassificationManager"/> instance.</summary>	
-		public ClassificationManager(ITextClassifier textClassifier) 
+        /// <summary>Initializes a <see cref="ClassificationManager"/> instance.</summary>
+        /// <exception cref="ArgumentNullException"/>
+        public ClassificationManager(ITextClassifier textClassifier) 
 		{
 
 			Validation.Validator.ValidateObject(textClassifier, nameof(textClassifier));
@@ -37,7 +38,8 @@ namespace NW.WIDJobs.Classification
 
 		}
 
-        /// <summary>Initializes a <see cref="ClassificationManager"/> instance.</summary>	
+        /// <summary>Initializes a <see cref="ClassificationManager"/> instance.</summary>
+        /// <exception cref="ArgumentNullException"/> 
         public ClassificationManager(Action<string> textClassifierLoggingAction)
         {
 
