@@ -92,7 +92,8 @@ namespace NW.WIDJobsClient.CommandLine
 
         #region Constructors
 
-        /// <summary>Initializes a <see cref="CommandLineManager"/> instance.</summary>	
+        /// <summary>Initializes a <see cref="CommandLineManager"/> instance.</summary>
+        /// <exception cref="ArgumentNullException"/>
         public CommandLineManager
             (IThresholdValueManager thresholdValueManager, IWIDExplorerComponentsFactory componentsFactory, IWIDExplorerSettingsFactory settingsFactory)
         {
