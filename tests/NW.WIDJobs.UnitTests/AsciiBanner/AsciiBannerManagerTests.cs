@@ -8,7 +8,8 @@ namespace NW.WIDJobs.UnitTests
     public class AsciiBannerManagerTests
     {
 
-        // Fields
+        #region Fields
+
         private static TestCaseData[] createExceptionTestCases =
         {
 
@@ -22,8 +23,13 @@ namespace NW.WIDJobs.UnitTests
 
         };
 
-        // SetUp
-        // Tests
+        #endregion
+
+        #region SetUp
+        #endregion
+
+        #region Tests
+
         [Test]
         public void Create_ShouldReturnAnAsciiBannerThatContainsProvidedVersion_WhenInvoked()
         {
@@ -44,12 +50,15 @@ namespace NW.WIDJobs.UnitTests
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
-        // TearDown		
+        #endregion
+
+        #region TearDown
+        #endregion
 
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 19.06.2021
+    Last Update: 08.10.2021
 */
