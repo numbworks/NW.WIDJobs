@@ -25,6 +25,8 @@ namespace NW.WIDJobs.JobPostingsExtended
 
         #region Properties
 
+        public static bool DefaultPredictBulletPointType { get; } = WIDExplorerSettings.DefaultPredictBulletPointType;
+
         public static List<(string scenario, string pattern)> XPathPatterns
             = new List<(string scenario, string pattern)>()
             {
@@ -36,10 +38,6 @@ namespace NW.WIDJobs.JobPostingsExtended
                 ("keepit", "//p[starts-with(., '-')]"),
                 ("generic", "//ul/li|//ol/li")
             };
-
-        public static IXPathManager DefaultXPathManager { get; } = new XPathManager();
-        public static IClassificationManager DefaultClassificationManager { get; } = new ClassificationManager();
-        public static bool DefaultPredictBulletPointType { get; } = WIDExplorerSettings.DefaultPredictBulletPointType;
 
         #endregion
 
@@ -59,9 +57,17 @@ namespace NW.WIDJobs.JobPostingsExtended
 
         }
 
+        /// <summary>Initializes a <see cref="JobPostingExtendedDeserializer"/> instance using <paramref name="predictBulletPointType"/> and default parameters.</summary>
+        public JobPostingExtendedDeserializer(bool predictBulletPointType)
+            : this(
+                  new XPathManager(), 
+                  new ClassificationManager(), 
+                  predictBulletPointType
+                  ) { }
+
         /// <summary>Initializes a <see cref="JobPostingExtendedDeserializer"/> instance using default parameters.</summary>
         public JobPostingExtendedDeserializer()
-            : this(DefaultXPathManager, DefaultClassificationManager, DefaultPredictBulletPointType) { }
+            : this(DefaultPredictBulletPointType) { }
 
         #endregion
 
@@ -478,5 +484,5 @@ namespace NW.WIDJobs.JobPostingsExtended
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 27.09.2021
+    Last Update: 08.10.2021
 */

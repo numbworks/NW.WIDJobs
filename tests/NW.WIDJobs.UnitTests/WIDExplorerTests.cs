@@ -1897,8 +1897,8 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingManager: new JobPostingManager(),
                     jobPostingExtendedDeserializer: 
                         new JobPostingExtendedDeserializer(
-                                xpathManager: JobPostingExtendedDeserializer.DefaultXPathManager,
-                                classificationManager: JobPostingExtendedDeserializer.DefaultClassificationManager,
+                                xpathManager: new XPathManager(),
+                                classificationManager: new ClassificationManager(),
                                 predictBulletPointType: predictBulletPointType
                         ),
                     jobPostingExtendedManager: new JobPostingExtendedManager(),
@@ -2045,8 +2045,8 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingManager: new JobPostingManager(),
                     jobPostingExtendedDeserializer:
                         new JobPostingExtendedDeserializer(
-                                xpathManager: JobPostingExtendedDeserializer.DefaultXPathManager,
-                                classificationManager: JobPostingExtendedDeserializer.DefaultClassificationManager,
+                                xpathManager: new XPathManager(),
+                                classificationManager: new ClassificationManager(),
                                 predictBulletPointType: predictBulletPointType
                         ),
                     jobPostingExtendedManager: new JobPostingExtendedManager(),
@@ -2277,8 +2277,8 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingManager: new JobPostingManager(),
                     jobPostingExtendedDeserializer:
                         new JobPostingExtendedDeserializer(
-                                xpathManager: JobPostingExtendedDeserializer.DefaultXPathManager,
-                                classificationManager: JobPostingExtendedDeserializer.DefaultClassificationManager,
+                                xpathManager: new XPathManager(),
+                                classificationManager: new ClassificationManager(),
                                 predictBulletPointType: predictBulletPointType
                         ),
                     jobPostingExtendedManager: new JobPostingExtendedManager(ObjectMother.WIDExplorer_JobPage0102_FakeGetRequestManagerFactory, new JobPostingExtendedDeserializer(), new HeaderFactory()),
@@ -2429,8 +2429,8 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingManager: new JobPostingManager(),
                     jobPostingExtendedDeserializer:
                         new JobPostingExtendedDeserializer(
-                                xpathManager: JobPostingExtendedDeserializer.DefaultXPathManager,
-                                classificationManager: JobPostingExtendedDeserializer.DefaultClassificationManager,
+                                xpathManager: new XPathManager(),
+                                classificationManager: new ClassificationManager(),
                                 predictBulletPointType: predictBulletPointType
                         ),
                     jobPostingExtendedManager: new JobPostingExtendedManager(),
@@ -2579,8 +2579,8 @@ namespace NW.WIDJobs.UnitTests
                     jobPostingManager: new JobPostingManager(),
                     jobPostingExtendedDeserializer:
                         new JobPostingExtendedDeserializer(
-                                xpathManager: JobPostingExtendedDeserializer.DefaultXPathManager,
-                                classificationManager: JobPostingExtendedDeserializer.DefaultClassificationManager,
+                                xpathManager: new XPathManager(),
+                                classificationManager: new ClassificationManager(),
                                 predictBulletPointType: predictBulletPointType
                         ),
                     jobPostingExtendedManager: new JobPostingExtendedManager(),

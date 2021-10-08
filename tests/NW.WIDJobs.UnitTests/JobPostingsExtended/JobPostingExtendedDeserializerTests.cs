@@ -330,8 +330,8 @@ namespace NW.WIDJobs.UnitTests
             bool predictBulletPointType = false;
             JobPostingExtendedDeserializer jobPostingExtendedDeserializer 
                 = new JobPostingExtendedDeserializer(
-                        xpathManager: JobPostingExtendedDeserializer.DefaultXPathManager, 
-                        classificationManager: JobPostingExtendedDeserializer.DefaultClassificationManager,
+                        xpathManager: new XPathManager(), 
+                        classificationManager: new ClassificationManager(),
                         predictBulletPointType: predictBulletPointType);
 
             bool compareJobPostingLanguage = true;
@@ -378,8 +378,8 @@ namespace NW.WIDJobs.UnitTests
             bool predictBulletPointType = false;
             JobPostingExtendedDeserializer jobPostingExtendedDeserializer
                 = new JobPostingExtendedDeserializer(
-                        xpathManager: JobPostingExtendedDeserializer.DefaultXPathManager,
-                        classificationManager: JobPostingExtendedDeserializer.DefaultClassificationManager,
+                        xpathManager: new XPathManager(),
+                        classificationManager: new ClassificationManager(),
                         predictBulletPointType: predictBulletPointType);
 
             bool compareJobPostingLanguage = true;
@@ -407,5 +407,5 @@ namespace NW.WIDJobs.UnitTests
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 27.09.2021
+    Last Update: 08.10.2021
 */
