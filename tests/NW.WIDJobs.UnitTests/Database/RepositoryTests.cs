@@ -13,12 +13,13 @@ namespace NW.WIDJobs.UnitTests
     public class RepositoryTests
     {
 
-        // Fields
+        #region Fields
+
         private static TestCaseData[] repositoryTestCases =
         {
 
             new TestCaseData(
-                    new Func<Repository>( 
+                    new Func<Repository>(
                             () => new Repository(
                                         ObjectMother.DatabaseContext_DatabasePath,
                                         ObjectMother.DatabaseContext_DatabaseName01,
@@ -171,8 +172,13 @@ namespace NW.WIDJobs.UnitTests
 
         };
 
-        // SetUp
-        // Tests
+        #endregion
+
+        #region SetUp
+        #endregion
+
+        #region Tests
+
         [TestCaseSource(nameof(repositoryTestCases))]
         public void Repository_ShouldInitializeANewRepositoryObject_WhenProperArguments
             (Func<Repository> func)
@@ -227,12 +233,15 @@ namespace NW.WIDJobs.UnitTests
             (TestDelegate del, Type expectedType, string expectedMessage)
                 => ObjectMother.Method_ShouldThrowACertainException_WhenUnproperArguments(del, expectedType, expectedMessage);
 
-        // TearDown		
+        #endregion
+
+        #region TearDown
+        #endregion
 
     }
 }
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 13.08.2021
+    Last Update: 08.10.2021
 */
