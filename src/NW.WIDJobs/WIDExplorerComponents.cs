@@ -143,7 +143,7 @@ namespace NW.WIDJobs
                   new GetRequestManager(),
                   new JobPageDeserializer(),
                   new JobPageManager(),
-                  new JobPostingDeserializer(settings.PredictJobPostingLanguage, settings.PredictBulletPointType),
+                  new JobPostingDeserializer(settings.TranslateJobPostingOccupation, settings.PredictJobPostingLanguage),
                   new JobPostingManager(),
                   new JobPostingExtendedDeserializer(),
                   new JobPostingExtendedManager(),
