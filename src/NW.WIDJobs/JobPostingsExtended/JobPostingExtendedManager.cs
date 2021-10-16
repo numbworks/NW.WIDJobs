@@ -24,6 +24,7 @@ namespace NW.WIDJobs.JobPostingsExtended
 
         public static string JobnetWebpageUrlPattern { get; } = "(https://job.jobnet.dk/CV/FindWork/Details/)[0-9]{7,}";
         public static string JobnetRequestUrlTemplate { get; } = "https://job.jobnet.dk/CV/FindWork/JobDetailJsonWIDK?id={0}";
+        public static string NullResponsePlaceholder { get; } = "Response was null";
 
         #endregion
 
@@ -59,7 +60,7 @@ namespace NW.WIDJobs.JobPostingsExtended
             Validator.ValidateObject(jobPosting, nameof(jobPosting));
 
             string response = string.Empty;
-            if (IsWebpageUrl(jobPosting.Url))
+            if (IsJobnetUrl(jobPosting.Url))
             {
 
                 // We use the Request Url instead of the Webpage Url to fetch the response. 
@@ -68,11 +69,11 @@ namespace NW.WIDJobs.JobPostingsExtended
 
             }
             else
-            {
-
                 response = SendGetRequest(jobPosting);
 
-            }
+            // Sometimes SendGetRequest() returns null...
+            if (string.IsNullOrEmpty(response))
+                response = NullResponsePlaceholder;
 
             JobPostingExtended jobPostingExtended = _jobPostingExtendedDeserializer.Do(jobPosting, response);
 
@@ -118,7 +119,7 @@ namespace NW.WIDJobs.JobPostingsExtended
 
         #region Methods_private
 
-        private bool IsWebpageUrl(string webpageUrl)
+        private bool IsJobnetUrl(string webpageUrl)
             => Regex.IsMatch(webpageUrl, JobnetWebpageUrlPattern);
 
         #endregion
@@ -128,5 +129,5 @@ namespace NW.WIDJobs.JobPostingsExtended
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 10.09.2021
+    Last Update: 16.10.2021
 */

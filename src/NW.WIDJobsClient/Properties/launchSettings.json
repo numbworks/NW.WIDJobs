@@ -2,7 +2,7 @@
   "profiles": {
     "NW.WIDJobsClient": {
       "commandName": "Project",
-      "commandLineArgs": "session explore --stage:S3 --thresholdtype:finalpagenumber --thresholdvalue:2 --explorationoutput:onlyfiles --metricsoutput:jsonfile --usedemodata --pausebetweenrequestsms:0 --parallelrequests:1"
+      "commandLineArgs": "session explore --stage:S3 --thresholdtype:finalpagenumber --thresholdvalue:1 --explorationoutput:onlyfiles --verboseserialization --metricsoutput:both --folderpath:C:\\Users\\Rubèn\\Desktop\\"
     }
   }
 }
