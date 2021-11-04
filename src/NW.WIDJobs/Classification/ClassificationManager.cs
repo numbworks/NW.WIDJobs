@@ -230,6 +230,11 @@ namespace NW.WIDJobs.Classification
                 ( "en", "PhD scholarship in Novel Multifunctional Neural Fiber Implants for Simultaneous Modulation, Recording and Imaging of Neuronal Activity Are you a talented and ambitious researcher? Are you excited about optical fiber technology and neuroscience? Do you enjoy finding working solutions to great challenges?" ),
                 ( "en", "Serviceminded driver to join our Team,  we are seeking for Kategory C or C/E drivers  We are looking for a service-minded colleague to join our existing team of drivers. As a driver with in our company, you must Be able to think independently" ),
                 ( "en", "System Administrators Do you have strong problem-solving skills and a thrive for optimizing the operation of a large scale computing infrastructure? Do you want to make a difference in Life Science and utilise the newest" ),
+                ( "en", "Full-time job in a super good workplace in Kolding with good colleagues. Warehouse Workers for DSV Prime Cargo in Kolding" ),
+                ( "en", "Job description Work on masts (up to 20-30m) Antenna assembly (5G) and cabeling 6 weeks work and 2 weeks off" ),
+                ( "en", "We are looking for one MILLING machine operator and one LATHE TURNING machine operator. It is a Try & Hire offer, that means that after 3 months, the right worker will be offered a full ti" ),
+                ( "en", "Night housekeeping cleaning assistants a unique boutique hotel in the Carlsberg city district Copenhagen. At Brachner Hotels, not only the guests receive and an extraordinary experience" ),
+                ( "en", "On behalf of our costumer in Skagen, AktivPersonale is looking for flexible temps for production work in the fish industry. We can offer temporary positions." ),
 
                 ( "dk", "Har du lyst til et nært samarbejde med kolleger i en klinik, der sætter patienten i centrum? Hos Vitanova får du rig mulighed for at udvikle dig, når du i en ledende funktion arbejder ud fra to af vores kerneværdier: støtte og nærvær. Som lægesekretær hos Vitanova bliver du en vigtig del af sekretariatet, når du er med til at opdatere og forny vores processer i samarbejde med den øvrige ledelse, ligesom du også har ansvar for at oplære personale, fortæller personalechef og jordemoder Rie Koldorf Jørgensen. Vi arbejder tværfagligt sammen med fokus på individuel behandling af vores patienter. Derfor vil du møde både glade patienter, men også nogle der trænger til trøstende ord. Som frontmedarbejder har du daglig patientkontakt både på mail og telefon, ligesom du også tager del i praktiske opgaver for vores behandlerteam, når de trænger til en hjælpende hånd." ),
                 ( "dk", "Lægesekretær/SOSU-assistent 20-25 timer ugentligt til almen lægepraksis, Amager Speciallæger i Almen Medicin Boiesen, Binderup, Møller og Svendsen 4-lægepraksis med ca. 6500 patienter søger stabil, fleksibel og serviceminded sekretær. Du skal være indstillet på en travl og udfordrende hverdag og være vant til at have flere bolde i luften ad gangen. Dit job vil bestå i patientkontakt telefonisk og ved personlig henvendelse samt forefaldende sekretariatsopgaver. Du vil komme til at samarbejde tæt med 1 sekretær, 2 sygeplejersker og 4 læger. Erfaring fra almen praksis er en klar fordel. Vi kan tilbyde søde patienter, velordnede arbejdsforhold og gode samarbejdsrelationer." ),
@@ -322,6 +327,7 @@ namespace NW.WIDJobs.Classification
                 ( "dk", "Madudbringer søges  Maki Sushi Humlebæk søger en deltids udbringer, der kan starte hurtigst muligt. Kørsel er via bil. Vi har egen bil, så det eneste du skal have er et kørekort." ),
                 ( "dk", "DK-TØMRER vi har meget travlt og søger derfor nye dedikeret Tømrer til teamet.så hvis ndu står og søger nye udfordringer så send en ansøgning eller ring." ),
                 ( "dk", "Rengøringsassistent Er du vores nye Rengøringsassistent i trekantsområdet? Vi har meget travlt og har brug for en ekstra kollega. Dine primære arbejdsopgaver er" ),
+                ( "dk", "ger du et alsidigt job med en afvekslende arbejdsdag og har du teknisk snilde? kan det vare dig vi mangler i Middelfart Kommunes Ejendomscenter.Vi ger en uda" ),
 
                 ( "dk/en", "Selvstændige truckførere til status og tælleopgave i Kolding/Forklift drivers for inventory assignment in Kolding English version below the Danish" ),
                 ( "dk/en", "Erfaren og selvstændig truckfører til virksomhed i Skanderborg/Experienced forklift driver for a company in Skanderborg English version below the Danish Har du erfaring med lager og truckkørsel og kan du lide af arbejde aftener, så har vi jobbet til dig. Jobbet" ),
@@ -882,5 +888,5 @@ namespace NW.WIDJobs.Classification
 
 /*
     Author: numbworks@gmail.com
-    Last Update: 08.10.2021
+    Last Update: 04.11.2021
 */
