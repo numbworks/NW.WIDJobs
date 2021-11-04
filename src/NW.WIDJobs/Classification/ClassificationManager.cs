@@ -796,7 +796,6 @@ namespace NW.WIDJobs.Classification
                 ( "JobBenefit", "Freedom and time to work on your own ideas, learn new technologies and, stay current with the latest development trends" ),
                 ( "JobBenefit", "Benefit from a flexible work day, where you plan and handle your own time and tasks, so you can enjoy a balanced work-life" ),
                 ( "JobBenefit", "Take advantage of a flexible workday, in line with our customers’ needs, where you plan and organize your own time and tasks so you can enjoy a work-life balance" ),
-
                 ( "JobBenefit", "Accounting Based Compensation" ),
                 ( "JobBenefit", "terms of pay and employment according to collective agreement" ),
                 ( "JobBenefit", "professional training / instruction" ),
