@@ -11,8 +11,8 @@
     <RepositoryUrl>https://github.com/numbworks/NW.WIDJobs</RepositoryUrl>
     <PackageIcon>numbworks_logo_128x128px.png</PackageIcon>
     <PackageIconUrl />
-    <Description>NW.WIDJobs is a .NET Standard library written in C# to explore WorkInDenmark.dk and fetch the most recent job ads. It enriches the original data model by using machine learning techniques, and it's designed with data analysis and data science tasks in mind.</Description>
-    <PackageTags>library csharp netstandard opendata jobs jobsads</PackageTags>
+    <Description>NW.WIDJobs is a .NET Standard library intended to programmatically explore WorkInDenmark.dk and fetch the most recent job ads. It enriches the original data model by using machine learning techniques, and it's designed with data analysis and data science tasks in mind.</Description>
+    <PackageTags>library csharp netstandard opendata jobs jobads machinelearning datascience dataanalysis</PackageTags>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
