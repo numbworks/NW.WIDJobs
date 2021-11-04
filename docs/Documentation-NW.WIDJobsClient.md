@@ -15,6 +15,17 @@ Contact: numbworks@gmail.com
 
 This software is the outcome of a personal research project about data analysis, data science, modular software packaging and usability in command-line interfaces. At the moment of writing, `WorkInDenmark.dk` doesn't provide a public API and their Terms of Service (ToS) don't state anything against automated data retrieval, but in the future the situation may change. Web scraping may also unnecessarily increase the load of the website if used unwisely. You are warmly adviced to use this software only if you know exactly what you are doing.
 
+## Screenshots
+
+![Screenshot_01](Screenshots/Screenshot_01.png)
+![Screenshot_02](Screenshots/Screenshot_02.png)
+![Screenshot_03](Screenshots/Screenshot_03.png)
+![Screenshot_04](Screenshots/Screenshot_04.png)
+![Screenshot_05](Screenshots/Screenshot_05.png)
+![Screenshot_06](Screenshots/Screenshot_06.png)
+![Screenshot_07](Screenshots/Screenshot_07.png)
+![Screenshot_08](Screenshots/Screenshot_08.png)
+
 ## Overview
 
 The command-line interface for `NW.WIDJobsClient` is summarized by the following table:
@@ -28,7 +39,7 @@ The command-line interface for `NW.WIDJobsClient` is summarized by the following
 |session|describe|--output:{jsonfile\|console\|both}<br />*--folderpath:{path}*<br />*--verboseserialization*<br />*--usedemodata*|Success<br />Failure|
 |session|explore|--stage:{S2\|S3}<br />--thresholdtype:{finalpagenumber\|thresholddate\|jobpostingid}<br />--thresholdvalue:{finalpagenumber}\|{thresholddate}\|{jobpostingid}<br />--explorationoutput:{databasefile\|jsonfile\|console\|onlyfiles\|all}<br />*--folderpath:{path}*<br />*--verboseserialization*<br />*--metricsoutput:{jsonfile\|console\|both\|none}*<br />*--aspercentages*<br />*--parallelrequests:{number}*<br />*--pausebetweenrequestsms:{number}*<br />*--usedemodata*|Success<br />Failure|
 |service|||Success|
-|service|explore|...|Success<br />Failure|
+|service|explore|<font color="red">Not available yet.</font>|Success<br />Failure|
 |extra|||Success|
 |extra|prelabeledbulletpoints|--output:{jsonfile\|console\|both}<br />*--folderpath:{path}*|Success<br />Failure|
 
@@ -283,56 +294,43 @@ The command above supports a demo mode (up to page 2), which can be used to play
 In this case it could be useful to override the default anti-flooding options with the lowest allowed values, since you are not really calling a website with this.
 
 ```powershell
-PS C:\widjobs>.\widjobs.exe session explore --stage:S3 --thresholdtype:finalpagenumber --thresholdvalue:3 --explorationoutput:onlyfiles --metricsoutput:jsonfile --usedemodata --pausebetweenrequestsms:0 --parallelrequests:1
+PS C:\widjobs>.\widjobs.exe session explore --stage:S3 --thresholdtype:finalpagenumber --thresholdvalue:2 --explorationoutput:onlyfiles --metricsoutput:jsonfile --usedemodata --pausebetweenrequestsms:0 --parallelrequests:1
 ```
 
-The following command will save a bunch of pre-labeled bullet point examples to a JSON file:
+The following command will save the library's built-in pre-labeled bulletpoint examples to a JSON file for further analysis:
 
 ```powershell
 PS C:\widjobs>.\widjobs.exe extra prelabeledbulletpoints --output:jsonfile
 ```
-Pre-labeled examples that can be helpful to automatically categorize new bullet points via additional software, and the output JSON looks like:
+
+The output JSON looks like:
 
 ```json
 [
   {
+    "Id": 1,
     "Label": "JobDuty",
-    "Text": "Flexible working hours are occasionally required"
+    "Text": "Flexible working hours are occasionally required",
+    "TextAsNGrams": [...]
   },
   {
+    "Id": 2,
     "Label": "JobDuty",
-    "Text": "Setting up tests and data acquisition for NVH testing."
+    "Text": "Setting up tests and data acquisition for NVH testing.",
+    "TextAsNGrams": [...]
   },
   ...
-  {
-    "Label": "JobRequirement",
-    "Text": "Engineering degree within acoustics & vibration"
-  },
-  {
-    "Label": "JobRequirement",
-    "Text": "Detailed knowledge of material testing and dynamic vibration testing"
-  },
-  ...
-  {
-    "Label": "JobTechnology",
-    "Text": "Good level with MS Office package"
-  },
-  {
-    "Label": "JobTechnology",
-    "Text": "is an expert in HTML/CSS"
-  },
-  ...
-  {
-    "Label": "JobBenefit",
-    "Text": "Contribute to a truly important cause - work with purpose."
-  },
-  {
-    "Label": "JobBenefit",
-    "Text": "A real impact on the company’s growth and evolution."
-  },
-  ...
-]    
+]
 ```
+The library's built-in pre-labeled bulletpoint examples can be of different kinds, such as:
+
+|Label|
+|---|
+|JobRequirement|
+|JobDuty|
+|JobBenefit|
+|JobTechnology|
+|CompanyInfo|
 
 ## Markdown Toolset
 
