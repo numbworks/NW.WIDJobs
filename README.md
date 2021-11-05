@@ -16,9 +16,9 @@ Contact: numbworks@gmail.com
 
 From the documentation:
 
-> `NW.WIDJobs` is a `.NET Standard` library written in C# to explore `WorkInDenmark.dk` and fetch the most recent job ads. It enriches the original data model by using machine learning techniques, and it's designed with data analysis and data science tasks in mind.
+> `NW.WIDJobs` is a `.NET Standard` library intended to explore `WorkInDenmark.dk` and fetch the most recent job ads. It enriches the original data model by using machine learning techniques, and it's designed with data analysis and data science tasks in mind.
 
-> `NW.WIDJobsClient` (`widjobs.exe`) is an unofficial command-line client for `WorkInDenmark.dk`, based on the `NW.WIDJobs` library and written in in C# (`.NET Core`).
+> `NW.WIDJobsClient` (`widjobs.exe`) is an unofficial command-line client for `WorkInDenmark.dk`, based on the `NW.WIDJobs` library.
 
 ## Download the source code
 
@@ -42,7 +42,7 @@ If you are a .NET developer and you want to use the library from within your pro
 
 ## Download the client's binary package
 
-If you are an non-developer user, you can download the client from GitHub packages.
+If you are an non-developer user, you can download the client from GitHub.
 
 ## Getting Started
 
